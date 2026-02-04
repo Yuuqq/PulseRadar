@@ -36,6 +36,7 @@ class DataFetcher:
         self,
         proxy_url: Optional[str] = None,
         api_url: Optional[str] = None,
+        session: Optional[requests.Session] = None,
     ):
         """
         初始化数据获取器
@@ -43,9 +44,18 @@ class DataFetcher:
         Args:
             proxy_url: 代理服务器 URL（可选）
             api_url: API 基础 URL（可选，默认使用 DEFAULT_API_URL）
+            session: 可注入的 requests.Session（可选，用于复用连接或测试）
         """
         self.proxy_url = proxy_url
         self.api_url = api_url or self.DEFAULT_API_URL
+        self.session = session or requests.Session()
+
+    def close(self) -> None:
+        """释放底层 HTTP 连接资源"""
+        try:
+            self.session.close()
+        except Exception:
+            pass
 
     def fetch_data(
         self,
@@ -81,7 +91,7 @@ class DataFetcher:
         retries = 0
         while retries <= max_retries:
             try:
-                response = requests.get(
+                response = self.session.get(
                     url,
                     proxies=proxies,
                     headers=self.DEFAULT_HEADERS,

@@ -72,6 +72,7 @@ def _load_crawler_config(config_data: Dict) -> Dict:
         "REQUEST_INTERVAL": crawler_config.get("request_interval", 100),
         "USE_PROXY": crawler_config.get("use_proxy", False),
         "DEFAULT_PROXY": crawler_config.get("default_proxy", ""),
+        "CRAWLER_API_URL": _get_env_str("CRAWLER_API_URL") or crawler_config.get("api_url", ""),
         "ENABLE_CRAWLER": platforms_config.get("enabled", True),
     }
 

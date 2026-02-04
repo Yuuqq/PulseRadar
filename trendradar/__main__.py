@@ -227,7 +227,12 @@ class NewsAnalyzer:
         self.update_info = None
         self.proxy_url = None
         self._setup_proxy()
-        self.data_fetcher = DataFetcher(self.proxy_url)
+
+        crawler_api_url = (self.ctx.config.get("CRAWLER_API_URL") or "").strip()
+        self.data_fetcher = DataFetcher(
+            proxy_url=self.proxy_url,
+            api_url=crawler_api_url or None,
+        )
 
         # 初始化存储管理器（使用 AppContext）
         self._init_storage_manager()

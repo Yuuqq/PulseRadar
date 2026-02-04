@@ -1,0 +1,253 @@
+{% extends "base.html" %}
+
+{% block page_title %}通知渠道{% endblock %}
+
+{% block header_actions %}
+<button class="btn btn-primary" onclick="saveNotifications()">保存配置</button>
+{% endblock %}
+
+{% block content %}
+<div class="notifications-page">
+    <!-- 总开关 -->
+    <div class="toggle-section">
+        <label class="toggle-label">
+            <span class="toggle-text">启用通知功能</span>
+            <input type="checkbox" id="notifications-enabled" {% if config.notification and config.notification.enabled %}checked{% endif %}>
+            <span class="toggle-slider"></span>
+        </label>
+    </div>
+
+    <!-- 通知渠道 -->
+    <div class="section">
+        <h3 class="section-title">通知渠道配置</h3>
+
+        <div class="channel-cards">
+            <!-- 飞书 -->
+            <div class="channel-card" data-channel="feishu">
+                <div class="channel-header">
+                    <span class="channel-icon">🐦</span>
+                    <span class="channel-name">飞书</span>
+                </div>
+                <div class="channel-body">
+                    <div class="form-row">
+                        <label>Webhook URL</label>
+                        <input type="text" class="input" id="feishu-webhook"
+                            value="{{ config.notification.channels.feishu.webhook_url if config.notification and config.notification.channels else '' }}"
+                            placeholder="https://open.feishu.cn/open-apis/bot/v2/hook/...">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 钉钉 -->
+            <div class="channel-card" data-channel="dingtalk">
+                <div class="channel-header">
+                    <span class="channel-icon">💬</span>
+                    <span class="channel-name">钉钉</span>
+                </div>
+                <div class="channel-body">
+                    <div class="form-row">
+                        <label>Webhook URL</label>
+                        <input type="text" class="input" id="dingtalk-webhook"
+                            value="{{ config.notification.channels.dingtalk.webhook_url if config.notification and config.notification.channels else '' }}"
+                            placeholder="https://oapi.dingtalk.com/robot/send?access_token=...">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 企业微信 -->
+            <div class="channel-card" data-channel="wework">
+                <div class="channel-header">
+                    <span class="channel-icon">💼</span>
+                    <span class="channel-name">企业微信</span>
+                </div>
+                <div class="channel-body">
+                    <div class="form-row">
+                        <label>Webhook URL</label>
+                        <input type="text" class="input" id="wework-webhook"
+                            value="{{ config.notification.channels.wework.webhook_url if config.notification and config.notification.channels else '' }}"
+                            placeholder="https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=...">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Telegram -->
+            <div class="channel-card" data-channel="telegram">
+                <div class="channel-header">
+                    <span class="channel-icon">✈️</span>
+                    <span class="channel-name">Telegram</span>
+                </div>
+                <div class="channel-body">
+                    <div class="form-row">
+                        <label>Bot Token</label>
+                        <input type="password" class="input" id="telegram-token"
+                            value="{{ config.notification.channels.telegram.bot_token if config.notification and config.notification.channels else '' }}"
+                            placeholder="123456789:ABCdefGHIjklMNOpqrsTUVwxyz">
+                    </div>
+                    <div class="form-row">
+                        <label>Chat ID</label>
+                        <input type="text" class="input" id="telegram-chatid"
+                            value="{{ config.notification.channels.telegram.chat_id if config.notification and config.notification.channels else '' }}"
+                            placeholder="-1001234567890">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 邮件 -->
+            <div class="channel-card" data-channel="email">
+                <div class="channel-header">
+                    <span class="channel-icon">📧</span>
+                    <span class="channel-name">邮件</span>
+                </div>
+                <div class="channel-body">
+                    <div class="form-row">
+                        <label>发件邮箱</label>
+                        <input type="email" class="input" id="email-from"
+                            value="{{ config.notification.channels.email.from if config.notification and config.notification.channels else '' }}"
+                            placeholder="your@email.com">
+                    </div>
+                    <div class="form-row">
+                        <label>密码/授权码</label>
+                        <input type="password" class="input" id="email-password"
+                            value="{{ config.notification.channels.email.password if config.notification and config.notification.channels else '' }}"
+                            placeholder="邮箱密码或授权码">
+                    </div>
+                    <div class="form-row">
+                        <label>收件人</label>
+                        <input type="text" class="input" id="email-to"
+                            value="{{ config.notification.channels.email.to if config.notification and config.notification.channels else '' }}"
+                            placeholder="收件人邮箱，多个用逗号分隔">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bark -->
+            <div class="channel-card" data-channel="bark">
+                <div class="channel-header">
+                    <span class="channel-icon">🔔</span>
+                    <span class="channel-name">Bark (iOS)</span>
+                </div>
+                <div class="channel-body">
+                    <div class="form-row">
+                        <label>推送 URL</label>
+                        <input type="text" class="input" id="bark-url"
+                            value="{{ config.notification.channels.bark.url if config.notification and config.notification.channels else '' }}"
+                            placeholder="https://api.day.app/your_device_key">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slack -->
+            <div class="channel-card" data-channel="slack">
+                <div class="channel-header">
+                    <span class="channel-icon">💬</span>
+                    <span class="channel-name">Slack</span>
+                </div>
+                <div class="channel-body">
+                    <div class="form-row">
+                        <label>Webhook URL</label>
+                        <input type="text" class="input" id="slack-webhook"
+                            value="{{ config.notification.channels.slack.webhook_url if config.notification and config.notification.channels else '' }}"
+                            placeholder="https://hooks.slack.com/services/...">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 推送时间窗口 -->
+    <div class="section">
+        <h3 class="section-title">推送时间窗口</h3>
+        <div class="form-row">
+            <label class="toggle-label">
+                <span class="toggle-text">启用时间窗口控制</span>
+                <input type="checkbox" id="push-window-enabled"
+                    {% if config.notification and config.notification.push_window and config.notification.push_window.enabled %}checked{% endif %}>
+                <span class="toggle-slider"></span>
+            </label>
+        </div>
+        <div class="form-row inline">
+            <label>开始时间</label>
+            <input type="time" class="input" id="push-window-start"
+                value="{{ config.notification.push_window.start if config.notification and config.notification.push_window else '20:00' }}">
+            <label>结束时间</label>
+            <input type="time" class="input" id="push-window-end"
+                value="{{ config.notification.push_window.end if config.notification and config.notification.push_window else '22:00' }}">
+        </div>
+        <div class="form-row">
+            <label class="toggle-label">
+                <span class="toggle-text">窗口内只推送一次</span>
+                <input type="checkbox" id="push-window-once"
+                    {% if config.notification and config.notification.push_window and config.notification.push_window.once_per_day %}checked{% endif %}>
+                <span class="toggle-slider"></span>
+            </label>
+        </div>
+    </div>
+</div>
+
+<script>
+function saveNotifications() {
+    const config = {
+        enabled: document.getElementById('notifications-enabled').checked,
+        push_window: {
+            enabled: document.getElementById('push-window-enabled').checked,
+            start: document.getElementById('push-window-start').value,
+            end: document.getElementById('push-window-end').value,
+            once_per_day: document.getElementById('push-window-once').checked
+        },
+        channels: {
+            feishu: {
+                webhook_url: document.getElementById('feishu-webhook').value
+            },
+            dingtalk: {
+                webhook_url: document.getElementById('dingtalk-webhook').value
+            },
+            wework: {
+                webhook_url: document.getElementById('wework-webhook').value,
+                msg_type: 'markdown'
+            },
+            telegram: {
+                bot_token: document.getElementById('telegram-token').value,
+                chat_id: document.getElementById('telegram-chatid').value
+            },
+            email: {
+                from: document.getElementById('email-from').value,
+                password: document.getElementById('email-password').value,
+                to: document.getElementById('email-to').value,
+                smtp_server: '',
+                smtp_port: ''
+            },
+            bark: {
+                url: document.getElementById('bark-url').value
+            },
+            slack: {
+                webhook_url: document.getElementById('slack-webhook').value
+            },
+            ntfy: {
+                server_url: 'https://ntfy.sh',
+                topic: '',
+                token: ''
+            },
+            generic_webhook: {
+                webhook_url: '',
+                payload_template: ''
+            }
+        }
+    };
+
+    fetch('/api/config/notification', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(config)
+    })
+    .then(r => r.json())
+    .then(data => {
+        if (data.success) {
+            showToast('配置已保存', 'success');
+        } else {
+            showToast(data.error || '保存失败', 'error');
+        }
+    })
+    .catch(e => showToast('请求失败: ' + e, 'error'));
+}
+</script>
+{% endblock %}

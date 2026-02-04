@@ -1,0 +1,185 @@
+{% extends "base.html" %}
+
+{% block page_title %}高级设置{% endblock %}
+
+{% block header_actions %}
+<button class="btn btn-primary" onclick="saveSettings()">保存配置</button>
+{% endblock %}
+
+{% block content %}
+<div class="settings-page">
+    <!-- 基础设置 -->
+    <div class="section">
+        <h3 class="section-title">基础设置</h3>
+
+        <div class="form-group">
+            <div class="form-row">
+                <label class="form-label">时区</label>
+                <select class="input" id="app-timezone">
+                    <option value="Asia/Shanghai" {% if config.app and config.app.timezone == 'Asia/Shanghai' %}selected{% endif %}>Asia/Shanghai (北京时间)</option>
+                    <option value="America/New_York" {% if config.app and config.app.timezone == 'America/New_York' %}selected{% endif %}>America/New_York (美东时间)</option>
+                    <option value="Europe/London" {% if config.app and config.app.timezone == 'Europe/London' %}selected{% endif %}>Europe/London (伦敦时间)</option>
+                    <option value="Asia/Tokyo" {% if config.app and config.app.timezone == 'Asia/Tokyo' %}selected{% endif %}>Asia/Tokyo (东京时间)</option>
+                    <option value="UTC" {% if config.app and config.app.timezone == 'UTC' %}selected{% endif %}>UTC</option>
+                </select>
+            </div>
+
+            <div class="form-row">
+                <label class="toggle-label">
+                    <span class="toggle-text">显示版本更新提示</span>
+                    <input type="checkbox" id="app-version-update"
+                        {% if config.app and config.app.show_version_update %}checked{% endif %}>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- 报告设置 -->
+    <div class="section">
+        <h3 class="section-title">报告设置</h3>
+
+        <div class="form-group">
+            <div class="form-row">
+                <label class="form-label">报告模式</label>
+                <select class="input" id="report-mode">
+                    <option value="daily" {% if config.report and config.report.mode == 'daily' %}selected{% endif %}>当日汇总 (daily)</option>
+                    <option value="current" {% if config.report and config.report.mode == 'current' %}selected{% endif %}>当前榜单 (current)</option>
+                    <option value="incremental" {% if config.report and config.report.mode == 'incremental' %}selected{% endif %}>增量监控 (incremental)</option>
+                </select>
+            </div>
+
+            <div class="form-row">
+                <label class="form-label">显示模式</label>
+                <select class="input" id="report-display-mode">
+                    <option value="keyword" {% if config.report and config.report.display_mode == 'keyword' %}selected{% endif %}>按关键词分组</option>
+                    <option value="platform" {% if config.report and config.report.display_mode == 'platform' %}selected{% endif %}>按平台分组</option>
+                </select>
+            </div>
+
+            <div class="form-row">
+                <label class="form-label">排名高亮阈值</label>
+                <input type="number" class="input" id="report-rank-threshold"
+                    value="{{ config.report.rank_threshold if config.report else 5 }}" min="1" max="50">
+            </div>
+        </div>
+    </div>
+
+    <!-- 存储设置 -->
+    <div class="section">
+        <h3 class="section-title">存储设置</h3>
+
+        <div class="form-group">
+            <div class="form-row">
+                <label class="form-label">存储后端</label>
+                <select class="input" id="storage-backend">
+                    <option value="auto" {% if config.storage and config.storage.backend == 'auto' %}selected{% endif %}>自动选择 (auto)</option>
+                    <option value="local" {% if config.storage and config.storage.backend == 'local' %}selected{% endif %}>本地存储 (local)</option>
+                    <option value="remote" {% if config.storage and config.storage.backend == 'remote' %}selected{% endif %}>远程存储 (remote)</option>
+                </select>
+            </div>
+
+            <div class="form-row">
+                <label class="form-label">本地数据目录</label>
+                <input type="text" class="input" id="storage-data-dir"
+                    value="{{ config.storage.local.data_dir if config.storage and config.storage.local else 'output' }}">
+            </div>
+
+            <div class="form-row">
+                <label class="form-label">数据保留天数</label>
+                <input type="number" class="input" id="storage-retention"
+                    value="{{ config.storage.local.retention_days if config.storage and config.storage.local else 0 }}" min="0">
+                <p class="form-hint">0 = 永久保留</p>
+            </div>
+
+            <div class="form-row">
+                <label class="toggle-label">
+                    <span class="toggle-text">生成 HTML 报告</span>
+                    <input type="checkbox" id="storage-html"
+                        {% if config.storage and config.storage.formats and config.storage.formats.html %}checked{% endif %}>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- 爬虫设置 -->
+    <div class="section">
+        <h3 class="section-title">爬虫设置</h3>
+
+        <div class="form-group">
+            <div class="form-row">
+                <label class="form-label">请求间隔 (毫秒)</label>
+                <input type="number" class="input" id="crawler-interval"
+                    value="{{ config.advanced.crawler.request_interval if config.advanced and config.advanced.crawler else 2000 }}" min="100" max="10000">
+            </div>
+
+            <div class="form-row">
+                <label class="toggle-label">
+                    <span class="toggle-text">启用代理</span>
+                    <input type="checkbox" id="crawler-use-proxy"
+                        {% if config.advanced and config.advanced.crawler and config.advanced.crawler.use_proxy %}checked{% endif %}>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+
+            <div class="form-row">
+                <label class="form-label">代理地址</label>
+                <input type="text" class="input" id="crawler-proxy"
+                    value="{{ config.advanced.crawler.default_proxy if config.advanced and config.advanced.crawler else 'http://127.0.0.1:10801' }}"
+                    placeholder="http://127.0.0.1:10801">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function saveSettings() {
+    fetch('/api/config')
+        .then(r => r.json())
+        .then(config => {
+            // 更新 app
+            config.app = config.app || {};
+            config.app.timezone = document.getElementById('app-timezone').value;
+            config.app.show_version_update = document.getElementById('app-version-update').checked;
+
+            // 更新 report
+            config.report = config.report || {};
+            config.report.mode = document.getElementById('report-mode').value;
+            config.report.display_mode = document.getElementById('report-display-mode').value;
+            config.report.rank_threshold = parseInt(document.getElementById('report-rank-threshold').value) || 5;
+
+            // 更新 storage
+            config.storage = config.storage || {};
+            config.storage.backend = document.getElementById('storage-backend').value;
+            config.storage.local = config.storage.local || {};
+            config.storage.local.data_dir = document.getElementById('storage-data-dir').value;
+            config.storage.local.retention_days = parseInt(document.getElementById('storage-retention').value) || 0;
+            config.storage.formats = config.storage.formats || {};
+            config.storage.formats.html = document.getElementById('storage-html').checked;
+
+            // 更新 advanced.crawler
+            config.advanced = config.advanced || {};
+            config.advanced.crawler = config.advanced.crawler || {};
+            config.advanced.crawler.request_interval = parseInt(document.getElementById('crawler-interval').value) || 2000;
+            config.advanced.crawler.use_proxy = document.getElementById('crawler-use-proxy').checked;
+            config.advanced.crawler.default_proxy = document.getElementById('crawler-proxy').value;
+
+            return fetch('/api/config', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(config)
+            });
+        })
+        .then(r => r.json())
+        .then(data => {
+            if (data.success) {
+                showToast('配置已保存', 'success');
+            } else {
+                showToast(data.error || '保存失败', 'error');
+            }
+        })
+        .catch(e => showToast('请求失败: ' + e, 'error'));
+}
+</script>
+{% endblock %}

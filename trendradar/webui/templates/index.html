@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+
+{% block page_title %}仪表盘{% endblock %}
+
+{% block content %}
+<div class="dashboard">
+    <!-- 状态卡片 -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-icon">🔥</div>
+            <div class="stat-info">
+                <div class="stat-value" id="platform-count">{{ config.platforms.sources|length if config.platforms else 0 }}</div>
+                <div class="stat-label">热榜平台</div>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon">📰</div>
+            <div class="stat-info">
+                <div class="stat-value" id="rss-count">{{ config.rss.feeds|length if config.rss else 0 }}</div>
+                <div class="stat-label">RSS 源</div>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon">🌐</div>
+            <div class="stat-info">
+                <div class="stat-value" id="api-count">{{ config.extra_apis.sources|length if config.extra_apis else 0 }}</div>
+                <div class="stat-label">额外 API</div>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon">🔔</div>
+            <div class="stat-info">
+                <div class="stat-value" id="notification-status">
+                    {% if config.notification and config.notification.enabled %}启用{% else %}禁用{% endif %}
+                </div>
+                <div class="stat-label">通知状态</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 快速操作 -->
+    <div class="section">
+        <h3 class="section-title">快速操作</h3>
+        <div class="action-grid">
+            <button class="action-card" onclick="runCrawler()">
+                <div class="action-icon">▶️</div>
+                <div class="action-text">立即运行</div>
+                <div class="action-desc">执行一次数据抓取</div>
+            </button>
+            <a href="/reports" class="action-card">
+                <div class="action-icon">📋</div>
+                <div class="action-text">查看报告</div>
+                <div class="action-desc">浏览历史报告</div>
+            </a>
+            <a href="/platforms" class="action-card">
+                <div class="action-icon">🔧</div>
+                <div class="action-text">配置数据源</div>
+                <div class="action-desc">管理热榜平台</div>
+            </a>
+            <a href="/notifications" class="action-card">
+                <div class="action-icon">🔔</div>
+                <div class="action-text">通知设置</div>
+                <div class="action-desc">配置推送渠道</div>
+            </a>
+        </div>
+    </div>
+
+    <!-- 当前配置概览 -->
+    <div class="section">
+        <h3 class="section-title">配置概览</h3>
+        <div class="config-overview">
+            <div class="config-item">
+                <span class="config-label">报告模式</span>
+                <span class="config-value">{{ config.report.mode if config.report else 'current' }}</span>
+            </div>
+            <div class="config-item">
+                <span class="config-label">时区</span>
+                <span class="config-value">{{ config.app.timezone if config.app else 'Asia/Shanghai' }}</span>
+            </div>
+            <div class="config-item">
+                <span class="config-label">AI 分析</span>
+                <span class="config-value">
+                    {% if config.ai_analysis and config.ai_analysis.enabled %}
+                        <span class="badge badge-success">启用</span>
+                    {% else %}
+                        <span class="badge badge-gray">禁用</span>
+                    {% endif %}
+                </span>
+            </div>
+            <div class="config-item">
+                <span class="config-label">AI 模型</span>
+                <span class="config-value">{{ config.ai.model if config.ai else 'N/A' }}</span>
+            </div>
+            <div class="config-item">
+                <span class="config-label">存储后端</span>
+                <span class="config-value">{{ config.storage.backend if config.storage else 'auto' }}</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 数据源状态 -->
+    <div class="section">
+        <h3 class="section-title">启用的数据源</h3>
+        <div class="source-tags">
+            {% if config.platforms and config.platforms.enabled %}
+                {% for source in config.platforms.sources %}
+                    <span class="tag tag-blue">{{ source.name }}</span>
+                {% endfor %}
+            {% endif %}
+            {% if config.rss and config.rss.enabled %}
+                {% for feed in config.rss.feeds %}
+                    {% if feed.enabled is not defined or feed.enabled %}
+                        <span class="tag tag-green">{{ feed.name }}</span>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+            {% if config.extra_apis and config.extra_apis.enabled %}
+                {% for source in config.extra_apis.sources %}
+                    {% if source.enabled %}
+                        <span class="tag tag-purple">{{ source.name }}</span>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,194 @@
+{% extends "base.html" %}
+
+{% block page_title %}RSS 源管理{% endblock %}
+
+{% block header_actions %}
+<button class="btn btn-primary" onclick="saveRss()">保存配置</button>
+{% endblock %}
+
+{% block content %}
+<div class="rss-page">
+    <!-- 总开关 -->
+    <div class="toggle-section">
+        <label class="toggle-label">
+            <span class="toggle-text">启用 RSS 抓取</span>
+            <input type="checkbox" id="rss-enabled" {% if config.rss and config.rss.enabled %}checked{% endif %}>
+            <span class="toggle-slider"></span>
+        </label>
+    </div>
+
+    <!-- 新鲜度过滤配置 -->
+    <div class="section">
+        <h3 class="section-title">新鲜度过滤</h3>
+        <div class="form-row">
+            <label class="toggle-label">
+                <span class="toggle-text">启用新鲜度过滤</span>
+                <input type="checkbox" id="freshness-enabled" {% if config.rss and config.rss.freshness_filter and config.rss.freshness_filter.enabled %}checked{% endif %}>
+                <span class="toggle-slider"></span>
+            </label>
+        </div>
+        <div class="form-row">
+            <label class="form-label">最大文章年龄（天）</label>
+            <input type="number" id="max-age-days" class="input" value="{{ config.rss.freshness_filter.max_age_days if config.rss and config.rss.freshness_filter else 3 }}" min="0">
+        </div>
+    </div>
+
+    <!-- RSS 源列表 -->
+    <div class="section">
+        <div class="section-header">
+            <h3 class="section-title">RSS 源列表</h3>
+            <button class="btn btn-sm" onclick="addFeed()">+ 添加 RSS 源</button>
+        </div>
+
+        <div class="feeds-list" id="feeds-list">
+            {% if config.rss and config.rss.feeds %}
+                {% for feed in config.rss.feeds %}
+                <div class="feed-card" data-id="{{ feed.id }}">
+                    <div class="feed-header">
+                        <label class="toggle-label">
+                            <input type="checkbox" class="feed-enabled" {% if feed.enabled is not defined or feed.enabled %}checked{% endif %}>
+                            <span class="toggle-slider small"></span>
+                        </label>
+                        <input type="text" class="input-inline feed-name" value="{{ feed.name }}" placeholder="显示名称">
+                        <div class="feed-actions">
+                            <button class="btn btn-sm btn-ghost" onclick="testFeed(this)">测试</button>
+                            <button class="btn btn-sm btn-danger" onclick="removeFeed(this)">删除</button>
+                        </div>
+                    </div>
+                    <div class="feed-body">
+                        <input type="text" class="input feed-id" value="{{ feed.id }}" placeholder="唯一 ID" readonly>
+                        <input type="text" class="input feed-url" value="{{ feed.url }}" placeholder="RSS URL">
+                    </div>
+                </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- 推荐 RSS 源 -->
+    <div class="section">
+        <h3 class="section-title">推荐 RSS 源</h3>
+        <p class="section-desc">点击添加到上方列表</p>
+        <div class="available-feeds">
+            <button class="feed-chip" onclick="addFeedPreset('reuters', '路透社', 'https://www.rss.app/feeds/reuters.xml')">路透社</button>
+            <button class="feed-chip" onclick="addFeedPreset('bbc-news', 'BBC News', 'http://feeds.bbci.co.uk/news/rss.xml')">BBC News</button>
+            <button class="feed-chip" onclick="addFeedPreset('nytimes', '纽约时报', 'https://rss.nytimes.com/services/xml/rss/nyt/World.xml')">纽约时报</button>
+            <button class="feed-chip" onclick="addFeedPreset('caixin', '财新网', 'https://rsshub.app/caixin/latest')">财新网</button>
+            <button class="feed-chip" onclick="addFeedPreset('36kr', '36氪快讯', 'https://rsshub.app/36kr/newsflash')">36氪快讯</button>
+            <button class="feed-chip" onclick="addFeedPreset('ithome', 'IT之家', 'https://rsshub.app/ithome/ranking')">IT之家</button>
+            <button class="feed-chip" onclick="addFeedPreset('techcrunch', 'TechCrunch', 'https://techcrunch.com/feed/')">TechCrunch</button>
+            <button class="feed-chip" onclick="addFeedPreset('wired', 'Wired', 'https://www.wired.com/feed/rss')">Wired</button>
+        </div>
+    </div>
+</div>
+
+<script>
+function addFeedPreset(id, name, url) {
+    if (document.querySelector(`.feed-card[data-id="${id}"]`)) {
+        showToast('该 RSS 源已存在', 'warning');
+        return;
+    }
+    addFeedCard(id, name, url, true);
+    showToast('已添加: ' + name, 'success');
+}
+
+function addFeedCard(id, name, url, enabled) {
+    const list = document.getElementById('feeds-list');
+    const card = document.createElement('div');
+    card.className = 'feed-card';
+    card.dataset.id = id;
+    card.innerHTML = `
+        <div class="feed-header">
+            <label class="toggle-label">
+                <input type="checkbox" class="feed-enabled" ${enabled ? 'checked' : ''}>
+                <span class="toggle-slider small"></span>
+            </label>
+            <input type="text" class="input-inline feed-name" value="${name}" placeholder="显示名称">
+            <div class="feed-actions">
+                <button class="btn btn-sm btn-ghost" onclick="testFeed(this)">测试</button>
+                <button class="btn btn-sm btn-danger" onclick="removeFeed(this)">删除</button>
+            </div>
+        </div>
+        <div class="feed-body">
+            <input type="text" class="input feed-id" value="${id}" placeholder="唯一 ID">
+            <input type="text" class="input feed-url" value="${url}" placeholder="RSS URL">
+        </div>
+    `;
+    list.appendChild(card);
+}
+
+function addFeed() {
+    const id = prompt('请输入唯一 ID:');
+    if (!id) return;
+    const name = prompt('请输入显示名称:', id);
+    if (!name) return;
+    const url = prompt('请输入 RSS URL:');
+    if (!url) return;
+    addFeedCard(id, name, url, true);
+}
+
+function removeFeed(btn) {
+    if (confirm('确定删除该 RSS 源？')) {
+        btn.closest('.feed-card').remove();
+    }
+}
+
+function testFeed(btn) {
+    const card = btn.closest('.feed-card');
+    const url = card.querySelector('.feed-url').value;
+    showToast('正在测试...', 'info');
+    fetch('/api/test-source', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({type: 'rss', config: {url: url}})
+    })
+    .then(r => r.json())
+    .then(data => {
+        if (data.success) {
+            showToast(data.message, 'success');
+        } else {
+            showToast(data.error || '测试失败', 'error');
+        }
+    })
+    .catch(e => showToast('请求失败: ' + e, 'error'));
+}
+
+function saveRss() {
+    const enabled = document.getElementById('rss-enabled').checked;
+    const freshnessEnabled = document.getElementById('freshness-enabled').checked;
+    const maxAgeDays = parseInt(document.getElementById('max-age-days').value) || 3;
+
+    const feeds = [];
+    document.querySelectorAll('.feed-card').forEach(card => {
+        feeds.push({
+            id: card.querySelector('.feed-id').value,
+            name: card.querySelector('.feed-name').value,
+            url: card.querySelector('.feed-url').value,
+            enabled: card.querySelector('.feed-enabled').checked
+        });
+    });
+
+    fetch('/api/rss', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            enabled: enabled,
+            freshness_filter: {
+                enabled: freshnessEnabled,
+                max_age_days: maxAgeDays
+            },
+            feeds: feeds
+        })
+    })
+    .then(r => r.json())
+    .then(data => {
+        if (data.success) {
+            showToast('配置已保存', 'success');
+        } else {
+            showToast(data.error || '保存失败', 'error');
+        }
+    })
+    .catch(e => showToast('请求失败: ' + e, 'error'));
+}
+</script>
+{% endblock %}

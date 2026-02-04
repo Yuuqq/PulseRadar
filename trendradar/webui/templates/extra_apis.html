@@ -1,0 +1,299 @@
+{% extends "base.html" %}
+
+{% block page_title %}额外 API 数据源{% endblock %}
+
+{% block header_actions %}
+<button class="btn btn-primary" onclick="saveExtraApis()">保存配置</button>
+{% endblock %}
+
+{% block content %}
+<div class="extra-apis-page">
+    <!-- 总开关 -->
+    <div class="toggle-section">
+        <label class="toggle-label">
+            <span class="toggle-text">启用额外 API 数据源</span>
+            <input type="checkbox" id="extra-apis-enabled" {% if config.extra_apis and config.extra_apis.enabled %}checked{% endif %}>
+            <span class="toggle-slider"></span>
+        </label>
+    </div>
+
+    <!-- 国内热榜 API -->
+    <div class="section">
+        <h3 class="section-title">国内热榜聚合（免费）</h3>
+        <p class="section-desc">无需 API Key，可直接使用</p>
+
+        <div class="api-cards" id="domestic-apis">
+            <!-- VVHan -->
+            <div class="api-card" data-type="vvhan" data-id="vvhan-weibo">
+                <div class="api-header">
+                    <label class="toggle-label">
+                        <input type="checkbox" class="api-enabled">
+                        <span class="toggle-slider small"></span>
+                    </label>
+                    <span class="api-name">VVHan 微博热搜</span>
+                    <button class="btn btn-sm btn-ghost" onclick="testApi(this)">测试</button>
+                </div>
+                <div class="api-body">
+                    <div class="form-row">
+                        <label>平台</label>
+                        <select class="input api-platform">
+                            <option value="weibo">微博</option>
+                            <option value="zhihu">知乎</option>
+                            <option value="baidu">百度</option>
+                            <option value="toutiao">今日头条</option>
+                            <option value="bilibili">B站</option>
+                            <option value="douyin">抖音</option>
+                            <option value="all">全部平台</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DailyHot -->
+            <div class="api-card" data-type="dailyhot" data-id="dailyhot">
+                <div class="api-header">
+                    <label class="toggle-label">
+                        <input type="checkbox" class="api-enabled">
+                        <span class="toggle-slider small"></span>
+                    </label>
+                    <span class="api-name">DailyHot 热榜</span>
+                    <button class="btn btn-sm btn-ghost" onclick="testApi(this)">测试</button>
+                </div>
+                <div class="api-body">
+                    <p class="api-desc">开源多平台热榜聚合</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 国际新闻 API -->
+    <div class="section">
+        <h3 class="section-title">国际新闻 API（需要 API Key）</h3>
+        <p class="section-desc">注册获取免费 API Key 后可使用</p>
+
+        <div class="api-cards" id="international-apis">
+            <!-- NewsAPI -->
+            <div class="api-card" data-type="newsapi" data-id="newsapi-us">
+                <div class="api-header">
+                    <label class="toggle-label">
+                        <input type="checkbox" class="api-enabled">
+                        <span class="toggle-slider small"></span>
+                    </label>
+                    <span class="api-name">NewsAPI.org</span>
+                    <a href="https://newsapi.org/register" target="_blank" class="btn btn-sm btn-ghost">注册</a>
+                    <button class="btn btn-sm btn-ghost" onclick="testApi(this)">测试</button>
+                </div>
+                <div class="api-body">
+                    <div class="form-row">
+                        <label>API Key</label>
+                        <input type="password" class="input api-key" placeholder="填写 API Key">
+                    </div>
+                    <div class="form-row">
+                        <label>国家</label>
+                        <select class="input api-country">
+                            <option value="us">美国</option>
+                            <option value="gb">英国</option>
+                            <option value="cn">中国</option>
+                            <option value="jp">日本</option>
+                            <option value="de">德国</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label>分类</label>
+                        <select class="input api-category">
+                            <option value="">全部</option>
+                            <option value="business">商业</option>
+                            <option value="technology">科技</option>
+                            <option value="science">科学</option>
+                            <option value="health">健康</option>
+                        </select>
+                    </div>
+                    <p class="api-limit">免费版：100 次/天</p>
+                </div>
+            </div>
+
+            <!-- GNews -->
+            <div class="api-card" data-type="gnews" data-id="gnews-world">
+                <div class="api-header">
+                    <label class="toggle-label">
+                        <input type="checkbox" class="api-enabled">
+                        <span class="toggle-slider small"></span>
+                    </label>
+                    <span class="api-name">GNews</span>
+                    <a href="https://gnews.io/" target="_blank" class="btn btn-sm btn-ghost">注册</a>
+                    <button class="btn btn-sm btn-ghost" onclick="testApi(this)">测试</button>
+                </div>
+                <div class="api-body">
+                    <div class="form-row">
+                        <label>API Key</label>
+                        <input type="password" class="input api-key" placeholder="填写 API Key">
+                    </div>
+                    <div class="form-row">
+                        <label>分类</label>
+                        <select class="input api-category">
+                            <option value="general">综合</option>
+                            <option value="world">世界</option>
+                            <option value="business">商业</option>
+                            <option value="technology">科技</option>
+                        </select>
+                    </div>
+                    <p class="api-limit">免费版：100 次/天</p>
+                </div>
+            </div>
+
+            <!-- MediaStack -->
+            <div class="api-card" data-type="mediastack" data-id="mediastack-us">
+                <div class="api-header">
+                    <label class="toggle-label">
+                        <input type="checkbox" class="api-enabled">
+                        <span class="toggle-slider small"></span>
+                    </label>
+                    <span class="api-name">MediaStack</span>
+                    <a href="https://mediastack.com/" target="_blank" class="btn btn-sm btn-ghost">注册</a>
+                    <button class="btn btn-sm btn-ghost" onclick="testApi(this)">测试</button>
+                </div>
+                <div class="api-body">
+                    <div class="form-row">
+                        <label>API Key</label>
+                        <input type="password" class="input api-key" placeholder="填写 API Key">
+                    </div>
+                    <div class="form-row">
+                        <label>国家</label>
+                        <input type="text" class="input api-countries" value="us" placeholder="国家代码（逗号分隔）">
+                    </div>
+                    <p class="api-limit">免费版：500 次/月</p>
+                </div>
+            </div>
+
+            <!-- TheNewsAPI -->
+            <div class="api-card" data-type="thenewsapi" data-id="thenewsapi-top">
+                <div class="api-header">
+                    <label class="toggle-label">
+                        <input type="checkbox" class="api-enabled">
+                        <span class="toggle-slider small"></span>
+                    </label>
+                    <span class="api-name">TheNewsAPI</span>
+                    <a href="https://www.thenewsapi.com/" target="_blank" class="btn btn-sm btn-ghost">注册</a>
+                    <button class="btn btn-sm btn-ghost" onclick="testApi(this)">测试</button>
+                </div>
+                <div class="api-body">
+                    <div class="form-row">
+                        <label>API Key</label>
+                        <input type="password" class="input api-key" placeholder="填写 API Key">
+                    </div>
+                    <p class="api-limit">免费版：3 次/秒</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// 加载现有配置
+document.addEventListener('DOMContentLoaded', function() {
+    fetch('/api/extra-apis')
+        .then(r => r.json())
+        .then(data => {
+            if (data.enabled) {
+                document.getElementById('extra-apis-enabled').checked = true;
+            }
+            if (data.sources) {
+                data.sources.forEach(source => {
+                    const card = document.querySelector(`.api-card[data-id="${source.id}"]`);
+                    if (card) {
+                        if (source.enabled) card.querySelector('.api-enabled').checked = true;
+                        if (source.api_key) card.querySelector('.api-key').value = source.api_key;
+                        if (source.platform) {
+                            const sel = card.querySelector('.api-platform');
+                            if (sel) sel.value = source.platform;
+                        }
+                        if (source.country) {
+                            const sel = card.querySelector('.api-country');
+                            if (sel) sel.value = source.country;
+                        }
+                        if (source.category) {
+                            const sel = card.querySelector('.api-category');
+                            if (sel) sel.value = source.category;
+                        }
+                    }
+                });
+            }
+        });
+});
+
+function testApi(btn) {
+    const card = btn.closest('.api-card');
+    const type = card.dataset.type;
+    const config = {
+        api_key: card.querySelector('.api-key')?.value || '',
+        platform: card.querySelector('.api-platform')?.value || '',
+        country: card.querySelector('.api-country')?.value || 'us',
+        countries: card.querySelector('.api-countries')?.value || 'us',
+        category: card.querySelector('.api-category')?.value || '',
+    };
+
+    showToast('正在测试...', 'info');
+    fetch('/api/test-source', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({type: type, config: config})
+    })
+    .then(r => r.json())
+    .then(data => {
+        if (data.success) {
+            showToast(data.message, 'success');
+        } else {
+            showToast(data.error || '测试失败', 'error');
+        }
+    })
+    .catch(e => showToast('请求失败: ' + e, 'error'));
+}
+
+function saveExtraApis() {
+    const enabled = document.getElementById('extra-apis-enabled').checked;
+    const sources = [];
+
+    document.querySelectorAll('.api-card').forEach(card => {
+        const source = {
+            id: card.dataset.id,
+            name: card.querySelector('.api-name').textContent,
+            type: card.dataset.type,
+            enabled: card.querySelector('.api-enabled').checked,
+        };
+
+        // 添加特定字段
+        const apiKey = card.querySelector('.api-key');
+        if (apiKey) source.api_key = apiKey.value;
+
+        const platform = card.querySelector('.api-platform');
+        if (platform) source.platform = platform.value;
+
+        const country = card.querySelector('.api-country');
+        if (country) source.country = country.value;
+
+        const countries = card.querySelector('.api-countries');
+        if (countries) source.countries = countries.value;
+
+        const category = card.querySelector('.api-category');
+        if (category) source.category = category.value;
+
+        sources.push(source);
+    });
+
+    fetch('/api/extra-apis', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({enabled: enabled, sources: sources})
+    })
+    .then(r => r.json())
+    .then(data => {
+        if (data.success) {
+            showToast('配置已保存', 'success');
+        } else {
+            showToast(data.error || '保存失败', 'error');
+        }
+    })
+    .catch(e => showToast('请求失败: ' + e, 'error'));
+}
+</script>
+{% endblock %}

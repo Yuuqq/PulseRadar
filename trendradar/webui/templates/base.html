@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}TrendRadar 管理{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <div class="app-container">
+        <!-- 侧边栏 -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1 class="logo">📡 TrendRadar</h1>
+                <span class="version">v5.5.3</span>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="/" class="nav-item {% if request.path == '/' %}active{% endif %}">
+                    <span class="nav-icon">📊</span>
+                    <span class="nav-text">仪表盘</span>
+                </a>
+                <a href="/platforms" class="nav-item {% if request.path == '/platforms' %}active{% endif %}">
+                    <span class="nav-icon">🔥</span>
+                    <span class="nav-text">热榜平台</span>
+                </a>
+                <a href="/rss" class="nav-item {% if request.path == '/rss' %}active{% endif %}">
+                    <span class="nav-icon">📰</span>
+                    <span class="nav-text">RSS 源</span>
+                </a>
+                <a href="/extra-apis" class="nav-item {% if request.path == '/extra-apis' %}active{% endif %}">
+                    <span class="nav-icon">🌐</span>
+                    <span class="nav-text">额外 API</span>
+                </a>
+                <a href="/notifications" class="nav-item {% if request.path == '/notifications' %}active{% endif %}">
+                    <span class="nav-icon">🔔</span>
+                    <span class="nav-text">通知渠道</span>
+                </a>
+                <a href="/ai" class="nav-item {% if request.path == '/ai' %}active{% endif %}">
+                    <span class="nav-icon">🤖</span>
+                    <span class="nav-text">AI 配置</span>
+                </a>
+                <a href="/reports" class="nav-item {% if request.path == '/reports' %}active{% endif %}">
+                    <span class="nav-icon">📋</span>
+                    <span class="nav-text">历史报告</span>
+                </a>
+                <a href="/settings" class="nav-item {% if request.path == '/settings' %}active{% endif %}">
+                    <span class="nav-icon">⚙️</span>
+                    <span class="nav-text">高级设置</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button id="run-btn" class="btn btn-primary btn-block">
+                    <span class="btn-icon">▶️</span>
+                    <span>立即运行</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- 主内容区 -->
+        <main class="main-content">
+            <header class="page-header">
+                <h2 class="page-title">{% block page_title %}仪表盘{% endblock %}</h2>
+                <div class="header-actions">
+                    {% block header_actions %}{% endblock %}
+                </div>
+            </header>
+
+            <div class="page-content">
+                {% block content %}{% endblock %}
+            </div>
+        </main>
+    </div>
+
+    <!-- 运行状态弹窗 -->
+    <div id="run-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>运行状态</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="run-log" class="log-container"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast 提示 -->
+    <div id="toast" class="toast"></div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>

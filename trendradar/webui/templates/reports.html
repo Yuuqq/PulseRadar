@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block page_title %}历史报告{% endblock %}
+
+{% block content %}
+<div class="reports-page">
+    <div class="section">
+        <div class="section-header">
+            <h3 class="section-title">报告列表</h3>
+            <button class="btn btn-sm" onclick="loadReports()">刷新</button>
+        </div>
+
+        <div id="reports-list" class="reports-grid">
+            <div class="loading">加载中...</div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', loadReports);
+
+function loadReports() {
+    fetch('/api/reports')
+        .then(r => r.json())
+        .then(reports => {
+            const container = document.getElementById('reports-list');
+
+            if (!reports || reports.length === 0) {
+                container.innerHTML = '<div class="empty-state">暂无报告</div>';
+                return;
+            }
+
+            // 按日期分组
+            const grouped = {};
+            reports.forEach(r => {
+                if (!grouped[r.date]) grouped[r.date] = [];
+                grouped[r.date].push(r);
+            });
+
+            let html = '';
+            Object.keys(grouped).sort().reverse().forEach(date => {
+                html += `<div class="report-date-group">
+                    <h4 class="report-date">${date}</h4>
+                    <div class="report-items">`;
+
+                grouped[date].forEach(r => {
+                    html += `<a href="${r.path}" target="_blank" class="report-item">
+                        <span class="report-time">${r.time}</span>
+                        <span class="report-icon">📋</span>
+                    </a>`;
+                });
+
+                html += '</div></div>';
+            });
+
+            container.innerHTML = html;
+        })
+        .catch(e => {
+            document.getElementById('reports-list').innerHTML =
+                `<div class="error-state">加载失败: ${e}</div>`;
+        });
+}
+</script>
+{% endblock %}

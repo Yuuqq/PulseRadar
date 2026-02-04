@@ -1,0 +1,202 @@
+{% extends "base.html" %}
+
+{% block page_title %}AI 配置{% endblock %}
+
+{% block header_actions %}
+<button class="btn btn-primary" onclick="saveAiConfig()">保存配置</button>
+{% endblock %}
+
+{% block content %}
+<div class="ai-page">
+    <!-- AI 模型配置 -->
+    <div class="section">
+        <h3 class="section-title">AI 模型配置</h3>
+        <p class="section-desc">AI 分析和翻译共用此模型配置</p>
+
+        <div class="form-group">
+            <div class="form-row">
+                <label class="form-label">模型</label>
+                <input type="text" class="input" id="ai-model"
+                    value="{{ config.ai.model if config.ai else 'deepseek/deepseek-chat' }}"
+                    placeholder="provider/model_name">
+                <p class="form-hint">格式: provider/model_name，如 deepseek/deepseek-chat、openai/gpt-4o</p>
+            </div>
+
+            <div class="form-row">
+                <label class="form-label">API Key</label>
+                <input type="password" class="input" id="ai-apikey"
+                    value="{{ config.ai.api_key if config.ai else '' }}"
+                    placeholder="填写 API Key">
+            </div>
+
+            <div class="form-row">
+                <label class="form-label">自定义 API 端点（可选）</label>
+                <input type="text" class="input" id="ai-apibase"
+                    value="{{ config.ai.api_base if config.ai else '' }}"
+                    placeholder="https://api.openai.com/v1">
+                <p class="form-hint">留空使用默认端点，自建代理或兼容接口时填写</p>
+            </div>
+
+            <div class="form-row inline">
+                <div>
+                    <label class="form-label">超时（秒）</label>
+                    <input type="number" class="input" id="ai-timeout"
+                        value="{{ config.ai.timeout if config.ai else 120 }}" min="10" max="600">
+                </div>
+                <div>
+                    <label class="form-label">Temperature</label>
+                    <input type="number" class="input" id="ai-temperature"
+                        value="{{ config.ai.temperature if config.ai else 1.0 }}" min="0" max="2" step="0.1">
+                </div>
+                <div>
+                    <label class="form-label">Max Tokens</label>
+                    <input type="number" class="input" id="ai-maxtokens"
+                        value="{{ config.ai.max_tokens if config.ai else 5000 }}" min="0">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI 分析功能 -->
+    <div class="section">
+        <h3 class="section-title">AI 分析功能</h3>
+
+        <div class="toggle-section">
+            <label class="toggle-label">
+                <span class="toggle-text">启用 AI 分析</span>
+                <input type="checkbox" id="ai-analysis-enabled"
+                    {% if config.ai_analysis and config.ai_analysis.enabled %}checked{% endif %}>
+                <span class="toggle-slider"></span>
+            </label>
+        </div>
+
+        <div class="form-group">
+            <div class="form-row">
+                <label class="form-label">输出语言</label>
+                <input type="text" class="input" id="ai-analysis-language"
+                    value="{{ config.ai_analysis.language if config.ai_analysis else 'Chinese' }}"
+                    placeholder="Chinese">
+            </div>
+
+            <div class="form-row">
+                <label class="form-label">分析模式</label>
+                <select class="input" id="ai-analysis-mode">
+                    <option value="follow_report" {% if config.ai_analysis and config.ai_analysis.mode == 'follow_report' %}selected{% endif %}>跟随报告模式</option>
+                    <option value="daily" {% if config.ai_analysis and config.ai_analysis.mode == 'daily' %}selected{% endif %}>当日汇总</option>
+                    <option value="current" {% if config.ai_analysis and config.ai_analysis.mode == 'current' %}selected{% endif %}>当前榜单</option>
+                    <option value="incremental" {% if config.ai_analysis and config.ai_analysis.mode == 'incremental' %}selected{% endif %}>增量模式</option>
+                </select>
+            </div>
+
+            <div class="form-row">
+                <label class="form-label">分析新闻数量上限</label>
+                <input type="number" class="input" id="ai-analysis-max"
+                    value="{{ config.ai_analysis.max_news_for_analysis if config.ai_analysis else 60 }}" min="1" max="200">
+            </div>
+
+            <div class="form-row">
+                <label class="toggle-label">
+                    <span class="toggle-text">包含 RSS 内容</span>
+                    <input type="checkbox" id="ai-analysis-rss"
+                        {% if config.ai_analysis and config.ai_analysis.include_rss %}checked{% endif %}>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+
+            <div class="form-row">
+                <label class="toggle-label">
+                    <span class="toggle-text">包含排名时间线</span>
+                    <input type="checkbox" id="ai-analysis-timeline"
+                        {% if config.ai_analysis and config.ai_analysis.include_rank_timeline %}checked{% endif %}>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI 翻译功能 -->
+    <div class="section">
+        <h3 class="section-title">AI 翻译功能</h3>
+
+        <div class="toggle-section">
+            <label class="toggle-label">
+                <span class="toggle-text">启用 AI 翻译</span>
+                <input type="checkbox" id="ai-translation-enabled"
+                    {% if config.ai_translation and config.ai_translation.enabled %}checked{% endif %}>
+                <span class="toggle-slider"></span>
+            </label>
+        </div>
+
+        <div class="form-group">
+            <div class="form-row">
+                <label class="form-label">目标语言</label>
+                <input type="text" class="input" id="ai-translation-language"
+                    value="{{ config.ai_translation.language if config.ai_translation else 'English' }}"
+                    placeholder="English">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function saveAiConfig() {
+    // 更新 ai 配置
+    const aiConfig = {
+        model: document.getElementById('ai-model').value,
+        api_key: document.getElementById('ai-apikey').value,
+        api_base: document.getElementById('ai-apibase').value,
+        timeout: parseInt(document.getElementById('ai-timeout').value) || 120,
+        temperature: parseFloat(document.getElementById('ai-temperature').value) || 1.0,
+        max_tokens: parseInt(document.getElementById('ai-maxtokens').value) || 5000,
+        num_retries: 1,
+        fallback_models: []
+    };
+
+    const aiAnalysisConfig = {
+        enabled: document.getElementById('ai-analysis-enabled').checked,
+        language: document.getElementById('ai-analysis-language').value,
+        mode: document.getElementById('ai-analysis-mode').value,
+        max_news_for_analysis: parseInt(document.getElementById('ai-analysis-max').value) || 60,
+        include_rss: document.getElementById('ai-analysis-rss').checked,
+        include_rank_timeline: document.getElementById('ai-analysis-timeline').checked,
+        prompt_file: 'ai_analysis_prompt.txt',
+        analysis_window: {
+            enabled: false,
+            start: '09:00',
+            end: '22:00',
+            once_per_day: false
+        }
+    };
+
+    const aiTranslationConfig = {
+        enabled: document.getElementById('ai-translation-enabled').checked,
+        language: document.getElementById('ai-translation-language').value,
+        prompt_file: 'ai_translation_prompt.txt'
+    };
+
+    // 获取完整配置并更新
+    fetch('/api/config')
+        .then(r => r.json())
+        .then(config => {
+            config.ai = aiConfig;
+            config.ai_analysis = aiAnalysisConfig;
+            config.ai_translation = aiTranslationConfig;
+
+            return fetch('/api/config', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(config)
+            });
+        })
+        .then(r => r.json())
+        .then(data => {
+            if (data.success) {
+                showToast('配置已保存', 'success');
+            } else {
+                showToast(data.error || '保存失败', 'error');
+            }
+        })
+        .catch(e => showToast('请求失败: ' + e, 'error'));
+}
+</script>
+{% endblock %}

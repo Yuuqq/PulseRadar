@@ -1,0 +1,164 @@
+{% extends "base.html" %}
+
+{% block page_title %}热榜平台管理{% endblock %}
+
+{% block header_actions %}
+<button class="btn btn-primary" onclick="savePlatforms()">保存配置</button>
+{% endblock %}
+
+{% block content %}
+<div class="platforms-page">
+    <!-- 总开关 -->
+    <div class="toggle-section">
+        <label class="toggle-label">
+            <span class="toggle-text">启用热榜平台抓取</span>
+            <input type="checkbox" id="platforms-enabled" {% if config.platforms and config.platforms.enabled %}checked{% endif %}>
+            <span class="toggle-slider"></span>
+        </label>
+    </div>
+
+    <!-- 平台列表 -->
+    <div class="section">
+        <div class="section-header">
+            <h3 class="section-title">平台列表</h3>
+            <button class="btn btn-sm" onclick="addPlatform()">+ 添加平台</button>
+        </div>
+
+        <div class="table-container">
+            <table class="data-table" id="platforms-table">
+                <thead>
+                    <tr>
+                        <th style="width: 50px;">启用</th>
+                        <th>平台 ID</th>
+                        <th>显示名称</th>
+                        <th style="width: 150px;">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if config.platforms and config.platforms.sources %}
+                        {% for source in config.platforms.sources %}
+                        <tr data-id="{{ source.id }}">
+                            <td>
+                                <input type="checkbox" class="platform-enabled" checked>
+                            </td>
+                            <td>
+                                <input type="text" class="input-inline platform-id" value="{{ source.id }}" readonly>
+                            </td>
+                            <td>
+                                <input type="text" class="input-inline platform-name" value="{{ source.name }}">
+                            </td>
+                            <td>
+                                <button class="btn btn-sm btn-ghost" onclick="testPlatform('{{ source.id }}')">测试</button>
+                                <button class="btn btn-sm btn-danger" onclick="removePlatform(this)">删除</button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 可用平台列表 -->
+    <div class="section">
+        <h3 class="section-title">可添加的平台</h3>
+        <p class="section-desc">点击添加到上方列表</p>
+        <div class="available-platforms">
+            <button class="platform-chip" onclick="addPlatformById('36kr', '36氪')">36氪</button>
+            <button class="platform-chip" onclick="addPlatformById('sspai', '少数派')">少数派</button>
+            <button class="platform-chip" onclick="addPlatformById('juejin', '掘金')">掘金</button>
+            <button class="platform-chip" onclick="addPlatformById('woshipm', '人人都是产品经理')">人人都是产品经理</button>
+            <button class="platform-chip" onclick="addPlatformById('hackernews', 'Hacker News')">Hacker News</button>
+            <button class="platform-chip" onclick="addPlatformById('producthunt', 'Product Hunt')">Product Hunt</button>
+            <button class="platform-chip" onclick="addPlatformById('github', 'GitHub Trending')">GitHub Trending</button>
+            <button class="platform-chip" onclick="addPlatformById('v2ex', 'V2EX')">V2EX</button>
+            <button class="platform-chip" onclick="addPlatformById('kr-36kr', '36氪快讯')">36氪快讯</button>
+            <button class="platform-chip" onclick="addPlatformById('coolapk', '酷安')">酷安</button>
+        </div>
+    </div>
+</div>
+
+<script>
+function addPlatformById(id, name) {
+    const tbody = document.querySelector('#platforms-table tbody');
+    // 检查是否已存在
+    if (document.querySelector(`tr[data-id="${id}"]`)) {
+        showToast('该平台已存在', 'warning');
+        return;
+    }
+    const tr = document.createElement('tr');
+    tr.dataset.id = id;
+    tr.innerHTML = `
+        <td><input type="checkbox" class="platform-enabled" checked></td>
+        <td><input type="text" class="input-inline platform-id" value="${id}" readonly></td>
+        <td><input type="text" class="input-inline platform-name" value="${name}"></td>
+        <td>
+            <button class="btn btn-sm btn-ghost" onclick="testPlatform('${id}')">测试</button>
+            <button class="btn btn-sm btn-danger" onclick="removePlatform(this)">删除</button>
+        </td>
+    `;
+    tbody.appendChild(tr);
+    showToast('已添加平台: ' + name, 'success');
+}
+
+function addPlatform() {
+    const id = prompt('请输入平台 ID:');
+    if (!id) return;
+    const name = prompt('请输入显示名称:', id);
+    if (!name) return;
+    addPlatformById(id, name);
+}
+
+function removePlatform(btn) {
+    if (confirm('确定删除该平台？')) {
+        btn.closest('tr').remove();
+    }
+}
+
+function testPlatform(id) {
+    showToast('正在测试...', 'info');
+    fetch('/api/test-source', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({type: 'platform', config: {id: id}})
+    })
+    .then(r => r.json())
+    .then(data => {
+        if (data.success) {
+            showToast(data.message, 'success');
+        } else {
+            showToast(data.error || '测试失败', 'error');
+        }
+    })
+    .catch(e => showToast('请求失败: ' + e, 'error'));
+}
+
+function savePlatforms() {
+    const enabled = document.getElementById('platforms-enabled').checked;
+    const sources = [];
+    document.querySelectorAll('#platforms-table tbody tr').forEach(tr => {
+        if (tr.querySelector('.platform-enabled').checked) {
+            sources.push({
+                id: tr.querySelector('.platform-id').value,
+                name: tr.querySelector('.platform-name').value
+            });
+        }
+    });
+
+    fetch('/api/platforms', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({enabled: enabled, sources: sources})
+    })
+    .then(r => r.json())
+    .then(data => {
+        if (data.success) {
+            showToast('配置已保存', 'success');
+        } else {
+            showToast(data.error || '保存失败', 'error');
+        }
+    })
+    .catch(e => showToast('请求失败: ' + e, 'error'));
+}
+</script>
+{% endblock %}

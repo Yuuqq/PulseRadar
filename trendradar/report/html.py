@@ -66,22 +66,25 @@ def render_html_content(
                 font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
                 margin: 0;
                 padding: 16px;
-                background: #fafafa;
-                color: #333;
-                line-height: 1.5;
+                background: #f4f6fb;
+                color: #111827;
+                line-height: 1.65;
+                font-size: 15px;
             }
 
             .container {
-                max-width: 600px;
+                max-width: 980px;
+                width: 94%;
                 margin: 0 auto;
                 background: white;
-                border-radius: 12px;
+                border-radius: 14px;
                 overflow: hidden;
-                box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+                border: 1px solid #e5e7eb;
+                box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
             }
 
             .header {
-                background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+                background: linear-gradient(135deg, #1d4ed8 0%, #0f766e 100%);
                 color: white;
                 padding: 32px 24px;
                 text-align: center;
@@ -126,7 +129,7 @@ def render_html_content(
             }
 
             .header-title {
-                font-size: 22px;
+                font-size: 24px;
                 font-weight: 700;
                 margin: 0 0 20px 0;
             }
@@ -135,7 +138,7 @@ def render_html_content(
                 display: grid;
                 grid-template-columns: 1fr 1fr;
                 gap: 16px;
-                font-size: 14px;
+                font-size: 13px;
                 opacity: 0.95;
             }
 
@@ -152,15 +155,91 @@ def render_html_content(
 
             .info-value {
                 font-weight: 600;
-                font-size: 16px;
+                font-size: 17px;
             }
 
             .content {
-                padding: 24px;
+                padding: 28px;
+            }
+
+            .topic-tabs {
+                position: sticky;
+                top: 0;
+                z-index: 5;
+                background: linear-gradient(to bottom, #ffffff 85%, rgba(255, 255, 255, 0));
+                margin: -8px 0 20px;
+                padding: 16px 0 12px;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                border-bottom: 1px solid #e2e8f0;
+            }
+
+            .topic-tabs::after {
+                content: "";
+                flex: 0 0 8px;
+            }
+
+            .topic-tab {
+                border: none;
+                background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+                color: #4b5563;
+                border-radius: 12px;
+                padding: 10px 18px;
+                font-size: 13px;
+                font-weight: 600;
+                cursor: pointer;
+                white-space: nowrap;
+                transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .topic-tab:hover {
+                background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%);
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            }
+
+            .topic-tab .topic-count {
+                background: rgba(0, 0, 0, 0.08);
+                padding: 2px 8px;
+                border-radius: 8px;
+                font-size: 12px;
+                font-weight: 700;
+                color: #6b7280;
+            }
+
+            .topic-tab.active {
+                background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+                color: #ffffff;
+                box-shadow: 0 4px 14px rgba(79, 70, 229, 0.4);
+            }
+
+            .topic-tab.active:hover {
+                background: linear-gradient(135deg, #4338ca 0%, #6d28d9 100%);
+                box-shadow: 0 6px 20px rgba(79, 70, 229, 0.5);
+            }
+
+            .topic-tab.active .topic-count {
+                background: rgba(255, 255, 255, 0.25);
+                color: #ffffff;
+            }
+
+            .word-group[data-hidden="true"] {
+                display: none;
             }
 
             .word-group {
-                margin-bottom: 40px;
+                margin-bottom: 24px;
+                background: #f8fafc;
+                border: 1px solid #e2e8f0;
+                border-radius: 12px;
+                padding: 16px 18px 8px;
             }
 
             .word-group:first-child {
@@ -171,9 +250,9 @@ def render_html_content(
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                margin-bottom: 20px;
+                margin-bottom: 12px;
                 padding-bottom: 8px;
-                border-bottom: 1px solid #f0f0f0;
+                border-bottom: 1px solid #e2e8f0;
             }
 
             .word-info {
@@ -183,32 +262,35 @@ def render_html_content(
             }
 
             .word-name {
-                font-size: 17px;
+                font-size: 18px;
                 font-weight: 600;
-                color: #1a1a1a;
+                color: #0f172a;
             }
 
             .word-count {
-                color: #666;
-                font-size: 13px;
-                font-weight: 500;
+                color: #4338ca;
+                font-size: 12px;
+                font-weight: 600;
+                background: #eef2ff;
+                padding: 2px 8px;
+                border-radius: 999px;
             }
 
-            .word-count.hot { color: #dc2626; font-weight: 600; }
-            .word-count.warm { color: #ea580c; font-weight: 600; }
+            .word-count.hot { color: #b91c1c; background: #fee2e2; }
+            .word-count.warm { color: #c2410c; background: #ffedd5; }
 
             .word-index {
-                color: #999;
+                color: #94a3b8;
                 font-size: 12px;
             }
 
             .news-item {
-                margin-bottom: 20px;
-                padding: 16px 0;
-                border-bottom: 1px solid #f5f5f5;
+                margin-bottom: 12px;
+                padding: 12px 0;
+                border-bottom: 1px solid #e2e8f0;
                 position: relative;
                 display: flex;
-                gap: 12px;
+                gap: 10px;
                 align-items: center;
             }
 
@@ -221,7 +303,7 @@ def render_html_content(
                 position: absolute;
                 top: 12px;
                 right: 0;
-                background: #fbbf24;
+                background: #fde047;
                 color: #92400e;
                 font-size: 9px;
                 font-weight: 700;
@@ -231,13 +313,13 @@ def render_html_content(
             }
 
             .news-number {
-                color: #999;
-                font-size: 13px;
+                color: #475569;
+                font-size: 12px;
                 font-weight: 600;
                 min-width: 20px;
                 text-align: center;
                 flex-shrink: 0;
-                background: #f8f9fa;
+                background: #e2e8f0;
                 border-radius: 50%;
                 width: 24px;
                 height: 24px;
@@ -261,29 +343,29 @@ def render_html_content(
             .news-header {
                 display: flex;
                 align-items: center;
-                gap: 8px;
-                margin-bottom: 8px;
+                gap: 6px;
+                margin-bottom: 6px;
                 flex-wrap: wrap;
             }
 
             .source-name {
-                color: #666;
+                color: #64748b;
                 font-size: 12px;
                 font-weight: 500;
             }
 
             .keyword-tag {
-                color: #2563eb;
+                color: #0369a1;
                 font-size: 12px;
                 font-weight: 500;
-                background: #eff6ff;
+                background: #e0f2fe;
                 padding: 2px 6px;
                 border-radius: 4px;
             }
 
             .rank-num {
                 color: #fff;
-                background: #6b7280;
+                background: #94a3b8;
                 font-size: 10px;
                 font-weight: 700;
                 padding: 2px 6px;
@@ -292,11 +374,11 @@ def render_html_content(
                 text-align: center;
             }
 
-            .rank-num.top { background: #dc2626; }
-            .rank-num.high { background: #ea580c; }
+            .rank-num.top { background: #ef4444; }
+            .rank-num.high { background: #f97316; }
 
             .time-info {
-                color: #999;
+                color: #94a3b8;
                 font-size: 11px;
             }
 
@@ -307,14 +389,14 @@ def render_html_content(
             }
 
             .news-title {
-                font-size: 15px;
-                line-height: 1.4;
-                color: #1a1a1a;
+                font-size: 16px;
+                line-height: 1.55;
+                color: #0f172a;
                 margin: 0;
             }
 
             .news-link {
-                color: #2563eb;
+                color: #1d4ed8;
                 text-decoration: none;
             }
 
@@ -323,14 +405,14 @@ def render_html_content(
             }
 
             .news-link:visited {
-                color: #7c3aed;
+                color: #6d28d9;
             }
 
             /* 通用区域分割线样式 */
             .section-divider {
-                margin-top: 32px;
+                margin-top: 28px;
                 padding-top: 24px;
-                border-top: 2px solid #e5e7eb;
+                border-top: 2px solid #e2e8f0;
             }
 
             /* 热榜统计区样式 */
@@ -339,13 +421,13 @@ def render_html_content(
             }
 
             .new-section {
-                margin-top: 40px;
+                margin-top: 32px;
                 padding-top: 24px;
             }
 
             .new-section-title {
-                color: #1a1a1a;
-                font-size: 16px;
+                color: #0f172a;
+                font-size: 17px;
                 font-weight: 600;
                 margin: 0 0 20px 0;
             }
@@ -355,20 +437,20 @@ def render_html_content(
             }
 
             .new-source-title {
-                color: #666;
+                color: #475569;
                 font-size: 13px;
                 font-weight: 500;
                 margin: 0 0 12px 0;
                 padding-bottom: 6px;
-                border-bottom: 1px solid #f5f5f5;
+                border-bottom: 1px solid #e2e8f0;
             }
 
             .new-item {
                 display: flex;
                 align-items: center;
                 gap: 12px;
-                padding: 8px 0;
-                border-bottom: 1px solid #f9f9f9;
+                padding: 10px 0;
+                border-bottom: 1px solid #e2e8f0;
             }
 
             .new-item:last-child {
@@ -376,13 +458,13 @@ def render_html_content(
             }
 
             .new-item-number {
-                color: #999;
+                color: #475569;
                 font-size: 12px;
                 font-weight: 600;
                 min-width: 18px;
                 text-align: center;
                 flex-shrink: 0;
-                background: #f8f9fa;
+                background: #e2e8f0;
                 border-radius: 50%;
                 width: 20px;
                 height: 20px;
@@ -393,7 +475,7 @@ def render_html_content(
 
             .new-item-rank {
                 color: #fff;
-                background: #6b7280;
+                background: #94a3b8;
                 font-size: 10px;
                 font-weight: 700;
                 padding: 3px 6px;
@@ -403,8 +485,8 @@ def render_html_content(
                 flex-shrink: 0;
             }
 
-            .new-item-rank.top { background: #dc2626; }
-            .new-item-rank.high { background: #ea580c; }
+            .new-item-rank.top { background: #ef4444; }
+            .new-item-rank.high { background: #f97316; }
 
             .new-item-content {
                 flex: 1;
@@ -412,9 +494,9 @@ def render_html_content(
             }
 
             .new-item-title {
-                font-size: 14px;
-                line-height: 1.4;
-                color: #1a1a1a;
+                font-size: 15px;
+                line-height: 1.5;
+                color: #0f172a;
                 margin: 0;
             }
 
@@ -449,14 +531,14 @@ def render_html_content(
             .footer {
                 margin-top: 32px;
                 padding: 20px 24px;
-                background: #f8f9fa;
-                border-top: 1px solid #e5e7eb;
+                background: #f1f5f9;
+                border-top: 1px solid #e2e8f0;
                 text-align: center;
             }
 
             .footer-content {
                 font-size: 13px;
-                color: #6b7280;
+                color: #64748b;
                 line-height: 1.6;
             }
 
@@ -483,6 +565,7 @@ def render_html_content(
                 .content { padding: 20px; }
                 .footer { padding: 16px 20px; }
                 .header-info { grid-template-columns: 1fr; gap: 12px; }
+                .topic-tab { font-size: 11px; padding: 6px 10px; }
                 .news-header { gap: 6px; }
                 .news-content { padding-right: 45px; }
                 .news-item { gap: 8px; }
@@ -518,11 +601,11 @@ def render_html_content(
             .rss-section-title {
                 font-size: 18px;
                 font-weight: 600;
-                color: #059669;
+                color: #0f766e;
             }
 
             .rss-section-count {
-                color: #6b7280;
+                color: #64748b;
                 font-size: 14px;
             }
 
@@ -540,17 +623,17 @@ def render_html_content(
                 justify-content: space-between;
                 margin-bottom: 12px;
                 padding-bottom: 8px;
-                border-bottom: 2px solid #10b981;
+                border-bottom: 2px solid #0f766e;
             }
 
             .feed-name {
                 font-size: 15px;
                 font-weight: 600;
-                color: #059669;
+                color: #0f766e;
             }
 
             .feed-count {
-                color: #666;
+                color: #64748b;
                 font-size: 13px;
                 font-weight: 500;
             }
@@ -558,9 +641,10 @@ def render_html_content(
             .rss-item {
                 margin-bottom: 12px;
                 padding: 14px;
-                background: #f0fdf4;
+                background: #f0fdfa;
                 border-radius: 8px;
-                border-left: 3px solid #10b981;
+                border: 1px solid #ccfbf1;
+                border-left: 3px solid #0f766e;
             }
 
             .rss-item:last-child {
@@ -576,36 +660,36 @@ def render_html_content(
             }
 
             .rss-time {
-                color: #6b7280;
+                color: #64748b;
                 font-size: 12px;
             }
 
             .rss-author {
-                color: #059669;
+                color: #0f766e;
                 font-size: 12px;
                 font-weight: 500;
             }
 
             .rss-title {
-                font-size: 14px;
+                font-size: 15px;
                 line-height: 1.5;
                 margin-bottom: 6px;
             }
 
             .rss-link {
-                color: #1f2937;
+                color: #0f172a;
                 text-decoration: none;
                 font-weight: 500;
             }
 
             .rss-link:hover {
-                color: #059669;
+                color: #0f766e;
                 text-decoration: underline;
             }
 
             .rss-summary {
                 font-size: 13px;
-                color: #6b7280;
+                color: #64748b;
                 line-height: 1.5;
                 margin: 0;
                 display: -webkit-box;
@@ -630,11 +714,11 @@ def render_html_content(
             .standalone-section-title {
                 font-size: 18px;
                 font-weight: 600;
-                color: #059669;
+                color: #1d4ed8;
             }
 
             .standalone-section-count {
-                color: #6b7280;
+                color: #64748b;
                 font-size: 14px;
             }
 
@@ -808,6 +892,7 @@ def render_html_content(
 
     # 生成热点词汇统计部分的HTML
     stats_html = ""
+    topic_tabs: List[Dict[str, Any]] = []
     if report_data["stats"]:
         total_count = len(report_data["stats"])
 
@@ -823,9 +908,10 @@ def render_html_content(
                 count_class = ""
 
             escaped_word = html_escape(stat["word"])
+            topic_tabs.append({"word": escaped_word, "count": count})
 
             stats_html += f"""
-                <div class="word-group">
+                <div class="word-group" data-topic="{escaped_word}">
                     <div class="word-header">
                         <div class="word-info">
                             <div class="word-name">{escaped_word}</div>
@@ -919,8 +1005,25 @@ def render_html_content(
 
     # 给热榜统计添加外层包装
     if stats_html:
+        tabs_html = ""
+        if len(topic_tabs) > 1:
+            tabs_html = """
+                <div class="topic-tabs" role="tablist" aria-label="主题切换">"""
+            tabs_html += f"""
+                    <button class="topic-tab active" data-topic="all">
+                        全部 <span class="topic-count">{hot_news_count}</span>
+                    </button>"""
+            for tab in topic_tabs:
+                tabs_html += f"""
+                    <button class="topic-tab" data-topic="{tab['word']}">
+                        {tab['word']} <span class="topic-count">{tab['count']}</span>
+                    </button>"""
+            tabs_html += """
+                </div>"""
+
         stats_html = f"""
-                <div class="hotlist-section">{stats_html}
+                <div class="hotlist-section">
+                    {tabs_html}{stats_html}
                 </div>"""
 
     # 生成新增新闻区域的HTML
@@ -1687,8 +1790,37 @@ def render_html_content(
                 }
             }
 
+            function initTopicTabs() {
+                const tabs = Array.from(document.querySelectorAll('.topic-tab'));
+                if (!tabs.length) {
+                    return;
+                }
+                const groups = Array.from(document.querySelectorAll('.hotlist-section .word-group'));
+
+                const setActive = (topic) => {
+                    tabs.forEach((tab) => {
+                        tab.classList.toggle('active', tab.dataset.topic === topic);
+                    });
+                    groups.forEach((group) => {
+                        const match = topic === 'all' || group.dataset.topic === topic;
+                        if (match) {
+                            group.removeAttribute('data-hidden');
+                        } else {
+                            group.setAttribute('data-hidden', 'true');
+                        }
+                    });
+                };
+
+                tabs.forEach((tab) => {
+                    tab.addEventListener('click', () => setActive(tab.dataset.topic));
+                });
+
+                setActive('all');
+            }
+
             document.addEventListener('DOMContentLoaded', function() {
                 window.scrollTo(0, 0);
+                initTopicTabs();
             });
         </script>
     </body>

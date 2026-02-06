@@ -45,6 +45,12 @@ def _get_env_int_or_none(key: str) -> Optional[int]:
         return None
 
 
+def _get_env_int_with_default(key: str, default: int) -> int:
+    """Read int env var while preserving valid 0 values."""
+    value = _get_env_int_or_none(key)
+    return default if value is None else value
+
+
 def _get_env_str(key: str, default: str = "") -> str:
     """从环境变量获取字符串值"""
     return os.environ.get(key, "").strip() or default
@@ -83,14 +89,16 @@ def _load_report_config(config_data: Dict) -> Dict:
 
     # 环境变量覆盖
     sort_by_position_env = _get_env_bool("SORT_BY_POSITION_FIRST")
-    max_news_env = _get_env_int("MAX_NEWS_PER_KEYWORD")
+    max_news_env = _get_env_int_or_none("MAX_NEWS_PER_KEYWORD")
+    max_keywords_env = _get_env_int_or_none("MAX_KEYWORDS")
 
     return {
         "REPORT_MODE": report_config.get("mode", "daily"),
         "DISPLAY_MODE": report_config.get("display_mode", "keyword"),
         "RANK_THRESHOLD": report_config.get("rank_threshold", 10),
         "SORT_BY_POSITION_FIRST": sort_by_position_env if sort_by_position_env is not None else report_config.get("sort_by_position_first", False),
-        "MAX_NEWS_PER_KEYWORD": max_news_env or report_config.get("max_news_per_keyword", 0),
+        "MAX_NEWS_PER_KEYWORD": report_config.get("max_news_per_keyword", 0) if max_news_env is None else max_news_env,
+        "MAX_KEYWORDS": report_config.get("max_keywords", 0) if max_keywords_env is None else max_keywords_env,
     }
 
 
@@ -109,7 +117,7 @@ def _load_notification_config(config_data: Dict) -> Dict:
         "SLACK_BATCH_SIZE": batch_size.get("slack", 4000),
         "BATCH_SEND_INTERVAL": advanced.get("batch_send_interval", 1.0),
         "FEISHU_MESSAGE_SEPARATOR": advanced.get("feishu_message_separator", "---"),
-        "MAX_ACCOUNTS_PER_CHANNEL": _get_env_int("MAX_ACCOUNTS_PER_CHANNEL") or advanced.get("max_accounts_per_channel", 3),
+        "MAX_ACCOUNTS_PER_CHANNEL": _get_env_int_with_default("MAX_ACCOUNTS_PER_CHANNEL", advanced.get("max_accounts_per_channel", 3)),
     }
 
 
@@ -305,7 +313,7 @@ def _load_storage_config(config_data: Dict) -> Dict:
         },
         "LOCAL": {
             "DATA_DIR": local.get("data_dir", "output"),
-            "RETENTION_DAYS": _get_env_int("LOCAL_RETENTION_DAYS") or local.get("retention_days", 0),
+            "RETENTION_DAYS": _get_env_int_with_default("LOCAL_RETENTION_DAYS", local.get("retention_days", 0)),
         },
         "REMOTE": {
             "ENDPOINT_URL": _get_env_str("S3_ENDPOINT_URL") or remote.get("endpoint_url", ""),
@@ -313,11 +321,11 @@ def _load_storage_config(config_data: Dict) -> Dict:
             "ACCESS_KEY_ID": _get_env_str("S3_ACCESS_KEY_ID") or remote.get("access_key_id", ""),
             "SECRET_ACCESS_KEY": _get_env_str("S3_SECRET_ACCESS_KEY") or remote.get("secret_access_key", ""),
             "REGION": _get_env_str("S3_REGION") or remote.get("region", ""),
-            "RETENTION_DAYS": _get_env_int("REMOTE_RETENTION_DAYS") or remote.get("retention_days", 0),
+            "RETENTION_DAYS": _get_env_int_with_default("REMOTE_RETENTION_DAYS", remote.get("retention_days", 0)),
         },
         "PULL": {
             "ENABLED": pull_enabled_env if pull_enabled_env is not None else pull.get("enabled", False),
-            "DAYS": _get_env_int("PULL_DAYS") or pull.get("days", 7),
+            "DAYS": _get_env_int_with_default("PULL_DAYS", pull.get("days", 7)),
         },
     }
 
@@ -471,7 +479,7 @@ def load_config(config_path: Optional[str] = None) -> Dict[str, Any]:
         raise FileNotFoundError(f"配置文件 {config_path} 不存在")
 
     with open(config_path, "r", encoding="utf-8") as f:
-        config_data = yaml.safe_load(f)
+        config_data = yaml.safe_load(f) or {}
 
     print(f"配置文件加载成功: {config_path}")
 

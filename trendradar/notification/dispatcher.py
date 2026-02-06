@@ -802,6 +802,46 @@ class NotificationDispatcher:
 
         return results
 
+    @staticmethod
+    def _split_text_by_bytes(content: str, max_bytes: int) -> List[str]:
+        """Split plain text into batches that respect UTF-8 byte limits."""
+        if not content:
+            return []
+        if max_bytes <= 0:
+            return [content]
+
+        batches: List[str] = []
+        current = ""
+
+        for line in content.splitlines(keepends=True):
+            candidate = current + line
+            if len(candidate.encode("utf-8")) <= max_bytes:
+                current = candidate
+                continue
+
+            if current:
+                batches.append(current.rstrip("\n"))
+                current = ""
+
+            if len(line.encode("utf-8")) <= max_bytes:
+                current = line
+                continue
+
+            remaining = line
+            while remaining:
+                chunk = remaining
+                while chunk and len(chunk.encode("utf-8")) > max_bytes:
+                    chunk = chunk[:-1]
+                if not chunk:
+                    break
+                batches.append(chunk.rstrip("\n"))
+                remaining = remaining[len(chunk):]
+
+        if current:
+            batches.append(current.rstrip("\n"))
+
+        return batches
+
     def _send_rss_feishu(
         self,
         rss_items: List[Dict],
@@ -828,7 +868,7 @@ class NotificationDispatcher:
             account_label = f"账号{i+1}" if len(webhooks) > 1 else ""
             try:
                 # 分批发送
-                batches = self.split_content_func(
+                batches = self._split_text_by_bytes(
                     content, self.config.get("FEISHU_BATCH_SIZE", 29000)
                 )
 
@@ -886,7 +926,7 @@ class NotificationDispatcher:
 
             account_label = f"账号{i+1}" if len(webhooks) > 1 else ""
             try:
-                batches = self.split_content_func(
+                batches = self._split_text_by_bytes(
                     content, self.config.get("DINGTALK_BATCH_SIZE", 20000)
                 )
 
@@ -959,7 +999,7 @@ class NotificationDispatcher:
 
             account_label = f"账号{i+1}" if len(webhooks) > 1 else ""
             try:
-                batches = self.split_content_func(
+                batches = self._split_text_by_bytes(
                     content, self.config.get("MESSAGE_BATCH_SIZE", 4000)
                 )
 
@@ -1001,7 +1041,7 @@ class NotificationDispatcher:
 
             account_label = f"账号{i+1}" if len(tokens) > 1 else ""
             try:
-                batches = self.split_content_func(
+                batches = self._split_text_by_bytes(
                     content, self.config.get("MESSAGE_BATCH_SIZE", 4000)
                 )
 
@@ -1047,7 +1087,7 @@ class NotificationDispatcher:
             account_label = f"账号{i+1}" if len(topics) > 1 else ""
 
             try:
-                batches = self.split_content_func(content, 3800)
+                batches = self._split_text_by_bytes(content, 3800)
 
                 for batch_content in batches:
                     url = f"{server_url.rstrip('/')}/{topic}"
@@ -1085,7 +1125,7 @@ class NotificationDispatcher:
 
             account_label = f"账号{i+1}" if len(urls) > 1 else ""
             try:
-                batches = self.split_content_func(
+                batches = self._split_text_by_bytes(
                     content, self.config.get("BARK_BATCH_SIZE", 3600)
                 )
 
@@ -1120,7 +1160,7 @@ class NotificationDispatcher:
 
             account_label = f"账号{i+1}" if len(webhooks) > 1 else ""
             try:
-                batches = self.split_content_func(
+                batches = self._split_text_by_bytes(
                     content, self.config.get("SLACK_BATCH_SIZE", 4000)
                 )
 

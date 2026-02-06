@@ -66,11 +66,11 @@ SMTP_CONFIGS = {
     # 天翼邮箱（使用 SSL）
     "189.cn": {"server": "smtp.189.cn", "port": 465, "encryption": "SSL"},
     # 阿里云邮箱（使用 TLS）
-    "aliyun.com": {"server": "smtp.aliyun.com", "port": 465, "encryption": "TLS"},
+    "aliyun.com": {"server": "smtp.aliyun.com", "port": 587, "encryption": "TLS"},
     # Yandex邮箱（使用 TLS）
-    "yandex.com": {"server": "smtp.yandex.com", "port": 465, "encryption": "TLS"},
-    # iCloud邮箱（使用 SSL）
-    "icloud.com": {"server": "smtp.mail.me.com", "port": 587, "encryption": "SSL"},
+    "yandex.com": {"server": "smtp.yandex.com", "port": 587, "encryption": "TLS"},
+    # iCloud邮箱（使用 TLS）
+    "icloud.com": {"server": "smtp.mail.me.com", "port": 587, "encryption": "TLS"},
 }
 
 

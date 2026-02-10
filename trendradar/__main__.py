@@ -818,6 +818,10 @@ class NewsAnalyzer:
             quiet=quiet,
         )
 
+        keyword_stats = stats
+        alternate_stats = None
+        alternate_display_mode = None
+
         # 如果是 platform 模式，转换数据结构
         if self.ctx.display_mode == "platform" and stats:
             stats = convert_keyword_stats_to_platform_stats(
@@ -825,6 +829,15 @@ class NewsAnalyzer:
                 self.ctx.weight_config,
                 self.ctx.rank_threshold,
             )
+            alternate_stats = keyword_stats
+            alternate_display_mode = "keyword"
+        elif stats:
+            alternate_stats = convert_keyword_stats_to_platform_stats(
+                stats,
+                self.ctx.weight_config,
+                self.ctx.rank_threshold,
+            )
+            alternate_display_mode = "platform"
 
         # AI 分析（如果启用，用于 HTML 报告）
         ai_result = None
@@ -852,6 +865,8 @@ class NewsAnalyzer:
                 rss_new_items=rss_new_items,
                 ai_analysis=ai_result,
                 standalone_data=standalone_data,
+                alternate_stats=alternate_stats,
+                alternate_display_mode=alternate_display_mode,
             )
 
         return stats, html_file, ai_result
@@ -1177,6 +1192,7 @@ class NewsAnalyzer:
 
         timezone = self.ctx.timezone
         max_news_per_keyword = self.ctx.config.get("MAX_NEWS_PER_KEYWORD", 0)
+        max_keywords = self.ctx.config.get("MAX_KEYWORDS", 0)
         sort_by_position_first = self.ctx.config.get("SORT_BY_POSITION_FIRST", False)
 
         rss_stats = None
@@ -1224,6 +1240,7 @@ class NewsAnalyzer:
                 global_filters=global_filters,
                 new_items=new_items_list,  # 增量模式所有都是新增
                 max_news_per_keyword=max_news_per_keyword,
+                max_keywords=max_keywords,
                 sort_by_position_first=sort_by_position_first,
                 timezone=timezone,
                 rank_threshold=self.rank_threshold,
@@ -1248,6 +1265,7 @@ class NewsAnalyzer:
                 global_filters=global_filters,
                 new_items=new_items_list,  # 标记新增
                 max_news_per_keyword=max_news_per_keyword,
+                max_keywords=max_keywords,
                 sort_by_position_first=sort_by_position_first,
                 timezone=timezone,
                 rank_threshold=self.rank_threshold,
@@ -1267,6 +1285,7 @@ class NewsAnalyzer:
                     global_filters=global_filters,
                     new_items=new_items_list,
                     max_news_per_keyword=max_news_per_keyword,
+                    max_keywords=max_keywords,
                     sort_by_position_first=sort_by_position_first,
                     timezone=timezone,
                     rank_threshold=self.rank_threshold,
@@ -1287,6 +1306,7 @@ class NewsAnalyzer:
                 global_filters=global_filters,
                 new_items=new_items_list,  # 标记新增
                 max_news_per_keyword=max_news_per_keyword,
+                max_keywords=max_keywords,
                 sort_by_position_first=sort_by_position_first,
                 timezone=timezone,
                 rank_threshold=self.rank_threshold,
@@ -1306,6 +1326,7 @@ class NewsAnalyzer:
                     global_filters=global_filters,
                     new_items=new_items_list,
                     max_news_per_keyword=max_news_per_keyword,
+                    max_keywords=max_keywords,
                     sort_by_position_first=sort_by_position_first,
                     timezone=timezone,
                     rank_threshold=self.rank_threshold,
@@ -1655,8 +1676,23 @@ class NewsAnalyzer:
             self.ctx.cleanup()
 
 
+def _ensure_utf8_output():
+    """确保 Windows 终端使用 UTF-8 编码输出，避免 emoji 等字符导致 UnicodeEncodeError"""
+    import sys
+    if sys.platform == "win32":
+        for stream_name in ("stdout", "stderr"):
+            stream = getattr(sys, stream_name, None)
+            if stream and hasattr(stream, "reconfigure"):
+                try:
+                    stream.reconfigure(encoding="utf-8", errors="replace")
+                except Exception:
+                    pass
+
+
 def main():
     """主程序入口"""
+    _ensure_utf8_output()
+
     # 解析命令行参数
     parser = argparse.ArgumentParser(
         description="TrendRadar - 热点新闻聚合与分析工具",
@@ -1707,12 +1743,19 @@ def main():
         help="忽略 once_per_day 限制，强制 AI 分析"
     )
 
+    parser.add_argument(
+        "--config",
+        type=str,
+        default=None,
+        help="Path to config file (default: CONFIG_PATH or config/config.yaml)",
+    )
+
     args = parser.parse_args()
 
     debug_mode = False
     try:
         # 先加载配置
-        config = load_config()
+        config = load_config(config_path=args.config)
 
         # 处理状态查看/重置命令
         if args.show_push_status or args.show_ai_status or args.reset_push_state or args.reset_ai_state:

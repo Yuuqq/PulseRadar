@@ -100,6 +100,7 @@ def count_word_frequency(
     global_filters: Optional[List[str]] = None,
     weight_config: Optional[Dict] = None,
     max_news_per_keyword: int = 0,
+    max_keywords: int = 0,
     sort_by_position_first: bool = False,
     is_first_crawl_func: Optional[Callable[[], bool]] = None,
     convert_time_func: Optional[Callable[[str], str]] = None,
@@ -120,6 +121,7 @@ def count_word_frequency(
         global_filters: 全局过滤词（可选）
         weight_config: 权重配置
         max_news_per_keyword: 每个关键词最大显示数量
+        max_keywords: 关键词分组最大数量
         sort_by_position_first: 是否优先按配置位置排序
         is_first_crawl_func: 检测是否是当天第一次爬取的函数
         convert_time_func: 时间格式转换函数
@@ -480,6 +482,9 @@ def count_word_frequency(
         # 先按热点条数，再按配置位置（原逻辑）
         stats.sort(key=lambda x: (-x["count"], x["position"]))
 
+    if max_keywords > 0:
+        stats = stats[:max_keywords]
+
     # 打印过滤后的匹配新闻数
     matched_news_count = sum(len(stat["titles"]) for stat in stats if stat["count"] > 0)
     if not quiet and mode == "daily":
@@ -496,6 +501,7 @@ def count_rss_frequency(
     global_filters: Optional[List[str]] = None,
     new_items: Optional[List[Dict]] = None,
     max_news_per_keyword: int = 0,
+    max_keywords: int = 0,
     sort_by_position_first: bool = False,
     timezone: str = DEFAULT_TIMEZONE,
     rank_threshold: int = 5,
@@ -516,6 +522,7 @@ def count_rss_frequency(
         global_filters: 全局过滤词（可选）
         new_items: 新增条目列表（可选，用于标记 is_new）
         max_news_per_keyword: 每个关键词最大显示数量
+        max_keywords: 关键词分组最大数量
         sort_by_position_first: 是否优先按配置位置排序
         timezone: 时区名称（用于时间格式化）
         quiet: 是否静默模式
@@ -699,6 +706,9 @@ def count_rss_frequency(
         stats.sort(key=lambda x: (x["position"], -x["count"]))
     else:
         stats.sort(key=lambda x: (-x["count"], x["position"]))
+
+    if max_keywords > 0:
+        stats = stats[:max_keywords]
 
     matched_count = sum(stat["count"] for stat in stats)
     if not quiet:

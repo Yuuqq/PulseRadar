@@ -7,9 +7,11 @@
 2. 国际新闻 API (NewsAPI, GNews, MediaStack, TheNewsAPI)
 """
 
+import html
 import json
 import time
 import random
+import re
 from typing import Dict, List, Optional, Tuple, Any
 from datetime import datetime
 
@@ -25,6 +27,17 @@ class ExtraAPIFetcher:
         "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
     }
 
+    DAILYHOT_IMSYY_BASE = "https://api-hot.imsyy.top"
+    DAILYHOT_BASE = "https://api.codelife.cc/api/top/list"
+    DAILYHOT_DEFAULT_PLATFORMS = (
+        "toutiao",
+        "weibo",
+        "zhihu",
+        "baidu",
+        "bilibili",
+        "douyin",
+    )
+
     def __init__(
         self,
         proxy_url: Optional[str] = None,
@@ -39,6 +52,7 @@ class ExtraAPIFetcher:
         """
         self.proxy_url = proxy_url
         self.session = session or requests.Session()
+        self.last_error: Optional[str] = None
 
     def close(self) -> None:
         """释放 HTTP 连接资源"""
@@ -72,6 +86,8 @@ class ExtraAPIFetcher:
         Returns:
             JSON 响应或 None
         """
+        response = None
+        self.last_error = None
         try:
             req_headers = {**self.DEFAULT_HEADERS}
             if headers:
@@ -87,7 +103,49 @@ class ExtraAPIFetcher:
             response.raise_for_status()
             return response.json()
         except Exception as e:
-            print(f"请求失败 {url}: {e}")
+            error_detail = str(e)
+            if response is not None:
+                try:
+                    error_detail = f"HTTP {response.status_code}: {response.text[:200]}"
+                except Exception:
+                    pass
+            self.last_error = error_detail
+            print(f"请求失败 {url}: {error_detail}")
+            return None
+
+    def _request_text(
+        self,
+        url: str,
+        timeout: int = 15,
+        headers: Optional[Dict] = None,
+        params: Optional[Dict] = None,
+    ) -> Optional[str]:
+        """发送 HTTP 请求并返回文本响应"""
+        response = None
+        self.last_error = None
+        try:
+            req_headers = {**self.DEFAULT_HEADERS}
+            if headers:
+                req_headers.update(headers)
+
+            response = self.session.get(
+                url,
+                headers=req_headers,
+                params=params,
+                proxies=self._get_proxies(),
+                timeout=timeout,
+            )
+            response.raise_for_status()
+            return response.text
+        except Exception as e:
+            error_detail = str(e)
+            if response is not None:
+                try:
+                    error_detail = f"HTTP {response.status_code}: {response.text[:200]}"
+                except Exception:
+                    pass
+            self.last_error = error_detail
+            print(f"请求失败 {url}: {error_detail}")
             return None
 
     # =========================================================================
@@ -169,53 +227,242 @@ class ExtraAPIFetcher:
         Returns:
             按平台分组的新闻字典
         """
-        if source_id:
-            url = f"https://api.codelife.cc/api/top/list?lang=zh&id={source_id}"
-        else:
-            url = "https://api.codelife.cc/api/top/list?lang=zh"
-
-        data = self._request(url)
-
-        if not data or data.get("code") != 200:
-            print(f"[DailyHot] 获取数据失败")
-            return {}
-
-        result = {}
-        items_data = data.get("data", [])
-
-        # 如果是单个平台
-        if source_id and isinstance(items_data, list):
+        def normalize_items(items: List[Dict], fallback_key: str) -> Dict[str, List[Dict]]:
             platform_items = []
-            for idx, item in enumerate(items_data, 1):
-                title = item.get("title", "").strip()
+            for idx, item in enumerate(items, 1):
+                title = str(item.get("title") or item.get("name") or "").strip()
                 if not title:
                     continue
                 platform_items.append({
                     "title": title,
-                    "url": item.get("url", ""),
-                    "rank": idx,
-                    "hot": item.get("hot", ""),
+                    "url": item.get("url") or item.get("link") or "",
+                    "rank": item.get("index") or item.get("rank") or idx,
+                    "hot": item.get("hot") or item.get("hotValue") or item.get("value") or "",
                 })
-            result[source_id] = platform_items
-        # 如果是多个平台
-        elif isinstance(items_data, dict):
-            for platform, items in items_data.items():
-                platform_items = []
-                for idx, item in enumerate(items, 1):
-                    title = item.get("title", "").strip()
-                    if not title:
-                        continue
-                    platform_items.append({
-                        "title": title,
-                        "url": item.get("url", ""),
-                        "rank": idx,
-                        "hot": item.get("hot", ""),
-                    })
-                if platform_items:
-                    result[platform] = platform_items
+            return {fallback_key: platform_items} if platform_items else {}
+
+        def parse_payload(payload: Optional[Dict], fallback_key: str) -> Dict[str, List[Dict]]:
+            if not payload or payload.get("code") != 200:
+                return {}
+            items_data = payload.get("data")
+            if not items_data:
+                return {}
+            if isinstance(items_data, list):
+                return normalize_items(items_data, fallback_key)
+            if isinstance(items_data, dict):
+                result: Dict[str, List[Dict]] = {}
+                for platform, items in items_data.items():
+                    if isinstance(items, list):
+                        normalized = normalize_items(items, platform)
+                        if normalized:
+                            result.update(normalized)
+                return result
+            return {}
+
+        params = {"lang": "zh", "size": 50}
+        if source_id:
+            params["id"] = source_id
+        payload = self._request(self.DAILYHOT_BASE, params=params)
+        result = parse_payload(payload, source_id or "dailyhot")
+
+        if not result and not source_id:
+            for platform in self.DAILYHOT_DEFAULT_PLATFORMS:
+                params = {"lang": "zh", "id": platform, "size": 50}
+                payload = self._request(self.DAILYHOT_BASE, params=params)
+                platform_result = parse_payload(payload, platform)
+                if platform_result:
+                    result.update(platform_result)
+
+        if not result:
+            print("[DailyHot] 获取数据失败")
+            return {}
 
         print(f"[DailyHot] 获取成功: {sum(len(v) for v in result.values())} 条")
         return result
+
+    def fetch_eastmoney_kuaixun(
+        self,
+        channel: str = "102",
+        page_size: int = 50,
+        page: int = 1,
+    ) -> List[Dict]:
+        """
+        获取东方财富 7x24 快讯
+
+        Args:
+            channel: 频道 ID（默认 102）
+            page_size: 单页数量
+            page: 页码
+
+        Returns:
+            新闻列表
+        """
+        url = f"https://newsapi.eastmoney.com/kuaixun/v1/getlist_{channel}_ajaxResult_{page_size}_{page}_.html"
+        content = self._request_text(url)
+
+        if not content:
+            print("[Eastmoney] 获取数据失败")
+            return []
+
+        raw = content.strip()
+        if raw.startswith("var"):
+            if "=" in raw:
+                raw = raw.split("=", 1)[1].strip()
+            raw = raw.rstrip(";")
+
+        try:
+            data = json.loads(raw)
+        except Exception as e:
+            self.last_error = str(e)
+            print(f"[Eastmoney] 解析失败: {e}")
+            return []
+
+        if str(data.get("rc")) != "1":
+            print("[Eastmoney] 获取数据失败")
+            return []
+
+        items = []
+        for idx, item in enumerate(data.get("LivesList", []), 1):
+            title = str(item.get("title") or item.get("simtitle") or "").strip()
+            if not title:
+                continue
+            items.append({
+                "title": title,
+                "url": item.get("url_w") or item.get("url_unique") or item.get("url_m") or "",
+                "rank": idx,
+                "hot": item.get("sort") or item.get("newstype") or "",
+                "published_at": item.get("showtime") or item.get("ordertime") or "",
+            })
+
+        print(f"[Eastmoney] 获取成功: {len(items)} 条")
+        return items
+
+    def fetch_wallstreetcn_live(
+        self,
+        channel: str = "global-channel",
+        limit: int = 50,
+    ) -> List[Dict]:
+        """
+        获取华尔街见闻实时快讯
+
+        Args:
+            channel: 频道 (global-channel/stock-channel/forex-channel 等)
+            limit: 返回数量
+
+        Returns:
+            新闻列表
+        """
+        url = "https://api-prod.wallstreetcn.com/apiv1/content/lives"
+        params = {"channel": channel, "limit": max(1, min(limit, 100))}
+
+        data = self._request(url, params=params)
+        if not data or data.get("code") != 20000:
+            print("[Wallstreetcn] 获取失败")
+            return []
+
+        items = []
+        for idx, item in enumerate(data.get("data", {}).get("items", []), 1):
+            title = item.get("title") or item.get("content_text") or ""
+            title = str(title).replace("\n", " ").strip()
+            if not title:
+                continue
+            live_id = item.get("id")
+            url = f"https://wallstreetcn.com/live/{live_id}" if live_id else ""
+            items.append({
+                "title": title,
+                "url": url,
+                "rank": idx,
+                "hot": item.get("score") or "",
+                "published_at": item.get("display_time") or "",
+            })
+
+        print(f"[Wallstreetcn] 获取成功: {len(items)} 条")
+        return items
+
+    def fetch_10jqka_finance_news(
+        self,
+        page_url: str = "https://news.10jqka.com.cn/clientinfo/finance.html",
+        max_items: int = 50,
+        encoding: str = "gbk",
+    ) -> List[Dict]:
+        """
+        获取同花顺资讯（财经头条）
+
+        Args:
+            page_url: 资讯页 URL
+            max_items: 最大条数
+            encoding: 页面编码
+
+        Returns:
+            新闻列表
+        """
+        response = None
+        self.last_error = None
+        try:
+            headers = {**self.DEFAULT_HEADERS}
+            headers.update({
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                "Referer": "https://news.10jqka.com.cn/",
+            })
+            response = self.session.get(
+                page_url,
+                headers=headers,
+                proxies=self._get_proxies(),
+                timeout=15,
+            )
+            response.raise_for_status()
+            content = response.content
+            if encoding:
+                text = content.decode(encoding, errors="ignore")
+            else:
+                text = response.text
+        except Exception as e:
+            error_detail = str(e)
+            if response is not None:
+                try:
+                    error_detail = f"HTTP {response.status_code}: {response.text[:200]}"
+                except Exception:
+                    pass
+            self.last_error = error_detail
+            print(f"[10jqka] 获取失败: {error_detail}")
+            return []
+
+        def clean_text(raw: str) -> str:
+            cleaned = re.sub(r"<[^>]+>", "", raw)
+            return html.unescape(cleaned).strip()
+
+        items: List[Dict] = []
+        blocks = text.split('<div class="article"')
+        for block in blocks:
+            if "article-time" not in block:
+                continue
+            time_match = re.search(r'article-time[^>]*>\s*([^<]+)', block, re.I)
+            url_match = re.search(r"openbrower\('([^']+)'", block, re.I)
+            title_match = re.search(r"<strong>\s*<a[^>]*>(.*?)</a>", block, re.I | re.S)
+
+            if not url_match or not title_match:
+                continue
+
+            url = url_match.group(1).strip()
+            title = clean_text(title_match.group(1))
+            if not title:
+                continue
+
+            published_at = clean_text(time_match.group(1)) if time_match else ""
+
+            items.append({
+                "title": title,
+                "url": url,
+                "rank": len(items) + 1,
+                "hot": "",
+                "published_at": published_at,
+            })
+
+            if max_items and len(items) >= max_items:
+                break
+
+        print(f"[10jqka] 获取成功: {len(items)} 条")
+        return items
 
     # =========================================================================
     # 国际新闻 API
@@ -482,6 +729,26 @@ class ExtraAPIFetcher:
                     for platform_name, platform_items in all_data.items():
                         results[f"dailyhot-{platform_name}"] = platform_items
                     continue
+
+                elif source_type == "eastmoney":
+                    items = self.fetch_eastmoney_kuaixun(
+                        channel=str(source.get("channel", "102")),
+                        page_size=int(source.get("page_size", 50) or 50),
+                        page=int(source.get("page", 1) or 1),
+                    )
+
+                elif source_type == "wallstreetcn":
+                    items = self.fetch_wallstreetcn_live(
+                        channel=source.get("channel", "global-channel"),
+                        limit=int(source.get("limit", 50) or 50),
+                    )
+
+                elif source_type == "10jqka":
+                    items = self.fetch_10jqka_finance_news(
+                        page_url=source.get("url", "https://news.10jqka.com.cn/clientinfo/finance.html"),
+                        max_items=int(source.get("max_items", 50) or 50),
+                        encoding=source.get("encoding", "gbk"),
+                    )
 
                 # 国际新闻
                 elif source_type == "newsapi":

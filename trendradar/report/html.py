@@ -27,6 +27,8 @@ def render_html_content(
     standalone_data: Optional[Dict] = None,
     ai_analysis: Optional[Any] = None,
     show_new_section: bool = True,
+    alternate_report_data: Optional[Dict] = None,
+    alternate_display_mode: Optional[str] = None,
 ) -> str:
     """渲染HTML内容
 
@@ -43,6 +45,8 @@ def render_html_content(
         standalone_data: 独立展示区数据（可选），包含 platforms 和 rss_feeds
         ai_analysis: AI 分析结果对象（可选），AIAnalysisResult 实例
         show_new_section: 是否显示新增热点区域
+        alternate_report_data: 备用报告数据（可选，用于关键词/平台切换）
+        alternate_display_mode: 备用显示模式 (keyword/platform)
 
     Returns:
         渲染后的 HTML 字符串
@@ -128,6 +132,11 @@ def render_html_content(
                 cursor: not-allowed;
             }
 
+            .save-btn.theme-toggle {
+                padding: 8px 10px;
+                min-width: 36px;
+            }
+
             .header-title {
                 font-size: 24px;
                 font-weight: 700;
@@ -160,6 +169,100 @@ def render_html_content(
 
             .content {
                 padding: 28px;
+            }
+
+            .controls {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 12px;
+                align-items: center;
+                justify-content: space-between;
+                margin: 4px 0 16px;
+            }
+
+            .controls-left,
+            .controls-right {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+                align-items: center;
+            }
+
+            .view-toggle {
+                display: flex;
+                gap: 6px;
+                background: #e2e8f0;
+                padding: 4px;
+                border-radius: 999px;
+            }
+
+            .view-btn {
+                border: none;
+                background: transparent;
+                color: #1f2937;
+                font-size: 12px;
+                font-weight: 600;
+                padding: 6px 12px;
+                border-radius: 999px;
+                cursor: pointer;
+                transition: all 0.15s ease;
+            }
+
+            .view-btn.active {
+                background: #111827;
+                color: #ffffff;
+            }
+
+            .search-input {
+                border: 1px solid #e2e8f0;
+                border-radius: 999px;
+                padding: 8px 14px;
+                font-size: 13px;
+                width: 240px;
+                outline: none;
+                background: #ffffff;
+                color: #0f172a;
+            }
+
+            .search-input::placeholder {
+                color: #94a3b8;
+            }
+
+            .section-tabs {
+                position: sticky;
+                top: 0;
+                z-index: 6;
+                background: linear-gradient(to bottom, #ffffff 85%, rgba(255, 255, 255, 0));
+                margin: -8px 0 20px;
+                padding: 12px 0 10px;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+                border-bottom: 1px solid #e2e8f0;
+            }
+
+            .section-tab {
+                border: 1px solid #e2e8f0;
+                background: #ffffff;
+                color: #0f172a;
+                border-radius: 999px;
+                padding: 8px 14px;
+                font-size: 12px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.15s ease;
+                white-space: nowrap;
+            }
+
+            .section-tab:hover {
+                transform: translateY(-1px);
+                box-shadow: 0 6px 16px rgba(15, 23, 42, 0.12);
+            }
+
+            .section-tab.active {
+                background: #111827;
+                color: #ffffff;
+                border-color: #111827;
             }
 
             .topic-tabs {
@@ -215,14 +318,14 @@ def render_html_content(
             }
 
             .topic-tab.active {
-                background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+                background: linear-gradient(135deg, #2563eb 0%, #0f766e 100%);
                 color: #ffffff;
-                box-shadow: 0 4px 14px rgba(79, 70, 229, 0.4);
+                box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
             }
 
             .topic-tab.active:hover {
-                background: linear-gradient(135deg, #4338ca 0%, #6d28d9 100%);
-                box-shadow: 0 6px 20px rgba(79, 70, 229, 0.5);
+                background: linear-gradient(135deg, #1d4ed8 0%, #0d9488 100%);
+                box-shadow: 0 6px 20px rgba(15, 118, 110, 0.4);
             }
 
             .topic-tab.active .topic-count {
@@ -230,7 +333,12 @@ def render_html_content(
                 color: #ffffff;
             }
 
-            .word-group[data-hidden="true"] {
+            .report-section[data-hidden="true"] {
+                display: none;
+            }
+
+            .word-group[data-hidden="true"],
+            .word-group[data-filtered="true"] {
                 display: none;
             }
 
@@ -268,10 +376,10 @@ def render_html_content(
             }
 
             .word-count {
-                color: #4338ca;
+                color: #1d4ed8;
                 font-size: 12px;
                 font-weight: 600;
-                background: #eef2ff;
+                background: #dbeafe;
                 padding: 2px 8px;
                 border-radius: 999px;
             }
@@ -405,7 +513,7 @@ def render_html_content(
             }
 
             .news-link:visited {
-                color: #6d28d9;
+                color: #0f766e;
             }
 
             /* 通用区域分割线样式 */
@@ -543,14 +651,14 @@ def render_html_content(
             }
 
             .footer-link {
-                color: #4f46e5;
+                color: #2563eb;
                 text-decoration: none;
                 font-weight: 500;
                 transition: color 0.2s ease;
             }
 
             .footer-link:hover {
-                color: #7c3aed;
+                color: #0f766e;
                 text-decoration: underline;
             }
 
@@ -565,6 +673,10 @@ def render_html_content(
                 .content { padding: 20px; }
                 .footer { padding: 16px 20px; }
                 .header-info { grid-template-columns: 1fr; gap: 12px; }
+                .controls { gap: 10px; }
+                .controls-left, .controls-right { width: 100%; }
+                .view-toggle { width: 100%; justify-content: center; }
+                .search-input { width: 100%; }
                 .topic-tab { font-size: 11px; padding: 6px 10px; }
                 .news-header { gap: 6px; }
                 .news-content { padding-right: 45px; }
@@ -816,14 +928,253 @@ def render_html_content(
                 color: #991b1b;
                 font-size: 14px;
             }
+
+            /* Dark mode */
+            body[data-theme="dark"] {
+                background: #0f172a;
+                color: #e2e8f0;
+            }
+
+            body[data-theme="dark"] .container {
+                background: #0b1220;
+                border-color: #1f2937;
+                box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+            }
+
+            body[data-theme="dark"] .header {
+                background: linear-gradient(135deg, #1e293b 0%, #0f766e 100%);
+            }
+
+            body[data-theme="dark"] .save-btn {
+                background: rgba(255, 255, 255, 0.12);
+                border-color: rgba(255, 255, 255, 0.2);
+            }
+
+            body[data-theme="dark"] .save-btn:hover {
+                background: rgba(255, 255, 255, 0.18);
+            }
+
+            body[data-theme="dark"] .controls {
+                color: #e2e8f0;
+            }
+
+            body[data-theme="dark"] .view-toggle {
+                background: #1f2937;
+            }
+
+            body[data-theme="dark"] .view-btn {
+                color: #e2e8f0;
+            }
+
+            body[data-theme="dark"] .view-btn.active {
+                background: #2563eb;
+            }
+
+            body[data-theme="dark"] .search-input {
+                background: #0f172a;
+                border-color: #334155;
+                color: #e2e8f0;
+            }
+
+            body[data-theme="dark"] .section-tabs {
+                background: linear-gradient(to bottom, #0b1220 85%, rgba(11, 18, 32, 0));
+                border-bottom: 1px solid #1f2937;
+            }
+
+            body[data-theme="dark"] .section-tab {
+                background: #0f172a;
+                color: #e2e8f0;
+                border-color: #1f2937;
+                box-shadow: none;
+            }
+
+            body[data-theme="dark"] .section-tab:hover {
+                box-shadow: none;
+                background: #111827;
+            }
+
+            body[data-theme="dark"] .section-tab.active {
+                background: #2563eb;
+                border-color: #2563eb;
+                color: #ffffff;
+            }
+
+            body[data-theme="dark"] .topic-tabs {
+                background: linear-gradient(to bottom, #0b1220 85%, rgba(11, 18, 32, 0));
+                border-bottom: 1px solid #1f2937;
+            }
+
+            body[data-section-tabs="true"] .topic-tabs {
+                top: 52px;
+            }
+
+            body[data-theme="dark"] .topic-tab {
+                background: #1f2937;
+                color: #e2e8f0;
+                box-shadow: none;
+            }
+
+            body[data-theme="dark"] .topic-tab:hover {
+                background: #334155;
+                box-shadow: none;
+            }
+
+            body[data-theme="dark"] .topic-tab.active {
+                background: #2563eb;
+                color: #ffffff;
+                box-shadow: none;
+            }
+
+            body[data-theme="dark"] .topic-tab.active:hover {
+                background: #1d4ed8;
+            }
+
+            body[data-theme="dark"] .topic-tab .topic-count {
+                background: rgba(255, 255, 255, 0.12);
+                color: #cbd5f5;
+            }
+
+            body[data-theme="dark"] .word-group {
+                background: #0f172a;
+                border-color: #1f2937;
+            }
+
+            body[data-theme="dark"] .word-header {
+                border-bottom-color: #1f2937;
+            }
+
+            body[data-theme="dark"] .word-name {
+                color: #e2e8f0;
+            }
+
+            body[data-theme="dark"] .word-count {
+                background: #1e293b;
+                color: #93c5fd;
+            }
+
+            body[data-theme="dark"] .word-count.hot {
+                background: #3f1d1d;
+                color: #fca5a5;
+            }
+
+            body[data-theme="dark"] .word-count.warm {
+                background: #3b2616;
+                color: #fdba74;
+            }
+
+            body[data-theme="dark"] .news-item {
+                border-bottom-color: #1f2937;
+            }
+
+            body[data-theme="dark"] .news-number {
+                background: #1f2937;
+                color: #94a3b8;
+            }
+
+            body[data-theme="dark"] .source-name,
+            body[data-theme="dark"] .time-info {
+                color: #94a3b8;
+            }
+
+            body[data-theme="dark"] .keyword-tag {
+                background: #1e3a8a;
+                color: #bfdbfe;
+            }
+
+            body[data-theme="dark"] .news-title,
+            body[data-theme="dark"] .new-item-title,
+            body[data-theme="dark"] .rss-link {
+                color: #e2e8f0;
+            }
+
+            body[data-theme="dark"] .news-link {
+                color: #60a5fa;
+            }
+
+            body[data-theme="dark"] .news-link:visited {
+                color: #a78bfa;
+            }
+
+            body[data-theme="dark"] .new-source-title,
+            body[data-theme="dark"] .new-section-title {
+                color: #e2e8f0;
+            }
+
+            body[data-theme="dark"] .new-item {
+                border-bottom-color: #1f2937;
+            }
+
+            body[data-theme="dark"] .new-item-number,
+            body[data-theme="dark"] .new-item-rank,
+            body[data-theme="dark"] .rank-num {
+                background: #1f2937;
+            }
+
+            body[data-theme="dark"] .rss-item {
+                background: #0f172a;
+                border-color: #134e4a;
+            }
+
+            body[data-theme="dark"] .rss-summary,
+            body[data-theme="dark"] .rss-time,
+            body[data-theme="dark"] .rss-section-count {
+                color: #94a3b8;
+            }
+
+            body[data-theme="dark"] .rss-section-title,
+            body[data-theme="dark"] .feed-name,
+            body[data-theme="dark"] .rss-link:hover {
+                color: #5eead4;
+            }
+
+            body[data-theme="dark"] .feed-header {
+                border-bottom-color: #0f766e;
+            }
+
+            body[data-theme="dark"] .ai-section {
+                background: linear-gradient(135deg, #0b1220 0%, #111827 100%);
+                border-color: #1e3a8a;
+            }
+
+            body[data-theme="dark"] .ai-section-title,
+            body[data-theme="dark"] .ai-block-title {
+                color: #7dd3fc;
+            }
+
+            body[data-theme="dark"] .ai-block {
+                background: #0f172a;
+                box-shadow: none;
+                border: 1px solid #1f2937;
+            }
+
+            body[data-theme="dark"] .ai-block-content {
+                color: #e2e8f0;
+            }
+
+            body[data-theme="dark"] .footer {
+                background: #0f172a;
+                border-top-color: #1f2937;
+            }
+
+            body[data-theme="dark"] .footer-content {
+                color: #94a3b8;
+            }
+
+            body[data-theme="dark"] .error-section,
+            body[data-theme="dark"] .ai-error {
+                background: #3f1d1d;
+                border-color: #7f1d1d;
+                color: #fecaca;
+            }
         </style>
     </head>
-    <body>
+    <body data-default-view=""" + display_mode + """>
         <div class="container">
             <div class="header">
                 <div class="save-buttons">
                     <button class="save-btn" onclick="saveAsImage()">保存为图片</button>
                     <button class="save-btn" onclick="saveAsMultipleImages()">分段保存</button>
+                    <button class="save-btn theme-toggle" id="theme-toggle" onclick="toggleTheme()" aria-label="切换主题">🌙</button>
                 </div>
                 <div class="header-title">热点新闻分析</div>
                 <div class="header-info">
@@ -890,13 +1241,17 @@ def render_html_content(
                     </ul>
                 </div>"""
 
-    # 生成热点词汇统计部分的HTML
-    stats_html = ""
-    topic_tabs: List[Dict[str, Any]] = []
-    if report_data["stats"]:
-        total_count = len(report_data["stats"])
+    def build_hotlist_view(stats: List[Dict], view_mode: str) -> str:
+        """构建热榜视图（关键词/平台）"""
+        if not stats:
+            return ""
 
-        for i, stat in enumerate(report_data["stats"], 1):
+        total_count = len(stats)
+        view_news_count = sum(len(stat["titles"]) for stat in stats)
+        tabs = []
+        stats_html = ""
+
+        for i, stat in enumerate(stats, 1):
             count = stat["count"]
 
             # 确定热度等级
@@ -908,7 +1263,7 @@ def render_html_content(
                 count_class = ""
 
             escaped_word = html_escape(stat["word"])
-            topic_tabs.append({"word": escaped_word, "count": count})
+            tabs.append({"word": escaped_word, "count": count})
 
             stats_html += f"""
                 <div class="word-group" data-topic="{escaped_word}">
@@ -924,22 +1279,26 @@ def render_html_content(
             for j, title_data in enumerate(stat["titles"], 1):
                 is_new = title_data.get("is_new", False)
                 new_class = "new" if is_new else ""
+                source_name = html_escape(title_data.get("source_name", ""))
+                matched_keyword = title_data.get("matched_keyword", "")
+                keyword_label = html_escape(matched_keyword) if matched_keyword else escaped_word
+
+                search_blob = f"{title_data.get('title', '')} {title_data.get('source_name', '')} {matched_keyword} {stat['word']}"
+                search_attr = html_escape(search_blob.lower())
 
                 stats_html += f"""
-                    <div class="news-item {new_class}">
+                    <div class="news-item {new_class}" data-search="{search_attr}">
                         <div class="news-number">{j}</div>
                         <div class="news-content">
                             <div class="news-header">"""
 
-                # 根据 display_mode 决定显示来源还是关键词
-                if display_mode == "keyword":
-                    # keyword 模式：显示来源
-                    stats_html += f'<span class="source-name">{html_escape(title_data["source_name"])}</span>'
+                if view_mode == "keyword":
+                    stats_html += f'<span class="source-name">{source_name}</span>'
                 else:
-                    # platform 模式：显示关键词
-                    matched_keyword = title_data.get("matched_keyword", "")
                     if matched_keyword:
                         stats_html += f'<span class="keyword-tag">[{html_escape(matched_keyword)}]</span>'
+                    else:
+                        stats_html += f'<span class="keyword-tag">[{escaped_word}]</span>'
 
                 # 处理排名显示
                 ranks = title_data.get("ranks", [])
@@ -966,15 +1325,12 @@ def render_html_content(
                 # 处理时间显示
                 time_display = title_data.get("time_display", "")
                 if time_display:
-                    # 简化时间显示格式，将波浪线替换为~
                     simplified_time = (
                         time_display.replace(" ~ ", "~")
                         .replace("[", "")
                         .replace("]", "")
                     )
-                    stats_html += (
-                        f'<span class="time-info">{html_escape(simplified_time)}</span>'
-                    )
+                    stats_html += f'<span class="time-info">{html_escape(simplified_time)}</span>'
 
                 # 处理出现次数
                 count_info = title_data.get("count", 1)
@@ -1003,17 +1359,14 @@ def render_html_content(
             stats_html += """
                 </div>"""
 
-    # 给热榜统计添加外层包装
-    if stats_html:
         tabs_html = ""
-        if len(topic_tabs) > 1:
-            tabs_html = """
-                <div class="topic-tabs" role="tablist" aria-label="主题切换">"""
-            tabs_html += f"""
+        if len(tabs) > 1:
+            tabs_html = f"""
+                <div class="topic-tabs" role="tablist" aria-label="主题切换">
                     <button class="topic-tab active" data-topic="all">
-                        全部 <span class="topic-count">{hot_news_count}</span>
+                        全部 <span class="topic-count">{view_news_count}</span>
                     </button>"""
-            for tab in topic_tabs:
+            for tab in tabs:
                 tabs_html += f"""
                     <button class="topic-tab" data-topic="{tab['word']}">
                         {tab['word']} <span class="topic-count">{tab['count']}</span>
@@ -1021,9 +1374,48 @@ def render_html_content(
             tabs_html += """
                 </div>"""
 
+        return f"""
+                <div class="hotlist-view" data-view="{view_mode}">
+                    {tabs_html}{stats_html}
+                </div>"""
+
+    # 生成热点词汇统计部分的HTML（支持关键词/平台切换）
+    stats_html = ""
+    if report_data["stats"]:
+        view_options = [display_mode]
+        if alternate_report_data and alternate_display_mode and alternate_display_mode not in view_options:
+            view_options.append(alternate_display_mode)
+
+        view_toggle_html = ""
+        if len(view_options) > 1:
+            labels = {"keyword": "关键词", "platform": "平台"}
+            view_order = [v for v in ["keyword", "platform"] if v in view_options]
+            view_toggle_html = '<div class="view-toggle" role="tablist">'
+            for view in view_order:
+                view_toggle_html += f'<button class="view-btn" data-view="{view}">{labels.get(view, view)}</button>'
+            view_toggle_html += "</div>"
+
+        controls_html = f"""
+                <div class="controls">
+                    <div class="controls-left">
+                        {view_toggle_html}
+                    </div>
+                    <div class="controls-right">
+                        <input id="search-input" class="search-input" type="search" placeholder="搜索标题/来源/关键词">
+                    </div>
+                </div>"""
+
+        main_view_html = build_hotlist_view(report_data["stats"], display_mode)
+        alternate_view_html = ""
+        if alternate_report_data and alternate_display_mode:
+            alternate_view_html = build_hotlist_view(alternate_report_data.get("stats", []), alternate_display_mode)
+
         stats_html = f"""
                 <div class="hotlist-section">
-                    {tabs_html}{stats_html}
+                    {controls_html}
+                    {main_view_html}
+                    {alternate_view_html}
+                    <div id="search-empty" style="display:none; color:#94a3b8; font-size:13px; margin-top:8px;">无匹配结果</div>
                 </div>"""
 
     # 生成新增新闻区域的HTML
@@ -1432,6 +1824,36 @@ def render_html_content(
         "ai_analysis": ai_html,
     }
 
+    section_labels = {
+        "hotlist": "热榜",
+        "rss": "RSS",
+        "new_items": "新增",
+        "standalone": "独立",
+        "ai_analysis": "AI分析",
+    }
+
+    available_sections = []
+    for region in region_order:
+        content = region_contents.get(region, "")
+        if region == "new_items":
+            new_html, rss_new = content
+            if new_html or rss_new:
+                available_sections.append(region)
+        elif content:
+            available_sections.append(region)
+
+    if len(available_sections) > 1:
+        section_tabs_html = """
+                <div class="section-tabs" role="tablist" aria-label="区域切换">
+                    <button class="section-tab active" data-section="all">全部</button>"""
+        for region in available_sections:
+            label = section_labels.get(region, region)
+            section_tabs_html += f"""
+                    <button class="section-tab" data-section="{region}">{label}</button>"""
+        section_tabs_html += """
+                </div>"""
+        html += section_tabs_html
+
     def add_section_divider(content: str) -> str:
         """为内容的外层 div 添加 section-divider 类"""
         if not content or 'class="' not in content:
@@ -1442,6 +1864,9 @@ def render_html_content(
             return content[:insert_pos] + "section-divider " + content[insert_pos:]
         return content
 
+    def wrap_section(region: str, content: str) -> str:
+        return f'<section class="report-section" data-section="{region}">{content}</section>'
+
     # 按 region_order 顺序组装内容，动态添加分割线
     has_previous_content = False
     for region in region_order:
@@ -1449,20 +1874,24 @@ def render_html_content(
         if region == "new_items":
             # 特殊处理 new_items 区域（包含热榜新增和 RSS 新增两部分）
             new_html, rss_new = content
+            section_content = ""
             if new_html:
                 if has_previous_content:
                     new_html = add_section_divider(new_html)
-                html += new_html
-                has_previous_content = True
+                section_content += new_html
             if rss_new:
-                if has_previous_content:
+                if section_content:
                     rss_new = add_section_divider(rss_new)
-                html += rss_new
+                elif has_previous_content:
+                    rss_new = add_section_divider(rss_new)
+                section_content += rss_new
+            if section_content:
+                html += wrap_section(region, section_content)
                 has_previous_content = True
         elif content:
             if has_previous_content:
                 content = add_section_divider(content)
-            html += content
+            html += wrap_section(region, content)
             has_previous_content = True
 
     html += """
@@ -1491,6 +1920,8 @@ def render_html_content(
             async function saveAsImage() {
                 const button = event.target;
                 const originalText = button.textContent;
+                const isDark = document.body.dataset.theme === 'dark';
+                const backgroundColor = isDark ? '#0b1220' : '#ffffff';
 
                 try {
                     button.textContent = '生成中...';
@@ -1510,7 +1941,7 @@ def render_html_content(
                     const container = document.querySelector('.container');
 
                     const canvas = await html2canvas(container, {
-                        backgroundColor: '#ffffff',
+                        backgroundColor: backgroundColor,
                         scale: 1.5,
                         useCORS: true,
                         allowTaint: false,
@@ -1565,6 +1996,8 @@ def render_html_content(
                 const container = document.querySelector('.container');
                 const scale = 1.5;
                 const maxHeight = 5000 / scale;
+                const isDark = document.body.dataset.theme === 'dark';
+                const backgroundColor = isDark ? '#0b1220' : '#ffffff';
 
                 try {
                     button.textContent = '分析中...';
@@ -1712,7 +2145,7 @@ def render_html_content(
                             left: -9999px;
                             top: 0;
                             width: ${container.offsetWidth}px;
-                            background: white;
+                            background: ${backgroundColor};
                         `;
                         tempContainer.className = 'container';
 
@@ -1733,7 +2166,7 @@ def render_html_content(
 
                         // 使用html2canvas截取特定区域
                         const canvas = await html2canvas(clonedContainer, {
-                            backgroundColor: '#ffffff',
+                            backgroundColor: backgroundColor,
                             scale: scale,
                             useCORS: true,
                             allowTaint: false,
@@ -1790,37 +2223,191 @@ def render_html_content(
                 }
             }
 
-            function initTopicTabs() {
-                const tabs = Array.from(document.querySelectorAll('.topic-tab'));
+            const THEME_KEY = 'trendradar_theme';
+            const VIEW_KEY = 'trendradar_view';
+            const SECTION_KEY = 'trendradar_section';
+
+            function setTheme(theme) {
+                document.body.dataset.theme = theme;
+                localStorage.setItem(THEME_KEY, theme);
+                const btn = document.getElementById('theme-toggle');
+                if (btn) {
+                    btn.textContent = theme === 'dark' ? '☀️' : '🌙';
+                }
+            }
+
+            function toggleTheme() {
+                const current = document.body.dataset.theme || 'light';
+                setTheme(current === 'dark' ? 'light' : 'dark');
+            }
+
+            function getActiveView() {
+                const views = Array.from(document.querySelectorAll('.hotlist-view'));
+                return views.find(view => view.style.display !== 'none') || views[0] || null;
+            }
+
+            function setSection(section) {
+                const tabs = Array.from(document.querySelectorAll('.section-tab'));
                 if (!tabs.length) {
                     return;
                 }
-                const groups = Array.from(document.querySelectorAll('.hotlist-section .word-group'));
+                const available = tabs.map(t => t.dataset.section);
+                let target = available.includes(section) ? section : 'all';
+                if (!available.includes(target)) {
+                    target = available[0];
+                }
 
-                const setActive = (topic) => {
-                    tabs.forEach((tab) => {
-                        tab.classList.toggle('active', tab.dataset.topic === topic);
-                    });
-                    groups.forEach((group) => {
-                        const match = topic === 'all' || group.dataset.topic === topic;
-                        if (match) {
-                            group.removeAttribute('data-hidden');
-                        } else {
-                            group.setAttribute('data-hidden', 'true');
-                        }
-                    });
-                };
-
-                tabs.forEach((tab) => {
-                    tab.addEventListener('click', () => setActive(tab.dataset.topic));
+                document.querySelectorAll('.report-section').forEach(sec => {
+                    const match = target === 'all' || sec.dataset.section === target;
+                    sec.dataset.hidden = match ? "false" : "true";
                 });
 
-                setActive('all');
+                tabs.forEach(tab => {
+                    tab.classList.toggle('active', tab.dataset.section === target);
+                });
+
+                localStorage.setItem(SECTION_KEY, target);
+
+                if (target === 'all' || target === 'hotlist') {
+                    applySearchFilter();
+                }
+            }
+
+            function setView(view) {
+                const views = Array.from(document.querySelectorAll('.hotlist-view'));
+                if (!views.length) {
+                    return;
+                }
+                const available = views.map(v => v.dataset.view);
+                const targetView = available.includes(view) ? view : available[0];
+                views.forEach(v => {
+                    v.style.display = v.dataset.view === targetView ? '' : 'none';
+                });
+                document.querySelectorAll('.view-btn').forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.view === targetView);
+                });
+                localStorage.setItem(VIEW_KEY, targetView);
+                applySearchFilter();
+            }
+
+            function initSectionTabs() {
+                const tabs = document.querySelectorAll('.section-tab');
+                if (!tabs.length) {
+                    return;
+                }
+                document.body.dataset.sectionTabs = 'true';
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', () => setSection(tab.dataset.section));
+                });
+                const saved = localStorage.getItem(SECTION_KEY) || 'all';
+                setSection(saved);
+            }
+
+            function initViewToggle() {
+                const viewButtons = document.querySelectorAll('.view-btn');
+                if (!viewButtons.length) {
+                    return;
+                }
+                viewButtons.forEach(btn => {
+                    btn.addEventListener('click', () => setView(btn.dataset.view));
+                });
+                const defaultView = document.body.dataset.defaultView || 'keyword';
+                const savedView = localStorage.getItem(VIEW_KEY);
+                setView(savedView || defaultView);
+            }
+
+            function initTopicTabs() {
+                document.querySelectorAll('.hotlist-view').forEach(view => {
+                    const tabs = Array.from(view.querySelectorAll('.topic-tab'));
+                    if (!tabs.length) {
+                        return;
+                    }
+                    const groups = Array.from(view.querySelectorAll('.word-group'));
+                    const storageKey = `trendradar_topic_${view.dataset.view}`;
+
+                    const setActive = (topic) => {
+                        let found = false;
+                        tabs.forEach(tab => {
+                            if (tab.dataset.topic === topic) {
+                                found = true;
+                                tab.classList.add('active');
+                            } else {
+                                tab.classList.remove('active');
+                            }
+                        });
+                        const target = found ? topic : 'all';
+                        groups.forEach(group => {
+                            const match = target === 'all' || group.dataset.topic === target;
+                            group.dataset.hidden = match ? "false" : "true";
+                        });
+                        localStorage.setItem(storageKey, target);
+                        applySearchFilter();
+                    };
+
+                    tabs.forEach(tab => {
+                        tab.addEventListener('click', () => setActive(tab.dataset.topic));
+                    });
+
+                    const saved = localStorage.getItem(storageKey) || 'all';
+                    setActive(saved);
+                });
+            }
+
+            function applySearchFilter() {
+                const input = document.getElementById('search-input');
+                if (!input) {
+                    return;
+                }
+                const query = input.value.trim().toLowerCase();
+                const view = getActiveView();
+                if (!view) {
+                    return;
+                }
+
+                let anyVisible = false;
+                const groups = Array.from(view.querySelectorAll('.word-group'));
+                groups.forEach(group => {
+                    const isHidden = group.dataset.hidden === "true";
+                    let visibleCount = 0;
+                    group.querySelectorAll('.news-item').forEach(item => {
+                        const hay = (item.dataset.search || '').toLowerCase();
+                        const match = !query || hay.includes(query);
+                        item.style.display = match ? '' : 'none';
+                        if (match) {
+                            visibleCount += 1;
+                        }
+                    });
+                    if (isHidden) {
+                        group.dataset.filtered = "true";
+                        return;
+                    }
+                    group.dataset.filtered = visibleCount === 0 ? "true" : "false";
+                    if (visibleCount > 0) {
+                        anyVisible = true;
+                    }
+                });
+
+                const empty = document.getElementById('search-empty');
+                if (empty) {
+                    empty.style.display = anyVisible ? 'none' : 'block';
+                }
+            }
+
+            function initSearch() {
+                const input = document.getElementById('search-input');
+                if (!input) {
+                    return;
+                }
+                input.addEventListener('input', applySearchFilter);
             }
 
             document.addEventListener('DOMContentLoaded', function() {
                 window.scrollTo(0, 0);
+                setTheme(localStorage.getItem(THEME_KEY) || 'light');
+                initSectionTabs();
+                initViewToggle();
                 initTopicTabs();
+                initSearch();
             });
         </script>
     </body>

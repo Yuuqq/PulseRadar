@@ -154,6 +154,8 @@ def generate_html_report(
     render_html_func: Optional[Callable] = None,
     matches_word_groups_func: Optional[Callable] = None,
     load_frequency_words_func: Optional[Callable] = None,
+    alternate_stats: Optional[List[Dict]] = None,
+    alternate_display_mode: Optional[str] = None,
 ) -> str:
     """
     生成 HTML 报告
@@ -202,10 +204,28 @@ def generate_html_report(
         load_frequency_words_func,
     )
 
+    alternate_report_data = None
+    if alternate_stats:
+        alternate_report_data = prepare_report_data(
+            alternate_stats,
+            failed_ids,
+            new_titles,
+            id_to_name,
+            mode,
+            rank_threshold,
+            matches_word_groups_func,
+            load_frequency_words_func,
+        )
+
     # 渲染 HTML 内容
     if render_html_func:
         html_content = render_html_func(
-            report_data, total_titles, mode, update_info
+            report_data,
+            total_titles,
+            mode,
+            update_info,
+            alternate_report_data=alternate_report_data,
+            alternate_display_mode=alternate_display_mode,
         )
     else:
         # 默认简单 HTML

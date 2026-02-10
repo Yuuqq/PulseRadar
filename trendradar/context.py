@@ -259,6 +259,7 @@ class AppContext:
             global_filters=global_filters,
             weight_config=self.weight_config,
             max_news_per_keyword=self.config.get("MAX_NEWS_PER_KEYWORD", 0),
+            max_keywords=self.config.get("MAX_KEYWORDS", 0),
             sort_by_position_first=self.config.get("SORT_BY_POSITION_FIRST", False),
             is_first_crawl_func=self.is_first_crawl,
             convert_time_func=self.convert_time_display,
@@ -301,6 +302,8 @@ class AppContext:
         rss_new_items: Optional[List[Dict]] = None,
         ai_analysis: Optional[Any] = None,
         standalone_data: Optional[Dict] = None,
+        alternate_stats: Optional[List[Dict]] = None,
+        alternate_display_mode: Optional[str] = None,
     ) -> str:
         """生成HTML报告"""
         return generate_html_report(
@@ -318,6 +321,8 @@ class AppContext:
             render_html_func=lambda *args, **kwargs: self.render_html(*args, rss_items=rss_items, rss_new_items=rss_new_items, ai_analysis=ai_analysis, standalone_data=standalone_data, **kwargs),
             matches_word_groups_func=self.matches_word_groups,
             load_frequency_words_func=self.load_frequency_words,
+            alternate_stats=alternate_stats,
+            alternate_display_mode=alternate_display_mode,
         )
 
     def render_html(
@@ -330,6 +335,8 @@ class AppContext:
         rss_new_items: Optional[List[Dict]] = None,
         ai_analysis: Optional[Any] = None,
         standalone_data: Optional[Dict] = None,
+        alternate_report_data: Optional[Dict] = None,
+        alternate_display_mode: Optional[str] = None,
     ) -> str:
         """渲染HTML内容"""
         return render_html_content(
@@ -345,6 +352,8 @@ class AppContext:
             ai_analysis=ai_analysis,
             show_new_section=self.show_new_section,
             standalone_data=standalone_data,
+            alternate_report_data=alternate_report_data,
+            alternate_display_mode=alternate_display_mode,
         )
 
     # === 通知内容渲染 ===

@@ -61,6 +61,10 @@
 
 </div>
 
+> 🗂️ **工程变更总览**：[`CHANGELOG.md`](CHANGELOG.md)
+>
+> 🧾 **Workflow UI 变更记录（2026-02-09）**：[`docs/workflow_ui_change_log_2026-02-09.md`](docs/workflow_ui_change_log_2026-02-09.md)
+
 <br>
 
 - 感谢**为项目点 star** 的观众们，**fork** 你所欲也，**star** 我所欲也，两者得兼😍是对开源精神最好的支持

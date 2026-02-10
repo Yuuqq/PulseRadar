@@ -45,6 +45,14 @@
                     <span class="nav-icon">📋</span>
                     <span class="nav-text">历史报告</span>
                 </a>
+                <a href="/workflow" class="nav-item {% if request.path == '/workflow' %}active{% endif %}">
+                    <span class="nav-icon">⚙️</span>
+                    <span class="nav-text">Workflow</span>
+                </a>
+                <a href="/jobs" class="nav-item {% if request.path == '/jobs' %}active{% endif %}">
+                    <span class="nav-icon">🧩</span>
+                    <span class="nav-text">任务中心</span>
+                </a>
                 <a href="/settings" class="nav-item {% if request.path == '/settings' %}active{% endif %}">
                     <span class="nav-icon">⚙️</span>
                     <span class="nav-text">高级设置</span>
@@ -79,10 +87,29 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h3>运行状态</h3>
-                <button class="modal-close">&times;</button>
+                <div class="modal-actions">
+                    <a id="download-log-btn" class="btn btn-ghost btn-sm" href="/api/run-log" download>下载日志</a>
+                    <button class="modal-close">&times;</button>
+                </div>
             </div>
             <div class="modal-body">
                 <div id="run-log" class="log-container"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="global-confirm-modal" class="modal global-confirm-modal">
+        <div class="modal-content global-confirm-content">
+            <div class="modal-header">
+                <h3 id="global-confirm-title">Confirm Action</h3>
+                <button id="global-confirm-close" class="modal-close" type="button">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="global-confirm-message" class="global-confirm-message">Are you sure?</div>
+                <div class="global-confirm-actions">
+                    <button id="global-confirm-cancel" class="btn btn-sm btn-ghost" type="button">Cancel</button>
+                    <button id="global-confirm-ok" class="btn btn-sm btn-primary" type="button">Confirm</button>
+                </div>
             </div>
         </div>
     </div>

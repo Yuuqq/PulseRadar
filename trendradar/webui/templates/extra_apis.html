@@ -63,6 +63,80 @@
                     <p class="api-desc">开源多平台热榜聚合</p>
                 </div>
             </div>
+
+            <!-- Eastmoney -->
+            <div class="api-card" data-type="eastmoney" data-id="eastmoney-kuaixun">
+                <div class="api-header">
+                    <label class="toggle-label">
+                        <input type="checkbox" class="api-enabled">
+                        <span class="toggle-slider small"></span>
+                    </label>
+                    <span class="api-name">东方财富 7x24 快讯</span>
+                    <button class="btn btn-sm btn-ghost" onclick="testApi(this)">测试</button>
+                </div>
+                <div class="api-body">
+                    <div class="form-row">
+                        <label>频道ID</label>
+                        <input type="text" class="input api-channel" value="102" placeholder="如 102">
+                    </div>
+                    <div class="form-row">
+                        <label>条数</label>
+                        <input type="number" class="input api-page-size" value="50" min="1" max="100">
+                    </div>
+                    <div class="form-row">
+                        <label>页码</label>
+                        <input type="number" class="input api-page" value="1" min="1" max="10">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wallstreetcn -->
+            <div class="api-card" data-type="wallstreetcn" data-id="wallstreetcn-live">
+                <div class="api-header">
+                    <label class="toggle-label">
+                        <input type="checkbox" class="api-enabled">
+                        <span class="toggle-slider small"></span>
+                    </label>
+                    <span class="api-name">华尔街见闻 实时快讯</span>
+                    <button class="btn btn-sm btn-ghost" onclick="testApi(this)">测试</button>
+                </div>
+                <div class="api-body">
+                    <div class="form-row">
+                        <label>频道</label>
+                        <input type="text" class="input api-channel" value="global-channel" placeholder="如 global-channel/stock-channel/forex-channel">
+                    </div>
+                    <div class="form-row">
+                        <label>条数</label>
+                        <input type="number" class="input api-limit" value="50" min="1" max="100">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 10jqka -->
+            <div class="api-card" data-type="10jqka" data-id="10jqka-finance">
+                <div class="api-header">
+                    <label class="toggle-label">
+                        <input type="checkbox" class="api-enabled">
+                        <span class="toggle-slider small"></span>
+                    </label>
+                    <span class="api-name">同花顺 资讯</span>
+                    <button class="btn btn-sm btn-ghost" onclick="testApi(this)">测试</button>
+                </div>
+                <div class="api-body">
+                    <div class="form-row">
+                        <label>页面URL</label>
+                        <input type="text" class="input api-url" value="https://news.10jqka.com.cn/clientinfo/finance.html">
+                    </div>
+                    <div class="form-row">
+                        <label>条数</label>
+                        <input type="number" class="input api-max-items" value="50" min="1" max="200">
+                    </div>
+                    <div class="form-row">
+                        <label>编码</label>
+                        <input type="text" class="input api-encoding" value="gbk" placeholder="如 gbk/utf-8">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -215,6 +289,34 @@ document.addEventListener('DOMContentLoaded', function() {
                             const sel = card.querySelector('.api-category');
                             if (sel) sel.value = source.category;
                         }
+                        if (source.channel) {
+                            const input = card.querySelector('.api-channel');
+                            if (input) input.value = source.channel;
+                        }
+                        if (source.page_size) {
+                            const input = card.querySelector('.api-page-size');
+                            if (input) input.value = source.page_size;
+                        }
+                        if (source.page) {
+                            const input = card.querySelector('.api-page');
+                            if (input) input.value = source.page;
+                        }
+                        if (source.limit) {
+                            const input = card.querySelector('.api-limit');
+                            if (input) input.value = source.limit;
+                        }
+                        if (source.url) {
+                            const input = card.querySelector('.api-url');
+                            if (input) input.value = source.url;
+                        }
+                        if (source.max_items) {
+                            const input = card.querySelector('.api-max-items');
+                            if (input) input.value = source.max_items;
+                        }
+                        if (source.encoding) {
+                            const input = card.querySelector('.api-encoding');
+                            if (input) input.value = source.encoding;
+                        }
                     }
                 });
             }
@@ -230,6 +332,13 @@ function testApi(btn) {
         country: card.querySelector('.api-country')?.value || 'us',
         countries: card.querySelector('.api-countries')?.value || 'us',
         category: card.querySelector('.api-category')?.value || '',
+        channel: card.querySelector('.api-channel')?.value || '',
+        page_size: card.querySelector('.api-page-size')?.value || '',
+        page: card.querySelector('.api-page')?.value || '',
+        limit: card.querySelector('.api-limit')?.value || '',
+        url: card.querySelector('.api-url')?.value || '',
+        max_items: card.querySelector('.api-max-items')?.value || '',
+        encoding: card.querySelector('.api-encoding')?.value || '',
     };
 
     showToast('正在测试...', 'info');
@@ -276,6 +385,27 @@ function saveExtraApis() {
 
         const category = card.querySelector('.api-category');
         if (category) source.category = category.value;
+
+        const channel = card.querySelector('.api-channel');
+        if (channel) source.channel = channel.value;
+
+        const pageSize = card.querySelector('.api-page-size');
+        if (pageSize) source.page_size = parseInt(pageSize.value) || pageSize.value;
+
+        const page = card.querySelector('.api-page');
+        if (page) source.page = parseInt(page.value) || page.value;
+
+        const limit = card.querySelector('.api-limit');
+        if (limit) source.limit = parseInt(limit.value) || limit.value;
+
+        const url = card.querySelector('.api-url');
+        if (url) source.url = url.value;
+
+        const maxItems = card.querySelector('.api-max-items');
+        if (maxItems) source.max_items = parseInt(maxItems.value) || maxItems.value;
+
+        const encoding = card.querySelector('.api-encoding');
+        if (encoding) source.encoding = encoding.value;
 
         sources.push(source);
     });

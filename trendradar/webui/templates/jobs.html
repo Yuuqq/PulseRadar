@@ -1,0 +1,1034 @@
+{% extends "base.html" %}
+
+{% block page_title %}任务中心{% endblock %}
+
+{% block content %}
+<div class="jobs-layout">
+    <section class="section jobs-list-panel">
+        <div class="section-header jobs-header">
+            <div>
+                <h3 class="section-title jobs-title">任务列表</h3>
+                <p class="section-desc">支持分页、搜索、筛选、清理历史与一键重试</p>
+            </div>
+            <div class="jobs-actions">
+                <input id="jobs-search" class="input jobs-search" placeholder="搜索任务ID/状态/命令" />
+                <select id="jobs-filter" class="input jobs-filter">
+                    <option value="">全部任务</option>
+                    <option value="active">仅运行中</option>
+                    <option value="failed">仅失败</option>
+                    <option value="success">仅成功</option>
+                    <option value="queued,running,cancelling">排队/运行</option>
+                </select>
+                <button class="btn btn-sm btn-ghost" id="jobs-share-btn">复制链接</button>
+                <button class="btn btn-sm btn-ghost" id="jobs-retry-note-reset-btn">清空展开状态</button>
+                <button class="btn btn-sm btn-ghost" id="jobs-cleanup-btn">清理已结束</button>
+                <button class="btn btn-sm btn-ghost" id="jobs-refresh-btn">刷新</button>
+                <button class="btn btn-sm btn-primary" id="jobs-create-btn">新建任务</button>
+            </div>
+        </div>
+
+        <div id="jobs-list-meta" class="jobs-list-meta"></div>
+
+        <div id="jobs-list" class="jobs-list">
+            <div class="loading">加载中...</div>
+        </div>
+
+        <div class="jobs-pagination" id="jobs-pagination">
+            <button class="btn btn-sm btn-ghost" id="jobs-prev-btn">上一页</button>
+            <span class="jobs-page-info" id="jobs-page-info">-</span>
+            <button class="btn btn-sm btn-ghost" id="jobs-next-btn">下一页</button>
+        </div>
+    </section>
+
+    <section class="section jobs-detail-panel">
+        <div class="section-header jobs-detail-header">
+            <h3 class="section-title jobs-title">任务详情</h3>
+            <div class="jobs-detail-actions" id="jobs-detail-actions" style="display:none;">
+                <a id="jobs-download-log" class="btn btn-sm btn-ghost" href="#" download>下载日志</a>
+                <button id="jobs-cancel-btn" class="btn btn-sm btn-danger">取消任务</button>
+                <button id="jobs-retry-btn" class="btn btn-sm btn-primary">重试任务</button>
+            </div>
+        </div>
+
+        <div id="jobs-empty" class="empty-state">请选择左侧任务查看详情</div>
+
+        <div id="jobs-detail" class="jobs-detail" style="display:none;">
+            <div class="jobs-progress-block" id="jobs-progress-block"></div>
+            <div class="jobs-timeline" id="jobs-timeline"></div>
+
+            <div class="jobs-metrics" id="jobs-metrics"></div>
+
+            <div class="jobs-artifacts" id="jobs-artifacts" style="display:none;">
+                <div class="jobs-artifacts-title">报告产物</div>
+                <div class="jobs-artifacts-list" id="jobs-artifacts-list"></div>
+            </div>
+
+            <div class="jobs-log-wrap">
+                <div class="jobs-log-title">运行日志</div>
+                <div id="jobs-log" class="log-container jobs-log"></div>
+            </div>
+        </div>
+    </section>
+</div>
+
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+let jobsAutoTimer = null;
+let selectedJobId = null;
+let jobsFilterValue = '';
+let jobsQueryValue = '';
+let jobsCurrentPage = 1;
+let jobsPageSize = 20;
+let jobsTotalPages = 1;
+let autoFollowActive = true;
+let pendingRevealJobId = null;
+let revealHighlightTimer = null;
+
+const ACTIVE_STATUSES = new Set(['queued', 'running', 'cancelling']);
+const PROGRESS_STEPS = ['queued', 'starting', 'crawl', 'rss', 'ai', 'report', 'notify', 'finished'];
+const PROGRESS_LABELS = {
+    queued: '排队',
+    starting: '启动',
+    crawl: '抓取',
+    rss: 'RSS',
+    ai: 'AI',
+    report: '报告',
+    notify: '通知',
+    finished: '完成',
+};
+const RETRY_STRATEGY_LABELS = {
+    full: '全量重跑',
+    from_failed_stage: '失败阶段继续',
+};
+const RETRY_STRATEGY_NOTES = {
+    full_rerun: '按原命令全量重跑',
+    add_force_push_for_notify_stage: '通知阶段失败，自动追加 --force-push',
+    add_force_ai_for_ai_or_report_stage: 'AI/报告阶段失败，自动追加 --force-ai',
+    fallback_to_full_for_stage: '该阶段暂不支持分段恢复，回退为全量重跑',
+};
+const RETRY_TOOLTIP_NOTE_MAX = 48;
+const RETRY_DETAIL_NOTE_MAX = 80;
+const RETRY_NOTE_EXPAND_STORAGE_KEY = 'trendradar.jobs.retry_note_expand.v1';
+let retryNoteExpandStateCache = null;
+
+function readStateFromUrl() {
+    const params = new URLSearchParams(window.location.search || '');
+    const pageValue = Number.parseInt(params.get('page') || '1', 10);
+    const pageSizeValue = Number.parseInt(params.get('page_size') || '20', 10);
+
+    jobsFilterValue = params.get('status') || '';
+    jobsQueryValue = params.get('q') || '';
+    jobsCurrentPage = Number.isNaN(pageValue) || pageValue < 1 ? 1 : pageValue;
+    jobsPageSize = Number.isNaN(pageSizeValue) || pageSizeValue < 1 ? 20 : pageSizeValue;
+    selectedJobId = params.get('job_id') || null;
+    pendingRevealJobId = selectedJobId;
+    autoFollowActive = !selectedJobId;
+}
+
+function syncStateToUrl() {
+    const url = new URL(window.location.href);
+    url.searchParams.delete('status');
+    url.searchParams.delete('q');
+    url.searchParams.delete('page');
+    url.searchParams.delete('page_size');
+    url.searchParams.delete('job_id');
+
+    if (jobsFilterValue) {
+        url.searchParams.set('status', jobsFilterValue);
+    }
+    if (jobsQueryValue) {
+        url.searchParams.set('q', jobsQueryValue);
+    }
+    if (jobsCurrentPage > 1) {
+        url.searchParams.set('page', String(jobsCurrentPage));
+    }
+    if (jobsPageSize !== 20) {
+        url.searchParams.set('page_size', String(jobsPageSize));
+    }
+    if (selectedJobId) {
+        url.searchParams.set('job_id', selectedJobId);
+    }
+
+    window.history.replaceState(null, '', `${url.pathname}${url.search}`);
+}
+
+function jobStatusLabel(status) {
+    const map = {
+        queued: '排队中',
+        running: '运行中',
+        cancelling: '取消中',
+        cancelled: '已取消',
+        success: '已成功',
+        failed: '已失败',
+    };
+    return map[status] || status || '未知';
+}
+
+function jobStatusClass(status) {
+    if (status === 'success') return 'badge-success';
+    if (status === 'failed' || status === 'cancelled') return 'badge-danger';
+    if (ACTIVE_STATUSES.has(status)) return 'badge-warning';
+    return 'badge-gray';
+}
+
+function stageProgressIndex(stage, status) {
+    if (status === 'success') return PROGRESS_STEPS.length - 1;
+    const index = PROGRESS_STEPS.indexOf(stage);
+    return index >= 0 ? index : 0;
+}
+
+function formatDuration(seconds) {
+    if (seconds === null || seconds === undefined) return '-';
+    const value = Number(seconds);
+    if (Number.isNaN(value)) return '-';
+    if (value < 1) return `${Math.round(value * 1000)} ms`;
+    return `${value.toFixed(2)} s`;
+}
+
+function formatTime(value) {
+    if (!value) return '-';
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) return value;
+    return date.toLocaleString();
+}
+
+function buildJobStatusBadge(status) {
+    return `<span class="badge ${jobStatusClass(status)}">${jobStatusLabel(status)}</span>`;
+}
+
+function getRetryStrategyLabel(strategy) {
+    const value = String(strategy || '').trim();
+    if (!value) return '-';
+    return RETRY_STRATEGY_LABELS[value] || value;
+}
+
+function getRetryStrategyNoteText(note) {
+    const value = String(note || '').trim();
+    if (!value) return '-';
+    return RETRY_STRATEGY_NOTES[value] || value;
+}
+
+function truncateText(text, maxLength) {
+    const value = String(text || '');
+    const safeMax = Number.isFinite(maxLength) ? Number(maxLength) : 0;
+    if (safeMax <= 0 || value.length <= safeMax) {
+        return value;
+    }
+    if (safeMax <= 1) {
+        return '…';
+    }
+    return `${value.slice(0, safeMax - 1)}…`;
+}
+
+function loadRetryNoteExpandState() {
+    if (retryNoteExpandStateCache && typeof retryNoteExpandStateCache === 'object') {
+        return retryNoteExpandStateCache;
+    }
+    try {
+        const raw = window.localStorage.getItem(RETRY_NOTE_EXPAND_STORAGE_KEY);
+        const parsed = raw ? JSON.parse(raw) : {};
+        retryNoteExpandStateCache = parsed && typeof parsed === 'object' ? parsed : {};
+    } catch {
+        retryNoteExpandStateCache = {};
+    }
+    return retryNoteExpandStateCache;
+}
+
+function isRetryNoteExpanded(jobId) {
+    const key = String(jobId || '').trim();
+    if (!key) return false;
+    const state = loadRetryNoteExpandState();
+    return state[key] === true;
+}
+
+function persistRetryNoteExpanded(jobId, expanded) {
+    const key = String(jobId || '').trim();
+    if (!key) return;
+
+    const state = loadRetryNoteExpandState();
+    if (expanded) {
+        state[key] = true;
+    } else {
+        delete state[key];
+    }
+
+    try {
+        window.localStorage.setItem(RETRY_NOTE_EXPAND_STORAGE_KEY, JSON.stringify(state));
+    } catch {
+    }
+}
+
+function clearRetryNoteExpandState() {
+    const state = loadRetryNoteExpandState();
+    const savedCount = Object.keys(state).length;
+    if (savedCount <= 0) {
+        showToast('当前没有可清空的展开状态', 'info');
+        return;
+    }
+
+    showConfirmDialog({
+        title: 'Clear Expand State',
+        message: `Clear ${savedCount} saved retry-note expand states?`,
+        confirmText: 'Clear',
+        confirmType: 'danger',
+    }).then((confirmed) => {
+        if (!confirmed) {
+            return;
+        }
+
+        retryNoteExpandStateCache = {};
+        try {
+            window.localStorage.removeItem(RETRY_NOTE_EXPAND_STORAGE_KEY);
+        } catch {
+        }
+
+        if (selectedJobId) {
+            loadJobDetail(selectedJobId, false);
+        }
+        showToast(`已清空 ${savedCount} 条重试说明展开状态`, 'success');
+    });
+}
+
+function buildRetryTooltip(job) {
+    const source = String(job.retry_source_job_id || '').trim();
+    const strategy = String(job.retry_strategy || '').trim();
+    const note = String(job.retry_strategy_note || '').trim();
+    if (!source && !strategy && !note) {
+        return '';
+    }
+
+    const noteText = getRetryStrategyNoteText(note);
+    const tooltipNote = truncateText(noteText, RETRY_TOOLTIP_NOTE_MAX);
+
+    return [
+        `重试来源: ${source ? `#${source}` : '-'}`,
+        `重试策略: ${getRetryStrategyLabel(strategy)}`,
+        `重试说明: ${tooltipNote}`,
+    ].join('\n');
+}
+
+function escapeAttr(value) {
+    return String(value || '')
+        .replace(/&/g, '&amp;')
+        .replace(/"/g, '&quot;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+}
+
+function buildJobsApiUrl() {
+    const params = new URLSearchParams({
+        page: String(jobsCurrentPage),
+        page_size: String(jobsPageSize),
+    });
+    if (jobsFilterValue) {
+        params.set('status', jobsFilterValue);
+    }
+    if (jobsQueryValue) {
+        params.set('q', jobsQueryValue);
+    }
+    return `/api/jobs?${params.toString()}`;
+}
+
+function updatePagination(meta) {
+    const prevBtn = document.getElementById('jobs-prev-btn');
+    const nextBtn = document.getElementById('jobs-next-btn');
+    const pageInfo = document.getElementById('jobs-page-info');
+    const listMeta = document.getElementById('jobs-list-meta');
+
+    jobsTotalPages = meta.total_pages || 1;
+    jobsCurrentPage = meta.page || 1;
+
+    if (prevBtn) {
+        prevBtn.disabled = !meta.has_prev;
+    }
+    if (nextBtn) {
+        nextBtn.disabled = !meta.has_next;
+    }
+    if (pageInfo) {
+        pageInfo.textContent = `第 ${jobsCurrentPage}/${jobsTotalPages} 页`;
+    }
+    if (listMeta) {
+        const total = meta.total || 0;
+        listMeta.textContent = `共 ${total} 条任务记录`;
+    }
+
+    syncStateToUrl();
+}
+
+function loadJobs(autoSelect = false) {
+    fetch(buildJobsApiUrl())
+        .then((response) => response.json())
+        .then((payload) => {
+            const jobsList = Array.isArray(payload.items) ? payload.items : [];
+            updatePagination(payload);
+            renderJobsList(jobsList);
+
+            if (autoFollowActive && !selectedJobId) {
+                const activeJob = jobsList.find((job) => ACTIVE_STATUSES.has(job.status));
+                if (activeJob) {
+                    selectJob(activeJob.id, { manual: false });
+                    return;
+                }
+            }
+
+            if (selectedJobId) {
+                const selectedExists = jobsList.some((job) => job.id === selectedJobId);
+                if (selectedExists) {
+                    loadJobDetail(selectedJobId, false);
+                    return;
+                }
+                selectedJobId = null;
+                pendingRevealJobId = null;
+                clearJobDetail();
+                syncStateToUrl();
+            }
+
+            if (autoSelect && jobsList.length > 0) {
+                selectJob(jobsList[0].id, { manual: false });
+            }
+        })
+        .catch((error) => {
+            const list = document.getElementById('jobs-list');
+            if (list) {
+                list.innerHTML = `<div class="error-state">加载失败: ${escapeHtml(String(error))}</div>`;
+            }
+        });
+}
+
+function renderJobsList(jobs) {
+    const list = document.getElementById('jobs-list');
+    if (!list) return;
+
+    if (jobs.length === 0) {
+        list.innerHTML = '<div class="empty-state">暂无任务，点击“新建任务”开始</div>';
+        return;
+    }
+
+    list.innerHTML = jobs
+        .map((job) => {
+            const active = job.id === selectedJobId ? 'active' : '';
+            const failedClass = job.status === 'failed' ? ' jobs-item-failed' : '';
+            const runningHint = ACTIVE_STATUSES.has(job.status) ? '<span class="jobs-item-dot"></span>' : '';
+            const stageText = PROGRESS_LABELS[job.stage] || job.stage || '-';
+            const queueHint = job.queue_position ? `队列#${job.queue_position}` : stageText;
+            const retryTooltip = buildRetryTooltip(job);
+            const retryTitleAttr = retryTooltip ? ` title="${escapeAttr(retryTooltip)}"` : '';
+            return `
+                <button class="jobs-item ${active}${failedClass}" data-job-id="${job.id}"${retryTitleAttr}>
+                    <div class="jobs-item-head">
+                        <span class="jobs-item-id">#${job.id}</span>
+                        ${buildJobStatusBadge(job.status)}
+                    </div>
+                    <div class="jobs-item-meta">
+                        <span>${escapeHtml(queueHint)}</span>
+                        <span>${formatTime(job.created_at)}</span>
+                    </div>
+                    <div class="jobs-item-foot">
+                        ${runningHint}
+                        <span>${escapeHtml((job.command || []).join(' '))}</span>
+                    </div>
+                </button>
+            `;
+        })
+        .join('');
+
+    list.querySelectorAll('.jobs-item').forEach((button) => {
+        button.addEventListener('click', () => {
+            selectJob(button.dataset.jobId, { manual: true });
+        });
+    });
+
+    revealSelectedJobCard();
+}
+
+function revealSelectedJobCard() {
+    if (!pendingRevealJobId) {
+        return;
+    }
+
+    const list = document.getElementById('jobs-list');
+    if (!list) {
+        return;
+    }
+
+    const target = Array.from(list.querySelectorAll('.jobs-item')).find(
+        (button) => button.dataset.jobId === pendingRevealJobId,
+    );
+
+    if (!target) {
+        return;
+    }
+
+    target.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+    target.classList.remove('jobs-item-target');
+    void target.offsetWidth;
+    target.classList.add('jobs-item-target');
+
+    if (revealHighlightTimer) {
+        clearTimeout(revealHighlightTimer);
+    }
+    revealHighlightTimer = setTimeout(() => {
+        target.classList.remove('jobs-item-target');
+    }, 1400);
+
+    pendingRevealJobId = null;
+}
+
+function selectJob(jobId, options = {}) {
+    const manual = options.manual !== false;
+    if (manual) {
+        autoFollowActive = false;
+        pendingRevealJobId = null;
+    }
+    selectedJobId = jobId;
+    syncStateToUrl();
+    loadJobs(false);
+    loadJobDetail(jobId, true);
+}
+
+function clearJobDetail() {
+    const empty = document.getElementById('jobs-empty');
+    const detail = document.getElementById('jobs-detail');
+    const actions = document.getElementById('jobs-detail-actions');
+    if (empty && detail && actions) {
+        detail.style.display = 'none';
+        detail.classList.remove('jobs-detail-failed');
+        actions.style.display = 'none';
+        empty.style.display = 'block';
+        empty.className = 'empty-state';
+        empty.textContent = '请选择左侧任务查看详情';
+        syncStateToUrl();
+    }
+}
+
+function loadJobDetail(jobId, withLogs = true) {
+    fetch(`/api/jobs/${encodeURIComponent(jobId)}`)
+        .then((response) => {
+            if (!response.ok) throw new Error('任务不存在');
+            return response.json();
+        })
+        .then((job) => {
+            renderJobDetail(job);
+            if (withLogs) {
+                loadJobLogs(jobId);
+            }
+        })
+        .catch((error) => {
+            const empty = document.getElementById('jobs-empty');
+            const detail = document.getElementById('jobs-detail');
+            if (empty && detail) {
+                detail.style.display = 'none';
+                empty.style.display = 'block';
+                empty.className = 'error-state';
+                empty.textContent = `加载任务失败: ${String(error)}`;
+            }
+        });
+}
+
+function renderProgress(job) {
+    const block = document.getElementById('jobs-progress-block');
+    if (!block) return;
+
+    const currentIndex = stageProgressIndex(job.stage, job.status);
+    const statusClass = job.status === 'failed' || job.status === 'cancelled' ? 'is-danger' : '';
+
+    block.innerHTML = `
+        <div class="jobs-progress ${statusClass}">
+            ${PROGRESS_STEPS.map((step, index) => {
+                const stepClass = index <= currentIndex ? 'done' : '';
+                const activeClass = step === job.stage ? 'active' : '';
+                return `<span class="jobs-progress-step ${stepClass} ${activeClass}">${PROGRESS_LABELS[step] || step}</span>`;
+            }).join('')}
+        </div>
+    `;
+}
+
+function renderTimeline(job) {
+    const timeline = document.getElementById('jobs-timeline');
+    if (!timeline) return;
+
+    const points = Array.isArray(job.timeline) ? job.timeline : [];
+    if (!points.length) {
+        timeline.innerHTML = '';
+        return;
+    }
+
+    const allowStepRetry = job.status === 'failed';
+
+    timeline.innerHTML = points
+        .map((point) => {
+            const doneClass = point.reached ? 'done' : '';
+            const failedClass = point.failed ? 'failed' : '';
+            const retryButton = allowStepRetry && point.failed
+                ? `<button class="btn btn-sm btn-ghost jobs-timepoint-retry" data-job-id="${escapeHtml(job.id || '')}">Retry from this stage</button>`
+                : '';
+            return `
+                <div class="jobs-timepoint ${doneClass} ${failedClass}">
+                    <div class="jobs-timepoint-dot"></div>
+                    <div class="jobs-timepoint-content">
+                        <div class="jobs-timepoint-label">${escapeHtml(point.label || point.key || '-')}</div>
+                        <div class="jobs-timepoint-time">${formatTime(point.timestamp)}</div>
+                        ${retryButton}
+                    </div>
+                </div>
+            `;
+        })
+        .join('');
+
+    timeline.querySelectorAll('.jobs-timepoint-retry').forEach((button) => {
+        button.addEventListener('click', () => {
+            const jobId = button.dataset.jobId || '';
+            if (!jobId) {
+                showToast('Missing job id for retry.', 'warning');
+                return;
+            }
+            selectJob(jobId, { manual: true });
+            retryFromFailedStage(jobId);
+        });
+    });
+}
+
+function renderArtifacts(job) {
+    const box = document.getElementById('jobs-artifacts');
+    const list = document.getElementById('jobs-artifacts-list');
+    if (!box || !list) return;
+
+    const links = Array.isArray(job.report_links) ? job.report_links : [];
+    if (!links.length) {
+        box.style.display = 'none';
+        list.innerHTML = '';
+        return;
+    }
+
+    box.style.display = 'block';
+    list.innerHTML = links
+        .map((item) => {
+            const safeName = escapeHtml(item.name || 'artifact');
+            const safeUrl = escapeHtml(item.url || '#');
+            return `<a class="jobs-artifact-link" href="${safeUrl}" target="_blank" rel="noopener noreferrer">📄 ${safeName}</a>`;
+        })
+        .join('');
+}
+
+function renderJobDetail(job) {
+    const empty = document.getElementById('jobs-empty');
+    const detail = document.getElementById('jobs-detail');
+    const actions = document.getElementById('jobs-detail-actions');
+    const metrics = document.getElementById('jobs-metrics');
+    const cancelBtn = document.getElementById('jobs-cancel-btn');
+    const retryBtn = document.getElementById('jobs-retry-btn');
+    const downloadLink = document.getElementById('jobs-download-log');
+
+    if (!empty || !detail || !actions || !metrics || !cancelBtn || !retryBtn || !downloadLink) return;
+
+    empty.style.display = 'none';
+    detail.style.display = 'block';
+    actions.style.display = 'flex';
+    detail.classList.toggle('jobs-detail-failed', job.status === 'failed');
+
+    renderProgress(job);
+    renderTimeline(job);
+
+    const stageText = PROGRESS_LABELS[job.stage] || job.stage || '-';
+    const queueValue = job.queue_position ? `第 ${job.queue_position} 位` : '-';
+    const errorText = job.error ? escapeHtml(job.error) : '-';
+    const errorClass = job.error ? ' jobs-metric-value-error' : '';
+    const retrySource = job.retry_source_job_id ? `#${escapeHtml(job.retry_source_job_id)}` : '-';
+    const retryStrategy = String(job.retry_strategy || '').trim();
+    const retryStrategyLabel = getRetryStrategyLabel(retryStrategy);
+    const retryNote = String(job.retry_strategy_note || '').trim();
+    const retryNoteText = getRetryStrategyNoteText(retryNote);
+    const retryNoteCollapsed = truncateText(retryNoteText, RETRY_DETAIL_NOTE_MAX);
+    const retryNoteNeedExpand = retryNoteText.length > retryNoteCollapsed.length;
+    const retryNoteExpanded = retryNoteNeedExpand && isRetryNoteExpanded(job.id);
+    const retryNoteInitialText = retryNoteExpanded ? retryNoteText : retryNoteCollapsed;
+    const retryNoteContent = retryNoteNeedExpand
+        ? `
+            <span class="jobs-retry-note" data-expanded="${retryNoteExpanded ? 'true' : 'false'}" data-full-text="${escapeAttr(retryNoteText)}" data-collapsed-text="${escapeAttr(retryNoteCollapsed)}">${escapeHtml(retryNoteInitialText)}</span>
+            <button type="button" class="btn btn-sm btn-ghost jobs-retry-note-toggle" data-expanded="${retryNoteExpanded ? 'true' : 'false'}">${retryNoteExpanded ? '收起' : '查看更多'}</button>
+        `
+        : `<span class="jobs-retry-note">${escapeHtml(retryNoteText)}</span>`;
+
+    metrics.innerHTML = `
+        <div class="jobs-metric-card">
+            <span class="jobs-metric-label">任务ID</span>
+            <span class="jobs-metric-value">${escapeHtml(job.id)}</span>
+        </div>
+        <div class="jobs-metric-card">
+            <span class="jobs-metric-label">状态</span>
+            <span class="jobs-metric-value">${buildJobStatusBadge(job.status)}</span>
+        </div>
+        <div class="jobs-metric-card">
+            <span class="jobs-metric-label">阶段</span>
+            <span class="jobs-metric-value">${escapeHtml(stageText)}</span>
+        </div>
+        <div class="jobs-metric-card">
+            <span class="jobs-metric-label">队列位置</span>
+            <span class="jobs-metric-value">${queueValue}</span>
+        </div>
+        <div class="jobs-metric-card">
+            <span class="jobs-metric-label">耗时</span>
+            <span class="jobs-metric-value">${formatDuration(job.duration_seconds)}</span>
+        </div>
+        <div class="jobs-metric-card">
+            <span class="jobs-metric-label">创建时间</span>
+            <span class="jobs-metric-value">${formatTime(job.created_at)}</span>
+        </div>
+        <div class="jobs-metric-card">
+            <span class="jobs-metric-label">结束时间</span>
+            <span class="jobs-metric-value">${formatTime(job.finished_at)}</span>
+        </div>
+        <div class="jobs-metric-card">
+            <span class="jobs-metric-label">重试来源</span>
+            <span class="jobs-metric-value">${retrySource}</span>
+        </div>
+        <div class="jobs-metric-card">
+            <span class="jobs-metric-label">重试策略</span>
+            <span class="jobs-metric-value">${escapeHtml(retryStrategyLabel)}</span>
+        </div>
+        <div class="jobs-metric-card jobs-metric-wide">
+            <span class="jobs-metric-label">重试说明</span>
+            <span class="jobs-metric-value jobs-retry-note-wrap">${retryNoteContent}</span>
+        </div>
+        <div class="jobs-metric-card jobs-metric-wide">
+            <span class="jobs-metric-label">错误信息</span>
+            <span class="jobs-metric-value${errorClass}">${errorText}</span>
+        </div>
+    `;
+
+    renderArtifacts(job);
+
+    downloadLink.href = `/api/run-log?job_id=${encodeURIComponent(job.id)}&ts=${Date.now()}`;
+    cancelBtn.disabled = !ACTIVE_STATUSES.has(job.status);
+    cancelBtn.dataset.jobId = job.id;
+
+    retryBtn.disabled = ACTIVE_STATUSES.has(job.status);
+    retryBtn.dataset.jobId = job.id;
+
+    metrics.querySelectorAll('.jobs-retry-note-toggle').forEach((button) => {
+        button.addEventListener('click', () => {
+            const wrapper = button.closest('.jobs-retry-note-wrap');
+            const noteNode = wrapper ? wrapper.querySelector('.jobs-retry-note') : null;
+            if (!noteNode) return;
+
+            const expanded = String(button.dataset.expanded || 'false') === 'true';
+            const fullText = String(noteNode.dataset.fullText || '');
+            const collapsedText = String(noteNode.dataset.collapsedText || '');
+
+            noteNode.textContent = expanded ? collapsedText : fullText;
+            noteNode.dataset.expanded = expanded ? 'false' : 'true';
+            button.dataset.expanded = expanded ? 'false' : 'true';
+            button.textContent = expanded ? '查看更多' : '收起';
+            persistRetryNoteExpanded(job.id, !expanded);
+        });
+    });
+}
+
+function loadJobLogs(jobId) {
+    fetch(`/api/jobs/${encodeURIComponent(jobId)}/logs?tail=500`)
+        .then((response) => {
+            if (!response.ok) throw new Error('日志加载失败');
+            return response.json();
+        })
+        .then((payload) => {
+            const logEl = document.getElementById('jobs-log');
+            if (!logEl) return;
+
+            const logs = payload.logs || [];
+            if (!logs.length) {
+                logEl.innerHTML = '<div class="log-line log-info">暂无日志</div>';
+                return;
+            }
+
+            logEl.innerHTML = logs
+                .map((line) => {
+                    const cls = getLogClass(line);
+                    return `<div class="log-line ${cls}">${escapeHtml(line)}</div>`;
+                })
+                .join('');
+            logEl.scrollTop = logEl.scrollHeight;
+        })
+        .catch((error) => {
+            const logEl = document.getElementById('jobs-log');
+            if (logEl) {
+                logEl.innerHTML = `<div class="log-line log-error">${escapeHtml(String(error))}</div>`;
+            }
+        });
+}
+
+function createJobFromCenter() {
+    fetch('/api/run', { method: 'POST' })
+        .then((response) => response.json())
+        .then((payload) => {
+            if (!payload.success) {
+                showToast(payload.error || '创建任务失败', 'error');
+                return;
+            }
+
+            showToast(`任务已创建: ${payload.job_id}`, 'success');
+            selectJob(payload.job_id, { manual: true });
+        })
+        .catch((error) => {
+            showToast(`创建任务失败: ${String(error)}`, 'error');
+        });
+}
+
+function copyStateLink() {
+    syncStateToUrl();
+    const link = window.location.href;
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(link)
+            .then(() => {
+                showToast('已复制当前视图链接', 'success');
+            })
+            .catch(() => {
+                window.prompt('复制链接:', link);
+            });
+        return;
+    }
+
+    window.prompt('复制链接:', link);
+}
+
+function cancelSelectedJob() {
+    if (!selectedJobId) return;
+
+    fetch(`/api/jobs/${encodeURIComponent(selectedJobId)}/cancel`, { method: 'POST' })
+        .then((response) => response.json())
+        .then((payload) => {
+            if (!payload.success) {
+                showToast(payload.error || '取消失败', 'warning');
+                return;
+            }
+
+            showToast('任务已取消', 'success');
+            loadJobs(false);
+            loadJobDetail(selectedJobId, true);
+        })
+        .catch((error) => {
+            showToast(`取消失败: ${String(error)}`, 'error');
+        });
+}
+
+function retrySelectedJob() {
+    if (!selectedJobId) return;
+
+    fetch(`/api/jobs/${encodeURIComponent(selectedJobId)}/retry`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ strategy: 'full' }),
+    })
+        .then((response) => response.json())
+        .then((payload) => {
+            if (!payload.success) {
+                showToast(payload.error || '重试失败', 'error');
+                return;
+            }
+
+            showToast(`全量重跑任务已创建: ${payload.job_id}`, 'success');
+            selectJob(payload.job_id, { manual: true });
+        })
+        .catch((error) => {
+            showToast(`重试失败: ${String(error)}`, 'error');
+        });
+}
+
+function retryFromFailedStage(jobId) {
+    if (!jobId) return;
+
+    fetch(`/api/jobs/${encodeURIComponent(jobId)}/retry`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ strategy: 'from_failed_stage' }),
+    })
+        .then((response) => response.json())
+        .then((payload) => {
+            if (!payload.success) {
+                showToast(payload.error || '分段重试失败', 'error');
+                return;
+            }
+
+            if (payload.strategy === 'from_failed_stage') {
+                showToast(`分段重试任务已创建: ${payload.job_id}`, 'success');
+            } else {
+                showToast(`该失败阶段暂不支持分段恢复，已切换全量重跑: ${payload.job_id}`, 'warning');
+            }
+            selectJob(payload.job_id, { manual: true });
+        })
+        .catch((error) => {
+            showToast(`分段重试失败: ${String(error)}`, 'error');
+        });
+}
+
+function cleanupFinishedJobs() {
+    const keepLatest = 20;
+    const previewUrl = `/api/jobs/cleanup/preview?keep_latest=${keepLatest}`;
+
+    fetch(previewUrl)
+        .then((response) => response.json())
+        .then((preview) => {
+            if (!preview.success) {
+                throw new Error(preview.error || '无法获取清理预览');
+            }
+
+            const planned = preview.planned || 0;
+            if (planned <= 0) {
+                showToast('暂无可清理的已结束任务', 'info');
+                return;
+            }
+
+            return showConfirmDialog({
+                title: 'Cleanup Finished Jobs',
+                message: `预计清理 ${planned} 条（已结束共 ${preview.total_final} 条，保留最近 ${preview.keep_latest} 条），是否继续？`,
+                confirmText: 'Start Cleanup',
+                confirmType: 'danger',
+            }).then((confirmed) => {
+                if (!confirmed) return null;
+
+                return fetch('/api/jobs/cleanup', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ keep_latest: keepLatest }),
+                });
+            });
+        })
+        .then((response) => {
+            if (!response) return null;
+            return response.json();
+        })
+        .then((payload) => {
+            if (!payload) return;
+            if (!payload.success) {
+                showToast(payload.error || '清理失败', 'error');
+                return;
+            }
+
+            selectedJobId = null;
+            pendingRevealJobId = null;
+            autoFollowActive = true;
+            clearJobDetail();
+            syncStateToUrl();
+            showToast(`已清理 ${payload.deleted} 个已结束任务`, 'success');
+            loadJobs(true);
+        })
+        .catch((error) => {
+            showToast(`清理失败: ${String(error)}`, 'error');
+        });
+}
+
+function startJobsAutoRefresh() {
+    if (jobsAutoTimer) {
+        clearInterval(jobsAutoTimer);
+    }
+    jobsAutoTimer = setInterval(() => {
+        loadJobs(false);
+        if (selectedJobId) {
+            loadJobLogs(selectedJobId);
+        }
+    }, 3000);
+}
+
+function debounce(func, wait) {
+    let timer = null;
+    return (...args) => {
+        if (timer) {
+            clearTimeout(timer);
+        }
+        timer = setTimeout(() => func(...args), wait);
+    };
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const refreshBtn = document.getElementById('jobs-refresh-btn');
+    const shareBtn = document.getElementById('jobs-share-btn');
+    const resetRetryNoteBtn = document.getElementById('jobs-retry-note-reset-btn');
+    const cleanupBtn = document.getElementById('jobs-cleanup-btn');
+    const createBtn = document.getElementById('jobs-create-btn');
+    const cancelBtn = document.getElementById('jobs-cancel-btn');
+    const retryBtn = document.getElementById('jobs-retry-btn');
+    const filterSelect = document.getElementById('jobs-filter');
+    const searchInput = document.getElementById('jobs-search');
+    const prevBtn = document.getElementById('jobs-prev-btn');
+    const nextBtn = document.getElementById('jobs-next-btn');
+
+    readStateFromUrl();
+
+    if (filterSelect) {
+        filterSelect.value = jobsFilterValue;
+    }
+    if (searchInput) {
+        searchInput.value = jobsQueryValue;
+    }
+
+    if (refreshBtn) {
+        refreshBtn.addEventListener('click', () => loadJobs(false));
+    }
+    if (shareBtn) {
+        shareBtn.addEventListener('click', copyStateLink);
+    }
+    if (resetRetryNoteBtn) {
+        resetRetryNoteBtn.addEventListener('click', clearRetryNoteExpandState);
+    }
+    if (cleanupBtn) {
+        cleanupBtn.addEventListener('click', cleanupFinishedJobs);
+    }
+    if (createBtn) {
+        createBtn.addEventListener('click', createJobFromCenter);
+    }
+    if (cancelBtn) {
+        cancelBtn.addEventListener('click', cancelSelectedJob);
+    }
+    if (retryBtn) {
+        retryBtn.addEventListener('click', retrySelectedJob);
+    }
+    if (filterSelect) {
+        filterSelect.addEventListener('change', () => {
+            jobsFilterValue = filterSelect.value || '';
+            jobsCurrentPage = 1;
+            selectedJobId = null;
+            pendingRevealJobId = null;
+            autoFollowActive = true;
+            clearJobDetail();
+            syncStateToUrl();
+            loadJobs(true);
+        });
+    }
+    if (searchInput) {
+        const onSearch = debounce(() => {
+            jobsQueryValue = (searchInput.value || '').trim();
+            jobsCurrentPage = 1;
+            selectedJobId = null;
+            pendingRevealJobId = null;
+            autoFollowActive = true;
+            clearJobDetail();
+            syncStateToUrl();
+            loadJobs(true);
+        }, 350);
+        searchInput.addEventListener('input', onSearch);
+    }
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            if (jobsCurrentPage <= 1) return;
+            jobsCurrentPage -= 1;
+            syncStateToUrl();
+            loadJobs(false);
+        });
+    }
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            if (jobsCurrentPage >= jobsTotalPages) return;
+            jobsCurrentPage += 1;
+            syncStateToUrl();
+            loadJobs(false);
+        });
+    }
+
+    clearJobDetail();
+    loadJobs(true);
+    startJobsAutoRefresh();
+});
+</script>
+{% endblock %}

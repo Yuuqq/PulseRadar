@@ -65,6 +65,34 @@
         </div>
     </div>
 
+    <!-- 快速启用模板 -->
+    <div class="section">
+        <h3 class="section-title">快速启用模板</h3>
+        <p class="section-desc">一键启用一组精选 RSS 源（不会覆盖你已添加的源）</p>
+        <div class="available-feeds">
+            <button class="feed-chip" onclick="applyFeedProfile('tech_ai')">科技 + AI 模板</button>
+            <button class="feed-chip" onclick="applyFeedProfile('global_macro')">全球宏观模板</button>
+            <button class="feed-chip" onclick="applyFeedProfile('cybersecurity')">网络安全模板</button>
+            <button class="feed-chip" onclick="exportEnabledFeedsJson()">导出当前启用源(JSON)</button>
+            <button class="feed-chip" onclick="triggerImportEnabledFeedsJson()">导入启用源(JSON)</button>
+            <button class="feed-chip" onclick="clearAllEnabledFeeds()">清空全部启用</button>
+        </div>
+        <div class="form-row" style="margin-top: 10px;">
+            <label class="form-label" for="rss-import-preview-action-filter">导入预览明细过滤</label>
+            <select id="rss-import-preview-action-filter" class="input">
+                <option value="all">全部 (all)</option>
+                <option value="create">仅新增 (create)</option>
+                <option value="update">仅更新 (update)</option>
+                <option value="skip">仅跳过 (skip)</option>
+            </select>
+            <button class="btn btn-sm btn-ghost" type="button" onclick="resetImportPreviewActionFilter()" style="margin-top: 8px;">重置为全部(all)</button>
+        </div>
+        <div id="rss-import-preview-action-filter-state" class="section-desc" style="margin-top: 4px;">当前过滤：全部 (all)</div>
+        <div id="rss-import-preview-action-filter-estimate" class="section-desc" style="margin-top: 4px;">本次导入将展示：待选择导入文件</div>
+        <div id="rss-import-preview-skip-summary" class="section-desc" style="margin-top: 4px;">跳过原因统计：待选择导入文件</div>
+        <input type="file" id="rss-import-enabled-json" accept="application/json,.json" class="hidden" onchange="handleImportEnabledFeedsFile(event)">
+    </div>
+
     <!-- 推荐 RSS 源 -->
     <div class="section">
         <h3 class="section-title">推荐 RSS 源</h3>
@@ -76,13 +104,853 @@
             <button class="feed-chip" onclick="addFeedPreset('caixin', '财新网', 'https://rsshub.app/caixin/latest')">财新网</button>
             <button class="feed-chip" onclick="addFeedPreset('36kr', '36氪快讯', 'https://rsshub.app/36kr/newsflash')">36氪快讯</button>
             <button class="feed-chip" onclick="addFeedPreset('ithome', 'IT之家', 'https://rsshub.app/ithome/ranking')">IT之家</button>
+            <button class="feed-chip" onclick="addFeedPreset('xueqiu-hots', '雪球-热帖', 'https://rsshub.app/xueqiu/hots')">雪球-热帖</button>
+            <button class="feed-chip" onclick="addFeedPreset('xueqiu-user', '雪球-用户动态(示例)', 'https://rsshub.app/xueqiu/user/8152922548')">雪球-用户动态(示例)</button>
+            <button class="feed-chip" onclick="addFeedPreset('eastmoney-report-strategy', '东方财富-策略研报', 'https://rsshub.app/eastmoney/report/strategyreport')">东方财富-策略研报</button>
+            <button class="feed-chip" onclick="addFeedPreset('eastmoney-report-macro', '东方财富-宏观研究', 'https://rsshub.app/eastmoney/report/macresearch')">东方财富-宏观研究</button>
+            <button class="feed-chip" onclick="addFeedPreset('eastmoney-report-broker', '东方财富-券商晨报', 'https://rsshub.app/eastmoney/report/brokerreport')">东方财富-券商晨报</button>
+            <button class="feed-chip" onclick="addFeedPreset('eastmoney-report-industry', '东方财富-行业研报', 'https://rsshub.app/eastmoney/report/industry')">东方财富-行业研报</button>
+            <button class="feed-chip" onclick="addFeedPreset('eastmoney-report-stock', '东方财富-个股研报', 'https://rsshub.app/eastmoney/report/stock')">东方财富-个股研报</button>
+            <button class="feed-chip" onclick="addFeedPreset('cls-telegraph', '财联社-电报', 'https://rsshub.app/cls/telegraph')">财联社-电报</button>
+            <button class="feed-chip" onclick="addFeedPreset('cls-telegraph-watch', '财联社-电报-看盘', 'https://rsshub.app/cls/telegraph/watch')">财联社-电报-看盘</button>
+            <button class="feed-chip" onclick="addFeedPreset('cls-depth-headline', '财联社-深度-头条', 'https://rsshub.app/cls/depth/1000')">财联社-深度-头条</button>
+            <button class="feed-chip" onclick="addFeedPreset('caijing-roll', '财经网-滚动新闻', 'https://rsshub.app/caijing/roll')">财经网-滚动新闻</button>
+            <button class="feed-chip" onclick="addFeedPreset('wallstreetcn-live', '华尔街见闻-实时快讯', 'https://rsshub.app/wallstreetcn/live')">华尔街见闻-实时快讯</button>
+            <button class="feed-chip" onclick="addFeedPreset('wallstreetcn-live-important', '华尔街见闻-实时快讯-重要', 'https://rsshub.app/wallstreetcn/live/global/2')">华尔街见闻-实时快讯-重要</button>
+            <button class="feed-chip" onclick="addFeedPreset('wallstreetcn-news', '华尔街见闻-资讯-最新', 'https://rsshub.app/wallstreetcn/news')">华尔街见闻-资讯-最新</button>
+            <button class="feed-chip" onclick="addFeedPreset('10jqka-7x24', '同花顺-7x24要闻', 'https://rsshub.app/10jqka/realtimenews')">同花顺-7x24要闻</button>
+            <button class="feed-chip" onclick="addFeedPreset('10jqka-announce', '同花顺-7x24-公告', 'https://rsshub.app/10jqka/realtimenews/公告')">同花顺-7x24-公告</button>
+            <button class="feed-chip" onclick="addFeedPreset('stcn-kx', '证券时报-7x24快讯', 'https://rsshub.app/stcn/article/list/kx')">证券时报-7x24快讯</button>
+            <button class="feed-chip" onclick="addFeedPreset('jin10', '金十数据-市场快讯', 'https://rsshub.app/jin10')">金十数据-市场快讯</button>
+            <button class="feed-chip" onclick="addFeedPreset('jin10-important', '金十数据-重要快讯', 'https://rsshub.app/jin10/important')">金十数据-重要快讯</button>
+            <button class="feed-chip" onclick="addFeedPreset('sse-inquire', '上交所-监管问询', 'https://rsshub.app/sse/inquire')">上交所-监管问询</button>
+            <button class="feed-chip" onclick="addFeedPreset('sse-renewal', '上交所-科创板项目动态', 'https://rsshub.app/sse/renewal')">上交所-科创板项目动态</button>
+            <button class="feed-chip" onclick="addFeedPreset('sse-disclosure', '上交所-上市公司公告', 'https://rsshub.app/sse/disclosure')">上交所-上市公司公告</button>
+            <button class="feed-chip" onclick="addFeedPreset('sse-convert', '上交所-可转债公告', 'https://rsshub.app/sse/convert')">上交所-可转债公告</button>
+            <button class="feed-chip" onclick="addFeedPreset('szse-notice', '深交所-上市公告(可转债)', 'https://rsshub.app/szse/notice')">深交所-上市公告(可转债)</button>
+            <button class="feed-chip" onclick="addFeedPreset('szse-inquire', '深交所-问询函件', 'https://rsshub.app/szse/inquire')">深交所-问询函件</button>
+            <button class="feed-chip" onclick="addFeedPreset('szse-disclosure', '深交所-上市公司公告', 'https://rsshub.app/szse/disclosure/listed/notice')">深交所-上市公司公告</button>
             <button class="feed-chip" onclick="addFeedPreset('techcrunch', 'TechCrunch', 'https://techcrunch.com/feed/')">TechCrunch</button>
             <button class="feed-chip" onclick="addFeedPreset('wired', 'Wired', 'https://www.wired.com/feed/rss')">Wired</button>
+            <button class="feed-chip" onclick="addFeedPreset('engadget', 'Engadget', 'https://www.engadget.com/rss.xml')">Engadget</button>
+            <button class="feed-chip" onclick="addFeedPreset('ars-technica', 'Ars Technica', 'http://feeds.arstechnica.com/arstechnica/index')">Ars Technica</button>
+            <button class="feed-chip" onclick="addFeedPreset('github-blog', 'GitHub Blog', 'https://github.blog/feed/')">GitHub Blog</button>
+            <button class="feed-chip" onclick="addFeedPreset('infoq', 'InfoQ', 'https://feed.infoq.com/')">InfoQ</button>
+            <button class="feed-chip" onclick="addFeedPreset('mit-tech-review', 'MIT Technology Review', 'https://www.technologyreview.com/feed/')">MIT Technology Review</button>
+            <button class="feed-chip" onclick="addFeedPreset('cnbc-world', 'CNBC - World News', 'https://www.cnbc.com/id/100727362/device/rss/rss.html')">CNBC - World News</button>
+            <button class="feed-chip" onclick="addFeedPreset('cnbc-tech', 'CNBC - Technology', 'https://www.cnbc.com/id/19854910/device/rss/rss.html')">CNBC - Technology</button>
+            <button class="feed-chip" onclick="addFeedPreset('guardian-world', 'The Guardian - World', 'https://www.theguardian.com/world/rss')">The Guardian - World</button>
+            <button class="feed-chip" onclick="addFeedPreset('xinhua-politics', '新华网 - 时政', 'http://www.xinhuanet.com/politics/news_politics.xml')">新华网 - 时政</button>
+            <button class="feed-chip" onclick="addFeedPreset('people-politics', '人民网 - 时政', 'http://www.people.com.cn/rss/politics.xml')">人民网 - 时政</button>
+            <button class="feed-chip" onclick="addFeedPreset('hnrss-newest', 'Hacker News - Newest', 'https://hnrss.org/newest')">Hacker News - Newest</button>
+            <button class="feed-chip" onclick="addFeedPreset('hnrss-best', 'Hacker News - Best', 'https://hnrss.org/best')">Hacker News - Best</button>
+            <button class="feed-chip" onclick="addFeedPreset('bbc-world', 'BBC News - World', 'http://feeds.bbci.co.uk/news/world/rss.xml')">BBC News - World</button>
+            <button class="feed-chip" onclick="addFeedPreset('bbc-business', 'BBC News - Business', 'http://feeds.bbci.co.uk/news/business/rss.xml')">BBC News - Business</button>
+            <button class="feed-chip" onclick="addFeedPreset('bbc-technology', 'BBC News - Technology', 'http://feeds.bbci.co.uk/news/technology/rss.xml')">BBC News - Technology</button>
+            <button class="feed-chip" onclick="addFeedPreset('cnn-top', 'CNN - Top Stories', 'http://rss.cnn.com/rss/edition.rss')">CNN - Top Stories</button>
+            <button class="feed-chip" onclick="addFeedPreset('cnn-world', 'CNN - World', 'http://rss.cnn.com/rss/edition_world.rss')">CNN - World</button>
+            <button class="feed-chip" onclick="addFeedPreset('npr-news', 'NPR - News', 'https://feeds.npr.org/1001/rss.xml')">NPR - News</button>
+            <button class="feed-chip" onclick="addFeedPreset('npr-business', 'NPR - Business', 'https://feeds.npr.org/1006/rss.xml')">NPR - Business</button>
+            <button class="feed-chip" onclick="addFeedPreset('aljazeera-all', 'Al Jazeera - All News', 'https://www.aljazeera.com/xml/rss/all.xml')">Al Jazeera - All News</button>
+            <button class="feed-chip" onclick="addFeedPreset('guardian-technology', 'The Guardian - Technology', 'https://www.theguardian.com/uk/technology/rss')">The Guardian - Technology</button>
+            <button class="feed-chip" onclick="addFeedPreset('guardian-business', 'The Guardian - Business', 'https://www.theguardian.com/uk/business/rss')">The Guardian - Business</button>
+            <button class="feed-chip" onclick="addFeedPreset('nytimes-technology', 'The New York Times - Technology', 'https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml')">NYTimes - Technology</button>
+            <button class="feed-chip" onclick="addFeedPreset('nytimes-business', 'The New York Times - Business', 'https://rss.nytimes.com/services/xml/rss/nyt/Business.xml')">NYTimes - Business</button>
+            <button class="feed-chip" onclick="addFeedPreset('venturebeat', 'VentureBeat', 'https://venturebeat.com/feed/')">VentureBeat</button>
+            <button class="feed-chip" onclick="addFeedPreset('the-register', 'The Register - Headlines', 'https://www.theregister.com/headlines.atom')">The Register - Headlines</button>
+            <button class="feed-chip" onclick="addFeedPreset('zdnet-news', 'ZDNET - News', 'https://www.zdnet.com/news/rss.xml')">ZDNET - News</button>
+            <button class="feed-chip" onclick="addFeedPreset('microsoft-blog', 'Microsoft Blogs', 'https://blogs.microsoft.com/feed/')">Microsoft Blogs</button>
+            <button class="feed-chip" onclick="addFeedPreset('aws-blog', 'AWS Blog', 'https://aws.amazon.com/blogs/aws/feed/')">AWS Blog</button>
+            <button class="feed-chip" onclick="addFeedPreset('huggingface-blog', 'Hugging Face Blog', 'https://huggingface.co/blog/feed.xml')">Hugging Face Blog</button>
+            <button class="feed-chip" onclick="addFeedPreset('google-ai-blog', 'Google AI Blog', 'https://blog.google/technology/ai/rss/')">Google AI Blog</button>
+            <button class="feed-chip" onclick="addFeedPreset('openai-news', 'OpenAI News', 'https://openai.com/news/rss.xml')">OpenAI News</button>
+            <button class="feed-chip" onclick="addFeedPreset('arxiv-cs-ai', 'arXiv - cs.AI', 'http://export.arxiv.org/rss/cs.AI')">arXiv - cs.AI</button>
+            <button class="feed-chip" onclick="addFeedPreset('arxiv-cs-lg', 'arXiv - cs.LG', 'http://export.arxiv.org/rss/cs.LG')">arXiv - cs.LG</button>
+            <button class="feed-chip" onclick="addFeedPreset('arxiv-stat-ml', 'arXiv - stat.ML', 'http://export.arxiv.org/rss/stat.ML')">arXiv - stat.ML</button>
+            <button class="feed-chip" onclick="addFeedPreset('krebs-security', 'Krebs on Security', 'https://krebsonsecurity.com/feed/')">Krebs on Security</button>
+            <button class="feed-chip" onclick="addFeedPreset('bleepingcomputer', 'BleepingComputer', 'https://www.bleepingcomputer.com/feed/')">BleepingComputer</button>
+            <button class="feed-chip" onclick="addFeedPreset('cisa-alerts', 'CISA - Alerts', 'https://www.cisa.gov/uscert/ncas/alerts.xml')">CISA - Alerts</button>
+            <button class="feed-chip" onclick="addFeedPreset('cisa-advisories', 'CISA - Cybersecurity Advisories', 'https://www.cisa.gov/cybersecurity-advisories/all.xml')">CISA - Advisories</button>
+            <button class="feed-chip" onclick="addFeedPreset('federalreserve-press', 'Federal Reserve - Press Releases', 'https://www.federalreserve.gov/feeds/press_all.xml')">Fed - Press Releases</button>
+            <button class="feed-chip" onclick="addFeedPreset('sec-press', 'SEC - Press Releases', 'https://www.sec.gov/news/pressreleases.rss')">SEC - Press Releases</button>
+            <button class="feed-chip" onclick="addFeedPreset('coindesk', 'CoinDesk', 'https://www.coindesk.com/arc/outboundfeeds/rss/')">CoinDesk</button>
+            <button class="feed-chip" onclick="addFeedPreset('cointelegraph', 'Cointelegraph', 'https://cointelegraph.com/rss')">Cointelegraph</button>
+            <button class="feed-chip" onclick="addFeedPreset('thehackernews', 'The Hacker News', 'https://feeds.feedburner.com/TheHackersNews')">The Hacker News</button>
+            <button class="feed-chip" onclick="addFeedPreset('securityweek', 'SecurityWeek', 'https://feeds.feedburner.com/securityweek')">SecurityWeek</button>
+            <button class="feed-chip" onclick="addFeedPreset('schneier', 'Schneier on Security', 'https://www.schneier.com/feed/atom/')">Schneier on Security</button>
+            <button class="feed-chip" onclick="addFeedPreset('economist-scitech', 'The Economist - Science & Technology', 'https://www.economist.com/science-and-technology/rss.xml')">Economist - SciTech</button>
+            <button class="feed-chip" onclick="addFeedPreset('ft-world', 'Financial Times - World', 'https://www.ft.com/world?format=rss')">FT - World</button>
+            <button class="feed-chip" onclick="addFeedPreset('ft-companies', 'Financial Times - Companies', 'https://www.ft.com/companies?format=rss')">FT - Companies</button>
+            <button class="feed-chip" onclick="addFeedPreset('abc-top', 'ABC News - Top Stories', 'https://abcnews.go.com/abcnews/topstories')">ABC News - Top Stories</button>
+            <button class="feed-chip" onclick="addFeedPreset('cbs-main', 'CBS News - Latest', 'https://www.cbsnews.com/latest/rss/main')">CBS News - Latest</button>
+            <button class="feed-chip" onclick="addFeedPreset('fox-latest', 'Fox News - Latest', 'https://moxie.foxnews.com/google-publisher/latest.xml')">Fox News - Latest</button>
+            <button class="feed-chip" onclick="addFeedPreset('esa-science', 'ESA - Space Science', 'https://www.esa.int/rssfeed/Our_Activities/Space_Science')">ESA - Space Science</button>
+            <button class="feed-chip" onclick="addFeedPreset('nature-news', 'Nature - News', 'https://www.nature.com/nature.rss')">Nature - News</button>
+            <button class="feed-chip" onclick="addFeedPreset('newscientist', 'New Scientist', 'https://www.newscientist.com/feed/home/')">New Scientist</button>
+            <button class="feed-chip" onclick="addFeedPreset('who-news', 'WHO - News', 'https://www.who.int/rss-feeds/news-english.xml')">WHO - News</button>
+            <button class="feed-chip" onclick="addFeedPreset('cloudflare-blog', 'Cloudflare Blog', 'https://blog.cloudflare.com/rss/')">Cloudflare Blog</button>
+            <button class="feed-chip" onclick="addFeedPreset('docker-blog', 'Docker Blog', 'https://www.docker.com/blog/feed/')">Docker Blog</button>
+            <button class="feed-chip" onclick="addFeedPreset('gitlab-blog', 'GitLab Blog', 'https://about.gitlab.com/atom.xml')">GitLab Blog</button>
+            <button class="feed-chip" onclick="addFeedPreset('kubernetes-blog', 'Kubernetes Blog', 'https://kubernetes.io/feed.xml')">Kubernetes Blog</button>
+            <button class="feed-chip" onclick="addFeedPreset('nodejs-blog', 'Node.js Blog', 'https://nodejs.org/en/feed/blog.xml')">Node.js Blog</button>
+            <button class="feed-chip" onclick="addFeedPreset('rust-blog', 'Rust Blog', 'https://blog.rust-lang.org/feed.xml')">Rust Blog</button>
+            <button class="feed-chip" onclick="addFeedPreset('go-blog', 'Go Blog', 'https://go.dev/blog/feed.atom')">Go Blog</button>
+            <button class="feed-chip" onclick="addFeedPreset('postgresql-news', 'PostgreSQL - News', 'https://www.postgresql.org/news.rss')">PostgreSQL - News</button>
+            <button class="feed-chip" onclick="addFeedPreset('debian-news', 'Debian - News', 'https://www.debian.org/News/news')">Debian - News</button>
+            <button class="feed-chip" onclick="addFeedPreset('ubuntu-blog', 'Ubuntu Blog', 'https://ubuntu.com/blog/feed')">Ubuntu Blog</button>
+            <button class="feed-chip" onclick="addFeedPreset('mozilla-hacks', 'Mozilla Hacks', 'https://hacks.mozilla.org/feed/')">Mozilla Hacks</button>
+            <button class="feed-chip" onclick="addFeedPreset('mozilla-security', 'Mozilla Security Blog', 'https://blog.mozilla.org/security/feed/')">Mozilla Security Blog</button>
+            <button class="feed-chip" onclick="addFeedPreset('google-security-blog', 'Google Security Blog', 'https://security.googleblog.com/feeds/posts/default')">Google Security Blog</button>
+            <button class="feed-chip" onclick="addFeedPreset('microsoft-security-blog', 'Microsoft Security Blog', 'https://www.microsoft.com/en-us/security/blog/feed/')">Microsoft Security Blog</button>
+            <button class="feed-chip" onclick="addFeedPreset('aws-security-blog', 'AWS Security Blog', 'https://aws.amazon.com/blogs/security/feed/')">AWS Security Blog</button>
+            <button class="feed-chip" onclick="addFeedPreset('cisa-news', 'CISA - News', 'https://www.cisa.gov/news.xml')">CISA - News</button>
+            <button class="feed-chip" onclick="addFeedPreset('europol-news', 'Europol - News', 'https://www.europol.europa.eu/rss.xml')">Europol - News</button>
+            <button class="feed-chip" onclick="addFeedPreset('federalreserve-speeches', 'Federal Reserve - Speeches', 'https://www.federalreserve.gov/feeds/speeches.xml')">Fed - Speeches</button>
+            <button class="feed-chip" onclick="addFeedPreset('decrypt', 'Decrypt', 'https://decrypt.co/feed')">Decrypt</button>
         </div>
     </div>
 </div>
 
 <script>
+const FEED_PROFILE_CATALOG = {
+    'techcrunch': {name: 'TechCrunch', url: 'https://techcrunch.com/feed/'},
+    'wired': {name: 'Wired', url: 'https://www.wired.com/feed/rss'},
+    'engadget': {name: 'Engadget', url: 'https://www.engadget.com/rss.xml'},
+    'ars-technica': {name: 'Ars Technica', url: 'http://feeds.arstechnica.com/arstechnica/index'},
+    'venturebeat': {name: 'VentureBeat', url: 'https://venturebeat.com/feed/'},
+    'the-register': {name: 'The Register - Headlines', url: 'https://www.theregister.com/headlines.atom'},
+    'zdnet-news': {name: 'ZDNET - News', url: 'https://www.zdnet.com/news/rss.xml'},
+    'github-blog': {name: 'GitHub Blog', url: 'https://github.blog/feed/'},
+    'infoq': {name: 'InfoQ', url: 'https://feed.infoq.com/'},
+    'huggingface-blog': {name: 'Hugging Face Blog', url: 'https://huggingface.co/blog/feed.xml'},
+    'google-ai-blog': {name: 'Google AI Blog', url: 'https://blog.google/technology/ai/rss/'},
+    'openai-news': {name: 'OpenAI News', url: 'https://openai.com/news/rss.xml'},
+    'arxiv-cs-ai': {name: 'arXiv - cs.AI', url: 'http://export.arxiv.org/rss/cs.AI'},
+    'arxiv-cs-lg': {name: 'arXiv - cs.LG', url: 'http://export.arxiv.org/rss/cs.LG'},
+    'arxiv-stat-ml': {name: 'arXiv - stat.ML', url: 'http://export.arxiv.org/rss/stat.ML'},
+    'reuters': {name: '路透社', url: 'https://www.rss.app/feeds/reuters.xml'},
+    'bbc-world': {name: 'BBC News - World', url: 'http://feeds.bbci.co.uk/news/world/rss.xml'},
+    'bbc-business': {name: 'BBC News - Business', url: 'http://feeds.bbci.co.uk/news/business/rss.xml'},
+    'bbc-technology': {name: 'BBC News - Technology', url: 'http://feeds.bbci.co.uk/news/technology/rss.xml'},
+    'nytimes-world': {name: '纽约时报 - 国际', url: 'https://rss.nytimes.com/services/xml/rss/nyt/World.xml'},
+    'nytimes-technology': {name: 'The New York Times - Technology', url: 'https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml'},
+    'nytimes-business': {name: 'The New York Times - Business', url: 'https://rss.nytimes.com/services/xml/rss/nyt/Business.xml'},
+    'cnbc-world': {name: 'CNBC - World News', url: 'https://www.cnbc.com/id/100727362/device/rss/rss.html'},
+    'cnbc-tech': {name: 'CNBC - Technology', url: 'https://www.cnbc.com/id/19854910/device/rss/rss.html'},
+    'guardian-world': {name: 'The Guardian - World', url: 'https://www.theguardian.com/world/rss'},
+    'guardian-business': {name: 'The Guardian - Business', url: 'https://www.theguardian.com/uk/business/rss'},
+    'npr-news': {name: 'NPR - News', url: 'https://feeds.npr.org/1001/rss.xml'},
+    'npr-business': {name: 'NPR - Business', url: 'https://feeds.npr.org/1006/rss.xml'},
+    'aljazeera-all': {name: 'Al Jazeera - All News', url: 'https://www.aljazeera.com/xml/rss/all.xml'},
+    'ft-world': {name: 'Financial Times - World', url: 'https://www.ft.com/world?format=rss'},
+    'ft-companies': {name: 'Financial Times - Companies', url: 'https://www.ft.com/companies?format=rss'},
+    'federalreserve-press': {name: 'Federal Reserve - Press Releases', url: 'https://www.federalreserve.gov/feeds/press_all.xml'},
+    'federalreserve-speeches': {name: 'Federal Reserve - Speeches', url: 'https://www.federalreserve.gov/feeds/speeches.xml'},
+    'sec-press': {name: 'SEC - Press Releases', url: 'https://www.sec.gov/news/pressreleases.rss'},
+    'krebs-security': {name: 'Krebs on Security', url: 'https://krebsonsecurity.com/feed/'},
+    'bleepingcomputer': {name: 'BleepingComputer', url: 'https://www.bleepingcomputer.com/feed/'},
+    'thehackernews': {name: 'The Hacker News', url: 'https://feeds.feedburner.com/TheHackersNews'},
+    'securityweek': {name: 'SecurityWeek', url: 'https://feeds.feedburner.com/securityweek'},
+    'schneier': {name: 'Schneier on Security', url: 'https://www.schneier.com/feed/atom/'},
+    'cisa-alerts': {name: 'CISA - Alerts', url: 'https://www.cisa.gov/uscert/ncas/alerts.xml'},
+    'cisa-advisories': {name: 'CISA - Cybersecurity Advisories', url: 'https://www.cisa.gov/cybersecurity-advisories/all.xml'},
+    'cisa-news': {name: 'CISA - News', url: 'https://www.cisa.gov/news.xml'},
+    'europol-news': {name: 'Europol - News', url: 'https://www.europol.europa.eu/rss.xml'},
+    'aws-security-blog': {name: 'AWS Security Blog', url: 'https://aws.amazon.com/blogs/security/feed/'},
+    'google-security-blog': {name: 'Google Security Blog', url: 'https://security.googleblog.com/feeds/posts/default'},
+    'microsoft-security-blog': {name: 'Microsoft Security Blog', url: 'https://www.microsoft.com/en-us/security/blog/feed/'}
+};
+
+const FEED_PROFILES = {
+    tech_ai: {
+        label: '科技 + AI',
+        ids: [
+            'techcrunch', 'wired', 'engadget', 'ars-technica', 'venturebeat', 'the-register', 'zdnet-news',
+            'github-blog', 'infoq', 'huggingface-blog', 'google-ai-blog', 'openai-news',
+            'arxiv-cs-ai', 'arxiv-cs-lg', 'arxiv-stat-ml'
+        ]
+    },
+    global_macro: {
+        label: '全球宏观',
+        ids: [
+            'reuters', 'bbc-world', 'bbc-business', 'bbc-technology', 'nytimes-world',
+            'nytimes-technology', 'nytimes-business', 'cnbc-world', 'cnbc-tech',
+            'guardian-world', 'guardian-business', 'npr-news', 'npr-business',
+            'aljazeera-all', 'ft-world', 'ft-companies',
+            'federalreserve-press', 'federalreserve-speeches', 'sec-press'
+        ]
+    },
+    cybersecurity: {
+        label: '网络安全',
+        ids: [
+            'krebs-security', 'bleepingcomputer', 'thehackernews', 'securityweek', 'schneier',
+            'cisa-alerts', 'cisa-advisories', 'cisa-news', 'europol-news',
+            'aws-security-blog', 'google-security-blog', 'microsoft-security-blog'
+        ]
+    }
+};
+
+function getFeedCard(id) {
+    return document.querySelector(`.feed-card[data-id="${id}"]`);
+}
+
+function ensureFeedCard(id) {
+    const existing = getFeedCard(id);
+    if (existing) {
+        return {card: existing, created: false, missing: false};
+    }
+    const preset = FEED_PROFILE_CATALOG[id];
+    if (!preset) {
+        return {card: null, created: false, missing: true};
+    }
+    addFeedCard(id, preset.name, preset.url, true);
+    return {card: getFeedCard(id), created: true, missing: false};
+}
+
+async function applyFeedProfile(profileKey) {
+    const profile = FEED_PROFILES[profileKey];
+    if (!profile) {
+        showToast('未知模板', 'error');
+        return;
+    }
+
+    const message = `将启用「${profile.label}」模板中的 ${profile.ids.length} 个 RSS 源，是否继续？`;
+    let confirmed = true;
+    if (typeof window.showConfirmDialog === 'function') {
+        confirmed = await window.showConfirmDialog({
+            title: '应用 RSS 模板',
+            message,
+            confirmText: '应用模板',
+            confirmType: 'primary'
+        });
+    } else {
+        confirmed = confirm(message);
+    }
+    if (!confirmed) {
+        return;
+    }
+
+    let added = 0;
+    let enabled = 0;
+    const missing = [];
+
+    profile.ids.forEach((id) => {
+        const result = ensureFeedCard(id);
+        if (result.missing || !result.card) {
+            missing.push(id);
+            return;
+        }
+        if (result.created) {
+            added += 1;
+        }
+        const enabledInput = result.card.querySelector('.feed-enabled');
+        if (enabledInput && !enabledInput.checked) {
+            enabledInput.checked = true;
+            enabled += 1;
+        }
+    });
+
+    showToast(`模板已应用：新增 ${added} 个，启用 ${enabled} 个`, 'success');
+    if (missing.length) {
+        showToast(`以下源未找到预设：${missing.join(', ')}`, 'warning');
+    }
+}
+
+async function clearAllEnabledFeeds() {
+    const enabledInputs = Array.from(document.querySelectorAll('.feed-card .feed-enabled'));
+    const enabledCount = enabledInputs.filter((item) => item.checked).length;
+
+    if (!enabledCount) {
+        showToast('当前没有已启用的 RSS 源', 'info');
+        return;
+    }
+
+    const message = `将关闭当前已启用的 ${enabledCount} 个 RSS 源，是否继续？`;
+    let confirmed = true;
+    if (typeof window.showConfirmDialog === 'function') {
+        confirmed = await window.showConfirmDialog({
+            title: '清空启用状态',
+            message,
+            confirmText: '确认清空',
+            confirmType: 'danger'
+        });
+    } else {
+        confirmed = confirm(message);
+    }
+    if (!confirmed) {
+        return;
+    }
+
+    let disabled = 0;
+    enabledInputs.forEach((item) => {
+        if (item.checked) {
+            item.checked = false;
+            disabled += 1;
+        }
+    });
+    showToast(`已关闭 ${disabled} 个 RSS 源`, 'success');
+}
+
+function exportEnabledFeedsJson() {
+    const enabled = document.getElementById('rss-enabled')?.checked || false;
+    const freshnessEnabled = document.getElementById('freshness-enabled')?.checked || false;
+    const maxAgeDays = parseInt(document.getElementById('max-age-days')?.value, 10) || 3;
+
+    const enabledFeeds = [];
+    document.querySelectorAll('.feed-card').forEach((card) => {
+        const enabledInput = card.querySelector('.feed-enabled');
+        if (!enabledInput || !enabledInput.checked) {
+            return;
+        }
+
+        enabledFeeds.push({
+            id: (card.querySelector('.feed-id')?.value || '').trim(),
+            name: (card.querySelector('.feed-name')?.value || '').trim(),
+            url: (card.querySelector('.feed-url')?.value || '').trim(),
+            enabled: true
+        });
+    });
+
+    if (!enabledFeeds.length) {
+        showToast('当前没有已启用的 RSS 源可导出', 'warning');
+        return;
+    }
+
+    const payload = {
+        version: 1,
+        exported_at: new Date().toISOString(),
+        source: 'trendradar-webui-rss',
+        rss: {
+            enabled,
+            freshness_filter: {
+                enabled: freshnessEnabled,
+                max_age_days: maxAgeDays
+            },
+            feeds: enabledFeeds
+        }
+    };
+
+    const now = new Date();
+    const stamp = `${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, '0')}${String(now.getDate()).padStart(2, '0')}-${String(now.getHours()).padStart(2, '0')}${String(now.getMinutes()).padStart(2, '0')}${String(now.getSeconds()).padStart(2, '0')}`;
+    const filename = `trendradar-rss-enabled-${stamp}.json`;
+
+    const blob = new Blob([JSON.stringify(payload, null, 2)], {type: 'application/json;charset=utf-8'});
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement('a');
+    anchor.href = url;
+    anchor.download = filename;
+    document.body.appendChild(anchor);
+    anchor.click();
+    document.body.removeChild(anchor);
+    URL.revokeObjectURL(url);
+
+    showToast(`已导出 ${enabledFeeds.length} 个启用源`, 'success');
+}
+
+function triggerImportEnabledFeedsJson() {
+    const input = document.getElementById('rss-import-enabled-json');
+    if (!input) {
+        showToast('导入控件不可用', 'error');
+        return;
+    }
+    input.click();
+}
+
+function normalizeImportedRssPayload(payload) {
+    if (!payload || typeof payload !== 'object') {
+        throw new Error('JSON 内容不是对象');
+    }
+
+    if (payload.rss && typeof payload.rss === 'object') {
+        return payload.rss;
+    }
+
+    if (Array.isArray(payload.feeds)) {
+        return payload;
+    }
+
+    throw new Error('JSON 中未找到 rss.feeds');
+}
+
+function buildImportFeedPreview(importedFeeds) {
+    const validFeeds = [];
+    const entries = [];
+    const skipReasonStats = {
+        invalid_object: 0,
+        missing_id: 0,
+        missing_url: 0,
+        other: 0
+    };
+    let create = 0;
+    let update = 0;
+    let skip = 0;
+    let enableTrue = 0;
+    let enableFalse = 0;
+
+    const markSkipReason = (reasonKey) => {
+        const key = Object.prototype.hasOwnProperty.call(skipReasonStats, reasonKey) ? reasonKey : 'other';
+        skipReasonStats[key] += 1;
+    };
+
+    importedFeeds.forEach((item) => {
+        if (!item || typeof item !== 'object') {
+            skip += 1;
+            markSkipReason('invalid_object');
+            entries.push({
+                action: 'skip',
+                id: '(invalid)',
+                reason: '条目不是对象'
+            });
+            return;
+        }
+
+        const id = String(item.id || '').trim();
+        const url = String(item.url || '').trim();
+        if (!id || !url) {
+            skip += 1;
+            markSkipReason(!id ? 'missing_id' : 'missing_url');
+            entries.push({
+                action: 'skip',
+                id: id || '(missing-id)',
+                reason: !id ? '缺少 id' : '缺少 url'
+            });
+            return;
+        }
+
+        const name = String(item.name || id).trim() || id;
+        const enabled = typeof item.enabled === 'boolean' ? item.enabled : true;
+
+        validFeeds.push({id, name, url, enabled});
+        if (enabled) {
+            enableTrue += 1;
+        } else {
+            enableFalse += 1;
+        }
+
+        if (getFeedCard(id)) {
+            update += 1;
+            entries.push({
+                action: 'update',
+                id,
+                name,
+                enabled
+            });
+        } else {
+            create += 1;
+            entries.push({
+                action: 'create',
+                id,
+                name,
+                enabled
+            });
+        }
+    });
+
+    return {
+        validFeeds,
+        entries,
+        create,
+        update,
+        skip,
+        skipReasonStats,
+        enableTrue,
+        enableFalse,
+        sampleIds: validFeeds.slice(0, 6).map((feed) => feed.id)
+    };
+}
+
+const RSS_IMPORT_PREVIEW_ACTION_FILTER_KEY = 'trendradar_rss_import_preview_action_filter';
+const RSS_IMPORT_PREVIEW_MAX_LINES = 10;
+const RSS_IMPORT_SKIP_HIGHLIGHT_CLASS = 'rss-import-skip-highlight';
+const RSS_IMPORT_SKIP_HIGHLIGHT_TIMEOUT_MS = 2600;
+let lastImportFeedPreview = null;
+
+function normalizeImportPreviewActionFilter(value) {
+    const normalized = String(value || 'all').toLowerCase();
+    if (normalized === 'create' || normalized === 'update' || normalized === 'skip') {
+        return normalized;
+    }
+    return 'all';
+}
+
+function readImportPreviewActionFilter() {
+    const select = document.getElementById('rss-import-preview-action-filter');
+    return normalizeImportPreviewActionFilter(select?.value || 'all');
+}
+
+function renderImportPreviewActionFilterState(value) {
+    const stateNode = document.getElementById('rss-import-preview-action-filter-state');
+    if (!stateNode) {
+        return;
+    }
+
+    const normalized = normalizeImportPreviewActionFilter(value);
+    const labelMap = {
+        all: '全部 (all)',
+        create: '仅新增 (create)',
+        update: '仅更新 (update)',
+        skip: '仅跳过 (skip)'
+    };
+
+    stateNode.dataset.value = normalized;
+    stateNode.textContent = `当前过滤：${labelMap[normalized] || labelMap.all}`;
+}
+
+function countImportPreviewEntriesByAction(preview, actionFilter) {
+    const entries = Array.isArray(preview?.entries) ? preview.entries : [];
+    if (actionFilter === 'all') {
+        return entries.length;
+    }
+    return entries.filter((entry) => entry.action === actionFilter).length;
+}
+
+function renderImportPreviewActionEstimate(preview = null) {
+    const estimateNode = document.getElementById('rss-import-preview-action-filter-estimate');
+    if (!estimateNode) {
+        return;
+    }
+
+    const targetPreview = preview || lastImportFeedPreview;
+    if (!targetPreview || !Array.isArray(targetPreview.entries)) {
+        estimateNode.textContent = '本次导入将展示：待选择导入文件';
+        estimateNode.dataset.total = '0';
+        estimateNode.dataset.display = '0';
+        return;
+    }
+
+    const actionFilter = readImportPreviewActionFilter();
+    const total = countImportPreviewEntriesByAction(targetPreview, actionFilter);
+    const display = Math.min(total, RSS_IMPORT_PREVIEW_MAX_LINES);
+    estimateNode.dataset.total = String(total);
+    estimateNode.dataset.display = String(display);
+    estimateNode.textContent = `本次导入将展示：${display} 条（过滤后共 ${total} 条）`;
+}
+
+function formatImportPreviewSkipReasonSummary(skipReasonStats = null) {
+    const stats = skipReasonStats || {};
+    const rows = [
+        ['invalid_object', '条目不是对象'],
+        ['missing_id', '缺少 id'],
+        ['missing_url', '缺少 url'],
+        ['other', '其他原因']
+    ];
+
+    const parts = rows
+        .map(([key, label]) => [label, Number(stats[key] || 0)])
+        .filter(([, count]) => count > 0)
+        .map(([label, count]) => `${label} ${count}`);
+
+    if (!parts.length) {
+        return '无';
+    }
+    return parts.join(' | ');
+}
+
+function renderImportPreviewSkipReasonSummary(preview = null) {
+    const summaryNode = document.getElementById('rss-import-preview-skip-summary');
+    if (!summaryNode) {
+        return;
+    }
+
+    const targetPreview = preview || lastImportFeedPreview;
+    if (!targetPreview || !Array.isArray(targetPreview.entries)) {
+        summaryNode.textContent = '跳过原因统计：待选择导入文件';
+        summaryNode.dataset.skip = '0';
+        return;
+    }
+
+    const skipCount = Number(targetPreview.skip || 0);
+    summaryNode.dataset.skip = String(skipCount);
+    if (!skipCount) {
+        summaryNode.textContent = '跳过原因统计：本次导入无跳过项';
+        return;
+    }
+
+    const summaryText = formatImportPreviewSkipReasonSummary(targetPreview.skipReasonStats);
+    summaryNode.textContent = `跳过原因统计：${summaryText}`;
+}
+
+function persistImportPreviewActionFilter(value) {
+    try {
+        localStorage.setItem(
+            RSS_IMPORT_PREVIEW_ACTION_FILTER_KEY,
+            normalizeImportPreviewActionFilter(value)
+        );
+    } catch (error) {
+        // ignore storage failure
+    }
+}
+
+function restoreImportPreviewActionFilter() {
+    const select = document.getElementById('rss-import-preview-action-filter');
+    if (!select) {
+        return 'all';
+    }
+
+    let stored = 'all';
+    try {
+        stored = localStorage.getItem(RSS_IMPORT_PREVIEW_ACTION_FILTER_KEY) || 'all';
+    } catch (error) {
+        stored = 'all';
+    }
+
+    const normalized = normalizeImportPreviewActionFilter(stored);
+    select.value = normalized;
+    renderImportPreviewActionFilterState(normalized);
+    return normalized;
+}
+
+function bindImportPreviewActionFilter() {
+    const select = document.getElementById('rss-import-preview-action-filter');
+    if (!select || select.dataset.bound === '1') {
+        return;
+    }
+
+    select.dataset.bound = '1';
+    select.addEventListener('change', () => {
+        const normalized = normalizeImportPreviewActionFilter(select.value);
+        persistImportPreviewActionFilter(normalized);
+        renderImportPreviewActionFilterState(normalized);
+        renderImportPreviewActionEstimate();
+        renderImportPreviewSkipReasonSummary();
+    });
+}
+
+function initImportPreviewActionFilter() {
+    const current = restoreImportPreviewActionFilter();
+    bindImportPreviewActionFilter();
+    persistImportPreviewActionFilter(current);
+    renderImportPreviewActionEstimate();
+    renderImportPreviewSkipReasonSummary();
+}
+
+function resetImportPreviewActionFilter() {
+    const select = document.getElementById('rss-import-preview-action-filter');
+    if (!select) {
+        showToast('过滤器不可用', 'error');
+        return;
+    }
+
+    select.value = 'all';
+    persistImportPreviewActionFilter('all');
+    renderImportPreviewActionFilterState('all');
+    renderImportPreviewActionEstimate();
+    renderImportPreviewSkipReasonSummary();
+    showToast('导入预览过滤已重置为全部', 'success');
+}
+
+function getImportPreviewActionFilter() {
+    const value = readImportPreviewActionFilter();
+    persistImportPreviewActionFilter(value);
+    renderImportPreviewActionFilterState(value);
+    renderImportPreviewActionEstimate();
+    renderImportPreviewSkipReasonSummary();
+    return value;
+}
+
+function formatImportPreviewDetails(preview, actionFilter = 'all', maxLines = RSS_IMPORT_PREVIEW_MAX_LINES) {
+    const sourceEntries = Array.isArray(preview.entries) ? preview.entries : [];
+    const filteredEntries = actionFilter === 'all'
+        ? sourceEntries
+        : sourceEntries.filter((entry) => entry.action === actionFilter);
+
+    const total = filteredEntries.length;
+    if (!total) {
+        return '（当前过滤条件下无预览明细）';
+    }
+
+    const lines = filteredEntries.slice(0, maxLines).map((entry, index) => {
+        if (entry.action === 'create') {
+            return `${index + 1}. create | ${entry.id} | ${entry.enabled ? 'enabled' : 'disabled'}`;
+        }
+        if (entry.action === 'update') {
+            return `${index + 1}. update | ${entry.id} | ${entry.enabled ? 'enabled' : 'disabled'}`;
+        }
+        return `${index + 1}. skip   | ${entry.id} | ${entry.reason || 'invalid'}`;
+    });
+
+    if (total > maxLines) {
+        lines.push(`... 还有 ${total - maxLines} 条未展示`);
+    }
+
+    return lines.join('\n');
+}
+
+function clearImportSkipHighlights() {
+    document.querySelectorAll(`.feed-card.${RSS_IMPORT_SKIP_HIGHLIGHT_CLASS}`).forEach((card) => {
+        card.classList.remove(RSS_IMPORT_SKIP_HIGHLIGHT_CLASS);
+    });
+}
+
+function highlightFeedCardForSkip(card) {
+    if (!card) {
+        return;
+    }
+
+    clearImportSkipHighlights();
+    card.classList.add(RSS_IMPORT_SKIP_HIGHLIGHT_CLASS);
+    card.scrollIntoView({behavior: 'smooth', block: 'center'});
+
+    const urlInput = card.querySelector('.feed-url');
+    if (urlInput) {
+        urlInput.focus();
+    }
+
+    setTimeout(() => {
+        card.classList.remove(RSS_IMPORT_SKIP_HIGHLIGHT_CLASS);
+    }, RSS_IMPORT_SKIP_HIGHLIGHT_TIMEOUT_MS);
+}
+
+function focusFirstSkippedImportEntry(preview) {
+    const entries = Array.isArray(preview?.entries) ? preview.entries : [];
+    const firstSkip = entries.find((entry) => entry.action === 'skip');
+    if (!firstSkip) {
+        return false;
+    }
+
+    const skipId = String(firstSkip.id || '').trim();
+    const skipReason = String(firstSkip.reason || '').trim();
+
+    if (!skipId || skipId.startsWith('(')) {
+        showToast(`检测到跳过项：${skipReason || '无效条目'}（无法定位具体源）`, 'warning');
+        return false;
+    }
+
+    let card = getFeedCard(skipId);
+    if (!card && skipReason === '缺少 url') {
+        addFeedCard(skipId, skipId, '', false);
+        card = getFeedCard(skipId);
+    }
+
+    if (!card) {
+        showToast(`检测到跳过项：${skipId}（未找到对应卡片）`, 'warning');
+        return false;
+    }
+
+    highlightFeedCardForSkip(card);
+    showToast(`已定位第一条跳过项：${skipId}`, 'warning');
+    return true;
+}
+
+initImportPreviewActionFilter();
+
+async function handleImportEnabledFeedsFile(event) {
+    const input = event.target;
+    const file = input?.files?.[0];
+    if (!file) {
+        return;
+    }
+
+    try {
+        const text = await file.text();
+        const parsed = JSON.parse(text);
+        const rss = normalizeImportedRssPayload(parsed);
+        const importedFeeds = Array.isArray(rss.feeds) ? rss.feeds : [];
+        if (!importedFeeds.length) {
+            throw new Error('导入文件没有可用 feeds');
+        }
+
+        const preview = buildImportFeedPreview(importedFeeds);
+        if (!preview.validFeeds.length) {
+            throw new Error('导入文件中没有有效的 RSS 源（需包含 id 和 url）');
+        }
+
+        lastImportFeedPreview = preview;
+        renderImportPreviewActionEstimate(preview);
+        renderImportPreviewSkipReasonSummary(preview);
+
+        const sampleText = preview.sampleIds.length
+            ? `示例: ${preview.sampleIds.join(', ')}${preview.validFeeds.length > preview.sampleIds.length ? ' ...' : ''}`
+            : '';
+        const actionFilter = getImportPreviewActionFilter();
+        const filterLabelMap = {
+            all: '全部',
+            create: '仅新增',
+            update: '仅更新',
+            skip: '仅跳过'
+        };
+        const skipSummaryText = preview.skip
+            ? `\n跳过原因统计：${formatImportPreviewSkipReasonSummary(preview.skipReasonStats)}`
+            : '';
+        const detailText = formatImportPreviewDetails(preview, actionFilter, RSS_IMPORT_PREVIEW_MAX_LINES);
+        const message = `将导入 ${preview.validFeeds.length} 个有效 RSS 源（新增 ${preview.create} / 更新 ${preview.update} / 跳过 ${preview.skip}，启用 ${preview.enableTrue} / 关闭 ${preview.enableFalse}），是否继续？${sampleText ? `\n${sampleText}` : ''}${skipSummaryText}\n\n导入预览明细（${filterLabelMap[actionFilter] || '全部'}）:\n${detailText}`;
+
+        let confirmed = true;
+        if (typeof window.showConfirmDialog === 'function') {
+            confirmed = await window.showConfirmDialog({
+                title: '导入启用源（预览）',
+                message,
+                confirmText: '开始导入',
+                confirmType: 'primary'
+            });
+        } else {
+            confirmed = confirm(message);
+        }
+        if (!confirmed) {
+            return;
+        }
+
+        const rssEnabledInput = document.getElementById('rss-enabled');
+        if (rssEnabledInput && typeof rss.enabled === 'boolean') {
+            rssEnabledInput.checked = rss.enabled;
+        }
+
+        const freshnessEnabledInput = document.getElementById('freshness-enabled');
+        const maxAgeDaysInput = document.getElementById('max-age-days');
+        if (rss.freshness_filter && typeof rss.freshness_filter === 'object') {
+            if (freshnessEnabledInput && typeof rss.freshness_filter.enabled === 'boolean') {
+                freshnessEnabledInput.checked = rss.freshness_filter.enabled;
+            }
+            if (maxAgeDaysInput && Number.isFinite(Number(rss.freshness_filter.max_age_days))) {
+                maxAgeDaysInput.value = String(Math.max(0, parseInt(rss.freshness_filter.max_age_days, 10)));
+            }
+        }
+
+        let created = 0;
+        let updated = 0;
+        let enabledCount = 0;
+
+        preview.validFeeds.forEach((feed) => {
+            const {id, name, url, enabled: desiredEnabled} = feed;
+            let card = getFeedCard(id);
+            if (!card) {
+                addFeedCard(id, name, url, desiredEnabled);
+                card = getFeedCard(id);
+                created += 1;
+            } else {
+                updated += 1;
+                const nameInput = card.querySelector('.feed-name');
+                const urlInput = card.querySelector('.feed-url');
+                if (nameInput) {
+                    nameInput.value = name;
+                }
+                if (urlInput) {
+                    urlInput.value = url;
+                }
+            }
+
+            if (card) {
+                const enabledInput = card.querySelector('.feed-enabled');
+                if (enabledInput) {
+                    enabledInput.checked = desiredEnabled;
+                    if (desiredEnabled) {
+                        enabledCount += 1;
+                    }
+                }
+            }
+        });
+
+        showToast(`导入完成：新增 ${created}，更新 ${updated}，启用 ${enabledCount}，跳过 ${preview.skip}`, 'success');
+        if (preview.skip > 0) {
+            focusFirstSkippedImportEntry(preview);
+        }
+    } catch (error) {
+        showToast(`导入失败: ${error?.message || error}`, 'error');
+    } finally {
+        input.value = '';
+    }
+}
+
 function addFeedPreset(id, name, url) {
     if (document.querySelector(`.feed-card[data-id="${id}"]`)) {
         showToast('该 RSS 源已存在', 'warning');

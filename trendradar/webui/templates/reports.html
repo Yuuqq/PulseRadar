@@ -3,20 +3,190 @@
 {% block page_title %}历史报告{% endblock %}
 
 {% block content %}
-<div class="reports-page">
-    <div class="section">
-        <div class="section-header">
-            <h3 class="section-title">报告列表</h3>
+<div class="reports-page-split">
+    <!-- 左侧：报告列表 -->
+    <div class="reports-sidebar">
+        <div class="sidebar-header">
+            <h3>报告列表</h3>
             <button class="btn btn-sm" onclick="loadReports()">刷新</button>
         </div>
-
-        <div id="reports-list" class="reports-grid">
+        <div id="reports-list" class="reports-list">
             <div class="loading">加载中...</div>
         </div>
     </div>
+
+    <!-- 右侧：报告预览 -->
+    <div class="reports-preview">
+        <div id="preview-placeholder" class="preview-placeholder">
+            <div class="placeholder-icon">📋</div>
+            <div class="placeholder-text">选择左侧报告进行预览</div>
+        </div>
+        <iframe id="report-iframe" class="report-iframe" style="display: none;"></iframe>
+    </div>
 </div>
 
+<style>
+.reports-page-split {
+    display: flex;
+    height: calc(100vh - var(--header-height) - 48px);
+    gap: 16px;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.reports-sidebar {
+    width: 280px;
+    flex-shrink: 0;
+    border-right: 1px solid var(--gray-200);
+    display: flex;
+    flex-direction: column;
+    background: var(--gray-50);
+}
+
+.reports-sidebar .sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    border-bottom: 1px solid var(--gray-200);
+    background: white;
+}
+
+.reports-sidebar .sidebar-header h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.reports-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px;
+}
+
+.report-date-group {
+    margin-bottom: 16px;
+}
+
+.report-date {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gray-500);
+    margin: 0 0 8px 4px;
+    text-transform: uppercase;
+}
+
+.report-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.report-item-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    background: white;
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+    width: 100%;
+}
+
+.report-item-btn:hover {
+    border-color: var(--primary);
+    background: #f5f3ff;
+}
+
+.report-item-btn.active {
+    border-color: var(--primary);
+    background: var(--primary);
+    color: white;
+}
+
+.report-item-btn .report-icon {
+    font-size: 18px;
+}
+
+.report-item-btn .report-time {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.report-item-btn .report-open {
+    margin-left: auto;
+    font-size: 12px;
+    color: var(--gray-400);
+    text-decoration: none;
+}
+
+.report-item-btn:hover .report-open {
+    color: var(--primary);
+}
+
+.report-item-btn.active .report-open {
+    color: rgba(255,255,255,0.7);
+}
+
+.reports-preview {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.preview-placeholder {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray-400);
+}
+
+.placeholder-icon {
+    font-size: 64px;
+    margin-bottom: 16px;
+    opacity: 0.5;
+}
+
+.placeholder-text {
+    font-size: 16px;
+}
+
+.report-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+@media (max-width: 768px) {
+    .reports-page-split {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .reports-sidebar {
+        width: 100%;
+        max-height: 300px;
+        border-right: none;
+        border-bottom: 1px solid var(--gray-200);
+    }
+
+    .reports-preview {
+        min-height: 500px;
+    }
+}
+</style>
+
 <script>
+let currentReport = null;
+
 document.addEventListener('DOMContentLoaded', loadReports);
 
 function loadReports() {
@@ -40,25 +210,48 @@ function loadReports() {
             let html = '';
             Object.keys(grouped).sort().reverse().forEach(date => {
                 html += `<div class="report-date-group">
-                    <h4 class="report-date">${date}</h4>
-                    <div class="report-items">`;
+                    <div class="report-date">${date}</div>
+                    <div class="report-items-list">`;
 
                 grouped[date].forEach(r => {
-                    html += `<a href="${r.path}" target="_blank" class="report-item">
-                        <span class="report-time">${r.time}</span>
+                    html += `<button class="report-item-btn" data-path="${r.path}" onclick="previewReport(this, '${r.path}')">
                         <span class="report-icon">📋</span>
-                    </a>`;
+                        <span class="report-time">${r.time}</span>
+                        <a href="${r.path}" target="_blank" class="report-open" onclick="event.stopPropagation()">↗</a>
+                    </button>`;
                 });
 
                 html += '</div></div>';
             });
 
             container.innerHTML = html;
+
+            // 自动加载最新的报告
+            const firstBtn = container.querySelector('.report-item-btn');
+            if (firstBtn) {
+                previewReport(firstBtn, firstBtn.dataset.path);
+            }
         })
         .catch(e => {
             document.getElementById('reports-list').innerHTML =
                 `<div class="error-state">加载失败: ${e}</div>`;
         });
+}
+
+function previewReport(btn, path) {
+    // 更新选中状态
+    document.querySelectorAll('.report-item-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    // 显示 iframe
+    const placeholder = document.getElementById('preview-placeholder');
+    const iframe = document.getElementById('report-iframe');
+
+    placeholder.style.display = 'none';
+    iframe.style.display = 'block';
+    iframe.src = path;
+
+    currentReport = path;
 }
 </script>
 {% endblock %}

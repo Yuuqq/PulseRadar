@@ -1,0 +1,1087 @@
+{% extends "base.html" %}
+
+{% block page_title %}Workflow{% endblock %}
+
+{% block content %}
+<div class="workflow-layout">
+    <section class="section workflow-panel">
+        <div class="section-header workflow-header">
+            <div>
+                <h3 class="section-title">Workflow Entry</h3>
+                <p class="section-desc">Check config, create job, track execution, and open reports.</p>
+            </div>
+            <div class="workflow-header-actions">
+                <button id="workflow-refresh-btn" class="btn btn-sm btn-ghost">Refresh</button>
+                <button id="workflow-create-btn" class="btn btn-sm btn-primary">Create Job</button>
+            </div>
+        </div>
+
+        <div class="workflow-launch-form">
+            <div class="workflow-launch-row">
+                <label class="workflow-launch-label" for="workflow-run-scope">Run Scope</label>
+                <select id="workflow-run-scope" class="input workflow-run-scope">
+                    <option value="all">All Sources</option>
+                    <option value="platforms">Platforms Only</option>
+                    <option value="rss">RSS Only</option>
+                    <option value="extra_apis">Extra APIs Only</option>
+                </select>
+            </div>
+            <div class="workflow-launch-row workflow-launch-switches">
+                <label class="workflow-check-item">
+                    <input id="workflow-force-ai" type="checkbox" />
+                    <span>Force AI Analysis</span>
+                </label>
+                <label class="workflow-check-item">
+                    <input id="workflow-force-push" type="checkbox" />
+                    <span>Force Push</span>
+                </label>
+            </div>
+            <div class="workflow-presets">
+                <button class="btn btn-sm btn-ghost workflow-preset-btn" data-scope="all" type="button">All</button>
+                <button class="btn btn-sm btn-ghost workflow-preset-btn" data-scope="platforms" type="button">Platforms</button>
+                <button class="btn btn-sm btn-ghost workflow-preset-btn" data-scope="rss" type="button">RSS</button>
+                <button class="btn btn-sm btn-ghost workflow-preset-btn" data-scope="extra_apis" type="button">Extra APIs</button>
+            </div>
+            <div class="workflow-template-box">
+                <div class="workflow-template-head">
+                    <span class="workflow-launch-label">Favorite Templates</span>
+                    <div class="workflow-template-top-actions">
+                        <button id="workflow-template-export-btn" class="btn btn-sm btn-ghost" type="button">Export</button>
+                        <button id="workflow-template-import-btn" class="btn btn-sm btn-ghost" type="button">Import</button>
+                        <button id="workflow-save-template-btn" class="btn btn-sm btn-ghost" type="button">Save Current</button>
+                    </div>
+                </div>
+                <div class="workflow-template-create">
+                    <input
+                        id="workflow-template-name"
+                        class="input workflow-template-input"
+                        placeholder="Template name, e.g. Morning RSS"
+                    />
+                    <label class="workflow-template-replace">
+                        <input id="workflow-template-import-replace" type="checkbox" />
+                        <span>Replace on import</span>
+                    </label>
+                    <button id="workflow-template-preview-btn" class="btn btn-sm btn-ghost" type="button">Preview Import</button>
+                    <input id="workflow-template-import-file" type="file" accept="application/json" style="display:none;" />
+                </div>
+                <div class="workflow-template-preview" id="workflow-template-preview" style="display:none;"></div>
+                <div class="workflow-template-list" id="workflow-template-list">
+                    <div class="loading">Loading templates...</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="workflow-steps" id="workflow-steps">
+            <button class="workflow-step is-active" data-step="check" type="button">
+                <span class="workflow-step-index">1</span>
+                <span class="workflow-step-content">
+                    <span class="workflow-step-title">Check Config</span>
+                    <span class="workflow-step-desc">Review sources, AI, and notification settings.</span>
+                </span>
+            </button>
+            <button class="workflow-step" data-step="create" type="button">
+                <span class="workflow-step-index">2</span>
+                <span class="workflow-step-content">
+                    <span class="workflow-step-title">Create Job</span>
+                    <span class="workflow-step-desc">Enqueue a new collection and analysis run.</span>
+                </span>
+            </button>
+            <button class="workflow-step" data-step="track" type="button">
+                <span class="workflow-step-index">3</span>
+                <span class="workflow-step-content">
+                    <span class="workflow-step-title">Track Job</span>
+                    <span class="workflow-step-desc">Jump to Jobs Center with current job selected.</span>
+                </span>
+            </button>
+            <button class="workflow-step" data-step="report" type="button">
+                <span class="workflow-step-index">4</span>
+                <span class="workflow-step-content">
+                    <span class="workflow-step-title">Open Report</span>
+                    <span class="workflow-step-desc">Go to reports and inspect generated outputs.</span>
+                </span>
+            </button>
+        </div>
+    </section>
+
+    <section class="section workflow-panel">
+        <h3 class="section-title">Runtime Snapshot</h3>
+        <div class="workflow-status-grid">
+            <div class="workflow-status-card">
+                <div class="workflow-status-label">Current Job</div>
+                <div class="workflow-status-value" id="workflow-job-id">-</div>
+            </div>
+            <div class="workflow-status-card">
+                <div class="workflow-status-label">Job Status</div>
+                <div class="workflow-status-value" id="workflow-job-status">-</div>
+            </div>
+            <div class="workflow-status-card">
+                <div class="workflow-status-label">Running</div>
+                <div class="workflow-status-value" id="workflow-running-flag">-</div>
+            </div>
+            <div class="workflow-status-card">
+                <div class="workflow-status-label">Last Run Time</div>
+                <div class="workflow-status-value" id="workflow-last-run">-</div>
+            </div>
+        </div>
+
+        <div class="workflow-config-grid">
+            <div class="workflow-config-item">
+                <span class="workflow-config-key">Platforms</span>
+                <span class="workflow-config-value" id="workflow-platform-count">{{ config.platforms.sources|length if config.platforms else 0 }}</span>
+            </div>
+            <div class="workflow-config-item">
+                <span class="workflow-config-key">RSS</span>
+                <span class="workflow-config-value" id="workflow-rss-count">{{ config.rss.feeds|length if config.rss else 0 }}</span>
+            </div>
+            <div class="workflow-config-item">
+                <span class="workflow-config-key">Extra APIs</span>
+                <span class="workflow-config-value" id="workflow-api-count">{{ config.extra_apis.sources|length if config.extra_apis else 0 }}</span>
+            </div>
+            <div class="workflow-config-item">
+                <span class="workflow-config-key">AI Analysis</span>
+                <span class="workflow-config-value" id="workflow-ai-enabled">
+                    {% if config.ai_analysis and config.ai_analysis.enabled %}Enabled{% else %}Disabled{% endif %}
+                </span>
+            </div>
+            <div class="workflow-config-item">
+                <span class="workflow-config-key">Notification</span>
+                <span class="workflow-config-value" id="workflow-notify-enabled">
+                    {% if config.notification and config.notification.enabled %}Enabled{% else %}Disabled{% endif %}
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section workflow-panel">
+        <h3 class="section-title">Recent Parameterized Runs</h3>
+        <div class="workflow-recent-list" id="workflow-recent-list">
+            <div class="loading">Loading recent runs...</div>
+        </div>
+    </section>
+
+    <section class="section workflow-panel">
+        <h3 class="section-title">Live Log Preview</h3>
+        <div class="workflow-log" id="workflow-log">Waiting for job data...</div>
+        <div class="workflow-actions">
+            <a id="workflow-open-jobs" class="btn btn-sm btn-ghost" href="/jobs">Open Jobs Center</a>
+            <a id="workflow-open-reports" class="btn btn-sm btn-ghost" href="/reports">Open Reports</a>
+            <a id="workflow-open-latest-report" class="btn btn-sm btn-primary" href="/reports">View Latest Report</a>
+        </div>
+    </section>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+let workflowPollTimer = null;
+let workflowJobId = null;
+let workflowRecentTimer = null;
+let workflowTemplates = [];
+let workflowImportPreviewState = null;
+
+const WORKFLOW_ACTIVE_STATUSES = new Set(['queued', 'running', 'cancelling']);
+const WORKFLOW_SCOPES = new Set(['all', 'platforms', 'rss', 'extra_apis']);
+
+function workflowStatusLabel(status) {
+    const map = {
+        queued: 'Queued',
+        running: 'Running',
+        cancelling: 'Cancelling',
+        cancelled: 'Cancelled',
+        success: 'Success',
+        failed: 'Failed',
+    };
+    return map[status] || status || '-';
+}
+
+function workflowStatusClass(status) {
+    if (status === 'success') return 'badge-success';
+    if (status === 'failed' || status === 'cancelled') return 'badge-danger';
+    if (WORKFLOW_ACTIVE_STATUSES.has(status || '')) return 'badge-warning';
+    return 'badge-gray';
+}
+
+function normalizeWorkflowScope(scope) {
+    const value = String(scope || '').trim().toLowerCase();
+    return WORKFLOW_SCOPES.has(value) ? value : 'all';
+}
+
+function parseBooleanLike(value) {
+    if (value === true || value === false) {
+        return value;
+    }
+    const text = String(value || '').trim().toLowerCase();
+    return text === '1' || text === 'true' || text === 'yes' || text === 'on';
+}
+
+function workflowScopeLabel(scope) {
+    const map = {
+        all: 'All',
+        platforms: 'Platforms',
+        rss: 'RSS',
+        extra_apis: 'Extra APIs',
+    };
+    return map[normalizeWorkflowScope(scope)] || 'All';
+}
+
+function formatWorkflowTime(value) {
+    if (!value) return '-';
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) return value;
+    return date.toLocaleString();
+}
+
+function activateWorkflowStep(step) {
+    document.querySelectorAll('.workflow-step').forEach((button) => {
+        const isActive = button.dataset.step === step;
+        button.classList.toggle('is-active', isActive);
+    });
+}
+
+function buildJobsLink(jobId = null) {
+    const params = new URLSearchParams();
+    if (jobId) {
+        params.set('job_id', jobId);
+    }
+    return params.toString() ? `/jobs?${params.toString()}` : '/jobs';
+}
+
+function updateWorkflowActions() {
+    const jobsLink = document.getElementById('workflow-open-jobs');
+    if (jobsLink) {
+        jobsLink.href = buildJobsLink(workflowJobId);
+    }
+}
+
+function parseWorkflowRunPayloadFromCommand(command) {
+    const values = Array.isArray(command) ? command.map((item) => String(item)) : [];
+
+    let scope = 'all';
+    const configIndex = values.indexOf('--config');
+    if (configIndex >= 0 && configIndex < values.length - 1) {
+        const pathText = values[configIndex + 1] || '';
+        const match = String(pathText).match(/(all|platforms|rss|extra_apis)-[^\\/]*\.ya?ml$/i);
+        if (match) {
+            scope = normalizeWorkflowScope(match[1]);
+        }
+    }
+
+    return {
+        scope,
+        force_ai: values.includes('--force-ai'),
+        force_push: values.includes('--force-push'),
+    };
+}
+
+function applyWorkflowPayload(payload) {
+    const scope = normalizeWorkflowScope(payload.scope);
+    const scopeSelect = document.getElementById('workflow-run-scope');
+    const forceAi = document.getElementById('workflow-force-ai');
+    const forcePush = document.getElementById('workflow-force-push');
+
+    if (scopeSelect) {
+        scopeSelect.value = scope;
+    }
+    if (forceAi) {
+        forceAi.checked = !!payload.force_ai;
+    }
+    if (forcePush) {
+        forcePush.checked = !!payload.force_push;
+    }
+    updatePresetSelection(scope);
+}
+
+function renderWorkflowRecentRuns(jobs) {
+    const list = document.getElementById('workflow-recent-list');
+    if (!list) return;
+
+    const recent = (Array.isArray(jobs) ? jobs : []).slice(0, 3);
+    if (recent.length === 0) {
+        list.innerHTML = '<div class="empty-state">No recent runs.</div>';
+        return;
+    }
+
+    list.innerHTML = recent
+        .map((job) => {
+            const payload = parseWorkflowRunPayloadFromCommand(job.command || []);
+            const tags = [workflowScopeLabel(payload.scope)];
+            if (payload.force_ai) tags.push('Force AI');
+            if (payload.force_push) tags.push('Force Push');
+
+            return `
+                <div class="workflow-recent-item">
+                    <div class="workflow-recent-main">
+                        <div class="workflow-recent-title">
+                            <span>#${job.id}</span>
+                            <span class="badge ${workflowStatusClass(job.status)}">${workflowStatusLabel(job.status)}</span>
+                        </div>
+                        <div class="workflow-recent-meta">
+                            <span>${tags.map((tag) => escapeHtml(tag)).join(' · ')}</span>
+                            <span>${formatWorkflowTime(job.created_at)}</span>
+                        </div>
+                    </div>
+                    <div class="workflow-recent-actions">
+                        <button
+                            type="button"
+                            class="btn btn-sm btn-ghost workflow-rerun-btn"
+                            data-scope="${payload.scope}"
+                            data-force-ai="${payload.force_ai ? '1' : '0'}"
+                            data-force-push="${payload.force_push ? '1' : '0'}"
+                        >Rerun</button>
+                        <a class="btn btn-sm btn-ghost" href="${buildJobsLink(job.id)}">Open</a>
+                    </div>
+                </div>
+            `;
+        })
+        .join('');
+
+    list.querySelectorAll('.workflow-rerun-btn').forEach((button) => {
+        button.addEventListener('click', () => {
+            const payload = {
+                scope: normalizeWorkflowScope(button.dataset.scope || 'all'),
+                force_ai: button.dataset.forceAi === '1',
+                force_push: button.dataset.forcePush === '1',
+            };
+            applyWorkflowPayload(payload);
+            createWorkflowJob(payload);
+        });
+    });
+}
+
+function loadWorkflowRecentRuns() {
+    fetch('/api/jobs?page=1&page_size=20')
+        .then((response) => response.json())
+        .then((payload) => {
+            const jobs = Array.isArray(payload.items) ? payload.items : [];
+            renderWorkflowRecentRuns(jobs);
+        })
+        .catch(() => {
+            const list = document.getElementById('workflow-recent-list');
+            if (list) {
+                list.innerHTML = '<div class="error-state">Failed to load recent runs.</div>';
+            }
+        });
+}
+
+function renderWorkflowStatus(payload) {
+    const jobId = payload.job_id || null;
+    const status = payload.status || null;
+
+    workflowJobId = jobId;
+
+    const jobIdNode = document.getElementById('workflow-job-id');
+    const statusNode = document.getElementById('workflow-job-status');
+    const runningNode = document.getElementById('workflow-running-flag');
+    const lastRunNode = document.getElementById('workflow-last-run');
+    const logNode = document.getElementById('workflow-log');
+
+    if (jobIdNode) {
+        jobIdNode.textContent = jobId ? `#${jobId}` : '-';
+    }
+    if (statusNode) {
+        statusNode.textContent = workflowStatusLabel(status);
+    }
+    if (runningNode) {
+        runningNode.textContent = payload.running ? 'Yes' : 'No';
+    }
+    if (lastRunNode) {
+        lastRunNode.textContent = formatWorkflowTime(payload.last_run);
+    }
+    if (logNode) {
+        const lines = Array.isArray(payload.log) ? payload.log : [];
+        logNode.textContent = lines.length > 0 ? lines.join('\n') : 'No logs yet.';
+        logNode.scrollTop = logNode.scrollHeight;
+    }
+
+    updateWorkflowActions();
+
+    if (!jobId) {
+        activateWorkflowStep('check');
+        return;
+    }
+    if (WORKFLOW_ACTIVE_STATUSES.has(status || '')) {
+        activateWorkflowStep('track');
+        return;
+    }
+    activateWorkflowStep(status === 'success' ? 'report' : 'track');
+}
+
+function pollWorkflowStatus() {
+    const query = workflowJobId ? `?job_id=${encodeURIComponent(workflowJobId)}` : '';
+    fetch(`/api/status${query}`)
+        .then((response) => response.json())
+        .then((payload) => {
+            renderWorkflowStatus(payload);
+        })
+        .catch((error) => {
+            showToast(`Failed to load workflow status: ${String(error)}`, 'error');
+        });
+}
+
+function getWorkflowRunPayload() {
+    const scopeSelect = document.getElementById('workflow-run-scope');
+    const forceAi = document.getElementById('workflow-force-ai');
+    const forcePush = document.getElementById('workflow-force-push');
+
+    return {
+        scope: normalizeWorkflowScope(scopeSelect ? scopeSelect.value : 'all'),
+        force_ai: !!(forceAi && forceAi.checked),
+        force_push: !!(forcePush && forcePush.checked),
+    };
+}
+
+function updatePresetSelection(scope) {
+    const normalized = normalizeWorkflowScope(scope);
+    document.querySelectorAll('.workflow-preset-btn').forEach((button) => {
+        const active = button.dataset.scope === normalized;
+        button.classList.toggle('is-active', active);
+    });
+}
+
+function sanitizeTemplateName(value) {
+    const text = String(value || '').trim().replace(/\s+/g, ' ');
+    if (!text) {
+        return '';
+    }
+    return text.slice(0, 48);
+}
+
+function normalizeTemplatePayload(payload) {
+    return {
+        scope: normalizeWorkflowScope(payload.scope),
+        force_ai: !!payload.force_ai,
+        force_push: !!payload.force_push,
+    };
+}
+
+function getTemplateSignature(payload) {
+    const normalized = normalizeTemplatePayload(payload);
+    return [normalized.scope, normalized.force_ai ? '1' : '0', normalized.force_push ? '1' : '0'].join('|');
+}
+
+function loadWorkflowTemplates() {
+    return fetch('/api/workflow-templates?limit=20')
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error('Failed to load templates');
+            }
+            return response.json();
+        })
+        .then((payload) => {
+            const items = Array.isArray(payload.items) ? payload.items : [];
+            workflowTemplates = items
+                .map((item) => ({
+                    id: String(item.id || ''),
+                    name: sanitizeTemplateName(item.name || ''),
+                    scope: normalizeWorkflowScope(item.scope),
+                    force_ai: parseBooleanLike(item.force_ai),
+                    force_push: parseBooleanLike(item.force_push),
+                    created_at: Number(item.created_at || Date.now()),
+                    updated_at: Number(item.updated_at || Date.now()),
+                }))
+                .filter((item) => item.id && item.name)
+                .slice(0, 20);
+        })
+        .catch(() => {
+            workflowTemplates = [];
+        });
+}
+
+function persistWorkflowTemplates() {
+    return Promise.resolve();
+}
+
+function renderWorkflowTemplates() {
+    const list = document.getElementById('workflow-template-list');
+    if (!list) return;
+
+    if (!Array.isArray(workflowTemplates) || workflowTemplates.length === 0) {
+        list.innerHTML = '<div class="empty-state">No templates yet.</div>';
+        return;
+    }
+
+    list.innerHTML = workflowTemplates
+        .map((item) => {
+            const tags = [workflowScopeLabel(item.scope)];
+            if (item.force_ai) tags.push('Force AI');
+            if (item.force_push) tags.push('Force Push');
+
+            return `
+                <div class="workflow-template-item">
+                    <div class="workflow-template-main">
+                        <div class="workflow-template-title">${escapeHtml(item.name)}</div>
+                        <div class="workflow-template-meta">${tags.map((tag) => escapeHtml(tag)).join(' · ')}</div>
+                    </div>
+                    <div class="workflow-template-actions">
+                        <button
+                            type="button"
+                            class="btn btn-sm btn-ghost workflow-template-apply"
+                            data-template-id="${item.id}"
+                        >Apply</button>
+                        <button
+                            type="button"
+                            class="btn btn-sm btn-ghost workflow-template-run"
+                            data-template-id="${item.id}"
+                        >Run</button>
+                        <button
+                            type="button"
+                            class="btn btn-sm btn-ghost workflow-template-delete"
+                            data-template-id="${item.id}"
+                        >Delete</button>
+                    </div>
+                </div>
+            `;
+        })
+        .join('');
+
+    list.querySelectorAll('.workflow-template-apply').forEach((button) => {
+        button.addEventListener('click', () => {
+            const item = workflowTemplates.find((template) => template.id === button.dataset.templateId);
+            if (!item) return;
+            applyWorkflowPayload(item);
+            showToast(`Template applied: ${item.name}`, 'success');
+        });
+    });
+
+    list.querySelectorAll('.workflow-template-run').forEach((button) => {
+        button.addEventListener('click', () => {
+            const item = workflowTemplates.find((template) => template.id === button.dataset.templateId);
+            if (!item) return;
+            const payload = normalizeTemplatePayload(item);
+            applyWorkflowPayload(payload);
+            createWorkflowJob(payload);
+        });
+    });
+
+    list.querySelectorAll('.workflow-template-delete').forEach((button) => {
+        button.addEventListener('click', () => {
+            const item = workflowTemplates.find((template) => template.id === button.dataset.templateId);
+            if (!item) return;
+            fetch(`/api/workflow-templates/${encodeURIComponent(item.id)}`, { method: 'DELETE' })
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error('Delete failed');
+                    }
+                    return response.json();
+                })
+                .then(() => {
+                    workflowTemplates = workflowTemplates.filter((template) => template.id !== item.id);
+                    renderWorkflowTemplates();
+                    showToast(`Template deleted: ${item.name}`, 'info');
+                })
+                .catch((error) => {
+                    showToast(`Failed to delete template: ${String(error)}`, 'error');
+                });
+        });
+    });
+}
+
+function saveCurrentWorkflowTemplate() {
+    const input = document.getElementById('workflow-template-name');
+    const name = sanitizeTemplateName(input ? input.value : '');
+    if (!name) {
+        showToast('Please enter a template name.', 'error');
+        return;
+    }
+
+    const payload = getWorkflowRunPayload();
+    const normalized = normalizeTemplatePayload(payload);
+    const signature = getTemplateSignature(normalized);
+
+    const sameName = workflowTemplates.find((item) => item.name.toLowerCase() === name.toLowerCase());
+    const sameConfig = workflowTemplates.find((item) => getTemplateSignature(item) === signature);
+
+    let requestPromise;
+    if (sameName) {
+        requestPromise = fetch(`/api/workflow-templates/${encodeURIComponent(sameName.id)}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                name,
+                scope: normalized.scope,
+                force_ai: normalized.force_ai,
+                force_push: normalized.force_push,
+            }),
+        });
+    } else if (sameConfig) {
+        requestPromise = fetch(`/api/workflow-templates/${encodeURIComponent(sameConfig.id)}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                name,
+                scope: normalized.scope,
+                force_ai: normalized.force_ai,
+                force_push: normalized.force_push,
+            }),
+        });
+    } else {
+        requestPromise = fetch('/api/workflow-templates', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                name,
+                scope: normalized.scope,
+                force_ai: normalized.force_ai,
+                force_push: normalized.force_push,
+            }),
+        });
+    }
+
+    requestPromise
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error('Save failed');
+            }
+            return response.json();
+        })
+        .then(() => loadWorkflowTemplates())
+        .then(() => {
+            renderWorkflowTemplates();
+            if (input) {
+                input.value = '';
+            }
+            showToast(`Template saved: ${name}`, 'success');
+        })
+        .catch((error) => {
+            showToast(`Failed to save template: ${String(error)}`, 'error');
+        });
+}
+
+function bindWorkflowTemplates() {
+    const saveBtn = document.getElementById('workflow-save-template-btn');
+    const input = document.getElementById('workflow-template-name');
+    const exportBtn = document.getElementById('workflow-template-export-btn');
+    const previewBtn = document.getElementById('workflow-template-preview-btn');
+    const importBtn = document.getElementById('workflow-template-import-btn');
+    const importFileInput = document.getElementById('workflow-template-import-file');
+    const importReplaceInput = document.getElementById('workflow-template-import-replace');
+    const previewBox = document.getElementById('workflow-template-preview');
+
+    const setPreviewState = (payload) => {
+        const previousFilter = workflowImportPreviewState && workflowImportPreviewState.filter
+            ? String(workflowImportPreviewState.filter)
+            : 'all';
+        const previousSearch = workflowImportPreviewState && workflowImportPreviewState.search
+            ? String(workflowImportPreviewState.search)
+            : '';
+        workflowImportPreviewState = {
+            ...(payload || {}),
+            filter: ['all', 'create', 'update', 'skip'].includes(previousFilter) ? previousFilter : 'all',
+            search: previousSearch,
+        };
+    };
+
+    const applyPreviewFilter = (filterValue = null, searchValue = null) => {
+        if (!previewBox) return;
+        const fallbackFilter = workflowImportPreviewState && workflowImportPreviewState.filter
+            ? String(workflowImportPreviewState.filter)
+            : 'all';
+        const rawFilter = filterValue === null ? fallbackFilter : String(filterValue);
+        const safeFilter = ['all', 'create', 'update', 'skip'].includes(rawFilter) ? rawFilter : 'all';
+
+        const fallbackSearch = workflowImportPreviewState && workflowImportPreviewState.search
+            ? String(workflowImportPreviewState.search)
+            : '';
+        const safeSearch = String(searchValue === null ? fallbackSearch : searchValue)
+            .trim()
+            .toLowerCase();
+
+        if (workflowImportPreviewState) {
+            workflowImportPreviewState.filter = safeFilter;
+            workflowImportPreviewState.search = safeSearch;
+        }
+
+        previewBox.querySelectorAll('.workflow-preview-row').forEach((row) => {
+            const action = String(row.dataset.action || '');
+            const name = String(row.dataset.name || '').toLowerCase();
+            const text = String(row.textContent || '').toLowerCase();
+            const actionMatched = safeFilter === 'all' || action === safeFilter;
+            const searchMatched = !safeSearch || name.includes(safeSearch) || text.includes(safeSearch);
+            const visible = actionMatched && searchMatched;
+            row.style.display = visible ? '' : 'none';
+        });
+
+        previewBox.querySelectorAll('.workflow-preview-filter-btn').forEach((button) => {
+            const active = String(button.dataset.filter || 'all') === safeFilter;
+            button.classList.toggle('is-active', active);
+        });
+
+        const searchInput = document.getElementById('workflow-preview-search');
+        if (searchInput && searchInput.value !== safeSearch) {
+            searchInput.value = safeSearch;
+        }
+    };
+
+    const getSelectedPreviewItems = () => {
+        if (!workflowImportPreviewState || !Array.isArray(workflowImportPreviewState.entries)) {
+            return [];
+        }
+        const selected = new Set(
+            Array.from(document.querySelectorAll('.workflow-preview-check:checked')).map((node) => String(node.value || '')),
+        );
+        return workflowImportPreviewState.entries
+            .filter((entry) => entry.action !== 'skip' && selected.has(String(entry.index)))
+            .map((entry) => ({
+                name: entry.name,
+                scope: entry.scope,
+                force_ai: !!entry.force_ai,
+                force_push: !!entry.force_push,
+            }));
+    };
+
+    const bindPreviewActions = () => {
+        const selectAllBtn = document.getElementById('workflow-preview-select-all');
+        const clearBtn = document.getElementById('workflow-preview-clear');
+        const importSelectedBtn = document.getElementById('workflow-preview-import-selected');
+        const searchInput = document.getElementById('workflow-preview-search');
+
+        const visibleChecks = () =>
+            Array.from(document.querySelectorAll('.workflow-preview-check')).filter((node) => {
+                const row = node.closest('.workflow-preview-row');
+                return !row || row.style.display !== 'none';
+            });
+
+        if (selectAllBtn) {
+            selectAllBtn.addEventListener('click', () => {
+                visibleChecks().forEach((node) => {
+                    node.checked = true;
+                });
+            });
+        }
+
+        if (clearBtn) {
+            clearBtn.addEventListener('click', () => {
+                visibleChecks().forEach((node) => {
+                    node.checked = false;
+                });
+            });
+        }
+
+        previewBox.querySelectorAll('.workflow-preview-filter-btn').forEach((button) => {
+            button.addEventListener('click', () => {
+                applyPreviewFilter(button.dataset.filter || 'all');
+            });
+        });
+
+        if (searchInput) {
+            searchInput.addEventListener('input', () => {
+                const nextFilter = workflowImportPreviewState && workflowImportPreviewState.filter
+                    ? workflowImportPreviewState.filter
+                    : 'all';
+                applyPreviewFilter(nextFilter, searchInput.value || '');
+            });
+        }
+
+        if (importSelectedBtn) {
+            importSelectedBtn.addEventListener('click', () => {
+                const replace = !!(importReplaceInput && importReplaceInput.checked);
+                const selectedItems = getSelectedPreviewItems();
+
+                if (selectedItems.length <= 0) {
+                    showToast('No preview items selected.', 'info');
+                    return;
+                }
+
+                const confirmed = window.confirm(
+                    `Import selected ${selectedItems.length} item(s)?${replace ? ' This will replace existing templates first.' : ''}`,
+                );
+                if (!confirmed) {
+                    return;
+                }
+
+                fetch('/api/workflow-templates/import', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ items: selectedItems, replace }),
+                })
+                    .then((response) => {
+                        if (!response.ok) {
+                            throw new Error('Import failed');
+                        }
+                        return response.json();
+                    })
+                    .then((payload) => {
+                        workflowTemplates = Array.isArray(payload.items) ? payload.items : [];
+                        renderWorkflowTemplates();
+                        showToast(
+                            `Import completed: ${payload.imported || 0} imported, ${payload.skipped || 0} skipped`,
+                            'success',
+                        );
+                    })
+                    .catch((error) => {
+                        showToast(`Failed to import selected templates: ${String(error)}`, 'error');
+                    });
+            });
+        }
+
+        applyPreviewFilter(
+            (workflowImportPreviewState && workflowImportPreviewState.filter) || 'all',
+            (workflowImportPreviewState && workflowImportPreviewState.search) || '',
+        );
+    };
+
+    loadWorkflowTemplates().then(() => {
+        renderWorkflowTemplates();
+    });
+
+    if (saveBtn) {
+        saveBtn.addEventListener('click', saveCurrentWorkflowTemplate);
+    }
+    if (input) {
+        input.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                saveCurrentWorkflowTemplate();
+            }
+        });
+    }
+
+    if (exportBtn) {
+        exportBtn.addEventListener('click', () => {
+            window.open('/api/workflow-templates/export', '_blank');
+        });
+    }
+
+    if (importBtn && importFileInput) {
+        const runImportFlow = (mode) => {
+            importFileInput.value = '';
+            importFileInput.click();
+            importFileInput.dataset.mode = mode;
+        };
+
+        if (previewBtn) {
+            previewBtn.addEventListener('click', () => {
+                runImportFlow('preview');
+            });
+        }
+
+        importBtn.addEventListener('click', () => {
+            runImportFlow('import');
+        });
+
+        importFileInput.addEventListener('change', () => {
+            const file = importFileInput.files && importFileInput.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = () => {
+                try {
+                    const parsed = JSON.parse(String(reader.result || '{}'));
+                    const items = Array.isArray(parsed.items) ? parsed.items : [];
+                    const replace = !!(importReplaceInput && importReplaceInput.checked);
+                    const mode = importFileInput.dataset.mode || 'import';
+
+                    const previewRequest = fetch('/api/workflow-templates/import/preview', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ items, replace }),
+                    })
+                        .then((response) => {
+                            if (!response.ok) {
+                                throw new Error('Preview failed');
+                            }
+                            return response.json();
+                        });
+
+                    const renderPreview = (preview) => {
+                        if (!previewBox) return;
+                        const createCount = Number(preview.create || 0);
+                        const updateCount = Number(preview.update || 0);
+                        const skipCount = Number(preview.skip || 0);
+                        const totalCount = createCount + updateCount + skipCount;
+                        const topEntries = Array.isArray(preview.entries)
+                            ? preview.entries.slice(0, 20)
+                            : [];
+                        const details = topEntries
+                            .map((entry) => {
+                                if (entry.action === 'skip') {
+                                    const reason = String(entry.reason || 'skip');
+                                    const nameText = entry.name ? String(entry.name) : `(unnamed #${entry.index})`;
+                                    const nameEscaped = escapeHtml(nameText);
+                                    return `<li class="workflow-preview-row" data-action="skip" data-name="${nameEscaped}">[skip] ${nameEscaped} (${escapeHtml(reason)})</li>`;
+                                }
+                                const flags = [];
+                                if (entry.force_ai) flags.push('Force AI');
+                                if (entry.force_push) flags.push('Force Push');
+                                const desc = [workflowScopeLabel(entry.scope), ...flags].join(', ');
+                                const nameEscaped = escapeHtml(String(entry.name || ''));
+                                return `
+                                    <li class="workflow-preview-row" data-action="${escapeHtml(String(entry.action || 'create'))}" data-name="${nameEscaped}">
+                                        <label class="workflow-preview-item">
+                                            <input class="workflow-preview-check" type="checkbox" value="${entry.index}" checked />
+                                            <span>[${entry.action}] ${nameEscaped} (${escapeHtml(desc)})</span>
+                                        </label>
+                                    </li>
+                                `;
+                            })
+                            .join('');
+
+                        setPreviewState(preview);
+
+                        previewBox.innerHTML = `
+                            <div class="workflow-import-summary">
+                                <span class="tag tag-blue">Create ${createCount}</span>
+                                <span class="tag tag-green">Update ${updateCount}</span>
+                                <span class="tag tag-purple">Skip ${skipCount}</span>
+                            </div>
+                            <div class="workflow-preview-filters">
+                                <button class="btn btn-sm btn-ghost workflow-preview-filter-btn" data-filter="all" type="button">All (${totalCount})</button>
+                                <button class="btn btn-sm btn-ghost workflow-preview-filter-btn" data-filter="create" type="button">Create (${createCount})</button>
+                                <button class="btn btn-sm btn-ghost workflow-preview-filter-btn" data-filter="update" type="button">Update (${updateCount})</button>
+                                <button class="btn btn-sm btn-ghost workflow-preview-filter-btn" data-filter="skip" type="button">Skip (${skipCount})</button>
+                                <input id="workflow-preview-search" class="input workflow-preview-search" placeholder="Search name" />
+                            </div>
+                            <div class="workflow-preview-actions">
+                                <button id="workflow-preview-select-all" class="btn btn-sm btn-ghost" type="button">Select All</button>
+                                <button id="workflow-preview-clear" class="btn btn-sm btn-ghost" type="button">Clear</button>
+                                <button id="workflow-preview-import-selected" class="btn btn-sm btn-primary" type="button">Import Selected</button>
+                            </div>
+                            <ul class="workflow-import-details">${details || '<li>No items.</li>'}</ul>
+                        `;
+                        previewBox.style.display = 'block';
+                        bindPreviewActions();
+                    };
+
+                    previewRequest
+                        .then((preview) => {
+                            renderPreview(preview);
+
+                            if (mode !== 'import') {
+                                showToast('Preview ready. Confirm details and click Import.', 'info');
+                                return;
+                            }
+
+                            const confirmed = window.confirm(
+                                `Import plan: create ${preview.create || 0}, update ${preview.update || 0}, skip ${preview.skip || 0}. Continue?`,
+                            );
+                            if (!confirmed) {
+                                return;
+                            }
+
+                            return fetch('/api/workflow-templates/import', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({ items, replace }),
+                            })
+                                .then((response) => {
+                                    if (!response.ok) {
+                                        throw new Error('Import failed');
+                                    }
+                                    return response.json();
+                                })
+                                .then((payload) => {
+                                    workflowTemplates = Array.isArray(payload.items) ? payload.items : [];
+                                    renderWorkflowTemplates();
+                                    showToast(
+                                        `Import completed: ${payload.imported || 0} imported, ${payload.skipped || 0} skipped`,
+                                        'success',
+                                    );
+                                });
+                        })
+                        .catch((error) => {
+                            showToast(`Failed to preview/import templates: ${String(error)}`, 'error');
+                        });
+                } catch {
+                    showToast('Invalid template JSON file.', 'error');
+                }
+            };
+
+            reader.onerror = () => {
+                showToast('Failed to read import file.', 'error');
+            };
+
+            reader.readAsText(file, 'utf-8');
+        });
+    }
+}
+
+function createWorkflowJob(overridePayload = null) {
+    const payload = overridePayload || getWorkflowRunPayload();
+    fetch('/api/run', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+    })
+        .then((response) => response.json())
+        .then((payload) => {
+            if (!payload.success) {
+                showToast(payload.error || 'Failed to create job', 'error');
+                return;
+            }
+
+            workflowJobId = payload.job_id || null;
+            activateWorkflowStep('create');
+            updateWorkflowActions();
+            showToast(`Job created: ${payload.job_id} (${payload.scope || 'all'})`, 'success');
+            pollWorkflowStatus();
+            loadWorkflowRecentRuns();
+        })
+        .catch((error) => {
+            showToast(`Failed to create job: ${String(error)}`, 'error');
+        });
+}
+
+function bindWorkflowPresets() {
+    const scopeSelect = document.getElementById('workflow-run-scope');
+    if (!scopeSelect) return;
+
+    updatePresetSelection(scopeSelect.value || 'all');
+
+    scopeSelect.addEventListener('change', () => {
+        updatePresetSelection(scopeSelect.value || 'all');
+    });
+
+    document.querySelectorAll('.workflow-preset-btn').forEach((button) => {
+        button.addEventListener('click', () => {
+            const scope = button.dataset.scope || 'all';
+            scopeSelect.value = scope;
+            updatePresetSelection(scope);
+        });
+    });
+}
+
+function bindWorkflowStepNavigation() {
+    document.querySelectorAll('.workflow-step').forEach((button) => {
+        button.addEventListener('click', () => {
+            const step = button.dataset.step;
+            if (step === 'check') {
+                window.location.href = '/settings';
+                return;
+            }
+            if (step === 'create') {
+                createWorkflowJob();
+                return;
+            }
+            if (step === 'track') {
+                window.location.href = buildJobsLink(workflowJobId);
+                return;
+            }
+            if (step === 'report') {
+                window.location.href = '/reports';
+            }
+        });
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const refreshBtn = document.getElementById('workflow-refresh-btn');
+    const createBtn = document.getElementById('workflow-create-btn');
+
+    bindWorkflowStepNavigation();
+    bindWorkflowPresets();
+    bindWorkflowTemplates();
+
+    if (refreshBtn) {
+        refreshBtn.addEventListener('click', pollWorkflowStatus);
+    }
+    if (createBtn) {
+        createBtn.addEventListener('click', createWorkflowJob);
+    }
+
+    pollWorkflowStatus();
+    loadWorkflowRecentRuns();
+    workflowPollTimer = setInterval(pollWorkflowStatus, 3000);
+    workflowRecentTimer = setInterval(loadWorkflowRecentRuns, 10000);
+});
+</script>
+{% endblock %}

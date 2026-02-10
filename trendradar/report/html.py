@@ -77,20 +77,20 @@ def render_html_content(
             }
 
             .container {
-                max-width: 980px;
-                width: 94%;
+                max-width: 1060px;
+                width: 96%;
                 margin: 0 auto;
                 background: white;
-                border-radius: 14px;
+                border-radius: 16px;
                 overflow: hidden;
                 border: 1px solid #e5e7eb;
-                box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+                box-shadow: 0 4px 6px rgba(15, 23, 42, 0.04), 0 16px 40px rgba(15, 23, 42, 0.08);
             }
 
             .header {
                 background: linear-gradient(135deg, #1d4ed8 0%, #0f766e 100%);
                 color: white;
-                padding: 32px 24px;
+                padding: 36px 28px;
                 text-align: center;
                 position: relative;
             }
@@ -138,9 +138,10 @@ def render_html_content(
             }
 
             .header-title {
-                font-size: 24px;
+                font-size: 26px;
                 font-weight: 700;
-                margin: 0 0 20px 0;
+                margin: 0 0 24px 0;
+                letter-spacing: -0.3px;
             }
 
             .header-info {
@@ -163,12 +164,12 @@ def render_html_content(
             }
 
             .info-value {
-                font-weight: 600;
-                font-size: 17px;
+                font-weight: 700;
+                font-size: 18px;
             }
 
             .content {
-                padding: 28px;
+                padding: 32px 36px;
             }
 
             .controls {
@@ -233,12 +234,12 @@ def render_html_content(
                 top: 0;
                 z-index: 6;
                 background: linear-gradient(to bottom, #ffffff 85%, rgba(255, 255, 255, 0));
-                margin: -8px 0 20px;
-                padding: 12px 0 10px;
+                margin: -8px -4px 24px;
+                padding: 14px 4px 12px;
                 display: flex;
                 flex-wrap: wrap;
                 gap: 8px;
-                border-bottom: 1px solid #e2e8f0;
+                border-bottom: 2px solid #e2e8f0;
             }
 
             .section-tab {
@@ -246,8 +247,8 @@ def render_html_content(
                 background: #ffffff;
                 color: #0f172a;
                 border-radius: 999px;
-                padding: 8px 14px;
-                font-size: 12px;
+                padding: 9px 18px;
+                font-size: 13px;
                 font-weight: 600;
                 cursor: pointer;
                 transition: all 0.15s ease;
@@ -267,11 +268,11 @@ def render_html_content(
 
             .topic-tabs {
                 position: sticky;
-                top: 0;
+                top: 52px;
                 z-index: 5;
                 background: linear-gradient(to bottom, #ffffff 85%, rgba(255, 255, 255, 0));
-                margin: -8px 0 20px;
-                padding: 16px 0 12px;
+                margin: -4px 0 24px;
+                padding: 14px 0 12px;
                 display: flex;
                 flex-wrap: wrap;
                 gap: 10px;
@@ -343,11 +344,17 @@ def render_html_content(
             }
 
             .word-group {
-                margin-bottom: 24px;
-                background: #f8fafc;
+                margin-bottom: 28px;
+                background: #ffffff;
                 border: 1px solid #e2e8f0;
-                border-radius: 12px;
-                padding: 16px 18px 8px;
+                border-radius: 14px;
+                padding: 20px 22px 12px;
+                box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04), 0 4px 12px rgba(15, 23, 42, 0.03);
+                transition: box-shadow 0.2s ease;
+            }
+
+            .word-group:hover {
+                box-shadow: 0 2px 6px rgba(15, 23, 42, 0.06), 0 8px 24px rgba(15, 23, 42, 0.06);
             }
 
             .word-group:first-child {
@@ -358,9 +365,9 @@ def render_html_content(
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                margin-bottom: 12px;
-                padding-bottom: 8px;
-                border-bottom: 1px solid #e2e8f0;
+                margin-bottom: 16px;
+                padding-bottom: 12px;
+                border-bottom: 2px solid #f1f5f9;
             }
 
             .word-info {
@@ -393,17 +400,24 @@ def render_html_content(
             }
 
             .news-item {
-                margin-bottom: 12px;
-                padding: 12px 0;
-                border-bottom: 1px solid #e2e8f0;
+                margin-bottom: 4px;
+                padding: 14px 8px;
+                border-bottom: 1px solid #f1f5f9;
                 position: relative;
                 display: flex;
-                gap: 10px;
+                gap: 12px;
                 align-items: center;
+                border-radius: 8px;
+                transition: background 0.15s ease;
+            }
+
+            .news-item:hover {
+                background: #f8fafc;
             }
 
             .news-item:last-child {
                 border-bottom: none;
+                margin-bottom: 0;
             }
 
             .news-item.new::after {
@@ -518,9 +532,9 @@ def render_html_content(
 
             /* 通用区域分割线样式 */
             .section-divider {
-                margin-top: 28px;
-                padding-top: 24px;
-                border-top: 2px solid #e2e8f0;
+                margin-top: 36px;
+                padding-top: 28px;
+                border-top: 3px solid #e2e8f0;
             }
 
             /* 热榜统计区样式 */
@@ -529,36 +543,47 @@ def render_html_content(
             }
 
             .new-section {
-                margin-top: 32px;
-                padding-top: 24px;
+                margin-top: 36px;
+                padding-top: 28px;
             }
 
             .new-section-title {
                 color: #0f172a;
-                font-size: 17px;
-                font-weight: 600;
-                margin: 0 0 20px 0;
+                font-size: 18px;
+                font-weight: 700;
+                margin: 0 0 24px 0;
             }
 
             .new-source-group {
-                margin-bottom: 24px;
+                margin-bottom: 28px;
+                background: #ffffff;
+                border: 1px solid #e2e8f0;
+                border-radius: 14px;
+                padding: 20px 22px;
+                box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04), 0 4px 12px rgba(15, 23, 42, 0.03);
             }
 
             .new-source-title {
                 color: #475569;
-                font-size: 13px;
-                font-weight: 500;
-                margin: 0 0 12px 0;
-                padding-bottom: 6px;
-                border-bottom: 1px solid #e2e8f0;
+                font-size: 14px;
+                font-weight: 600;
+                margin: 0 0 14px 0;
+                padding-bottom: 10px;
+                border-bottom: 2px solid #f1f5f9;
             }
 
             .new-item {
                 display: flex;
                 align-items: center;
                 gap: 12px;
-                padding: 10px 0;
-                border-bottom: 1px solid #e2e8f0;
+                padding: 12px 8px;
+                border-bottom: 1px solid #f1f5f9;
+                border-radius: 8px;
+                transition: background 0.15s ease;
+            }
+
+            .new-item:hover {
+                background: #f8fafc;
             }
 
             .new-item:last-child {
@@ -637,10 +662,10 @@ def render_html_content(
             }
 
             .footer {
-                margin-top: 32px;
-                padding: 20px 24px;
-                background: #f1f5f9;
-                border-top: 1px solid #e2e8f0;
+                margin-top: 40px;
+                padding: 24px 32px;
+                background: #f8fafc;
+                border-top: 2px solid #e2e8f0;
                 text-align: center;
             }
 
@@ -668,10 +693,10 @@ def render_html_content(
             }
 
             @media (max-width: 480px) {
-                body { padding: 12px; }
-                .header { padding: 24px 20px; }
-                .content { padding: 20px; }
-                .footer { padding: 16px 20px; }
+                body { padding: 8px; }
+                .header { padding: 28px 20px; }
+                .content { padding: 20px 16px; }
+                .footer { padding: 20px; }
                 .header-info { grid-template-columns: 1fr; gap: 12px; }
                 .controls { gap: 10px; }
                 .controls-left, .controls-right { width: 100%; }
@@ -680,9 +705,14 @@ def render_html_content(
                 .topic-tab { font-size: 11px; padding: 6px 10px; }
                 .news-header { gap: 6px; }
                 .news-content { padding-right: 45px; }
-                .news-item { gap: 8px; }
-                .new-item { gap: 8px; }
+                .news-item { gap: 8px; padding: 12px 4px; }
+                .new-item { gap: 8px; padding: 10px 4px; }
                 .news-number { width: 20px; height: 20px; font-size: 12px; }
+                .word-group { padding: 16px 14px 8px; border-radius: 10px; }
+                .feed-group { padding: 16px 14px; border-radius: 10px; }
+                .new-source-group { padding: 16px 14px; border-radius: 10px; }
+                .ai-section { padding: 20px 16px; }
+                .ai-block { padding: 16px; }
                 .save-buttons {
                     position: static;
                     margin-bottom: 16px;
@@ -699,30 +729,36 @@ def render_html_content(
 
             /* RSS 订阅内容样式 */
             .rss-section {
-                margin-top: 32px;
-                padding-top: 24px;
+                margin-top: 36px;
+                padding-top: 28px;
             }
 
             .rss-section-header {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                margin-bottom: 20px;
+                margin-bottom: 24px;
             }
 
             .rss-section-title {
-                font-size: 18px;
-                font-weight: 600;
+                font-size: 20px;
+                font-weight: 700;
                 color: #0f766e;
             }
 
             .rss-section-count {
                 color: #64748b;
                 font-size: 14px;
+                font-weight: 500;
             }
 
             .feed-group {
-                margin-bottom: 24px;
+                margin-bottom: 28px;
+                background: #ffffff;
+                border: 1px solid #e2e8f0;
+                border-radius: 14px;
+                padding: 20px 22px;
+                box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04), 0 4px 12px rgba(15, 23, 42, 0.03);
             }
 
             .feed-group:last-child {
@@ -733,14 +769,14 @@ def render_html_content(
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                margin-bottom: 12px;
-                padding-bottom: 8px;
-                border-bottom: 2px solid #0f766e;
+                margin-bottom: 16px;
+                padding-bottom: 12px;
+                border-bottom: 2px solid #0d9488;
             }
 
             .feed-name {
-                font-size: 15px;
-                font-weight: 600;
+                font-size: 16px;
+                font-weight: 700;
                 color: #0f766e;
             }
 
@@ -752,11 +788,17 @@ def render_html_content(
 
             .rss-item {
                 margin-bottom: 12px;
-                padding: 14px;
+                padding: 16px;
                 background: #f0fdfa;
-                border-radius: 8px;
+                border-radius: 10px;
                 border: 1px solid #ccfbf1;
-                border-left: 3px solid #0f766e;
+                border-left: 4px solid #0d9488;
+                transition: transform 0.15s ease, box-shadow 0.15s ease;
+            }
+
+            .rss-item:hover {
+                transform: translateY(-1px);
+                box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
             }
 
             .rss-item:last-child {
@@ -865,10 +907,10 @@ def render_html_content(
 
             /* AI 分析区块样式 */
             .ai-section {
-                margin-top: 32px;
-                padding: 24px;
-                background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-                border-radius: 12px;
+                margin-top: 36px;
+                padding: 28px;
+                background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f0f9ff 100%);
+                border-radius: 16px;
                 border: 1px solid #bae6fd;
             }
 
@@ -876,30 +918,31 @@ def render_html_content(
                 display: flex;
                 align-items: center;
                 gap: 10px;
-                margin-bottom: 20px;
+                margin-bottom: 24px;
             }
 
             .ai-section-title {
-                font-size: 18px;
-                font-weight: 600;
+                font-size: 20px;
+                font-weight: 700;
                 color: #0369a1;
             }
 
             .ai-section-badge {
-                background: #0ea5e9;
+                background: linear-gradient(135deg, #0ea5e9, #0369a1);
                 color: white;
                 font-size: 11px;
-                font-weight: 600;
-                padding: 3px 8px;
-                border-radius: 4px;
+                font-weight: 700;
+                padding: 4px 10px;
+                border-radius: 6px;
+                letter-spacing: 0.5px;
             }
 
             .ai-block {
                 margin-bottom: 16px;
-                padding: 16px;
+                padding: 20px;
                 background: white;
-                border-radius: 8px;
-                box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+                border-radius: 12px;
+                box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 12px rgba(3, 105, 161, 0.04);
             }
 
             .ai-block:last-child {

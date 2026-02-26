@@ -1,0 +1,21 @@
+:8080 {
+  root * /srv
+  encode gzip zstd
+
+  header {
+    X-Content-Type-Options "nosniff"
+    Referrer-Policy "strict-origin-when-cross-origin"
+  }
+
+  @root path /
+  handle @root {
+    redir /index.html 302
+  }
+
+  @allowed path_regexp allowed ^/(index\\.html|latest/[^/]+\\.html|\\d{4}-\\d{2}-\\d{2}/[^/]+\\.html)$
+  handle @allowed {
+    file_server
+  }
+
+  respond "Not Found" 404
+}

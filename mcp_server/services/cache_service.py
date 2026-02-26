@@ -26,9 +26,9 @@ def make_cache_key(namespace: str, **params) -> str:
 
     Examples:
         >>> make_cache_key("latest_news", platforms=["zhihu"], limit=50)
-        'latest_news:8f14e45f'
+        'latest_news:<hash>'
         >>> make_cache_key("search", query="AI", mode="keyword")
-        'search:3c6e0b8a'
+        'search:<hash>'
     """
     if not params:
         return namespace
@@ -51,8 +51,8 @@ def make_cache_key(namespace: str, **params) -> str:
     sorted_params = sorted(normalized_params.items())
     param_str = "&".join(f"{k}={v}" for k, v in sorted_params)
 
-    # 使用 MD5 生成短哈希（取前8位）
-    hash_value = hashlib.md5(param_str.encode('utf-8')).hexdigest()[:8]
+    # 使用 SHA256 生成短哈希（取前12位）
+    hash_value = hashlib.sha256(param_str.encode("utf-8")).hexdigest()[:12]
 
     return f"{namespace}:{hash_value}"
 

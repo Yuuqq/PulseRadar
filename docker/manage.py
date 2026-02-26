@@ -13,7 +13,7 @@ from pathlib import Path
 
 # Web 服务器配置
 WEBSERVER_PORT = int(os.environ.get("WEBSERVER_PORT", "8080"))
-WEBSERVER_DIR = "/app/output"
+WEBSERVER_DIR = "/app/output/html"
 WEBSERVER_PID_FILE = "/tmp/webserver.pid"
 
 
@@ -448,7 +448,7 @@ def restart_supercronic():
 
 
 def start_webserver():
-    """启动 Web 服务器托管 output 目录"""
+    """启动 Web 服务器托管 output/html 目录"""
     print(f"🌐 启动 Web 服务器 (端口: {WEBSERVER_PORT})...")
     print(f"  🔒 安全提示：仅提供静态文件访问，限制在 {WEBSERVER_DIR} 目录")
 
@@ -592,7 +592,7 @@ def show_help():
   files            - 显示输出文件
   logs             - 实时查看日志
   restart          - 重启说明
-  start_webserver  - 启动 Web 服务器托管 output 目录
+  start_webserver  - 启动 Web 服务器托管 output/html 目录
   stop_webserver   - 停止 Web 服务器
   webserver_status - 查看 Web 服务器状态
   help             - 显示此帮助

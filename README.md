@@ -2799,10 +2799,21 @@ docker rm trendradar
 
 > 💡 **Web 服务器说明**：
 > - 启动后可通过浏览器访问 `http://localhost:8080` 查看最新报告
-> - 通过目录导航访问历史报告（如：`http://localhost:8080/2025-xx-xx/`）
+> - 历史报告路径示例：`http://localhost:8080/2025-xx-xx/14-00.html`
 > - 端口可在 `.env` 文件中配置 `WEBSERVER_PORT` 参数
 > - 自动启动：在 `.env` 中设置 `ENABLE_WEBSERVER=true`
-> - 安全提示：仅提供静态文件访问，限制在 output 目录，只绑定本地访问
+> - 安全提示：内置 Web 服务器仅用于本机/内网访问（默认 compose 绑定 `127.0.0.1`），**不要直接暴露公网**
+> - 公网只读访问（推荐）：使用 `docker/docker-compose-public-viewer.yml` 启动只读报告站点（仅挂载 `output/html`，只返回 `.html`）
+>
+> **公网只读部署示例（Caddy，HTTP 18080）**：
+> ```bash
+> docker compose -f docker/docker-compose-public-viewer.yml up -d
+> # 默认端口 18080，可用 REPORT_VIEWER_PORT=8080 覆盖
+> # 最新报告
+> http://<host>:18080/index.html
+> # 历史报告
+> http://<host>:18080/2025-xx-xx/14-00.html
+> ```
 
 #### 数据持久化
 
@@ -2815,6 +2826,7 @@ TrendRadar 生成的当日汇总 HTML 报告会同时保存到两个位置：
 | 文件位置 | 访问方式 | 适用场景 |
 |---------|---------|---------|
 | `output/index.html` | 宿主机直接访问 | **Docker 部署**（通过 Volume 挂载，宿主机可见） |
+| `output/html/index.html` | Web 只读访问 | **公网只读**（仅暴露 `output/html`） |
 | `index.html` | 根目录访问 | **GitHub Pages**（仓库根目录，Pages 自动识别） |
 | `output/html/YYYY-MM-DD/当日汇总.html` | 历史报告访问 | 所有环境（按日期归档） |
 
@@ -2824,8 +2836,8 @@ TrendRadar 生成的当日汇总 HTML 报告会同时保存到两个位置：
 # 1. 启动 Web 服务器
 docker exec -it trendradar python manage.py start_webserver
 # 2. 在浏览器访问
-http://localhost:8080                           # 访问最新报告（默认 index.html）
-http://localhost:8080/html/2025-xx-xx/          # 访问指定日期的报告
+  http://localhost:8080                           # 访问最新报告（默认 index.html）
+  http://localhost:8080/2025-xx-xx/14-00.html # 访问指定日期的报告
 
 # 方式 2：直接打开文件（本地环境）
 open ./output/index.html             # macOS
@@ -2836,11 +2848,12 @@ xdg-open ./output/index.html         # Linux
 open ./output/html/2025-xx-xx/当日汇总.html
 ```
 
-**为什么有两个 index.html？**
+**为什么有多个 index.html？**
 - `output/index.html`：Docker Volume 挂载到宿主机，本地可直接打开
+- `output/html/index.html`：仅暴露 `output/html` 时的入口（内置 Web 服务器 / 公网只读站点）
 - `index.html`：GitHub Actions 推送到仓库，GitHub Pages 自动部署
 
-> 💡 **提示**：两个文件内容完全相同，选择任意一个访问即可。
+> 💡 **提示**：这些文件内容完全相同，选择任意一个访问即可。
 
 #### 故障排查
 

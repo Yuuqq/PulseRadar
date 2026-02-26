@@ -1,0 +1,16 @@
+services:
+  trendradar-report-viewer:
+    image: caddy:2
+    container_name: trendradar-report-viewer
+    restart: unless-stopped
+
+    ports:
+      # 默认使用 18080，避免与主服务 compose 的 WEBSERVER_PORT(8080) 冲突
+      - "${REPORT_VIEWER_PORT:-18080}:8080"
+
+    volumes:
+      # 只挂载 output/html（只读），避免对公网暴露 output 里的 db/log 等文件
+      - ../output/html:/srv:ro
+      - ./Caddyfile.reports:/etc/caddy/Caddyfile:ro
+
+volumes: {}

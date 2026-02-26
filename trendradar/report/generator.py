@@ -248,6 +248,11 @@ def generate_html_report(
     with open(output_index, "w", encoding="utf-8") as f:
         f.write(html_content)
 
+    # output/html/index.html（供仅暴露 output/html 的场景访问）
+    html_index = Path(output_dir) / "html" / "index.html"
+    with open(html_index, "w", encoding="utf-8") as f:
+        f.write(html_content)
+
     # 根目录 index.html（供 GitHub Pages 访问）
     root_index = Path("index.html")
     with open(root_index, "w", encoding="utf-8") as f:

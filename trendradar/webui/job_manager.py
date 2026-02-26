@@ -24,6 +24,23 @@ FINAL_STATUSES = {"success", "failed", "cancelled"}
 ACTIVE_STATUSES = {"queued", "running", "cancelling"}
 WORKFLOW_SCOPES = {"all", "platforms", "rss", "extra_apis"}
 JOB_STAGE_SEQUENCE = ("queued", "starting", "crawl", "rss", "ai", "report", "notify", "finished")
+JOB_UPDATE_FIELDS = {
+    "status",
+    "stage",
+    "command_json",
+    "config_snapshot",
+    "report_paths_json",
+    "created_at",
+    "started_at",
+    "finished_at",
+    "duration_seconds",
+    "exit_code",
+    "error",
+    "retry_source_job_id",
+    "retry_strategy",
+    "retry_strategy_note",
+    "updated_at",
+}
 
 
 def _utc_now() -> str:
@@ -420,8 +437,11 @@ class JobManager:
         if not fields:
             return
         fields["updated_at"] = _utc_now()
+        invalid_keys = sorted({key for key in fields.keys() if key not in JOB_UPDATE_FIELDS})
+        if invalid_keys:
+            raise ValueError(f"Unsupported job fields: {', '.join(invalid_keys)}")
         keys = list(fields.keys())
-        assignments = ", ".join([f"{key} = ?" for key in keys])
+        assignments = ", ".join([f'"{key}" = ?' for key in keys])
         values = [fields[key] for key in keys]
         values.append(job_id)
         with self._connect() as conn:

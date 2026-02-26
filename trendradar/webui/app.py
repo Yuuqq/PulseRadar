@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import copy
 import json
+import os
 import sys
 import tempfile
 from datetime import datetime, timezone
@@ -1080,4 +1081,6 @@ def run_server(host: str = "127.0.0.1", port: int = 5000, debug: bool = False) -
 
 
 if __name__ == "__main__":
-    run_server(debug=True)
+    debug_env = os.environ.get("TREND_RADAR_WEBUI_DEBUG", "").strip().lower()
+    debug = debug_env in {"1", "true", "yes", "on"}
+    run_server(debug=debug)

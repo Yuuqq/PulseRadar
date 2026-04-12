@@ -7,6 +7,10 @@
 
 from typing import List
 
+from trendradar.logging import get_logger
+
+logger = get_logger(__name__)
+
 
 def get_batch_header(format_type: str, batch_num: int, total_batches: int) -> str:
     """根据 format_type 生成对应格式的批次头部
@@ -105,8 +109,15 @@ def add_batch_headers(
 
         # 如果超出，截断到安全大小
         if content_size > max_content_size:
-            print(
-                f"警告：{format_type} 第 {i}/{total} 批次内容({content_size}字节) + 头部({header_size}字节) 超出限制({max_bytes}字节)，截断到 {max_content_size} 字节"
+            logger.warning(
+                "批次内容超出限制，截断",
+                format_type=format_type,
+                batch=i,
+                total=total,
+                content_size=content_size,
+                header_size=header_size,
+                max_bytes=max_bytes,
+                truncated_to=max_content_size,
             )
             content = truncate_to_bytes(content, max_content_size)
 

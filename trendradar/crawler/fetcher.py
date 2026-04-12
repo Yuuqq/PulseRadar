@@ -9,12 +9,17 @@
 - 代理支持
 """
 
+import concurrent.futures
 import json
 import random
 import time
 from typing import Dict, List, Tuple, Optional, Union
 
 import requests
+
+from trendradar.logging import get_logger
+
+logger = get_logger(__name__)
 
 
 class DataFetcher:
@@ -55,7 +60,7 @@ class DataFetcher:
         try:
             self.session.close()
         except Exception:
-            pass
+            logger.debug("关闭 session 失败", exc_info=True)
 
     def fetch_data(
         self,
@@ -107,7 +112,7 @@ class DataFetcher:
                     raise ValueError(f"响应状态异常: {status}")
 
                 status_info = "最新数据" if status == "success" else "缓存数据"
-                print(f"获取 {id_value} 成功（{status_info}）")
+                logger.info("获取成功", id_value=id_value, status_info=status_info)
                 return data_text, id_value, alias
 
             except Exception as e:
@@ -116,10 +121,10 @@ class DataFetcher:
                     base_wait = random.uniform(min_retry_wait, max_retry_wait)
                     additional_wait = (retries - 1) * random.uniform(1, 2)
                     wait_time = base_wait + additional_wait
-                    print(f"请求 {id_value} 失败: {e}. {wait_time:.2f}秒后重试...")
+                    logger.warning("请求失败，准备重试", id_value=id_value, error=str(e), wait_time=round(wait_time, 2))
                     time.sleep(wait_time)
                 else:
-                    print(f"请求 {id_value} 失败: {e}")
+                    logger.error("请求失败", id_value=id_value, error=str(e))
                     return None, id_value, alias
 
         return None, id_value, alias
@@ -143,52 +148,60 @@ class DataFetcher:
         id_to_name = {}
         failed_ids = []
 
-        for i, id_info in enumerate(ids_list):
+        # Build id_to_name mapping before concurrent execution
+        for id_info in ids_list:
             if isinstance(id_info, tuple):
                 id_value, name = id_info
             else:
                 id_value = id_info
                 name = id_value
-
             id_to_name[id_value] = name
-            response, _, _ = self.fetch_data(id_info)
 
-            if response:
+        if not ids_list:
+            return results, id_to_name, failed_ids
+
+        max_workers = min(len(ids_list), 10)
+        with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
+            future_to_id: Dict[concurrent.futures.Future, str] = {}
+            for i, id_info in enumerate(ids_list):
+                # Small stagger (20 ms) to avoid thundering herd against the API
+                if i > 0:
+                    time.sleep(0.02)
+                future = executor.submit(self.fetch_data, id_info)
+                id_val = id_info[0] if isinstance(id_info, tuple) else id_info
+                future_to_id[future] = id_val
+
+            for future in concurrent.futures.as_completed(future_to_id):
+                id_value = future_to_id[future]
                 try:
-                    data = json.loads(response)
-                    results[id_value] = {}
-
-                    for index, item in enumerate(data.get("items", []), 1):
-                        title = item.get("title")
-                        # 跳过无效标题（None、float、空字符串）
-                        if title is None or isinstance(title, float) or not str(title).strip():
-                            continue
-                        title = str(title).strip()
-                        url = item.get("url", "")
-                        mobile_url = item.get("mobileUrl", "")
-
-                        if title in results[id_value]:
-                            results[id_value][title]["ranks"].append(index)
-                        else:
-                            results[id_value][title] = {
-                                "ranks": [index],
-                                "url": url,
-                                "mobileUrl": mobile_url,
-                            }
+                    response, _, _ = future.result()
+                    if response:
+                        data = json.loads(response)
+                        results[id_value] = {}
+                        for index, item in enumerate(data.get("items", []), 1):
+                            title = item.get("title")
+                            # Skip invalid titles (None, float, blank string)
+                            if title is None or isinstance(title, float) or not str(title).strip():
+                                continue
+                            title = str(title).strip()
+                            url = item.get("url", "")
+                            mobile_url = item.get("mobileUrl", "")
+                            if title in results[id_value]:
+                                results[id_value][title]["ranks"].append(index)
+                            else:
+                                results[id_value][title] = {
+                                    "ranks": [index],
+                                    "url": url,
+                                    "mobileUrl": mobile_url,
+                                }
+                    else:
+                        failed_ids.append(id_value)
                 except json.JSONDecodeError:
-                    print(f"解析 {id_value} 响应失败")
+                    logger.error("解析响应失败", id_value=id_value)
                     failed_ids.append(id_value)
                 except Exception as e:
-                    print(f"处理 {id_value} 数据出错: {e}")
+                    logger.error("处理数据出错", id_value=id_value, error=str(e))
                     failed_ids.append(id_value)
-            else:
-                failed_ids.append(id_value)
 
-            # 请求间隔（除了最后一个）
-            if i < len(ids_list) - 1:
-                actual_interval = request_interval + random.randint(-10, 20)
-                actual_interval = max(50, actual_interval)
-                time.sleep(actual_interval / 1000)
-
-        print(f"成功: {list(results.keys())}, 失败: {failed_ids}")
+        logger.info("爬取完成", succeeded=list(results.keys()), failed=failed_ids)
         return results, id_to_name, failed_ids

@@ -14,8 +14,11 @@ from typing import List, Dict, Optional, Tuple, Callable
 import requests
 
 from .parser import RSSParser, ParsedRSSItem
+from trendradar.logging import get_logger
 from trendradar.storage.base import RSSItem, RSSData
 from trendradar.utils.time import get_configured_time, is_within_days, DEFAULT_TIMEZONE
+
+logger = get_logger(__name__)
 
 
 @dataclass
@@ -170,27 +173,27 @@ class RSSFetcher:
 
             # 注意：新鲜度过滤已移至推送阶段（_convert_rss_items_to_list）
             # 这样所有文章都会存入数据库，但旧文章不会推送
-            print(f"[RSS] {feed.name}: 获取 {len(items)} 条")
+            logger.info("[RSS] 获取成功", feed_name=feed.name, count=len(items))
             return items, None
 
         except requests.Timeout:
             error = f"请求超时 ({self.timeout}s)"
-            print(f"[RSS] {feed.name}: {error}")
+            logger.warning("[RSS] 请求超时", feed_name=feed.name, timeout=self.timeout)
             return [], error
 
         except requests.RequestException as e:
             error = f"请求失败: {e}"
-            print(f"[RSS] {feed.name}: {error}")
+            logger.error("[RSS] 请求失败", feed_name=feed.name, error=str(e))
             return [], error
 
         except ValueError as e:
             error = f"解析失败: {e}"
-            print(f"[RSS] {feed.name}: {error}")
+            logger.error("[RSS] 解析失败", feed_name=feed.name, error=str(e))
             return [], error
 
         except Exception as e:
             error = f"未知错误: {e}"
-            print(f"[RSS] {feed.name}: {error}")
+            logger.error("[RSS] 未知错误", feed_name=feed.name, error=str(e))
             return [], error
 
     def fetch_all(self) -> RSSData:
@@ -209,7 +212,7 @@ class RSSFetcher:
         crawl_time = now.strftime("%H:%M")
         crawl_date = now.strftime("%Y-%m-%d")
 
-        print(f"[RSS] 开始抓取 {len(self.feeds)} 个 RSS 源...")
+        logger.info("[RSS] 开始抓取", feed_count=len(self.feeds))
 
         for i, feed in enumerate(self.feeds):
             # 请求间隔（带随机波动）
@@ -228,7 +231,12 @@ class RSSFetcher:
                 all_items[feed.id] = items
 
         total_items = sum(len(items) for items in all_items.values())
-        print(f"[RSS] 抓取完成: {len(all_items)} 个源成功, {len(failed_ids)} 个失败, 共 {total_items} 条")
+        logger.info(
+            "[RSS] 抓取完成",
+            succeeded=len(all_items),
+            failed=len(failed_ids),
+            total_items=total_items,
+        )
 
         return RSSData(
             date=crawl_date,
@@ -275,11 +283,11 @@ class RSSFetcher:
                     max_age_days = int(max_age_days_raw)
                     if max_age_days < 0:
                         feed_id = feed_config.get("id", "unknown")
-                        print(f"[警告] RSS feed '{feed_id}' 的 max_age_days 为负数，将使用全局默认值")
+                        logger.warning("[警告] RSS feed max_age_days 为负数，将使用全局默认值", feed_id=feed_id)
                         max_age_days = None
                 except (ValueError, TypeError):
                     feed_id = feed_config.get("id", "unknown")
-                    print(f"[警告] RSS feed '{feed_id}' 的 max_age_days 格式错误：{max_age_days_raw}")
+                    logger.warning("[警告] RSS feed max_age_days 格式错误", feed_id=feed_id, raw_value=max_age_days_raw)
                     max_age_days = None
 
             feed = RSSFeedConfig(

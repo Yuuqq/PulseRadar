@@ -21,6 +21,9 @@ from trendradar.utils.time import (
     format_date_folder,
     format_time_filename,
 )
+from trendradar.logging import get_logger
+
+logger = get_logger(__name__)
 
 
 class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
@@ -115,6 +118,7 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
         if db_path not in self._db_connections:
             conn = sqlite3.connect(db_path)
             conn.row_factory = sqlite3.Row
+            conn.execute("PRAGMA journal_mode=WAL")
             self._init_tables(conn, db_type)
             self._db_connections[db_path] = conn
 
@@ -136,14 +140,15 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
 
         if success:
             # 输出详细的存储统计日志
-            log_parts = [f"[本地存储] 处理完成：新增 {new_count} 条"]
+            log_parts = [f"新增 {new_count} 条"]
             if updated_count > 0:
                 log_parts.append(f"更新 {updated_count} 条")
             if title_changed_count > 0:
                 log_parts.append(f"标题变更 {title_changed_count} 条")
             if off_list_count > 0:
                 log_parts.append(f"脱榜 {off_list_count} 条")
-            print("，".join(log_parts))
+            logger.info("处理完成", backend="local", new=new_count, updated=updated_count,
+                        title_changed=title_changed_count, off_list=off_list_count)
 
         return success
 
@@ -164,6 +169,13 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
     def detect_new_titles(self, current_data: NewsData) -> Dict[str, Dict]:
         """检测新增的标题"""
         return self._detect_new_titles_impl(current_data)
+
+    def get_previous_crawl_data(self, date: Optional[str] = None) -> Optional[NewsData]:
+        """获取倒数第二次抓取的数据（用于趋势对比）"""
+        db_path = self._get_db_path(date)
+        if not db_path.exists():
+            return None
+        return self._get_previous_crawl_data_impl(date)
 
     def is_first_crawl_today(self, date: Optional[str] = None) -> bool:
         """检查是否是当天第一次抓取"""
@@ -188,7 +200,7 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
         success = self._record_push_impl(report_type, date)
         if success:
             now_str = self._get_configured_time().strftime("%Y-%m-%d %H:%M:%S")
-            print(f"[本地存储] 推送记录已保存: {report_type} at {now_str}")
+            logger.info("推送记录已保存", backend="local", report_type=report_type, time=now_str)
         return success
 
     def has_ai_analyzed_today(self, date: Optional[str] = None) -> bool:
@@ -200,7 +212,7 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
         success = self._record_ai_analysis_impl(analysis_mode, date)
         if success:
             now_str = self._get_configured_time().strftime("%Y-%m-%d %H:%M:%S")
-            print(f"[本地存储] AI 分析记录已保存: {analysis_mode} at {now_str}")
+            logger.info("AI 分析记录已保存", backend="local", analysis_mode=analysis_mode, time=now_str)
         return success
 
     def reset_push_state(self, date: Optional[str] = None) -> bool:
@@ -225,10 +237,7 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
 
         if success:
             # 输出统计日志
-            log_parts = [f"[本地存储] RSS 处理完成：新增 {new_count} 条"]
-            if updated_count > 0:
-                log_parts.append(f"更新 {updated_count} 条")
-            print("，".join(log_parts))
+            logger.info("RSS 处理完成", backend="local", new=new_count, updated=updated_count)
 
         return success
 
@@ -246,6 +255,62 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
         if not db_path.exists():
             return None
         return self._get_latest_rss_data_impl(date)
+
+    # ========================================
+    # 历史搜索
+    # ========================================
+
+    def search_titles(
+        self,
+        keyword: str,
+        days: int = 7,
+        limit: int = 100,
+    ) -> List[Dict]:
+        """
+        跨日期搜索标题包含关键词的新闻条目
+
+        遍历最近 N 天的 SQLite 数据库文件，汇总搜索结果。
+
+        Args:
+            keyword: 搜索关键词
+            days: 回溯天数
+            limit: 最大返回条数
+
+        Returns:
+            匹配结果列表
+        """
+        news_dir = self.data_dir / "news"
+        if not news_dir.exists():
+            return []
+
+        # 计算日期范围
+        now = self._get_configured_time()
+        cutoff = now - timedelta(days=days)
+
+        all_results: List[Dict] = []
+
+        for db_file in sorted(news_dir.glob("*.db"), reverse=True):
+            # 从文件名解析日期
+            date_str = db_file.stem  # e.g. "2025-12-28"
+            try:
+                file_date = datetime.strptime(date_str, "%Y-%m-%d")
+                file_date = file_date.replace(tzinfo=now.tzinfo)
+            except ValueError:
+                continue
+
+            if file_date < cutoff:
+                continue
+
+            remaining = limit - len(all_results)
+            if remaining <= 0:
+                break
+
+            hits = self._search_titles_impl(keyword, date=date_str, limit=remaining)
+            for hit in hits:
+                hit["date"] = date_str
+            all_results.extend(hits)
+
+        return all_results[:limit]
 
     # ========================================
     # 本地特有功能：TXT/HTML 快照
@@ -302,11 +367,11 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
                     for failed_id in data.failed_ids:
                         f.write(f"{failed_id}\n")
 
-            print(f"[本地存储] TXT 快照已保存: {file_path}")
+            logger.info("TXT 快照已保存", backend="local", path=str(file_path))
             return str(file_path)
 
         except Exception as e:
-            print(f"[本地存储] 保存 TXT 快照失败: {e}")
+            logger.error("保存 TXT 快照失败", backend="local", error=str(e))
             return None
 
     def save_html_report(self, html_content: str, filename: str, is_summary: bool = False) -> Optional[str]:
@@ -336,11 +401,11 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
             with open(file_path, "w", encoding="utf-8") as f:
                 f.write(html_content)
 
-            print(f"[本地存储] HTML 报告已保存: {file_path}")
+            logger.info("HTML 报告已保存", backend="local", path=str(file_path))
             return str(file_path)
 
         except Exception as e:
-            print(f"[本地存储] 保存 HTML 报告失败: {e}")
+            logger.error("保存 HTML 报告失败", backend="local", error=str(e))
             return None
 
     # ========================================
@@ -352,9 +417,9 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
         for db_path, conn in self._db_connections.items():
             try:
                 conn.close()
-                print(f"[本地存储] 关闭数据库连接: {db_path}")
+                logger.debug("关闭数据库连接", backend="local", db_path=db_path)
             except Exception as e:
-                print(f"[本地存储] 关闭连接失败 {db_path}: {e}")
+                logger.error("关闭连接失败", backend="local", db_path=db_path, error=str(e))
 
         self._db_connections.clear()
 
@@ -423,9 +488,9 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
                         try:
                             db_file.unlink()
                             deleted_count += 1
-                            print(f"[本地存储] 清理过期数据: {db_type}/{db_file.name}")
+                            logger.info("清理过期数据", backend="local", path=f"{db_type}/{db_file.name}")
                         except Exception as e:
-                            print(f"[本地存储] 删除文件失败 {db_file}: {e}")
+                            logger.error("删除文件失败", backend="local", path=str(db_file), error=str(e))
 
             # 清理快照目录 (txt/, html/)
             for snapshot_type in ["txt", "html"]:
@@ -442,17 +507,17 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
                         try:
                             shutil.rmtree(date_folder)
                             deleted_count += 1
-                            print(f"[本地存储] 清理过期数据: {snapshot_type}/{date_folder.name}")
+                            logger.info("清理过期数据", backend="local", path=f"{snapshot_type}/{date_folder.name}")
                         except Exception as e:
-                            print(f"[本地存储] 删除目录失败 {date_folder}: {e}")
+                            logger.error("删除目录失败", backend="local", path=str(date_folder), error=str(e))
 
             if deleted_count > 0:
-                print(f"[本地存储] 共清理 {deleted_count} 个过期文件/目录")
+                logger.info("共清理过期文件/目录", backend="local", count=deleted_count)
 
             return deleted_count
 
         except Exception as e:
-            print(f"[本地存储] 清理过期数据失败: {e}")
+            logger.error("清理过期数据失败", backend="local", error=str(e))
             return deleted_count
 
     def __del__(self):

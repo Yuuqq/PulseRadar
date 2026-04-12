@@ -10,6 +10,10 @@ from typing import Optional, Tuple
 
 import pytz
 
+from trendradar.logging import get_logger
+
+logger = get_logger(__name__)
+
 # 默认时区常量 - 仅作为 fallback，正常运行时使用 config.yaml 中的 app.timezone
 DEFAULT_TIMEZONE = "Asia/Shanghai"
 
@@ -27,7 +31,7 @@ def get_configured_time(timezone: str = DEFAULT_TIMEZONE) -> datetime:
     try:
         tz = pytz.timezone(timezone)
     except pytz.UnknownTimeZoneError:
-        print(f"[警告] 未知时区 '{timezone}'，使用默认时区 {DEFAULT_TIMEZONE}")
+        logger.warning("未知时区，使用默认时区", timezone=timezone, default=DEFAULT_TIMEZONE)
         tz = pytz.timezone(DEFAULT_TIMEZONE)
     return datetime.now(tz)
 
@@ -346,7 +350,13 @@ class TimeWindowChecker:
             result = normalized_current >= normalized_start or normalized_current <= normalized_end
 
         if not result:
-            print(f"[{self.window_name}] 当前 {normalized_current}，窗口 {normalized_start}-{normalized_end}")
+            logger.debug(
+                "当前时间不在窗口内",
+                window_name=self.window_name,
+                current=normalized_current,
+                window_start=normalized_start,
+                window_end=normalized_end,
+            )
 
         return result
 
@@ -365,7 +375,7 @@ class TimeWindowChecker:
 
             return f"{hour:02d}:{minute:02d}"
         except Exception as e:
-            print(f"[{self.window_name}] 时间格式化错误 '{time_str}': {e}")
+            logger.warning("时间格式化错误", window_name=self.window_name, time_str=time_str, error=str(e))
             return time_str
 
     def check_window(
@@ -407,7 +417,7 @@ class TimeWindowChecker:
             if check_once_per_day_func():
                 return False, "今天已执行过"
             else:
-                print(f"[{self.window_name}] 今天首次执行")
+                logger.info("今天首次执行", window_name=self.window_name)
 
         return True, "在窗口内"
 

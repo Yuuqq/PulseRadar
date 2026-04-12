@@ -346,6 +346,19 @@ class StorageBackend(ABC):
         pass
 
     @abstractmethod
+    def get_previous_crawl_data(self, date: Optional[str] = None) -> Optional["NewsData"]:
+        """
+        获取倒数第二次抓取的数据（用于趋势对比）
+
+        Args:
+            date: 日期字符串，默认为今天
+
+        Returns:
+            倒数第二次抓取的新闻数据
+        """
+        pass
+
+    @abstractmethod
     def detect_new_titles(self, current_data: NewsData) -> Dict[str, Dict]:
         """
         检测新增的标题

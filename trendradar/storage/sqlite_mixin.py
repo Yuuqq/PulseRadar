@@ -13,6 +13,9 @@ from typing import Any, Dict, List, Optional
 
 from trendradar.storage.base import NewsItem, NewsData, RSSItem, RSSData
 from trendradar.utils.url import normalize_url
+from trendradar.logging import get_logger
+
+logger = get_logger(__name__)
 
 
 class SQLiteStorageMixin:
@@ -215,7 +218,7 @@ class SQLiteStorageMixin:
                             new_count += 1
 
                     except sqlite3.Error as e:
-                        print(f"{log_prefix} 保存新闻条目失败 [{item.title[:30]}...]: {e}")
+                        logger.error("保存新闻条目失败", title=item.title[:30], error=str(e))
 
             total_items = new_count + updated_count
 
@@ -307,7 +310,7 @@ class SQLiteStorageMixin:
             return True, new_count, updated_count, title_changed_count, off_list_count
 
         except Exception as e:
-            print(f"{log_prefix} 保存失败: {e}")
+            logger.error("保存失败", error=str(e))
             return False, 0, 0, 0, 0
 
     def _get_today_all_data_impl(self, date: Optional[str] = None) -> Optional[NewsData]:
@@ -440,7 +443,7 @@ class SQLiteStorageMixin:
             )
 
         except Exception as e:
-            print(f"[存储] 读取数据失败: {e}")
+            logger.error("读取数据失败", error=str(e))
             return None
 
     def _get_latest_crawl_data_impl(self, date: Optional[str] = None) -> Optional[NewsData]:
@@ -572,7 +575,7 @@ class SQLiteStorageMixin:
             )
 
         except Exception as e:
-            print(f"[存储] 获取最新数据失败: {e}")
+            logger.error("获取最新数据失败", error=str(e))
             return None
 
     def _detect_new_titles_impl(self, current_data: NewsData) -> Dict[str, Dict]:
@@ -631,7 +634,7 @@ class SQLiteStorageMixin:
             return new_titles
 
         except Exception as e:
-            print(f"[存储] 检测新标题失败: {e}")
+            logger.error("检测新标题失败", error=str(e))
             return {}
 
     def _is_first_crawl_today_impl(self, date: Optional[str] = None) -> bool:
@@ -659,8 +662,122 @@ class SQLiteStorageMixin:
             return count <= 1
 
         except Exception as e:
-            print(f"[存储] 检查首次抓取失败: {e}")
+            logger.error("检查首次抓取失败", error=str(e))
             return True
+
+    def _get_previous_crawl_data_impl(self, date: Optional[str] = None) -> Optional[NewsData]:
+        """
+        获取倒数第二次抓取的数据（用于趋势对比）
+
+        Args:
+            date: 日期字符串，默认为今天
+
+        Returns:
+            倒数第二次抓取的新闻数据，如果不存在返回 None
+        """
+        try:
+            conn = self._get_connection(date)
+            cursor = conn.cursor()
+
+            # 获取倒数第二次抓取时间
+            cursor.execute("""
+                SELECT crawl_time FROM crawl_records
+                ORDER BY crawl_time DESC
+                LIMIT 1 OFFSET 1
+            """)
+
+            time_row = cursor.fetchone()
+            if not time_row:
+                return None
+
+            previous_time = time_row[0]
+
+            # 获取该时间的新闻数据
+            cursor.execute("""
+                SELECT n.id, n.title, n.platform_id, p.name as platform_name,
+                       n.rank, n.url, n.mobile_url,
+                       n.first_crawl_time, n.last_crawl_time, n.crawl_count
+                FROM news_items n
+                LEFT JOIN platforms p ON n.platform_id = p.id
+                WHERE n.last_crawl_time = ?
+            """, (previous_time,))
+
+            rows = cursor.fetchall()
+            if not rows:
+                return None
+
+            # 收集所有 news_item_id
+            news_ids = [row[0] for row in rows]
+
+            # 批量查询排名历史
+            rank_history_map: Dict[int, List[int]] = {}
+            if news_ids:
+                placeholders = ",".join("?" * len(news_ids))
+                cursor.execute(f"""
+                    SELECT rh.news_item_id, rh.rank, rh.crawl_time
+                    FROM rank_history rh
+                    JOIN news_items ni ON rh.news_item_id = ni.id
+                    WHERE rh.news_item_id IN ({placeholders})
+                      AND NOT (rh.rank = 0 AND rh.crawl_time > ni.last_crawl_time)
+                    ORDER BY rh.news_item_id, rh.crawl_time
+                """, news_ids)
+                for rh_row in cursor.fetchall():
+                    news_id, rank = rh_row[0], rh_row[1]
+                    if news_id not in rank_history_map:
+                        rank_history_map[news_id] = []
+                    if rank != 0 and rank not in rank_history_map[news_id]:
+                        rank_history_map[news_id].append(rank)
+
+            items: Dict[str, List[NewsItem]] = {}
+            id_to_name: Dict[str, str] = {}
+            crawl_date = self._format_date_folder(date)
+
+            for row in rows:
+                news_id = row[0]
+                platform_id = row[2]
+                platform_name = row[3] or platform_id
+                id_to_name[platform_id] = platform_name
+
+                if platform_id not in items:
+                    items[platform_id] = []
+
+                ranks = rank_history_map.get(news_id, [row[4]])
+
+                items[platform_id].append(NewsItem(
+                    title=row[1],
+                    source_id=platform_id,
+                    source_name=platform_name,
+                    rank=row[4],
+                    url=row[5] or "",
+                    mobile_url=row[6] or "",
+                    crawl_time=row[8],
+                    ranks=ranks,
+                    first_time=row[7],
+                    last_time=row[8],
+                    count=row[9],
+                ))
+
+            # 获取失败的来源（针对该次抓取）
+            cursor.execute("""
+                SELECT css.platform_id
+                FROM crawl_source_status css
+                JOIN crawl_records cr ON css.crawl_record_id = cr.id
+                WHERE cr.crawl_time = ? AND css.status = 'failed'
+            """, (previous_time,))
+
+            failed_ids = [row[0] for row in cursor.fetchall()]
+
+            return NewsData(
+                date=crawl_date,
+                crawl_time=previous_time,
+                items=items,
+                id_to_name=id_to_name,
+                failed_ids=failed_ids,
+            )
+
+        except Exception as e:
+            logger.error("获取上次抓取数据失败", error=str(e))
+            return None
 
     def _get_crawl_times_impl(self, date: Optional[str] = None) -> List[str]:
         """
@@ -685,7 +802,7 @@ class SQLiteStorageMixin:
             return [row[0] for row in rows]
 
         except Exception as e:
-            print(f"[存储] 获取抓取时间列表失败: {e}")
+            logger.error("获取抓取时间列表失败", error=str(e))
             return []
 
     # ========================================
@@ -718,7 +835,7 @@ class SQLiteStorageMixin:
             return False
 
         except Exception as e:
-            print(f"[存储] 检查推送记录失败: {e}")
+            logger.error("检查推送记录失败", error=str(e))
             return False
 
     def _record_push_impl(self, report_type: str, date: Optional[str] = None) -> bool:
@@ -752,7 +869,7 @@ class SQLiteStorageMixin:
             return True
 
         except Exception as e:
-            print(f"[存储] 记录推送失败: {e}")
+            logger.error("记录推送失败", error=str(e))
             return False
 
     def _has_ai_analyzed_today_impl(self, date: Optional[str] = None) -> bool:
@@ -781,7 +898,7 @@ class SQLiteStorageMixin:
             return False
 
         except Exception as e:
-            print(f"[存储] 检查 AI 分析记录失败: {e}")
+            logger.error("检查 AI 分析记录失败", error=str(e))
             return False
 
     def _record_ai_analysis_impl(self, analysis_mode: str, date: Optional[str] = None) -> bool:
@@ -815,7 +932,7 @@ class SQLiteStorageMixin:
             return True
 
         except Exception as e:
-            print(f"[存储] 记录 AI 分析失败: {e}")
+            logger.error("记录 AI 分析失败", error=str(e))
             return False
 
     def _reset_push_state_impl(self, date: Optional[str] = None) -> bool:
@@ -841,11 +958,11 @@ class SQLiteStorageMixin:
             """, (target_date,))
 
             conn.commit()
-            print(f"[存储] 已重置 {target_date} 的推送状态")
+            logger.info("已重置推送状态", date=target_date)
             return True
 
         except Exception as e:
-            print(f"[存储] 重置推送状态失败: {e}")
+            logger.error("重置推送状态失败", error=str(e))
             return False
 
     def _reset_ai_analysis_state_impl(self, date: Optional[str] = None) -> bool:
@@ -871,11 +988,11 @@ class SQLiteStorageMixin:
             """, (target_date,))
 
             conn.commit()
-            print(f"[存储] 已重置 {target_date} 的 AI 分析状态")
+            logger.info("已重置 AI 分析状态", date=target_date)
             return True
 
         except Exception as e:
-            print(f"[存储] 重置 AI 分析状态失败: {e}")
+            logger.error("重置 AI 分析状态失败", error=str(e))
             return False
 
     def _get_push_status_impl(self, date: Optional[str] = None) -> dict:
@@ -923,7 +1040,7 @@ class SQLiteStorageMixin:
             }
 
         except Exception as e:
-            print(f"[存储] 获取推送状态失败: {e}")
+            logger.error("获取推送状态失败", error=str(e))
             return {}
 
     # ========================================
@@ -1026,7 +1143,7 @@ class SQLiteStorageMixin:
                                 pass
 
                     except sqlite3.Error as e:
-                        print(f"{log_prefix} 保存 RSS 条目失败 [{item.title[:30]}...]: {e}")
+                        logger.error("保存 RSS 条目失败", title=item.title[:30], error=str(e))
 
             total_items = new_count + updated_count
 
@@ -1071,7 +1188,7 @@ class SQLiteStorageMixin:
             return True, new_count, updated_count
 
         except Exception as e:
-            print(f"{log_prefix} 保存 RSS 数据失败: {e}")
+            logger.error("保存 RSS 数据失败", error=str(e))
             return False, 0, 0
 
     def _get_rss_data_impl(self, date: Optional[str] = None) -> Optional[RSSData]:
@@ -1156,7 +1273,7 @@ class SQLiteStorageMixin:
             )
 
         except Exception as e:
-            print(f"[存储] 读取 RSS 数据失败: {e}")
+            logger.error("读取 RSS 数据失败", error=str(e))
             return None
 
     def _detect_new_rss_items_impl(self, current_data: RSSData) -> Dict[str, List[RSSItem]]:
@@ -1213,7 +1330,7 @@ class SQLiteStorageMixin:
             return new_items
 
         except Exception as e:
-            print(f"[存储] 检测新 RSS 条目失败: {e}")
+            logger.error("检测新 RSS 条目失败", error=str(e))
             return {}
 
     def _get_latest_rss_data_impl(self, date: Optional[str] = None) -> Optional[RSSData]:
@@ -1304,5 +1421,58 @@ class SQLiteStorageMixin:
             )
 
         except Exception as e:
-            print(f"[存储] 获取最新 RSS 数据失败: {e}")
+            logger.error("获取最新 RSS 数据失败", error=str(e))
             return None
+
+    # ========================================
+    # 历史搜索
+    # ========================================
+
+    def _search_titles_impl(
+        self,
+        keyword: str,
+        date: Optional[str] = None,
+        limit: int = 100,
+    ) -> List[Dict]:
+        """
+        在指定日期的数据库中搜索标题包含关键词的新闻条目
+
+        Args:
+            keyword: 搜索关键词
+            date: 日期字符串（YYYY-MM-DD）
+            limit: 最大返回条数
+
+        Returns:
+            匹配结果列表，每项为 dict:
+            {title, platform_id, platform_name, rank, url, first_crawl_time, last_crawl_time}
+        """
+        try:
+            conn = self._get_connection(date)
+            cursor = conn.cursor()
+
+            cursor.execute("""
+                SELECT n.title, n.platform_id, p.name AS platform_name,
+                       n.rank, n.url, n.first_crawl_time, n.last_crawl_time
+                FROM news_items n
+                LEFT JOIN platforms p ON n.platform_id = p.id
+                WHERE n.title LIKE ?
+                ORDER BY n.last_crawl_time DESC
+                LIMIT ?
+            """, (f"%{keyword}%", limit))
+
+            results = []
+            for row in cursor.fetchall():
+                results.append({
+                    "title": row[0],
+                    "platform_id": row[1],
+                    "platform_name": row[2] or row[1],
+                    "rank": row[3],
+                    "url": row[4] or "",
+                    "first_crawl_time": row[5],
+                    "last_crawl_time": row[6],
+                })
+            return results
+
+        except Exception as e:
+            logger.error("搜索标题失败", keyword=keyword, date=date, error=str(e))
+            return []

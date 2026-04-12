@@ -6,6 +6,9 @@
 """
 
 from typing import Dict, List, Optional, Tuple
+from trendradar.logging import get_logger
+
+logger = get_logger(__name__)
 
 
 def parse_multi_account_config(config_value: str, separator: str = ";") -> List[str]:
@@ -86,9 +89,9 @@ def validate_paired_configs(
     unique_lengths = set(lengths.values())
 
     if len(unique_lengths) > 1:
-        print(f"❌ {channel_name} 配置错误：配对配置数量不一致，将跳过该渠道推送")
+        logger.error("配置错误：配对配置数量不一致，将跳过该渠道推送", channel=channel_name)
         for key, length in lengths.items():
-            print(f"   - {key}: {length} 个")
+            logger.error("配对配置数量明细", channel=channel_name, key=key, count=length)
         return False, 0
 
     return True, list(unique_lengths)[0] if unique_lengths else 0
@@ -119,8 +122,16 @@ def limit_accounts(
         ['a1', 'a2']
     """
     if len(accounts) > max_count:
-        print(f"⚠️ {channel_name} 配置了 {len(accounts)} 个账号，超过最大限制 {max_count}，只使用前 {max_count} 个")
-        print(f"   ⚠️ 警告：如果你是 fork 用户，过多账号可能导致 GitHub Actions 运行时间过长，存在账号风险")
+        logger.warning(
+            "账号数量超过最大限制，只使用前 N 个",
+            channel=channel_name,
+            configured=len(accounts),
+            max_count=max_count,
+        )
+        logger.warning(
+            "过多账号可能导致 GitHub Actions 运行时间过长，存在账号风险",
+            channel=channel_name,
+        )
         return accounts[:max_count]
     return accounts
 

@@ -8,6 +8,7 @@ TrendRadar Web UI 任务管理器
 from __future__ import annotations
 
 import json
+import logging
 import os
 import sqlite3
 import subprocess
@@ -18,6 +19,8 @@ import uuid
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Sequence
+
+logger = logging.getLogger(__name__)
 
 
 FINAL_STATUSES = {"success", "failed", "cancelled"}
@@ -124,6 +127,15 @@ class JobManager:
                 "CREATE INDEX IF NOT EXISTS idx_jobs_created_at ON jobs(created_at DESC)"
             )
             conn.execute(
+                "CREATE INDEX IF NOT EXISTS idx_jobs_status ON jobs(status)"
+            )
+            conn.execute(
+                "CREATE INDEX IF NOT EXISTS idx_jobs_stage ON jobs(stage)"
+            )
+            conn.execute(
+                "CREATE INDEX IF NOT EXISTS idx_jobs_status_created ON jobs(status, created_at DESC)"
+            )
+            conn.execute(
                 "CREATE INDEX IF NOT EXISTS idx_job_logs_job_id_line_no ON job_logs(job_id, line_no)"
             )
             conn.execute(
@@ -146,17 +158,23 @@ class JobManager:
                 "CREATE INDEX IF NOT EXISTS idx_workflow_templates_updated_at ON workflow_templates(updated_at DESC)"
             )
 
+    # Whitelist of columns that may be added via ALTER TABLE (prevents SQL injection)
+    _ALLOWED_MIGRATION_COLUMNS: Dict[str, str] = {
+        "retry_source_job_id": "TEXT",
+        "retry_strategy": "TEXT",
+        "retry_strategy_note": "TEXT",
+    }
+
     def _ensure_jobs_table_columns(self, conn: sqlite3.Connection) -> None:
         rows = conn.execute("PRAGMA table_info(jobs)").fetchall()
         existing = {str(row["name"]).strip().lower() for row in rows}
-        required_columns = {
-            "retry_source_job_id": "TEXT",
-            "retry_strategy": "TEXT",
-            "retry_strategy_note": "TEXT",
-        }
-        for column_name, column_type in required_columns.items():
+        for column_name, column_type in self._ALLOWED_MIGRATION_COLUMNS.items():
             if column_name in existing:
                 continue
+            if column_name not in self._ALLOWED_MIGRATION_COLUMNS:
+                raise ValueError(f"Column not in migration whitelist: {column_name}")
+            if column_type not in ("TEXT", "INTEGER", "REAL", "BLOB"):
+                raise ValueError(f"Invalid SQLite column type: {column_type}")
             conn.execute(f"ALTER TABLE jobs ADD COLUMN {column_name} {column_type}")
 
     def _start_dispatcher(self) -> None:
@@ -176,7 +194,7 @@ class JobManager:
                     if next_job:
                         self._start_job(next_job["id"], next_job["command"])
             except Exception:
-                pass
+                logger.exception("dispatch loop error")
             time.sleep(0.5)
 
     def _recover_stale_active_jobs(self, stale_seconds: int = 300) -> int:

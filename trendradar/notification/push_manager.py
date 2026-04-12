@@ -12,6 +12,9 @@ from typing import Callable, Optional, Any, Tuple
 import pytz
 
 from trendradar.utils.time import DEFAULT_TIMEZONE, TimeWindowChecker
+from trendradar.logging import get_logger
+
+logger = get_logger(__name__)
 
 
 class PushRecordManager:
@@ -40,7 +43,7 @@ class PushRecordManager:
         self.storage_backend = storage_backend
         self.get_time = get_time_func or self._default_get_time
 
-        print(f"[推送记录] 使用 {storage_backend.backend_name} 存储后端")
+        logger.info("使用存储后端", backend=storage_backend.backend_name)
 
     def _default_get_time(self) -> datetime:
         """默认时间获取函数（使用 storage_backend 的时区配置）"""
@@ -182,10 +185,10 @@ class PushRecordManager:
             if hasattr(self.storage_backend, 'reset_push_state'):
                 return self.storage_backend.reset_push_state()
             else:
-                print("[推送记录] 存储后端不支持重置推送状态")
+                logger.warning("存储后端不支持重置推送状态")
                 return False
         except Exception as e:
-            print(f"[推送记录] 重置推送状态失败: {e}")
+            logger.error("重置推送状态失败", error=str(e))
             return False
 
     def reset_ai_analysis_state(self) -> bool:
@@ -199,8 +202,8 @@ class PushRecordManager:
             if hasattr(self.storage_backend, 'reset_ai_analysis_state'):
                 return self.storage_backend.reset_ai_analysis_state()
             else:
-                print("[推送记录] 存储后端不支持重置 AI 分析状态")
+                logger.warning("存储后端不支持重置 AI 分析状态")
                 return False
         except Exception as e:
-            print(f"[推送记录] 重置 AI 分析状态失败: {e}")
+            logger.error("重置 AI 分析状态失败", error=str(e))
             return False

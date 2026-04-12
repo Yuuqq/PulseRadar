@@ -13,6 +13,9 @@ import yaml
 
 from .config import parse_multi_account_config, validate_paired_configs
 from trendradar.utils.time import DEFAULT_TIMEZONE
+from trendradar.logging import get_logger
+
+logger = get_logger(__name__)
 
 
 def _get_env_bool(key: str, default: bool = False) -> Optional[bool]:
@@ -168,10 +171,10 @@ def _load_rss_config(config_data: Dict) -> Dict:
     try:
         max_age_days = int(raw_max_age)
         if max_age_days < 0:
-            print(f"[警告] RSS freshness_filter.max_age_days 为负数 ({max_age_days})，使用默认值 3")
+            logger.warning("RSS freshness_filter.max_age_days 为负数，使用默认值 3", max_age_days=max_age_days)
             max_age_days = 3
     except (ValueError, TypeError):
-        print(f"[警告] RSS freshness_filter.max_age_days 格式错误 ({raw_max_age})，使用默认值 3")
+        logger.warning("RSS freshness_filter.max_age_days 格式错误，使用默认值 3", raw_value=raw_max_age)
         max_age_days = 3
 
     # RSS 配置直接从 config.yaml 读取，不再支持环境变量
@@ -453,10 +456,10 @@ def _print_notification_sources(config: Dict) -> None:
         notification_sources.append(f"通用Webhook({source}, {count}个账号)")
 
     if notification_sources:
-        print(f"通知渠道配置来源: {', '.join(notification_sources)}")
-        print(f"每个渠道最大账号数: {max_accounts}")
+        logger.info("通知渠道配置来源", sources=", ".join(notification_sources))
+        logger.info("每个渠道最大账号数", max_accounts=max_accounts)
     else:
-        print("未配置任何通知渠道")
+        logger.warning("未配置任何通知渠道")
 
 
 def load_config(config_path: Optional[str] = None) -> Dict[str, Any]:
@@ -481,7 +484,7 @@ def load_config(config_path: Optional[str] = None) -> Dict[str, Any]:
     with open(config_path, "r", encoding="utf-8") as f:
         config_data = yaml.safe_load(f) or {}
 
-    print(f"配置文件加载成功: {config_path}")
+    logger.info("配置文件加载成功", config_path=config_path)
 
     # 合并所有配置
     config = {}
@@ -525,6 +528,9 @@ def load_config(config_path: Optional[str] = None) -> Dict[str, Any]:
 
     # 存储配置
     config["STORAGE"] = _load_storage_config(config_data)
+
+    # Extra APIs 配置
+    config["EXTRA_APIS"] = config_data.get("extra_apis", {})
 
     # Webhook 配置
     config.update(_load_webhook_config(config_data))

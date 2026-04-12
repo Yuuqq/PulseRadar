@@ -12,6 +12,9 @@ from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional
 
 from trendradar.ai.client import AIClient
+from trendradar.logging import get_logger
+
+logger = get_logger(__name__)
 
 
 @dataclass
@@ -68,7 +71,7 @@ class AIAnalyzer:
         # 验证配置
         valid, error = self.client.validate_config()
         if not valid:
-            print(f"[AI] 配置警告: {error}")
+            logger.warning("AI 配置警告", error=error)
 
         # 从分析配置获取功能参数
         self.max_news = analysis_config.get("MAX_NEWS_FOR_ANALYSIS", 50)
@@ -87,7 +90,7 @@ class AIAnalyzer:
         prompt_path = config_dir / prompt_file
 
         if not prompt_path.exists():
-            print(f"[AI] 提示词文件不存在: {prompt_path}")
+            logger.warning("AI 提示词文件不存在", path=str(prompt_path))
             return "", ""
 
         content = prompt_path.read_text(encoding="utf-8")
@@ -143,15 +146,15 @@ class AIAnalyzer:
         masked_key = f"{api_key[:5]}******" if len(api_key) >= 5 else "******"
         model_display = model.replace("/", "/\u200b") if model else "unknown"
 
-        print(f"[AI] 模型: {model_display}")
-        print(f"[AI] Key : {masked_key}")
+        logger.info("AI 模型信息", model=model_display)
+        logger.info("AI 密钥", key=masked_key)
 
         if api_base:
-            print(f"[AI] 接口: 存在自定义 API 端点")
+            logger.info("AI 接口", note="存在自定义 API 端点")
 
         timeout = self.ai_config.get("TIMEOUT", 120)
         max_tokens = self.ai_config.get("MAX_TOKENS", 5000)
-        print(f"[AI] 参数: timeout={timeout}, max_tokens={max_tokens}")
+        logger.info("AI 参数", timeout=timeout, max_tokens=max_tokens)
 
         if not self.client.api_key:
             return AIAnalysisResult(
@@ -195,15 +198,14 @@ class AIAnalyzer:
         user_prompt = user_prompt.replace("{language}", self.language)
 
         if self.debug:
-            print("\n" + "=" * 80)
-            print("[AI 调试] 发送给 AI 的完整提示词")
-            print("=" * 80)
+            debug_lines = ["\n" + "=" * 80, "[AI 调试] 发送给 AI 的完整提示词", "=" * 80]
             if self.system_prompt:
-                print("\n--- System Prompt ---")
-                print(self.system_prompt)
-            print("\n--- User Prompt ---")
-            print(user_prompt)
-            print("=" * 80 + "\n")
+                debug_lines.append("\n--- System Prompt ---")
+                debug_lines.append(self.system_prompt)
+            debug_lines.append("\n--- User Prompt ---")
+            debug_lines.append(user_prompt)
+            debug_lines.append("=" * 80 + "\n")
+            logger.debug("AI 完整提示词", prompt="\n".join(debug_lines))
 
         # 调用 AI API（使用 LiteLLM）
         try:

@@ -30,8 +30,8 @@ Decimal phases appear between their surrounding integers in numeric order.
   4. `python -m trendradar` and all existing CLI flags still work identically after the dependency changes
 **Plans:** 2 plans
 Plans:
-- [ ] 01-01-PLAN.md — Update pyproject.toml (tenacity range, boto3 optional), regenerate requirements.txt, add fail-fast boto3 check with unit test
-- [ ] 01-02-PLAN.md — Update Dockerfiles for boto3, add CHANGELOG entry and README install notes
+- [x] 01-01-PLAN.md — Update pyproject.toml (tenacity range, boto3 optional), regenerate requirements.txt, add fail-fast boto3 check with unit test
+- [x] 01-02-PLAN.md — Update Dockerfiles for boto3, add CHANGELOG entry and README install notes
 
 ### Phase 2: Test Safety Net
 **Goal**: A developer can run one command, see measured coverage, and trust that the MCP server, every crawler plugin, and the full pipeline are verified against current behavior — so structural refactors in Phase 3 are safe

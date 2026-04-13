@@ -10,18 +10,20 @@ dependencies = [
     "fastmcp>=2.14.0,<3.0.0",
     "websockets>=15.0.1,<16.0.0",
     "feedparser>=6.0.0,<7.0.0",
-    "boto3>=1.35.0,<2.0.0",
     "litellm>=1.57.0,<2.0.0",
-    "tenacity==8.5.0",
+    "tenacity>=9.0,<10",
     "flask>=3.0.0,<4.0.0",
     "mcp>=1.23.0,<2.0.0",
     "structlog>=24.0.0,<26.0.0",
-    "pydantic>=2.0.0,<3.0.0"
+    "pydantic>=2.0.0,<3.0.0",
 ]
 
 [project.scripts]
 trendradar = "trendradar.__main__:main"
 trendradar-mcp = "mcp_server.server:run_server"
+
+[project.optional-dependencies]
+s3 = ["boto3>=1.35.0,<2.0.0"]
 
 [dependency-groups]
 dev = [

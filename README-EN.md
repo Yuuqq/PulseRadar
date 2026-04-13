@@ -1052,6 +1052,8 @@ Transform from "algorithm recommendation captivity" to "actively getting the inf
 * **Storage**: Configure cloud storage service (e.g. Cloudflare R2, Alibaba Cloud OSS, Tencent Cloud COS, etc.)
 * **Note**: Requires periodic check-in renewal (every 7 days)
 
+> **S3 Storage Note**: If you use S3-compatible remote storage (Cloudflare R2, AWS S3, Aliyun OSS, etc.) with a `pip install` setup, install the S3 extra: `pip install trendradar[s3]`. Docker images include S3 support by default, so container deployments require no extra steps.
+
 ### 1️⃣ Step 1: Get project code
 
    Click the green **[Use this template]** button in the upper right corner of this repository → select "Create a new repository".

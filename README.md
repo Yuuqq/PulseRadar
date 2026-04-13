@@ -1126,6 +1126,8 @@ ai_translation:
 * **适用**：没有服务器的用户，利用 GitHub 免费资源
 * **注意**：需配置云存储以获得完整体验，且需定期签到续期
 
+> **S3 存储说明**：如需使用 S3 兼容远程存储（Cloudflare R2、AWS S3、阿里云 OSS 等），请安装 S3 扩展：`pip install trendradar[s3]`。Docker 镜像默认已包含 S3 支持，无需额外操作。
+
 ### 1️⃣ 第一步：获取项目代码
 
    点击本仓库页面右上角的绿色 **[Use this template]** 按钮 → 选择 "Create a new repository"。

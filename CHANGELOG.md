@@ -2,6 +2,22 @@
 
 本文件用于聚合记录 TrendRadar 的工程变更，便于溯源、回归验证与后续修订。
 
+## 2026-04-13
+
+### 依赖管理优化（Dependency Hygiene）
+
+- 关键变更：
+  - `boto3` 从核心依赖移至可选依赖，通过 `pip install trendradar[s3]` 安装 S3 存储支持
+  - `tenacity` 版本从 `==8.5.0` 改为 `>=9.0,<10`（范围约束）
+  - `requirements.txt` 改为从 `pyproject.toml` 自动生成（`uv pip compile`），补齐缺失的 `structlog` 和 `pydantic`
+  - Docker 镜像（Dockerfile 和 Dockerfile.mcp）已自动包含 boto3，容器部署无需任何变更
+- 影响范围：`pyproject.toml`、`requirements.txt`、`docker/Dockerfile`、`docker/Dockerfile.mcp`、`trendradar/storage/manager.py`
+- 兼容性：
+  - Docker 部署：完全兼容（镜像自动安装 boto3）
+  - `pip install` 用户：若使用 S3 远程存储，需改用 `pip install trendradar[s3]`
+  - CLI / config.yaml / 公共 API：无变化
+- 验证基线：`python -m pytest -q tests`
+
 ## 2026-02-09
 
 ### Workflow UI（参数化运行 + Jobs 可观测 + 重试策略 + 模板管理）

@@ -2,7 +2,7 @@
 
 **Version:** v1
 **Created:** 2026-04-13
-**Status:** Ready for roadmap
+**Status:** Mapped to roadmap (4 phases)
 
 ## v1 Requirements
 
@@ -67,13 +67,31 @@
 
 ## Traceability
 
-| Requirement | Phase |
-|-------------|-------|
-| DEPS-01 to DEPS-03 | TBD by roadmap |
-| TEST-01 to TEST-04 | TBD by roadmap |
-| COV-01 to COV-05 | TBD by roadmap |
-| REFACTOR-01 to REFACTOR-06 | TBD by roadmap |
-| QUAL-01 to QUAL-03 | TBD by roadmap |
+| Requirement | Phase | Status |
+|-------------|-------|--------|
+| DEPS-01 | Phase 1 — Dependency Hygiene | Pending |
+| DEPS-02 | Phase 1 — Dependency Hygiene | Pending |
+| DEPS-03 | Phase 1 — Dependency Hygiene | Pending |
+| TEST-01 | Phase 2 — Test Safety Net | Pending |
+| TEST-02 | Phase 2 — Test Safety Net | Pending |
+| TEST-03 | Phase 2 — Test Safety Net | Pending |
+| TEST-04 | Phase 2 — Test Safety Net | Pending |
+| COV-01  | Phase 2 — Test Safety Net | Pending |
+| COV-02  | Phase 2 — Test Safety Net | Pending |
+| COV-03  | Phase 2 — Test Safety Net | Pending |
+| COV-04  | Phase 2 — Test Safety Net | Pending |
+| COV-05  | Phase 2 — Test Safety Net | Pending |
+| REFACTOR-01 | Phase 3 — God Object Decomposition | Pending |
+| REFACTOR-02 | Phase 3 — God Object Decomposition | Pending |
+| REFACTOR-03 | Phase 3 — God Object Decomposition | Pending |
+| REFACTOR-04 | Phase 3 — God Object Decomposition | Pending |
+| REFACTOR-05 | Phase 3 — God Object Decomposition | Pending |
+| REFACTOR-06 | Phase 3 — God Object Decomposition | Pending |
+| QUAL-01 | Phase 4 — Quality Gates | Pending |
+| QUAL-02 | Phase 4 — Quality Gates | Pending |
+| QUAL-03 | Phase 4 — Quality Gates | Pending |
+
+**Coverage:** 21/21 v1 requirements mapped — no orphans, no duplicates.
 
 ---
-*Generated from research (.planning/research/FEATURES.md)*
+*Generated from research (.planning/research/FEATURES.md), mapped to roadmap 2026-04-13*

@@ -28,7 +28,10 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. `pip install trendradar` succeeds without pulling boto3, and using S3 storage without the `[s3]` extra produces a clear, actionable error message pointing the user to `pip install trendradar[s3]`
   3. `pip install trendradar` picks up tenacity 9.x via the new range specifier, and the existing retry/circuit-breaker code continues to work unchanged
   4. `python -m trendradar` and all existing CLI flags still work identically after the dependency changes
-**Plans**: TBD
+**Plans:** 2 plans
+Plans:
+- [ ] 01-01-PLAN.md — Update pyproject.toml (tenacity range, boto3 optional), regenerate requirements.txt, add fail-fast boto3 check with unit test
+- [ ] 01-02-PLAN.md — Update Dockerfiles for boto3, add CHANGELOG entry and README install notes
 
 ### Phase 2: Test Safety Net
 **Goal**: A developer can run one command, see measured coverage, and trust that the MCP server, every crawler plugin, and the full pipeline are verified against current behavior — so structural refactors in Phase 3 are safe
@@ -74,7 +77,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Dependency Hygiene | 0/TBD | Not started | - |
+| 1. Dependency Hygiene | 0/2 | Planned | - |
 | 2. Test Safety Net | 0/TBD | Not started | - |
 | 3. God Object Decomposition | 0/TBD | Not started | - |
 | 4. Quality Gates | 0/TBD | Not started | - |

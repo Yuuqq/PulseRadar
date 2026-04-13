@@ -780,22 +780,45 @@ def assert_crawl_result_error(result: CrawlResult):
 | A2 | pytest-cov 7.x works with Python 3.10+ | Standard Stack | Low — 7.x lists Python 3.10+ support in pypi metadata |
 | A3 | The 80% coverage target is achievable with the planned test additions | Coverage scope | Medium — depends on how much of `trendradar/webui/` and `trendradar/__main__.py` paths are uncovered. Mitigated by allowing module-level gaps per D-04 |
 
-## Open Questions
+## Open Questions (RESOLVED)
 
-1. **FastMCP version mismatch**
-   - What we know: Installed version is 2.12.5, pyproject.toml requires `>=2.14.0,<3.0.0`. The `Client` API works in 2.12.5.
-   - What's unclear: Whether there are behavioral differences in Client between 2.12.5 and 2.14.0+.
-   - Recommendation: The D-11 smoke test should work with whatever version is installed at runtime. If FastMCP is upgraded during development (pip install), it resolves naturally.
+1. **FastMCP version mismatch** — RESOLVED
+   - **Finding:** Installed version is 2.12.5, pyproject.toml requires `>=2.14.0,<3.0.0`. The `Client` API is available and works in 2.12.5.
+   - **Resolution:** The D-11 smoke test uses `fastmcp.Client(mcp)` which is available in both 2.12.5 and 2.14.0+. When `pip install -e .` runs during Plan 01 execution, pyproject.toml's `fastmcp>=2.14.0` constraint will upgrade the package to >=2.14.0 automatically. The smoke test includes a `try/except` fallback (Plan 04) that handles any Client API behavioral differences gracefully. No action needed beyond what Plan 04 already specifies.
+   - **Confidence:** HIGH [VERIFIED: `pip show fastmcp` + runtime import of `fastmcp.Client`]
 
-2. **MCP tool _tools_instances singleton**
-   - What we know: `mcp_server/server.py` line 29 has `_tools_instances = {}` module-level dict that is populated lazily by `_get_tools()`.
-   - What's unclear: Whether this needs autouse reset like StorageManager.
-   - Recommendation: For D-10 handler-level tests, this singleton is bypassed (tests import tool classes directly). For D-11 smoke test, reset `_tools_instances.clear()` in test teardown to prevent cross-contamination.
+2. **MCP tool _tools_instances singleton** — RESOLVED
+   - **Finding:** `mcp_server/server.py` line 29 has `_tools_instances = {}` — a module-level dict populated lazily by `_get_tools(project_root)`. The dict maps string keys (`'data'`, `'analytics'`, `'search'`, `'config'`, `'system'`, `'storage'`, `'article'`) to tool class instances. Once populated, `_get_tools()` returns the cached dict on all subsequent calls.
+   - **Resolution:** For D-10 handler-level tests, this singleton is BYPASSED entirely — tests import tool classes directly (`from mcp_server.tools.data_query import DataQueryTools`) and instantiate them independently of `_get_tools()`. For D-11 smoke tests, the `_tools_instances` dict IS populated when the FastMCP client calls tool handlers, so stale state could leak between smoke test runs. Plan 04 adds an autouse fixture in `tests/mcp/conftest.py` that calls `mcp_server.server._tools_instances.clear()` before and after each test, paralleling the StorageManager singleton reset pattern from D-21.
+   - **Confidence:** HIGH [VERIFIED: codebase inspection of `mcp_server/server.py` lines 29-38]
 
-3. **TongHuaShun HTML fixture format**
-   - What we know: Plugin parses HTML with regex, not JSON.
-   - What's unclear: Exact HTML structure needed for fixture.
-   - Recommendation: Planner should read `tonghuashun.py` parsing code (regex patterns) and construct a minimal HTML string that matches.
+3. **TongHuaShun HTML fixture format** — RESOLVED
+   - **Finding:** The `_parse_html()` method in `tonghuashun.py` (lines 61-87) uses these extraction steps:
+     1. Splits on `'<div class="article"'` to get blocks
+     2. Filters blocks that contain `"article-time"` (line 65)
+     3. Extracts URL via regex: `r"openbrower\('([^']+)'"` (line 67, case-insensitive)
+     4. Extracts title via regex: `r"<strong>\s*<a[^>]*>(.*?)</a>"` (line 68, case-insensitive + dotall)
+     5. Cleans title via `_clean_text()` which strips HTML tags and unescapes entities
+     6. Skips items with empty title after cleaning
+   - **Resolution — minimal fixture HTML for happy-path test:**
+     ```
+     <html><body>
+     <div class="article" id="1">
+       <span class="article-time">2026-04-14</span>
+       <a onclick="openbrower('http://news.10jqka.com.cn/article1')">link</a>
+       <strong><a href="#">THS Test News Title</a></strong>
+     </div>
+     <div class="article" id="2">
+       <span class="article-time">2026-04-14</span>
+       <a onclick="openbrower('http://news.10jqka.com.cn/article2')">link</a>
+       <strong><a href="#">Second THS Article</a></strong>
+     </div>
+     </body></html>
+     ```
+     This fixture satisfies all 4 extraction conditions: contains `<div class="article"` split points, includes `article-time` in each block, provides `openbrower('...')` URL patterns, and provides `<strong><a>...</a>` title patterns. Expected result: 2 FetchedItems with titles "THS Test News Title" and "Second THS Article".
+   - **For error-mode test:** Use `<html><body>no data here</body></html>` — no `<div class="article"` blocks exist, so `_parse_html` returns empty list, and `fetch()` returns `CrawlResult(items=(), errors=(...))` with the "no valid items" error message.
+   - **Confidence:** HIGH [VERIFIED: direct inspection of `tonghuashun.py` lines 61-87, regex patterns tested against fixture mentally]
+
 
 ## Environment Availability
 

@@ -4,7 +4,8 @@ WORKDIR /app
 
 # 安装依赖
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt && \
+    pip install --no-cache-dir 'boto3>=1.35.0,<2.0.0'
 
 # 复制 MCP 服务器代码
 COPY mcp_server/ ./mcp_server/

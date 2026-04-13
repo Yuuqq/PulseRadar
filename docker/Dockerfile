@@ -51,7 +51,8 @@ RUN set -ex && \
     rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt && \
+    pip install --no-cache-dir 'boto3>=1.35.0,<2.0.0'
 
 COPY docker/manage.py .
 COPY trendradar/ ./trendradar/

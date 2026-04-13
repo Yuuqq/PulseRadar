@@ -130,6 +130,18 @@ class StorageManager:
     def _create_remote_backend(self) -> Optional[StorageBackend]:
         """创建远程存储后端"""
         try:
+            from trendradar.storage.remote import HAS_BOTO3
+        except ImportError:
+            HAS_BOTO3 = False
+
+        if not HAS_BOTO3:
+            raise ImportError(
+                "S3 远程存储已配置，但未安装 boto3。\n"
+                "S3 storage is configured but boto3 is not installed.\n"
+                "Install with: pip install trendradar[s3]"
+            )
+
+        try:
             from trendradar.storage.remote import RemoteStorageBackend
 
             return RemoteStorageBackend(
@@ -142,10 +154,8 @@ class StorageManager:
                 enable_html=self.enable_html,
                 timezone=self.timezone,
             )
-        except ImportError as e:
-            logger.error("远程后端导入失败", error=str(e))
-            logger.warning("请确保已安装 boto3: pip install boto3")
-            return None
+        except ImportError:
+            raise
         except Exception as e:
             logger.error("远程后端初始化失败", error=str(e))
             return None

@@ -27,6 +27,9 @@ Reduce technical debt without breaking any existing user-facing behavior — all
 - ✓ Pydantic config models with env var overrides — existing
 - ✓ Plugin registry with auto-discovery — existing
 - ✓ Circuit breaker and rate limiter middleware — existing
+- ✓ Sync requirements.txt with pyproject.toml dependencies — Validated in Phase 1: Dependency Hygiene
+- ✓ Unpin tenacity (==8.5.0 → range) — Validated in Phase 1: Dependency Hygiene
+- ✓ Make boto3 an optional dependency — Validated in Phase 1: Dependency Hygiene
 
 ### Active
 
@@ -35,9 +38,6 @@ Reduce technical debt without breaking any existing user-facing behavior — all
 - [ ] Add pipeline integration tests (crawl→store→analyze→report→notify)
 - [ ] Add pytest-cov and achieve 80%+ coverage
 - [ ] Add mock HTTP fixtures for crawler tests
-- [ ] Sync requirements.txt with pyproject.toml dependencies
-- [ ] Unpin tenacity (==8.5.0 → range)
-- [ ] Make boto3 an optional dependency
 
 ### Out of Scope
 
@@ -52,8 +52,8 @@ Reduce technical debt without breaking any existing user-facing behavior — all
 - Recent refactor: "comprehensive 6-phase architecture overhaul" (commit 63936e15) already extracted pipeline.py and mode_strategy.py from NewsAnalyzer
 - Existing tests: 16 test files in tests/ covering core subsystems, but no coverage measurement
 - MCP server: fully functional but zero test coverage
-- requirements.txt is missing structlog and pydantic vs pyproject.toml
-- tenacity is the only exact-pinned dependency
+- requirements.txt now auto-generated from pyproject.toml via `uv pip compile` (Phase 1 complete)
+- boto3 moved to optional `[s3]` extra; Docker images install it explicitly (Phase 1 complete)
 
 ## Constraints
 
@@ -88,4 +88,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-04-13 after initialization*
+*Last updated: 2026-04-13 after Phase 1 completion*

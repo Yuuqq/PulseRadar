@@ -29,17 +29,29 @@ def pipeline_config(mock_config, tmp_path):
 
 
 @pytest.fixture
-def pipeline_ctx(pipeline_config):
+def pipeline_ctx(pipeline_config, tmp_path):
     """Real AppContext with pipeline-specific config.
 
-    Patches ONLY load_frequency_words (Pitfall 6 -- reads config/frequency_words.txt
-    from disk which does not exist in test environment). All other AppContext
-    methods are REAL and exercised against tmp_path storage.
+    Patches load_frequency_words (Pitfall 6 -- reads config/frequency_words.txt
+    from disk which does not exist in test environment) and save_titles /
+    get_output_path (which hardcode a relative 'output' path that would write
+    outside tmp_path). All other AppContext methods are REAL and exercised
+    against tmp_path storage.
     """
     from trendradar.context import AppContext
     ctx = AppContext(pipeline_config)
     # Patch load_frequency_words to avoid file I/O (Pitfall 6)
     ctx.load_frequency_words = lambda frequency_file=None: ([], [], [])
+
+    # Patch get_output_path to use tmp_path instead of hardcoded relative 'output'
+    _original_get_output_path = ctx.get_output_path
+
+    def _patched_get_output_path(subfolder: str, filename: str) -> str:
+        output_dir = tmp_path / "output" / subfolder / ctx.format_date()
+        output_dir.mkdir(parents=True, exist_ok=True)
+        return str(output_dir / filename)
+
+    ctx.get_output_path = _patched_get_output_path
     return ctx
 
 

@@ -76,3 +76,34 @@ def mock_app_context(mock_config):
     """
     from trendradar.context import AppContext
     return AppContext(mock_config)
+
+
+@pytest.fixture
+def mock_http_response():
+    """Wraps responses.RequestsMock for HTTP interception.
+
+    Per D-20: function-scoped, yields the mock so tests can register URL stubs.
+    assert_all_requests_are_fired=False so fixtures that register "defensive"
+    URLs do not fail when not all are called (Pitfall 3 countermeasure).
+    """
+    import responses
+    with responses.RequestsMock(assert_all_requests_are_fired=False) as rsps:
+        yield rsps
+
+
+@pytest.fixture(autouse=True)
+def _reset_storage_singleton():
+    """Reset the StorageManager module-level singleton before/after each test.
+
+    Per D-21: defends against Pitfall 12 (StorageManager singleton state leaks).
+    Combined with pytest-randomly, this catches cross-test coupling
+    deterministically.
+
+    This resets ONLY the module-level singleton in trendradar.storage.manager.
+    The AppContext instance attribute `self._storage_manager` resets naturally
+    because each test gets a fresh AppContext via mock_app_context.
+    """
+    import trendradar.storage.manager as _sm
+    _sm._storage_manager = None
+    yield
+    _sm._storage_manager = None

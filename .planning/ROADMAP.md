@@ -52,7 +52,7 @@ Plans:
 - [x] 02-04-PLAN.md — MCP server tests (7 tool modules + 3 service modules + FastMCP smoke test)
 - [x] 02-05-PLAN.md — Pipeline integration tests (5-case mode strategy + extra-API merge + dead code lock)
 - [x] 02-06-PLAN.md — Coverage baseline capture (coverage.xml commit + .gitignore update)
-- [ ] 02-07-PLAN.md — Gap closure: lower coverage fail-under gate to 28% ratchet floor
+- [x] 02-07-PLAN.md — Gap closure: lower coverage fail-under gate to 28% ratchet floor
 
 ### Phase 3: God Object Decomposition
 **Goal**: `NewsAnalyzer` is a thin facade over two focused orchestrators (`CrawlCoordinator`, `AnalysisEngine`) that communicate via frozen DTOs, and every external caller (CLI, MCP server, Web UI, Docker) keeps working exactly as before

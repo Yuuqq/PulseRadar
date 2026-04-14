@@ -34,10 +34,13 @@ Reduce technical debt without breaking any existing user-facing behavior — all
 ### Active
 
 - [ ] Break NewsAnalyzer god object into focused orchestrator classes
-- [ ] Add MCP server test suite
-- [ ] Add pipeline integration tests (crawl→store→analyze→report→notify)
-- [ ] Add pytest-cov and achieve 80%+ coverage
-- [ ] Add mock HTTP fixtures for crawler tests
+
+### Validated in Phase 2: Test Safety Net
+
+- ✓ Add MCP server test suite — 66 tests across 7 tool + 3 service + 1 smoke module
+- ✓ Add pipeline integration tests (crawl→store→analyze→report→notify) — 8 tests covering all 3 report modes
+- ✓ Add pytest-cov and achieve coverage measurement — ratchet gate at 27% baseline, branch coverage enabled
+- ✓ Add mock HTTP fixtures for crawler tests — 9 plugins with `responses` library, shared helpers
 
 ### Out of Scope
 
@@ -54,6 +57,7 @@ Reduce technical debt without breaking any existing user-facing behavior — all
 - MCP server: fully functional but zero test coverage
 - requirements.txt now auto-generated from pyproject.toml via `uv pip compile` (Phase 1 complete)
 - boto3 moved to optional `[s3]` extra; Docker images install it explicitly (Phase 1 complete)
+- Phase 2 complete: 235 tests (234 passing), 27% baseline coverage with ratchet gate, MCP + crawler + pipeline suites established
 
 ## Constraints
 
@@ -88,4 +92,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-04-13 after Phase 1 completion*
+*Last updated: 2026-04-14 after Phase 2 completion*

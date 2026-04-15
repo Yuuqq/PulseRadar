@@ -10,6 +10,9 @@ from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
 from trendradar.context import AppContext
+from trendradar.core.ai_service import _load_analysis_data, _prepare_current_title_info, run_ai_analysis
+from trendradar.core.pipeline import run_analysis_pipeline, prepare_standalone_data
+from trendradar.core.notification_service import send_notification_if_needed
 from trendradar.logging import get_logger
 from trendradar.utils.time import DEFAULT_TIMEZONE, is_within_days, calculate_days_old
 
@@ -280,14 +283,10 @@ def execute_mode_strategy(
     is_docker_container: bool,
     should_open_browser: bool,
     mode_strategy: Dict,
+    mode_strategies: Dict,
     results: Dict,
     id_to_name: Dict,
     failed_ids: List,
-    load_analysis_data_fn,
-    prepare_current_title_info_fn,
-    run_analysis_pipeline_fn,
-    prepare_standalone_data_fn,
-    send_notification_fn,
     rss_items: Optional[List[Dict]] = None,
     rss_new_items: Optional[List[Dict]] = None,
     raw_rss_items: Optional[List[Dict]] = None,
@@ -308,14 +307,10 @@ def execute_mode_strategy(
         is_docker_container: 是否运行在 Docker 容器中
         should_open_browser: 是否应该打开浏览器
         mode_strategy: 当前模式策略字典
+        mode_strategies: 完整的模式策略字典（用于通知）
         results: 爬取结果
         id_to_name: 平台 ID 到名称映射
         failed_ids: 失败的平台 ID 列表
-        load_analysis_data_fn: 加载历史分析数据的函数
-        prepare_current_title_info_fn: 从当前数据构建 title_info 的函数
-        run_analysis_pipeline_fn: 分析流水线执行函数
-        prepare_standalone_data_fn: 独立展示区数据准备函数
-        send_notification_fn: 通知发送函数
         rss_items: RSS 统计条目
         rss_new_items: RSS 新增条目
         raw_rss_items: 原始 RSS 条目
@@ -337,7 +332,7 @@ def execute_mode_strategy(
     title_info = None
 
     if report_mode == "current":
-        analysis_data = load_analysis_data_fn()
+        analysis_data = _load_analysis_data(ctx)
         if analysis_data:
             (
                 all_results,
@@ -351,18 +346,34 @@ def execute_mode_strategy(
 
             logger.info("current 模式：使用过滤后的历史数据", platforms=list(all_results.keys()))
 
-            standalone_data = prepare_standalone_data_fn(
-                all_results, historical_id_to_name, historical_title_info, raw_rss_items
+            standalone_data = prepare_standalone_data(
+                ctx, all_results, historical_id_to_name, historical_title_info, raw_rss_items
             )
 
-            stats, html_file, ai_result = run_analysis_pipeline_fn(
-                all_results,
-                report_mode,
-                historical_title_info,
-                historical_new_titles,
-                word_groups,
-                filter_words,
-                historical_id_to_name,
+            # Run AI analysis before pipeline
+            ai_result = run_ai_analysis(
+                ctx=ctx,
+                stats=[],  # Will be computed in pipeline
+                rss_items=rss_items,
+                mode=report_mode,
+                report_type=mode_strategy["report_type"],
+                id_to_name=historical_id_to_name,
+                current_results=all_results,
+            ) if ctx.config.get("AI_ANALYSIS", {}).get("ENABLED", False) else None
+
+            stats, html_file, ai_result = run_analysis_pipeline(
+                ctx=ctx,
+                data_source=all_results,
+                mode=report_mode,
+                title_info=historical_title_info,
+                new_titles=historical_new_titles,
+                word_groups=word_groups,
+                filter_words=filter_words,
+                id_to_name=historical_id_to_name,
+                report_mode=report_mode,
+                update_info=update_info,
+                report_type=mode_strategy["report_type"],
+                ai_result=ai_result,
                 failed_ids=failed_ids,
                 global_filters=global_filters,
                 rss_items=rss_items,
@@ -380,7 +391,7 @@ def execute_mode_strategy(
             raise RuntimeError("数据一致性检查失败：保存后立即读取失败")
 
     elif report_mode == "daily":
-        analysis_data = load_analysis_data_fn()
+        analysis_data = _load_analysis_data(ctx)
         if analysis_data:
             (
                 all_results,
@@ -392,18 +403,34 @@ def execute_mode_strategy(
                 _,
             ) = analysis_data
 
-            standalone_data = prepare_standalone_data_fn(
-                all_results, historical_id_to_name, historical_title_info, raw_rss_items
+            standalone_data = prepare_standalone_data(
+                ctx, all_results, historical_id_to_name, historical_title_info, raw_rss_items
             )
 
-            stats, html_file, ai_result = run_analysis_pipeline_fn(
-                all_results,
-                report_mode,
-                historical_title_info,
-                historical_new_titles,
-                word_groups,
-                filter_words,
-                historical_id_to_name,
+            # Run AI analysis before pipeline
+            ai_result = run_ai_analysis(
+                ctx=ctx,
+                stats=[],
+                rss_items=rss_items,
+                mode=report_mode,
+                report_type=mode_strategy["report_type"],
+                id_to_name=historical_id_to_name,
+                current_results=all_results,
+            ) if ctx.config.get("AI_ANALYSIS", {}).get("ENABLED", False) else None
+
+            stats, html_file, ai_result = run_analysis_pipeline(
+                ctx=ctx,
+                data_source=all_results,
+                mode=report_mode,
+                title_info=historical_title_info,
+                new_titles=historical_new_titles,
+                word_groups=word_groups,
+                filter_words=filter_words,
+                id_to_name=historical_id_to_name,
+                report_mode=report_mode,
+                update_info=update_info,
+                report_type=mode_strategy["report_type"],
+                ai_result=ai_result,
                 failed_ids=failed_ids,
                 global_filters=global_filters,
                 rss_items=rss_items,
@@ -418,18 +445,35 @@ def execute_mode_strategy(
             results = all_results
         else:
             # 没有历史数据时使用当前数据
-            title_info = prepare_current_title_info_fn(results, time_info)
-            standalone_data = prepare_standalone_data_fn(
-                results, id_to_name, title_info, raw_rss_items
+            title_info = _prepare_current_title_info(results, time_info)
+            standalone_data = prepare_standalone_data(
+                ctx, results, id_to_name, title_info, raw_rss_items
             )
-            stats, html_file, ai_result = run_analysis_pipeline_fn(
-                results,
-                report_mode,
-                title_info,
-                new_titles,
-                word_groups,
-                filter_words,
-                id_to_name,
+
+            # Run AI analysis before pipeline
+            ai_result = run_ai_analysis(
+                ctx=ctx,
+                stats=[],
+                rss_items=rss_items,
+                mode=report_mode,
+                report_type=mode_strategy["report_type"],
+                id_to_name=id_to_name,
+                current_results=results,
+            ) if ctx.config.get("AI_ANALYSIS", {}).get("ENABLED", False) else None
+
+            stats, html_file, ai_result = run_analysis_pipeline(
+                ctx=ctx,
+                data_source=results,
+                mode=report_mode,
+                title_info=title_info,
+                new_titles=new_titles,
+                word_groups=word_groups,
+                filter_words=filter_words,
+                id_to_name=id_to_name,
+                report_mode=report_mode,
+                update_info=update_info,
+                report_type=mode_strategy["report_type"],
+                ai_result=ai_result,
                 failed_ids=failed_ids,
                 global_filters=global_filters,
                 rss_items=rss_items,
@@ -439,18 +483,35 @@ def execute_mode_strategy(
 
     else:
         # incremental 模式：只使用当前抓取的数据
-        title_info = prepare_current_title_info_fn(results, time_info)
-        standalone_data = prepare_standalone_data_fn(
-            results, id_to_name, title_info, raw_rss_items
+        title_info = _prepare_current_title_info(results, time_info)
+        standalone_data = prepare_standalone_data(
+            ctx, results, id_to_name, title_info, raw_rss_items
         )
-        stats, html_file, ai_result = run_analysis_pipeline_fn(
-            results,
-            report_mode,
-            title_info,
-            new_titles,
-            word_groups,
-            filter_words,
-            id_to_name,
+
+        # Run AI analysis before pipeline
+        ai_result = run_ai_analysis(
+            ctx=ctx,
+            stats=[],
+            rss_items=rss_items,
+            mode=report_mode,
+            report_type=mode_strategy["report_type"],
+            id_to_name=id_to_name,
+            current_results=results,
+        ) if ctx.config.get("AI_ANALYSIS", {}).get("ENABLED", False) else None
+
+        stats, html_file, ai_result = run_analysis_pipeline(
+            ctx=ctx,
+            data_source=results,
+            mode=report_mode,
+            title_info=title_info,
+            new_titles=new_titles,
+            word_groups=word_groups,
+            filter_words=filter_words,
+            id_to_name=id_to_name,
+            report_mode=report_mode,
+            update_info=update_info,
+            report_type=mode_strategy["report_type"],
+            ai_result=ai_result,
             failed_ids=failed_ids,
             global_filters=global_filters,
             rss_items=rss_items,
@@ -463,13 +524,18 @@ def execute_mode_strategy(
 
     # 发送通知
     if mode_strategy["should_send_notification"]:
-        standalone_data = prepare_standalone_data_fn(
-            results, id_to_name, title_info, raw_rss_items
+        standalone_data = prepare_standalone_data(
+            ctx, results, id_to_name, title_info, raw_rss_items
         )
-        send_notification_fn(
-            stats,
-            mode_strategy["report_type"],
-            report_mode,
+        send_notification_if_needed(
+            ctx=ctx,
+            report_mode=report_mode,
+            update_info=update_info,
+            proxy_url=proxy_url,
+            mode_strategies=mode_strategies,
+            stats=stats,
+            report_type=mode_strategy["report_type"],
+            mode=report_mode,
             failed_ids=failed_ids,
             new_titles=new_titles,
             id_to_name=id_to_name,

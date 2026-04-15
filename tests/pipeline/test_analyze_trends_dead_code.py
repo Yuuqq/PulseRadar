@@ -1,52 +1,70 @@
 # coding=utf-8
 """
-Dead code lock test for _analyze_trends (Pitfall 8).
+Dead code removal verification for _analyze_trends (D-05).
 
-Verifies that _analyze_trends is called in NewsAnalyzer.run() but its result
-(trend_report) is NOT passed to _execute_mode_strategy. This locks the current
-dead code pattern so Phase 3 can decide whether to remove the dead call or
-wire trend_report into the pipeline.
-
-Uses static code inspection rather than full NewsAnalyzer.run() execution
-(which would require extensive mocking beyond this plan's scope).
+Phase 3 removed the dead _analyze_trends() call and TrendAnalyzer import
+from __main__.py. This test verifies the removal is complete.
 """
 from __future__ import annotations
 
 import inspect
 
 
-def test_analyze_trends_result_not_passed_to_execute_mode_strategy():
-    """Lock Pitfall 8: _analyze_trends is called but trend_report is never used."""
+def test_analyze_trends_removed_from_news_analyzer():
+    """Verify D-05: _analyze_trends is removed from NewsAnalyzer."""
     from trendradar.__main__ import NewsAnalyzer
 
-    # Verify _analyze_trends exists as a method
-    assert hasattr(NewsAnalyzer, "_analyze_trends"), (
-        "NewsAnalyzer must have _analyze_trends method"
+    # _analyze_trends method must NOT exist
+    assert not hasattr(NewsAnalyzer, "_analyze_trends"), (
+        "NewsAnalyzer must NOT have _analyze_trends method (D-05: dead code removed)"
     )
 
-    # Verify _execute_mode_strategy exists
-    assert hasattr(NewsAnalyzer, "_execute_mode_strategy"), (
-        "NewsAnalyzer must have _execute_mode_strategy method"
+
+def test_trend_analyzer_not_imported_in_main():
+    """Verify D-05: TrendAnalyzer is not imported in __main__.py."""
+    import trendradar.__main__ as main_module
+
+    source = inspect.getsource(main_module)
+    assert "TrendAnalyzer" not in source, (
+        "__main__.py must not import or reference TrendAnalyzer (D-05)"
+    )
+    assert "trend_report" not in source, (
+        "__main__.py must not contain trend_report variable (D-05)"
     )
 
-    # Get _execute_mode_strategy parameters
-    sig = inspect.signature(NewsAnalyzer._execute_mode_strategy)
-    param_names = set(sig.parameters.keys())
 
-    # Assert: trend_report is NOT a parameter of _execute_mode_strategy
-    assert "trend_report" not in param_names, (
-        f"_execute_mode_strategy should NOT accept trend_report "
-        f"(Pitfall 8: dead code). Got params: {param_names}"
+def test_news_analyzer_is_thin_facade():
+    """Verify REFACTOR-04: NewsAnalyzer is under 150 lines."""
+    from trendradar.__main__ import NewsAnalyzer
+
+    source = inspect.getsource(NewsAnalyzer)
+    line_count = source.count("\n")
+    assert line_count < 150, (
+        f"NewsAnalyzer must be under 150 lines (REFACTOR-04), got {line_count}"
     )
 
-    # Also verify in the source code of run() that trend_report is assigned
-    # but not passed to _execute_mode_strategy
-    run_source = inspect.getsource(NewsAnalyzer.run)
-    assert "trend_report = self._analyze_trends(" in run_source, (
-        "run() must call _analyze_trends and assign to trend_report"
+
+def test_news_analyzer_delegates_to_orchestrators():
+    """Verify D-06: NewsAnalyzer delegates to CrawlCoordinator and AnalysisEngine."""
+    from trendradar.__main__ import NewsAnalyzer
+
+    source = inspect.getsource(NewsAnalyzer)
+    assert "CrawlCoordinator" in source, (
+        "NewsAnalyzer must reference CrawlCoordinator (D-06)"
     )
-    assert "trend_report" not in inspect.getsource(
-        NewsAnalyzer._execute_mode_strategy
-    ), (
-        "trend_report must not appear in _execute_mode_strategy source"
+    assert "AnalysisEngine" in source, (
+        "NewsAnalyzer must reference AnalysisEngine (D-06)"
+    )
+    assert "crawl_all" in source, (
+        "NewsAnalyzer.run must call crawl_coordinator.crawl_all()"
+    )
+
+
+def test_update_info_is_constructor_parameter():
+    """Verify D-08: update_info is a constructor parameter."""
+    from trendradar.__main__ import NewsAnalyzer
+
+    sig = inspect.signature(NewsAnalyzer.__init__)
+    assert "update_info" in sig.parameters, (
+        "NewsAnalyzer.__init__ must accept update_info parameter (D-08)"
     )

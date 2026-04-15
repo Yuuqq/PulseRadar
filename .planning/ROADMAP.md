@@ -70,7 +70,7 @@ Plans:
 - [x] 03-01-PLAN.md — Frozen DTO definitions (CrawlOutput, AnalysisOutput, RSSOutput in core/types.py)
 - [x] 03-02-PLAN.md — CrawlCoordinator extraction (crawl + merge + store, rss_crawler callback removal)
 - [x] 03-03-PLAN.md — AnalysisEngine extraction + callback elimination (all _fn params removed from 5 core modules)
-- [ ] 03-04-PLAN.md — Facade collapse (NewsAnalyzer < 150 lines, dead code removal, update_info D-08, compatibility verification)
+- [x] 03-04-PLAN.md — Facade collapse (NewsAnalyzer < 150 lines, dead code removal, update_info D-08, compatibility verification)
 
 ### Phase 4: Quality Gates
 **Goal**: New commits are automatically checked for style, lint, and import issues in under 10 seconds, so the newly-clean codebase cannot silently regress

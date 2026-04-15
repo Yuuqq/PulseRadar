@@ -18,7 +18,8 @@ def crawl_rss_data(
     ctx: AppContext,
     storage_manager,
     proxy_url: Optional[str],
-    process_rss_data_by_mode_fn,
+    report_mode: str,
+    rank_threshold: int,
 ) -> Tuple[Optional[List[Dict]], Optional[List[Dict]], Optional[List[Dict]]]:
     """
     执行 RSS 数据抓取
@@ -27,7 +28,8 @@ def crawl_rss_data(
         ctx: 应用上下文
         storage_manager: 存储管理器
         proxy_url: 代理 URL
-        process_rss_data_by_mode_fn: 按模式处理 RSS 数据的函数
+        report_mode: 报告模式
+        rank_threshold: 排名阈值
 
     Returns:
         (rss_items, rss_new_items, raw_rss_items) 元组：
@@ -107,7 +109,14 @@ def crawl_rss_data(
 
         if storage_manager.save_rss_data(rss_data):
             logger.info("RSS 数据已保存到存储后端")
-            return process_rss_data_by_mode_fn(rss_data)
+            from trendradar.core.mode_strategy import process_rss_data_by_mode
+            return process_rss_data_by_mode(
+                ctx=ctx,
+                storage_manager=storage_manager,
+                report_mode=report_mode,
+                rank_threshold=rank_threshold,
+                rss_data=rss_data,
+            )
         else:
             logger.error("RSS 数据保存失败")
             return None, None, None

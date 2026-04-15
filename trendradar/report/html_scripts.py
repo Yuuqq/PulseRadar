@@ -492,5 +492,75 @@ REPORT_JS = """
                 initViewToggle();
                 initTopicTabs();
                 initSearch();
+                initMasonryLayout();
             });
+
+            function initMasonryLayout() {
+                const content = document.querySelector('.content');
+                if (!content) return;
+
+                content.classList.add('masonry-layout');
+
+                function layoutMasonry() {
+                    const items = Array.from(content.children).filter(el =>
+                        !el.classList.contains('controls') &&
+                        !el.classList.contains('section-tabs') &&
+                        !el.classList.contains('error-section') &&
+                        el.classList.contains('word-group')
+                    );
+
+                    if (items.length === 0) return;
+
+                    const gap = 24;
+                    const containerWidth = content.offsetWidth;
+                    const columnCount = window.innerWidth > 1200 ? 3 : window.innerWidth > 768 ? 2 : 1;
+                    const columnWidth = (containerWidth - gap * (columnCount - 1)) / columnCount;
+                    const columnHeights = new Array(columnCount).fill(0);
+
+                    // Reset positions for full-width elements
+                    let currentY = 0;
+                    content.querySelectorAll('.controls, .section-tabs, .error-section').forEach(el => {
+                        el.style.position = 'relative';
+                        el.style.width = '100%';
+                        currentY += el.offsetHeight + gap;
+                    });
+
+                    items.forEach(item => {
+                        const shortestColumn = columnHeights.indexOf(Math.min(...columnHeights));
+                        const x = shortestColumn * (columnWidth + gap);
+                        const y = currentY + columnHeights[shortestColumn];
+
+                        item.style.position = 'absolute';
+                        item.style.left = x + 'px';
+                        item.style.top = y + 'px';
+                        item.style.width = columnWidth + 'px';
+
+                        columnHeights[shortestColumn] += item.offsetHeight + gap;
+                    });
+
+                    const maxHeight = Math.max(...columnHeights);
+                    content.style.height = (currentY + maxHeight) + 'px';
+                }
+
+                // Initial layout
+                setTimeout(layoutMasonry, 100);
+
+                // Re-layout on window resize
+                let resizeTimer;
+                window.addEventListener('resize', () => {
+                    clearTimeout(resizeTimer);
+                    resizeTimer = setTimeout(layoutMasonry, 200);
+                });
+
+                // Re-layout when images load
+                content.querySelectorAll('img').forEach(img => {
+                    img.addEventListener('load', layoutMasonry);
+                });
+
+                // Re-layout when view changes
+                const observer = new MutationObserver(() => {
+                    setTimeout(layoutMasonry, 50);
+                });
+                observer.observe(content, { attributes: true, childList: true, subtree: true });
+            }
 """

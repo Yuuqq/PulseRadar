@@ -106,21 +106,34 @@ REPORT_CSS = """
 
             .content {
                 padding: 32px 36px;
-                display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-                gap: 24px;
-                align-items: start;
+                position: relative;
             }
 
-            /* CSS Grid Masonry layout (experimental) */
-            @supports (grid-template-rows: masonry) {
-                .content {
-                    grid-template-rows: masonry;
+            .content.masonry-layout {
+                display: block;
+            }
+
+            .content.masonry-layout > * {
+                position: absolute;
+                width: calc((100% - 48px) / 3);
+            }
+
+            @media (max-width: 1200px) {
+                .content.masonry-layout > * {
+                    width: calc((100% - 24px) / 2);
+                }
+            }
+
+            @media (max-width: 768px) {
+                .content.masonry-layout > * {
+                    width: 100%;
+                    position: relative !important;
                 }
             }
 
             .controls {
-                grid-column: 1 / -1;
+                position: relative;
+                width: 100%;
                 display: flex;
                 flex-wrap: wrap;
                 gap: 12px;
@@ -178,8 +191,8 @@ REPORT_CSS = """
             }
 
             .section-tabs {
-                grid-column: 1 / -1;
                 position: sticky;
+                width: 100%;
                 top: 0;
                 z-index: 6;
                 background: linear-gradient(to bottom, #ffffff 85%, rgba(255, 255, 255, 0));
@@ -493,7 +506,8 @@ REPORT_CSS = """
             }
 
             .new-section {
-                grid-column: 1 / -1;
+                position: relative;
+                width: 100%;
                 margin-top: 36px;
                 padding-top: 28px;
             }
@@ -589,8 +603,9 @@ REPORT_CSS = """
                 border: 1px solid #fecaca;
                 border-radius: 8px;
                 padding: 16px;
-                grid-column: 1 / -1;
-                break-inside: avoid;
+                margin-bottom: 24px;
+                position: relative;
+                width: 100%;
             }
 
             .error-title {

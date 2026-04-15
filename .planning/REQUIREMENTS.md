@@ -29,7 +29,7 @@
 
 ### God Object Decomposition
 
-- [ ] **REFACTOR-01**: Frozen dataclass DTOs `CrawlOutput`, `AnalysisOutput`, `RSSOutput` exist and are used at stage boundaries
+- [x] **REFACTOR-01**: Frozen dataclass DTOs `CrawlOutput`, `AnalysisOutput`, `RSSOutput` exist and are used at stage boundaries
 - [ ] **REFACTOR-02**: `CrawlCoordinator` class exists and owns crawl + merge + store logic, returning `CrawlOutput`
 - [ ] **REFACTOR-03**: `AnalysisEngine` class exists and owns mode strategy + analysis pipeline + AI analysis, returning `AnalysisOutput`
 - [ ] **REFACTOR-04**: `NewsAnalyzer` in `__main__.py` is reduced to a thin facade (under 150 lines)
@@ -81,7 +81,7 @@
 | COV-03  | Phase 2 — Test Safety Net | Pending |
 | COV-04  | Phase 2 — Test Safety Net | Pending |
 | COV-05  | Phase 2 — Test Safety Net | Complete |
-| REFACTOR-01 | Phase 3 — God Object Decomposition | Pending |
+| REFACTOR-01 | Phase 3 — God Object Decomposition | Complete |
 | REFACTOR-02 | Phase 3 — God Object Decomposition | Pending |
 | REFACTOR-03 | Phase 3 — God Object Decomposition | Pending |
 | REFACTOR-04 | Phase 3 — God Object Decomposition | Pending |

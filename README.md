@@ -4,6 +4,9 @@
 
 > 基于 [TrendRadar](https://github.com/sansan0/TrendRadar) 二次开发
 
+[![License](https://img.shields.io/badge/license-GPL--3.0-blue.svg?style=flat-square)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat-square&logo=python&logoColor=white)](https://python.org)
+
 ## 与 TrendRadar 的区别
 
 | | PulseRadar | TrendRadar |
@@ -12,7 +15,7 @@
 | **架构** | 解耦编排器 (CrawlCoordinator + AnalysisEngine) | 单体 NewsAnalyzer (835行) |
 | **报告布局** | 瀑布流多列卡片 | 单列线性排列 |
 | **代码质量** | Ruff 全量检查 + pre-commit hooks | 无 lint 门控 |
-| **AI 分析** | LongCat-Flash-Lite | 需自行配置 |
+| **AI 分析** | LongCat-Flash-Lite (预配置) | 需自行配置 |
 
 ## 核心能力
 
@@ -27,7 +30,11 @@
 ## 快速开始
 
 ```bash
-# 安装
+# 克隆
+git clone https://github.com/Yuuqq/PulseRadar.git
+cd PulseRadar
+
+# 安装依赖
 pip install -r requirements.txt
 
 # 配置
@@ -82,8 +89,6 @@ notification:
            ├─ RSS 抓取                    ├─ AI 分析
            └─ Extra API                   └─ 通知分发
 ```
-
-**关键模块：**
 
 | 模块 | 位置 | 职责 |
 |---|---|---|

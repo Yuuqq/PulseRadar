@@ -31,9 +31,9 @@
 
 - [x] **REFACTOR-01**: Frozen dataclass DTOs `CrawlOutput`, `AnalysisOutput`, `RSSOutput` exist and are used at stage boundaries
 - [ ] **REFACTOR-02**: `CrawlCoordinator` class exists and owns crawl + merge + store logic, returning `CrawlOutput`
-- [ ] **REFACTOR-03**: `AnalysisEngine` class exists and owns mode strategy + analysis pipeline + AI analysis, returning `AnalysisOutput`
+- [x] **REFACTOR-03**: `AnalysisEngine` class exists and owns mode strategy + analysis pipeline + AI analysis, returning `AnalysisOutput`
 - [ ] **REFACTOR-04**: `NewsAnalyzer` in `__main__.py` is reduced to a thin facade (under 150 lines)
-- [ ] **REFACTOR-05**: `_fn` callback parameters are removed from `core/pipeline.py`, `core/mode_strategy.py`, `core/notification_service.py`, and `core/ai_service.py`
+- [x] **REFACTOR-05**: `_fn` callback parameters are removed from `core/pipeline.py`, `core/mode_strategy.py`, `core/notification_service.py`, and `core/ai_service.py`
 - [ ] **REFACTOR-06**: CLI (`python -m trendradar` + all flags), config.yaml loading, and Docker deployment continue to work unchanged
 
 ### Quality Tooling
@@ -83,9 +83,9 @@
 | COV-05  | Phase 2 — Test Safety Net | Complete |
 | REFACTOR-01 | Phase 3 — God Object Decomposition | Complete |
 | REFACTOR-02 | Phase 3 — God Object Decomposition | Pending |
-| REFACTOR-03 | Phase 3 — God Object Decomposition | Pending |
+| REFACTOR-03 | Phase 3 — God Object Decomposition | Complete |
 | REFACTOR-04 | Phase 3 — God Object Decomposition | Pending |
-| REFACTOR-05 | Phase 3 — God Object Decomposition | Pending |
+| REFACTOR-05 | Phase 3 — God Object Decomposition | Complete |
 | REFACTOR-06 | Phase 3 — God Object Decomposition | Pending |
 | QUAL-01 | Phase 4 — Quality Gates | Pending |
 | QUAL-02 | Phase 4 — Quality Gates | Pending |

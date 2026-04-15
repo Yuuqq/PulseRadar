@@ -511,28 +511,22 @@ REPORT_JS = """
 
                     container.classList.add('masonry-active');
                     const w = container.offsetWidth;
-                    const cols = w >= 900 ? 3 : 2;
+                    const cols = w >= 1100 ? 3 : w >= 600 ? 2 : 1;
                     const colW = (w - GAP * (cols - 1)) / cols;
-                    const heights = new Array(cols).fill(0);
 
-                    // Position header elements above columns
+                    // Measure header elements height
+                    let headerH = 0;
                     if (skipSelectors && skipSelectors.length) {
                         skipSelectors.forEach(sel => {
-                            const el = container.querySelector(sel);
-                            if (el) {
+                            container.querySelectorAll(sel).forEach(el => {
                                 el.style.position = 'relative';
                                 el.style.width = '100%';
                                 el.style.zIndex = '5';
-                            }
+                                headerH += el.offsetHeight + GAP;
+                            });
                         });
-                        // Measure total header height
-                        let headerH = 0;
-                        skipSelectors.forEach(sel => {
-                            const el = container.querySelector(sel);
-                            if (el) headerH += el.offsetHeight + GAP;
-                        });
-                        heights.fill(headerH);
                     }
+                    const heights = new Array(cols).fill(headerH);
 
                     // First pass: set width for measurement
                     cards.forEach(card => {
@@ -565,7 +559,7 @@ REPORT_JS = """
                     );
                 }
 
-                setTimeout(layoutAll, 150);
+                setTimeout(layoutAll, 200);
 
                 let timer;
                 window.addEventListener('resize', () => {
@@ -573,7 +567,7 @@ REPORT_JS = """
                     timer = setTimeout(layoutAll, 200);
                 });
 
-                const obs = new MutationObserver(() => setTimeout(layoutAll, 80));
+                const obs = new MutationObserver(() => setTimeout(layoutAll, 100));
                 document.querySelectorAll('.hotlist-view, .new-section').forEach(v =>
                     obs.observe(v, { attributes: true, attributeFilter: ['data-hidden', 'data-filtered', 'style'], subtree: true })
                 );

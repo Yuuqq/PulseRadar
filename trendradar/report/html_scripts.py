@@ -514,7 +514,7 @@ REPORT_JS = """
                     const cols = w >= 1100 ? 3 : w >= 600 ? 2 : 1;
                     const colW = (w - GAP * (cols - 1)) / cols;
 
-                    // Measure header elements height
+                    // Measure header elements height (including margin)
                     let headerH = 0;
                     if (skipSelectors && skipSelectors.length) {
                         skipSelectors.forEach(sel => {
@@ -522,7 +522,10 @@ REPORT_JS = """
                                 el.style.position = 'relative';
                                 el.style.width = '100%';
                                 el.style.zIndex = '5';
-                                headerH += el.offsetHeight + GAP;
+                                const style = getComputedStyle(el);
+                                const mb = parseFloat(style.marginBottom) || 0;
+                                const mt = parseFloat(style.marginTop) || 0;
+                                headerH += el.offsetHeight + mt + mb + GAP;
                             });
                         });
                     }

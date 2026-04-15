@@ -65,7 +65,12 @@ Plans:
   4. No module in `core/` accepts a `_fn` callback parameter (pipeline, mode_strategy, notification_service, ai_service are all callback-free)
   5. Running `python -m trendradar` with every existing CLI flag produces identical HTML reports and identical notification payloads to the pre-refactor baseline, and the Phase 2 pipeline integration test still passes unchanged
   6. The MCP server and Flask Web UI start and serve requests without any import errors, using the same public import paths they used before the refactor
-**Plans**: TBD
+**Plans:** 4 plans
+Plans:
+- [ ] 03-01-PLAN.md — Frozen DTO definitions (CrawlOutput, AnalysisOutput, RSSOutput in core/types.py)
+- [ ] 03-02-PLAN.md — CrawlCoordinator extraction (crawl + merge + store, rss_crawler callback removal)
+- [ ] 03-03-PLAN.md — AnalysisEngine extraction + callback elimination (all _fn params removed from 5 core modules)
+- [ ] 03-04-PLAN.md — Facade collapse (NewsAnalyzer < 150 lines, dead code removal, update_info D-08, compatibility verification)
 
 ### Phase 4: Quality Gates
 **Goal**: New commits are automatically checked for style, lint, and import issues in under 10 seconds, so the newly-clean codebase cannot silently regress
@@ -87,5 +92,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 |-------|----------------|--------|-----------|
 | 1. Dependency Hygiene | 0/2 | Planned | - |
 | 2. Test Safety Net | 6/7 | In Progress|  |
-| 3. God Object Decomposition | 0/TBD | Not started | - |
+| 3. God Object Decomposition | 0/4 | Planned | - |
 | 4. Quality Gates | 0/TBD | Not started | - |

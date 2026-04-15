@@ -496,7 +496,7 @@ REPORT_JS = """
             });
 
             function initMasonry() {
-                const GAP = 20;
+                const GAP = 16;
 
                 function layoutContainer(container, cardSelector, skipSelectors) {
                     const cards = Array.from(container.querySelectorAll(cardSelector)).filter(c =>

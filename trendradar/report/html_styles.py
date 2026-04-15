@@ -13,7 +13,7 @@ REPORT_CSS = """
             }
 
             .container {
-                max-width: 1400px;
+                max-width: 1600px;
                 width: 98%;
                 margin: 0 auto;
                 background: white;

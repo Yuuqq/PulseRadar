@@ -106,9 +106,21 @@ REPORT_CSS = """
 
             .content {
                 padding: 32px 36px;
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+                gap: 24px;
+                align-items: start;
+            }
+
+            /* CSS Grid Masonry layout (experimental) */
+            @supports (grid-template-rows: masonry) {
+                .content {
+                    grid-template-rows: masonry;
+                }
             }
 
             .controls {
+                grid-column: 1 / -1;
                 display: flex;
                 flex-wrap: wrap;
                 gap: 12px;
@@ -166,6 +178,7 @@ REPORT_CSS = """
             }
 
             .section-tabs {
+                grid-column: 1 / -1;
                 position: sticky;
                 top: 0;
                 z-index: 6;
@@ -280,13 +293,14 @@ REPORT_CSS = """
             }
 
             .word-group {
-                margin-bottom: 28px;
                 background: #ffffff;
                 border: 1px solid #e2e8f0;
                 border-radius: 14px;
                 padding: 20px 22px 12px;
                 box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04), 0 4px 12px rgba(15, 23, 42, 0.03);
                 transition: box-shadow 0.2s ease;
+                break-inside: avoid;
+                page-break-inside: avoid;
             }
 
             .word-group:hover {
@@ -479,6 +493,7 @@ REPORT_CSS = """
             }
 
             .new-section {
+                grid-column: 1 / -1;
                 margin-top: 36px;
                 padding-top: 28px;
             }
@@ -574,7 +589,8 @@ REPORT_CSS = """
                 border: 1px solid #fecaca;
                 border-radius: 8px;
                 padding: 16px;
-                margin-bottom: 24px;
+                grid-column: 1 / -1;
+                break-inside: avoid;
             }
 
             .error-title {

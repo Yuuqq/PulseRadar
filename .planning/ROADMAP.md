@@ -81,7 +81,11 @@ Plans:
   2. Running `ruff format --check .` on the full codebase exits clean (the whole codebase is already formatted)
   3. A `git commit` from a fresh clone (after `pre-commit install`) automatically runs ruff check and ruff format on staged files and completes in under 10 seconds on a typical laptop
   4. `python -m trendradar`, config.yaml loading, and Docker deployment still work identically after formatting and lint fixes
-**Plans**: TBD
+**Plans:** 3 plans
+Plans:
+- [x] 04-01-PLAN.md — Configure Ruff linting in pyproject.toml with pragmatic ignores
+- [x] 04-02-PLAN.md — Format entire codebase with ruff format
+- [x] 04-03-PLAN.md — Create pre-commit hooks and install
 
 ## Progress
 
@@ -93,4 +97,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | 1. Dependency Hygiene | 2/2 | ✅ Complete | 2026-04-13 |
 | 2. Test Safety Net | 7/7 | ✅ Complete | 2026-04-14 |
 | 3. God Object Decomposition | 4/4 | ✅ Complete | 2026-04-15 |
-| 4. Quality Gates | 0/TBD | Not started | - |
+| 4. Quality Gates | 3/3 | ✅ Complete | 2026-04-15 |

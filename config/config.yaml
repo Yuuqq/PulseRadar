@@ -174,8 +174,7 @@ platforms:
     name: 少数派
   - id: juejin
     name: 掘金
-  - id: woshipm
-    name: 人人都是产品经理
+  # woshipm (人人都是产品经理) removed: upstream API returns 403
   - id: hackernews
     name: Hacker News
   - id: producthunt
@@ -184,8 +183,7 @@ platforms:
     name: GitHub Trending
   - id: v2ex
     name: V2EX
-  - id: kr-36kr
-    name: 36氪快讯
+  # kr-36kr (36氪快讯) removed: upstream API returns 403
   - id: coolapk
     name: 酷安
 report:

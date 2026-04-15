@@ -12,9 +12,9 @@ This milestone reduces three categories of accumulated technical debt in TrendRa
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Dependency Hygiene** - Fix the broken install path: sync requirements.txt, unpin tenacity, make boto3 optional
-- [ ] **Phase 2: Test Safety Net** - Establish coverage measurement, HTTP mocking, and comprehensive tests for MCP server, crawlers, and the full pipeline
-- [ ] **Phase 3: God Object Decomposition** - Extract CrawlCoordinator and AnalysisEngine from NewsAnalyzer behind a thin facade, using frozen DTOs at stage boundaries
+- [x] **Phase 1: Dependency Hygiene** - Fix the broken install path: sync requirements.txt, unpin tenacity, make boto3 optional
+- [x] **Phase 2: Test Safety Net** - Establish coverage measurement, HTTP mocking, and comprehensive tests for MCP server, crawlers, and the full pipeline
+- [x] **Phase 3: God Object Decomposition** - Extract CrawlCoordinator and AnalysisEngine from NewsAnalyzer behind a thin facade, using frozen DTOs at stage boundaries
 - [ ] **Phase 4: Quality Gates** - Lock in long-term maintainability with ruff linting, ruff format, and pre-commit hooks
 
 ## Phase Details
@@ -90,7 +90,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Dependency Hygiene | 0/2 | Planned | - |
-| 2. Test Safety Net | 6/7 | In Progress|  |
-| 3. God Object Decomposition | 0/4 | Planned | - |
+| 1. Dependency Hygiene | 2/2 | ✅ Complete | 2026-04-13 |
+| 2. Test Safety Net | 7/7 | ✅ Complete | 2026-04-14 |
+| 3. God Object Decomposition | 4/4 | ✅ Complete | 2026-04-15 |
 | 4. Quality Gates | 0/TBD | Not started | - |

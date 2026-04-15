@@ -1,21 +1,19 @@
-# coding=utf-8
 """插件自动发现与注册"""
 import importlib
 import pkgutil
 from pathlib import Path
-from typing import Dict, Optional, Type
 
-from trendradar.logging import get_logger
 from trendradar.crawler.base import CrawlerPlugin
+from trendradar.logging import get_logger
 
 logger = get_logger(__name__)
 
 
 class CrawlerRegistry:
-    _plugins: Dict[str, Type[CrawlerPlugin]] = {}
+    _plugins: dict[str, type[CrawlerPlugin]] = {}
 
     @classmethod
-    def register(cls, plugin_class: Type[CrawlerPlugin]) -> Type[CrawlerPlugin]:
+    def register(cls, plugin_class: type[CrawlerPlugin]) -> type[CrawlerPlugin]:
         """注册插件（可作为装饰器使用）"""
         instance = plugin_class()
         source_type = instance.source_type
@@ -24,11 +22,11 @@ class CrawlerRegistry:
         return plugin_class
 
     @classmethod
-    def get(cls, source_type: str) -> Optional[Type[CrawlerPlugin]]:
+    def get(cls, source_type: str) -> type[CrawlerPlugin] | None:
         return cls._plugins.get(source_type)
 
     @classmethod
-    def get_all(cls) -> Dict[str, Type[CrawlerPlugin]]:
+    def get_all(cls) -> dict[str, type[CrawlerPlugin]]:
         return dict(cls._plugins)
 
     @classmethod
@@ -38,7 +36,7 @@ class CrawlerRegistry:
         if not plugins_dir.exists():
             return
         package_name = "trendradar.crawler.plugins"
-        for finder, name, ispkg in pkgutil.iter_modules([str(plugins_dir)]):
+        for _finder, name, _ispkg in pkgutil.iter_modules([str(plugins_dir)]):
             if name.startswith("_"):
                 continue
             try:

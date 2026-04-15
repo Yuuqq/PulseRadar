@@ -1,4 +1,3 @@
-# coding=utf-8
 """Handler-level tests for ConfigManagementTools.
 
 Strategy: patch DataService to return a controlled config dict. The public
@@ -6,9 +5,7 @@ surface is a single method: get_current_config(section=...).
 """
 from __future__ import annotations
 
-from unittest.mock import patch, MagicMock
-
-import pytest
+from unittest.mock import MagicMock, patch
 
 from mcp_server.tools.config_mgmt import ConfigManagementTools
 

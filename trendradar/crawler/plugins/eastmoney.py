@@ -1,12 +1,10 @@
-# coding=utf-8
 """东方财富 7x24 快讯爬虫插件"""
 import json
 from datetime import datetime
-from typing import Dict, List, Optional
 
 import requests
 
-from trendradar.crawler.base import CrawlResult, CrawlerPlugin, FetchedItem
+from trendradar.crawler.base import CrawlerPlugin, CrawlResult, FetchedItem
 from trendradar.crawler.registry import CrawlerRegistry
 from trendradar.logging import get_logger
 
@@ -36,7 +34,7 @@ class EastMoneyPlugin(CrawlerPlugin):
     def rate_limit(self) -> float:
         return 1.0
 
-    def _get_text(self, url: str) -> Optional[str]:
+    def _get_text(self, url: str) -> str | None:
         try:
             resp = self._session.get(url, headers=DEFAULT_HEADERS, timeout=15)
             resp.raise_for_status()
@@ -45,7 +43,7 @@ class EastMoneyPlugin(CrawlerPlugin):
             logger.error("[EastMoneyPlugin] 请求失败", url=url, error=str(exc))
             return None
 
-    def _parse_response(self, content: str) -> List[FetchedItem]:
+    def _parse_response(self, content: str) -> list[FetchedItem]:
         raw = content.strip()
         # Strip JS variable assignment wrapper: `var xxx = {...};`
         if raw.startswith("var"):
@@ -63,7 +61,7 @@ class EastMoneyPlugin(CrawlerPlugin):
             logger.warning("[EastMoneyPlugin] 响应状态非预期", rc=data.get("rc"))
             return []
 
-        items: List[FetchedItem] = []
+        items: list[FetchedItem] = []
         for idx, item in enumerate(data.get("LivesList", []), 1):
             title = str(item.get("title") or item.get("simtitle") or "").strip()
             if not title:
@@ -78,7 +76,7 @@ class EastMoneyPlugin(CrawlerPlugin):
 
         return items
 
-    def fetch(self, source_config: Dict) -> CrawlResult:
+    def fetch(self, source_config: dict) -> CrawlResult:
         source_id = source_config.get("id", "eastmoney")
         source_name = source_config.get("name", "东方财富快讯")
         channel = str(source_config.get("channel", "102"))

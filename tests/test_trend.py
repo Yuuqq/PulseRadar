@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 Tests for trendradar.core.trend -- cross-cycle trend detection.
 
@@ -15,8 +14,7 @@ Covers:
 
 from __future__ import annotations
 
-from trendradar.core.trend import TrendAnalyzer, TrendItem, TrendReport
-
+from trendradar.core.trend import TrendAnalyzer, TrendItem
 
 # ---------------------------------------------------------------------------
 # Fixtures (plain dicts -- no pytest fixtures needed for pure logic)
@@ -350,6 +348,6 @@ class TestTrendItemFrozen:
         )
         try:
             item.title = "changed"
-            assert False, "Should raise FrozenInstanceError"
+            raise AssertionError("Should raise FrozenInstanceError")
         except AttributeError:
             pass

@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 数据获取器模块
 
@@ -13,7 +12,6 @@ import concurrent.futures
 import json
 import random
 import time
-from typing import Dict, List, Tuple, Optional, Union
 
 import requests
 
@@ -39,9 +37,9 @@ class DataFetcher:
 
     def __init__(
         self,
-        proxy_url: Optional[str] = None,
-        api_url: Optional[str] = None,
-        session: Optional[requests.Session] = None,
+        proxy_url: str | None = None,
+        api_url: str | None = None,
+        session: requests.Session | None = None,
     ):
         """
         初始化数据获取器
@@ -64,11 +62,11 @@ class DataFetcher:
 
     def fetch_data(
         self,
-        id_info: Union[str, Tuple[str, str]],
+        id_info: str | tuple[str, str],
         max_retries: int = 2,
         min_retry_wait: int = 3,
         max_retry_wait: int = 5,
-    ) -> Tuple[Optional[str], str, str]:
+    ) -> tuple[str | None, str, str]:
         """
         获取指定ID数据，支持重试
 
@@ -131,9 +129,9 @@ class DataFetcher:
 
     def crawl_websites(
         self,
-        ids_list: List[Union[str, Tuple[str, str]]],
+        ids_list: list[str | tuple[str, str]],
         request_interval: int = 100,
-    ) -> Tuple[Dict, Dict, List]:
+    ) -> tuple[dict, dict, list]:
         """
         爬取多个网站数据
 
@@ -162,7 +160,7 @@ class DataFetcher:
 
         max_workers = min(len(ids_list), 10)
         with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
-            future_to_id: Dict[concurrent.futures.Future, str] = {}
+            future_to_id: dict[concurrent.futures.Future, str] = {}
             for i, id_info in enumerate(ids_list):
                 # Small stagger (20 ms) to avoid thundering herd against the API
                 if i > 0:

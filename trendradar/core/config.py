@@ -1,17 +1,16 @@
-# coding=utf-8
 """
 配置工具模块 - 多账号配置解析和验证
 
 提供多账号推送配置的解析、验证和限制功能
 """
 
-from typing import Dict, List, Optional, Tuple
+
 from trendradar.logging import get_logger
 
 logger = get_logger(__name__)
 
 
-def parse_multi_account_config(config_value: str, separator: str = ";") -> List[str]:
+def parse_multi_account_config(config_value: str, separator: str = ";") -> list[str]:
     """
     解析多账号配置，返回账号列表
 
@@ -41,10 +40,10 @@ def parse_multi_account_config(config_value: str, separator: str = ";") -> List[
 
 
 def validate_paired_configs(
-    configs: Dict[str, List[str]],
+    configs: dict[str, list[str]],
     channel_name: str,
-    required_keys: Optional[List[str]] = None
-) -> Tuple[bool, int]:
+    required_keys: list[str] | None = None
+) -> tuple[bool, int]:
     """
     验证配对配置的数量是否一致
 
@@ -94,14 +93,14 @@ def validate_paired_configs(
             logger.error("配对配置数量明细", channel=channel_name, key=key, count=length)
         return False, 0
 
-    return True, list(unique_lengths)[0] if unique_lengths else 0
+    return True, next(iter(unique_lengths)) if unique_lengths else 0
 
 
 def limit_accounts(
-    accounts: List[str],
+    accounts: list[str],
     max_count: int,
     channel_name: str
-) -> List[str]:
+) -> list[str]:
     """
     限制账号数量
 
@@ -136,7 +135,7 @@ def limit_accounts(
     return accounts
 
 
-def get_account_at_index(accounts: List[str], index: int, default: str = "") -> str:
+def get_account_at_index(accounts: list[str], index: int, default: str = "") -> str:
     """
     安全获取指定索引的账号值
 

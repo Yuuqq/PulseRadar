@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 Stage boundary DTOs for the decomposed pipeline.
 
@@ -8,15 +7,14 @@ between CrawlCoordinator, AnalysisEngine, and the notification layer.
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import Dict, List, Optional, Tuple
 
 
 @dataclass(frozen=True, slots=True)
 class RSSOutput:
     """RSS crawl results carried within CrawlOutput (D-04)."""
-    stats_items: Optional[List[Dict]] = None
-    new_items: Optional[List[Dict]] = None
-    raw_items: Optional[List[Dict]] = None
+    stats_items: list[dict] | None = None
+    new_items: list[dict] | None = None
+    raw_items: list[dict] | None = None
 
 
 @dataclass(frozen=True, slots=True)
@@ -26,9 +24,9 @@ class CrawlOutput:
     CrawlCoordinator produces this after hotlist + extra APIs + RSS
     are all fetched, merged, and stored.
     """
-    results: Dict
-    id_to_name: Dict
-    failed_ids: Tuple[str, ...] = ()
+    results: dict
+    id_to_name: dict
+    failed_ids: tuple[str, ...] = ()
     rss: RSSOutput = field(default_factory=RSSOutput)
 
 
@@ -39,6 +37,6 @@ class AnalysisOutput:
     stats, html_file_path, ai_result -- same as the current
     run_analysis_pipeline() 3-tuple return.
     """
-    stats: List[Dict]
-    html_file_path: Optional[str] = None
+    stats: list[dict]
+    html_file_path: str | None = None
     ai_result: object = None

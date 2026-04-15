@@ -1,4 +1,3 @@
-# coding=utf-8
 """EastMoneyPlugin tests — happy path (JS wrapper) + malformed wrapper error."""
 from __future__ import annotations
 

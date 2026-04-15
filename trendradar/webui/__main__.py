@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 TrendRadar Web UI 启动脚本
 
@@ -9,6 +8,7 @@ TrendRadar Web UI 启动脚本
 """
 
 import argparse
+
 from trendradar.webui.app import run_server
 
 

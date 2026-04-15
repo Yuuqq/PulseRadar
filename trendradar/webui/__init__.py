@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 TrendRadar Web UI 模块
 

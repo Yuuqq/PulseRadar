@@ -1,13 +1,11 @@
-# coding=utf-8
 """同花顺资讯（财经头条）爬虫插件"""
 import html
 import re
 from datetime import datetime
-from typing import Dict, List, Optional
 
 import requests
 
-from trendradar.crawler.base import CrawlResult, CrawlerPlugin, FetchedItem
+from trendradar.crawler.base import CrawlerPlugin, CrawlResult, FetchedItem
 from trendradar.crawler.registry import CrawlerRegistry
 from trendradar.logging import get_logger
 
@@ -42,7 +40,7 @@ class TongHuaShunPlugin(CrawlerPlugin):
     def rate_limit(self) -> float:
         return 1.0
 
-    def _fetch_html(self, url: str, encoding: str) -> Optional[str]:
+    def _fetch_html(self, url: str, encoding: str) -> str | None:
         try:
             req_headers = {
                 **DEFAULT_HEADERS,
@@ -58,8 +56,8 @@ class TongHuaShunPlugin(CrawlerPlugin):
             logger.error("[TongHuaShunPlugin] 请求失败", url=url, error=str(exc))
             return None
 
-    def _parse_html(self, text: str, max_items: int) -> List[FetchedItem]:
-        items: List[FetchedItem] = []
+    def _parse_html(self, text: str, max_items: int) -> list[FetchedItem]:
+        items: list[FetchedItem] = []
         blocks = text.split('<div class="article"')
         for block in blocks:
             if "article-time" not in block:
@@ -86,7 +84,7 @@ class TongHuaShunPlugin(CrawlerPlugin):
 
         return items
 
-    def fetch(self, source_config: Dict) -> CrawlResult:
+    def fetch(self, source_config: dict) -> CrawlResult:
         source_id = source_config.get("id", "10jqka")
         source_name = source_config.get("name", "同花顺资讯")
         url = source_config.get("url", _DEFAULT_URL)

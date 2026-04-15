@@ -1,14 +1,12 @@
-# coding=utf-8
 """
 AI 分析服务
 
 从 NewsAnalyzer 中提取的 AI 分析相关逻辑，接受显式参数而非 self。
 """
 
-from typing import Dict, List, Optional, Tuple
 
+from trendradar.ai import AIAnalysisResult, AIAnalyzer
 from trendradar.context import AppContext
-from trendradar.ai import AIAnalyzer, AIAnalysisResult
 from trendradar.core.analyzer import convert_keyword_stats_to_platform_stats
 from trendradar.logging import get_logger
 
@@ -18,7 +16,7 @@ logger = get_logger(__name__)
 def _load_analysis_data(
     ctx: AppContext,
     quiet: bool = False,
-) -> Optional[Tuple[Dict, Dict, Dict, Dict, List, List, List]]:
+) -> tuple[dict, dict, dict, dict, list, list, list] | None:
     """统一的数据加载和预处理，使用当前监控平台列表过滤历史数据"""
     try:
         # 获取当前配置的监控平台ID列表
@@ -55,7 +53,7 @@ def _load_analysis_data(
         return None
 
 
-def _prepare_current_title_info(results: Dict, time_info: str) -> Dict:
+def _prepare_current_title_info(results: dict, time_info: str) -> dict:
     """从当前抓取结果构建标题信息"""
     title_info = {}
     for source_id, titles_data in results.items():
@@ -79,9 +77,9 @@ def _prepare_current_title_info(results: Dict, time_info: str) -> Dict:
 def prepare_ai_analysis_data(
     ctx: AppContext,
     ai_mode: str,
-    current_results: Optional[Dict] = None,
-    current_id_to_name: Optional[Dict] = None,
-) -> Tuple[List[Dict], Optional[Dict]]:
+    current_results: dict | None = None,
+    current_id_to_name: dict | None = None,
+) -> tuple[list[dict], dict | None]:
     """
     为 AI 分析准备指定模式的数据
 
@@ -178,13 +176,13 @@ def prepare_ai_analysis_data(
 
 def run_ai_analysis(
     ctx: AppContext,
-    stats: List[Dict],
-    rss_items: Optional[List[Dict]],
+    stats: list[dict],
+    rss_items: list[dict] | None,
     mode: str,
     report_type: str,
-    id_to_name: Optional[Dict],
-    current_results: Optional[Dict] = None,
-) -> Optional[AIAnalysisResult]:
+    id_to_name: dict | None,
+    current_results: dict | None = None,
+) -> AIAnalysisResult | None:
     """
     执行 AI 分析
 
@@ -301,7 +299,6 @@ def run_ai_analysis(
         return result
 
     except Exception as e:
-        import traceback
         error_type = type(e).__name__
         error_msg = str(e)
         if len(error_msg) > 200:

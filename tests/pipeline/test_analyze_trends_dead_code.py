@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 Dead code removal verification for _analyze_trends (D-05).
 

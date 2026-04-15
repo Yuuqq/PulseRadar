@@ -1,4 +1,3 @@
-# coding=utf-8
 """HTML 报告样式常量"""
 
 REPORT_CSS = """

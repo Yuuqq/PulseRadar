@@ -1,12 +1,11 @@
-# coding=utf-8
 """
 时间工具模块
 
 本模块提供统一的时间处理函数，所有时区相关操作都应使用 DEFAULT_TIMEZONE 常量。
 """
 
+import contextlib
 from datetime import datetime
-from typing import Optional, Tuple
 
 import pytz
 
@@ -37,7 +36,7 @@ def get_configured_time(timezone: str = DEFAULT_TIMEZONE) -> datetime:
 
 
 def format_date_folder(
-    date: Optional[str] = None, timezone: str = DEFAULT_TIMEZONE
+    date: str | None = None, timezone: str = DEFAULT_TIMEZONE
 ) -> str:
     """
     格式化日期文件夹名 (ISO 格式: YYYY-MM-DD)
@@ -123,10 +122,8 @@ def format_iso_time_friendly(
         # 尝试解析带时区的格式
         if "+" in iso_time or iso_time.endswith("Z"):
             iso_time = iso_time.replace("Z", "+00:00")
-            try:
+            with contextlib.suppress(ValueError):
                 dt = datetime.fromisoformat(iso_time)
-            except ValueError:
-                pass
 
         # 尝试解析不带时区的格式（假设为 UTC）
         if dt is None:
@@ -209,10 +206,8 @@ def is_within_days(
         # 尝试解析带时区的格式
         if "+" in iso_time or iso_time.endswith("Z"):
             iso_time_normalized = iso_time.replace("Z", "+00:00")
-            try:
+            with contextlib.suppress(ValueError):
                 dt = datetime.fromisoformat(iso_time_normalized)
-            except ValueError:
-                pass
 
         # 尝试解析不带时区的格式（假设为 UTC）
         if dt is None:
@@ -243,7 +238,7 @@ def is_within_days(
         return True
 
 
-def calculate_days_old(iso_time: str, timezone: str = DEFAULT_TIMEZONE) -> Optional[float]:
+def calculate_days_old(iso_time: str, timezone: str = DEFAULT_TIMEZONE) -> float | None:
     """
     计算 ISO 格式时间距今多少天
 
@@ -263,10 +258,8 @@ def calculate_days_old(iso_time: str, timezone: str = DEFAULT_TIMEZONE) -> Optio
         # 尝试解析带时区的格式
         if "+" in iso_time or iso_time.endswith("Z"):
             iso_time_normalized = iso_time.replace("Z", "+00:00")
-            try:
+            with contextlib.suppress(ValueError):
                 dt = datetime.fromisoformat(iso_time_normalized)
-            except ValueError:
-                pass
 
         # 尝试解析不带时区的格式（假设为 UTC）
         if dt is None:
@@ -383,7 +376,7 @@ class TimeWindowChecker:
         window_config: dict,
         check_once_per_day_func=None,
         record_func=None,
-    ) -> Tuple[bool, str]:
+    ) -> tuple[bool, str]:
         """
         统一的时间窗口检查逻辑
 

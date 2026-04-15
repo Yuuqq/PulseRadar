@@ -1,9 +1,8 @@
-# coding=utf-8
 """自适应限速器"""
-import time
 import threading
+import time
 from collections import defaultdict
-from typing import Dict, Optional
+
 from trendradar.logging import get_logger
 
 logger = get_logger(__name__)
@@ -21,10 +20,10 @@ class RateLimiter:
             default_rps: 默认每秒请求数
         """
         self._default_rps = default_rps
-        self._last_request: Dict[str, float] = defaultdict(float)
+        self._last_request: dict[str, float] = defaultdict(float)
         self._lock = threading.Lock()
 
-    def wait(self, key: str, rps: Optional[float] = None) -> None:
+    def wait(self, key: str, rps: float | None = None) -> None:
         """
         等待直到可以发送请求
 

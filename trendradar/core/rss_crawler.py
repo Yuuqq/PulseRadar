@@ -1,11 +1,9 @@
-# coding=utf-8
 """
 RSS 数据抓取
 
 从 NewsAnalyzer 中提取的 RSS 抓取逻辑，接受显式参数而非 self。
 """
 
-from typing import Dict, List, Optional, Tuple
 
 from trendradar.context import AppContext
 from trendradar.logging import get_logger
@@ -17,10 +15,10 @@ logger = get_logger(__name__)
 def crawl_rss_data(
     ctx: AppContext,
     storage_manager,
-    proxy_url: Optional[str],
+    proxy_url: str | None,
     report_mode: str,
     rank_threshold: int,
-) -> Tuple[Optional[List[Dict]], Optional[List[Dict]], Optional[List[Dict]]]:
+) -> tuple[list[dict] | None, list[dict] | None, list[dict] | None]:
     """
     执行 RSS 数据抓取
 
@@ -47,7 +45,7 @@ def crawl_rss_data(
         return None, None, None
 
     try:
-        from trendradar.crawler.rss import RSSFetcher, RSSFeedConfig
+        from trendradar.crawler.rss import RSSFeedConfig, RSSFetcher
 
         feeds = []
         for feed_config in rss_feeds:

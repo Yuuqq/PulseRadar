@@ -1,4 +1,3 @@
-# coding=utf-8
 """WallStreetCNPlugin tests — happy path + non-20000 code error mode."""
 from __future__ import annotations
 

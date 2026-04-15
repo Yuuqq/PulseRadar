@@ -7,12 +7,10 @@
 """
 
 import time
-from typing import Dict, List
 
 import requests
 
-from ..utils.errors import MCPError, InvalidParameterError
-
+from ..utils.errors import InvalidParameterError, MCPError
 
 # Jina Reader 配置
 JINA_READER_BASE = "https://r.jina.ai"
@@ -24,7 +22,7 @@ BATCH_INTERVAL = 5.0  # 批量请求间隔（秒）
 class ArticleReaderTools:
     """文章内容读取工具类"""
 
-    def __init__(self, project_root: str = None, jina_api_key: str = None):
+    def __init__(self, project_root: str | None = None, jina_api_key: str | None = None):
         """
         初始化文章读取工具
 
@@ -36,7 +34,7 @@ class ArticleReaderTools:
         self.jina_api_key = jina_api_key
         self._last_request_time = 0.0
 
-    def _build_headers(self) -> Dict[str, str]:
+    def _build_headers(self) -> dict[str, str]:
         """构建请求头"""
         headers = {
             "Accept": "text/markdown",
@@ -59,7 +57,7 @@ class ArticleReaderTools:
         self,
         url: str,
         timeout: int = DEFAULT_TIMEOUT
-    ) -> Dict:
+    ) -> dict:
         """
         读取单篇文章内容（Markdown 格式）
 
@@ -138,9 +136,9 @@ class ArticleReaderTools:
 
     def read_articles_batch(
         self,
-        urls: List[str],
+        urls: list[str],
         timeout: int = DEFAULT_TIMEOUT
-    ) -> Dict:
+    ) -> dict:
         """
         批量读取多篇文章内容（最多 5 篇，间隔 5 秒）
 

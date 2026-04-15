@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 爬虫模块 - 数据抓取功能
 
@@ -9,16 +8,16 @@
 - CrawlerRegistry: 插件注册表（新增）
 """
 
-from trendradar.crawler.fetcher import DataFetcher
 from trendradar.crawler.base import CrawlerPlugin, CrawlResult, FetchedItem
-from trendradar.crawler.registry import CrawlerRegistry
+from trendradar.crawler.fetcher import DataFetcher
 from trendradar.crawler.pool import CrawlerPool
+from trendradar.crawler.registry import CrawlerRegistry
 
 __all__ = [
-    "DataFetcher",
-    "CrawlerPlugin",
     "CrawlResult",
-    "FetchedItem",
-    "CrawlerRegistry",
+    "CrawlerPlugin",
     "CrawlerPool",
+    "CrawlerRegistry",
+    "DataFetcher",
+    "FetchedItem",
 ]

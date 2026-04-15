@@ -5,17 +5,16 @@
 """
 
 from pathlib import Path
-from typing import Dict, List, Optional
 
 from ..services.data_service import DataService
+from ..utils.errors import CrawlTaskError, MCPError
 from ..utils.validators import validate_platforms
-from ..utils.errors import MCPError, CrawlTaskError
 
 
 class SystemManagementTools:
     """系统管理工具类"""
 
-    def __init__(self, project_root: str = None):
+    def __init__(self, project_root: str | None = None):
         """
         初始化系统管理工具
 
@@ -30,7 +29,7 @@ class SystemManagementTools:
             current_file = Path(__file__)
             self.project_root = current_file.parent.parent.parent
 
-    def get_system_status(self) -> Dict:
+    def get_system_status(self) -> dict:
         """
         获取系统运行状态和健康检查信息
 
@@ -68,7 +67,7 @@ class SystemManagementTools:
                 }
             }
 
-    def trigger_crawl(self, platforms: Optional[List[str]] = None, save_to_local: bool = False, include_url: bool = False) -> Dict:
+    def trigger_crawl(self, platforms: list[str] | None = None, save_to_local: bool = False, include_url: bool = False) -> dict:
         """
         手动触发一次临时爬取任务（可选持久化）
 
@@ -91,11 +90,18 @@ class SystemManagementTools:
         """
         try:
             import time
+
             import yaml
+
             from trendradar.crawler.fetcher import DataFetcher
-            from trendradar.storage.local import LocalStorageBackend
             from trendradar.storage.base import convert_crawl_results_to_news_data
-            from trendradar.utils.time import get_configured_time, format_date_folder, format_time_filename
+            from trendradar.storage.local import LocalStorageBackend
+            from trendradar.utils.time import (
+                format_date_folder,
+                format_time_filename,
+                get_configured_time,
+            )
+
             from ..services.cache_service import get_cache
 
             # 参数验证
@@ -110,7 +116,7 @@ class SystemManagementTools:
                 )
 
             # 读取配置
-            with open(config_path, "r", encoding="utf-8") as f:
+            with open(config_path, encoding="utf-8") as f:
                 config_data = yaml.safe_load(f)
 
             # 获取平台配置（嵌套结构：{enabled: bool, sources: [...]})
@@ -291,7 +297,7 @@ class SystemManagementTools:
                 }
             }
 
-    def _generate_simple_html(self, results: Dict, id_to_name: Dict, failed_ids: List, now) -> str:
+    def _generate_simple_html(self, results: dict, id_to_name: dict, failed_ids: list, now) -> str:
         """生成简化的 HTML 报告"""
         html = """<!DOCTYPE html>
 <html>
@@ -326,7 +332,7 @@ class SystemManagementTools:
         # 遍历每个平台
         for platform_id, titles_data in results.items():
             platform_name = id_to_name.get(platform_id, platform_id)
-            html += f'        <div class="platform">\n'
+            html += '        <div class="platform">\n'
             html += f'            <div class="platform-name">{platform_name}</div>\n'
 
             # 排序标题
@@ -342,7 +348,7 @@ class SystemManagementTools:
 
             # 显示新闻
             for rank, title, url, mobile_url in sorted_items:
-                html += f'            <div class="news-item">\n'
+                html += '            <div class="news-item">\n'
                 html += f'                <span class="rank">{rank}.</span>\n'
                 html += f'                <span class="title">{self._html_escape(title)}</span>\n'
                 if url:
@@ -381,7 +387,7 @@ class SystemManagementTools:
             .replace("'", "&#x27;")
         )
 
-    def check_version(self, proxy_url: Optional[str] = None) -> Dict:
+    def check_version(self, proxy_url: str | None = None) -> dict:
         """
         检查版本更新
 
@@ -405,8 +411,8 @@ class SystemManagementTools:
             >>> result = tools.check_version()
             >>> print(result['data']['any_update'])
         """
-        import yaml
         import requests
+        import yaml
 
         def parse_version(version_str: str):
             """将版本号字符串解析为元组"""
@@ -422,9 +428,9 @@ class SystemManagementTools:
             name: str,
             local_version: str,
             remote_url: str,
-            proxies: Optional[Dict],
-            headers: Dict
-        ) -> Dict:
+            proxies: dict | None,
+            headers: dict
+        ) -> dict:
             """检查单个组件的版本"""
             try:
                 response = requests.get(
@@ -466,7 +472,7 @@ class SystemManagementTools:
                     "success": False,
                     "name": name,
                     "current_version": local_version,
-                    "error": f"网络请求失败: {str(e)}"
+                    "error": f"网络请求失败: {e!s}"
                 }
             except Exception as e:
                 return {
@@ -478,8 +484,8 @@ class SystemManagementTools:
 
         try:
             # 导入本地版本
-            from trendradar import __version__ as trendradar_version
             from mcp_server import __version__ as mcp_version
+            from trendradar import __version__ as trendradar_version
 
             # 从配置文件获取远程版本 URL
             config_path = self.project_root / "config" / "config.yaml"
@@ -492,7 +498,7 @@ class SystemManagementTools:
                     }
                 }
 
-            with open(config_path, "r", encoding="utf-8") as f:
+            with open(config_path, encoding="utf-8") as f:
                 config_data = yaml.safe_load(f)
 
             advanced_config = config_data.get("advanced", {})
@@ -549,7 +555,7 @@ class SystemManagementTools:
                 "success": False,
                 "error": {
                     "code": "IMPORT_ERROR",
-                    "message": f"无法导入版本信息: {str(e)}"
+                    "message": f"无法导入版本信息: {e!s}"
                 }
             }
         except Exception as e:

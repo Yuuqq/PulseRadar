@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 推送记录管理模块
 
@@ -6,13 +5,14 @@
 通过 storage_backend 统一存储，支持本地 SQLite 和远程云存储
 """
 
+from collections.abc import Callable
 from datetime import datetime
-from typing import Callable, Optional, Any, Tuple
+from typing import Any
 
 import pytz
 
-from trendradar.utils.time import DEFAULT_TIMEZONE, TimeWindowChecker
 from trendradar.logging import get_logger
+from trendradar.utils.time import DEFAULT_TIMEZONE, TimeWindowChecker
 
 logger = get_logger(__name__)
 
@@ -31,7 +31,7 @@ class PushRecordManager:
     def __init__(
         self,
         storage_backend: Any,
-        get_time_func: Optional[Callable[[], datetime]] = None,
+        get_time_func: Callable[[], datetime] | None = None,
     ):
         """
         初始化推送记录管理器
@@ -89,7 +89,7 @@ class PushRecordManager:
         )
         return checker.is_in_time_range(start_time, end_time)
 
-    def check_push_window(self, window_config: dict) -> Tuple[bool, str]:
+    def check_push_window(self, window_config: dict) -> tuple[bool, str]:
         """
         检查推送窗口控制
 
@@ -109,7 +109,7 @@ class PushRecordManager:
             check_once_per_day_func=self.has_pushed_today,
         )
 
-    def check_ai_analysis_window(self, window_config: dict) -> Tuple[bool, str]:
+    def check_ai_analysis_window(self, window_config: dict) -> tuple[bool, str]:
         """
         检查 AI 分析窗口控制
 

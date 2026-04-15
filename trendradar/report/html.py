@@ -1,42 +1,42 @@
-# coding=utf-8
 """
 HTML 报告渲染模块
 
 提供 HTML 格式的热点新闻报告生成功能
 """
 
+from collections.abc import Callable
 from datetime import datetime
-from typing import Any, Dict, List, Optional, Callable
+from typing import Any
 
-from trendradar.report.helpers import html_escape
 from trendradar.ai.formatter import render_ai_analysis_html_rich
-from trendradar.report.html_styles import REPORT_CSS
+from trendradar.report.helpers import html_escape
 from trendradar.report.html_scripts import REPORT_JS
 from trendradar.report.html_sections import (
+    add_section_divider,
     build_hotlist_view,
     render_rss_stats_html,
     render_standalone_html,
-    add_section_divider,
     wrap_section,
 )
+from trendradar.report.html_styles import REPORT_CSS
 
 
 def render_html_content(
-    report_data: Dict,
+    report_data: dict,
     total_titles: int,
     mode: str = "daily",
-    update_info: Optional[Dict] = None,
+    update_info: dict | None = None,
     *,
-    region_order: Optional[List[str]] = None,
-    get_time_func: Optional[Callable[[], datetime]] = None,
-    rss_items: Optional[List[Dict]] = None,
-    rss_new_items: Optional[List[Dict]] = None,
+    region_order: list[str] | None = None,
+    get_time_func: Callable[[], datetime] | None = None,
+    rss_items: list[dict] | None = None,
+    rss_new_items: list[dict] | None = None,
     display_mode: str = "keyword",
-    standalone_data: Optional[Dict] = None,
-    ai_analysis: Optional[Any] = None,
+    standalone_data: dict | None = None,
+    ai_analysis: Any | None = None,
     show_new_section: bool = True,
-    alternate_report_data: Optional[Dict] = None,
-    alternate_display_mode: Optional[str] = None,
+    alternate_report_data: dict | None = None,
+    alternate_display_mode: str | None = None,
 ) -> str:
     """渲染HTML内容
 
@@ -122,10 +122,7 @@ def render_html_content(
                         <span class="info-value">"""
 
     # 使用提供的时间函数或默认 datetime.now
-    if get_time_func:
-        now = get_time_func()
-    else:
-        now = datetime.now()
+    now = get_time_func() if get_time_func else datetime.now()
     html += now.strftime("%m-%d %H:%M")
 
     html += """</span>
@@ -214,10 +211,7 @@ def render_html_content(
                     elif min_rank <= title_data.get("rank_threshold", 10):
                         rank_class = "high"
 
-                    if len(ranks) == 1:
-                        rank_text = str(ranks[0])
-                    else:
-                        rank_text = f"{min(ranks)}-{max(ranks)}"
+                    rank_text = str(ranks[0]) if len(ranks) == 1 else f"{min(ranks)}-{max(ranks)}"
                 else:
                     rank_text = "?"
 
@@ -311,9 +305,7 @@ def render_html_content(
                     new_html = add_section_divider(new_html)
                 section_content += new_html
             if rss_new:
-                if section_content:
-                    rss_new = add_section_divider(rss_new)
-                elif has_previous_content:
+                if section_content or has_previous_content:
                     rss_new = add_section_divider(rss_new)
                 section_content += rss_new
             if section_content:

@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 TrendRadar 主程序
 
@@ -7,14 +6,14 @@ TrendRadar 主程序
 """
 
 import argparse
+import contextlib
 import os
-from typing import Dict, Optional
 
-from trendradar.context import AppContext
 from trendradar import __version__
+from trendradar.context import AppContext
 from trendradar.core import load_config
-from trendradar.core.crawl_coordinator import CrawlCoordinator
 from trendradar.core.analysis_engine import AnalysisEngine
+from trendradar.core.crawl_coordinator import CrawlCoordinator
 from trendradar.core.notification_service import has_notification_configured
 from trendradar.core.version_check import check_all_versions
 from trendradar.logging import get_logger
@@ -27,7 +26,7 @@ logger = get_logger(__name__)
 class NewsAnalyzer:
     """新闻分析器 — 薄门面，委托给 CrawlCoordinator 和 AnalysisEngine"""
 
-    def __init__(self, config: Optional[Dict] = None, update_info: Optional[Dict] = None):
+    def __init__(self, config: dict | None = None, update_info: dict | None = None):
         """
         初始化新闻分析器
 
@@ -73,7 +72,7 @@ class NewsAnalyzer:
         try:
             self._log_startup()
             crawl_output = self.crawl_coordinator.crawl_all()
-            analysis_output = self.analysis_engine.analyze(crawl_output)
+            self.analysis_engine.analyze(crawl_output)
         except Exception as e:
             logger.error("分析流程执行出错", error=str(e))
             if self.ctx.config.get("DEBUG", False):
@@ -115,10 +114,8 @@ def _ensure_utf8_output():
         for stream_name in ("stdout", "stderr"):
             stream = getattr(sys, stream_name, None)
             if stream and hasattr(stream, "reconfigure"):
-                try:
+                with contextlib.suppress(Exception):
                     stream.reconfigure(encoding="utf-8", errors="replace")
-                except Exception:
-                    pass
 
 
 def main():
@@ -218,7 +215,7 @@ def main():
             raise
 
 
-def _handle_status_commands(config: Dict, args) -> None:
+def _handle_status_commands(config: dict, args) -> None:
     """处理状态查看/重置命令"""
     from trendradar.context import AppContext
 

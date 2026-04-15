@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 Job management API routes for TrendRadar Web UI.
 
@@ -8,7 +7,7 @@ Handles /api/jobs (list, detail, logs, cancel, retry, cleanup),
 
 from __future__ import annotations
 
-from typing import Any, Dict, List, Set
+from typing import Any
 
 from flask import Blueprint, Response, jsonify, request
 
@@ -34,10 +33,10 @@ def list_jobs():
     query = (request.args.get("q") or "").strip()
     manager = get_job_manager()
 
-    status_filters: List[str] = []
+    status_filters: list[str] = []
     if status:
-        active_statuses: Set[str] = {"queued", "running", "cancelling"}
-        final_statuses: Set[str] = {"success", "failed", "cancelled"}
+        active_statuses: set[str] = {"queued", "running", "cancelling"}
+        final_statuses: set[str] = {"success", "failed", "cancelled"}
 
         if status == "active":
             status_filters = sorted(active_statuses)
@@ -70,7 +69,7 @@ def list_jobs():
         if query:
             query_lower = query.lower()
 
-            def _matches(job_item: Dict[str, Any]) -> bool:
+            def _matches(job_item: dict[str, Any]) -> bool:
                 command_text = " ".join(job_item.get("command") or [])
                 return any(
                     query_lower in str(field_value).lower()

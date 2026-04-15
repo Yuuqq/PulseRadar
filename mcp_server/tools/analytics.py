@@ -8,7 +8,6 @@ import os
 import re
 from collections import Counter, defaultdict
 from datetime import datetime, timedelta
-from typing import Dict, List, Optional, Union
 from difflib import SequenceMatcher
 
 import yaml
@@ -16,18 +15,18 @@ import yaml
 from trendradar.core.analyzer import calculate_news_weight as _calculate_news_weight
 
 from ..services.data_service import DataService
+from ..utils.errors import DataNotFoundError, InvalidParameterError, MCPError
 from ..utils.validators import (
-    validate_platforms,
-    validate_limit,
-    validate_keyword,
-    validate_top_n,
     validate_date_range,
-    validate_threshold
+    validate_keyword,
+    validate_limit,
+    validate_platforms,
+    validate_threshold,
+    validate_top_n,
 )
-from ..utils.errors import MCPError, InvalidParameterError, DataNotFoundError
 
 
-def _get_weight_config() -> Dict:
+def _get_weight_config() -> dict:
     """
     从 config.yaml 读取权重配置
 
@@ -46,7 +45,7 @@ def _get_weight_config() -> Dict:
         config_path = os.path.join(current_dir, "..", "..", "config", "config.yaml")
         config_path = os.path.normpath(config_path)
 
-        with open(config_path, 'r', encoding='utf-8') as f:
+        with open(config_path, encoding='utf-8') as f:
             config = yaml.safe_load(f)
             weight = config.get('advanced', {}).get('weight', {})
             return {
@@ -58,7 +57,7 @@ def _get_weight_config() -> Dict:
         return default_config
 
 
-def calculate_news_weight(news_data: Dict, rank_threshold: int = 5) -> float:
+def calculate_news_weight(news_data: dict, rank_threshold: int = 5) -> float:
     """
     计算新闻权重（用于排序）
 
@@ -78,7 +77,7 @@ def calculate_news_weight(news_data: Dict, rank_threshold: int = 5) -> float:
 class AnalyticsTools:
     """高级数据分析工具类"""
 
-    def __init__(self, project_root: str = None):
+    def __init__(self, project_root: str | None = None):
         """
         初始化分析工具
 
@@ -90,11 +89,11 @@ class AnalyticsTools:
     def analyze_data_insights_unified(
         self,
         insight_type: str = "platform_compare",
-        topic: Optional[str] = None,
-        date_range: Optional[Union[Dict[str, str], str]] = None,
+        topic: str | None = None,
+        date_range: dict[str, str] | str | None = None,
         min_frequency: int = 3,
         top_n: int = 20
-    ) -> Dict:
+    ) -> dict:
         """
         统一数据洞察分析工具 - 整合多种数据分析模式
 
@@ -158,13 +157,13 @@ class AnalyticsTools:
         self,
         topic: str,
         analysis_type: str = "trend",
-        date_range: Optional[Union[Dict[str, str], str]] = None,
+        date_range: dict[str, str] | str | None = None,
         granularity: str = "day",
         threshold: float = 3.0,
         time_window: int = 24,
         lookahead_hours: int = 6,
         confidence_threshold: float = 0.7
-    ) -> Dict:
+    ) -> dict:
         """
         统一话题趋势分析工具 - 整合多种趋势分析模式
 
@@ -245,9 +244,9 @@ class AnalyticsTools:
     def get_topic_trend_analysis(
         self,
         topic: str,
-        date_range: Optional[Union[Dict[str, str], str]] = None,
+        date_range: dict[str, str] | str | None = None,
         granularity: str = "day"
-    ) -> Dict:
+    ) -> dict:
         """
         热度趋势分析 - 追踪特定话题的热度变化趋势
 
@@ -322,7 +321,7 @@ class AnalyticsTools:
                     matched_titles = []
 
                     for _, titles in all_titles.items():
-                        for title in titles.keys():
+                        for title in titles:
                             if topic.lower() in title.lower():
                                 count += 1
                                 matched_titles.append(title)
@@ -403,9 +402,9 @@ class AnalyticsTools:
 
     def compare_platforms(
         self,
-        topic: Optional[str] = None,
-        date_range: Optional[Union[Dict[str, str], str]] = None
-    ) -> Dict:
+        topic: str | None = None,
+        date_range: dict[str, str] | str | None = None
+    ) -> dict:
         """
         平台对比分析 - 对比不同平台对同一话题的关注度
 
@@ -461,7 +460,7 @@ class AnalyticsTools:
                     for platform_id, titles in all_titles.items():
                         platform_name = id_to_name.get(platform_id, platform_id)
 
-                        for title in titles.keys():
+                        for title in titles:
                             platform_stats[platform_name]["total_news"] += 1
                             platform_stats[platform_name]["unique_titles"].add(title)
 
@@ -529,7 +528,7 @@ class AnalyticsTools:
         self,
         min_frequency: int = 3,
         top_n: int = 20
-    ) -> Dict:
+    ) -> dict:
         """
         关键词共现分析 - 分析哪些关键词经常同时出现
 
@@ -566,8 +565,8 @@ class AnalyticsTools:
             cooccurrence = Counter()
             keyword_titles = defaultdict(list)
 
-            for platform_id, titles in all_titles.items():
-                for title in titles.keys():
+            for _platform_id, titles in all_titles.items():
+                for title in titles:
                     # 提取关键词
                     keywords = self._extract_keywords(title)
 
@@ -635,13 +634,13 @@ class AnalyticsTools:
 
     def analyze_sentiment(
         self,
-        topic: Optional[str] = None,
-        platforms: Optional[List[str]] = None,
-        date_range: Optional[Union[Dict[str, str], str]] = None,
+        topic: str | None = None,
+        platforms: list[str] | None = None,
+        date_range: dict[str, str] | str | None = None,
         limit: int = 50,
         sort_by_weight: bool = True,
         include_url: bool = False
-    ) -> Dict:
+    ) -> dict:
         """
         情感倾向分析 - 生成用于 AI 情感分析的结构化提示词
 
@@ -823,8 +822,8 @@ class AnalyticsTools:
 
     def _create_sentiment_analysis_prompt(
         self,
-        news_data: List[Dict],
-        topic: Optional[str]
+        news_data: list[dict],
+        topic: str | None
     ) -> str:
         """
         创建情感分析的 AI 提示词
@@ -863,7 +862,7 @@ class AnalyticsTools:
         prompt_parts.append("")
 
         # 2. 数据概览
-        prompt_parts.append(f"数据概览：")
+        prompt_parts.append("数据概览：")
         prompt_parts.append(f"- 总新闻数：{len(news_data)}")
         prompt_parts.append(f"- 覆盖平台：{len(platform_news)}")
 
@@ -919,7 +918,7 @@ class AnalyticsTools:
         threshold: float = 0.6,
         limit: int = 50,
         include_url: bool = False
-    ) -> Dict:
+    ) -> dict:
         """
         相似新闻查找 - 基于标题相似度查找相关新闻
 
@@ -1031,10 +1030,10 @@ class AnalyticsTools:
     def search_by_entity(
         self,
         entity: str,
-        entity_type: Optional[str] = None,
+        entity_type: str | None = None,
         limit: int = 50,
         sort_by_weight: bool = True
-    ) -> Dict:
+    ) -> dict:
         """
         实体识别搜索 - 搜索包含特定人物/地点/机构的新闻
 
@@ -1162,8 +1161,8 @@ class AnalyticsTools:
     def generate_summary_report(
         self,
         report_type: str = "daily",
-        date_range: Optional[Union[Dict[str, str], str]] = None
-    ) -> Dict:
+        date_range: dict[str, str] | str | None = None
+    ) -> dict:
         """
         每日/每周摘要生成器 - 自动生成热点摘要报告
 
@@ -1222,7 +1221,7 @@ class AnalyticsTools:
                         platform_name = id_to_name.get(platform_id, platform_id)
                         all_platforms_news[platform_name] += len(titles)
 
-                        for title in titles.keys():
+                        for title in titles:
                             all_titles_list.append({
                                 "title": title,
                                 "platform": platform_name,
@@ -1341,8 +1340,8 @@ class AnalyticsTools:
 
     def get_platform_activity_stats(
         self,
-        date_range: Optional[Union[Dict[str, str], str]] = None
-    ) -> Dict:
+        date_range: dict[str, str] | str | None = None
+    ) -> dict:
         """
         平台活跃度统计 - 统计各平台的发布频率和活跃时间段
 
@@ -1401,7 +1400,7 @@ class AnalyticsTools:
                         platform_activity[platform_name]["total_updates"] += len(timestamps)
 
                         # 统计时间分布（基于文件名中的时间）
-                        for filename in timestamps.keys():
+                        for filename in timestamps:
                             # 解析文件名中的小时（格式：HHMM.txt）
                             match = re.match(r'(\d{2})(\d{2})\.txt', filename)
                             if match:
@@ -1469,8 +1468,8 @@ class AnalyticsTools:
     def analyze_topic_lifecycle(
         self,
         topic: str,
-        date_range: Optional[Union[Dict[str, str], str]] = None
-    ) -> Dict:
+        date_range: dict[str, str] | str | None = None
+    ) -> dict:
         """
         话题生命周期分析 - 追踪话题从出现到消失的完整周期
 
@@ -1523,7 +1522,7 @@ class AnalyticsTools:
                     # 统计该日的话题出现次数
                     count = 0
                     for _, titles in all_titles.items():
-                        for title in titles.keys():
+                        for title in titles:
                             if topic.lower() in title.lower():
                                 count += 1
 
@@ -1628,7 +1627,7 @@ class AnalyticsTools:
         self,
         threshold: float = 3.0,
         time_window: int = 24
-    ) -> Dict:
+    ) -> dict:
         """
         异常热度检测 - 自动识别突然爆火的话题
 
@@ -1675,7 +1674,7 @@ class AnalyticsTools:
             current_keyword_titles = defaultdict(list)
 
             for _, titles in current_all_titles.items():
-                for title in titles.keys():
+                for title in titles:
                     keywords = self._extract_keywords(title)
                     current_keywords.update(keywords)
 
@@ -1686,7 +1685,7 @@ class AnalyticsTools:
             previous_keywords = Counter()
 
             for _, titles in previous_all_titles.items():
-                for title in titles.keys():
+                for title in titles:
                     keywords = self._extract_keywords(title)
                     previous_keywords.update(keywords)
 
@@ -1767,7 +1766,7 @@ class AnalyticsTools:
         self,
         lookahead_hours: int = 6,
         confidence_threshold: float = 0.7
-    ) -> Dict:
+    ) -> dict:
         """
         话题预测 - 基于历史数据预测未来可能的热点
 
@@ -1817,7 +1816,7 @@ class AnalyticsTools:
                     # 统计关键词
                     keywords_count = Counter()
                     for _, titles in all_titles.items():
-                        for title in titles.keys():
+                        for title in titles:
                             keywords = self._extract_keywords(title)
                             keywords_count.update(keywords)
 
@@ -1836,7 +1835,7 @@ class AnalyticsTools:
                 keyword_titles = defaultdict(list)
 
                 for _, titles in all_titles.items():
-                    for title in titles.keys():
+                    for title in titles:
                         keywords = self._extract_keywords(title)
                         keywords_count.update(keywords)
 
@@ -1932,7 +1931,7 @@ class AnalyticsTools:
 
     # ==================== 辅助方法 ====================
 
-    def _extract_keywords(self, title: str, min_length: int = 2) -> List[str]:
+    def _extract_keywords(self, title: str, min_length: int = 2) -> list[str]:
         """
         从标题中提取关键词（简单实现）
 
@@ -1974,7 +1973,7 @@ class AnalyticsTools:
         # 使用 SequenceMatcher 计算相似度
         return SequenceMatcher(None, text1, text2).ratio()
 
-    def _find_unique_topics(self, platform_stats: Dict) -> Dict[str, List[str]]:
+    def _find_unique_topics(self, platform_stats: dict) -> dict[str, list[str]]:
         """
         找出各平台独有的热点话题
 
@@ -2011,12 +2010,12 @@ class AnalyticsTools:
 
     def aggregate_news(
         self,
-        date_range: Optional[Union[Dict[str, str], str]] = None,
-        platforms: Optional[List[str]] = None,
+        date_range: dict[str, str] | str | None = None,
+        platforms: list[str] | None = None,
         similarity_threshold: float = 0.7,
         limit: int = 50,
         include_url: bool = False
-    ) -> Dict:
+    ) -> dict:
         """
         跨平台新闻聚合 - 对相似新闻进行去重合并
 
@@ -2152,10 +2151,10 @@ class AnalyticsTools:
 
     def _aggregate_similar_news(
         self,
-        news_list: List[Dict],
+        news_list: list[dict],
         threshold: float,
         include_url: bool
-    ) -> List[Dict]:
+    ) -> list[dict]:
         """
         对新闻列表进行相似度聚合
 
@@ -2292,13 +2291,13 @@ class AnalyticsTools:
 
     def compare_periods(
         self,
-        period1: Union[Dict[str, str], str],
-        period2: Union[Dict[str, str], str],
-        topic: Optional[str] = None,
+        period1: dict[str, str] | str,
+        period2: dict[str, str] | str,
+        topic: str | None = None,
         compare_type: str = "overview",
-        platforms: Optional[List[str]] = None,
+        platforms: list[str] | None = None,
         top_n: int = 10
-    ) -> Dict:
+    ) -> dict:
         """
         时期对比分析 - 比较两个时间段的新闻数据
 
@@ -2382,7 +2381,7 @@ class AnalyticsTools:
         except Exception as e:
             return {"success": False, "error": {"code": "INTERNAL_ERROR", "message": str(e)}}
 
-    def _parse_period(self, period: Union[Dict[str, str], str]) -> Optional[tuple]:
+    def _parse_period(self, period: dict[str, str] | str) -> tuple | None:
         """解析时间段为日期范围元组"""
         today = datetime.now()
 
@@ -2418,9 +2417,9 @@ class AnalyticsTools:
     def _collect_period_data(
         self,
         date_range: tuple,
-        platforms: Optional[List[str]],
-        topic: Optional[str]
-    ) -> Dict:
+        platforms: list[str] | None,
+        topic: str | None
+    ) -> dict:
         """收集指定时期的新闻数据"""
         start_date, end_date = date_range
         all_news = []
@@ -2476,12 +2475,12 @@ class AnalyticsTools:
 
     def _compare_overview(
         self,
-        data1: Dict,
-        data2: Dict,
+        data1: dict,
+        data2: dict,
         range1: tuple,
         range2: tuple,
         top_n: int
-    ) -> Dict:
+    ) -> dict:
         """总体概览对比"""
         # 计算变化
         count_change = data2["news_count"] - data1["news_count"]
@@ -2519,12 +2518,12 @@ class AnalyticsTools:
 
     def _compare_topic_shift(
         self,
-        data1: Dict,
-        data2: Dict,
+        data1: dict,
+        data2: dict,
         range1: tuple,
         range2: tuple,
         top_n: int
-    ) -> Dict:
+    ) -> dict:
         """话题变化分析"""
         kw1 = data1["keywords"]
         kw2 = data2["keywords"]
@@ -2572,11 +2571,11 @@ class AnalyticsTools:
 
     def _compare_platform_activity(
         self,
-        data1: Dict,
-        data2: Dict,
+        data1: dict,
+        data2: dict,
         range1: tuple,
         range2: tuple
-    ) -> Dict:
+    ) -> dict:
         """平台活跃度对比"""
         ps1 = data1["platform_stats"]
         ps2 = data2["platform_stats"]

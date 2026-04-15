@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 历史查询模块 -- 关键词历史趋势搜索
 
@@ -10,7 +9,6 @@
 
 from collections import Counter
 from dataclasses import dataclass, field
-from typing import Dict, List, Tuple
 
 from trendradar.logging import get_logger
 
@@ -33,11 +31,11 @@ class HistoryResult:
     """历史查询结果"""
 
     keyword: str
-    matches: List[HistoryMatch] = field(default_factory=list)
+    matches: list[HistoryMatch] = field(default_factory=list)
     total_count: int = 0
-    date_range: Tuple[str, str] = ("", "")
-    platform_distribution: Dict[str, int] = field(default_factory=dict)
-    timeline: Dict[str, int] = field(default_factory=dict)
+    date_range: tuple[str, str] = ("", "")
+    platform_distribution: dict[str, int] = field(default_factory=dict)
+    timeline: dict[str, int] = field(default_factory=dict)
 
     def to_dict(self) -> dict:
         """转换为 JSON 可序列化的字典"""
@@ -90,10 +88,10 @@ class HistorySearcher:
         if not raw_hits:
             return HistoryResult(keyword=keyword)
 
-        matches: List[HistoryMatch] = []
+        matches: list[HistoryMatch] = []
         platform_counter: Counter = Counter()
         date_counter: Counter = Counter()
-        dates_seen: List[str] = []
+        dates_seen: list[str] = []
 
         for hit in raw_hits:
             platform_name = hit.get("platform_name", hit.get("platform_id", ""))

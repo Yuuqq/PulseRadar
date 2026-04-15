@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 RSS 消息分批处理子模块
 
@@ -6,7 +5,6 @@ RSS 消息分批处理子模块
 以及单条 RSS 条目的格式化辅助函数。
 """
 
-from typing import Dict, List
 
 from trendradar.report.formatter import format_title_for_platform
 from trendradar.utils.time import DEFAULT_TIMEZONE, format_iso_time_friendly
@@ -21,7 +19,7 @@ def _process_rss_stats_section(
     max_bytes: int,
     current_batch: str,
     current_batch_has_content: bool,
-    batches: List[str],
+    batches: list[str],
     timezone: str = DEFAULT_TIMEZONE,
     add_separator: bool = True,
 ) -> tuple:
@@ -69,9 +67,7 @@ def _process_rss_stats_section(
             rss_header = f"\n\n📰 **RSS 订阅统计** (共 {total_items} 条)\n\n"
     else:
         # 不需要分割线（第一个区域）
-        if format_type == "feishu":
-            rss_header = f"📰 **RSS 订阅统计** (共 {total_items} 条)\n\n"
-        elif format_type == "dingtalk":
+        if format_type == "feishu" or format_type == "dingtalk":
             rss_header = f"📰 **RSS 订阅统计** (共 {total_items} 条)\n\n"
         elif format_type == "telegram":
             rss_header = f"📰 RSS 订阅统计 (共 {total_items} 条)\n\n"
@@ -217,9 +213,7 @@ def _process_rss_stats_section(
             separator = ""
             if format_type in ("wework", "bark"):
                 separator = "\n\n\n\n"
-            elif format_type == "telegram":
-                separator = "\n\n"
-            elif format_type == "ntfy":
+            elif format_type == "telegram" or format_type == "ntfy":
                 separator = "\n\n"
             elif format_type == "feishu":
                 separator = f"\n{feishu_separator}\n\n"
@@ -244,7 +238,7 @@ def _process_rss_new_titles_section(
     max_bytes: int,
     current_batch: str,
     current_batch_has_content: bool,
-    batches: List[str],
+    batches: list[str],
     timezone: str = DEFAULT_TIMEZONE,
     add_separator: bool = True,
 ) -> tuple:
@@ -307,11 +301,7 @@ def _process_rss_new_titles_section(
             new_header = f"🆕 **RSS 本次新增** (共 {total_items} 条)\n\n"
         elif format_type == "telegram":
             new_header = f"🆕 RSS 本次新增 (共 {total_items} 条)\n\n"
-        elif format_type == "ntfy":
-            new_header = f"🆕 **RSS 本次新增** (共 {total_items} 条)\n\n"
-        elif format_type == "feishu":
-            new_header = f"🆕 **RSS 本次新增** (共 {total_items} 条)\n\n"
-        elif format_type == "dingtalk":
+        elif format_type == "ntfy" or format_type == "feishu" or format_type == "dingtalk":
             new_header = f"🆕 **RSS 本次新增** (共 {total_items} 条)\n\n"
         elif format_type == "slack":
             new_header = f"🆕 *RSS 本次新增* (共 {total_items} 条)\n\n"
@@ -329,7 +319,7 @@ def _process_rss_new_titles_section(
 
     # 按来源分组显示（与热榜新增格式一致）
     source_list = list(source_map.items())
-    for i, (source_name, titles) in enumerate(source_list):
+    for _i, (source_name, titles) in enumerate(source_list):
         count = len(titles)
 
         # 构建来源标题（与热榜新增格式一致）
@@ -338,11 +328,7 @@ def _process_rss_new_titles_section(
             source_header = f"**{source_name}** ({count} 条):\n\n"
         elif format_type == "telegram":
             source_header = f"{source_name} ({count} 条):\n\n"
-        elif format_type == "ntfy":
-            source_header = f"**{source_name}** ({count} 条):\n\n"
-        elif format_type == "feishu":
-            source_header = f"**{source_name}** ({count} 条):\n\n"
-        elif format_type == "dingtalk":
+        elif format_type == "ntfy" or format_type == "feishu" or format_type == "dingtalk":
             source_header = f"**{source_name}** ({count} 条):\n\n"
         elif format_type == "slack":
             source_header = f"*{source_name}* ({count} 条):\n\n"
@@ -422,7 +408,7 @@ def _process_rss_new_titles_section(
 
 
 def _format_rss_item_line(
-    item: Dict,
+    item: dict,
     index: int,
     format_type: str,
     timezone: str = DEFAULT_TIMEZONE,
@@ -450,24 +436,15 @@ def _format_rss_item_line(
 
     # 构建条目行
     if format_type == "feishu":
-        if url:
-            item_line = f"  {index}. [{title}]({url})"
-        else:
-            item_line = f"  {index}. {title}"
+        item_line = f"  {index}. [{title}]({url})" if url else f"  {index}. {title}"
         if friendly_time:
             item_line += f" <font color='grey'>- {friendly_time}</font>"
     elif format_type == "telegram":
-        if url:
-            item_line = f"  {index}. {title} ({url})"
-        else:
-            item_line = f"  {index}. {title}"
+        item_line = f"  {index}. {title} ({url})" if url else f"  {index}. {title}"
         if friendly_time:
             item_line += f" - {friendly_time}"
     else:
-        if url:
-            item_line = f"  {index}. [{title}]({url})"
-        else:
-            item_line = f"  {index}. {title}"
+        item_line = f"  {index}. [{title}]({url})" if url else f"  {index}. {title}"
         if friendly_time:
             item_line += f" `{friendly_time}`"
 

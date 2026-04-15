@@ -1,10 +1,10 @@
-# coding=utf-8
 """并发采集池 — 基于 ThreadPoolExecutor"""
+from collections.abc import Sequence
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
-from typing import Dict, List, Optional, Sequence
+
+from trendradar.crawler.base import CrawlerPlugin, CrawlResult
 from trendradar.logging import get_logger
-from trendradar.crawler.base import CrawlerPlugin, CrawlResult, FetchedItem
 
 logger = get_logger(__name__)
 
@@ -23,7 +23,7 @@ class CrawlerPool:
     def fetch_all(
         self,
         tasks: Sequence[tuple],  # [(plugin_instance, source_config), ...]
-    ) -> List[CrawlResult]:
+    ) -> list[CrawlResult]:
         """
         并发执行所有采集任务
 
@@ -33,7 +33,7 @@ class CrawlerPool:
         Returns:
             CrawlResult 列表（成功和失败都包含）
         """
-        results: List[CrawlResult] = []
+        results: list[CrawlResult] = []
 
         if not tasks:
             return results
@@ -84,7 +84,7 @@ class CrawlerPool:
         return results
 
     @staticmethod
-    def _safe_fetch(plugin: CrawlerPlugin, config: Dict) -> CrawlResult:
+    def _safe_fetch(plugin: CrawlerPlugin, config: dict) -> CrawlResult:
         """安全包装单次采集，捕获所有异常"""
         source_id = config.get("id", "unknown")
         source_name = config.get("name", source_id)

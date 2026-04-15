@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 Tests for frozen DTO definitions at stage boundaries.
 

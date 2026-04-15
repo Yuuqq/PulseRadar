@@ -8,17 +8,21 @@ import re
 from collections import Counter
 from datetime import datetime, timedelta
 from difflib import SequenceMatcher
-from typing import Dict, List, Optional, Tuple, Union
 
 from ..services.data_service import DataService
-from ..utils.validators import validate_keyword, validate_limit, validate_threshold, normalize_date_range
-from ..utils.errors import MCPError, InvalidParameterError, DataNotFoundError
+from ..utils.errors import DataNotFoundError, InvalidParameterError, MCPError
+from ..utils.validators import (
+    normalize_date_range,
+    validate_keyword,
+    validate_limit,
+    validate_threshold,
+)
 
 
 class SearchTools:
     """智能新闻检索工具类"""
 
-    def __init__(self, project_root: str = None):
+    def __init__(self, project_root: str | None = None):
         """
         初始化智能检索工具
 
@@ -31,15 +35,15 @@ class SearchTools:
         self,
         query: str,
         search_mode: str = "keyword",
-        date_range: Optional[Union[Dict[str, str], str]] = None,
-        platforms: Optional[List[str]] = None,
+        date_range: dict[str, str] | str | None = None,
+        platforms: list[str] | None = None,
         limit: int = 50,
         sort_by: str = "relevance",
         threshold: float = 0.6,
         include_url: bool = False,
         include_rss: bool = False,
         rss_limit: int = 20
-    ) -> Dict:
+    ) -> dict:
         """
         统一新闻搜索工具 - 整合多种搜索模式，支持同时搜索热榜和RSS
 
@@ -123,7 +127,7 @@ class SearchTools:
 
             while current_date <= end_date:
                 try:
-                    all_titles, id_to_name, timestamps = self.data_service.parser.read_all_titles_for_date(
+                    all_titles, id_to_name, _timestamps = self.data_service.parser.read_all_titles_for_date(
                         date=current_date,
                         platform_ids=platforms
                     )
@@ -255,11 +259,11 @@ class SearchTools:
     def _search_by_keyword_mode(
         self,
         query: str,
-        all_titles: Dict,
-        id_to_name: Dict,
+        all_titles: dict,
+        id_to_name: dict,
         current_date: datetime,
         include_url: bool
-    ) -> List[Dict]:
+    ) -> list[dict]:
         """
         关键词搜索模式（精确匹配）
 
@@ -304,12 +308,12 @@ class SearchTools:
     def _search_by_fuzzy_mode(
         self,
         query: str,
-        all_titles: Dict,
-        id_to_name: Dict,
+        all_titles: dict,
+        id_to_name: dict,
         current_date: datetime,
         threshold: float,
         include_url: bool
-    ) -> List[Dict]:
+    ) -> list[dict]:
         """
         模糊搜索模式（使用相似度算法）
 
@@ -356,11 +360,11 @@ class SearchTools:
     def _search_by_entity_mode(
         self,
         query: str,
-        all_titles: Dict,
-        id_to_name: Dict,
+        all_titles: dict,
+        id_to_name: dict,
         current_date: datetime,
         include_url: bool
-    ) -> List[Dict]:
+    ) -> list[dict]:
         """
         实体搜索模式（自动按权重排序）
 
@@ -415,7 +419,7 @@ class SearchTools:
         # 使用 difflib.SequenceMatcher 计算序列相似度
         return SequenceMatcher(None, text1.lower(), text2.lower()).ratio()
 
-    def _fuzzy_match(self, query: str, text: str, threshold: float = 0.3) -> Tuple[bool, float]:
+    def _fuzzy_match(self, query: str, text: str, threshold: float = 0.3) -> tuple[bool, float]:
         """
         模糊匹配函数
 
@@ -452,7 +456,7 @@ class SearchTools:
 
         return False, similarity
 
-    def _extract_keywords(self, text: str, min_length: int = 2) -> List[str]:
+    def _extract_keywords(self, text: str, min_length: int = 2) -> list[str]:
         """
         从文本中提取关键词
 
@@ -475,7 +479,7 @@ class SearchTools:
 
         return keywords
 
-    def _calculate_keyword_overlap(self, keywords1: List[str], keywords2: List[str]) -> float:
+    def _calculate_keyword_overlap(self, keywords1: list[str], keywords2: list[str]) -> float:
         """
         计算两个关键词列表的重合度
 
@@ -501,7 +505,7 @@ class SearchTools:
 
         return intersection / union
 
-    def _jaccard_similarity(self, list1: List[str], list2: List[str]) -> float:
+    def _jaccard_similarity(self, list1: list[str], list2: list[str]) -> float:
         """
         计算两个列表的 Jaccard 相似度
 
@@ -530,12 +534,12 @@ class SearchTools:
         self,
         reference_title: str,
         time_preset: str = "yesterday",
-        start_date: Optional[datetime] = None,
-        end_date: Optional[datetime] = None,
+        start_date: datetime | None = None,
+        end_date: datetime | None = None,
         threshold: float = 0.4,
         limit: int = 50,
         include_url: bool = False
-    ) -> Dict:
+    ) -> dict:
         """
         在历史数据中搜索与给定新闻相关的新闻
 
@@ -739,11 +743,11 @@ class SearchTools:
     def find_related_news_unified(
         self,
         reference_title: str,
-        date_range: Optional[Union[Dict[str, str], str]] = None,
+        date_range: dict[str, str] | str | None = None,
         threshold: float = 0.5,
         limit: int = 50,
         include_url: bool = False
-    ) -> Dict:
+    ) -> dict:
         """
         统一的相关新闻查找工具 - 整合相似新闻和历史相关搜索
 
@@ -901,7 +905,7 @@ class SearchTools:
         end_date: datetime,
         limit: int = 20,
         include_url: bool = False
-    ) -> Dict:
+    ) -> dict:
         """
         在 RSS 数据中搜索关键词
 

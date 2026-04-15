@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 通知调度器模块
 
@@ -13,7 +12,8 @@
 from __future__ import annotations
 
 import concurrent.futures
-from typing import TYPE_CHECKING, Any, Callable, Dict, List, Optional
+from collections.abc import Callable
+from typing import TYPE_CHECKING, Any
 
 from trendradar.core.config import (
     get_account_at_index,
@@ -21,24 +21,24 @@ from trendradar.core.config import (
     parse_multi_account_config,
     validate_paired_configs,
 )
+from trendradar.logging import get_logger
 
+from .renderer import (
+    render_rss_dingtalk_content,
+    render_rss_feishu_content,
+    render_rss_markdown_content,
+)
 from .senders import (
     send_to_bark,
     send_to_dingtalk,
     send_to_email,
     send_to_feishu,
+    send_to_generic_webhook,
     send_to_ntfy,
     send_to_slack,
     send_to_telegram,
     send_to_wework,
-    send_to_generic_webhook,
 )
-from .renderer import (
-    render_rss_feishu_content,
-    render_rss_dingtalk_content,
-    render_rss_markdown_content,
-)
-from trendradar.logging import get_logger
 
 logger = get_logger(__name__)
 
@@ -139,10 +139,10 @@ class NotificationDispatcher:
 
     def __init__(
         self,
-        config: Dict[str, Any],
+        config: dict[str, Any],
         get_time_func: Callable,
         split_content_func: Callable,
-        translator: Optional["AITranslator"] = None,
+        translator: AITranslator | None = None,
     ):
         self.config = config
         self.get_time_func = get_time_func
@@ -156,9 +156,9 @@ class NotificationDispatcher:
 
     def _translate_content(
         self,
-        report_data: Dict,
-        rss_items: Optional[List[Dict]] = None,
-        rss_new_items: Optional[List[Dict]] = None,
+        report_data: dict,
+        rss_items: list[dict] | None = None,
+        rss_new_items: list[dict] | None = None,
     ) -> tuple:
         """翻译推送内容（标题批量翻译后回填）"""
         if not self.translator or not self.translator.enabled:
@@ -171,8 +171,8 @@ class NotificationDispatcher:
         rss_items = copy.deepcopy(rss_items) if rss_items else None
         rss_new_items = copy.deepcopy(rss_new_items) if rss_new_items else None
 
-        titles: List[str] = []
-        locs: List[tuple] = []
+        titles: list[str] = []
+        locs: list[tuple] = []
 
         for si, stat in enumerate(report_data.get("stats", [])):
             for ti, td in enumerate(stat.get("titles", [])):
@@ -226,7 +226,7 @@ class NotificationDispatcher:
     # ------------------------------------------------------------------
 
     @staticmethod
-    def _apply_display_filter(ctx: Dict) -> Dict:
+    def _apply_display_filter(ctx: dict) -> dict:
         """Return a new context dict with display-region suppression applied."""
         dr = ctx["display_regions"]
         out = dict(ctx)
@@ -247,17 +247,17 @@ class NotificationDispatcher:
 
     def dispatch_all(
         self,
-        report_data: Dict,
+        report_data: dict,
         report_type: str,
-        update_info: Optional[Dict] = None,
-        proxy_url: Optional[str] = None,
+        update_info: dict | None = None,
+        proxy_url: str | None = None,
         mode: str = "daily",
-        html_file_path: Optional[str] = None,
-        rss_items: Optional[List[Dict]] = None,
-        rss_new_items: Optional[List[Dict]] = None,
-        ai_analysis: Optional["AIAnalysisResult"] = None,
-        standalone_data: Optional[Dict] = None,
-    ) -> Dict[str, bool]:
+        html_file_path: str | None = None,
+        rss_items: list[dict] | None = None,
+        rss_new_items: list[dict] | None = None,
+        ai_analysis: AIAnalysisResult | None = None,
+        standalone_data: dict | None = None,
+    ) -> dict[str, bool]:
         """分发通知到所有已配置的渠道（支持热榜+RSS合并推送+AI分析+独立展示区）"""
         display_regions = self.config.get("DISPLAY", {}).get("REGIONS", {})
         report_data, rss_items, rss_new_items = self._translate_content(
@@ -273,7 +273,7 @@ class NotificationDispatcher:
             standalone_data=standalone_data,
         )
 
-        channel_tasks: List[tuple] = []
+        channel_tasks: list[tuple] = []
 
         # Table-driven simple webhook channels
         for ch in _SIMPLE_CHANNELS:
@@ -309,17 +309,17 @@ class NotificationDispatcher:
 
     def dispatch_rss(
         self,
-        rss_items: List[Dict],
-        feeds_info: Optional[Dict[str, str]] = None,
-        proxy_url: Optional[str] = None,
-        html_file_path: Optional[str] = None,
-    ) -> Dict[str, bool]:
+        rss_items: list[dict],
+        feeds_info: dict[str, str] | None = None,
+        proxy_url: str | None = None,
+        html_file_path: str | None = None,
+    ) -> dict[str, bool]:
         """分发 RSS 通知到所有已配置的渠道"""
         if not rss_items:
             logger.info("没有 RSS 内容，跳过通知")
             return {}
 
-        channel_tasks: List[tuple] = []
+        channel_tasks: list[tuple] = []
 
         # Table-driven webhook channels (feishu, dingtalk, wework, slack)
         for ch in _RSS_WEBHOOK_CHANNELS:
@@ -355,9 +355,9 @@ class NotificationDispatcher:
     # Concurrent execution
     # ------------------------------------------------------------------
 
-    def _run_concurrent(self, channel_tasks: List[tuple], label: str) -> Dict[str, bool]:
+    def _run_concurrent(self, channel_tasks: list[tuple], label: str) -> dict[str, bool]:
         """Run (channel_name, callable) tasks concurrently and collect results."""
-        results: Dict[str, bool] = {}
+        results: dict[str, bool] = {}
         logger.info(f"开始并发推送 {label}", channels=[n for n, _ in channel_tasks])
         with concurrent.futures.ThreadPoolExecutor(max_workers=len(channel_tasks)) as executor:
             fmap = {executor.submit(fn): name for name, fn in channel_tasks}
@@ -413,7 +413,7 @@ class NotificationDispatcher:
     # Simple webhook channel dispatch (table-driven)
     # ------------------------------------------------------------------
 
-    def _dispatch_simple_channel(self, ch: dict, ctx: Dict) -> bool:
+    def _dispatch_simple_channel(self, ch: dict, ctx: dict) -> bool:
         """Dispatch to a simple single-URL webhook channel."""
         c = self._apply_display_filter(ctx)
 
@@ -446,7 +446,7 @@ class NotificationDispatcher:
     # Telegram (paired bot_token + chat_id)
     # ------------------------------------------------------------------
 
-    def _dispatch_telegram(self, ctx: Dict) -> bool:
+    def _dispatch_telegram(self, ctx: dict) -> bool:
         c = self._apply_display_filter(ctx)
         tokens = parse_multi_account_config(self.config["TELEGRAM_BOT_TOKEN"])
         chat_ids = parse_multi_account_config(self.config["TELEGRAM_CHAT_ID"])
@@ -474,7 +474,7 @@ class NotificationDispatcher:
             standalone_data=c["standalone_data"],
         )
         results = []
-        for i, (token, chat_id) in enumerate(zip(tokens, chat_ids)):
+        for i, (token, chat_id) in enumerate(zip(tokens, chat_ids, strict=False)):
             if token and chat_id:
                 label = f"账号{i+1}" if len(tokens) > 1 else ""
                 results.append(send_to_telegram(bot_token=token, chat_id=chat_id, account_label=label, **kw))
@@ -484,7 +484,7 @@ class NotificationDispatcher:
     # ntfy (server_url + topic + optional token)
     # ------------------------------------------------------------------
 
-    def _dispatch_ntfy(self, ctx: Dict) -> bool:
+    def _dispatch_ntfy(self, ctx: dict) -> bool:
         c = self._apply_display_filter(ctx)
         server_url = self.config["NTFY_SERVER_URL"]
         topics = parse_multi_account_config(self.config["NTFY_TOPIC"])
@@ -523,7 +523,7 @@ class NotificationDispatcher:
     # Generic webhook (paired url + template)
     # ------------------------------------------------------------------
 
-    def _dispatch_generic_webhook(self, ctx: Dict) -> bool:
+    def _dispatch_generic_webhook(self, ctx: dict) -> bool:
         c = self._apply_display_filter(ctx)
         urls = parse_multi_account_config(self.config.get("GENERIC_WEBHOOK_URL", ""))
         templates = parse_multi_account_config(self.config.get("GENERIC_WEBHOOK_TEMPLATE", ""))
@@ -557,7 +557,7 @@ class NotificationDispatcher:
     # Email
     # ------------------------------------------------------------------
 
-    def _send_email(self, report_type: str, html_file_path: Optional[str]) -> bool:
+    def _send_email(self, report_type: str, html_file_path: str | None) -> bool:
         return send_to_email(
             from_email=self.config["EMAIL_FROM"],
             password=self.config["EMAIL_PASSWORD"],
@@ -573,14 +573,14 @@ class NotificationDispatcher:
     # ------------------------------------------------------------------
 
     @staticmethod
-    def _split_text_by_bytes(content: str, max_bytes: int) -> List[str]:
+    def _split_text_by_bytes(content: str, max_bytes: int) -> list[str]:
         """Split plain text into batches that respect UTF-8 byte limits."""
         if not content:
             return []
         if max_bytes <= 0:
             return [content]
 
-        batches: List[str] = []
+        batches: list[str] = []
         current = ""
 
         for line in content.splitlines(keepends=True):
@@ -613,8 +613,8 @@ class NotificationDispatcher:
     # ------------------------------------------------------------------
 
     def _dispatch_rss_webhook(
-        self, rss_items: List[Dict], feeds_info: Optional[Dict[str, str]],
-        proxy_url: Optional[str], ch: dict,
+        self, rss_items: list[dict], feeds_info: dict[str, str] | None,
+        proxy_url: str | None, ch: dict,
     ) -> bool:
         """Send RSS to a standard webhook channel (POST JSON payloads)."""
         import requests
@@ -646,8 +646,8 @@ class NotificationDispatcher:
     # ------------------------------------------------------------------
 
     def _dispatch_rss_telegram(
-        self, rss_items: List[Dict], feeds_info: Optional[Dict[str, str]],
-        proxy_url: Optional[str],
+        self, rss_items: list[dict], feeds_info: dict[str, str] | None,
+        proxy_url: str | None,
     ) -> bool:
         import requests
         content = render_rss_markdown_content(rss_items=rss_items, feeds_info=feeds_info, get_time_func=self.get_time_func)
@@ -679,8 +679,8 @@ class NotificationDispatcher:
     # ------------------------------------------------------------------
 
     def _dispatch_rss_ntfy(
-        self, rss_items: List[Dict], feeds_info: Optional[Dict[str, str]],
-        proxy_url: Optional[str],
+        self, rss_items: list[dict], feeds_info: dict[str, str] | None,
+        proxy_url: str | None,
     ) -> bool:
         import requests
         content = render_rss_markdown_content(rss_items=rss_items, feeds_info=feeds_info, get_time_func=self.get_time_func)
@@ -717,11 +717,12 @@ class NotificationDispatcher:
     # ------------------------------------------------------------------
 
     def _dispatch_rss_bark(
-        self, rss_items: List[Dict], feeds_info: Optional[Dict[str, str]],
-        proxy_url: Optional[str],
+        self, rss_items: list[dict], feeds_info: dict[str, str] | None,
+        proxy_url: str | None,
     ) -> bool:
-        import requests
         import urllib.parse
+
+        import requests
         content = render_rss_markdown_content(rss_items=rss_items, feeds_info=feeds_info, get_time_func=self.get_time_func)
         urls = parse_multi_account_config(self.config["BARK_URL"])
         urls = limit_accounts(urls, self.max_accounts, "Bark")

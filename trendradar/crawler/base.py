@@ -1,9 +1,7 @@
-# coding=utf-8
 """爬虫插件基类"""
 from abc import ABC, abstractmethod
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from datetime import datetime
-from typing import Dict, List, Optional, Tuple
 
 
 @dataclass(frozen=True, slots=True)
@@ -20,9 +18,9 @@ class CrawlResult:
     """单数据源抓取结果"""
     source_id: str
     source_name: str
-    items: Tuple[FetchedItem, ...]
+    items: tuple[FetchedItem, ...]
     fetched_at: datetime
-    errors: Tuple[str, ...] = ()
+    errors: tuple[str, ...] = ()
 
     @property
     def success(self) -> bool:
@@ -48,7 +46,7 @@ class CrawlerPlugin(ABC):
         return 1.0
 
     @abstractmethod
-    def fetch(self, source_config: Dict) -> CrawlResult:
+    def fetch(self, source_config: dict) -> CrawlResult:
         """
         获取数据
 

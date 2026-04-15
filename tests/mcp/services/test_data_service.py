@@ -1,4 +1,3 @@
-# coding=utf-8
 """Unit tests for mcp_server.services.data_service.DataService.
 
 Strategy: patch ParserService to avoid SQLite/file I/O. Each test exercises a
@@ -7,7 +6,7 @@ public method and asserts on the return shape or cache behaviour.
 from __future__ import annotations
 
 from datetime import datetime
-from unittest.mock import patch, MagicMock
+from unittest.mock import MagicMock, patch
 
 import pytest
 

@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 AnalysisEngine — 第二个编排器类
 
@@ -6,11 +5,10 @@ AnalysisEngine — 第二个编排器类
 """
 
 import os
-from typing import Dict, Optional
 
 from trendradar.context import AppContext
-from trendradar.core.types import CrawlOutput, AnalysisOutput
 from trendradar.core.mode_strategy import execute_mode_strategy
+from trendradar.core.types import AnalysisOutput, CrawlOutput
 from trendradar.logging import get_logger
 
 logger = get_logger(__name__)
@@ -24,7 +22,7 @@ def _detect_docker_environment() -> bool:
 
     # 检查 /proc/1/cgroup 中的 docker 标记
     try:
-        with open("/proc/1/cgroup", "r") as f:
+        with open("/proc/1/cgroup") as f:
             return "docker" in f.read()
     except (FileNotFoundError, PermissionError):
         pass
@@ -61,8 +59,8 @@ class AnalysisEngine:
     def __init__(
         self,
         ctx: AppContext,
-        update_info: Optional[Dict] = None,
-        proxy_url: Optional[str] = None,
+        update_info: dict | None = None,
+        proxy_url: str | None = None,
     ):
         """
         初始化分析引擎
@@ -118,7 +116,7 @@ class AnalysisEngine:
         # will be wired in Plan 04 when the facade is collapsed.
         return AnalysisOutput(stats=[], html_file_path=html_file, ai_result=None)
 
-    def _get_mode_strategy(self) -> Dict:
+    def _get_mode_strategy(self) -> dict:
         """获取当前报告模式的策略配置"""
         return self.MODE_STRATEGIES.get(self.report_mode, self.MODE_STRATEGIES["daily"])
 

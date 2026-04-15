@@ -1,4 +1,3 @@
-# coding=utf-8
 """Handler-level tests for SearchTools.
 
 Strategy: patch DataService to avoid SQLite; verify the unified dispatcher
@@ -6,9 +5,7 @@ handles invalid modes and forwards valid requests.
 """
 from __future__ import annotations
 
-from unittest.mock import patch, MagicMock
-
-import pytest
+from unittest.mock import MagicMock, patch
 
 from mcp_server.tools.search_tools import SearchTools
 
@@ -51,7 +48,6 @@ def test_search_news_unified_keyword_mode_no_data_returns_empty(tmp_path):
 
 def test_search_news_unified_keyword_mode_with_matches(tmp_path):
     """Provide a date_range so the tool exercises _search_by_keyword_mode path."""
-    from datetime import datetime
 
     tools = _make_tools(tmp_path)
     # Return minimal title data containing the query keyword

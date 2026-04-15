@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 Miscellaneous routes for TrendRadar Web UI.
 
@@ -12,6 +11,7 @@ Handles:
 from __future__ import annotations
 
 from pathlib import Path
+
 from flask import Blueprint, current_app, jsonify, send_from_directory
 
 from trendradar.webui.helpers import is_path_in_output, load_config, read_json_body
@@ -62,11 +62,11 @@ def serve_artifact(relative_path: str):
 def get_trends():
     """Get trend analysis comparing the latest two crawl cycles."""
     try:
-        from trendradar.storage import (
-            get_storage_manager,
-            convert_news_data_to_results,
-        )
         from trendradar.core.trend import TrendAnalyzer
+        from trendradar.storage import (
+            convert_news_data_to_results,
+            get_storage_manager,
+        )
 
         config = load_config()
         storage_cfg = config.get("STORAGE", {})

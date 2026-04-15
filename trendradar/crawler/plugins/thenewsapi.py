@@ -1,7 +1,6 @@
-# coding=utf-8
 """TheNewsAPI 爬虫插件"""
+import contextlib
 from datetime import datetime, timezone
-from typing import Dict
 
 import requests
 
@@ -34,7 +33,7 @@ class TheNewsAPIPlugin(CrawlerPlugin):
     def rate_limit(self) -> float:
         return 0.5
 
-    def fetch(self, source_config: Dict) -> CrawlResult:
+    def fetch(self, source_config: dict) -> CrawlResult:
         source_id = source_config.get("id", "thenewsapi")
         source_name = source_config.get("name", source_id)
         fetched_at = datetime.now(timezone.utc)
@@ -49,7 +48,7 @@ class TheNewsAPIPlugin(CrawlerPlugin):
                 errors=("api_key 未配置",),
             )
 
-        params: Dict = {
+        params: dict = {
             "api_token": api_key,
             "locale": source_config.get("locale", "us"),
             "language": source_config.get("language", "en"),
@@ -64,10 +63,8 @@ class TheNewsAPIPlugin(CrawlerPlugin):
         except Exception as exc:
             error_detail = str(exc)
             if response is not None:
-                try:
+                with contextlib.suppress(Exception):
                     error_detail = f"HTTP {response.status_code}: {response.text[:200]}"
-                except Exception:
-                    pass
             logger.error("[TheNewsAPI] 请求失败", source_id=source_id, error=error_detail)
             return CrawlResult(
                 source_id=source_id,

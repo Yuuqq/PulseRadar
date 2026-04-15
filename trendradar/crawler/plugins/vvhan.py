@@ -1,11 +1,9 @@
-# coding=utf-8
 """韩小韩热榜 API 爬虫插件"""
 from datetime import datetime
-from typing import Dict, List
 
 import requests
 
-from trendradar.crawler.base import CrawlResult, CrawlerPlugin, FetchedItem
+from trendradar.crawler.base import CrawlerPlugin, CrawlResult, FetchedItem
 from trendradar.crawler.registry import CrawlerRegistry
 from trendradar.logging import get_logger
 
@@ -34,7 +32,7 @@ class VvhanPlugin(CrawlerPlugin):
     def rate_limit(self) -> float:
         return 1.0
 
-    def _get(self, url: str, params: Dict = None) -> Dict:
+    def _get(self, url: str, params: dict | None = None) -> dict:
         try:
             resp = self._session.get(
                 url,
@@ -48,7 +46,7 @@ class VvhanPlugin(CrawlerPlugin):
             logger.error("[VvhanPlugin] 请求失败", url=url, error=str(exc))
             raise
 
-    def _fetch_single(self, platform: str) -> List[FetchedItem]:
+    def _fetch_single(self, platform: str) -> list[FetchedItem]:
         url = _VVHAN_SINGLE_BASE.format(platform=platform)
         data = self._get(url)
         if not data or not data.get("success"):
@@ -65,11 +63,11 @@ class VvhanPlugin(CrawlerPlugin):
             ))
         return items
 
-    def _fetch_all(self) -> Dict[str, List[FetchedItem]]:
+    def _fetch_all(self) -> dict[str, list[FetchedItem]]:
         data = self._get(_VVHAN_ALL_URL)
         if not data or not data.get("success"):
             return {}
-        result: Dict[str, List[FetchedItem]] = {}
+        result: dict[str, list[FetchedItem]] = {}
         for platform, raw_items in data.get("data", {}).items():
             platform_list = []
             for idx, item in enumerate(raw_items, 1):
@@ -85,7 +83,7 @@ class VvhanPlugin(CrawlerPlugin):
                 result[platform] = platform_list
         return result
 
-    def fetch(self, source_config: Dict) -> CrawlResult:
+    def fetch(self, source_config: dict) -> CrawlResult:
         source_id = source_config.get("id", "vvhan")
         source_name = source_config.get("name", "韩小韩热榜")
         platform = source_config.get("platform", "")
@@ -96,7 +94,7 @@ class VvhanPlugin(CrawlerPlugin):
                 platform_map = self._fetch_all()
                 # Flatten all platforms into one CrawlResult; prefix title with
                 # platform name so consumers can distinguish origin.
-                all_items: List[FetchedItem] = []
+                all_items: list[FetchedItem] = []
                 rank_offset = 0
                 for pname, pitems in platform_map.items():
                     for fi in pitems:

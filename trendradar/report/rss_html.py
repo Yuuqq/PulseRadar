@@ -1,22 +1,21 @@
-# coding=utf-8
 """
 RSS HTML 报告渲染模块
 
 提供 RSS 订阅内容的 HTML 格式报告生成功能
 """
 
+from collections.abc import Callable
 from datetime import datetime
-from typing import Dict, List, Optional, Callable
 
 from trendradar.report.helpers import html_escape
 
 
 def render_rss_html_content(
-    rss_items: List[Dict],
+    rss_items: list[dict],
     total_count: int,
-    feeds_info: Optional[Dict[str, str]] = None,
+    feeds_info: dict[str, str] | None = None,
     *,
-    get_time_func: Optional[Callable[[], datetime]] = None,
+    get_time_func: Callable[[], datetime] | None = None,
 ) -> str:
     """渲染 RSS HTML 内容
 
@@ -310,10 +309,7 @@ def render_rss_html_content(
                         <span class="info-value">"""
 
     # 使用提供的时间函数或默认 datetime.now
-    if get_time_func:
-        now = get_time_func()
-    else:
-        now = datetime.now()
+    now = get_time_func() if get_time_func else datetime.now()
     html += now.strftime("%m-%d %H:%M")
 
     html += """</span>
@@ -324,7 +320,7 @@ def render_rss_html_content(
             <div class="content">"""
 
     # 按 feed_id 分组
-    feeds_map: Dict[str, List[Dict]] = {}
+    feeds_map: dict[str, list[dict]] = {}
     for item in rss_items:
         feed_id = item.get("feed_id", "unknown")
         if feed_id not in feeds_map:

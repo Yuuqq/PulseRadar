@@ -1,7 +1,6 @@
-# coding=utf-8
 """MediaStack API 爬虫插件"""
+import contextlib
 from datetime import datetime, timezone
-from typing import Dict, Optional
 
 import requests
 
@@ -34,7 +33,7 @@ class MediaStackPlugin(CrawlerPlugin):
     def rate_limit(self) -> float:
         return 0.5
 
-    def fetch(self, source_config: Dict) -> CrawlResult:
+    def fetch(self, source_config: dict) -> CrawlResult:
         source_id = source_config.get("id", "mediastack")
         source_name = source_config.get("name", source_id)
         fetched_at = datetime.now(timezone.utc)
@@ -49,13 +48,13 @@ class MediaStackPlugin(CrawlerPlugin):
                 errors=("api_key 未配置",),
             )
 
-        params: Dict = {
+        params: dict = {
             "access_key": api_key,
             "countries": source_config.get("countries", "us"),
             "limit": min(int(source_config.get("limit", 50) or 50), 100),
             "languages": source_config.get("languages", "en"),
         }
-        categories: Optional[str] = source_config.get("categories")
+        categories: str | None = source_config.get("categories")
         if categories:
             params["categories"] = categories
 
@@ -67,10 +66,8 @@ class MediaStackPlugin(CrawlerPlugin):
         except Exception as exc:
             error_detail = str(exc)
             if response is not None:
-                try:
+                with contextlib.suppress(Exception):
                     error_detail = f"HTTP {response.status_code}: {response.text[:200]}"
-                except Exception:
-                    pass
             logger.error("[MediaStack] 请求失败", source_id=source_id, error=error_detail)
             return CrawlResult(
                 source_id=source_id,

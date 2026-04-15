@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 TrendRadar Pydantic 配置模型
 
@@ -12,7 +11,7 @@ from __future__ import annotations
 
 import os
 from pathlib import Path
-from typing import TYPE_CHECKING, Any, Dict, List, Literal, Optional
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
@@ -24,13 +23,13 @@ if TYPE_CHECKING:
 # 辅助函数：安全读取环境变量
 # ---------------------------------------------------------------------------
 
-def _env_str(key: str) -> Optional[str]:
+def _env_str(key: str) -> str | None:
     """返回非空字符串环境变量值，否则返回 None。"""
     val = os.environ.get(key, "").strip()
     return val if val else None
 
 
-def _env_bool(key: str) -> Optional[bool]:
+def _env_bool(key: str) -> bool | None:
     """将环境变量解析为布尔值，未设置时返回 None。"""
     val = os.environ.get(key, "").strip().lower()
     if not val:
@@ -38,7 +37,7 @@ def _env_bool(key: str) -> Optional[bool]:
     return val in ("true", "1", "yes")
 
 
-def _env_int(key: str) -> Optional[int]:
+def _env_int(key: str) -> int | None:
     """将环境变量解析为整数，未设置或解析失败时返回 None。"""
     val = os.environ.get(key, "").strip()
     if not val:
@@ -69,7 +68,7 @@ class CrawlerConfig(BaseModel):
     use_proxy: bool = Field(default=False, description="是否启用代理")
 
     @model_validator(mode="after")
-    def _apply_env(self) -> "CrawlerConfig":
+    def _apply_env(self) -> CrawlerConfig:
         override = _env_str("CRAWLER_API_URL")
         if override is not None:
             self.api_url = override
@@ -143,7 +142,7 @@ class AdvancedConfig(BaseModel):
     weight: WeightConfig = Field(default_factory=WeightConfig)
 
     @model_validator(mode="after")
-    def _apply_env(self) -> "AdvancedConfig":
+    def _apply_env(self) -> AdvancedConfig:
         debug_env = _env_bool("DEBUG")
         if debug_env is not None:
             self.debug = debug_env
@@ -176,12 +175,12 @@ class AiConfig(BaseModel):
     temperature: float = Field(default=1.0, description="生成温度")
     max_tokens: int = Field(default=5000, description="单次最大 token 数")
     num_retries: int = Field(default=1, description="失败重试次数")
-    fallback_models: List[str] = Field(
+    fallback_models: list[str] = Field(
         default_factory=list, description="备用模型列表"
     )
 
     @model_validator(mode="after")
-    def _apply_env(self) -> "AiConfig":
+    def _apply_env(self) -> AiConfig:
         for attr, env_key in (
             ("model", "AI_MODEL"),
             ("api_key", "AI_API_KEY"),
@@ -211,7 +210,7 @@ class AnalysisWindowConfig(BaseModel):
     once_per_day: bool = Field(default=False, description="每天只触发一次")
 
     @model_validator(mode="after")
-    def _apply_env(self) -> "AnalysisWindowConfig":
+    def _apply_env(self) -> AnalysisWindowConfig:
         enabled_env = _env_bool("AI_ANALYSIS_WINDOW_ENABLED")
         if enabled_env is not None:
             self.enabled = enabled_env
@@ -255,7 +254,7 @@ class AiAnalysisConfig(BaseModel):
     )
 
     @model_validator(mode="after")
-    def _apply_env(self) -> "AiAnalysisConfig":
+    def _apply_env(self) -> AiAnalysisConfig:
         enabled_env = _env_bool("AI_ANALYSIS_ENABLED")
         if enabled_env is not None:
             self.enabled = enabled_env
@@ -278,7 +277,7 @@ class AiTranslationConfig(BaseModel):
     )
 
     @model_validator(mode="after")
-    def _apply_env(self) -> "AiTranslationConfig":
+    def _apply_env(self) -> AiTranslationConfig:
         enabled_env = _env_bool("AI_TRANSLATION_ENABLED")
         if enabled_env is not None:
             self.enabled = enabled_env
@@ -303,7 +302,7 @@ class AppConfig(BaseModel):
     timezone: str = Field(default="Asia/Shanghai", description="运行时时区")
 
     @model_validator(mode="after")
-    def _apply_env(self) -> "AppConfig":
+    def _apply_env(self) -> AppConfig:
         tz_env = _env_str("TIMEZONE")
         if tz_env is not None:
             self.timezone = tz_env
@@ -335,10 +334,10 @@ class StandaloneConfig(BaseModel):
     model_config = ConfigDict(extra="allow")
 
     max_items: int = Field(default=20, description="独立区最多展示条目数")
-    platforms: List[str] = Field(
+    platforms: list[str] = Field(
         default_factory=list, description="独立展示的平台 ID 列表"
     )
-    rss_feeds: List[str] = Field(
+    rss_feeds: list[str] = Field(
         default_factory=list, description="独立展示的 RSS Feed ID 列表"
     )
 
@@ -348,7 +347,7 @@ class DisplayConfig(BaseModel):
 
     model_config = ConfigDict(extra="allow")
 
-    region_order: List[RegionName] = Field(
+    region_order: list[RegionName] = Field(
         default_factory=lambda: ["new_items", "hotlist", "rss", "standalone", "ai_analysis"],
         description="区域展示顺序",
     )
@@ -377,7 +376,7 @@ class ExtraApisConfig(BaseModel):
     model_config = ConfigDict(extra="allow")
 
     enabled: bool = Field(default=True, description="是否启用额外 API 数据源")
-    sources: List[ExtraApiSource] = Field(
+    sources: list[ExtraApiSource] = Field(
         default_factory=list, description="数据源配置列表"
     )
 
@@ -541,7 +540,7 @@ class PushWindowConfig(BaseModel):
     once_per_day: bool = Field(default=True, description="每天只推送一次")
 
     @model_validator(mode="after")
-    def _apply_env(self) -> "PushWindowConfig":
+    def _apply_env(self) -> PushWindowConfig:
         enabled_env = _env_bool("PUSH_WINDOW_ENABLED")
         if enabled_env is not None:
             self.enabled = enabled_env
@@ -588,7 +587,7 @@ class PlatformsConfig(BaseModel):
     model_config = ConfigDict(extra="allow")
 
     enabled: bool = Field(default=True, description="是否启用平台数据源")
-    sources: List[PlatformSource] = Field(
+    sources: list[PlatformSource] = Field(
         default_factory=list, description="已配置的平台列表"
     )
 
@@ -622,7 +621,7 @@ class ReportConfig(BaseModel):
     )
 
     @model_validator(mode="after")
-    def _apply_env(self) -> "ReportConfig":
+    def _apply_env(self) -> ReportConfig:
         sort_env = _env_bool("SORT_BY_POSITION_FIRST")
         if sort_env is not None:
             self.sort_by_position_first = sort_env
@@ -667,7 +666,7 @@ class RssConfig(BaseModel):
     model_config = ConfigDict(extra="allow")
 
     enabled: bool = Field(default=True, description="是否启用 RSS 数据源")
-    feeds: List[RssFeedEntry] = Field(
+    feeds: list[RssFeedEntry] = Field(
         default_factory=list, description="已配置的 RSS Feed 列表"
     )
     freshness_filter: FreshnessFilterConfig = Field(
@@ -689,7 +688,7 @@ class StorageFormatsConfig(BaseModel):
     txt: bool = Field(default=False, description="是否生成纯文本报告")
 
     @model_validator(mode="after")
-    def _apply_env(self) -> "StorageFormatsConfig":
+    def _apply_env(self) -> StorageFormatsConfig:
         html_env = _env_bool("STORAGE_HTML_ENABLED")
         if html_env is not None:
             self.html = html_env
@@ -710,7 +709,7 @@ class LocalStorageConfig(BaseModel):
     )
 
     @model_validator(mode="after")
-    def _apply_env(self) -> "LocalStorageConfig":
+    def _apply_env(self) -> LocalStorageConfig:
         ret_env = _env_int("LOCAL_RETENTION_DAYS")
         if ret_env is not None:
             self.retention_days = ret_env
@@ -740,7 +739,7 @@ class RemoteStorageConfig(BaseModel):
     )
 
     @model_validator(mode="after")
-    def _apply_env(self) -> "RemoteStorageConfig":
+    def _apply_env(self) -> RemoteStorageConfig:
         mapping = {
             "endpoint_url": "S3_ENDPOINT_URL",
             "bucket_name": "S3_BUCKET_NAME",
@@ -767,7 +766,7 @@ class PullConfig(BaseModel):
     enabled: bool = Field(default=False, description="是否启用远端数据拉取")
 
     @model_validator(mode="after")
-    def _apply_env(self) -> "PullConfig":
+    def _apply_env(self) -> PullConfig:
         enabled_env = _env_bool("PULL_ENABLED")
         if enabled_env is not None:
             self.enabled = enabled_env
@@ -792,7 +791,7 @@ class StorageConfig(BaseModel):
     remote: RemoteStorageConfig = Field(default_factory=RemoteStorageConfig)
 
     @model_validator(mode="after")
-    def _apply_env(self) -> "StorageConfig":
+    def _apply_env(self) -> StorageConfig:
         backend_env = _env_str("STORAGE_BACKEND")
         if backend_env is not None:
             self.backend = backend_env  # type: ignore[assignment]
@@ -831,7 +830,7 @@ class TrendRadarConfig(BaseModel):
     # ------------------------------------------------------------------
 
     @classmethod
-    def from_yaml(cls, path: "str | Path") -> "TrendRadarConfig":
+    def from_yaml(cls, path: str | Path) -> TrendRadarConfig:
         """
         从 YAML 文件加载配置并验证。
 
@@ -852,7 +851,7 @@ class TrendRadarConfig(BaseModel):
             raise FileNotFoundError(f"配置文件不存在：{path}")
 
         with path.open("r", encoding="utf-8") as fh:
-            raw: Dict[str, Any] = yaml.safe_load(fh) or {}
+            raw: dict[str, Any] = yaml.safe_load(fh) or {}
 
         return cls.model_validate(raw)
 
@@ -860,7 +859,7 @@ class TrendRadarConfig(BaseModel):
     # 向后兼容
     # ------------------------------------------------------------------
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """
         将配置序列化为普通 dict，供现有依赖 dict 接口的代码使用。
 

@@ -7,20 +7,18 @@ TrendRadar MCP Server - FastMCP 2.0 实现
 
 import asyncio
 import json
-from typing import List, Optional, Dict, Union
 
 from fastmcp import FastMCP
 
-from .tools.data_query import DataQueryTools
 from .tools.analytics import AnalyticsTools
-from .tools.search_tools import SearchTools
-from .tools.config_mgmt import ConfigManagementTools
-from .tools.system import SystemManagementTools
-from .tools.storage_sync import StorageSyncTools
 from .tools.article_reader import ArticleReaderTools
+from .tools.config_mgmt import ConfigManagementTools
+from .tools.data_query import DataQueryTools
+from .tools.search_tools import SearchTools
+from .tools.storage_sync import StorageSyncTools
+from .tools.system import SystemManagementTools
 from .utils.date_parser import DateParser
 from .utils.errors import MCPError
-
 
 # 创建 FastMCP 2.0 应用
 mcp = FastMCP('trendradar-news')
@@ -29,7 +27,7 @@ mcp = FastMCP('trendradar-news')
 _tools_instances = {}
 
 
-def _get_tools(project_root: Optional[str] = None):
+def _get_tools(project_root: str | None = None):
     """获取或创建工具实例（单例模式）"""
     if not _tools_instances:
         _tools_instances['data'] = DataQueryTools(project_root)
@@ -186,7 +184,7 @@ async def resolve_date_range(
 
 @mcp.tool
 async def get_latest_news(
-    platforms: Optional[List[str]] = None,
+    platforms: list[str] | None = None,
     limit: int = 50,
     include_url: bool = False
 ) -> str:
@@ -251,7 +249,7 @@ async def get_trending_topics(
 
 @mcp.tool
 async def get_latest_rss(
-    feeds: Optional[List[str]] = None,
+    feeds: list[str] | None = None,
     days: int = 1,
     limit: int = 50,
     include_summary: bool = False
@@ -285,7 +283,7 @@ async def get_latest_rss(
 @mcp.tool
 async def search_rss(
     keyword: str,
-    feeds: Optional[List[str]] = None,
+    feeds: list[str] | None = None,
     days: int = 7,
     limit: int = 50,
     include_summary: bool = False
@@ -347,8 +345,8 @@ async def get_rss_feeds_status() -> str:
 
 @mcp.tool
 async def get_news_by_date(
-    date_range: Optional[Union[Dict[str, str], str]] = None,
-    platforms: Optional[List[str]] = None,
+    date_range: dict[str, str] | str | None = None,
+    platforms: list[str] | None = None,
     limit: int = 50,
     include_url: bool = False
 ) -> str:
@@ -386,7 +384,7 @@ async def get_news_by_date(
 async def analyze_topic_trend(
     topic: str,
     analysis_type: str = "trend",
-    date_range: Optional[Union[Dict[str, str], str]] = None,
+    date_range: dict[str, str] | str | None = None,
     granularity: str = "day",
     spike_threshold: float = 3.0,
     time_window: int = 24,
@@ -437,8 +435,8 @@ async def analyze_topic_trend(
 @mcp.tool
 async def analyze_data_insights(
     insight_type: str = "platform_compare",
-    topic: Optional[str] = None,
-    date_range: Optional[Union[Dict[str, str], str]] = None,
+    topic: str | None = None,
+    date_range: dict[str, str] | str | None = None,
     min_frequency: int = 3,
     top_n: int = 20
 ) -> str:
@@ -480,9 +478,9 @@ async def analyze_data_insights(
 
 @mcp.tool
 async def analyze_sentiment(
-    topic: Optional[str] = None,
-    platforms: Optional[List[str]] = None,
-    date_range: Optional[Union[Dict[str, str], str]] = None,
+    topic: str | None = None,
+    platforms: list[str] | None = None,
+    date_range: dict[str, str] | str | None = None,
     limit: int = 50,
     sort_by_weight: bool = True,
     include_url: bool = False
@@ -522,7 +520,7 @@ async def analyze_sentiment(
 @mcp.tool
 async def find_related_news(
     reference_title: str,
-    date_range: Optional[Union[Dict[str, str], str]] = None,
+    date_range: dict[str, str] | str | None = None,
     threshold: float = 0.5,
     limit: int = 50,
     include_url: bool = False
@@ -562,7 +560,7 @@ async def find_related_news(
 @mcp.tool
 async def generate_summary_report(
     report_type: str = "daily",
-    date_range: Optional[Union[Dict[str, str], str]] = None
+    date_range: dict[str, str] | str | None = None
 ) -> str:
     """
     每日/每周摘要生成器 - 自动生成热点摘要报告
@@ -588,8 +586,8 @@ async def generate_summary_report(
 
 @mcp.tool
 async def aggregate_news(
-    date_range: Optional[Union[Dict[str, str], str]] = None,
-    platforms: Optional[List[str]] = None,
+    date_range: dict[str, str] | str | None = None,
+    platforms: list[str] | None = None,
     similarity_threshold: float = 0.7,
     limit: int = 50,
     include_url: bool = False
@@ -627,11 +625,11 @@ async def aggregate_news(
 
 @mcp.tool
 async def compare_periods(
-    period1: Union[Dict[str, str], str],
-    period2: Union[Dict[str, str], str],
-    topic: Optional[str] = None,
+    period1: dict[str, str] | str,
+    period2: dict[str, str] | str,
+    topic: str | None = None,
     compare_type: str = "overview",
-    platforms: Optional[List[str]] = None,
+    platforms: list[str] | None = None,
     top_n: int = 10
 ) -> str:
     """
@@ -691,8 +689,8 @@ async def compare_periods(
 async def search_news(
     query: str,
     search_mode: str = "keyword",
-    date_range: Optional[Union[Dict[str, str], str]] = None,
-    platforms: Optional[List[str]] = None,
+    date_range: dict[str, str] | str | None = None,
+    platforms: list[str] | None = None,
     limit: int = 50,
     sort_by: str = "relevance",
     threshold: float = 0.6,
@@ -787,7 +785,7 @@ async def get_system_status() -> str:
 
 @mcp.tool
 async def check_version(
-    proxy_url: Optional[str] = None
+    proxy_url: str | None = None
 ) -> str:
     """
     检查版本更新（同时检查 TrendRadar 和 MCP Server）
@@ -811,7 +809,7 @@ async def check_version(
 
 @mcp.tool
 async def trigger_crawl(
-    platforms: Optional[List[str]] = None,
+    platforms: list[str] | None = None,
     save_to_local: bool = False,
     include_url: bool = False
 ) -> str:
@@ -967,7 +965,7 @@ async def read_article(
 
 @mcp.tool
 async def read_articles_batch(
-    urls: List[str],
+    urls: list[str],
     timeout: int = 30
 ) -> str:
     """
@@ -1007,7 +1005,7 @@ async def read_articles_batch(
 # ==================== 启动入口 ====================
 
 def run_server(
-    project_root: Optional[str] = None,
+    project_root: str | None = None,
     transport: str = 'stdio',
     host: str = '127.0.0.1',
     port: int = 3333
@@ -1035,7 +1033,7 @@ def run_server(
         print("  协议: MCP over stdio (标准输入输出)")
         print("  说明: 通过标准输入输出与 MCP 客户端通信")
     elif transport == 'http':
-        print(f"  协议: MCP over HTTP (生产环境)")
+        print("  协议: MCP over HTTP (生产环境)")
         print(f"  服务器监听: {host}:{port}")
 
     if project_root:

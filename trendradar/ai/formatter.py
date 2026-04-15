@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 AI 分析结果格式化模块
 
@@ -7,6 +6,7 @@ AI 分析结果格式化模块
 
 import html as html_lib
 import re
+
 from .analyzer import AIAnalysisResult
 
 

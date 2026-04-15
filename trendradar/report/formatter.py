@@ -1,17 +1,15 @@
-# coding=utf-8
 """
 平台标题格式化模块
 
 提供多平台标题格式化功能
 """
 
-from typing import Dict
 
-from trendradar.report.helpers import clean_title, html_escape, format_rank_display
+from trendradar.report.helpers import clean_title, format_rank_display, html_escape
 
 
 def format_title_for_platform(
-    platform: str, title_data: Dict, show_source: bool = True, show_keyword: bool = False
+    platform: str, title_data: dict, show_source: bool = True, show_keyword: bool = False
 ) -> str:
     """统一的标题格式化方法
 
@@ -55,10 +53,7 @@ def format_title_for_platform(
     keyword = title_data.get("matched_keyword", "") if show_keyword else ""
 
     if platform == "feishu":
-        if link_url:
-            formatted_title = f"[{cleaned_title}]({link_url})"
-        else:
-            formatted_title = cleaned_title
+        formatted_title = f"[{cleaned_title}]({link_url})" if link_url else cleaned_title
 
         title_prefix = "🆕 " if title_data.get("is_new") else ""
 
@@ -79,10 +74,7 @@ def format_title_for_platform(
         return result
 
     elif platform == "dingtalk":
-        if link_url:
-            formatted_title = f"[{cleaned_title}]({link_url})"
-        else:
-            formatted_title = cleaned_title
+        formatted_title = f"[{cleaned_title}]({link_url})" if link_url else cleaned_title
 
         title_prefix = "🆕 " if title_data.get("is_new") else ""
 
@@ -104,10 +96,7 @@ def format_title_for_platform(
 
     elif platform in ("wework", "bark"):
         # WeWork 和 Bark 使用 markdown 格式
-        if link_url:
-            formatted_title = f"[{cleaned_title}]({link_url})"
-        else:
-            formatted_title = cleaned_title
+        formatted_title = f"[{cleaned_title}]({link_url})" if link_url else cleaned_title
 
         title_prefix = "🆕 " if title_data.get("is_new") else ""
 
@@ -152,10 +141,7 @@ def format_title_for_platform(
         return result
 
     elif platform == "ntfy":
-        if link_url:
-            formatted_title = f"[{cleaned_title}]({link_url})"
-        else:
-            formatted_title = cleaned_title
+        formatted_title = f"[{cleaned_title}]({link_url})" if link_url else cleaned_title
 
         title_prefix = "🆕 " if title_data.get("is_new") else ""
 

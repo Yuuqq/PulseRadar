@@ -1,22 +1,20 @@
-# coding=utf-8
 """
 RSS 抓取器
 
 负责从配置的 RSS 源抓取数据并转换为标准格式
 """
 
-import time
 import random
+import time
 from dataclasses import dataclass
-from datetime import datetime
-from typing import List, Dict, Optional, Tuple, Callable
 
 import requests
 
-from .parser import RSSParser, ParsedRSSItem
 from trendradar.logging import get_logger
-from trendradar.storage.base import RSSItem, RSSData
-from trendradar.utils.time import get_configured_time, is_within_days, DEFAULT_TIMEZONE
+from trendradar.storage.base import RSSData, RSSItem
+from trendradar.utils.time import DEFAULT_TIMEZONE, get_configured_time, is_within_days
+
+from .parser import RSSParser
 
 logger = get_logger(__name__)
 
@@ -29,7 +27,7 @@ class RSSFeedConfig:
     url: str                    # RSS URL
     max_items: int = 0          # 最大条目数（0=不限制）
     enabled: bool = True        # 是否启用
-    max_age_days: Optional[int] = None  # 文章最大年龄（天），覆盖全局设置；None=使用全局，0=禁用过滤
+    max_age_days: int | None = None  # 文章最大年龄（天），覆盖全局设置；None=使用全局，0=禁用过滤
 
 
 class RSSFetcher:
@@ -37,7 +35,7 @@ class RSSFetcher:
 
     def __init__(
         self,
-        feeds: List[RSSFeedConfig],
+        feeds: list[RSSFeedConfig],
         request_interval: int = 2000,
         timeout: int = 15,
         use_proxy: bool = False,
@@ -90,9 +88,9 @@ class RSSFetcher:
 
     def _filter_by_freshness(
         self,
-        items: List[RSSItem],
+        items: list[RSSItem],
         feed: RSSFeedConfig,
-    ) -> Tuple[List[RSSItem], int]:
+    ) -> tuple[list[RSSItem], int]:
         """
         根据新鲜度过滤文章
 
@@ -130,7 +128,7 @@ class RSSFetcher:
         filtered_count = len(items) - len(filtered)
         return filtered, filtered_count
 
-    def fetch_feed(self, feed: RSSFeedConfig) -> Tuple[List[RSSItem], Optional[str]]:
+    def fetch_feed(self, feed: RSSFeedConfig) -> tuple[list[RSSItem], str | None]:
         """
         抓取单个 RSS 源
 
@@ -203,9 +201,9 @@ class RSSFetcher:
         Returns:
             RSSData 对象
         """
-        all_items: Dict[str, List[RSSItem]] = {}
-        id_to_name: Dict[str, str] = {}
-        failed_ids: List[str] = []
+        all_items: dict[str, list[RSSItem]] = {}
+        id_to_name: dict[str, str] = {}
+        failed_ids: list[str] = []
 
         # 使用配置的时区
         now = get_configured_time(self.timezone)
@@ -247,7 +245,7 @@ class RSSFetcher:
         )
 
     @classmethod
-    def from_config(cls, config: Dict) -> "RSSFetcher":
+    def from_config(cls, config: dict) -> "RSSFetcher":
         """
         从配置字典创建抓取器
 

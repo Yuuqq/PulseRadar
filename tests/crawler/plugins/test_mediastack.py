@@ -1,4 +1,3 @@
-# coding=utf-8
 """MediaStackPlugin tests — happy path + HTTP 500 error mode."""
 from __future__ import annotations
 

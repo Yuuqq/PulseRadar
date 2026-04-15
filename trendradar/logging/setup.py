@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 结构化日志配置
 
@@ -7,7 +6,6 @@
 
 import logging
 import sys
-from typing import Optional
 
 import structlog
 
@@ -69,7 +67,7 @@ def configure_logging(debug: bool = False, json_output: bool = False) -> None:
         logging.getLogger(noisy).setLevel(logging.WARNING)
 
 
-def get_logger(name: Optional[str] = None) -> structlog.stdlib.BoundLogger:
+def get_logger(name: str | None = None) -> structlog.stdlib.BoundLogger:
     """
     获取结构化日志实例。
 

@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 Config API routes for TrendRadar Web UI.
 

@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 TrendRadar Web UI - Flask application factory.
 
@@ -14,22 +13,21 @@ from __future__ import annotations
 import os
 import sys
 from pathlib import Path
-from typing import Optional
 
 from flask import Flask
 
+from trendradar.logging import get_logger
 from trendradar.webui.job_manager import JobManager
 from trendradar.webui.routes_config import config_bp
 from trendradar.webui.routes_jobs import jobs_bp
 from trendradar.webui.routes_misc import misc_bp
 from trendradar.webui.routes_pages import pages_bp
 from trendradar.webui.routes_workflow import workflow_bp
-from trendradar.logging import get_logger
 
 logger = get_logger(__name__)
 
 
-def create_app(config_path: Optional[str] = None, output_path: Optional[str] = None) -> Flask:
+def create_app(config_path: str | None = None, output_path: str | None = None) -> Flask:
     """Create Flask app instance."""
 
     root_dir = Path(__file__).resolve().parents[2]

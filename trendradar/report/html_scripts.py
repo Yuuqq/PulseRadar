@@ -1,4 +1,3 @@
-# coding=utf-8
 """HTML 报告脚本常量"""
 
 REPORT_JS = """

@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """
 新闻爬虫容器管理工具 - supercronic
 """
 
+import contextlib
 import os
-import sys
-import subprocess
-import time
 import signal
+import subprocess
+import sys
+import time
 from pathlib import Path
 
 # Web 服务器配置
@@ -87,20 +87,14 @@ def parse_cron_schedule(cron_expr):
             day_desc = f"每月{day}号"
         
         # 分析月份
-        if month == "*":
-            month_desc = "每月"
-        else:
-            month_desc = f"在{month}月"
+        month_desc = "每月" if month == "*" else f"在{month}月"
         
         # 分析星期
         weekday_names = {
             "0": "周日", "1": "周一", "2": "周二", "3": "周三", 
             "4": "周四", "5": "周五", "6": "周六", "7": "周日"
         }
-        if weekday == "*":
-            weekday_desc = ""
-        else:
-            weekday_desc = f"在{weekday_names.get(weekday, weekday)}"
+        weekday_desc = "" if weekday == "*" else f"在{weekday_names.get(weekday, weekday)}"
         
         # 组合描述
         if minute.startswith("*/") and hour == "*" and day == "*" and month == "*" and weekday == "*":
@@ -120,7 +114,7 @@ def parse_cron_schedule(cron_expr):
             else:
                 return f"复杂表达式: {cron_expr}"
     
-    except Exception as e:
+    except Exception:
         return f"解析失败: {cron_expr}"
 
 
@@ -132,7 +126,7 @@ def show_status():
     supercronic_is_pid1 = False
     pid1_cmdline = ""
     try:
-        with open('/proc/1/cmdline', 'r') as f:
+        with open('/proc/1/cmdline') as f:
             pid1_cmdline = f.read().replace('\x00', ' ').strip()
         print(f"  🔍 PID 1 进程: {pid1_cmdline}")
         
@@ -150,7 +144,7 @@ def show_status():
     run_mode = os.environ.get("RUN_MODE", "未设置")
     immediate_run = os.environ.get("IMMEDIATE_RUN", "未设置")
     
-    print(f"  ⚙️ 运行配置:")
+    print("  ⚙️ 运行配置:")
     print(f"    CRON_SCHEDULE: {cron_schedule}")
     
     # 解析并显示cron表达式的含义
@@ -184,7 +178,7 @@ def show_status():
             # 对于crontab文件，显示内容
             if file_path == "/tmp/crontab":
                 try:
-                    with open(file_path, 'r') as f:
+                    with open(file_path) as f:
                         crontab_content = f.read().strip()
                         print(f"         内容: {crontab_content}")
                 except:
@@ -196,14 +190,14 @@ def show_status():
     print("  ⏱️ 容器时间信息:")
     try:
         # 检查 PID 1 的启动时间
-        with open('/proc/1/stat', 'r') as f:
+        with open('/proc/1/stat') as f:
             stat_content = f.read().strip().split()
             if len(stat_content) >= 22:
                 # starttime 是第22个字段（索引21）
                 starttime_ticks = int(stat_content[21])
                 
                 # 读取系统启动时间
-                with open('/proc/stat', 'r') as stat_f:
+                with open('/proc/stat') as stat_f:
                     for line in stat_f:
                         if line.startswith('btime'):
                             boot_time = int(line.split()[1])
@@ -226,7 +220,7 @@ def show_status():
                     else:
                         print(f"    PID 1 运行时间: {uptime_minutes} 分钟 ({uptime_seconds} 秒)")
                 else:
-                    print(f"    PID 1 运行时间: 无法精确计算")
+                    print("    PID 1 运行时间: 无法精确计算")
             else:
                 print("    ❌ 无法解析 PID 1 统计信息")
     except Exception as e:
@@ -320,7 +314,7 @@ def show_config():
     if Path(crontab_file).exists():
         print("  📅 Crontab内容:")
         try:
-            with open(crontab_file, "r") as f:
+            with open(crontab_file) as f:
                 content = f.read().strip()
                 print(f"    {content}")
         except Exception as e:
@@ -430,7 +424,7 @@ def restart_supercronic():
 
     # 检查当前 PID 1
     try:
-        with open('/proc/1/cmdline', 'r') as f:
+        with open('/proc/1/cmdline') as f:
             pid1_cmdline = f.read().replace('\x00', ' ').strip()
         print(f"  🔍 当前 PID 1: {pid1_cmdline}")
 
@@ -455,7 +449,7 @@ def start_webserver():
     # 检查是否已经运行
     if Path(WEBSERVER_PID_FILE).exists():
         try:
-            with open(WEBSERVER_PID_FILE, 'r') as f:
+            with open(WEBSERVER_PID_FILE) as f:
                 old_pid = int(f.read().strip())
             try:
                 os.kill(old_pid, 0)  # 检查进程是否存在
@@ -468,10 +462,8 @@ def start_webserver():
                 os.remove(WEBSERVER_PID_FILE)
         except Exception as e:
             print(f"  ⚠️ 清理旧的 PID 文件: {e}")
-            try:
+            with contextlib.suppress(BaseException):
                 os.remove(WEBSERVER_PID_FILE)
-            except:
-                pass
 
     # 检查目录是否存在
     if not Path(WEBSERVER_DIR).exists():
@@ -505,7 +497,7 @@ def start_webserver():
             print(f"  📄 首页: http://localhost:{WEBSERVER_PORT}/index.html")
             print("  💡 停止服务: python manage.py stop_webserver")
         else:
-            print(f"  ❌ Web 服务器启动失败")
+            print("  ❌ Web 服务器启动失败")
     except Exception as e:
         print(f"  ❌ 启动失败: {e}")
 
@@ -519,7 +511,7 @@ def stop_webserver():
         return
 
     try:
-        with open(WEBSERVER_PID_FILE, 'r') as f:
+        with open(WEBSERVER_PID_FILE) as f:
             pid = int(f.read().strip())
 
         try:
@@ -546,10 +538,8 @@ def stop_webserver():
     except Exception as e:
         print(f"  ❌ 停止失败: {e}")
         # 尝试清理 PID 文件
-        try:
+        with contextlib.suppress(BaseException):
             os.remove(WEBSERVER_PID_FILE)
-        except:
-            pass
 
 
 def webserver_status():
@@ -558,11 +548,11 @@ def webserver_status():
 
     if not Path(WEBSERVER_PID_FILE).exists():
         print("  ⭕ 未运行")
-        print(f"  💡 启动服务: python manage.py start_webserver")
+        print("  💡 启动服务: python manage.py start_webserver")
         return
 
     try:
-        with open(WEBSERVER_PID_FILE, 'r') as f:
+        with open(WEBSERVER_PID_FILE) as f:
             pid = int(f.read().strip())
 
         try:
@@ -573,7 +563,7 @@ def webserver_status():
             print(f"  📄 首页: http://localhost:{WEBSERVER_PORT}/index.html")
             print("  💡 停止服务: python manage.py stop_webserver")
         except OSError:
-            print(f"  ⭕ 未运行 (PID 文件存在但进程不存在)")
+            print("  ⭕ 未运行 (PID 文件存在但进程不存在)")
             os.remove(WEBSERVER_PID_FILE)
             print("  💡 启动服务: python manage.py start_webserver")
     except Exception as e:

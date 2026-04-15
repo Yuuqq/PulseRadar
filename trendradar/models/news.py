@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 Domain data models for TrendRadar.
 
@@ -12,23 +11,22 @@ from __future__ import annotations
 from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
-from typing import Tuple
 
 # Re-export existing storage models so callers only need one import location.
-from trendradar.storage.base import NewsItem, NewsData, RSSItem, RSSData
+from trendradar.storage.base import NewsData, NewsItem, RSSData, RSSItem
 
 __all__ = [
+    "AnalysisResult",
+    "CrawlResult",
+    "JobStage",
+    "JobStatus",
+    "NewsData",
     # Re-exported from storage.base
     "NewsItem",
-    "NewsData",
-    "RSSItem",
-    "RSSData",
     # New domain models defined below
     "PlatformSource",
-    "CrawlResult",
-    "AnalysisResult",
-    "JobStatus",
-    "JobStage",
+    "RSSData",
+    "RSSItem",
     "ReportType",
 ]
 
@@ -48,9 +46,9 @@ class CrawlResult:
 
     source_id: str
     platform: str
-    items: Tuple[NewsItem, ...]
+    items: tuple[NewsItem, ...]
     fetched_at: datetime
-    errors: Tuple[str, ...] = ()
+    errors: tuple[str, ...] = ()
 
 
 @dataclass(frozen=True, slots=True)

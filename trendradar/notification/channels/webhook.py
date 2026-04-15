@@ -1,15 +1,14 @@
-# coding=utf-8
 """Generic webhook notification channel."""
 
 import json
 import time
-from typing import Any, Callable, Dict, Optional
+from collections.abc import Callable
+from typing import Any
 
 import requests
 
 from trendradar.logging import get_logger
 from trendradar.notification.channels.base import (
-    extract_ai_stats,
     prepare_batches,
     render_ai_content,
 )
@@ -19,22 +18,22 @@ logger = get_logger(__name__)
 
 def send_to_generic_webhook(
     webhook_url: str,
-    payload_template: Optional[str],
-    report_data: Dict,
+    payload_template: str | None,
+    report_data: dict,
     report_type: str,
-    update_info: Optional[Dict] = None,
-    proxy_url: Optional[str] = None,
+    update_info: dict | None = None,
+    proxy_url: str | None = None,
     mode: str = "daily",
     account_label: str = "",
     *,
     batch_size: int = 4000,
     batch_interval: float = 1.0,
-    split_content_func: Optional[Callable] = None,
-    rss_items: Optional[list] = None,
-    rss_new_items: Optional[list] = None,
+    split_content_func: Callable | None = None,
+    rss_items: list | None = None,
+    rss_new_items: list | None = None,
     ai_analysis: Any = None,
-    display_regions: Optional[Dict] = None,
-    standalone_data: Optional[Dict] = None,
+    display_regions: dict | None = None,
+    standalone_data: dict | None = None,
 ) -> bool:
     """Send report to a generic webhook (batch-aware, custom JSON template).
 

@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 AI 翻译器模块
 
@@ -6,10 +5,9 @@ AI 翻译器模块
 基于 LiteLLM 统一接口，支持 100+ AI 提供商
 """
 
-import json
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 from trendradar.ai.client import AIClient
 from trendradar.logging import get_logger
@@ -29,7 +27,7 @@ class TranslationResult:
 @dataclass
 class BatchTranslationResult:
     """批量翻译结果"""
-    results: List[TranslationResult] = field(default_factory=list)
+    results: list[TranslationResult] = field(default_factory=list)
     success_count: int = 0
     fail_count: int = 0
     total_count: int = 0
@@ -38,7 +36,7 @@ class BatchTranslationResult:
 class AITranslator:
     """AI 翻译器"""
 
-    def __init__(self, translation_config: Dict[str, Any], ai_config: Dict[str, Any]):
+    def __init__(self, translation_config: dict[str, Any], ai_config: dict[str, Any]):
         """
         初始化 AI 翻译器
 
@@ -135,7 +133,7 @@ class AITranslator:
 
         return result
 
-    def translate_batch(self, texts: List[str]) -> BatchTranslationResult:
+    def translate_batch(self, texts: list[str]) -> BatchTranslationResult:
         """
         批量翻译文本（单次 API 调用）
 
@@ -206,7 +204,7 @@ class AITranslator:
             translated_texts = self._parse_batch_response(response, len(non_empty_texts))
 
             # 填充结果
-            for idx, translated in zip(non_empty_indices, translated_texts):
+            for idx, translated in zip(non_empty_indices, translated_texts, strict=False):
                 batch_result.results[idx].translated_text = translated
                 batch_result.results[idx].success = True
                 batch_result.success_count += 1
@@ -219,14 +217,14 @@ class AITranslator:
 
         return batch_result
 
-    def _format_batch_content(self, texts: List[str]) -> str:
+    def _format_batch_content(self, texts: list[str]) -> str:
         """格式化批量翻译内容"""
         lines = []
         for i, text in enumerate(texts, 1):
             lines.append(f"[{i}] {text}")
         return "\n".join(lines)
 
-    def _parse_batch_response(self, response: str, expected_count: int) -> List[str]:
+    def _parse_batch_response(self, response: str, expected_count: int) -> list[str]:
         """
         解析批量翻译响应
 

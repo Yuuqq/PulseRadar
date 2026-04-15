@@ -1,4 +1,3 @@
-# coding=utf-8
 """Root conftest — loaded before tests/conftest.py.
 
 Applies environment-level patches that must run before any library imports.

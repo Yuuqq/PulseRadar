@@ -1,4 +1,3 @@
-# coding=utf-8
 """TongHuaShunPlugin tests — happy path (GBK HTML) + malformed HTML error."""
 from __future__ import annotations
 

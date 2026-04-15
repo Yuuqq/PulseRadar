@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 远程存储后端（S3 兼容协议）
 
@@ -7,15 +6,15 @@
 数据流程：下载当天 SQLite → 合并新数据 → 上传回远程
 """
 
-import pytz
 import re
 import shutil
+import sqlite3
 import sys
 import tempfile
-import sqlite3
 from datetime import datetime, timedelta
 from pathlib import Path
-from typing import Dict, List, Optional
+
+import pytz
 
 try:
     import boto3
@@ -28,15 +27,15 @@ except ImportError:
     BotoConfig = None
     ClientError = Exception
 
-from trendradar.storage.base import StorageBackend, NewsItem, NewsData, RSSItem, RSSData
+from trendradar.logging import get_logger
+from trendradar.storage.base import NewsData, RSSData, RSSItem, StorageBackend
 from trendradar.storage.sqlite_mixin import SQLiteStorageMixin
 from trendradar.utils.time import (
     DEFAULT_TIMEZONE,
-    get_configured_time,
     format_date_folder,
     format_time_filename,
+    get_configured_time,
 )
-from trendradar.logging import get_logger
 
 logger = get_logger(__name__)
 
@@ -63,7 +62,7 @@ class RemoteStorageBackend(SQLiteStorageMixin, StorageBackend):
         region: str = "",
         enable_txt: bool = False,  # 远程模式默认不生成 TXT
         enable_html: bool = True,
-        temp_dir: Optional[str] = None,
+        temp_dir: str | None = None,
         timezone: str = DEFAULT_TIMEZONE,
     ):
         """
@@ -119,8 +118,8 @@ class RemoteStorageBackend(SQLiteStorageMixin, StorageBackend):
         self.s3_client = boto3.client("s3", **client_kwargs)
 
         # 跟踪下载的文件（用于清理）
-        self._downloaded_files: List[Path] = []
-        self._db_connections: Dict[str, sqlite3.Connection] = {}
+        self._downloaded_files: list[Path] = []
+        self._db_connections: dict[str, sqlite3.Connection] = {}
 
         logger.info("初始化完成", backend="remote", bucket=bucket_name, signature_version=signature_version)
 
@@ -140,7 +139,7 @@ class RemoteStorageBackend(SQLiteStorageMixin, StorageBackend):
         """获取配置时区的当前时间"""
         return get_configured_time(self.timezone)
 
-    def _format_date_folder(self, date: Optional[str] = None) -> str:
+    def _format_date_folder(self, date: str | None = None) -> str:
         """格式化日期文件夹名 (ISO 格式: YYYY-MM-DD)"""
         return format_date_folder(date, self.timezone)
 
@@ -148,7 +147,7 @@ class RemoteStorageBackend(SQLiteStorageMixin, StorageBackend):
         """格式化时间文件名 (格式: HH-MM)"""
         return format_time_filename(self.timezone)
 
-    def _get_remote_db_key(self, date: Optional[str] = None, db_type: str = "news") -> str:
+    def _get_remote_db_key(self, date: str | None = None, db_type: str = "news") -> str:
         """
         获取远程存储中 SQLite 文件的对象键
 
@@ -162,7 +161,7 @@ class RemoteStorageBackend(SQLiteStorageMixin, StorageBackend):
         date_folder = self._format_date_folder(date)
         return f"{db_type}/{date_folder}.db"
 
-    def _get_local_db_path(self, date: Optional[str] = None, db_type: str = "news") -> Path:
+    def _get_local_db_path(self, date: str | None = None, db_type: str = "news") -> Path:
         """
         获取本地临时 SQLite 文件路径
 
@@ -203,7 +202,7 @@ class RemoteStorageBackend(SQLiteStorageMixin, StorageBackend):
             logger.warning("检查对象存在性异常", backend="remote", key=r2_key, error=str(e))
             return False
 
-    def _download_sqlite(self, date: Optional[str] = None, db_type: str = "news") -> Optional[Path]:
+    def _download_sqlite(self, date: str | None = None, db_type: str = "news") -> Path | None:
         """
         从远程存储下载当天的 SQLite 文件到本地临时目录
 
@@ -251,7 +250,7 @@ class RemoteStorageBackend(SQLiteStorageMixin, StorageBackend):
             logger.error("下载异常", backend="remote", key=r2_key, error=str(e))
             raise
 
-    def _upload_sqlite(self, date: Optional[str] = None, db_type: str = "news") -> bool:
+    def _upload_sqlite(self, date: str | None = None, db_type: str = "news") -> bool:
         """
         上传本地 SQLite 文件到远程存储
 
@@ -302,7 +301,7 @@ class RemoteStorageBackend(SQLiteStorageMixin, StorageBackend):
             logger.error("上传失败", backend="remote", key=r2_key, error=str(e))
             return False
 
-    def _get_connection(self, date: Optional[str] = None, db_type: str = "news") -> sqlite3.Connection:
+    def _get_connection(self, date: str | None = None, db_type: str = "news") -> sqlite3.Connection:
         """
         获取数据库连接
 
@@ -375,31 +374,31 @@ class RemoteStorageBackend(SQLiteStorageMixin, StorageBackend):
             logger.error("上传远程存储失败", backend="remote")
             return False
 
-    def get_today_all_data(self, date: Optional[str] = None) -> Optional[NewsData]:
+    def get_today_all_data(self, date: str | None = None) -> NewsData | None:
         """获取指定日期的所有新闻数据（合并后）"""
         return self._get_today_all_data_impl(date)
 
-    def get_latest_crawl_data(self, date: Optional[str] = None) -> Optional[NewsData]:
+    def get_latest_crawl_data(self, date: str | None = None) -> NewsData | None:
         """获取最新一次抓取的数据"""
         return self._get_latest_crawl_data_impl(date)
 
-    def detect_new_titles(self, current_data: NewsData) -> Dict[str, Dict]:
+    def detect_new_titles(self, current_data: NewsData) -> dict[str, dict]:
         """检测新增的标题"""
         return self._detect_new_titles_impl(current_data)
 
-    def get_previous_crawl_data(self, date: Optional[str] = None) -> Optional[NewsData]:
+    def get_previous_crawl_data(self, date: str | None = None) -> NewsData | None:
         """获取倒数第二次抓取的数据（用于趋势对比）"""
         return self._get_previous_crawl_data_impl(date)
 
-    def is_first_crawl_today(self, date: Optional[str] = None) -> bool:
+    def is_first_crawl_today(self, date: str | None = None) -> bool:
         """检查是否是当天第一次抓取"""
         return self._is_first_crawl_today_impl(date)
 
-    def has_pushed_today(self, date: Optional[str] = None) -> bool:
+    def has_pushed_today(self, date: str | None = None) -> bool:
         """检查指定日期是否已推送过"""
         return self._has_pushed_today_impl(date)
 
-    def record_push(self, report_type: str, date: Optional[str] = None) -> bool:
+    def record_push(self, report_type: str, date: str | None = None) -> bool:
         """记录推送"""
         success = self._record_push_impl(report_type, date)
 
@@ -417,11 +416,11 @@ class RemoteStorageBackend(SQLiteStorageMixin, StorageBackend):
 
         return False
 
-    def has_ai_analyzed_today(self, date: Optional[str] = None) -> bool:
+    def has_ai_analyzed_today(self, date: str | None = None) -> bool:
         """检查指定日期是否已进行过 AI 分析"""
         return self._has_ai_analyzed_today_impl(date)
 
-    def record_ai_analysis(self, analysis_mode: str, date: Optional[str] = None) -> bool:
+    def record_ai_analysis(self, analysis_mode: str, date: str | None = None) -> bool:
         """记录 AI 分析"""
         success = self._record_ai_analysis_impl(analysis_mode, date)
 
@@ -439,7 +438,7 @@ class RemoteStorageBackend(SQLiteStorageMixin, StorageBackend):
 
         return False
 
-    def reset_push_state(self, date: Optional[str] = None) -> bool:
+    def reset_push_state(self, date: str | None = None) -> bool:
         """
         重置推送状态（远程存储版本）
 
@@ -462,7 +461,7 @@ class RemoteStorageBackend(SQLiteStorageMixin, StorageBackend):
 
         return False
 
-    def reset_ai_analysis_state(self, date: Optional[str] = None) -> bool:
+    def reset_ai_analysis_state(self, date: str | None = None) -> bool:
         """
         重置 AI 分析状态（远程存储版本）
 
@@ -485,7 +484,7 @@ class RemoteStorageBackend(SQLiteStorageMixin, StorageBackend):
 
         return False
 
-    def get_push_status(self, date: Optional[str] = None) -> dict:
+    def get_push_status(self, date: str | None = None) -> dict:
         """获取推送状态详情"""
         # 确保连接已建立（会自动下载远程数据库）
         self._get_connection(date)
@@ -517,15 +516,15 @@ class RemoteStorageBackend(SQLiteStorageMixin, StorageBackend):
             logger.error("RSS 上传远程存储失败", backend="remote")
             return False
 
-    def get_rss_data(self, date: Optional[str] = None) -> Optional[RSSData]:
+    def get_rss_data(self, date: str | None = None) -> RSSData | None:
         """获取指定日期的所有 RSS 数据"""
         return self._get_rss_data_impl(date)
 
-    def detect_new_rss_items(self, current_data: RSSData) -> Dict[str, List[RSSItem]]:
+    def detect_new_rss_items(self, current_data: RSSData) -> dict[str, list[RSSItem]]:
         """检测新增的 RSS 条目"""
         return self._detect_new_rss_items_impl(current_data)
 
-    def get_latest_rss_data(self, date: Optional[str] = None) -> Optional[RSSData]:
+    def get_latest_rss_data(self, date: str | None = None) -> RSSData | None:
         """获取最新一次抓取的 RSS 数据"""
         return self._get_latest_rss_data_impl(date)
 
@@ -533,7 +532,7 @@ class RemoteStorageBackend(SQLiteStorageMixin, StorageBackend):
     # 远程特有功能：TXT/HTML 快照（临时目录）
     # ========================================
 
-    def save_txt_snapshot(self, data: NewsData) -> Optional[str]:
+    def save_txt_snapshot(self, data: NewsData) -> str | None:
         """保存 TXT 快照（远程存储模式下默认不支持）"""
         if not self.enable_txt:
             return None
@@ -579,7 +578,7 @@ class RemoteStorageBackend(SQLiteStorageMixin, StorageBackend):
             logger.error("保存 TXT 快照失败", backend="remote", error=str(e))
             return None
 
-    def save_html_report(self, html_content: str, filename: str, is_summary: bool = False) -> Optional[str]:
+    def save_html_report(self, html_content: str, filename: str, is_summary: bool = False) -> str | None:
         """保存 HTML 报告到临时目录"""
         if not self.enable_html:
             return None
@@ -790,7 +789,7 @@ class RemoteStorageBackend(SQLiteStorageMixin, StorageBackend):
         logger.info("拉取完成", backend="remote", pulled=pulled_count)
         return pulled_count
 
-    def list_remote_dates(self) -> List[str]:
+    def list_remote_dates(self) -> list[str]:
         """
         列出远程存储中所有可用的日期
 

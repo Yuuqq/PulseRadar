@@ -1,14 +1,13 @@
-# coding=utf-8
 """Email (SMTP) notification channel."""
 
 import smtplib
+from collections.abc import Callable
 from datetime import datetime
 from email.header import Header
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.utils import formataddr, formatdate, make_msgid
 from pathlib import Path
-from typing import Callable, Optional
 
 from trendradar.logging import get_logger
 
@@ -39,10 +38,10 @@ def send_to_email(
     to_email: str,
     report_type: str,
     html_file_path: str,
-    custom_smtp_server: Optional[str] = None,
-    custom_smtp_port: Optional[int] = None,
+    custom_smtp_server: str | None = None,
+    custom_smtp_port: int | None = None,
     *,
-    get_time_func: Callable = None,
+    get_time_func: Callable | None = None,
 ) -> bool:
     """Send an HTML report via SMTP email.
 
@@ -57,7 +56,7 @@ def send_to_email(
             return False
 
         logger.info("\u4f7f\u7528HTML\u6587\u4ef6", channel="email", html_file_path=html_file_path)
-        with open(html_file_path, "r", encoding="utf-8") as f:
+        with open(html_file_path, encoding="utf-8") as f:
             html_content = f.read()
 
         domain = from_email.split("@")[-1].lower()
@@ -96,7 +95,8 @@ def send_to_email(
             msg["To"] = ", ".join(recipients)
 
         now = get_time_func() if get_time_func else datetime.now()
-        subject = f"TrendRadar \u70ed\u70b9\u5206\u6790\u62a5\u544a - {report_type} - {now.strftime('%m\u6708%d\u65e5 %H:%M')}"
+        time_str = now.strftime("%m月%d日 %H:%M")
+        subject = f"TrendRadar 热点分析报告 - {report_type} - {time_str}"
         msg["Subject"] = Header(subject, "utf-8")
 
         msg["MIME-Version"] = "1.0"

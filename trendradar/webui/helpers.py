@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 Shared helpers for TrendRadar Web UI blueprints.
 
@@ -12,14 +11,13 @@ import copy
 import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Set
+from typing import Any
 from urllib.parse import quote
 
 import yaml
 from flask import current_app, request
 
 from trendradar.webui.job_manager import JobManager
-
 
 # ---------------------------------------------------------------------------
 # Job manager accessor
@@ -36,17 +34,17 @@ def get_job_manager() -> JobManager:
 # Config I/O
 # ---------------------------------------------------------------------------
 
-def load_config() -> Dict[str, Any]:
+def load_config() -> dict[str, Any]:
     """Load YAML config file."""
     try:
-        with open(current_app.config["CONFIG_FILE"], "r", encoding="utf-8") as file:
+        with open(current_app.config["CONFIG_FILE"], encoding="utf-8") as file:
             data = yaml.safe_load(file) or {}
         return data if isinstance(data, dict) else {}
     except Exception as exc:
         return {"error": str(exc)}
 
 
-def save_config(config: Dict[str, Any]) -> bool:
+def save_config(config: dict[str, Any]) -> bool:
     """Save YAML config file."""
     try:
         with open(current_app.config["CONFIG_FILE"], "w", encoding="utf-8") as file:
@@ -66,7 +64,7 @@ def save_config(config: Dict[str, Any]) -> bool:
 # Request helpers
 # ---------------------------------------------------------------------------
 
-def read_json_body() -> Optional[Dict[str, Any]]:
+def read_json_body() -> dict[str, Any] | None:
     body = request.get_json(silent=True)
     return body if isinstance(body, dict) else None
 
@@ -95,7 +93,7 @@ def normalize_workflow_scope(value: Any) -> str:
     return "all"
 
 
-def build_scoped_config(base_config: Dict[str, Any], scope: str) -> Dict[str, Any]:
+def build_scoped_config(base_config: dict[str, Any], scope: str) -> dict[str, Any]:
     cfg = copy.deepcopy(base_config)
 
     platforms = cfg.get("platforms")
@@ -115,7 +113,7 @@ def build_scoped_config(base_config: Dict[str, Any], scope: str) -> Dict[str, An
     return cfg
 
 
-def build_run_command_from_payload(payload: Optional[Dict[str, Any]]) -> List[str]:
+def build_run_command_from_payload(payload: dict[str, Any] | None) -> list[str]:
     data = payload or {}
     scope_raw = str(data.get("scope") or "all").strip().lower()
     scope = scope_raw if scope_raw in {"all", "platforms", "rss", "extra_apis"} else "all"
@@ -123,7 +121,7 @@ def build_run_command_from_payload(payload: Optional[Dict[str, Any]]) -> List[st
     force_ai = bool(data.get("force_ai"))
     force_push = bool(data.get("force_push"))
 
-    command: List[str] = [
+    command: list[str] = [
         str(current_app.config.get("PYTHON_EXECUTABLE") or "python"),
         "-m",
         "trendradar",
@@ -166,7 +164,7 @@ def build_run_command_from_payload(payload: Optional[Dict[str, Any]]) -> List[st
 # Retry command helpers
 # ---------------------------------------------------------------------------
 
-def append_flag_once(command: List[str], flag: str) -> List[str]:
+def append_flag_once(command: list[str], flag: str) -> list[str]:
     items = [str(part) for part in command]
     if flag not in items:
         items.append(flag)
@@ -174,10 +172,10 @@ def append_flag_once(command: List[str], flag: str) -> List[str]:
 
 
 def resolve_retry_command(
-    command: Optional[List[str]],
+    command: list[str] | None,
     requested_strategy: str,
-    failed_stage: Optional[str],
-) -> Dict[str, Any]:
+    failed_stage: str | None,
+) -> dict[str, Any]:
     base = command if isinstance(command, list) and command else [
         str(current_app.config.get("PYTHON_EXECUTABLE") or "python"),
         "-m",
@@ -227,7 +225,7 @@ def is_path_in_output(target_path: Path) -> bool:
     return resolved == output_root or output_root in resolved.parents
 
 
-def report_path_to_url(path_str: str) -> Optional[str]:
+def report_path_to_url(path_str: str) -> str | None:
     if not path_str:
         return None
 
@@ -257,10 +255,10 @@ def report_path_to_url(path_str: str) -> Optional[str]:
 # ---------------------------------------------------------------------------
 
 def build_stage_timeline(
-    stage_timestamps: Dict[str, Any],
-    latest_stage: Optional[str],
-    failure_stage: Optional[str],
-) -> List[Dict[str, Any]]:
+    stage_timestamps: dict[str, Any],
+    latest_stage: str | None,
+    failure_stage: str | None,
+) -> list[dict[str, Any]]:
     stage_order = ["queued", "starting", "crawl", "rss", "ai", "report", "notify", "finished"]
     stage_labels = {
         "queued": "排队",
@@ -276,7 +274,7 @@ def build_stage_timeline(
     latest_index = stage_order.index(latest_stage) if latest_stage in stage_order else -1
     failure_key = failure_stage if failure_stage in stage_order else None
 
-    timeline: List[Dict[str, Any]] = []
+    timeline: list[dict[str, Any]] = []
     for idx, key in enumerate(stage_order):
         timestamp = timestamp_map.get(key)
         has_timestamp = bool(timestamp)
@@ -294,10 +292,10 @@ def build_stage_timeline(
     return timeline
 
 
-def serialize_job(job: Dict[str, Any], include_timeline: bool = True) -> Dict[str, Any]:
+def serialize_job(job: dict[str, Any], include_timeline: bool = True) -> dict[str, Any]:
     data = dict(job)
     report_paths = data.get("report_paths") or []
-    report_links: List[Dict[str, str]] = []
+    report_links: list[dict[str, str]] = []
 
     for raw_path in report_paths:
         url = report_path_to_url(str(raw_path))
@@ -350,12 +348,12 @@ def serialize_job(job: Dict[str, Any], include_timeline: bool = True) -> Dict[st
 # Workflow template import plan
 # ---------------------------------------------------------------------------
 
-def build_workflow_template_import_plan(items: Any, replace_existing: bool) -> Dict[str, Any]:
+def build_workflow_template_import_plan(items: Any, replace_existing: bool) -> dict[str, Any]:
     if not isinstance(items, list):
         raise ValueError("items must be an array")
 
     manager = get_job_manager()
-    existing_by_name: Dict[str, Dict[str, Any]] = {}
+    existing_by_name: dict[str, dict[str, Any]] = {}
     if not replace_existing:
         for template in manager.list_workflow_templates(limit=100):
             name = str(template.get("name") or "").strip()
@@ -367,8 +365,8 @@ def build_workflow_template_import_plan(items: Any, replace_existing: bool) -> D
     considered_items = items[:100]
     overflow_skipped = max(0, received_total - len(considered_items))
 
-    seen_names: Set[str] = set()
-    entries: List[Dict[str, Any]] = []
+    seen_names: set[str] = set()
+    entries: list[dict[str, Any]] = []
     create_count = 0
     update_count = 0
     skip_count = overflow_skipped

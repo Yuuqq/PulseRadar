@@ -1,4 +1,3 @@
-# coding=utf-8
 
 from __future__ import annotations
 
@@ -14,13 +13,13 @@ if str(ROOT) not in sys.path:
 # ---------------------------------------------------------------------------
 # Phase 2 shared fixture library (TEST-04)
 # ---------------------------------------------------------------------------
-from typing import Any, Dict
+from typing import Any
 
 import pytest
 
 
 @pytest.fixture
-def mock_config(tmp_path) -> Dict[str, Any]:
+def mock_config(tmp_path) -> dict[str, Any]:
     """Minimal-valid config dict matching trendradar load_config() UPPERCASE shape.
 
     Per D-18: function-scoped, returns a fresh dict each call. Individual tests

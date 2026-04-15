@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 额外数据源并发抓取模块
 
@@ -6,7 +5,6 @@
 插件实现位于 trendradar/crawler/plugins/ 目录。
 """
 
-from typing import Dict, List, Tuple
 
 from trendradar.logging import get_logger
 
@@ -14,10 +12,10 @@ logger = get_logger(__name__)
 
 
 def crawl_extra_sources_concurrent(
-    config: Dict,
+    config: dict,
     max_workers: int = 8,
     timeout: float = 30.0,
-) -> Tuple[Dict[str, List[Dict]], List[str]]:
+) -> tuple[dict[str, list[dict]], list[str]]:
     """
     使用插件池并发获取额外数据源
 
@@ -29,8 +27,8 @@ def crawl_extra_sources_concurrent(
     Returns:
         (结果字典, 失败列表)
     """
-    from trendradar.crawler.registry import CrawlerRegistry
     from trendradar.crawler.pool import CrawlerPool
+    from trendradar.crawler.registry import CrawlerRegistry
 
     CrawlerRegistry.discover()
 
@@ -57,8 +55,8 @@ def crawl_extra_sources_concurrent(
     raw_results = pool.fetch_all(tasks)
 
     # 转换 CrawlResult → Dict[str, List[Dict]] 格式
-    results: Dict[str, List[Dict]] = {}
-    failed: List[str] = []
+    results: dict[str, list[dict]] = {}
+    failed: list[str] = []
 
     for cr in raw_results:
         if cr.success:

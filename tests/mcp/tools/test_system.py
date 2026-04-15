@@ -1,4 +1,3 @@
-# coding=utf-8
 """Handler-level tests for SystemManagementTools.
 
 Strategy: patch DataService + external HTTP; verify get_system_status shape and
@@ -6,9 +5,7 @@ check_version handles HTTP failures gracefully.
 """
 from __future__ import annotations
 
-from unittest.mock import patch, MagicMock
-
-import pytest
+from unittest.mock import MagicMock, patch
 
 from mcp_server.tools.system import SystemManagementTools
 

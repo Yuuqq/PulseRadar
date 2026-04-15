@@ -1,4 +1,3 @@
-# coding=utf-8
 """Unit tests for mcp_server.services.parser_service.ParserService.
 
 Strategy: create a minimal SQLite database in tmp_path that matches the

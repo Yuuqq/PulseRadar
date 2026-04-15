@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 AI 分析器模块
 
@@ -7,9 +6,10 @@ AI 分析器模块
 """
 
 import json
+from collections.abc import Callable
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Callable, Dict, List, Optional
+from typing import Any
 
 from trendradar.ai.client import AIClient
 from trendradar.logging import get_logger
@@ -46,8 +46,8 @@ class AIAnalyzer:
 
     def __init__(
         self,
-        ai_config: Dict[str, Any],
-        analysis_config: Dict[str, Any],
+        ai_config: dict[str, Any],
+        analysis_config: dict[str, Any],
         get_time_func: Callable,
         debug: bool = False,
     ):
@@ -117,12 +117,12 @@ class AIAnalyzer:
 
     def analyze(
         self,
-        stats: List[Dict],
-        rss_stats: Optional[List[Dict]] = None,
+        stats: list[dict],
+        rss_stats: list[dict] | None = None,
         report_mode: str = "daily",
         report_type: str = "当日汇总",
-        platforms: Optional[List[str]] = None,
-        keywords: Optional[List[str]] = None,
+        platforms: list[str] | None = None,
+        keywords: list[str] | None = None,
     ) -> AIAnalysisResult:
         """
         执行 AI 分析
@@ -239,8 +239,8 @@ class AIAnalyzer:
 
     def _prepare_news_content(
         self,
-        stats: List[Dict],
-        rss_stats: Optional[List[Dict]] = None,
+        stats: list[dict],
+        rss_stats: list[dict] | None = None,
     ) -> tuple:
         """
         准备新闻内容文本（增强版）
@@ -278,10 +278,7 @@ class AIAnalyzer:
                         source = t.get("source_name", t.get("source", ""))
 
                         # 构建行
-                        if source:
-                            line = f"- [{source}] {title}"
-                        else:
-                            line = f"- {title}"
+                        line = f"- [{source}] {title}" if source else f"- {title}"
 
                         # 始终显示简化格式：排名范围 + 时间范围 + 出现次数
                         ranks = t.get("ranks", [])
@@ -338,10 +335,7 @@ class AIAnalyzer:
                         time_display = t.get("time_display", "")
 
                         # 构建行：[来源] 标题 | 发布时间
-                        if source:
-                            line = f"- [{source}] {title}"
-                        else:
-                            line = f"- {title}"
+                        line = f"- [{source}] {title}" if source else f"- {title}"
                         if time_display:
                             line += f" | {time_display}"
                         rss_lines.append(line)
@@ -392,7 +386,7 @@ class AIAnalyzer:
             return first
         return f"{first}~{last}"
 
-    def _format_rank_timeline(self, rank_timeline: List[Dict]) -> str:
+    def _format_rank_timeline(self, rank_timeline: list[dict]) -> str:
         """格式化排名时间线"""
         if not rank_timeline:
             return "-"
@@ -426,10 +420,7 @@ class AIAnalyzer:
                 if len(parts) > 1:
                     code_block = parts[1]
                     end_idx = code_block.find("```")
-                    if end_idx != -1:
-                        json_str = code_block[:end_idx]
-                    else:
-                        json_str = code_block
+                    json_str = code_block[:end_idx] if end_idx != -1 else code_block
             elif "```" in response:
                 parts = response.split("```", 2)
                 if len(parts) >= 2:
@@ -459,11 +450,11 @@ class AIAnalyzer:
             result.core_trends = response[:500] + "..." if len(response) > 500 else response
             result.success = True
         except (IndexError, KeyError, TypeError, ValueError) as e:
-            result.error = f"响应解析错误: {type(e).__name__}: {str(e)}"
+            result.error = f"响应解析错误: {type(e).__name__}: {e!s}"
             result.core_trends = response[:500] if len(response) > 500 else response
             result.success = True
         except Exception as e:
-            result.error = f"解析时发生未知错误: {type(e).__name__}: {str(e)}"
+            result.error = f"解析时发生未知错误: {type(e).__name__}: {e!s}"
             result.core_trends = response[:500] if len(response) > 500 else response
             result.success = True
 

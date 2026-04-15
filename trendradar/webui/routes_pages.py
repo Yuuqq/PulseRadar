@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 Page (template-rendering) routes for TrendRadar Web UI.
 """

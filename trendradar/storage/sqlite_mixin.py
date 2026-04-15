@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 SQLite 存储 Mixin
 
@@ -9,11 +8,11 @@ import sqlite3
 from abc import abstractmethod
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any
 
-from trendradar.storage.base import NewsItem, NewsData, RSSItem, RSSData
-from trendradar.utils.url import normalize_url
 from trendradar.logging import get_logger
+from trendradar.storage.base import NewsData, NewsItem, RSSData, RSSItem
+from trendradar.utils.url import normalize_url
 
 logger = get_logger(__name__)
 
@@ -34,7 +33,7 @@ class SQLiteStorageMixin:
     # ========================================
 
     @abstractmethod
-    def _get_connection(self, date: Optional[str] = None, db_type: str = "news") -> sqlite3.Connection:
+    def _get_connection(self, date: str | None = None, db_type: str = "news") -> sqlite3.Connection:
         """获取数据库连接"""
         pass
 
@@ -44,7 +43,7 @@ class SQLiteStorageMixin:
         pass
 
     @abstractmethod
-    def _format_date_folder(self, date: Optional[str] = None) -> str:
+    def _format_date_folder(self, date: str | None = None) -> str:
         """格式化日期文件夹名 (ISO 格式: YYYY-MM-DD)"""
         pass
 
@@ -82,7 +81,7 @@ class SQLiteStorageMixin:
         schema_path = self._get_schema_path(db_type)
 
         if schema_path.exists():
-            with open(schema_path, "r", encoding="utf-8") as f:
+            with open(schema_path, encoding="utf-8") as f:
                 schema_sql = f.read()
             conn.executescript(schema_sql)
         else:
@@ -313,7 +312,7 @@ class SQLiteStorageMixin:
             logger.error("保存失败", error=str(e))
             return False, 0, 0, 0, 0
 
-    def _get_today_all_data_impl(self, date: Optional[str] = None) -> Optional[NewsData]:
+    def _get_today_all_data_impl(self, date: str | None = None) -> NewsData | None:
         """
         获取指定日期的所有新闻数据（合并后）
 
@@ -347,8 +346,8 @@ class SQLiteStorageMixin:
             # 批量查询排名历史（同时获取时间和排名）
             # 过滤逻辑：只保留 last_crawl_time 之前的脱榜记录（rank=0）
             # 这样可以避免显示新闻永久脱榜后的无意义记录
-            rank_history_map: Dict[int, List[int]] = {}
-            rank_timeline_map: Dict[int, List[Dict[str, Any]]] = {}
+            rank_history_map: dict[int, list[int]] = {}
+            rank_timeline_map: dict[int, list[dict[str, Any]]] = {}
             if news_ids:
                 placeholders = ",".join("?" * len(news_ids))
                 cursor.execute(f"""
@@ -379,8 +378,8 @@ class SQLiteStorageMixin:
                     })
 
             # 按 platform_id 分组
-            items: Dict[str, List[NewsItem]] = {}
-            id_to_name: Dict[str, str] = {}
+            items: dict[str, list[NewsItem]] = {}
+            id_to_name: dict[str, str] = {}
             crawl_date = self._format_date_folder(date)
 
             for row in rows:
@@ -446,7 +445,7 @@ class SQLiteStorageMixin:
             logger.error("读取数据失败", error=str(e))
             return None
 
-    def _get_latest_crawl_data_impl(self, date: Optional[str] = None) -> Optional[NewsData]:
+    def _get_latest_crawl_data_impl(self, date: str | None = None) -> NewsData | None:
         """
         获取最新一次抓取的数据
 
@@ -493,8 +492,8 @@ class SQLiteStorageMixin:
             # 批量查询排名历史（同时获取时间和排名）
             # 过滤逻辑：只保留 last_crawl_time 之前的脱榜记录（rank=0）
             # 这样可以避免显示新闻永久脱榜后的无意义记录
-            rank_history_map: Dict[int, List[int]] = {}
-            rank_timeline_map: Dict[int, List[Dict[str, Any]]] = {}
+            rank_history_map: dict[int, list[int]] = {}
+            rank_timeline_map: dict[int, list[dict[str, Any]]] = {}
             if news_ids:
                 placeholders = ",".join("?" * len(news_ids))
                 cursor.execute(f"""
@@ -524,8 +523,8 @@ class SQLiteStorageMixin:
                         "rank": rank if rank != 0 else None  # 0 转为 None 表示脱榜
                     })
 
-            items: Dict[str, List[NewsItem]] = {}
-            id_to_name: Dict[str, str] = {}
+            items: dict[str, list[NewsItem]] = {}
+            id_to_name: dict[str, str] = {}
             crawl_date = self._format_date_folder(date)
 
             for row in rows:
@@ -578,7 +577,7 @@ class SQLiteStorageMixin:
             logger.error("获取最新数据失败", error=str(e))
             return None
 
-    def _detect_new_titles_impl(self, current_data: NewsData) -> Dict[str, Dict]:
+    def _detect_new_titles_impl(self, current_data: NewsData) -> dict[str, dict]:
         """
         检测新增的标题
 
@@ -607,7 +606,7 @@ class SQLiteStorageMixin:
 
             # 收集历史标题（first_time < current_time 的标题）
             # 这样可以正确处理同一标题因 URL 变化而产生多条记录的情况
-            historical_titles: Dict[str, set] = {}
+            historical_titles: dict[str, set] = {}
             for source_id, news_list in historical_data.items.items():
                 historical_titles[source_id] = set()
                 for item in news_list:
@@ -637,7 +636,7 @@ class SQLiteStorageMixin:
             logger.error("检测新标题失败", error=str(e))
             return {}
 
-    def _is_first_crawl_today_impl(self, date: Optional[str] = None) -> bool:
+    def _is_first_crawl_today_impl(self, date: str | None = None) -> bool:
         """
         检查是否是当天第一次抓取
 
@@ -665,7 +664,7 @@ class SQLiteStorageMixin:
             logger.error("检查首次抓取失败", error=str(e))
             return True
 
-    def _get_previous_crawl_data_impl(self, date: Optional[str] = None) -> Optional[NewsData]:
+    def _get_previous_crawl_data_impl(self, date: str | None = None) -> NewsData | None:
         """
         获取倒数第二次抓取的数据（用于趋势对比）
 
@@ -710,7 +709,7 @@ class SQLiteStorageMixin:
             news_ids = [row[0] for row in rows]
 
             # 批量查询排名历史
-            rank_history_map: Dict[int, List[int]] = {}
+            rank_history_map: dict[int, list[int]] = {}
             if news_ids:
                 placeholders = ",".join("?" * len(news_ids))
                 cursor.execute(f"""
@@ -728,8 +727,8 @@ class SQLiteStorageMixin:
                     if rank != 0 and rank not in rank_history_map[news_id]:
                         rank_history_map[news_id].append(rank)
 
-            items: Dict[str, List[NewsItem]] = {}
-            id_to_name: Dict[str, str] = {}
+            items: dict[str, list[NewsItem]] = {}
+            id_to_name: dict[str, str] = {}
             crawl_date = self._format_date_folder(date)
 
             for row in rows:
@@ -779,7 +778,7 @@ class SQLiteStorageMixin:
             logger.error("获取上次抓取数据失败", error=str(e))
             return None
 
-    def _get_crawl_times_impl(self, date: Optional[str] = None) -> List[str]:
+    def _get_crawl_times_impl(self, date: str | None = None) -> list[str]:
         """
         获取指定日期的所有抓取时间列表
 
@@ -809,7 +808,7 @@ class SQLiteStorageMixin:
     # 推送记录
     # ========================================
 
-    def _has_pushed_today_impl(self, date: Optional[str] = None) -> bool:
+    def _has_pushed_today_impl(self, date: str | None = None) -> bool:
         """
         检查指定日期是否已推送过
 
@@ -838,7 +837,7 @@ class SQLiteStorageMixin:
             logger.error("检查推送记录失败", error=str(e))
             return False
 
-    def _record_push_impl(self, report_type: str, date: Optional[str] = None) -> bool:
+    def _record_push_impl(self, report_type: str, date: str | None = None) -> bool:
         """
         记录推送
 
@@ -872,7 +871,7 @@ class SQLiteStorageMixin:
             logger.error("记录推送失败", error=str(e))
             return False
 
-    def _has_ai_analyzed_today_impl(self, date: Optional[str] = None) -> bool:
+    def _has_ai_analyzed_today_impl(self, date: str | None = None) -> bool:
         """
         检查指定日期是否已进行过 AI 分析
 
@@ -901,7 +900,7 @@ class SQLiteStorageMixin:
             logger.error("检查 AI 分析记录失败", error=str(e))
             return False
 
-    def _record_ai_analysis_impl(self, analysis_mode: str, date: Optional[str] = None) -> bool:
+    def _record_ai_analysis_impl(self, analysis_mode: str, date: str | None = None) -> bool:
         """
         记录 AI 分析
 
@@ -935,7 +934,7 @@ class SQLiteStorageMixin:
             logger.error("记录 AI 分析失败", error=str(e))
             return False
 
-    def _reset_push_state_impl(self, date: Optional[str] = None) -> bool:
+    def _reset_push_state_impl(self, date: str | None = None) -> bool:
         """
         重置推送状态
 
@@ -965,7 +964,7 @@ class SQLiteStorageMixin:
             logger.error("重置推送状态失败", error=str(e))
             return False
 
-    def _reset_ai_analysis_state_impl(self, date: Optional[str] = None) -> bool:
+    def _reset_ai_analysis_state_impl(self, date: str | None = None) -> bool:
         """
         重置 AI 分析状态
 
@@ -995,7 +994,7 @@ class SQLiteStorageMixin:
             logger.error("重置 AI 分析状态失败", error=str(e))
             return False
 
-    def _get_push_status_impl(self, date: Optional[str] = None) -> dict:
+    def _get_push_status_impl(self, date: str | None = None) -> dict:
         """
         获取推送状态详情
 
@@ -1163,7 +1162,7 @@ class SQLiteStorageMixin:
                 crawl_record_id = record_row[0]
 
                 # 记录成功的源
-                for feed_id in data.items.keys():
+                for feed_id in data.items:
                     cursor.execute("""
                         INSERT OR REPLACE INTO rss_crawl_status
                         (crawl_record_id, feed_id, status)
@@ -1191,7 +1190,7 @@ class SQLiteStorageMixin:
             logger.error("保存 RSS 数据失败", error=str(e))
             return False, 0, 0
 
-    def _get_rss_data_impl(self, date: Optional[str] = None) -> Optional[RSSData]:
+    def _get_rss_data_impl(self, date: str | None = None) -> RSSData | None:
         """
         获取指定日期的所有 RSS 数据
 
@@ -1219,8 +1218,8 @@ class SQLiteStorageMixin:
             if not rows:
                 return None
 
-            items: Dict[str, List[RSSItem]] = {}
-            id_to_name: Dict[str, str] = {}
+            items: dict[str, list[RSSItem]] = {}
+            id_to_name: dict[str, str] = {}
             crawl_date = self._format_date_folder(date)
 
             for row in rows:
@@ -1276,7 +1275,7 @@ class SQLiteStorageMixin:
             logger.error("读取 RSS 数据失败", error=str(e))
             return None
 
-    def _detect_new_rss_items_impl(self, current_data: RSSData) -> Dict[str, List[RSSItem]]:
+    def _detect_new_rss_items_impl(self, current_data: RSSData) -> dict[str, list[RSSItem]]:
         """
         检测新增的 RSS 条目（增量模式）
 
@@ -1301,14 +1300,13 @@ class SQLiteStorageMixin:
             current_time = current_data.crawl_time
 
             # 收集历史 URL（first_time < current_time 的条目）
-            historical_urls: Dict[str, set] = {}
+            historical_urls: dict[str, set] = {}
             for feed_id, rss_list in historical_data.items.items():
                 historical_urls[feed_id] = set()
                 for item in rss_list:
                     first_time = getattr(item, 'first_time', item.crawl_time)
-                    if first_time < current_time:
-                        if item.url:
-                            historical_urls[feed_id].add(item.url)
+                    if first_time < current_time and item.url:
+                        historical_urls[feed_id].add(item.url)
 
             # 检查是否有历史数据
             has_historical_data = any(len(urls) > 0 for urls in historical_urls.values())
@@ -1317,7 +1315,7 @@ class SQLiteStorageMixin:
                 return {}
 
             # 检测新增
-            new_items: Dict[str, List[RSSItem]] = {}
+            new_items: dict[str, list[RSSItem]] = {}
             for feed_id, rss_list in current_data.items.items():
                 hist_set = historical_urls.get(feed_id, set())
                 for item in rss_list:
@@ -1333,7 +1331,7 @@ class SQLiteStorageMixin:
             logger.error("检测新 RSS 条目失败", error=str(e))
             return {}
 
-    def _get_latest_rss_data_impl(self, date: Optional[str] = None) -> Optional[RSSData]:
+    def _get_latest_rss_data_impl(self, date: str | None = None) -> RSSData | None:
         """
         获取最新一次抓取的 RSS 数据（当前榜单模式）
 
@@ -1375,8 +1373,8 @@ class SQLiteStorageMixin:
             if not rows:
                 return None
 
-            items: Dict[str, List[RSSItem]] = {}
-            id_to_name: Dict[str, str] = {}
+            items: dict[str, list[RSSItem]] = {}
+            id_to_name: dict[str, str] = {}
             crawl_date = self._format_date_folder(date)
 
             for row in rows:
@@ -1431,9 +1429,9 @@ class SQLiteStorageMixin:
     def _search_titles_impl(
         self,
         keyword: str,
-        date: Optional[str] = None,
+        date: str | None = None,
         limit: int = 100,
-    ) -> List[Dict]:
+    ) -> list[dict]:
         """
         在指定日期的数据库中搜索标题包含关键词的新闻条目
 

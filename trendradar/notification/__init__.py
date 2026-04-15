@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 通知推送模块
 
@@ -17,67 +16,67 @@
 - dispatcher: 多账号通知调度器
 """
 
-from trendradar.notification.push_manager import PushRecordManager
-from trendradar.notification.formatters import (
-    strip_markdown,
-    convert_markdown_to_mrkdwn,
-)
 from trendradar.notification.batch import (
+    add_batch_headers,
     get_batch_header,
     get_max_batch_header_size,
     truncate_to_bytes,
-    add_batch_headers,
-)
-from trendradar.notification.renderer import (
-    render_feishu_content,
-    render_dingtalk_content,
-)
-from trendradar.notification.splitter import (
-    split_content_into_batches,
-    DEFAULT_BATCH_SIZES,
-)
-from trendradar.notification.senders import (
-    send_to_feishu,
-    send_to_dingtalk,
-    send_to_wework,
-    send_to_telegram,
-    send_to_email,
-    send_to_ntfy,
-    send_to_bark,
-    send_to_slack,
-    send_to_generic_webhook,
-    SMTP_CONFIGS,
 )
 from trendradar.notification.dispatcher import NotificationDispatcher
+from trendradar.notification.formatters import (
+    convert_markdown_to_mrkdwn,
+    strip_markdown,
+)
+from trendradar.notification.push_manager import PushRecordManager
+from trendradar.notification.renderer import (
+    render_dingtalk_content,
+    render_feishu_content,
+)
+from trendradar.notification.senders import (
+    SMTP_CONFIGS,
+    send_to_bark,
+    send_to_dingtalk,
+    send_to_email,
+    send_to_feishu,
+    send_to_generic_webhook,
+    send_to_ntfy,
+    send_to_slack,
+    send_to_telegram,
+    send_to_wework,
+)
+from trendradar.notification.splitter import (
+    DEFAULT_BATCH_SIZES,
+    split_content_into_batches,
+)
 
 __all__ = [
+    "DEFAULT_BATCH_SIZES",
+    "SMTP_CONFIGS",
+    # 通知调度器
+    "NotificationDispatcher",
     # 推送记录管理
     "PushRecordManager",
-    # 格式转换
-    "strip_markdown",
+    "add_batch_headers",
     "convert_markdown_to_mrkdwn",
     # 批次处理
     "get_batch_header",
     "get_max_batch_header_size",
-    "truncate_to_bytes",
-    "add_batch_headers",
+    "render_dingtalk_content",
     # 内容渲染
     "render_feishu_content",
-    "render_dingtalk_content",
-    # 消息分批
-    "split_content_into_batches",
-    "DEFAULT_BATCH_SIZES",
+    "send_to_bark",
+    "send_to_dingtalk",
+    "send_to_email",
     # 消息发送器
     "send_to_feishu",
-    "send_to_dingtalk",
-    "send_to_wework",
-    "send_to_telegram",
-    "send_to_email",
-    "send_to_ntfy",
-    "send_to_bark",
-    "send_to_slack",
     "send_to_generic_webhook",
-    "SMTP_CONFIGS",
-    # 通知调度器
-    "NotificationDispatcher",
+    "send_to_ntfy",
+    "send_to_slack",
+    "send_to_telegram",
+    "send_to_wework",
+    # 消息分批
+    "split_content_into_batches",
+    # 格式转换
+    "strip_markdown",
+    "truncate_to_bytes",
 ]

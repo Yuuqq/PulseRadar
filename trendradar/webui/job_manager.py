@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 TrendRadar Web UI 任务管理器
 
@@ -7,6 +6,7 @@ TrendRadar Web UI 任务管理器
 
 from __future__ import annotations
 
+import contextlib
 import json
 import logging
 import os
@@ -16,9 +16,10 @@ import sys
 import threading
 import time
 import uuid
+from collections.abc import Sequence
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Sequence
+from typing import Any
 
 logger = logging.getLogger(__name__)
 
@@ -50,7 +51,7 @@ def _utc_now() -> str:
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
 
-def _parse_ts(value: Optional[str]) -> Optional[datetime]:
+def _parse_ts(value: str | None) -> datetime | None:
     if not value:
         return None
     try:
@@ -73,7 +74,7 @@ class JobManager:
         self.db_path = self.output_dir / "webui_jobs.db"
 
         self._lock = threading.RLock()
-        self._processes: Dict[str, subprocess.Popen] = {}
+        self._processes: dict[str, subprocess.Popen] = {}
         self._dispatcher_started = False
 
         self._init_db()
@@ -159,7 +160,7 @@ class JobManager:
             )
 
     # Whitelist of columns that may be added via ALTER TABLE (prevents SQL injection)
-    _ALLOWED_MIGRATION_COLUMNS: Dict[str, str] = {
+    _ALLOWED_MIGRATION_COLUMNS: dict[str, str] = {
         "retry_source_job_id": "TEXT",
         "retry_strategy": "TEXT",
         "retry_strategy_note": "TEXT",
@@ -258,7 +259,7 @@ class JobManager:
 
         return recovered
 
-    def _get_next_queued_job(self) -> Optional[Dict[str, Any]]:
+    def _get_next_queued_job(self) -> dict[str, Any] | None:
         with self._connect() as conn:
             row = conn.execute(
                 """
@@ -279,11 +280,11 @@ class JobManager:
 
     def create_job(
         self,
-        command: Optional[List[str]] = None,
-        retry_source_job_id: Optional[str] = None,
-        retry_strategy: Optional[str] = None,
-        retry_strategy_note: Optional[str] = None,
-    ) -> Dict[str, Any]:
+        command: list[str] | None = None,
+        retry_source_job_id: str | None = None,
+        retry_strategy: str | None = None,
+        retry_strategy_note: str | None = None,
+    ) -> dict[str, Any]:
         job_id = uuid.uuid4().hex[:12]
         now = _utc_now()
         command_list = command or [sys.executable, "-m", "trendradar"]
@@ -322,10 +323,10 @@ class JobManager:
         self._append_log(job_id, "[job] queued")
         return self.get_job(job_id) or {"id": job_id, "status": "queued"}
 
-    def enqueue_default_job(self) -> Dict[str, Any]:
+    def enqueue_default_job(self) -> dict[str, Any]:
         return self.create_job([sys.executable, "-m", "trendradar"])
 
-    def _start_job(self, job_id: str, command: List[str]) -> None:
+    def _start_job(self, job_id: str, command: list[str]) -> None:
         self._update_job(job_id, status="running", stage="starting", started_at=_utc_now(), error="")
         thread = threading.Thread(
             target=self._run_process,
@@ -334,12 +335,12 @@ class JobManager:
         )
         thread.start()
 
-    def _run_process(self, job_id: str, command: List[str]) -> None:
+    def _run_process(self, job_id: str, command: list[str]) -> None:
         env = {**os.environ, "PYTHONUTF8": "1", "PYTHONUNBUFFERED": "1"}
         command_str = " ".join(command)
         self._append_log(job_id, f"[job] start: {command_str}")
 
-        process: Optional[subprocess.Popen] = None
+        process: subprocess.Popen | None = None
         return_code = -1
         try:
             process = subprocess.Popen(
@@ -410,7 +411,7 @@ class JobManager:
             report_paths_json=json.dumps(self._collect_report_paths(), ensure_ascii=False),
         )
 
-    def _infer_stage(self, line: str) -> Optional[str]:
+    def _infer_stage(self, line: str) -> str | None:
         text = line.lower()
         if "rss" in text:
             return "rss"
@@ -424,8 +425,8 @@ class JobManager:
             return "crawl"
         return None
 
-    def _collect_report_paths(self) -> List[str]:
-        report_paths: List[str] = []
+    def _collect_report_paths(self) -> list[str]:
+        report_paths: list[str] = []
         latest_dir = self.output_dir / "html" / "latest"
         if latest_dir.exists():
             for file in sorted(latest_dir.glob("*.html")):
@@ -455,7 +456,7 @@ class JobManager:
         if not fields:
             return
         fields["updated_at"] = _utc_now()
-        invalid_keys = sorted({key for key in fields.keys() if key not in JOB_UPDATE_FIELDS})
+        invalid_keys = sorted({key for key in fields if key not in JOB_UPDATE_FIELDS})
         if invalid_keys:
             raise ValueError(f"Unsupported job fields: {', '.join(invalid_keys)}")
         keys = list(fields.keys())
@@ -468,9 +469,9 @@ class JobManager:
                 values,
             )
 
-    def _row_to_job(self, row: sqlite3.Row) -> Dict[str, Any]:
-        command: List[str] = []
-        report_paths: List[str] = []
+    def _row_to_job(self, row: sqlite3.Row) -> dict[str, Any]:
+        command: list[str] = []
+        report_paths: list[str] = []
         try:
             command = json.loads(row["command_json"] or "[]")
         except (TypeError, json.JSONDecodeError):
@@ -491,14 +492,14 @@ class JobManager:
             "duration_seconds": row["duration_seconds"],
             "exit_code": row["exit_code"],
             "error": row["error"] or "",
-            "retry_source_job_id": row["retry_source_job_id"] if "retry_source_job_id" in row.keys() else None,
-            "retry_strategy": row["retry_strategy"] if "retry_strategy" in row.keys() else None,
-            "retry_strategy_note": row["retry_strategy_note"] if "retry_strategy_note" in row.keys() else None,
+            "retry_source_job_id": row.get("retry_source_job_id", None),
+            "retry_strategy": row.get("retry_strategy", None),
+            "retry_strategy_note": row.get("retry_strategy_note", None),
             "report_paths": report_paths,
             "updated_at": row["updated_at"],
         }
 
-    def _row_to_workflow_template(self, row: sqlite3.Row) -> Dict[str, Any]:
+    def _row_to_workflow_template(self, row: sqlite3.Row) -> dict[str, Any]:
         scope_raw = str(row["scope"] or "all").strip().lower()
         scope = scope_raw if scope_raw in WORKFLOW_SCOPES else "all"
         return {
@@ -511,7 +512,7 @@ class JobManager:
             "updated_at": row["updated_at"],
         }
 
-    def list_workflow_templates(self, limit: int = 20) -> List[Dict[str, Any]]:
+    def list_workflow_templates(self, limit: int = 20) -> list[dict[str, Any]]:
         safe_limit = max(1, min(int(limit), 100))
         with self._connect() as conn:
             rows = conn.execute(
@@ -525,7 +526,7 @@ class JobManager:
             ).fetchall()
         return [self._row_to_workflow_template(row) for row in rows]
 
-    def get_workflow_template(self, template_id: str) -> Optional[Dict[str, Any]]:
+    def get_workflow_template(self, template_id: str) -> dict[str, Any] | None:
         with self._connect() as conn:
             row = conn.execute(
                 "SELECT * FROM workflow_templates WHERE id = ?",
@@ -541,8 +542,8 @@ class JobManager:
         scope: str = "all",
         force_ai: bool = False,
         force_push: bool = False,
-        template_id: Optional[str] = None,
-    ) -> Dict[str, Any]:
+        template_id: str | None = None,
+    ) -> dict[str, Any]:
         safe_name = str(name or "").strip()[:48]
         if not safe_name:
             raise ValueError("template name is required")
@@ -640,7 +641,7 @@ class JobManager:
             conn.execute("DELETE FROM workflow_templates")
         return total
 
-    def list_jobs(self, limit: int = 50) -> List[Dict[str, Any]]:
+    def list_jobs(self, limit: int = 50) -> list[dict[str, Any]]:
         safe_limit = max(1, min(int(limit), 200))
         with self._connect() as conn:
             rows = conn.execute(
@@ -658,15 +659,15 @@ class JobManager:
         self,
         page: int = 1,
         page_size: int = 20,
-        statuses: Optional[Sequence[str]] = None,
-        query: Optional[str] = None,
-    ) -> Dict[str, Any]:
+        statuses: Sequence[str] | None = None,
+        query: str | None = None,
+    ) -> dict[str, Any]:
         safe_page = max(1, int(page))
         safe_page_size = max(1, min(int(page_size), 200))
         offset = (safe_page - 1) * safe_page_size
 
-        where_clauses: List[str] = []
-        params: List[Any] = []
+        where_clauses: list[str] = []
+        params: list[Any] = []
 
         normalized_statuses = [str(status).strip().lower() for status in (statuses or []) if str(status).strip()]
         if normalized_statuses:
@@ -705,7 +706,7 @@ class JobManager:
                 ORDER BY created_at DESC
                 LIMIT ? OFFSET ?
                 """,
-                params + [safe_page_size, offset],
+                [*params, safe_page_size, offset],
             ).fetchall()
 
         total_pages = max(1, (total + safe_page_size - 1) // safe_page_size) if total else 1
@@ -718,7 +719,7 @@ class JobManager:
             "total_pages": total_pages,
         }
 
-    def get_job(self, job_id: str) -> Optional[Dict[str, Any]]:
+    def get_job(self, job_id: str) -> dict[str, Any] | None:
         with self._connect() as conn:
             row = conn.execute(
                 "SELECT * FROM jobs WHERE id = ?",
@@ -728,7 +729,7 @@ class JobManager:
             return None
         return self._row_to_job(row)
 
-    def get_job_stage_trace(self, job_id: str) -> Dict[str, Any]:
+    def get_job_stage_trace(self, job_id: str) -> dict[str, Any]:
         job = self.get_job(job_id)
         if not job:
             return {
@@ -737,7 +738,7 @@ class JobManager:
                 "failure_stage": None,
             }
 
-        stage_timestamps: Dict[str, str] = {}
+        stage_timestamps: dict[str, str] = {}
         created_at = str(job.get("created_at") or "").strip()
         started_at = str(job.get("started_at") or "").strip()
         finished_at = str(job.get("finished_at") or "").strip()
@@ -747,7 +748,7 @@ class JobManager:
         if started_at:
             stage_timestamps["starting"] = started_at
 
-        latest_inferred: Optional[str] = None
+        latest_inferred: str | None = None
         with self._connect() as conn:
             rows = conn.execute(
                 """
@@ -778,7 +779,7 @@ class JobManager:
         if status == "success" and finished_at:
             stage_timestamps["finished"] = finished_at
 
-        failure_stage: Optional[str] = None
+        failure_stage: str | None = None
         if status == "failed":
             failure_stage = latest_stage if latest_stage in JOB_STAGE_SEQUENCE and latest_stage != "finished" else None
             if not failure_stage:
@@ -790,7 +791,7 @@ class JobManager:
             "failure_stage": failure_stage,
         }
 
-    def get_job_logs(self, job_id: str, tail: Optional[int] = None) -> List[str]:
+    def get_job_logs(self, job_id: str, tail: int | None = None) -> list[str]:
         with self._connect() as conn:
             if tail is not None:
                 safe_tail = max(1, min(int(tail), 5000))
@@ -815,7 +816,7 @@ class JobManager:
                 ).fetchall()
         return [row["content"] for row in rows]
 
-    def get_run_log_text(self, job_id: Optional[str] = None) -> str:
+    def get_run_log_text(self, job_id: str | None = None) -> str:
         target = job_id
         if not target:
             latest = self.get_latest_job()
@@ -824,11 +825,11 @@ class JobManager:
             return ""
         return "\n".join(self.get_job_logs(target))
 
-    def get_latest_job(self) -> Optional[Dict[str, Any]]:
+    def get_latest_job(self) -> dict[str, Any] | None:
         jobs = self.list_jobs(limit=1)
         return jobs[0] if jobs else None
 
-    def get_running_job_id(self) -> Optional[str]:
+    def get_running_job_id(self) -> str | None:
         with self._connect() as conn:
             row = conn.execute(
                 """
@@ -843,7 +844,7 @@ class JobManager:
             return None
         return str(row["id"])
 
-    def get_queue_positions(self) -> Dict[str, int]:
+    def get_queue_positions(self) -> dict[str, int]:
         with self._connect() as conn:
             rows = conn.execute(
                 """
@@ -854,7 +855,7 @@ class JobManager:
                 """
             ).fetchall()
 
-        positions: Dict[str, int] = {}
+        positions: dict[str, int] = {}
         for index, row in enumerate(rows, start=1):
             positions[str(row["id"])] = index
         return positions
@@ -892,7 +893,7 @@ class JobManager:
 
         return len(job_ids)
 
-    def get_clearable_final_jobs_count(self, keep_latest: int = 20, limit: int = 2000) -> Dict[str, int]:
+    def get_clearable_final_jobs_count(self, keep_latest: int = 20, limit: int = 2000) -> dict[str, int]:
         safe_keep = max(0, int(keep_latest))
         safe_limit = max(1, min(int(limit), 10000))
         statuses = sorted(FINAL_STATUSES)
@@ -940,17 +941,15 @@ class JobManager:
                 process.terminate()
                 process.wait(timeout=5)
             except Exception:
-                try:
+                with contextlib.suppress(Exception):
                     process.kill()
-                except Exception:
-                    pass
 
         self._update_job(job_id, status="cancelled", stage="cancelled", finished_at=_utc_now())
         self._append_log(job_id, "[job] cancelled")
         return True
 
-    def get_legacy_status(self, job_id: Optional[str] = None) -> Dict[str, Any]:
-        target_job: Optional[Dict[str, Any]] = None
+    def get_legacy_status(self, job_id: str | None = None) -> dict[str, Any]:
+        target_job: dict[str, Any] | None = None
         if job_id:
             target_job = self.get_job(job_id)
 

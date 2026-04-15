@@ -1,4 +1,3 @@
-# coding=utf-8
 """VvhanPlugin tests — happy path (all-platforms) + empty data error mode."""
 from __future__ import annotations
 

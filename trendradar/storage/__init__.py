@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 存储模块 - 支持多种存储后端
 
@@ -9,17 +8,17 @@
 """
 
 from trendradar.storage.base import (
-    StorageBackend,
-    NewsItem,
     NewsData,
-    RSSItem,
+    NewsItem,
     RSSData,
+    RSSItem,
+    StorageBackend,
     convert_crawl_results_to_news_data,
     convert_news_data_to_results,
 )
-from trendradar.storage.sqlite_mixin import SQLiteStorageMixin
 from trendradar.storage.local import LocalStorageBackend
 from trendradar.storage.manager import StorageManager, get_storage_manager
+from trendradar.storage.sqlite_mixin import SQLiteStorageMixin
 
 # 远程后端可选导入（需要 boto3）
 try:
@@ -30,22 +29,22 @@ except ImportError:
     HAS_REMOTE = False
 
 __all__ = [
-    # 基础类
-    "StorageBackend",
-    "NewsItem",
+    "HAS_REMOTE",
+    # 后端实现
+    "LocalStorageBackend",
     "NewsData",
-    "RSSItem",
+    "NewsItem",
     "RSSData",
+    "RSSItem",
+    "RemoteStorageBackend",
     # Mixin
     "SQLiteStorageMixin",
+    # 基础类
+    "StorageBackend",
+    # 管理器
+    "StorageManager",
     # 转换函数
     "convert_crawl_results_to_news_data",
     "convert_news_data_to_results",
-    # 后端实现
-    "LocalStorageBackend",
-    "RemoteStorageBackend",
-    "HAS_REMOTE",
-    # 管理器
-    "StorageManager",
     "get_storage_manager",
 ]

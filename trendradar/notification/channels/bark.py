@@ -1,8 +1,9 @@
-# coding=utf-8
 """Bark notification channel."""
 
+import contextlib
 import time
-from typing import Any, Callable, Dict, Optional
+from collections.abc import Callable
+from typing import Any
 from urllib.parse import urlparse
 
 import requests
@@ -19,21 +20,21 @@ logger = get_logger(__name__)
 
 def send_to_bark(
     bark_url: str,
-    report_data: Dict,
+    report_data: dict,
     report_type: str,
-    update_info: Optional[Dict] = None,
-    proxy_url: Optional[str] = None,
+    update_info: dict | None = None,
+    proxy_url: str | None = None,
     mode: str = "daily",
     account_label: str = "",
     *,
     batch_size: int = 3600,
     batch_interval: float = 1.0,
-    split_content_func: Callable = None,
-    rss_items: Optional[list] = None,
-    rss_new_items: Optional[list] = None,
+    split_content_func: Callable | None = None,
+    rss_items: list | None = None,
+    rss_new_items: list | None = None,
     ai_analysis: Any = None,
-    display_regions: Optional[Dict] = None,
-    standalone_data: Optional[Dict] = None,
+    display_regions: dict | None = None,
+    standalone_data: dict | None = None,
 ) -> bool:
     """Send report to Bark (batch-aware, reversed order).
 
@@ -147,10 +148,8 @@ def send_to_bark(
                     batch=actual_batch_num, total=total_batches,
                     report_type=report_type, status_code=response.status_code,
                 )
-                try:
+                with contextlib.suppress(Exception):
                     logger.debug("\u9519\u8bef\u8be6\u60c5", channel="bark", response_text=response.text)
-                except Exception:
-                    pass
 
         except requests.exceptions.ConnectTimeout:
             logger.error(

@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 Shared helpers for notification channels.
 
@@ -8,10 +7,11 @@ Provides:
 - ``prepare_batches``: split + add batch headers in one call
 """
 
-from typing import Any, Callable, Dict, List, Optional
+from collections.abc import Callable
+from typing import Any
 
-from trendradar.notification.batch import add_batch_headers, get_max_batch_header_size
 from trendradar.logging import get_logger
+from trendradar.notification.batch import add_batch_headers, get_max_batch_header_size
 
 logger = get_logger(__name__)
 
@@ -32,7 +32,7 @@ def render_ai_content(ai_analysis: Any, channel: str) -> str:
         return ""
 
 
-def extract_ai_stats(ai_analysis: Any) -> Optional[Dict]:
+def extract_ai_stats(ai_analysis: Any) -> dict | None:
     """Return a stats dict if AI analysis succeeded, else ``None``."""
     if not ai_analysis or not getattr(ai_analysis, "success", False):
         return None
@@ -47,22 +47,22 @@ def extract_ai_stats(ai_analysis: Any) -> Optional[Dict]:
 
 
 def prepare_batches(
-    report_data: Dict,
+    report_data: dict,
     format_type: str,
     split_content_func: Callable,
-    update_info: Optional[Dict],
+    update_info: dict | None,
     batch_size: int,
     mode: str,
-    rss_items: Optional[list],
-    rss_new_items: Optional[list],
-    ai_content: Optional[str],
-    standalone_data: Optional[Dict],
-    ai_stats: Optional[Dict],
+    rss_items: list | None,
+    rss_new_items: list | None,
+    ai_content: str | None,
+    standalone_data: dict | None,
+    ai_stats: dict | None,
     report_type: str,
     *,
-    header_format_type: Optional[str] = None,
+    header_format_type: str | None = None,
     template_overhead: int = 0,
-) -> List[str]:
+) -> list[str]:
     """Split report content into batches and prepend batch headers.
 
     Parameters

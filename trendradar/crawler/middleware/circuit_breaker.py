@@ -1,8 +1,7 @@
-# coding=utf-8
 """熔断器 — 防止对持续失败的数据源反复请求"""
-import time
 import threading
-from typing import Dict
+import time
+
 from trendradar.logging import get_logger
 
 logger = get_logger(__name__)
@@ -26,9 +25,9 @@ class CircuitBreaker:
     def __init__(self, failure_threshold: int = 3, cooldown_seconds: float = 60.0):
         self._failure_threshold = failure_threshold
         self._cooldown = cooldown_seconds
-        self._states: Dict[str, str] = {}
-        self._failure_counts: Dict[str, int] = {}
-        self._last_failure_time: Dict[str, float] = {}
+        self._states: dict[str, str] = {}
+        self._failure_counts: dict[str, int] = {}
+        self._last_failure_time: dict[str, float] = {}
         self._lock = threading.Lock()
 
     def allow_request(self, key: str) -> bool:

@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 Extra-API merge shape lock test (Pitfall 3).
 

@@ -1,27 +1,26 @@
-# coding=utf-8
 """
 本地存储后端 - SQLite + TXT/HTML
 
 使用 SQLite 作为主存储，支持可选的 TXT 快照和 HTML 报告
 """
 
-import sqlite3
-import shutil
-import pytz
 import re
+import shutil
+import sqlite3
 from datetime import datetime, timedelta
 from pathlib import Path
-from typing import Dict, List, Optional
 
-from trendradar.storage.base import StorageBackend, NewsItem, NewsData, RSSItem, RSSData
+import pytz
+
+from trendradar.logging import get_logger
+from trendradar.storage.base import NewsData, RSSData, RSSItem, StorageBackend
 from trendradar.storage.sqlite_mixin import SQLiteStorageMixin
 from trendradar.utils.time import (
     DEFAULT_TIMEZONE,
-    get_configured_time,
     format_date_folder,
     format_time_filename,
+    get_configured_time,
 )
-from trendradar.logging import get_logger
 
 logger = get_logger(__name__)
 
@@ -56,7 +55,7 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
         self.enable_txt = enable_txt
         self.enable_html = enable_html
         self.timezone = timezone
-        self._db_connections: Dict[str, sqlite3.Connection] = {}
+        self._db_connections: dict[str, sqlite3.Connection] = {}
 
     @property
     def backend_name(self) -> str:
@@ -74,7 +73,7 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
         """获取配置时区的当前时间"""
         return get_configured_time(self.timezone)
 
-    def _format_date_folder(self, date: Optional[str] = None) -> str:
+    def _format_date_folder(self, date: str | None = None) -> str:
         """格式化日期文件夹名 (ISO 格式: YYYY-MM-DD)"""
         return format_date_folder(date, self.timezone)
 
@@ -82,7 +81,7 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
         """格式化时间文件名 (格式: HH-MM)"""
         return format_time_filename(self.timezone)
 
-    def _get_db_path(self, date: Optional[str] = None, db_type: str = "news") -> Path:
+    def _get_db_path(self, date: str | None = None, db_type: str = "news") -> Path:
         """
         获取 SQLite 数据库路径
 
@@ -102,7 +101,7 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
         db_dir.mkdir(parents=True, exist_ok=True)
         return db_dir / f"{date_str}.db"
 
-    def _get_connection(self, date: Optional[str] = None, db_type: str = "news") -> sqlite3.Connection:
+    def _get_connection(self, date: str | None = None, db_type: str = "news") -> sqlite3.Connection:
         """
         获取数据库连接（带缓存）
 
@@ -152,50 +151,50 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
 
         return success
 
-    def get_today_all_data(self, date: Optional[str] = None) -> Optional[NewsData]:
+    def get_today_all_data(self, date: str | None = None) -> NewsData | None:
         """获取指定日期的所有新闻数据（合并后）"""
         db_path = self._get_db_path(date)
         if not db_path.exists():
             return None
         return self._get_today_all_data_impl(date)
 
-    def get_latest_crawl_data(self, date: Optional[str] = None) -> Optional[NewsData]:
+    def get_latest_crawl_data(self, date: str | None = None) -> NewsData | None:
         """获取最新一次抓取的数据"""
         db_path = self._get_db_path(date)
         if not db_path.exists():
             return None
         return self._get_latest_crawl_data_impl(date)
 
-    def detect_new_titles(self, current_data: NewsData) -> Dict[str, Dict]:
+    def detect_new_titles(self, current_data: NewsData) -> dict[str, dict]:
         """检测新增的标题"""
         return self._detect_new_titles_impl(current_data)
 
-    def get_previous_crawl_data(self, date: Optional[str] = None) -> Optional[NewsData]:
+    def get_previous_crawl_data(self, date: str | None = None) -> NewsData | None:
         """获取倒数第二次抓取的数据（用于趋势对比）"""
         db_path = self._get_db_path(date)
         if not db_path.exists():
             return None
         return self._get_previous_crawl_data_impl(date)
 
-    def is_first_crawl_today(self, date: Optional[str] = None) -> bool:
+    def is_first_crawl_today(self, date: str | None = None) -> bool:
         """检查是否是当天第一次抓取"""
         db_path = self._get_db_path(date)
         if not db_path.exists():
             return True
         return self._is_first_crawl_today_impl(date)
 
-    def get_crawl_times(self, date: Optional[str] = None) -> List[str]:
+    def get_crawl_times(self, date: str | None = None) -> list[str]:
         """获取指定日期的所有抓取时间列表"""
         db_path = self._get_db_path(date)
         if not db_path.exists():
             return []
         return self._get_crawl_times_impl(date)
 
-    def has_pushed_today(self, date: Optional[str] = None) -> bool:
+    def has_pushed_today(self, date: str | None = None) -> bool:
         """检查指定日期是否已推送过"""
         return self._has_pushed_today_impl(date)
 
-    def record_push(self, report_type: str, date: Optional[str] = None) -> bool:
+    def record_push(self, report_type: str, date: str | None = None) -> bool:
         """记录推送"""
         success = self._record_push_impl(report_type, date)
         if success:
@@ -203,11 +202,11 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
             logger.info("推送记录已保存", backend="local", report_type=report_type, time=now_str)
         return success
 
-    def has_ai_analyzed_today(self, date: Optional[str] = None) -> bool:
+    def has_ai_analyzed_today(self, date: str | None = None) -> bool:
         """检查指定日期是否已进行过 AI 分析"""
         return self._has_ai_analyzed_today_impl(date)
 
-    def record_ai_analysis(self, analysis_mode: str, date: Optional[str] = None) -> bool:
+    def record_ai_analysis(self, analysis_mode: str, date: str | None = None) -> bool:
         """记录 AI 分析"""
         success = self._record_ai_analysis_impl(analysis_mode, date)
         if success:
@@ -215,15 +214,15 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
             logger.info("AI 分析记录已保存", backend="local", analysis_mode=analysis_mode, time=now_str)
         return success
 
-    def reset_push_state(self, date: Optional[str] = None) -> bool:
+    def reset_push_state(self, date: str | None = None) -> bool:
         """重置推送状态"""
         return self._reset_push_state_impl(date)
 
-    def reset_ai_analysis_state(self, date: Optional[str] = None) -> bool:
+    def reset_ai_analysis_state(self, date: str | None = None) -> bool:
         """重置 AI 分析状态"""
         return self._reset_ai_analysis_state_impl(date)
 
-    def get_push_status(self, date: Optional[str] = None) -> dict:
+    def get_push_status(self, date: str | None = None) -> dict:
         """获取推送状态详情"""
         return self._get_push_status_impl(date)
 
@@ -241,15 +240,15 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
 
         return success
 
-    def get_rss_data(self, date: Optional[str] = None) -> Optional[RSSData]:
+    def get_rss_data(self, date: str | None = None) -> RSSData | None:
         """获取指定日期的所有 RSS 数据"""
         return self._get_rss_data_impl(date)
 
-    def detect_new_rss_items(self, current_data: RSSData) -> Dict[str, List[RSSItem]]:
+    def detect_new_rss_items(self, current_data: RSSData) -> dict[str, list[RSSItem]]:
         """检测新增的 RSS 条目"""
         return self._detect_new_rss_items_impl(current_data)
 
-    def get_latest_rss_data(self, date: Optional[str] = None) -> Optional[RSSData]:
+    def get_latest_rss_data(self, date: str | None = None) -> RSSData | None:
         """获取最新一次抓取的 RSS 数据"""
         db_path = self._get_db_path(date, db_type="rss")
         if not db_path.exists():
@@ -265,7 +264,7 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
         keyword: str,
         days: int = 7,
         limit: int = 100,
-    ) -> List[Dict]:
+    ) -> list[dict]:
         """
         跨日期搜索标题包含关键词的新闻条目
 
@@ -287,7 +286,7 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
         now = self._get_configured_time()
         cutoff = now - timedelta(days=days)
 
-        all_results: List[Dict] = []
+        all_results: list[dict] = []
 
         for db_file in sorted(news_dir.glob("*.db"), reverse=True):
             # 从文件名解析日期
@@ -316,7 +315,7 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
     # 本地特有功能：TXT/HTML 快照
     # ========================================
 
-    def save_txt_snapshot(self, data: NewsData) -> Optional[str]:
+    def save_txt_snapshot(self, data: NewsData) -> str | None:
         """
         保存 TXT 快照
 
@@ -374,7 +373,7 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
             logger.error("保存 TXT 快照失败", backend="local", error=str(e))
             return None
 
-    def save_html_report(self, html_content: str, filename: str, is_summary: bool = False) -> Optional[str]:
+    def save_html_report(self, html_content: str, filename: str, is_summary: bool = False) -> str | None:
         """
         保存 HTML 报告
 
@@ -445,7 +444,7 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
         deleted_count = 0
         cutoff_date = self._get_configured_time() - timedelta(days=retention_days)
 
-        def parse_date_from_name(name: str) -> Optional[datetime]:
+        def parse_date_from_name(name: str) -> datetime | None:
             """从文件名或目录名解析日期 (ISO 格式: YYYY-MM-DD)"""
             # 移除 .db 后缀
             name = name.replace('.db', '')

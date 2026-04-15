@@ -1,29 +1,32 @@
-# coding=utf-8
 """
 模式策略执行与 RSS 数据按模式处理
 
 从 NewsAnalyzer 中提取的纯函数，接受显式参数而非 self。
 """
 
+import contextlib
 import webbrowser
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
 
 from trendradar.context import AppContext
-from trendradar.core.ai_service import _load_analysis_data, _prepare_current_title_info, run_ai_analysis
-from trendradar.core.pipeline import run_analysis_pipeline, prepare_standalone_data
+from trendradar.core.ai_service import (
+    _load_analysis_data,
+    _prepare_current_title_info,
+    run_ai_analysis,
+)
 from trendradar.core.notification_service import send_notification_if_needed
+from trendradar.core.pipeline import prepare_standalone_data, run_analysis_pipeline
 from trendradar.logging import get_logger
-from trendradar.utils.time import DEFAULT_TIMEZONE, is_within_days, calculate_days_old
+from trendradar.utils.time import DEFAULT_TIMEZONE, calculate_days_old, is_within_days
 
 logger = get_logger(__name__)
 
 
 def convert_rss_items_to_list(
     ctx: AppContext,
-    items_dict: Dict,
-    id_to_name: Dict,
-) -> List[Dict]:
+    items_dict: dict,
+    id_to_name: dict,
+) -> list[dict]:
     """
     将 RSS 条目字典转换为列表格式，并应用新鲜度过滤
 
@@ -51,10 +54,8 @@ def convert_rss_items_to_list(
         feed_id = feed_cfg.get("id", "")
         max_age = feed_cfg.get("max_age_days")
         if max_age is not None:
-            try:
+            with contextlib.suppress(ValueError, TypeError):
                 feed_max_age_map[feed_id] = int(max_age)
-            except (ValueError, TypeError):
-                pass
 
     for feed_id, items in items_dict.items():
         max_days = feed_max_age_map.get(feed_id)
@@ -110,7 +111,7 @@ def process_rss_data_by_mode(
     report_mode: str,
     rank_threshold: int,
     rss_data,
-) -> Tuple[Optional[List[Dict]], Optional[List[Dict]], Optional[List[Dict]]]:
+) -> tuple[list[dict] | None, list[dict] | None, list[dict] | None]:
     """
     按报告模式处理 RSS 数据，返回与热榜相同格式的统计结构
 
@@ -238,7 +239,7 @@ def process_rss_data_by_mode(
             logger.info("RSS 当日汇总模式：没有 RSS 数据")
             return None, None, None
 
-        rss_stats, total = count_rss_frequency(
+        rss_stats, _total = count_rss_frequency(
             rss_items=raw_rss_items,
             word_groups=word_groups,
             filter_words=filter_words,
@@ -278,19 +279,19 @@ def execute_mode_strategy(
     storage_manager,
     report_mode: str,
     rank_threshold: int,
-    update_info: Optional[Dict],
-    proxy_url: Optional[str],
+    update_info: dict | None,
+    proxy_url: str | None,
     is_docker_container: bool,
     should_open_browser: bool,
-    mode_strategy: Dict,
-    mode_strategies: Dict,
-    results: Dict,
-    id_to_name: Dict,
-    failed_ids: List,
-    rss_items: Optional[List[Dict]] = None,
-    rss_new_items: Optional[List[Dict]] = None,
-    raw_rss_items: Optional[List[Dict]] = None,
-) -> Optional[str]:
+    mode_strategy: dict,
+    mode_strategies: dict,
+    results: dict,
+    id_to_name: dict,
+    failed_ids: list,
+    rss_items: list[dict] | None = None,
+    rss_new_items: list[dict] | None = None,
+    raw_rss_items: list[dict] | None = None,
+) -> str | None:
     """
     执行模式特定逻辑，支持热榜+RSS合并推送
 

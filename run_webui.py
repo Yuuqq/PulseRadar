@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# coding=utf-8
 """
 TrendRadar Web UI 启动脚本
 

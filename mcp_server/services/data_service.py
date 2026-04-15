@@ -7,11 +7,10 @@
 import re
 from collections import Counter
 from datetime import datetime, timedelta
-from typing import Dict, List, Optional, Tuple
 
+from ..utils.errors import DataNotFoundError
 from .cache_service import get_cache
 from .parser_service import ParserService
-from ..utils.errors import DataNotFoundError
 
 
 class DataService:
@@ -25,15 +24,14 @@ class DataService:
         '以', '及', '等', '但', '或', '而', '于', '中', '由', '可', '可以', '已',
         '已经', '还', '更', '最', '再', '因为', '所以', '如果', '虽然', '然而',
         '什么', '怎么', '如何', '哪', '哪些', '多少', '几', '这个', '那个',
-        '他', '她', '它', '他们', '她们', '我们', '你们', '大家', '自己',
-        '这样', '那样', '怎样', '这么', '那么', '多么', '非常', '特别',
+        '他', '她', '它', '他们', '她们', '我们', '你们', '大家', '这样', '那样', '怎样', '这么', '那么', '多么', '非常', '特别',
         '应该', '可能', '能够', '需要', '必须', '一定', '肯定', '确实',
-        '正在', '已经', '曾经', '将要', '即将', '刚刚', '马上', '立刻',
+        '正在', '曾经', '将要', '即将', '刚刚', '马上', '立刻',
         '回应', '发布', '表示', '称', '曝', '官方', '最新', '重磅', '突发',
         '热搜', '刷屏', '引发', '关注', '网友', '评论', '转发', '点赞'
     }
 
-    def __init__(self, project_root: str = None):
+    def __init__(self, project_root: str | None = None):
         """
         初始化数据服务
 
@@ -45,10 +43,10 @@ class DataService:
 
     def get_latest_news(
         self,
-        platforms: Optional[List[str]] = None,
+        platforms: list[str] | None = None,
         limit: int = 50,
         include_url: bool = False
-    ) -> List[Dict]:
+    ) -> list[dict]:
         """
         获取最新一批爬取的新闻数据
 
@@ -120,10 +118,10 @@ class DataService:
     def get_news_by_date(
         self,
         target_date: datetime,
-        platforms: Optional[List[str]] = None,
+        platforms: list[str] | None = None,
         limit: int = 50,
         include_url: bool = False
-    ) -> List[Dict]:
+    ) -> list[dict]:
         """
         按指定日期获取新闻
 
@@ -155,7 +153,7 @@ class DataService:
             return cached
 
         # 读取指定日期的数据
-        all_titles, id_to_name, timestamps = self.parser.read_all_titles_for_date(
+        all_titles, id_to_name, _timestamps = self.parser.read_all_titles_for_date(
             date=target_date,
             platform_ids=platforms
         )
@@ -200,10 +198,10 @@ class DataService:
     def search_news_by_keyword(
         self,
         keyword: str,
-        date_range: Optional[Tuple[datetime, datetime]] = None,
-        platforms: Optional[List[str]] = None,
-        limit: Optional[int] = None
-    ) -> Dict:
+        date_range: tuple[datetime, datetime] | None = None,
+        platforms: list[str] | None = None,
+        limit: int | None = None
+    ) -> dict:
         """
         按关键词搜索新闻
 
@@ -298,7 +296,7 @@ class DataService:
             }
         }
 
-    def _extract_words_from_title(self, title: str, min_length: int = 2) -> List[str]:
+    def _extract_words_from_title(self, title: str, min_length: int = 2) -> list[str]:
         """
         从标题中提取有意义的词语（用于 auto_extract 模式）
 
@@ -332,7 +330,7 @@ class DataService:
         top_n: int = 10,
         mode: str = "current",
         extract_mode: str = "keywords"
-    ) -> Dict:
+    ) -> dict:
         """
         获取热点话题统计
 
@@ -358,7 +356,7 @@ class DataService:
             return cached
 
         # 读取今天的数据
-        all_titles, id_to_name, timestamps = self.parser.read_all_titles_for_date()
+        all_titles, _id_to_name, _timestamps = self.parser.read_all_titles_for_date()
 
         if not all_titles:
             raise DataNotFoundError(
@@ -379,8 +377,8 @@ class DataService:
         keyword_to_news = {}
 
         # 遍历要处理的标题
-        for platform_id, titles in titles_to_process.items():
-            for title in titles.keys():
+        for _platform_id, titles in titles_to_process.items():
+            for title in titles:
                 if extract_mode == "keywords":
                     # 基于预设关键词统计（支持正则匹配）
                     from trendradar.core.frequency import _word_matches
@@ -457,7 +455,7 @@ class DataService:
 
         return f"{mode_desc} - {extract_desc}"
 
-    def get_current_config(self, section: str = "all") -> Dict:
+    def get_current_config(self, section: str = "all") -> dict:
         """
         获取当前系统配置
 
@@ -542,7 +540,7 @@ class DataService:
 
         return result
 
-    def get_available_date_range(self) -> Tuple[Optional[datetime], Optional[datetime]]:
+    def get_available_date_range(self) -> tuple[datetime | None, datetime | None]:
         """
         扫描 output 目录，返回实际可用的日期范围
 
@@ -573,7 +571,7 @@ class DataService:
 
         return (min(available_dates), max(available_dates))
 
-    def _parse_date_folder_name(self, folder_name: str) -> Optional[datetime]:
+    def _parse_date_folder_name(self, folder_name: str) -> datetime | None:
         """
         解析日期文件夹名称（兼容中文和ISO格式）
 
@@ -613,7 +611,7 @@ class DataService:
 
         return None
 
-    def get_system_status(self) -> Dict:
+    def get_system_status(self) -> dict:
         """
         获取系统运行状态
 
@@ -626,7 +624,6 @@ class DataService:
         total_storage = 0
         oldest_record = None
         latest_record = None
-        total_news = 0
 
         if output_dir.exists():
             # 遍历日期文件夹
@@ -650,7 +647,7 @@ class DataService:
         version = "unknown"
         if version_file.exists():
             try:
-                with open(version_file, "r") as f:
+                with open(version_file) as f:
                     version = f.read().strip()
             except:
                 pass
@@ -675,11 +672,11 @@ class DataService:
 
     def get_latest_rss(
         self,
-        feeds: Optional[List[str]] = None,
+        feeds: list[str] | None = None,
         days: int = 1,
         limit: int = 50,
         include_summary: bool = False
-    ) -> List[Dict]:
+    ) -> list[dict]:
         """
         获取最新的 RSS 数据（支持多日查询）
 
@@ -767,11 +764,11 @@ class DataService:
     def search_rss(
         self,
         keyword: str,
-        feeds: Optional[List[str]] = None,
+        feeds: list[str] | None = None,
         days: int = 7,
         limit: int = 50,
         include_summary: bool = False
-    ) -> List[Dict]:
+    ) -> list[dict]:
         """
         搜索 RSS 数据（跨日期自动去重）
 
@@ -847,7 +844,7 @@ class DataService:
 
         return result
 
-    def get_rss_feeds_status(self) -> Dict:
+    def get_rss_feeds_status(self) -> dict:
         """
         获取 RSS 源状态
 

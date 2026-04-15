@@ -1,4 +1,3 @@
-# coding=utf-8
 """Handler-level tests for ArticleReaderTools.
 
 Strategy: use `responses` to intercept Jina Reader HTTP calls so tests never
@@ -11,7 +10,7 @@ from unittest.mock import patch
 import pytest
 import responses
 
-from mcp_server.tools.article_reader import ArticleReaderTools, JINA_READER_BASE
+from mcp_server.tools.article_reader import JINA_READER_BASE, ArticleReaderTools
 
 
 @pytest.fixture

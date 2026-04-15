@@ -1,17 +1,15 @@
-# coding=utf-8
 """
 CrawlCoordinator - orchestrates all data fetching operations.
 
 Extracted from NewsAnalyzer to own hotlist crawling, extra API crawling,
 RSS crawling, merge logic, and storage. Returns frozen CrawlOutput.
 """
-from typing import Dict, List, Optional, Tuple
 
 from trendradar.context import AppContext
 from trendradar.core.types import CrawlOutput, RSSOutput
 from trendradar.crawler import DataFetcher
-from trendradar.storage import convert_crawl_results_to_news_data
 from trendradar.logging import get_logger
+from trendradar.storage import convert_crawl_results_to_news_data
 
 logger = get_logger(__name__)
 
@@ -19,7 +17,7 @@ logger = get_logger(__name__)
 class CrawlCoordinator:
     """Orchestrates all crawling operations and returns frozen CrawlOutput."""
 
-    def __init__(self, ctx: AppContext, proxy_url: Optional[str] = None):
+    def __init__(self, ctx: AppContext, proxy_url: str | None = None):
         """
         Initialize CrawlCoordinator.
 
@@ -89,7 +87,7 @@ class CrawlCoordinator:
             ),
         )
 
-    def _crawl_hotlist(self) -> Tuple[Dict, Dict, List]:
+    def _crawl_hotlist(self) -> tuple[dict, dict, list]:
         """
         Crawl hotlist platforms.
 
@@ -136,7 +134,7 @@ class CrawlCoordinator:
 
         return results, id_to_name, failed_ids
 
-    def _crawl_rss(self) -> Tuple[Optional[List[Dict]], Optional[List[Dict]], Optional[List[Dict]]]:
+    def _crawl_rss(self) -> tuple[list[dict] | None, list[dict] | None, list[dict] | None]:
         """
         Crawl RSS feeds.
 
@@ -153,7 +151,7 @@ class CrawlCoordinator:
             rank_threshold=self.rank_threshold,
         )
 
-    def _crawl_extra_apis(self) -> Tuple[Dict, Dict, List]:
+    def _crawl_extra_apis(self) -> tuple[dict, dict, list]:
         """
         Crawl extra API data sources (concurrent mode).
 
@@ -175,7 +173,7 @@ class CrawlCoordinator:
             return {}, {}, []
 
         # Build id_to_name mapping from config so callers can display friendly names
-        source_names: Dict = {}
+        source_names: dict = {}
         for s in sources:
             if s.get("enabled", True):
                 sid = s.get("id", "")

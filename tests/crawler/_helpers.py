@@ -1,4 +1,3 @@
-# coding=utf-8
 """Shared assertion helpers for crawler plugin tests (Plan 02-03 / D-23)."""
 from __future__ import annotations
 

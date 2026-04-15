@@ -4,11 +4,11 @@
 实现配置查询和管理功能。
 """
 
-from typing import Dict, Optional, Any, TypedDict
+from typing import Any, TypedDict
 
 from ..services.data_service import DataService
-from ..utils.validators import validate_config_section
 from ..utils.errors import MCPError
+from ..utils.validators import validate_config_section
 
 
 class ErrorInfo(TypedDict, total=False):
@@ -21,15 +21,15 @@ class ErrorInfo(TypedDict, total=False):
 class ConfigResult(TypedDict):
     """配置查询结果 - success 字段必需，其他字段可选"""
     success: bool
-    config: Optional[Dict[str, Any]]
-    section: Optional[str]
-    error: Optional[ErrorInfo]
+    config: dict[str, Any] | None
+    section: str | None
+    error: ErrorInfo | None
 
 
 class ConfigManagementTools:
     """配置管理工具类"""
 
-    def __init__(self, project_root: str = None):
+    def __init__(self, project_root: str | None = None):
         """
         初始化配置管理工具
 
@@ -38,7 +38,7 @@ class ConfigManagementTools:
         """
         self.data_service = DataService(project_root)
 
-    def get_current_config(self, section: Optional[str] = None) -> ConfigResult:
+    def get_current_config(self, section: str | None = None) -> ConfigResult:
         """
         获取当前系统配置
 

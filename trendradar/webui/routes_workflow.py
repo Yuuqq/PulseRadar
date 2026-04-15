@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 Workflow template API routes for TrendRadar Web UI.
 

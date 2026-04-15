@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 版本检查工具
 
@@ -7,7 +6,6 @@
 
 import re
 from pathlib import Path
-from typing import Dict, Optional, Tuple
 
 import requests
 
@@ -17,7 +15,7 @@ from trendradar.logging import get_logger
 logger = get_logger(__name__)
 
 
-def parse_version(version_str: str) -> Tuple[int, int, int]:
+def parse_version(version_str: str) -> tuple[int, int, int]:
     """解析版本号字符串为元组"""
     try:
         parts = version_str.strip().split(".")
@@ -41,7 +39,7 @@ def compare_version(local: str, remote: str) -> str:
         return "已是最新"
 
 
-def fetch_remote_version(version_url: str, proxy_url: Optional[str] = None) -> Optional[str]:
+def fetch_remote_version(version_url: str, proxy_url: str | None = None) -> str | None:
     """获取远程版本号"""
     try:
         proxies = None
@@ -62,7 +60,7 @@ def fetch_remote_version(version_url: str, proxy_url: Optional[str] = None) -> O
         return None
 
 
-def parse_config_versions(content: str) -> Dict[str, str]:
+def parse_config_versions(content: str) -> dict[str, str]:
     """解析配置文件版本内容为字典"""
     versions = {}
     try:
@@ -81,9 +79,9 @@ def parse_config_versions(content: str) -> Dict[str, str]:
 
 def check_all_versions(
     version_url: str,
-    configs_version_url: Optional[str] = None,
-    proxy_url: Optional[str] = None,
-) -> Tuple[bool, Optional[str]]:
+    configs_version_url: str | None = None,
+    proxy_url: str | None = None,
+) -> tuple[bool, str | None]:
     """
     统一版本检查：程序版本 + 配置文件版本
 
@@ -127,7 +125,7 @@ def check_all_versions(
             continue
 
         try:
-            with open(config_file, "r", encoding="utf-8") as f:
+            with open(config_file, encoding="utf-8") as f:
                 local_version = None
                 for i, line in enumerate(f):
                     if i >= 20:

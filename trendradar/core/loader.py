@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 配置加载模块
 
@@ -7,18 +6,19 @@
 
 import os
 from pathlib import Path
-from typing import Dict, Any, Optional
+from typing import Any
 
 import yaml
 
-from .config import parse_multi_account_config, validate_paired_configs
-from trendradar.utils.time import DEFAULT_TIMEZONE
 from trendradar.logging import get_logger
+from trendradar.utils.time import DEFAULT_TIMEZONE
+
+from .config import parse_multi_account_config, validate_paired_configs
 
 logger = get_logger(__name__)
 
 
-def _get_env_bool(key: str, default: bool = False) -> Optional[bool]:
+def _get_env_bool(key: str, default: bool = False) -> bool | None:
     """从环境变量获取布尔值，如果未设置返回 None"""
     value = os.environ.get(key, "").strip().lower()
     if not value:
@@ -37,7 +37,7 @@ def _get_env_int(key: str, default: int = 0) -> int:
         return default
 
 
-def _get_env_int_or_none(key: str) -> Optional[int]:
+def _get_env_int_or_none(key: str) -> int | None:
     """从环境变量获取整数值，未设置时返回 None"""
     value = os.environ.get(key, "").strip()
     if not value:
@@ -59,7 +59,7 @@ def _get_env_str(key: str, default: str = "") -> str:
     return os.environ.get(key, "").strip() or default
 
 
-def _load_app_config(config_data: Dict) -> Dict:
+def _load_app_config(config_data: dict) -> dict:
     """加载应用配置"""
     app_config = config_data.get("app", {})
     advanced = config_data.get("advanced", {})
@@ -72,7 +72,7 @@ def _load_app_config(config_data: Dict) -> Dict:
     }
 
 
-def _load_crawler_config(config_data: Dict) -> Dict:
+def _load_crawler_config(config_data: dict) -> dict:
     """加载爬虫配置"""
     advanced = config_data.get("advanced", {})
     crawler_config = advanced.get("crawler", {})
@@ -86,7 +86,7 @@ def _load_crawler_config(config_data: Dict) -> Dict:
     }
 
 
-def _load_report_config(config_data: Dict) -> Dict:
+def _load_report_config(config_data: dict) -> dict:
     """加载报告配置"""
     report_config = config_data.get("report", {})
 
@@ -105,7 +105,7 @@ def _load_report_config(config_data: Dict) -> Dict:
     }
 
 
-def _load_notification_config(config_data: Dict) -> Dict:
+def _load_notification_config(config_data: dict) -> dict:
     """加载通知配置"""
     notification = config_data.get("notification", {})
     advanced = config_data.get("advanced", {})
@@ -124,7 +124,7 @@ def _load_notification_config(config_data: Dict) -> Dict:
     }
 
 
-def _load_push_window_config(config_data: Dict) -> Dict:
+def _load_push_window_config(config_data: dict) -> dict:
     """加载推送窗口配置"""
     notification = config_data.get("notification", {})
     push_window = notification.get("push_window", {})
@@ -142,7 +142,7 @@ def _load_push_window_config(config_data: Dict) -> Dict:
     }
 
 
-def _load_weight_config(config_data: Dict) -> Dict:
+def _load_weight_config(config_data: dict) -> dict:
     """加载权重配置"""
     advanced = config_data.get("advanced", {})
     weight = advanced.get("weight", {})
@@ -153,7 +153,7 @@ def _load_weight_config(config_data: Dict) -> Dict:
     }
 
 
-def _load_rss_config(config_data: Dict) -> Dict:
+def _load_rss_config(config_data: dict) -> dict:
     """加载 RSS 配置"""
     rss = config_data.get("rss", {})
     advanced = config_data.get("advanced", {})
@@ -192,7 +192,7 @@ def _load_rss_config(config_data: Dict) -> Dict:
     }
 
 
-def _load_display_config(config_data: Dict) -> Dict:
+def _load_display_config(config_data: dict) -> dict:
     """加载推送内容显示配置"""
     display = config_data.get("display", {})
     regions = display.get("regions", {})
@@ -230,7 +230,7 @@ def _load_display_config(config_data: Dict) -> Dict:
     }
 
 
-def _load_ai_config(config_data: Dict) -> Dict:
+def _load_ai_config(config_data: dict) -> dict:
     """加载 AI 模型配置（LiteLLM 格式）"""
     ai_config = config_data.get("ai", {})
 
@@ -254,7 +254,7 @@ def _load_ai_config(config_data: Dict) -> Dict:
     }
 
 
-def _load_ai_analysis_config(config_data: Dict) -> Dict:
+def _load_ai_analysis_config(config_data: dict) -> dict:
     """加载 AI 分析配置（功能配置，模型配置见 _load_ai_config）"""
     ai_config = config_data.get("ai_analysis", {})
     analysis_window = ai_config.get("analysis_window", {})
@@ -282,7 +282,7 @@ def _load_ai_analysis_config(config_data: Dict) -> Dict:
     }
 
 
-def _load_ai_translation_config(config_data: Dict) -> Dict:
+def _load_ai_translation_config(config_data: dict) -> dict:
     """加载 AI 翻译配置（功能配置，模型配置见 _load_ai_config）"""
     trans_config = config_data.get("ai_translation", {})
 
@@ -295,7 +295,7 @@ def _load_ai_translation_config(config_data: Dict) -> Dict:
     }
 
 
-def _load_storage_config(config_data: Dict) -> Dict:
+def _load_storage_config(config_data: dict) -> dict:
     """加载存储配置"""
     storage = config_data.get("storage", {})
     formats = storage.get("formats", {})
@@ -333,7 +333,7 @@ def _load_storage_config(config_data: Dict) -> Dict:
     }
 
 
-def _load_webhook_config(config_data: Dict) -> Dict:
+def _load_webhook_config(config_data: dict) -> dict:
     """加载 Webhook 配置"""
     notification = config_data.get("notification", {})
     channels = notification.get("channels", {})
@@ -380,7 +380,7 @@ def _load_webhook_config(config_data: Dict) -> Dict:
     }
 
 
-def _print_notification_sources(config: Dict) -> None:
+def _print_notification_sources(config: dict) -> None:
     """打印通知渠道配置来源信息"""
     notification_sources = []
     max_accounts = config["MAX_ACCOUNTS_PER_CHANNEL"]
@@ -462,7 +462,7 @@ def _print_notification_sources(config: Dict) -> None:
         logger.warning("未配置任何通知渠道")
 
 
-def load_config(config_path: Optional[str] = None) -> Dict[str, Any]:
+def load_config(config_path: str | None = None) -> dict[str, Any]:
     """
     加载配置文件
 
@@ -481,7 +481,7 @@ def load_config(config_path: Optional[str] = None) -> Dict[str, Any]:
     if not Path(config_path).exists():
         raise FileNotFoundError(f"配置文件 {config_path} 不存在")
 
-    with open(config_path, "r", encoding="utf-8") as f:
+    with open(config_path, encoding="utf-8") as f:
         config_data = yaml.safe_load(f) or {}
 
     logger.info("配置文件加载成功", config_path=config_path)

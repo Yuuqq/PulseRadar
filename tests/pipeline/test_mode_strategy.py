@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 Pipeline integration tests for execute_mode_strategy across all 5 mode-strategy branches.
 
@@ -14,9 +13,7 @@ Pitfall 7: Every test passes should_open_browser=False and is_docker_container=F
 from __future__ import annotations
 
 import os
-from pathlib import Path
-from typing import Dict, List, Optional
-from unittest.mock import MagicMock, patch
+from unittest.mock import MagicMock
 
 import pytest
 
@@ -48,7 +45,7 @@ def _assert_html_content(html_file: str, *markers: str) -> None:
     """
     assert html_file is not None, "html_file path should not be None"
     assert os.path.isfile(html_file), f"HTML file does not exist: {html_file}"
-    with open(html_file, "r", encoding="utf-8") as f:
+    with open(html_file, encoding="utf-8") as f:
         content = f.read()
     for marker in markers:
         assert marker in content, (

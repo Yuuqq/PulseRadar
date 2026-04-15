@@ -1,11 +1,9 @@
-# coding=utf-8
 """DailyHot 热榜 API 爬虫插件"""
 from datetime import datetime
-from typing import Dict, List, Optional
 
 import requests
 
-from trendradar.crawler.base import CrawlResult, CrawlerPlugin, FetchedItem
+from trendradar.crawler.base import CrawlerPlugin, CrawlResult, FetchedItem
 from trendradar.crawler.registry import CrawlerRegistry
 from trendradar.logging import get_logger
 
@@ -30,7 +28,7 @@ DAILYHOT_DEFAULT_PLATFORMS = (
 )
 
 
-def _normalize_items(raw_items: List[Dict], platform: str) -> List[FetchedItem]:
+def _normalize_items(raw_items: list[dict], platform: str) -> list[FetchedItem]:
     result = []
     for idx, item in enumerate(raw_items, 1):
         title = str(item.get("title") or item.get("name") or "").strip()
@@ -42,7 +40,7 @@ def _normalize_items(raw_items: List[Dict], platform: str) -> List[FetchedItem]:
     return result
 
 
-def _parse_payload(payload: Optional[Dict], fallback_platform: str) -> Dict[str, List[FetchedItem]]:
+def _parse_payload(payload: dict | None, fallback_platform: str) -> dict[str, list[FetchedItem]]:
     if not payload or payload.get("code") != 200:
         return {}
     items_data = payload.get("data")
@@ -52,7 +50,7 @@ def _parse_payload(payload: Optional[Dict], fallback_platform: str) -> Dict[str,
         normalized = _normalize_items(items_data, fallback_platform)
         return {fallback_platform: normalized} if normalized else {}
     if isinstance(items_data, dict):
-        out: Dict[str, List[FetchedItem]] = {}
+        out: dict[str, list[FetchedItem]] = {}
         for pname, raw in items_data.items():
             if isinstance(raw, list):
                 normalized = _normalize_items(raw, pname)
@@ -79,7 +77,7 @@ class DailyHotPlugin(CrawlerPlugin):
     def rate_limit(self) -> float:
         return 0.5  # 多平台拉取较慢，给足空间
 
-    def _get_json(self, url: str, params: Dict = None) -> Optional[Dict]:
+    def _get_json(self, url: str, params: dict | None = None) -> dict | None:
         try:
             resp = self._session.get(
                 url,
@@ -93,12 +91,12 @@ class DailyHotPlugin(CrawlerPlugin):
             logger.error("[DailyHotPlugin] 请求失败", url=url, error=str(exc))
             return None
 
-    def _fetch_platform(self, platform: str) -> Dict[str, List[FetchedItem]]:
+    def _fetch_platform(self, platform: str) -> dict[str, list[FetchedItem]]:
         params = {"lang": "zh", "id": platform, "size": 50}
         payload = self._get_json(DAILYHOT_BASE, params=params)
         return _parse_payload(payload, platform)
 
-    def _fetch_all_platforms(self) -> Dict[str, List[FetchedItem]]:
+    def _fetch_all_platforms(self) -> dict[str, list[FetchedItem]]:
         # Try bulk endpoint first
         params = {"lang": "zh", "size": 50}
         payload = self._get_json(DAILYHOT_BASE, params=params)
@@ -113,7 +111,7 @@ class DailyHotPlugin(CrawlerPlugin):
 
         return result
 
-    def fetch(self, source_config: Dict) -> CrawlResult:
+    def fetch(self, source_config: dict) -> CrawlResult:
         source_id = source_config.get("id", "dailyhot")
         source_name = source_config.get("name", "DailyHot")
         platform = source_config.get("platform")  # None = all platforms
@@ -135,7 +133,7 @@ class DailyHotPlugin(CrawlerPlugin):
                 )
 
             # Pack all platforms into a single CrawlResult with prefixed titles
-            all_items: List[FetchedItem] = []
+            all_items: list[FetchedItem] = []
             rank_offset = 0
             for pname, pitems in platform_map.items():
                 for fi in pitems:

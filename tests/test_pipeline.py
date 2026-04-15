@@ -1,8 +1,7 @@
-# coding=utf-8
 
 from __future__ import annotations
 
-from unittest.mock import MagicMock, patch
+from unittest.mock import MagicMock
 
 
 def _make_ctx(config_overrides=None):
@@ -175,7 +174,7 @@ def test_run_analysis_pipeline_with_ai_enabled():
     mock_ai_fn = MagicMock(return_value=mock_ai_result)
     mock_strategy_fn = MagicMock(return_value={"report_type": "daily_report", "mode_name": "Daily"})
 
-    stats, html_file, ai_result = run_analysis_pipeline(
+    _stats, _html_file, ai_result = run_analysis_pipeline(
         ctx=ctx,
         data_source={},
         mode="daily",
@@ -206,7 +205,7 @@ def test_run_analysis_pipeline_with_html_enabled():
     ctx.display_mode = "keyword"
     ctx.generate_html.return_value = "/path/to/report.html"
 
-    stats, html_file, ai_result = run_analysis_pipeline(
+    _stats, html_file, _ai_result = run_analysis_pipeline(
         ctx=ctx,
         data_source={},
         mode="current",
@@ -234,7 +233,7 @@ def test_run_analysis_pipeline_empty_stats_skips_ai():
 
     mock_ai_fn = MagicMock()
 
-    stats, html_file, ai_result = run_analysis_pipeline(
+    _stats, _html_file, ai_result = run_analysis_pipeline(
         ctx=ctx,
         data_source={},
         mode="daily",

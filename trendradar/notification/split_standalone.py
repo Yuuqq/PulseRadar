@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 独立展示区消息分批处理子模块
 
@@ -6,14 +5,17 @@
 以及热榜条目和 RSS 条目的格式化辅助函数。
 """
 
-from typing import Dict, List
 
 from trendradar.report.helpers import format_rank_display
-from trendradar.utils.time import DEFAULT_TIMEZONE, format_iso_time_friendly, convert_time_for_display
+from trendradar.utils.time import (
+    DEFAULT_TIMEZONE,
+    convert_time_for_display,
+    format_iso_time_friendly,
+)
 
 
 def _process_standalone_section(
-    standalone_data: Dict,
+    standalone_data: dict,
     format_type: str,
     feishu_separator: str,
     base_header: str,
@@ -21,7 +23,7 @@ def _process_standalone_section(
     max_bytes: int,
     current_batch: str,
     current_batch_has_content: bool,
-    batches: List[str],
+    batches: list[str],
     timezone: str = DEFAULT_TIMEZONE,
     rank_threshold: int = 10,
     add_separator: bool = True,
@@ -84,9 +86,7 @@ def _process_standalone_section(
             section_header = f"\n\n📋 **独立展示区** (共 {total_items} 条)\n\n"
     else:
         # 不需要分割线（第一个区域）
-        if format_type == "feishu":
-            section_header = f"📋 **独立展示区** (共 {total_items} 条)\n\n"
-        elif format_type == "dingtalk":
+        if format_type == "feishu" or format_type == "dingtalk":
             section_header = f"📋 **独立展示区** (共 {total_items} 条)\n\n"
         elif format_type == "telegram":
             section_header = f"📋 独立展示区 (共 {total_items} 条)\n\n"
@@ -119,11 +119,7 @@ def _process_standalone_section(
             platform_header = f"**{platform_name}** ({len(items)} 条):\n\n"
         elif format_type == "telegram":
             platform_header = f"{platform_name} ({len(items)} 条):\n\n"
-        elif format_type == "ntfy":
-            platform_header = f"**{platform_name}** ({len(items)} 条):\n\n"
-        elif format_type == "feishu":
-            platform_header = f"**{platform_name}** ({len(items)} 条):\n\n"
-        elif format_type == "dingtalk":
+        elif format_type == "ntfy" or format_type == "feishu" or format_type == "dingtalk":
             platform_header = f"**{platform_name}** ({len(items)} 条):\n\n"
         elif format_type == "slack":
             platform_header = f"*{platform_name}* ({len(items)} 条):\n\n"
@@ -177,11 +173,7 @@ def _process_standalone_section(
             feed_header = f"**{feed_name}** ({len(items)} 条):\n\n"
         elif format_type == "telegram":
             feed_header = f"{feed_name} ({len(items)} 条):\n\n"
-        elif format_type == "ntfy":
-            feed_header = f"**{feed_name}** ({len(items)} 条):\n\n"
-        elif format_type == "feishu":
-            feed_header = f"**{feed_name}** ({len(items)} 条):\n\n"
-        elif format_type == "dingtalk":
+        elif format_type == "ntfy" or format_type == "feishu" or format_type == "dingtalk":
             feed_header = f"**{feed_name}** ({len(items)} 条):\n\n"
         elif format_type == "slack":
             feed_header = f"*{feed_name}* ({len(items)} 条):\n\n"
@@ -225,7 +217,7 @@ def _process_standalone_section(
     return current_batch, current_batch_has_content, batches
 
 
-def _format_standalone_platform_item(item: Dict, index: int, format_type: str, rank_threshold: int = 10) -> str:
+def _format_standalone_platform_item(item: dict, index: int, format_type: str, rank_threshold: int = 10) -> str:
     """格式化独立展示区的热榜条目（复用热点词汇统计区样式）
 
     Args:
@@ -266,10 +258,7 @@ def _format_standalone_platform_item(item: Dict, index: int, format_type: str, r
 
     # 根据格式类型构建条目行（复用热点词汇统计区样式）
     if format_type == "feishu":
-        if url:
-            item_line = f"  {index}. [{title}]({url})"
-        else:
-            item_line = f"  {index}. {title}"
+        item_line = f"  {index}. [{title}]({url})" if url else f"  {index}. {title}"
         if rank_display:
             item_line += f" {rank_display}"
         if time_display:
@@ -278,10 +267,7 @@ def _format_standalone_platform_item(item: Dict, index: int, format_type: str, r
             item_line += f" <font color='green'>{count_display}</font>"
 
     elif format_type == "dingtalk":
-        if url:
-            item_line = f"  {index}. [{title}]({url})"
-        else:
-            item_line = f"  {index}. {title}"
+        item_line = f"  {index}. [{title}]({url})" if url else f"  {index}. {title}"
         if rank_display:
             item_line += f" {rank_display}"
         if time_display:
@@ -290,10 +276,7 @@ def _format_standalone_platform_item(item: Dict, index: int, format_type: str, r
             item_line += f" {count_display}"
 
     elif format_type == "telegram":
-        if url:
-            item_line = f"  {index}. {title} ({url})"
-        else:
-            item_line = f"  {index}. {title}"
+        item_line = f"  {index}. {title} ({url})" if url else f"  {index}. {title}"
         if rank_display:
             item_line += f" {rank_display}"
         if time_display:
@@ -302,10 +285,7 @@ def _format_standalone_platform_item(item: Dict, index: int, format_type: str, r
             item_line += f" {count_display}"
 
     elif format_type == "slack":
-        if url:
-            item_line = f"  {index}. <{url}|{title}>"
-        else:
-            item_line = f"  {index}. {title}"
+        item_line = f"  {index}. <{url}|{title}>" if url else f"  {index}. {title}"
         if rank_display:
             item_line += f" {rank_display}"
         if time_display:
@@ -315,10 +295,7 @@ def _format_standalone_platform_item(item: Dict, index: int, format_type: str, r
 
     else:
         # wework, bark, ntfy
-        if url:
-            item_line = f"  {index}. [{title}]({url})"
-        else:
-            item_line = f"  {index}. {title}"
+        item_line = f"  {index}. [{title}]({url})" if url else f"  {index}. {title}"
         if rank_display:
             item_line += f" {rank_display}"
         if time_display:
@@ -331,7 +308,7 @@ def _format_standalone_platform_item(item: Dict, index: int, format_type: str, r
 
 
 def _format_standalone_rss_item(
-    item: Dict, index: int, format_type: str, timezone: str = "Asia/Shanghai"
+    item: dict, index: int, format_type: str, timezone: str = "Asia/Shanghai"
 ) -> str:
     """格式化独立展示区的 RSS 条目
 
@@ -364,32 +341,20 @@ def _format_standalone_rss_item(
 
     # 根据格式类型构建条目行
     if format_type == "feishu":
-        if url:
-            item_line = f"  {index}. [{title}]({url})"
-        else:
-            item_line = f"  {index}. {title}"
+        item_line = f"  {index}. [{title}]({url})" if url else f"  {index}. {title}"
         if meta_str:
             item_line += f" <font color='grey'>- {meta_str}</font>"
     elif format_type == "telegram":
-        if url:
-            item_line = f"  {index}. {title} ({url})"
-        else:
-            item_line = f"  {index}. {title}"
+        item_line = f"  {index}. {title} ({url})" if url else f"  {index}. {title}"
         if meta_str:
             item_line += f" - {meta_str}"
     elif format_type == "slack":
-        if url:
-            item_line = f"  {index}. <{url}|{title}>"
-        else:
-            item_line = f"  {index}. {title}"
+        item_line = f"  {index}. <{url}|{title}>" if url else f"  {index}. {title}"
         if meta_str:
             item_line += f" _{meta_str}_"
     else:
         # wework, bark, ntfy, dingtalk
-        if url:
-            item_line = f"  {index}. [{title}]({url})"
-        else:
-            item_line = f"  {index}. {title}"
+        item_line = f"  {index}. [{title}]({url})" if url else f"  {index}. {title}"
         if meta_str:
             item_line += f" `{meta_str}`"
 

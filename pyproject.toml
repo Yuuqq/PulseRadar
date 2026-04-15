@@ -67,3 +67,48 @@ omit = [
 
 [tool.coverage.xml]
 output = "coverage.xml"
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+exclude = [
+    ".git",
+    ".venv",
+    "__pycache__",
+    "*.egg-info",
+    "output",
+    "_image",
+]
+
+[tool.ruff.lint]
+select = [
+    "I",    # isort
+    "F",    # Pyflakes
+    "E",    # pycodestyle errors
+    "UP",   # pyupgrade
+    "B",    # flake8-bugbear
+    "SIM",  # flake8-simplify
+    "RUF",  # Ruff-specific rules
+]
+# Pragmatic ignores for Chinese-language project
+ignore = [
+    "RUF001",  # ambiguous-unicode-character-string (Chinese chars intentional)
+    "RUF002",  # ambiguous-unicode-character-docstring (Chinese docs intentional)
+    "RUF003",  # ambiguous-unicode-character-comment (Chinese comments intentional)
+    "E501",    # line-too-long (incremental fix, not blocking)
+    "E722",    # bare-except (legacy code, future refactoring)
+    "E402",    # module-import-not-at-top-of-file (test fixtures need specific order)
+    "B034",    # re-split-positional-args (legacy code, incremental fix)
+    "B027",    # empty-method-without-abstract-decorator (optional hook pattern)
+    "B904",    # raise-without-from-inside-except (legacy code)
+    "B007",    # unused-loop-control-variable (readability preference)
+    "SIM102",  # collapsible-if (readability preference)
+    "SIM105",  # suppressible-exception (explicit is clearer)
+    "SIM108",  # if-else-block-instead-of-if-exp (readability preference)
+    "RUF012",  # mutable-class-default (incremental fix)
+    "RUF034",  # useless-if-else (minor issue, incremental fix)
+    "RUF059",  # unused-unpacked-variable (incremental fix)
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["trendradar", "mcp_server"]

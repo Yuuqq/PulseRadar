@@ -1,4 +1,3 @@
-# coding=utf-8
 """Handler-level tests for DataQueryTools.
 
 Strategy: patch mcp_server.tools.data_query.DataService to avoid going through
@@ -7,9 +6,7 @@ surface directly (D-10: tool class methods, not async wrappers).
 """
 from __future__ import annotations
 
-from unittest.mock import patch, MagicMock
-
-import pytest
+from unittest.mock import MagicMock, patch
 
 from mcp_server.tools.data_query import DataQueryTools
 

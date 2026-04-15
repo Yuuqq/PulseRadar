@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 数据处理模块
 
@@ -10,17 +9,18 @@
 Author: TrendRadar Team
 """
 
+from collections.abc import Callable
 from pathlib import Path
-from typing import Dict, List, Tuple, Optional, Callable
+
 from trendradar.logging import get_logger
 
 logger = get_logger(__name__)
 
 
 def save_titles_to_file(
-    results: Dict,
-    id_to_name: Dict,
-    failed_ids: List,
+    results: dict,
+    id_to_name: dict,
+    failed_ids: list,
     output_path: str,
     clean_title_func: Callable[[str], str],
 ) -> str:
@@ -88,8 +88,8 @@ def save_titles_to_file(
 
 def read_all_today_titles_from_storage(
     storage_manager,
-    current_platform_ids: Optional[List[str]] = None,
-) -> Tuple[Dict, Dict, Dict]:
+    current_platform_ids: list[str] | None = None,
+) -> tuple[dict, dict, dict]:
     """
     从存储后端读取当天所有标题（SQLite 数据）
 
@@ -156,9 +156,9 @@ def read_all_today_titles_from_storage(
 
 def read_all_today_titles(
     storage_manager,
-    current_platform_ids: Optional[List[str]] = None,
+    current_platform_ids: list[str] | None = None,
     quiet: bool = False,
-) -> Tuple[Dict, Dict, Dict]:
+) -> tuple[dict, dict, dict]:
     """
     读取当天所有标题（从存储后端）
 
@@ -186,8 +186,8 @@ def read_all_today_titles(
 
 def detect_latest_new_titles_from_storage(
     storage_manager,
-    current_platform_ids: Optional[List[str]] = None,
-) -> Dict:
+    current_platform_ids: list[str] | None = None,
+) -> dict:
     """
     从存储后端检测最新批次的新增标题
 
@@ -271,9 +271,9 @@ def detect_latest_new_titles_from_storage(
 
 def detect_latest_new_titles(
     storage_manager,
-    current_platform_ids: Optional[List[str]] = None,
+    current_platform_ids: list[str] | None = None,
     quiet: bool = False,
-) -> Dict:
+) -> dict:
     """
     检测当日最新批次的新增标题（从存储后端）
 

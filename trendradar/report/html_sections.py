@@ -1,14 +1,12 @@
-# coding=utf-8
 """HTML 报告区块渲染函数"""
 
 from datetime import datetime as dt
-from typing import Dict, List, Optional
 
 from trendradar.report.helpers import html_escape
 from trendradar.utils.time import convert_time_for_display
 
 
-def build_hotlist_view(stats: List[Dict], view_mode: str) -> str:
+def build_hotlist_view(stats: list[dict], view_mode: str) -> str:
     """构建热榜视图（关键词/平台）"""
     if not stats:
         return ""
@@ -48,7 +46,7 @@ def build_hotlist_view(stats: List[Dict], view_mode: str) -> str:
             new_class = "new" if is_new else ""
             source_name = html_escape(title_data.get("source_name", ""))
             matched_keyword = title_data.get("matched_keyword", "")
-            keyword_label = html_escape(matched_keyword) if matched_keyword else escaped_word
+            html_escape(matched_keyword) if matched_keyword else escaped_word
 
             search_blob = f"{title_data.get('title', '')} {title_data.get('source_name', '')} {matched_keyword} {stat['word']}"
             search_attr = html_escape(search_blob.lower())
@@ -82,10 +80,7 @@ def build_hotlist_view(stats: List[Dict], view_mode: str) -> str:
                 else:
                     rank_class = ""
 
-                if min_rank == max_rank:
-                    rank_text = str(min_rank)
-                else:
-                    rank_text = f"{min_rank}-{max_rank}"
+                rank_text = str(min_rank) if min_rank == max_rank else f"{min_rank}-{max_rank}"
 
                 stats_html += f'<span class="rank-num {rank_class}">{rank_text}</span>'
 
@@ -147,7 +142,7 @@ def build_hotlist_view(stats: List[Dict], view_mode: str) -> str:
                 </div>"""
 
 
-def render_rss_stats_html(stats: List[Dict], title: str = "RSS 订阅更新") -> str:
+def render_rss_stats_html(stats: list[dict], title: str = "RSS 订阅更新") -> str:
     """渲染 RSS 统计区块 HTML
 
     Args:
@@ -246,7 +241,7 @@ def render_rss_stats_html(stats: List[Dict], title: str = "RSS 订阅更新") ->
     return rss_html
 
 
-def render_standalone_html(data: Optional[Dict]) -> str:
+def render_standalone_html(data: dict | None) -> str:
     """渲染独立展示区 HTML（复用热点词汇统计区样式）
 
     Args:
@@ -355,10 +350,7 @@ def render_standalone_html(data: Optional[Dict]) -> str:
                 else:
                     rank_class = ""
 
-                if min_rank == max_rank:
-                    rank_text = str(min_rank)
-                else:
-                    rank_text = f"{min_rank}-{max_rank}"
+                rank_text = str(min_rank) if min_rank == max_rank else f"{min_rank}-{max_rank}"
 
                 standalone_html += f'<span class="rank-num {rank_class}">{rank_text}</span>'
             elif rank > 0:

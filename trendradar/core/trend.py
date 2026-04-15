@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 趋势分析模块 -- 跨周期趋势检测与对比
 
@@ -9,9 +8,8 @@ Compare crawl results across two time periods to detect:
 - Disappeared topics (dropped off between periods)
 """
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from datetime import datetime
-from typing import Dict, List, Optional, Tuple
 
 from trendradar.logging import get_logger
 
@@ -24,10 +22,10 @@ class TrendItem:
 
     title: str
     current_rank: int
-    previous_rank: Optional[int]  # None = newly appeared
+    previous_rank: int | None  # None = newly appeared
     rank_change: int              # positive = improved, negative = dropped
     platform_count: int
-    platforms: Tuple[str, ...]
+    platforms: tuple[str, ...]
     is_new: bool
     is_rising: bool
     heat_score: float
@@ -40,12 +38,12 @@ class TrendReport:
     generated_at: datetime
     current_period: str
     previous_period: str
-    new_trends: List[TrendItem]
-    rising_trends: List[TrendItem]
-    falling_trends: List[TrendItem]
-    stable_trends: List[TrendItem]
-    disappeared: List[str]
-    cross_platform: List[TrendItem]
+    new_trends: list[TrendItem]
+    rising_trends: list[TrendItem]
+    falling_trends: list[TrendItem]
+    stable_trends: list[TrendItem]
+    disappeared: list[str]
+    cross_platform: list[TrendItem]
     total_current: int
     total_previous: int
 
@@ -70,9 +68,9 @@ class TrendAnalyzer:
 
     def compare_periods(
         self,
-        current_results: Dict[str, Dict],
-        previous_results: Dict[str, Dict],
-        id_to_name: Optional[Dict[str, str]] = None,
+        current_results: dict[str, dict],
+        previous_results: dict[str, dict],
+        id_to_name: dict[str, str] | None = None,
         current_period_label: str = "",
         previous_period_label: str = "",
     ) -> TrendReport:
@@ -94,11 +92,11 @@ class TrendAnalyzer:
         current_topics = self._build_topic_index(current_results, id_to_name)
         previous_topics = self._build_topic_index(previous_results, id_to_name)
 
-        new_trends: List[TrendItem] = []
-        rising_trends: List[TrendItem] = []
-        falling_trends: List[TrendItem] = []
-        stable_trends: List[TrendItem] = []
-        cross_platform: List[TrendItem] = []
+        new_trends: list[TrendItem] = []
+        rising_trends: list[TrendItem] = []
+        falling_trends: list[TrendItem] = []
+        stable_trends: list[TrendItem] = []
+        cross_platform: list[TrendItem] = []
 
         for title, (best_rank, platforms) in current_topics.items():
             platform_count = len(platforms)
@@ -185,16 +183,16 @@ class TrendAnalyzer:
 
     @staticmethod
     def _build_topic_index(
-        results: Dict[str, Dict],
-        id_to_name: Dict[str, str],
-    ) -> Dict[str, Tuple[int, List[str]]]:
+        results: dict[str, dict],
+        id_to_name: dict[str, str],
+    ) -> dict[str, tuple[int, list[str]]]:
         """
         Flatten crawl results into ``{title: (best_rank, [platform_names])}``.
 
         Each title keeps only its best (lowest) rank across all platforms
         where it appeared.
         """
-        index: Dict[str, Tuple[int, List[str]]] = {}
+        index: dict[str, tuple[int, list[str]]] = {}
 
         for platform_id, titles in results.items():
             platform_name = id_to_name.get(platform_id, platform_id)
@@ -212,7 +210,7 @@ class TrendAnalyzer:
                     existing_rank, existing_platforms = index[title]
                     index[title] = (
                         min(existing_rank, best_rank),
-                        existing_platforms + [platform_name],
+                        [*existing_platforms, platform_name],
                     )
                 else:
                     index[title] = (best_rank, [platform_name])

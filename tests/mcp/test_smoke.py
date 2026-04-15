@@ -1,4 +1,3 @@
-# coding=utf-8
 from __future__ import annotations
 
 import asyncio
@@ -16,6 +15,7 @@ def test_fastmcp_tool_registration_smoke():
     """
     try:
         from fastmcp import Client
+
         from mcp_server.server import mcp
 
         async def _run():

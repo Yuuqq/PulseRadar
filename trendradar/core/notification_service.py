@@ -1,14 +1,12 @@
-# coding=utf-8
 """
 通知发送服务
 
 从 NewsAnalyzer 中提取的通知派发逻辑，接受显式参数而非 self。
 """
 
-from typing import Dict, List, Optional
 
-from trendradar.context import AppContext
 from trendradar.ai import AIAnalysisResult
+from trendradar.context import AppContext
 from trendradar.core.ai_service import run_ai_analysis
 from trendradar.logging import get_logger
 
@@ -39,13 +37,11 @@ def has_notification_configured(ctx: AppContext) -> bool:
 
 def has_valid_content(
     report_mode: str,
-    stats: List[Dict],
-    new_titles: Optional[Dict] = None,
+    stats: list[dict],
+    new_titles: dict | None = None,
 ) -> bool:
     """检查是否有有效的新闻内容"""
-    if report_mode == "incremental":
-        return any(stat["count"] > 0 for stat in stats)
-    elif report_mode == "current":
+    if report_mode == "incremental" or report_mode == "current":
         return any(stat["count"] > 0 for stat in stats)
     else:
         has_matched_news = any(stat["count"] > 0 for stat in stats)
@@ -58,21 +54,21 @@ def has_valid_content(
 def send_notification_if_needed(
     ctx: AppContext,
     report_mode: str,
-    update_info: Optional[Dict],
-    proxy_url: Optional[str],
-    mode_strategies: Optional[Dict],
-    stats: List[Dict],
+    update_info: dict | None,
+    proxy_url: str | None,
+    mode_strategies: dict | None,
+    stats: list[dict],
     report_type: str,
     mode: str,
-    failed_ids: Optional[List] = None,
-    new_titles: Optional[Dict] = None,
-    id_to_name: Optional[Dict] = None,
-    html_file_path: Optional[str] = None,
-    rss_items: Optional[List[Dict]] = None,
-    rss_new_items: Optional[List[Dict]] = None,
-    standalone_data: Optional[Dict] = None,
-    ai_result: Optional[AIAnalysisResult] = None,
-    current_results: Optional[Dict] = None,
+    failed_ids: list | None = None,
+    new_titles: dict | None = None,
+    id_to_name: dict | None = None,
+    html_file_path: str | None = None,
+    rss_items: list[dict] | None = None,
+    rss_new_items: list[dict] | None = None,
+    standalone_data: dict | None = None,
+    ai_result: AIAnalysisResult | None = None,
+    current_results: dict | None = None,
 ) -> bool:
     """
     统一的通知发送逻辑，包含所有判断条件，支持热榜+RSS合并推送+AI分析+独立展示区

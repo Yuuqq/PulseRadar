@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 Tests for trendradar.core.history -- keyword-based history search.
 
@@ -17,8 +16,7 @@ from unittest.mock import MagicMock
 
 import pytest
 
-from trendradar.core.history import HistoryMatch, HistoryResult, HistorySearcher
-
+from trendradar.core.history import HistoryMatch, HistorySearcher
 
 # ---------------------------------------------------------------------------
 # Fixtures

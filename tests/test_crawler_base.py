@@ -1,4 +1,3 @@
-# coding=utf-8
 
 from __future__ import annotations
 
@@ -24,8 +23,9 @@ def test_fetched_item_defaults():
 
 
 def test_fetched_item_frozen_immutability():
-    from trendradar.crawler.base import FetchedItem
     import pytest
+
+    from trendradar.crawler.base import FetchedItem
 
     item = FetchedItem(title="Frozen", url="http://x.com", rank=5)
     with pytest.raises(AttributeError):
@@ -85,8 +85,9 @@ def test_crawl_result_failure_when_both_empty_and_errors():
 
 
 def test_crawl_result_frozen_immutability():
-    from trendradar.crawler.base import CrawlResult, FetchedItem
     import pytest
+
+    from trendradar.crawler.base import CrawlResult, FetchedItem
 
     result = CrawlResult(
         source_id="src1",

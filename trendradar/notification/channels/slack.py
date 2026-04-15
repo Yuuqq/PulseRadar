@@ -1,8 +1,8 @@
-# coding=utf-8
 """Slack notification channel."""
 
 import time
-from typing import Any, Callable, Dict, Optional
+from collections.abc import Callable
+from typing import Any
 
 import requests
 
@@ -19,21 +19,21 @@ logger = get_logger(__name__)
 
 def send_to_slack(
     webhook_url: str,
-    report_data: Dict,
+    report_data: dict,
     report_type: str,
-    update_info: Optional[Dict] = None,
-    proxy_url: Optional[str] = None,
+    update_info: dict | None = None,
+    proxy_url: str | None = None,
     mode: str = "daily",
     account_label: str = "",
     *,
     batch_size: int = 4000,
     batch_interval: float = 1.0,
-    split_content_func: Callable = None,
-    rss_items: Optional[list] = None,
-    rss_new_items: Optional[list] = None,
+    split_content_func: Callable | None = None,
+    rss_items: list | None = None,
+    rss_new_items: list | None = None,
     ai_analysis: Any = None,
-    display_regions: Optional[Dict] = None,
-    standalone_data: Optional[Dict] = None,
+    display_regions: dict | None = None,
+    standalone_data: dict | None = None,
 ) -> bool:
     """Send report to Slack via Incoming Webhook (batch-aware, mrkdwn).
 

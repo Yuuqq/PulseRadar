@@ -1,9 +1,8 @@
-# coding=utf-8
 
 from __future__ import annotations
 
-from pathlib import Path
 import tempfile
+from pathlib import Path
 
 
 def _write_yaml(tmp_path: Path, content: str) -> Path:

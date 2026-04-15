@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 AI 客户端模块
 
@@ -7,7 +6,7 @@ AI 客户端模块
 """
 
 import os
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 from litellm import completion
 
@@ -15,7 +14,7 @@ from litellm import completion
 class AIClient:
     """统一的 AI 客户端（基于 LiteLLM）"""
 
-    def __init__(self, config: Dict[str, Any]):
+    def __init__(self, config: dict[str, Any]):
         """
         初始化 AI 客户端
 
@@ -43,7 +42,7 @@ class AIClient:
 
     def chat(
         self,
-        messages: List[Dict[str, str]],
+        messages: list[dict[str, str]],
         **kwargs
     ) -> str:
         """

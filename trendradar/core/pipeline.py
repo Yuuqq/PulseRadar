@@ -1,26 +1,24 @@
-# coding=utf-8
 """
 分析流水线与独立展示区数据准备
 
 从 NewsAnalyzer 中提取的纯函数，接受显式参数而非 self。
 """
 
-from typing import Dict, List, Optional, Tuple
 
 from trendradar.context import AppContext
-from trendradar.logging import get_logger
 from trendradar.core.analyzer import convert_keyword_stats_to_platform_stats
+from trendradar.logging import get_logger
 
 logger = get_logger(__name__)
 
 
 def prepare_standalone_data(
     ctx: AppContext,
-    results: Dict,
-    id_to_name: Dict,
-    title_info: Optional[Dict] = None,
-    rss_items: Optional[List[Dict]] = None,
-) -> Optional[Dict]:
+    results: dict,
+    id_to_name: dict,
+    title_info: dict | None = None,
+    rss_items: list[dict] | None = None,
+) -> dict | None:
     """
     从原始数据中提取独立展示区数据
 
@@ -59,9 +57,8 @@ def prepare_standalone_data(
         for source_titles in title_info.values():
             for title_data in source_titles.values():
                 last_time = title_data.get("last_time", "")
-                if last_time:
-                    if latest_time is None or last_time > latest_time:
-                        latest_time = last_time
+                if last_time and (latest_time is None or last_time > latest_time):
+                    latest_time = last_time
 
     # 提取热榜平台数据
     for platform_id in platform_ids:
@@ -79,9 +76,8 @@ def prepare_standalone_data(
                 meta = title_info[platform_id][title]
 
             # 只保留当前在榜的话题（last_time 等于最新时间）
-            if latest_time and meta:
-                if meta.get("last_time") != latest_time:
-                    continue
+            if latest_time and meta and meta.get("last_time") != latest_time:
+                continue
 
             # 使用当前热榜的排名数据（title_data）进行排序
             current_ranks = title_data.get("ranks", [])
@@ -160,24 +156,24 @@ def prepare_standalone_data(
 
 def run_analysis_pipeline(
     ctx: AppContext,
-    data_source: Dict,
+    data_source: dict,
     mode: str,
-    title_info: Dict,
-    new_titles: Dict,
-    word_groups: List[Dict],
-    filter_words: List[str],
-    id_to_name: Dict,
+    title_info: dict,
+    new_titles: dict,
+    word_groups: list[dict],
+    filter_words: list[str],
+    id_to_name: dict,
     report_mode: str,
-    update_info: Optional[Dict],
+    update_info: dict | None,
     report_type: str,
     ai_result: object = None,
-    failed_ids: Optional[List] = None,
-    global_filters: Optional[List[str]] = None,
+    failed_ids: list | None = None,
+    global_filters: list[str] | None = None,
     quiet: bool = False,
-    rss_items: Optional[List[Dict]] = None,
-    rss_new_items: Optional[List[Dict]] = None,
-    standalone_data: Optional[Dict] = None,
-) -> Tuple[List[Dict], Optional[str], object]:
+    rss_items: list[dict] | None = None,
+    rss_new_items: list[dict] | None = None,
+    standalone_data: dict | None = None,
+) -> tuple[list[dict], str | None, object]:
     """
     统一的分析流水线：数据处理 -> 统计计算 -> HTML生成
 

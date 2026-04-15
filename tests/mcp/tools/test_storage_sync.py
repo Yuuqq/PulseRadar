@@ -1,4 +1,3 @@
-# coding=utf-8
 """Handler-level tests for StorageSyncTools.
 
 Strategy: use tmp_path for local storage (no real I/O to user's machine).
@@ -9,7 +8,6 @@ from __future__ import annotations
 
 from pathlib import Path
 
-import pytest
 import yaml
 
 from mcp_server.tools.storage_sync import StorageSyncTools

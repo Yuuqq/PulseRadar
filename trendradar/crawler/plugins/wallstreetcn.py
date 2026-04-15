@@ -1,11 +1,9 @@
-# coding=utf-8
 """华尔街见闻实时快讯爬虫插件"""
 from datetime import datetime
-from typing import Dict, List, Optional
 
 import requests
 
-from trendradar.crawler.base import CrawlResult, CrawlerPlugin, FetchedItem
+from trendradar.crawler.base import CrawlerPlugin, CrawlResult, FetchedItem
 from trendradar.crawler.registry import CrawlerRegistry
 from trendradar.logging import get_logger
 
@@ -33,7 +31,7 @@ class WallStreetCNPlugin(CrawlerPlugin):
     def rate_limit(self) -> float:
         return 1.0
 
-    def _get_json(self, url: str, params: Dict) -> Optional[Dict]:
+    def _get_json(self, url: str, params: dict) -> dict | None:
         try:
             resp = self._session.get(
                 url,
@@ -47,8 +45,8 @@ class WallStreetCNPlugin(CrawlerPlugin):
             logger.error("[WallStreetCNPlugin] 请求失败", url=url, error=str(exc))
             return None
 
-    def _parse_items(self, data: Dict) -> List[FetchedItem]:
-        items: List[FetchedItem] = []
+    def _parse_items(self, data: dict) -> list[FetchedItem]:
+        items: list[FetchedItem] = []
         for idx, item in enumerate(data.get("data", {}).get("items", []), 1):
             title = item.get("title") or item.get("content_text") or ""
             title = str(title).replace("\n", " ").strip()
@@ -59,7 +57,7 @@ class WallStreetCNPlugin(CrawlerPlugin):
             items.append(FetchedItem(title=title, url=url, rank=idx))
         return items
 
-    def fetch(self, source_config: Dict) -> CrawlResult:
+    def fetch(self, source_config: dict) -> CrawlResult:
         source_id = source_config.get("id", "wallstreetcn")
         source_name = source_config.get("name", "华尔街见闻")
         channel = source_config.get("channel", "global-channel")

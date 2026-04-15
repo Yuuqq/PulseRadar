@@ -1,4 +1,3 @@
-# coding=utf-8
 """Handler-level tests for AnalyticsTools.
 
 Strategy: patch DataService so the analytics tools do not hit ParserService/SQLite.
@@ -6,9 +5,7 @@ Exercises unified dispatcher and at least one concrete analysis path.
 """
 from __future__ import annotations
 
-from unittest.mock import patch, MagicMock
-
-import pytest
+from unittest.mock import MagicMock, patch
 
 from mcp_server.tools.analytics import AnalyticsTools
 

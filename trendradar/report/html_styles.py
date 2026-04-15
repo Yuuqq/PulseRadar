@@ -581,20 +581,26 @@ REPORT_CSS = """
                 color: #dc2626;
                 font-size: 14px;
                 font-weight: 600;
-                margin: 0 0 8px 0;
+                margin: 0 0 12px 0;
             }
 
             .error-list {
                 list-style: none;
                 padding: 0;
                 margin: 0;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
             }
 
             .error-item {
                 color: #991b1b;
                 font-size: 13px;
-                padding: 2px 0;
+                padding: 4px 12px;
+                background: rgba(220, 38, 38, 0.1);
+                border-radius: 4px;
                 font-family: 'SF Mono', Consolas, monospace;
+                display: inline-block;
             }
 
             .footer {

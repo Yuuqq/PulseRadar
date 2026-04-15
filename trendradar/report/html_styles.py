@@ -26,14 +26,13 @@ REPORT_CSS = """
             .header {
                 background: linear-gradient(135deg, #1d4ed8 0%, #0f766e 100%);
                 color: white;
-                padding: 36px 28px;
-                text-align: center;
+                padding: 20px 28px;
                 position: relative;
             }
 
             .save-buttons {
                 position: absolute;
-                top: 16px;
+                top: 14px;
                 right: 16px;
                 display: flex;
                 gap: 8px;
@@ -73,35 +72,35 @@ REPORT_CSS = """
                 min-width: 36px;
             }
 
+            .header-row {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                flex-wrap: wrap;
+            }
+
             .header-title {
-                font-size: 26px;
+                font-size: 20px;
                 font-weight: 700;
-                margin: 0 0 24px 0;
                 letter-spacing: -0.3px;
+                white-space: nowrap;
             }
 
             .header-info {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 16px;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+                align-items: center;
+            }
+
+            .info-tag {
+                background: rgba(255, 255, 255, 0.18);
+                border: 1px solid rgba(255, 255, 255, 0.25);
+                border-radius: 6px;
+                padding: 4px 12px;
                 font-size: 13px;
-                opacity: 0.95;
-            }
-
-            .info-item {
-                text-align: center;
-            }
-
-            .info-label {
-                display: block;
-                font-size: 12px;
-                opacity: 0.8;
-                margin-bottom: 4px;
-            }
-
-            .info-value {
-                font-weight: 700;
-                font-size: 18px;
+                font-weight: 500;
+                white-space: nowrap;
             }
 
             .content {
@@ -680,7 +679,7 @@ REPORT_CSS = """
 
             @media (max-width: 480px) {
                 body { padding: 8px; }
-                .header { padding: 28px 20px; }
+                .header { padding: 16px 14px; }
                 .content { padding: 20px 16px; }
                 .footer { padding: 20px; }
                 .header-info { grid-template-columns: 1fr; gap: 12px; }

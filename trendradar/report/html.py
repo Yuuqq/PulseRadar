@@ -71,7 +71,7 @@ def render_html_content(
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>热点新闻分析</title>
+        <title>TrendRadar</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <style>"""
         + REPORT_CSS
@@ -87,51 +87,31 @@ def render_html_content(
                     <button class="save-btn" onclick="saveAsMultipleImages()">分段保存</button>
                     <button class="save-btn theme-toggle" id="theme-toggle" onclick="toggleTheme()" aria-label="切换主题">🌙</button>
                 </div>
-                <div class="header-title">热点新闻分析</div>
-                <div class="header-info">
-                    <div class="info-item">
-                        <span class="info-label">报告类型</span>
-                        <span class="info-value">"""
+                <div class="header-row">
+                    <div class="header-title">TrendRadar</div>
+                    <div class="header-info">"""
     )
 
-    # 处理报告类型显示（根据 mode 直接显示）
+    # 报告类型
     if mode == "current":
-        html += "当前榜单"
+        mode_label = "当前榜单"
     elif mode == "incremental":
-        html += "增量分析"
+        mode_label = "增量分析"
     else:
-        html += "全天汇总"
+        mode_label = "全天汇总"
 
-    html += """</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">新闻总数</span>
-                        <span class="info-value">"""
-
-    html += f"{total_titles} 条"
-
-    # 计算筛选后的热点新闻数量
+    # 热点新闻数量
     hot_news_count = sum(len(stat["titles"]) for stat in report_data["stats"])
 
-    html += """</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">热点新闻</span>
-                        <span class="info-value">"""
-
-    html += f"{hot_news_count} 条"
-
-    html += """</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">生成时间</span>
-                        <span class="info-value">"""
-
-    # 使用提供的时间函数或默认 datetime.now
+    # 生成时间
     now = get_time_func() if get_time_func else datetime.now()
-    html += now.strftime("%m-%d %H:%M")
+    time_str = now.strftime("%m-%d %H:%M")
 
-    html += """</span>
+    html += f"""
+                        <span class="info-tag">{mode_label}</span>
+                        <span class="info-tag">采集 {total_titles}</span>
+                        <span class="info-tag">命中 {hot_news_count}</span>
+                        <span class="info-tag">{time_str}</span>
                     </div>
                 </div>
             </div>

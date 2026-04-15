@@ -106,34 +106,45 @@ REPORT_CSS = """
 
             .content {
                 padding: 32px 36px;
+            }
+
+            /* Masonry waterfall layout for hotlist views */
+            .hotlist-view {
                 position: relative;
             }
 
-            .content.masonry-layout {
+            .hotlist-view.masonry-active {
                 display: block;
             }
 
-            .content.masonry-layout > * {
+            .hotlist-view.masonry-active .word-group {
                 position: absolute;
-                width: calc((100% - 48px) / 3);
+                transition: left 0.3s ease, top 0.3s ease;
             }
 
-            @media (max-width: 1200px) {
-                .content.masonry-layout > * {
-                    width: calc((100% - 24px) / 2);
-                }
+            /* Masonry for new-section too */
+            .new-section.masonry-active {
+                display: block;
+                position: relative;
+            }
+
+            .new-section.masonry-active .new-source-group {
+                position: absolute;
+                transition: left 0.3s ease, top 0.3s ease;
             }
 
             @media (max-width: 768px) {
-                .content.masonry-layout > * {
-                    width: 100%;
+                .hotlist-view.masonry-active .word-group,
+                .new-section.masonry-active .new-source-group {
                     position: relative !important;
+                    left: auto !important;
+                    top: auto !important;
+                    width: 100% !important;
+                    margin-bottom: 16px;
                 }
             }
 
             .controls {
-                position: relative;
-                width: 100%;
                 display: flex;
                 flex-wrap: wrap;
                 gap: 12px;
@@ -192,7 +203,6 @@ REPORT_CSS = """
 
             .section-tabs {
                 position: sticky;
-                width: 100%;
                 top: 0;
                 z-index: 6;
                 background: linear-gradient(to bottom, #ffffff 85%, rgba(255, 255, 255, 0));
@@ -506,8 +516,6 @@ REPORT_CSS = """
             }
 
             .new-section {
-                position: relative;
-                width: 100%;
                 margin-top: 36px;
                 padding-top: 28px;
             }
@@ -520,12 +528,13 @@ REPORT_CSS = """
             }
 
             .new-source-group {
-                margin-bottom: 28px;
                 background: #ffffff;
                 border: 1px solid #e2e8f0;
                 border-radius: 14px;
                 padding: 20px 22px;
                 box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04), 0 4px 12px rgba(15, 23, 42, 0.03);
+                break-inside: avoid;
+                page-break-inside: avoid;
             }
 
             .new-source-title {
@@ -604,8 +613,6 @@ REPORT_CSS = """
                 border-radius: 8px;
                 padding: 16px;
                 margin-bottom: 24px;
-                position: relative;
-                width: 100%;
             }
 
             .error-title {

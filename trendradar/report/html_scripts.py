@@ -492,75 +492,81 @@ REPORT_JS = """
                 initViewToggle();
                 initTopicTabs();
                 initSearch();
-                initMasonryLayout();
+                initMasonry();
             });
 
-            function initMasonryLayout() {
-                const content = document.querySelector('.content');
-                if (!content) return;
+            function initMasonry() {
+                const GAP = 20;
 
-                content.classList.add('masonry-layout');
-
-                function layoutMasonry() {
-                    const items = Array.from(content.children).filter(el =>
-                        !el.classList.contains('controls') &&
-                        !el.classList.contains('section-tabs') &&
-                        !el.classList.contains('error-section') &&
-                        el.classList.contains('word-group')
+                function layoutContainer(container, cardSelector, titleSelector) {
+                    const cards = Array.from(container.querySelectorAll(cardSelector)).filter(c =>
+                        c.dataset.hidden !== 'true' && c.dataset.filtered !== 'true'
                     );
+                    if (!cards.length || window.innerWidth <= 768) {
+                        container.classList.remove('masonry-active');
+                        container.style.height = '';
+                        cards.forEach(c => { c.style = ''; });
+                        return;
+                    }
 
-                    if (items.length === 0) return;
+                    container.classList.add('masonry-active');
+                    const w = container.offsetWidth;
+                    const cols = w >= 900 ? 3 : 2;
+                    const colW = (w - GAP * (cols - 1)) / cols;
+                    const heights = new Array(cols).fill(0);
 
-                    const gap = 24;
-                    const containerWidth = content.offsetWidth;
-                    const columnCount = window.innerWidth > 1200 ? 3 : window.innerWidth > 768 ? 2 : 1;
-                    const columnWidth = (containerWidth - gap * (columnCount - 1)) / columnCount;
-                    const columnHeights = new Array(columnCount).fill(0);
+                    // Account for title element above cards
+                    let titleH = 0;
+                    if (titleSelector) {
+                        const title = container.querySelector(titleSelector);
+                        if (title) {
+                            title.style.position = 'relative';
+                            titleH = title.offsetHeight + GAP;
+                            heights.fill(titleH);
+                        }
+                    }
 
-                    // Reset positions for full-width elements
-                    let currentY = 0;
-                    content.querySelectorAll('.controls, .section-tabs, .error-section').forEach(el => {
-                        el.style.position = 'relative';
-                        el.style.width = '100%';
-                        currentY += el.offsetHeight + gap;
+                    cards.forEach(card => {
+                        card.style.position = 'absolute';
+                        card.style.width = colW + 'px';
+                        card.style.visibility = 'hidden';
+                        card.style.left = '0px';
+                        card.style.top = '0px';
                     });
 
-                    items.forEach(item => {
-                        const shortestColumn = columnHeights.indexOf(Math.min(...columnHeights));
-                        const x = shortestColumn * (columnWidth + gap);
-                        const y = currentY + columnHeights[shortestColumn];
+                    void container.offsetHeight;
 
-                        item.style.position = 'absolute';
-                        item.style.left = x + 'px';
-                        item.style.top = y + 'px';
-                        item.style.width = columnWidth + 'px';
-
-                        columnHeights[shortestColumn] += item.offsetHeight + gap;
+                    cards.forEach(card => {
+                        const shortest = heights.indexOf(Math.min(...heights));
+                        card.style.left = shortest * (colW + GAP) + 'px';
+                        card.style.top = heights[shortest] + 'px';
+                        card.style.visibility = '';
+                        heights[shortest] += card.offsetHeight + GAP;
                     });
 
-                    const maxHeight = Math.max(...columnHeights);
-                    content.style.height = (currentY + maxHeight) + 'px';
+                    container.style.height = Math.max(...heights) + 'px';
                 }
 
-                // Initial layout
-                setTimeout(layoutMasonry, 100);
+                function layoutAll() {
+                    document.querySelectorAll('.hotlist-view').forEach(v =>
+                        layoutContainer(v, '.word-group', null)
+                    );
+                    document.querySelectorAll('.new-section').forEach(v =>
+                        layoutContainer(v, '.new-source-group', '.new-section-title')
+                    );
+                }
 
-                // Re-layout on window resize
-                let resizeTimer;
+                setTimeout(layoutAll, 150);
+
+                let timer;
                 window.addEventListener('resize', () => {
-                    clearTimeout(resizeTimer);
-                    resizeTimer = setTimeout(layoutMasonry, 200);
+                    clearTimeout(timer);
+                    timer = setTimeout(layoutAll, 200);
                 });
 
-                // Re-layout when images load
-                content.querySelectorAll('img').forEach(img => {
-                    img.addEventListener('load', layoutMasonry);
-                });
-
-                // Re-layout when view changes
-                const observer = new MutationObserver(() => {
-                    setTimeout(layoutMasonry, 50);
-                });
-                observer.observe(content, { attributes: true, childList: true, subtree: true });
+                const obs = new MutationObserver(() => setTimeout(layoutAll, 80));
+                document.querySelectorAll('.hotlist-view, .new-section').forEach(v =>
+                    obs.observe(v, { attributes: true, attributeFilter: ['data-hidden', 'data-filtered', 'style'], subtree: true })
+                );
             }
 """

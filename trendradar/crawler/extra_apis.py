@@ -5,7 +5,6 @@
 插件实现位于 trendradar/crawler/plugins/ 目录。
 """
 
-
 from trendradar.logging import get_logger
 
 logger = get_logger(__name__)
@@ -42,7 +41,9 @@ def crawl_extra_sources_concurrent(
         source_type = source.get("type", "")
         plugin_cls = CrawlerRegistry.get(source_type)
         if plugin_cls is None:
-            logger.warning("无插件可处理此数据源类型", source_type=source_type, source_id=source.get("id"))
+            logger.warning(
+                "无插件可处理此数据源类型", source_type=source_type, source_id=source.get("id")
+            )
             continue
         plugin = plugin_cls()
         plugin_instances.append(plugin)
@@ -62,12 +63,14 @@ def crawl_extra_sources_concurrent(
         if cr.success:
             items_list = []
             for item in cr.items:
-                items_list.append({
-                    "title": item.title,
-                    "url": item.url,
-                    "mobile_url": item.mobile_url,
-                    "rank": item.rank,
-                })
+                items_list.append(
+                    {
+                        "title": item.title,
+                        "url": item.url,
+                        "mobile_url": item.mobile_url,
+                        "rank": item.rank,
+                    }
+                )
             results[cr.source_id] = items_list
         else:
             failed.append(cr.source_id)

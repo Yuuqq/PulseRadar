@@ -1,4 +1,5 @@
 """同花顺资讯（财经头条）爬虫插件"""
+
 import html
 import re
 from datetime import datetime
@@ -73,11 +74,13 @@ class TongHuaShunPlugin(CrawlerPlugin):
             if not title:
                 continue
 
-            items.append(FetchedItem(
-                title=title,
-                url=article_url,
-                rank=len(items) + 1,
-            ))
+            items.append(
+                FetchedItem(
+                    title=title,
+                    url=article_url,
+                    rank=len(items) + 1,
+                )
+            )
 
             if max_items and len(items) >= max_items:
                 break

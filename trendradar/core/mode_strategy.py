@@ -69,36 +69,46 @@ def convert_rss_items_to_list(
                     if debug_mode:
                         days_old = calculate_days_old(item.published_at, timezone)
                         feed_name = id_to_name.get(feed_id, feed_id)
-                        filtered_details.append({
-                            "title": item.title[:50] + "..." if len(item.title) > 50 else item.title,
-                            "feed": feed_name,
-                            "days_old": days_old,
-                            "max_days": max_days,
-                        })
+                        filtered_details.append(
+                            {
+                                "title": item.title[:50] + "..."
+                                if len(item.title) > 50
+                                else item.title,
+                                "feed": feed_name,
+                                "days_old": days_old,
+                                "max_days": max_days,
+                            }
+                        )
                     continue
 
-            rss_items.append({
-                "title": item.title,
-                "feed_id": feed_id,
-                "feed_name": id_to_name.get(feed_id, feed_id),
-                "url": item.url,
-                "published_at": item.published_at,
-                "summary": item.summary,
-                "author": item.author,
-            })
+            rss_items.append(
+                {
+                    "title": item.title,
+                    "feed_id": feed_id,
+                    "feed_name": id_to_name.get(feed_id, feed_id),
+                    "url": item.url,
+                    "published_at": item.published_at,
+                    "summary": item.summary,
+                    "author": item.author,
+                }
+            )
 
     if filtered_count > 0:
         logger.info("RSS 新鲜度过滤：跳过旧文章", skipped=filtered_count)
         if debug_mode and filtered_details:
-            logger.debug("RSS 被过滤的文章详情", count=len(filtered_details), details=[
-                {
-                    "title": d["title"],
-                    "feed": d["feed"],
-                    "days_old": f"{d['days_old']:.1f}" if d["days_old"] else "未知",
-                    "max_days": d["max_days"],
-                }
-                for d in filtered_details[:10]
-            ])
+            logger.debug(
+                "RSS 被过滤的文章详情",
+                count=len(filtered_details),
+                details=[
+                    {
+                        "title": d["title"],
+                        "feed": d["feed"],
+                        "days_old": f"{d['days_old']:.1f}" if d["days_old"] else "未知",
+                        "max_days": d["max_days"],
+                    }
+                    for d in filtered_details[:10]
+                ],
+            )
             if len(filtered_details) > 10:
                 logger.debug("RSS 过滤详情截断", remaining=len(filtered_details) - 10)
 
@@ -156,7 +166,9 @@ def process_rss_data_by_mode(
     elif report_mode == "current":
         latest_data = storage_manager.get_latest_rss_data(rss_data.date)
         if latest_data:
-            raw_rss_items = convert_rss_items_to_list(ctx, latest_data.items, latest_data.id_to_name)
+            raw_rss_items = convert_rss_items_to_list(
+                ctx, latest_data.items, latest_data.id_to_name
+            )
     else:  # daily
         all_data = storage_manager.get_rss_data(rss_data.date)
         if all_data:
@@ -352,15 +364,19 @@ def execute_mode_strategy(
             )
 
             # Run AI analysis before pipeline
-            ai_result = run_ai_analysis(
-                ctx=ctx,
-                stats=[],  # Will be computed in pipeline
-                rss_items=rss_items,
-                mode=report_mode,
-                report_type=mode_strategy["report_type"],
-                id_to_name=historical_id_to_name,
-                current_results=all_results,
-            ) if ctx.config.get("AI_ANALYSIS", {}).get("ENABLED", False) else None
+            ai_result = (
+                run_ai_analysis(
+                    ctx=ctx,
+                    stats=[],  # Will be computed in pipeline
+                    rss_items=rss_items,
+                    mode=report_mode,
+                    report_type=mode_strategy["report_type"],
+                    id_to_name=historical_id_to_name,
+                    current_results=all_results,
+                )
+                if ctx.config.get("AI_ANALYSIS", {}).get("ENABLED", False)
+                else None
+            )
 
             stats, html_file, ai_result = run_analysis_pipeline(
                 ctx=ctx,
@@ -409,15 +425,19 @@ def execute_mode_strategy(
             )
 
             # Run AI analysis before pipeline
-            ai_result = run_ai_analysis(
-                ctx=ctx,
-                stats=[],
-                rss_items=rss_items,
-                mode=report_mode,
-                report_type=mode_strategy["report_type"],
-                id_to_name=historical_id_to_name,
-                current_results=all_results,
-            ) if ctx.config.get("AI_ANALYSIS", {}).get("ENABLED", False) else None
+            ai_result = (
+                run_ai_analysis(
+                    ctx=ctx,
+                    stats=[],
+                    rss_items=rss_items,
+                    mode=report_mode,
+                    report_type=mode_strategy["report_type"],
+                    id_to_name=historical_id_to_name,
+                    current_results=all_results,
+                )
+                if ctx.config.get("AI_ANALYSIS", {}).get("ENABLED", False)
+                else None
+            )
 
             stats, html_file, ai_result = run_analysis_pipeline(
                 ctx=ctx,
@@ -452,15 +472,19 @@ def execute_mode_strategy(
             )
 
             # Run AI analysis before pipeline
-            ai_result = run_ai_analysis(
-                ctx=ctx,
-                stats=[],
-                rss_items=rss_items,
-                mode=report_mode,
-                report_type=mode_strategy["report_type"],
-                id_to_name=id_to_name,
-                current_results=results,
-            ) if ctx.config.get("AI_ANALYSIS", {}).get("ENABLED", False) else None
+            ai_result = (
+                run_ai_analysis(
+                    ctx=ctx,
+                    stats=[],
+                    rss_items=rss_items,
+                    mode=report_mode,
+                    report_type=mode_strategy["report_type"],
+                    id_to_name=id_to_name,
+                    current_results=results,
+                )
+                if ctx.config.get("AI_ANALYSIS", {}).get("ENABLED", False)
+                else None
+            )
 
             stats, html_file, ai_result = run_analysis_pipeline(
                 ctx=ctx,
@@ -490,15 +514,19 @@ def execute_mode_strategy(
         )
 
         # Run AI analysis before pipeline
-        ai_result = run_ai_analysis(
-            ctx=ctx,
-            stats=[],
-            rss_items=rss_items,
-            mode=report_mode,
-            report_type=mode_strategy["report_type"],
-            id_to_name=id_to_name,
-            current_results=results,
-        ) if ctx.config.get("AI_ANALYSIS", {}).get("ENABLED", False) else None
+        ai_result = (
+            run_ai_analysis(
+                ctx=ctx,
+                stats=[],
+                rss_items=rss_items,
+                mode=report_mode,
+                report_type=mode_strategy["report_type"],
+                id_to_name=id_to_name,
+                current_results=results,
+            )
+            if ctx.config.get("AI_ANALYSIS", {}).get("ENABLED", False)
+            else None
+        )
 
         stats, html_file, ai_result = run_analysis_pipeline(
             ctx=ctx,
@@ -521,7 +549,9 @@ def execute_mode_strategy(
         )
 
     if html_file:
-        logger.info("HTML 报告已生成", file=html_file, latest=f"output/html/latest/{report_mode}.html")
+        logger.info(
+            "HTML 报告已生成", file=html_file, latest=f"output/html/latest/{report_mode}.html"
+        )
 
     # 发送通知
     if mode_strategy["should_send_notification"]:

@@ -112,17 +112,21 @@ class StorageManager:
         # 检查配置或环境变量
         bucket_name = self.remote_config.get("bucket_name") or os.environ.get("S3_BUCKET_NAME")
         access_key = self.remote_config.get("access_key_id") or os.environ.get("S3_ACCESS_KEY_ID")
-        secret_key = self.remote_config.get("secret_access_key") or os.environ.get("S3_SECRET_ACCESS_KEY")
+        secret_key = self.remote_config.get("secret_access_key") or os.environ.get(
+            "S3_SECRET_ACCESS_KEY"
+        )
         endpoint = self.remote_config.get("endpoint_url") or os.environ.get("S3_ENDPOINT_URL")
 
         # 调试日志
         has_config = bool(bucket_name and access_key and secret_key and endpoint)
         if not has_config:
-            logger.warning("远程存储配置检查失败",
-                           bucket_name="已配置" if bucket_name else "未配置",
-                           access_key_id="已配置" if access_key else "未配置",
-                           secret_access_key="已配置" if secret_key else "未配置",
-                           endpoint_url="已配置" if endpoint else "未配置")
+            logger.warning(
+                "远程存储配置检查失败",
+                bucket_name="已配置" if bucket_name else "未配置",
+                access_key_id="已配置" if access_key else "未配置",
+                secret_access_key="已配置" if secret_key else "未配置",
+                endpoint_url="已配置" if endpoint else "未配置",
+            )
 
         return has_config
 
@@ -144,10 +148,14 @@ class StorageManager:
             from trendradar.storage.remote import RemoteStorageBackend
 
             return RemoteStorageBackend(
-                bucket_name=self.remote_config.get("bucket_name") or os.environ.get("S3_BUCKET_NAME", ""),
-                access_key_id=self.remote_config.get("access_key_id") or os.environ.get("S3_ACCESS_KEY_ID", ""),
-                secret_access_key=self.remote_config.get("secret_access_key") or os.environ.get("S3_SECRET_ACCESS_KEY", ""),
-                endpoint_url=self.remote_config.get("endpoint_url") or os.environ.get("S3_ENDPOINT_URL", ""),
+                bucket_name=self.remote_config.get("bucket_name")
+                or os.environ.get("S3_BUCKET_NAME", ""),
+                access_key_id=self.remote_config.get("access_key_id")
+                or os.environ.get("S3_ACCESS_KEY_ID", ""),
+                secret_access_key=self.remote_config.get("secret_access_key")
+                or os.environ.get("S3_SECRET_ACCESS_KEY", ""),
+                endpoint_url=self.remote_config.get("endpoint_url")
+                or os.environ.get("S3_ENDPOINT_URL", ""),
                 region=self.remote_config.get("region") or os.environ.get("S3_REGION", ""),
                 enable_txt=self.enable_txt,
                 enable_html=self.enable_html,
@@ -250,7 +258,9 @@ class StorageManager:
         """保存 TXT 快照"""
         return self.get_backend().save_txt_snapshot(data)
 
-    def save_html_report(self, html_content: str, filename: str, is_summary: bool = False) -> str | None:
+    def save_html_report(
+        self, html_content: str, filename: str, is_summary: bool = False
+    ) -> str | None:
         """保存 HTML 报告"""
         return self.get_backend().save_html_report(html_content, filename, is_summary)
 

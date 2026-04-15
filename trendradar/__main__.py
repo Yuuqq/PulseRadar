@@ -151,8 +151,12 @@ def main():
     parser.add_argument("--show-ai-status", action="store_true", help="显示 AI 分析状态信息")
     parser.add_argument("--reset-push-state", action="store_true", help="重置今日推送状态")
     parser.add_argument("--reset-ai-state", action="store_true", help="重置今日 AI 分析状态")
-    parser.add_argument("--force-push", action="store_true", help="忽略 once_per_day 限制，强制推送")
-    parser.add_argument("--force-ai", action="store_true", help="忽略 once_per_day 限制，强制 AI 分析")
+    parser.add_argument(
+        "--force-push", action="store_true", help="忽略 once_per_day 限制，强制推送"
+    )
+    parser.add_argument(
+        "--force-ai", action="store_true", help="忽略 once_per_day 限制，强制 AI 分析"
+    )
     parser.add_argument(
         "--config",
         type=str,
@@ -168,7 +172,12 @@ def main():
         config = load_config(config_path=args.config)
 
         # 处理状态查看/重置命令
-        if args.show_push_status or args.show_ai_status or args.reset_push_state or args.reset_ai_state:
+        if (
+            args.show_push_status
+            or args.show_ai_status
+            or args.reset_push_state
+            or args.reset_ai_state
+        ):
             _handle_status_commands(config, args)
             return
 

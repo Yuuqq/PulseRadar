@@ -1,4 +1,5 @@
 """MediaStack API 爬虫插件"""
+
 import contextlib
 from datetime import datetime, timezone
 
@@ -78,9 +79,7 @@ class MediaStackPlugin(CrawlerPlugin):
             )
 
         if not data or "data" not in data:
-            error_msg = (
-                data.get("error", {}).get("message", "未知错误") if data else "响应为空"
-            )
+            error_msg = data.get("error", {}).get("message", "未知错误") if data else "响应为空"
             logger.warning("[MediaStack] 获取失败", source_id=source_id, error=error_msg)
             return CrawlResult(
                 source_id=source_id,

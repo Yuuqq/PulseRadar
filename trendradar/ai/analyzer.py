@@ -20,25 +20,26 @@ logger = get_logger(__name__)
 @dataclass
 class AIAnalysisResult:
     """AI 分析结果"""
+
     # 新版 5 核心板块
-    core_trends: str = ""                # 核心热点与舆情态势
-    sentiment_controversy: str = ""      # 舆论风向与争议
-    signals: str = ""                    # 异动与弱信号
-    rss_insights: str = ""               # RSS 深度洞察
-    outlook_strategy: str = ""           # 研判与策略建议
+    core_trends: str = ""  # 核心热点与舆情态势
+    sentiment_controversy: str = ""  # 舆论风向与争议
+    signals: str = ""  # 异动与弱信号
+    rss_insights: str = ""  # RSS 深度洞察
+    outlook_strategy: str = ""  # 研判与策略建议
 
     # 基础元数据
-    raw_response: str = ""               # 原始响应
-    success: bool = False                # 是否成功
-    error: str = ""                      # 错误信息
+    raw_response: str = ""  # 原始响应
+    success: bool = False  # 是否成功
+    error: str = ""  # 错误信息
 
     # 新闻数量统计
-    total_news: int = 0                  # 总新闻数（热榜+RSS）
-    analyzed_news: int = 0               # 实际分析的新闻数
-    max_news_limit: int = 0              # 分析上限配置值
-    hotlist_count: int = 0               # 热榜新闻数
-    rss_count: int = 0                   # RSS 新闻数
-    ai_mode: str = ""                    # AI 分析使用的模式 (daily/current/incremental)
+    total_news: int = 0  # 总新闻数（热榜+RSS）
+    analyzed_news: int = 0  # 实际分析的新闻数
+    max_news_limit: int = 0  # 分析上限配置值
+    hotlist_count: int = 0  # 热榜新闻数
+    rss_count: int = 0  # RSS 新闻数
+    ai_mode: str = ""  # AI 分析使用的模式 (daily/current/incremental)
 
 
 class AIAnalyzer:
@@ -138,7 +139,7 @@ class AIAnalyzer:
         Returns:
             AIAnalysisResult: 分析结果
         """
-        
+
         # 打印配置信息方便调试
         model = self.ai_config.get("MODEL", "unknown")
         api_key = self.client.api_key or ""
@@ -159,11 +160,13 @@ class AIAnalyzer:
         if not self.client.api_key:
             return AIAnalysisResult(
                 success=False,
-                error="未配置 AI API Key，请在 config.yaml 或环境变量 AI_API_KEY 中设置"
+                error="未配置 AI API Key，请在 config.yaml 或环境变量 AI_API_KEY 中设置",
             )
 
         # 准备新闻内容并获取统计数据
-        news_content, rss_content, hotlist_total, rss_total, analyzed_count = self._prepare_news_content(stats, rss_stats)
+        news_content, rss_content, hotlist_total, rss_total, analyzed_count = (
+            self._prepare_news_content(stats, rss_stats)
+        )
         total_news = hotlist_total + rss_total
 
         if not news_content and not rss_content:
@@ -174,7 +177,7 @@ class AIAnalyzer:
                 hotlist_count=hotlist_total,
                 rss_count=rss_total,
                 analyzed_news=0,
-                max_news_limit=self.max_news
+                max_news_limit=self.max_news,
             )
 
         # 构建提示词
@@ -191,8 +194,12 @@ class AIAnalyzer:
         user_prompt = user_prompt.replace("{current_time}", current_time)
         user_prompt = user_prompt.replace("{news_count}", str(hotlist_total))
         user_prompt = user_prompt.replace("{rss_count}", str(rss_total))
-        user_prompt = user_prompt.replace("{platforms}", ", ".join(platforms) if platforms else "多平台")
-        user_prompt = user_prompt.replace("{keywords}", ", ".join(keywords[:20]) if keywords else "无")
+        user_prompt = user_prompt.replace(
+            "{platforms}", ", ".join(platforms) if platforms else "多平台"
+        )
+        user_prompt = user_prompt.replace(
+            "{keywords}", ", ".join(keywords[:20]) if keywords else "无"
+        )
         user_prompt = user_prompt.replace("{news_content}", news_content)
         user_prompt = user_prompt.replace("{rss_content}", rss_content)
         user_prompt = user_prompt.replace("{language}", self.language)
@@ -232,10 +239,7 @@ class AIAnalyzer:
                 error_msg = error_msg[:200] + "..."
             friendly_msg = f"AI 分析失败 ({error_type}): {error_msg}"
 
-            return AIAnalysisResult(
-                success=False,
-                error=friendly_msg
-            )
+            return AIAnalysisResult(success=False, error=friendly_msg)
 
     def _prepare_news_content(
         self,
@@ -285,7 +289,9 @@ class AIAnalyzer:
                         if ranks:
                             min_rank = min(ranks)
                             max_rank = max(ranks)
-                            rank_str = f"{min_rank}" if min_rank == max_rank else f"{min_rank}-{max_rank}"
+                            rank_str = (
+                                f"{min_rank}" if min_rank == max_rank else f"{min_rank}-{max_rank}"
+                            )
                         else:
                             rank_str = "-"
 
@@ -361,6 +367,7 @@ class AIAnalyzer:
 
     def _format_time_range(self, first_time: str, last_time: str) -> str:
         """格式化时间范围（简化显示，只保留时分）"""
+
         def extract_time(time_str: str) -> str:
             if not time_str:
                 return "-"
@@ -375,8 +382,8 @@ class AIAnalyzer:
                 return time_str[:5]
             # 处理 HH-MM 格式
             result = time_str[:5] if len(time_str) >= 5 else time_str
-            if len(result) == 5 and result[2] == '-':
-                result = result.replace('-', ':')
+            if len(result) == 5 and result[2] == "-":
+                result = result.replace("-", ":")
             return result
 
         first = extract_time(first_time)
@@ -394,8 +401,8 @@ class AIAnalyzer:
         parts = []
         for item in rank_timeline:
             time_str = item.get("time", "")
-            if len(time_str) == 5 and time_str[2] == '-':
-                time_str = time_str.replace('-', ':')
+            if len(time_str) == 5 and time_str[2] == "-":
+                time_str = time_str.replace("-", ":")
             rank = item.get("rank")
             if rank is None:
                 parts.append(f"0({time_str})")
@@ -438,11 +445,11 @@ class AIAnalyzer:
             result.signals = data.get("signals", "")
             result.rss_insights = data.get("rss_insights", "")
             result.outlook_strategy = data.get("outlook_strategy", "")
-            
+
             result.success = True
 
         except json.JSONDecodeError as e:
-            error_context = json_str[max(0, e.pos - 30):e.pos + 30] if json_str and e.pos else ""
+            error_context = json_str[max(0, e.pos - 30) : e.pos + 30] if json_str and e.pos else ""
             result.error = f"JSON 解析错误 (位置 {e.pos}): {e.msg}"
             if error_context:
                 result.error += f"，上下文: ...{error_context}..."

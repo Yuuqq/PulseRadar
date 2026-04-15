@@ -1,4 +1,3 @@
-
 from __future__ import annotations
 
 from unittest.mock import MagicMock
@@ -31,6 +30,7 @@ def _make_ctx_with_channels(**overrides):
 # ---------------------------------------------------------------------------
 # has_notification_configured
 # ---------------------------------------------------------------------------
+
 
 def test_has_notification_configured_returns_false_when_no_channels():
     from trendradar.core.notification_service import has_notification_configured
@@ -123,6 +123,7 @@ def test_has_notification_configured_returns_true_for_wework():
 # ---------------------------------------------------------------------------
 # has_valid_content
 # ---------------------------------------------------------------------------
+
 
 def test_has_valid_content_incremental_with_nonzero_counts():
     from trendradar.core.notification_service import has_valid_content

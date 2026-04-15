@@ -77,14 +77,16 @@ class DateParser:
     }
 
     # 星期映射
-    WEEKDAY_CN = {
-        "一": 0, "二": 1, "三": 2, "四": 3,
-        "五": 4, "六": 5, "日": 6, "天": 6
-    }
+    WEEKDAY_CN = {"一": 0, "二": 1, "三": 2, "四": 3, "五": 4, "六": 5, "日": 6, "天": 6}
 
     WEEKDAY_EN = {
-        "monday": 0, "tuesday": 1, "wednesday": 2, "thursday": 3,
-        "friday": 4, "saturday": 5, "sunday": 6
+        "monday": 0,
+        "tuesday": 1,
+        "wednesday": 2,
+        "thursday": 3,
+        "friday": 4,
+        "saturday": 5,
+        "sunday": 6,
     }
 
     @staticmethod
@@ -121,7 +123,7 @@ class DateParser:
         if not date_query or not isinstance(date_query, str):
             raise InvalidParameterError(
                 "日期查询字符串不能为空",
-                suggestion="请提供有效的日期查询，如：今天、昨天、2025-10-10"
+                suggestion="请提供有效的日期查询，如：今天、昨天、2025-10-10",
             )
 
         date_query = date_query.strip().lower()
@@ -137,28 +139,26 @@ class DateParser:
             return datetime.now() - timedelta(days=days_ago)
 
         # 3. 尝试解析 "N天前" 或 "N days ago"
-        cn_days_ago_match = re.match(r'(\d+)\s*天前', date_query)
+        cn_days_ago_match = re.match(r"(\d+)\s*天前", date_query)
         if cn_days_ago_match:
             days = int(cn_days_ago_match.group(1))
             if days > 365:
                 raise InvalidParameterError(
-                    f"天数过大: {days}天",
-                    suggestion="请使用小于365天的相对日期或使用绝对日期"
+                    f"天数过大: {days}天", suggestion="请使用小于365天的相对日期或使用绝对日期"
                 )
             return datetime.now() - timedelta(days=days)
 
-        en_days_ago_match = re.match(r'(\d+)\s*days?\s+ago', date_query)
+        en_days_ago_match = re.match(r"(\d+)\s*days?\s+ago", date_query)
         if en_days_ago_match:
             days = int(en_days_ago_match.group(1))
             if days > 365:
                 raise InvalidParameterError(
-                    f"天数过大: {days}天",
-                    suggestion="请使用小于365天的相对日期或使用绝对日期"
+                    f"天数过大: {days}天", suggestion="请使用小于365天的相对日期或使用绝对日期"
                 )
             return datetime.now() - timedelta(days=days)
 
         # 4. 尝试解析星期（中文）：上周一、本周三
-        cn_weekday_match = re.match(r'(上|本)周([一二三四五六日天])', date_query)
+        cn_weekday_match = re.match(r"(上|本)周([一二三四五六日天])", date_query)
         if cn_weekday_match:
             week_type = cn_weekday_match.group(1)  # 上 或 本
             weekday_str = cn_weekday_match.group(2)
@@ -166,7 +166,9 @@ class DateParser:
             return DateParser._get_date_by_weekday(target_weekday, week_type == "上")
 
         # 5. 尝试解析星期（英文）：last monday、this friday
-        en_weekday_match = re.match(r'(last|this)\s+(monday|tuesday|wednesday|thursday|friday|saturday|sunday)', date_query)
+        en_weekday_match = re.match(
+            r"(last|this)\s+(monday|tuesday|wednesday|thursday|friday|saturday|sunday)", date_query
+        )
         if en_weekday_match:
             week_type = en_weekday_match.group(1)  # last 或 this
             weekday_str = en_weekday_match.group(2)
@@ -174,7 +176,7 @@ class DateParser:
             return DateParser._get_date_by_weekday(target_weekday, week_type == "last")
 
         # 6. 尝试解析绝对日期：YYYY-MM-DD
-        iso_date_match = re.match(r'(\d{4})-(\d{1,2})-(\d{1,2})', date_query)
+        iso_date_match = re.match(r"(\d{4})-(\d{1,2})-(\d{1,2})", date_query)
         if iso_date_match:
             year = int(iso_date_match.group(1))
             month = int(iso_date_match.group(2))
@@ -183,12 +185,11 @@ class DateParser:
                 return datetime(year, month, day)
             except ValueError as e:
                 raise InvalidParameterError(
-                    f"无效的日期: {date_query}",
-                    suggestion=f"日期值错误: {e!s}"
+                    f"无效的日期: {date_query}", suggestion=f"日期值错误: {e!s}"
                 )
 
         # 7. 尝试解析中文日期：MM月DD日 或 YYYY年MM月DD日
-        cn_date_match = re.match(r'(?:(\d{4})年)?(\d{1,2})月(\d{1,2})日', date_query)
+        cn_date_match = re.match(r"(?:(\d{4})年)?(\d{1,2})月(\d{1,2})日", date_query)
         if cn_date_match:
             year_str = cn_date_match.group(1)
             month = int(cn_date_match.group(2))
@@ -208,12 +209,11 @@ class DateParser:
                 return datetime(year, month, day)
             except ValueError as e:
                 raise InvalidParameterError(
-                    f"无效的日期: {date_query}",
-                    suggestion=f"日期值错误: {e!s}"
+                    f"无效的日期: {date_query}", suggestion=f"日期值错误: {e!s}"
                 )
 
         # 8. 尝试解析斜杠格式：YYYY/MM/DD 或 MM/DD
-        slash_date_match = re.match(r'(?:(\d{4})/)?(\d{1,2})/(\d{1,2})', date_query)
+        slash_date_match = re.match(r"(?:(\d{4})/)?(\d{1,2})/(\d{1,2})", date_query)
         if slash_date_match:
             year_str = slash_date_match.group(1)
             month = int(slash_date_match.group(2))
@@ -231,8 +231,7 @@ class DateParser:
                 return datetime(year, month, day)
             except ValueError as e:
                 raise InvalidParameterError(
-                    f"无效的日期: {date_query}",
-                    suggestion=f"日期值错误: {e!s}"
+                    f"无效的日期: {date_query}", suggestion=f"日期值错误: {e!s}"
                 )
 
         # 如果所有格式都不匹配
@@ -243,7 +242,7 @@ class DateParser:
                 "- 相对日期: 今天、昨天、前天、3天前、today、yesterday、3 days ago\n"
                 "- 星期: 上周一、本周三、last monday、this friday\n"
                 "- 绝对日期: 2025-10-10、10月10日、2025年10月10日"
-            )
+            ),
         )
 
     @staticmethod
@@ -304,7 +303,7 @@ class DateParser:
         if date.date() > datetime.now().date():
             raise InvalidParameterError(
                 f"不能查询未来的日期: {date.strftime('%Y-%m-%d')}",
-                suggestion="请使用今天或过去的日期"
+                suggestion="请使用今天或过去的日期",
             )
 
     @staticmethod
@@ -323,7 +322,7 @@ class DateParser:
         if days_ago > max_days:
             raise InvalidParameterError(
                 f"日期太久远: {date.strftime('%Y-%m-%d')} ({days_ago}天前)",
-                suggestion=f"请查询{max_days}天内的数据"
+                suggestion=f"请查询{max_days}天内的数据",
             )
 
     @staticmethod
@@ -369,7 +368,7 @@ class DateParser:
         if not expression or not isinstance(expression, str):
             raise InvalidParameterError(
                 "日期表达式不能为空",
-                suggestion="请提供有效的日期表达式，如：本周、最近7天、last week"
+                suggestion="请提供有效的日期表达式，如：本周、最近7天、last week",
             )
 
         expression_lower = expression.strip().lower()
@@ -382,32 +381,47 @@ class DateParser:
         # 2. 尝试匹配动态 "最近N天" / "last N days" 模式
         if not normalized:
             # 中文: 最近N天
-            cn_match = re.match(r'最近(\d+)天', expression_lower)
+            cn_match = re.match(r"最近(\d+)天", expression_lower)
             if cn_match:
                 days = int(cn_match.group(1))
                 normalized = f"last_{days}_days"
 
             # 英文: last N days
-            en_match = re.match(r'(?:last|past)\s+(\d+)\s+days?', expression_lower)
+            en_match = re.match(r"(?:last|past)\s+(\d+)\s+days?", expression_lower)
             if en_match:
                 days = int(en_match.group(1))
                 normalized = f"last_{days}_days"
 
         if not normalized:
             # 提供支持的表达式列表
-            supported_cn = ["今天", "昨天", "本周", "上周", "本月", "上月",
-                           "最近7天", "最近30天", "最近N天"]
-            supported_en = ["today", "yesterday", "this week", "last week",
-                           "this month", "last month", "last 7 days", "last N days"]
+            supported_cn = [
+                "今天",
+                "昨天",
+                "本周",
+                "上周",
+                "本月",
+                "上月",
+                "最近7天",
+                "最近30天",
+                "最近N天",
+            ]
+            supported_en = [
+                "today",
+                "yesterday",
+                "this week",
+                "last week",
+                "this month",
+                "last month",
+                "last 7 days",
+                "last N days",
+            ]
             raise InvalidParameterError(
                 f"无法识别的日期表达式: {expression}",
-                suggestion=f"支持的表达式:\n中文: {', '.join(supported_cn)}\n英文: {', '.join(supported_en)}"
+                suggestion=f"支持的表达式:\n中文: {', '.join(supported_cn)}\n英文: {', '.join(supported_en)}",
             )
 
         # 3. 根据 normalized 类型计算日期范围
-        start_date, end_date, description = DateParser._calculate_date_range(
-            normalized, today
-        )
+        start_date, end_date, description = DateParser._calculate_date_range(normalized, today)
 
         return {
             "success": True,
@@ -415,17 +429,14 @@ class DateParser:
             "normalized": normalized,
             "date_range": {
                 "start": start_date.strftime("%Y-%m-%d"),
-                "end": end_date.strftime("%Y-%m-%d")
+                "end": end_date.strftime("%Y-%m-%d"),
             },
             "current_date": today_str,
-            "description": description
+            "description": description,
         }
 
     @staticmethod
-    def _calculate_date_range(
-        normalized: str,
-        today: datetime
-    ) -> tuple[datetime, datetime, str]:
+    def _calculate_date_range(normalized: str, today: datetime) -> tuple[datetime, datetime, str]:
         """
         根据标准化的日期类型计算实际日期范围
 
@@ -453,7 +464,11 @@ class DateParser:
             # 如果本周还没结束，end 不能超过今天
             if end > today:
                 end = today
-            return start, end, f"本周（周一到周日，{start.strftime('%m-%d')} 至 {end.strftime('%m-%d')}）"
+            return (
+                start,
+                end,
+                f"本周（周一到周日，{start.strftime('%m-%d')} 至 {end.strftime('%m-%d')}）",
+            )
 
         # 上周（上周一到上周日）
         if normalized == "last_week":
@@ -479,11 +494,15 @@ class DateParser:
             return start, end, f"上月（{start.strftime('%Y-%m-%d')} 至 {end.strftime('%Y-%m-%d')}）"
 
         # 最近N天 (last_N_days 格式)
-        match = re.match(r'last_(\d+)_days', normalized)
+        match = re.match(r"last_(\d+)_days", normalized)
         if match:
             days = int(match.group(1))
             start = today - timedelta(days=days - 1)  # 包含今天，所以是 days-1
-            return start, today, f"最近{days}天（{start.strftime('%m-%d')} 至 {today.strftime('%m-%d')}）"
+            return (
+                start,
+                today,
+                f"最近{days}天（{start.strftime('%m-%d')} 至 {today.strftime('%m-%d')}）",
+            )
 
         # 兜底：返回今天
         return today, today, "今天（默认）"
@@ -500,7 +519,15 @@ class DateParser:
             "单日": ["今天", "昨天", "today", "yesterday"],
             "周": ["本周", "上周", "this week", "last week"],
             "月": ["本月", "上月", "this month", "last month"],
-            "最近N天": ["最近3天", "最近7天", "最近14天", "最近30天",
-                      "last 3 days", "last 7 days", "last 14 days", "last 30 days"],
-            "动态天数": ["最近N天", "last N days"]
+            "最近N天": [
+                "最近3天",
+                "最近7天",
+                "最近14天",
+                "最近30天",
+                "last 3 days",
+                "last 7 days",
+                "last 14 days",
+                "last 30 days",
+            ],
+            "动态天数": ["最近N天", "last N days"],
         }

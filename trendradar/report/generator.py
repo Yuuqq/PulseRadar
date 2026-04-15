@@ -57,7 +57,9 @@ def prepare_report_data(
                 for source_id, titles_data in new_titles.items():
                     filtered_titles = {}
                     for title, title_data in titles_data.items():
-                        if matches_word_groups_func(title, word_groups, filter_words, global_filters):
+                        if matches_word_groups_func(
+                            title, word_groups, filter_words, global_filters
+                        ):
                             filtered_titles[title] = title_data
                     if filtered_titles:
                         filtered_new_titles[source_id] = filtered_titles
@@ -66,8 +68,14 @@ def prepare_report_data(
                 filtered_new_titles = new_titles
 
             # 打印过滤后的新增热点数（与推送显示一致）
-            original_new_count = sum(len(titles) for titles in new_titles.values()) if new_titles else 0
-            filtered_new_count = sum(len(titles) for titles in filtered_new_titles.values()) if filtered_new_titles else 0
+            original_new_count = (
+                sum(len(titles) for titles in new_titles.values()) if new_titles else 0
+            )
+            filtered_new_count = (
+                sum(len(titles) for titles in filtered_new_titles.values())
+                if filtered_new_titles
+                else 0
+            )
             if original_new_count > 0:
                 logger.info(
                     "频率词过滤后新增热点匹配",
@@ -140,9 +148,7 @@ def prepare_report_data(
         "stats": processed_stats,
         "new_titles": processed_new_titles,
         "failed_ids": failed_ids or [],
-        "total_new_count": sum(
-            len(source["titles"]) for source in processed_new_titles
-        ),
+        "total_new_count": sum(len(source["titles"]) for source in processed_new_titles),
     }
 
 

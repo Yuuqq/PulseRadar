@@ -23,6 +23,7 @@ from trendradar.webui.job_manager import JobManager
 # Job manager accessor
 # ---------------------------------------------------------------------------
 
+
 def get_job_manager() -> JobManager:
     manager = current_app.extensions.get("trendradar_job_manager")
     if manager is None:
@@ -33,6 +34,7 @@ def get_job_manager() -> JobManager:
 # ---------------------------------------------------------------------------
 # Config I/O
 # ---------------------------------------------------------------------------
+
 
 def load_config() -> dict[str, Any]:
     """Load YAML config file."""
@@ -64,6 +66,7 @@ def save_config(config: dict[str, Any]) -> bool:
 # Request helpers
 # ---------------------------------------------------------------------------
 
+
 def read_json_body() -> dict[str, Any] | None:
     body = request.get_json(silent=True)
     return body if isinstance(body, dict) else None
@@ -85,6 +88,7 @@ def utc_now_iso() -> str:
 # ---------------------------------------------------------------------------
 # Workflow scope helpers
 # ---------------------------------------------------------------------------
+
 
 def normalize_workflow_scope(value: Any) -> str:
     scope_raw = str(value or "all").strip().lower()
@@ -164,6 +168,7 @@ def build_run_command_from_payload(payload: dict[str, Any] | None) -> list[str]:
 # Retry command helpers
 # ---------------------------------------------------------------------------
 
+
 def append_flag_once(command: list[str], flag: str) -> list[str]:
     items = [str(part) for part in command]
     if flag not in items:
@@ -176,11 +181,15 @@ def resolve_retry_command(
     requested_strategy: str,
     failed_stage: str | None,
 ) -> dict[str, Any]:
-    base = command if isinstance(command, list) and command else [
-        str(current_app.config.get("PYTHON_EXECUTABLE") or "python"),
-        "-m",
-        "trendradar",
-    ]
+    base = (
+        command
+        if isinstance(command, list) and command
+        else [
+            str(current_app.config.get("PYTHON_EXECUTABLE") or "python"),
+            "-m",
+            "trendradar",
+        ]
+    )
     normalized = [str(part) for part in base]
 
     if requested_strategy != "from_failed_stage":
@@ -215,6 +224,7 @@ def resolve_retry_command(
 # ---------------------------------------------------------------------------
 # Output path safety helpers
 # ---------------------------------------------------------------------------
+
 
 def is_path_in_output(target_path: Path) -> bool:
     output_root = Path(current_app.config["OUTPUT_DIR"]).resolve()
@@ -253,6 +263,7 @@ def report_path_to_url(path_str: str) -> str | None:
 # ---------------------------------------------------------------------------
 # Job serialization helpers
 # ---------------------------------------------------------------------------
+
 
 def build_stage_timeline(
     stage_timestamps: dict[str, Any],
@@ -347,6 +358,7 @@ def serialize_job(job: dict[str, Any], include_timeline: bool = True) -> dict[st
 # ---------------------------------------------------------------------------
 # Workflow template import plan
 # ---------------------------------------------------------------------------
+
 
 def build_workflow_template_import_plan(items: Any, replace_existing: bool) -> dict[str, Any]:
     if not isinstance(items, list):

@@ -23,6 +23,7 @@ if TYPE_CHECKING:
 # 辅助函数：安全读取环境变量
 # ---------------------------------------------------------------------------
 
+
 def _env_str(key: str) -> str | None:
     """返回非空字符串环境变量值，否则返回 None。"""
     val = os.environ.get(key, "").strip()
@@ -52,6 +53,7 @@ def _env_int(key: str) -> int | None:
 # advanced 节
 # ---------------------------------------------------------------------------
 
+
 class CrawlerConfig(BaseModel):
     """爬虫子配置：代理、API 地址和请求间隔。"""
 
@@ -62,9 +64,7 @@ class CrawlerConfig(BaseModel):
         default="http://127.0.0.1:10801",
         description="默认 HTTP 代理地址",
     )
-    request_interval: int = Field(
-        default=2000, description="爬虫请求间隔（毫秒）"
-    )
+    request_interval: int = Field(default=2000, description="爬虫请求间隔（毫秒）")
     use_proxy: bool = Field(default=False, description="是否启用代理")
 
     @model_validator(mode="after")
@@ -113,9 +113,7 @@ class AdvancedConfig(BaseModel):
 
     model_config = ConfigDict(extra="allow")
 
-    batch_send_interval: float = Field(
-        default=3, description="批次间发送间隔（秒）"
-    )
+    batch_send_interval: float = Field(default=3, description="批次间发送间隔（秒）")
     batch_size: BatchSizeConfig = Field(default_factory=BatchSizeConfig)
     configs_version_check_url: str = Field(
         default="https://raw.githubusercontent.com/sansan0/TrendRadar/refs/heads/master/version_configs",
@@ -127,9 +125,7 @@ class AdvancedConfig(BaseModel):
         default="━━━━━━━━━━━━━━━━━━━",
         description="飞书消息分隔符",
     )
-    max_accounts_per_channel: int = Field(
-        default=3, description="每个渠道允许的最大账号数"
-    )
+    max_accounts_per_channel: int = Field(default=3, description="每个渠道允许的最大账号数")
     mcp_version_check_url: str = Field(
         default="https://raw.githubusercontent.com/sansan0/TrendRadar/refs/heads/master/version_mcp",
         description="MCP 版本检查 URL",
@@ -156,6 +152,7 @@ class AdvancedConfig(BaseModel):
 # ai 节
 # ---------------------------------------------------------------------------
 
+
 class AiConfig(BaseModel):
     """AI 模型配置（LiteLLM 格式）。"""
 
@@ -175,9 +172,7 @@ class AiConfig(BaseModel):
     temperature: float = Field(default=1.0, description="生成温度")
     max_tokens: int = Field(default=5000, description="单次最大 token 数")
     num_retries: int = Field(default=1, description="失败重试次数")
-    fallback_models: list[str] = Field(
-        default_factory=list, description="备用模型列表"
-    )
+    fallback_models: list[str] = Field(default_factory=list, description="备用模型列表")
 
     @model_validator(mode="after")
     def _apply_env(self) -> AiConfig:
@@ -198,6 +193,7 @@ class AiConfig(BaseModel):
 # ---------------------------------------------------------------------------
 # ai_analysis 节
 # ---------------------------------------------------------------------------
+
 
 class AnalysisWindowConfig(BaseModel):
     """AI 分析的可用时间窗口配置。"""
@@ -237,21 +233,11 @@ class AiAnalysisConfig(BaseModel):
         default="follow_report",
         description="分析触发模式",
     )
-    max_news_for_analysis: int = Field(
-        default=60, description="每次分析最多处理的新闻条数"
-    )
-    include_rss: bool = Field(
-        default=False, description="是否将 RSS 条目纳入分析"
-    )
-    include_rank_timeline: bool = Field(
-        default=True, description="是否在分析中包含排名时间线"
-    )
-    prompt_file: str = Field(
-        default="ai_analysis_prompt.txt", description="分析 Prompt 文件名"
-    )
-    analysis_window: AnalysisWindowConfig = Field(
-        default_factory=AnalysisWindowConfig
-    )
+    max_news_for_analysis: int = Field(default=60, description="每次分析最多处理的新闻条数")
+    include_rss: bool = Field(default=False, description="是否将 RSS 条目纳入分析")
+    include_rank_timeline: bool = Field(default=True, description="是否在分析中包含排名时间线")
+    prompt_file: str = Field(default="ai_analysis_prompt.txt", description="分析 Prompt 文件名")
+    analysis_window: AnalysisWindowConfig = Field(default_factory=AnalysisWindowConfig)
 
     @model_validator(mode="after")
     def _apply_env(self) -> AiAnalysisConfig:
@@ -265,6 +251,7 @@ class AiAnalysisConfig(BaseModel):
 # ai_translation 节
 # ---------------------------------------------------------------------------
 
+
 class AiTranslationConfig(BaseModel):
     """AI 翻译功能配置。"""
 
@@ -272,9 +259,7 @@ class AiTranslationConfig(BaseModel):
 
     enabled: bool = Field(default=True, description="是否启用 AI 翻译")
     language: str = Field(default="Chinese", description="翻译目标语言")
-    prompt_file: str = Field(
-        default="ai_translation_prompt.txt", description="翻译 Prompt 文件名"
-    )
+    prompt_file: str = Field(default="ai_translation_prompt.txt", description="翻译 Prompt 文件名")
 
     @model_validator(mode="after")
     def _apply_env(self) -> AiTranslationConfig:
@@ -291,14 +276,13 @@ class AiTranslationConfig(BaseModel):
 # app 节
 # ---------------------------------------------------------------------------
 
+
 class AppConfig(BaseModel):
     """应用级别配置：时区、版本更新提示等。"""
 
     model_config = ConfigDict(extra="allow")
 
-    show_version_update: bool = Field(
-        default=True, description="是否显示版本更新通知"
-    )
+    show_version_update: bool = Field(default=True, description="是否显示版本更新通知")
     timezone: str = Field(default="Asia/Shanghai", description="运行时时区")
 
     @model_validator(mode="after")
@@ -334,12 +318,8 @@ class StandaloneConfig(BaseModel):
     model_config = ConfigDict(extra="allow")
 
     max_items: int = Field(default=20, description="独立区最多展示条目数")
-    platforms: list[str] = Field(
-        default_factory=list, description="独立展示的平台 ID 列表"
-    )
-    rss_feeds: list[str] = Field(
-        default_factory=list, description="独立展示的 RSS Feed ID 列表"
-    )
+    platforms: list[str] = Field(default_factory=list, description="独立展示的平台 ID 列表")
+    rss_feeds: list[str] = Field(default_factory=list, description="独立展示的 RSS Feed ID 列表")
 
 
 class DisplayConfig(BaseModel):
@@ -359,6 +339,7 @@ class DisplayConfig(BaseModel):
 # extra_apis 节
 # ---------------------------------------------------------------------------
 
+
 class ExtraApiSource(BaseModel):
     """单个额外 API 数据源条目。字段因 type 不同而有差异，用 extra=allow 兼容。"""
 
@@ -376,14 +357,13 @@ class ExtraApisConfig(BaseModel):
     model_config = ConfigDict(extra="allow")
 
     enabled: bool = Field(default=True, description="是否启用额外 API 数据源")
-    sources: list[ExtraApiSource] = Field(
-        default_factory=list, description="数据源配置列表"
-    )
+    sources: list[ExtraApiSource] = Field(default_factory=list, description="数据源配置列表")
 
 
 # ---------------------------------------------------------------------------
 # notification 节
 # ---------------------------------------------------------------------------
+
 
 class TelegramChannelConfig(BaseModel):
     """Telegram 推送渠道配置。"""
@@ -506,9 +486,7 @@ class GenericWebhookChannelConfig(BaseModel):
         description="通用 Webhook URL",
         json_schema_extra={"sensitive": True},
     )
-    payload_template: str = Field(
-        default="", description="Webhook 请求体模板（JSON 字符串）"
-    )
+    payload_template: str = Field(default="", description="Webhook 请求体模板（JSON 字符串）")
 
 
 class NotificationChannelsConfig(BaseModel):
@@ -562,15 +540,14 @@ class NotificationConfig(BaseModel):
     model_config = ConfigDict(extra="allow")
 
     enabled: bool = Field(default=True, description="是否启用通知推送")
-    channels: NotificationChannelsConfig = Field(
-        default_factory=NotificationChannelsConfig
-    )
+    channels: NotificationChannelsConfig = Field(default_factory=NotificationChannelsConfig)
     push_window: PushWindowConfig = Field(default_factory=PushWindowConfig)
 
 
 # ---------------------------------------------------------------------------
 # platforms 节
 # ---------------------------------------------------------------------------
+
 
 class PlatformSource(BaseModel):
     """单个平台数据源条目。"""
@@ -587,14 +564,13 @@ class PlatformsConfig(BaseModel):
     model_config = ConfigDict(extra="allow")
 
     enabled: bool = Field(default=True, description="是否启用平台数据源")
-    sources: list[PlatformSource] = Field(
-        default_factory=list, description="已配置的平台列表"
-    )
+    sources: list[PlatformSource] = Field(default_factory=list, description="已配置的平台列表")
 
 
 # ---------------------------------------------------------------------------
 # report 节
 # ---------------------------------------------------------------------------
+
 
 class ReportConfig(BaseModel):
     """报告生成配置：模式、阈值和展示限制。"""
@@ -604,21 +580,15 @@ class ReportConfig(BaseModel):
     display_mode: Literal["keyword", "platform"] = Field(
         default="keyword", description="报告展示模式"
     )
-    max_keywords: int = Field(
-        default=0, description="报告最多展示关键词数（0 表示不限）"
-    )
+    max_keywords: int = Field(default=0, description="报告最多展示关键词数（0 表示不限）")
     max_news_per_keyword: int = Field(
         default=0, description="每个关键词最多展示新闻条数（0 表示不限）"
     )
     mode: Literal["current", "daily", "incremental"] = Field(
         default="current", description="报告数据范围模式"
     )
-    rank_threshold: int = Field(
-        default=5, description="进入报告的排名阈值（≤ 该值才纳入）"
-    )
-    sort_by_position_first: bool = Field(
-        default=False, description="是否优先按平台位置排序"
-    )
+    rank_threshold: int = Field(default=5, description="进入报告的排名阈值（≤ 该值才纳入）")
+    sort_by_position_first: bool = Field(default=False, description="是否优先按平台位置排序")
 
     @model_validator(mode="after")
     def _apply_env(self) -> ReportConfig:
@@ -638,6 +608,7 @@ class ReportConfig(BaseModel):
 # rss 节
 # ---------------------------------------------------------------------------
 
+
 class RssFeedEntry(BaseModel):
     """单个 RSS Feed 条目。"""
 
@@ -655,9 +626,7 @@ class FreshnessFilterConfig(BaseModel):
     model_config = ConfigDict(extra="allow")
 
     enabled: bool = Field(default=True, description="是否启用新鲜度过滤")
-    max_age_days: int = Field(
-        default=3, description="超过该天数的条目将被过滤（0 表示不限）"
-    )
+    max_age_days: int = Field(default=3, description="超过该天数的条目将被过滤（0 表示不限）")
 
 
 class RssConfig(BaseModel):
@@ -666,17 +635,14 @@ class RssConfig(BaseModel):
     model_config = ConfigDict(extra="allow")
 
     enabled: bool = Field(default=True, description="是否启用 RSS 数据源")
-    feeds: list[RssFeedEntry] = Field(
-        default_factory=list, description="已配置的 RSS Feed 列表"
-    )
-    freshness_filter: FreshnessFilterConfig = Field(
-        default_factory=FreshnessFilterConfig
-    )
+    feeds: list[RssFeedEntry] = Field(default_factory=list, description="已配置的 RSS Feed 列表")
+    freshness_filter: FreshnessFilterConfig = Field(default_factory=FreshnessFilterConfig)
 
 
 # ---------------------------------------------------------------------------
 # storage 节
 # ---------------------------------------------------------------------------
+
 
 class StorageFormatsConfig(BaseModel):
     """存储文件格式开关。"""
@@ -704,9 +670,7 @@ class LocalStorageConfig(BaseModel):
     model_config = ConfigDict(extra="allow")
 
     data_dir: str = Field(default="output", description="本地数据目录")
-    retention_days: int = Field(
-        default=0, description="本地数据保留天数（0 表示永久保留）"
-    )
+    retention_days: int = Field(default=0, description="本地数据保留天数（0 表示永久保留）")
 
     @model_validator(mode="after")
     def _apply_env(self) -> LocalStorageConfig:
@@ -729,9 +693,7 @@ class RemoteStorageConfig(BaseModel):
     bucket_name: str = Field(default="", description="S3 存储桶名称")
     endpoint_url: str = Field(default="", description="S3 兼容端点 URL")
     region: str = Field(default="", description="S3 区域")
-    retention_days: int = Field(
-        default=0, description="远端数据保留天数（0 表示永久保留）"
-    )
+    retention_days: int = Field(default=0, description="远端数据保留天数（0 表示永久保留）")
     secret_access_key: str = Field(
         default="",
         description="S3 Secret Access Key",
@@ -801,6 +763,7 @@ class StorageConfig(BaseModel):
 # ---------------------------------------------------------------------------
 # 根配置模型
 # ---------------------------------------------------------------------------
+
 
 class TrendRadarConfig(BaseModel):
     """

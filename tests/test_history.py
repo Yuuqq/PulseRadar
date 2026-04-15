@@ -22,6 +22,7 @@ from trendradar.core.history import HistoryMatch, HistorySearcher
 # Fixtures
 # ---------------------------------------------------------------------------
 
+
 def _make_hits(items):
     """Build raw hit dicts matching the storage layer format."""
     return [
@@ -39,12 +40,50 @@ def _make_hits(items):
     ]
 
 
-SAMPLE_HITS = _make_hits([
-    ("人工智能改变生活", "toutiao", "今日头条", 1, "https://example.com/1", "09:00", "10:00", "2026-04-13"),
-    ("人工智能芯片突破", "baidu", "百度热搜", 3, "https://example.com/2", "08:30", "09:30", "2026-04-13"),
-    ("人工智能教育应用", "weibo", "微博热搜", 5, "https://example.com/3", "07:00", "08:00", "2026-04-12"),
-    ("人工智能医疗进展", "toutiao", "今日头条", 2, "https://example.com/4", "10:00", "11:00", "2026-04-11"),
-])
+SAMPLE_HITS = _make_hits(
+    [
+        (
+            "人工智能改变生活",
+            "toutiao",
+            "今日头条",
+            1,
+            "https://example.com/1",
+            "09:00",
+            "10:00",
+            "2026-04-13",
+        ),
+        (
+            "人工智能芯片突破",
+            "baidu",
+            "百度热搜",
+            3,
+            "https://example.com/2",
+            "08:30",
+            "09:30",
+            "2026-04-13",
+        ),
+        (
+            "人工智能教育应用",
+            "weibo",
+            "微博热搜",
+            5,
+            "https://example.com/3",
+            "07:00",
+            "08:00",
+            "2026-04-12",
+        ),
+        (
+            "人工智能医疗进展",
+            "toutiao",
+            "今日头条",
+            2,
+            "https://example.com/4",
+            "10:00",
+            "11:00",
+            "2026-04-11",
+        ),
+    ]
+)
 
 
 @pytest.fixture
@@ -64,6 +103,7 @@ def searcher(mock_storage):
 # Tests
 # ---------------------------------------------------------------------------
 
+
 class TestHistorySearcherSearch:
     """HistorySearcher.search() basic behavior."""
 
@@ -72,7 +112,9 @@ class TestHistorySearcherSearch:
         assert result.total_count == 4
         assert len(result.matches) == 4
         mock_storage.search_titles.assert_called_once_with(
-            "人工智能", days=7, limit=200,
+            "人工智能",
+            days=7,
+            limit=200,
         )
 
     def test_keyword_stored_in_result(self, searcher):
@@ -196,10 +238,12 @@ class TestSingleDayData:
 
     def test_single_date_range(self):
         sm = MagicMock()
-        sm.search_titles.return_value = _make_hits([
-            ("AI News", "baidu", "百度", 1, "", "09:00", "10:00", "2026-04-13"),
-            ("AI Update", "baidu", "百度", 2, "", "09:00", "10:00", "2026-04-13"),
-        ])
+        sm.search_titles.return_value = _make_hits(
+            [
+                ("AI News", "baidu", "百度", 1, "", "09:00", "10:00", "2026-04-13"),
+                ("AI Update", "baidu", "百度", 2, "", "09:00", "10:00", "2026-04-13"),
+            ]
+        )
         result = HistorySearcher(sm).search("AI")
         assert result.date_range == ("2026-04-13", "2026-04-13")
         assert result.timeline == {"2026-04-13": 2}

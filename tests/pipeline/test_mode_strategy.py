@@ -10,6 +10,7 @@ REAL SQLite storage in tmp_path. Only external I/O boundaries are mocked:
 
 Pitfall 7: Every test passes should_open_browser=False and is_docker_container=False.
 """
+
 from __future__ import annotations
 
 import os
@@ -58,8 +59,12 @@ class TestIncrementalMode:
     """Case 1: incremental with data -- uses current data directly (lines 440-459)."""
 
     def test_incremental_with_data(
-        self, pipeline_ctx, pipeline_config, sample_results,
-        sample_id_to_name, mock_callbacks,
+        self,
+        pipeline_ctx,
+        pipeline_config,
+        sample_results,
+        sample_id_to_name,
+        mock_callbacks,
     ):
         storage_manager = pipeline_ctx.get_storage_manager()
         run_pipeline_fn = mock_callbacks["run_analysis_pipeline_fn_factory"]("incremental")
@@ -114,8 +119,12 @@ class TestCurrentMode:
     """Case 2 and 3: current mode with/without history."""
 
     def test_current_with_history(
-        self, pipeline_ctx, pipeline_config, sample_results,
-        sample_id_to_name, mock_callbacks,
+        self,
+        pipeline_ctx,
+        pipeline_config,
+        sample_results,
+        sample_id_to_name,
+        mock_callbacks,
     ):
         """Case 2: current with history -- uses historical data (lines 339-377)."""
         storage_manager = pipeline_ctx.get_storage_manager()
@@ -183,8 +192,12 @@ class TestCurrentMode:
         _assert_notification_kwargs(mock_callbacks["send_notification_fn"])
 
     def test_current_without_history_raises(
-        self, pipeline_ctx, pipeline_config, sample_results,
-        sample_id_to_name, mock_callbacks,
+        self,
+        pipeline_ctx,
+        pipeline_config,
+        sample_results,
+        sample_id_to_name,
+        mock_callbacks,
     ):
         """Case 3: current without history -- raises RuntimeError (line 380)."""
         storage_manager = pipeline_ctx.get_storage_manager()
@@ -227,8 +240,12 @@ class TestDailyMode:
     """Case 4 and 5: daily mode with/without history."""
 
     def test_daily_with_history(
-        self, pipeline_ctx, pipeline_config, sample_results,
-        sample_id_to_name, mock_callbacks,
+        self,
+        pipeline_ctx,
+        pipeline_config,
+        sample_results,
+        sample_id_to_name,
+        mock_callbacks,
     ):
         """Case 4: daily with history -- uses historical data (lines 382-418)."""
         storage_manager = pipeline_ctx.get_storage_manager()
@@ -296,8 +313,12 @@ class TestDailyMode:
         _assert_notification_kwargs(mock_callbacks["send_notification_fn"])
 
     def test_daily_without_history_falls_back(
-        self, pipeline_ctx, pipeline_config, sample_results,
-        sample_id_to_name, mock_callbacks,
+        self,
+        pipeline_ctx,
+        pipeline_config,
+        sample_results,
+        sample_id_to_name,
+        mock_callbacks,
     ):
         """Case 5: daily without history -- falls back to current data (lines 420-438)."""
         storage_manager = pipeline_ctx.get_storage_manager()

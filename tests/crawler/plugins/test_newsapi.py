@@ -1,4 +1,5 @@
 """NewsAPIPlugin tests — happy path + API-level status=error response."""
+
 from __future__ import annotations
 
 import responses

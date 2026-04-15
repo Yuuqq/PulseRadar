@@ -5,7 +5,6 @@
 以及热榜条目和 RSS 条目的格式化辅助函数。
 """
 
-
 from trendradar.report.helpers import format_rank_display
 from trendradar.utils.time import (
     DEFAULT_TIMEZONE,
@@ -127,7 +126,9 @@ def _process_standalone_section(
         # 构建第一条新闻
         first_item_line = ""
         if items:
-            first_item_line = _format_standalone_platform_item(items[0], 1, format_type, rank_threshold)
+            first_item_line = _format_standalone_platform_item(
+                items[0], 1, format_type, rank_threshold
+            )
 
         # 原子性检查
         platform_with_first = platform_header + first_item_line
@@ -146,7 +147,9 @@ def _process_standalone_section(
 
         # 处理剩余条目
         for j in range(start_index, len(items)):
-            item_line = _format_standalone_platform_item(items[j], j + 1, format_type, rank_threshold)
+            item_line = _format_standalone_platform_item(
+                items[j], j + 1, format_type, rank_threshold
+            )
 
             test_content = current_batch + item_line
             if len(test_content.encode("utf-8")) + len(base_footer.encode("utf-8")) >= max_bytes:
@@ -217,7 +220,9 @@ def _process_standalone_section(
     return current_batch, current_batch_has_content, batches
 
 
-def _format_standalone_platform_item(item: dict, index: int, format_type: str, rank_threshold: int = 10) -> str:
+def _format_standalone_platform_item(
+    item: dict, index: int, format_type: str, rank_threshold: int = 10
+) -> str:
     """格式化独立展示区的热榜条目（复用热点词汇统计区样式）
 
     Args:

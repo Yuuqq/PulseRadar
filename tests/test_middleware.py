@@ -1,4 +1,3 @@
-
 from __future__ import annotations
 
 from unittest.mock import patch
@@ -6,6 +5,7 @@ from unittest.mock import patch
 # ---------------------------------------------------------------------------
 # Rate Limiter tests
 # ---------------------------------------------------------------------------
+
 
 def test_rate_limiter_first_request_no_wait():
     """First request for a key should not sleep."""
@@ -100,6 +100,7 @@ def test_rate_limiter_custom_rps():
 # ---------------------------------------------------------------------------
 # Circuit Breaker tests
 # ---------------------------------------------------------------------------
+
 
 def test_circuit_breaker_initial_state_is_closed():
     from trendradar.crawler.middleware.circuit_breaker import CircuitBreaker

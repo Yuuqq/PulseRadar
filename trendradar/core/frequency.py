@@ -35,8 +35,8 @@ def _parse_word(word: str) -> dict:
 
     # 1. 优先处理显示名称 (=>)
     # 先切分出 "配置内容" 和 "显示名称"
-    if '=>' in word:
-        parts = re.split(r'\s*=>\s*', word, 1)
+    if "=>" in word:
+        parts = re.split(r"\s*=>\s*", word, 1)
         word_config = parts[0].strip()
         # 只有当 => 右边有内容时才作为 display_name
         if len(parts) > 1 and parts[1].strip():
@@ -47,13 +47,13 @@ def _parse_word(word: str) -> dict:
     # 2. 解析正则表达式
     # 规则：以 / 开头，以 / 结尾(可能跟 flags)，中间内容贪婪提取
     # [a-z]*$ 表示允许末尾有 flags (如 i, g)，但在下面代码中会被忽略
-    regex_match = re.match(r'^/(.+)/[a-z]*$', word_config)
+    regex_match = re.match(r"^/(.+)/[a-z]*$", word_config)
 
     if regex_match:
         pattern_str = regex_match.group(1)
         try:
             pattern = re.compile(pattern_str, re.IGNORECASE)
-            
+
             return {
                 "word": pattern_str,
                 "is_regex": True,
@@ -64,12 +64,7 @@ def _parse_word(word: str) -> dict:
             logger.warning("无效的正则表达式，已跳过", pattern=pattern_str, error=str(e))
             pass
 
-    return {
-        "word": word_config, 
-        "is_regex": False, 
-        "pattern": None, 
-        "display_name": display_name
-    }
+    return {"word": word_config, "is_regex": False, "pattern": None, "display_name": display_name}
 
 
 def _word_matches(word_config: str | dict, title_lower: str) -> bool:
@@ -122,9 +117,7 @@ def load_frequency_words(
         FileNotFoundError: 频率词文件不存在
     """
     if frequency_file is None:
-        frequency_file = os.environ.get(
-            "FREQUENCY_WORDS_PATH", "config/frequency_words.txt"
-        )
+        frequency_file = os.environ.get("FREQUENCY_WORDS_PATH", "config/frequency_words.txt")
 
     frequency_path = Path(frequency_file)
     if not frequency_path.exists():
@@ -144,7 +137,11 @@ def load_frequency_words(
 
     for group in word_groups:
         # 过滤空行和注释行（# 开头）
-        lines = [line.strip() for line in group.split("\n") if line.strip() and not line.strip().startswith("#")]
+        lines = [
+            line.strip()
+            for line in group.split("\n")
+            if line.strip() and not line.strip().startswith("#")
+        ]
 
         if not lines:
             continue
@@ -243,10 +240,7 @@ def load_frequency_words(
 
 
 def matches_word_groups(
-    title: str,
-    word_groups: list[dict],
-    filter_words: list,
-    global_filters: list[str] | None = None
+    title: str, word_groups: list[dict], filter_words: list, global_filters: list[str] | None = None
 ) -> bool:
     """
     检查标题是否匹配词组规则

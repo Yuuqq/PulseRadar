@@ -7,6 +7,7 @@ this merge; this test catches regressions during that refactor.
 
 This is a PURE unit test: no mocks, no fixtures, no I/O.
 """
+
 from __future__ import annotations
 
 

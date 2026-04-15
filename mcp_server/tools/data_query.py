@@ -4,7 +4,6 @@
 实现P0核心的数据查询工具。
 """
 
-
 from ..services.data_service import DataService
 from ..utils.errors import MCPError
 from ..utils.validators import (
@@ -35,7 +34,7 @@ class DataQueryTools:
         self,
         platforms: list[str] | None = None,
         limit: int | None = None,
-        include_url: bool = False
+        include_url: bool = False,
     ) -> dict:
         """
         获取最新一批爬取的新闻数据
@@ -61,9 +60,7 @@ class DataQueryTools:
 
             # 获取数据
             news_list = self.data_service.get_latest_news(
-                platforms=platforms,
-                limit=limit,
-                include_url=include_url
+                platforms=platforms, limit=limit, include_url=include_url
             )
 
             return {
@@ -72,31 +69,22 @@ class DataQueryTools:
                     "description": "最新一批爬取的新闻数据",
                     "total": len(news_list),
                     "returned": len(news_list),
-                    "platforms": platforms or "全部平台"
+                    "platforms": platforms or "全部平台",
                 },
-                "data": news_list
+                "data": news_list,
             }
 
         except MCPError as e:
-            return {
-                "success": False,
-                "error": e.to_dict()
-            }
+            return {"success": False, "error": e.to_dict()}
         except Exception as e:
-            return {
-                "success": False,
-                "error": {
-                    "code": "INTERNAL_ERROR",
-                    "message": str(e)
-                }
-            }
+            return {"success": False, "error": {"code": "INTERNAL_ERROR", "message": str(e)}}
 
     def search_news_by_keyword(
         self,
         keyword: str,
         date_range: dict | str | None = None,
         platforms: list[str] | None = None,
-        limit: int | None = None
+        limit: int | None = None,
     ) -> dict:
         """
         按关键词搜索历史新闻
@@ -130,36 +118,18 @@ class DataQueryTools:
 
             # 搜索数据
             search_result = self.data_service.search_news_by_keyword(
-                keyword=keyword,
-                date_range=date_range_tuple,
-                platforms=platforms,
-                limit=limit
+                keyword=keyword, date_range=date_range_tuple, platforms=platforms, limit=limit
             )
 
-            return {
-                **search_result,
-                "success": True
-            }
+            return {**search_result, "success": True}
 
         except MCPError as e:
-            return {
-                "success": False,
-                "error": e.to_dict()
-            }
+            return {"success": False, "error": e.to_dict()}
         except Exception as e:
-            return {
-                "success": False,
-                "error": {
-                    "code": "INTERNAL_ERROR",
-                    "message": str(e)
-                }
-            }
+            return {"success": False, "error": {"code": "INTERNAL_ERROR", "message": str(e)}}
 
     def get_trending_topics(
-        self,
-        top_n: int | None = None,
-        mode: str | None = None,
-        extract_mode: str | None = None
+        self, top_n: int | None = None, mode: str | None = None, extract_mode: str | None = None
     ) -> dict:
         """
         获取热点话题统计
@@ -198,42 +168,28 @@ class DataQueryTools:
                     "error": {
                         "code": "INVALID_PARAMETER",
                         "message": f"不支持的提取模式: {extract_mode}",
-                        "suggestion": "支持的模式: keywords, auto_extract"
-                    }
+                        "suggestion": "支持的模式: keywords, auto_extract",
+                    },
                 }
 
             # 获取趋势话题
             trending_result = self.data_service.get_trending_topics(
-                top_n=top_n,
-                mode=mode,
-                extract_mode=extract_mode
+                top_n=top_n, mode=mode, extract_mode=extract_mode
             )
 
-            return {
-                **trending_result,
-                "success": True
-            }
+            return {**trending_result, "success": True}
 
         except MCPError as e:
-            return {
-                "success": False,
-                "error": e.to_dict()
-            }
+            return {"success": False, "error": e.to_dict()}
         except Exception as e:
-            return {
-                "success": False,
-                "error": {
-                    "code": "INTERNAL_ERROR",
-                    "message": str(e)
-                }
-            }
+            return {"success": False, "error": {"code": "INTERNAL_ERROR", "message": str(e)}}
 
     def get_news_by_date(
         self,
         date_range: dict[str, str] | str | None = None,
         platforms: list[str] | None = None,
         limit: int | None = None,
-        include_url: bool = False
+        include_url: bool = False,
     ) -> dict:
         """
         按日期查询新闻，支持自然语言日期
@@ -274,7 +230,7 @@ class DataQueryTools:
             # 处理 date_range：支持字符串或对象
             if isinstance(date_range, dict):
                 # 范围对象，取 start 日期
-                date_str = date_range.get('start', '今天')
+                date_str = date_range.get("start", "今天")
             else:
                 date_str = date_range
             target_date = validate_date_query(date_str)
@@ -283,10 +239,7 @@ class DataQueryTools:
 
             # 获取数据
             news_list = self.data_service.get_news_by_date(
-                target_date=target_date,
-                platforms=platforms,
-                limit=limit,
-                include_url=include_url
+                target_date=target_date, platforms=platforms, limit=limit, include_url=include_url
             )
 
             return {
@@ -297,24 +250,15 @@ class DataQueryTools:
                     "returned": len(news_list),
                     "date": target_date.strftime("%Y-%m-%d"),
                     "date_range": date_range,
-                    "platforms": platforms or "全部平台"
+                    "platforms": platforms or "全部平台",
                 },
-                "data": news_list
+                "data": news_list,
             }
 
         except MCPError as e:
-            return {
-                "success": False,
-                "error": e.to_dict()
-            }
+            return {"success": False, "error": e.to_dict()}
         except Exception as e:
-            return {
-                "success": False,
-                "error": {
-                    "code": "INTERNAL_ERROR",
-                    "message": str(e)
-                }
-            }
+            return {"success": False, "error": {"code": "INTERNAL_ERROR", "message": str(e)}}
 
     # ========================================
     # RSS 数据查询方法
@@ -325,7 +269,7 @@ class DataQueryTools:
         feeds: list[str] | None = None,
         days: int = 1,
         limit: int | None = None,
-        include_summary: bool = False
+        include_summary: bool = False,
     ) -> dict:
         """
         获取最新的 RSS 数据（支持多日查询）
@@ -343,37 +287,27 @@ class DataQueryTools:
             limit = validate_limit(limit, default=50)
 
             rss_list = self.data_service.get_latest_rss(
-                feeds=feeds,
-                days=days,
-                limit=limit,
-                include_summary=include_summary
+                feeds=feeds, days=days, limit=limit, include_summary=include_summary
             )
 
             return {
                 "success": True,
                 "summary": {
-                    "description": f"最近 {days} 天的 RSS 订阅数据" if days > 1 else "最新的 RSS 订阅数据",
+                    "description": f"最近 {days} 天的 RSS 订阅数据"
+                    if days > 1
+                    else "最新的 RSS 订阅数据",
                     "total": len(rss_list),
                     "returned": len(rss_list),
                     "days": days,
-                    "feeds": feeds or "全部订阅源"
+                    "feeds": feeds or "全部订阅源",
                 },
-                "data": rss_list
+                "data": rss_list,
             }
 
         except MCPError as e:
-            return {
-                "success": False,
-                "error": e.to_dict()
-            }
+            return {"success": False, "error": e.to_dict()}
         except Exception as e:
-            return {
-                "success": False,
-                "error": {
-                    "code": "INTERNAL_ERROR",
-                    "message": str(e)
-                }
-            }
+            return {"success": False, "error": {"code": "INTERNAL_ERROR", "message": str(e)}}
 
     def search_rss(
         self,
@@ -381,7 +315,7 @@ class DataQueryTools:
         feeds: list[str] | None = None,
         days: int = 7,
         limit: int | None = None,
-        include_summary: bool = False
+        include_summary: bool = False,
     ) -> dict:
         """
         搜索 RSS 数据
@@ -408,7 +342,7 @@ class DataQueryTools:
                 feeds=feeds,
                 days=days,
                 limit=limit,
-                include_summary=include_summary
+                include_summary=include_summary,
             )
 
             return {
@@ -419,24 +353,15 @@ class DataQueryTools:
                     "returned": len(rss_list),
                     "keyword": keyword,
                     "feeds": feeds or "全部订阅源",
-                    "days": days
+                    "days": days,
                 },
-                "data": rss_list
+                "data": rss_list,
             }
 
         except MCPError as e:
-            return {
-                "success": False,
-                "error": e.to_dict()
-            }
+            return {"success": False, "error": e.to_dict()}
         except Exception as e:
-            return {
-                "success": False,
-                "error": {
-                    "code": "INTERNAL_ERROR",
-                    "message": str(e)
-                }
-            }
+            return {"success": False, "error": {"code": "INTERNAL_ERROR", "message": str(e)}}
 
     def get_rss_feeds_status(self) -> dict:
         """
@@ -448,22 +373,9 @@ class DataQueryTools:
         try:
             status = self.data_service.get_rss_feeds_status()
 
-            return {
-                **status,
-                "success": True
-            }
+            return {**status, "success": True}
 
         except MCPError as e:
-            return {
-                "success": False,
-                "error": e.to_dict()
-            }
+            return {"success": False, "error": e.to_dict()}
         except Exception as e:
-            return {
-                "success": False,
-                "error": {
-                    "code": "INTERNAL_ERROR",
-                    "message": str(e)
-                }
-            }
-
+            return {"success": False, "error": {"code": "INTERNAL_ERROR", "message": str(e)}}

@@ -13,22 +13,22 @@ from typing import Any, Optional
 class NewsItem:
     """新闻条目数据模型（热榜数据）"""
 
-    title: str                          # 新闻标题
-    source_id: str                      # 来源平台ID（如 toutiao, baidu）
-    source_name: str = ""               # 来源平台名称（运行时使用，数据库不存储）
-    rank: int = 0                       # 排名
-    url: str = ""                       # 链接 URL
-    mobile_url: str = ""                # 移动端 URL
-    crawl_time: str = ""                # 抓取时间（HH:MM 格式）
+    title: str  # 新闻标题
+    source_id: str  # 来源平台ID（如 toutiao, baidu）
+    source_name: str = ""  # 来源平台名称（运行时使用，数据库不存储）
+    rank: int = 0  # 排名
+    url: str = ""  # 链接 URL
+    mobile_url: str = ""  # 移动端 URL
+    crawl_time: str = ""  # 抓取时间（HH:MM 格式）
 
     # 统计信息（用于分析）
     ranks: list[int] = field(default_factory=list)  # 历史排名列表
-    first_time: str = ""                # 首次出现时间
-    last_time: str = ""                 # 最后出现时间
-    count: int = 1                      # 出现次数
+    first_time: str = ""  # 首次出现时间
+    last_time: str = ""  # 最后出现时间
+    count: int = 1  # 出现次数
     rank_timeline: list[dict[str, Any]] = field(default_factory=list)  # 完整排名时间线
-                                        # 格式: [{"time": "09:30", "rank": 1}, {"time": "10:00", "rank": 2}, ...]
-                                        # None 表示脱榜: [{"time": "11:00", "rank": None}]
+    # 格式: [{"time": "09:30", "rank": 1}, {"time": "10:00", "rank": 2}, ...]
+    # None 表示脱榜: [{"time": "11:00", "rank": None}]
 
     def to_dict(self) -> dict[str, Any]:
         """转换为字典"""
@@ -70,19 +70,19 @@ class NewsItem:
 class RSSItem:
     """RSS 条目数据模型"""
 
-    title: str                          # 标题
-    feed_id: str                        # RSS 源 ID（如 "hacker-news"）
-    feed_name: str = ""                 # RSS 源名称（运行时使用）
-    url: str = ""                       # 文章链接
-    published_at: str = ""              # RSS 发布时间（ISO 格式）
-    summary: str = ""                   # 摘要/描述
-    author: str = ""                    # 作者
-    crawl_time: str = ""                # 抓取时间（HH:MM 格式）
+    title: str  # 标题
+    feed_id: str  # RSS 源 ID（如 "hacker-news"）
+    feed_name: str = ""  # RSS 源名称（运行时使用）
+    url: str = ""  # 文章链接
+    published_at: str = ""  # RSS 发布时间（ISO 格式）
+    summary: str = ""  # 摘要/描述
+    author: str = ""  # 作者
+    crawl_time: str = ""  # 抓取时间（HH:MM 格式）
 
     # 统计信息
-    first_time: str = ""                # 首次抓取时间
-    last_time: str = ""                 # 最后抓取时间
-    count: int = 1                      # 抓取次数
+    first_time: str = ""  # 首次抓取时间
+    last_time: str = ""  # 最后抓取时间
+    count: int = 1  # 抓取次数
 
     def to_dict(self) -> dict[str, Any]:
         """转换为字典"""
@@ -131,11 +131,11 @@ class RSSData:
     - failed_ids: 失败的 feed_id 列表
     """
 
-    date: str                                   # 日期
-    crawl_time: str                             # 抓取时间
-    items: dict[str, list[RSSItem]]             # 按 feed_id 分组的条目
-    id_to_name: dict[str, str] = field(default_factory=dict)   # ID到名称映射
-    failed_ids: list[str] = field(default_factory=list)        # 失败的ID
+    date: str  # 日期
+    crawl_time: str  # 抓取时间
+    items: dict[str, list[RSSItem]]  # 按 feed_id 分组的条目
+    id_to_name: dict[str, str] = field(default_factory=dict)  # ID到名称映射
+    failed_ids: list[str] = field(default_factory=list)  # 失败的ID
 
     def to_dict(self) -> dict[str, Any]:
         """转换为字典"""
@@ -185,11 +185,11 @@ class NewsData:
     - failed_ids: 失败的来源ID列表
     """
 
-    date: str                                   # 日期
-    crawl_time: str                             # 抓取时间
-    items: dict[str, list[NewsItem]]            # 按来源分组的新闻
-    id_to_name: dict[str, str] = field(default_factory=dict)   # ID到名称映射
-    failed_ids: list[str] = field(default_factory=list)        # 失败的ID
+    date: str  # 日期
+    crawl_time: str  # 抓取时间
+    items: dict[str, list[NewsItem]]  # 按来源分组的新闻
+    id_to_name: dict[str, str] = field(default_factory=dict)  # ID到名称映射
+    failed_ids: list[str] = field(default_factory=list)  # 失败的ID
 
     def to_dict(self) -> dict[str, Any]:
         """转换为字典"""
@@ -257,9 +257,13 @@ class NewsData:
                     existing.ranks = merged_ranks
 
                     # 更新时间
-                    if item.first_time and (not existing.first_time or item.first_time < existing.first_time):
+                    if item.first_time and (
+                        not existing.first_time or item.first_time < existing.first_time
+                    ):
                         existing.first_time = item.first_time
-                    if item.last_time and (not existing.last_time or item.last_time > existing.last_time):
+                    if item.last_time and (
+                        not existing.last_time or item.last_time > existing.last_time
+                    ):
                         existing.last_time = item.last_time
 
                     # 更新计数
@@ -384,7 +388,9 @@ class StorageBackend(ABC):
         pass
 
     @abstractmethod
-    def save_html_report(self, html_content: str, filename: str, is_summary: bool = False) -> str | None:
+    def save_html_report(
+        self, html_content: str, filename: str, is_summary: bool = False
+    ) -> str | None:
         """
         保存 HTML 报告
 

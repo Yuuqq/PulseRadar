@@ -19,8 +19,11 @@ def _block_boto3():
     """Remove boto3/botocore from sys.modules and return (saved, blocker)."""
     saved = {}
     modules_to_block = [
-        "boto3", "botocore", "botocore.config",
-        "botocore.exceptions", "botocore.session",
+        "boto3",
+        "botocore",
+        "botocore.config",
+        "botocore.exceptions",
+        "botocore.session",
     ]
 
     for mod_name in list(sys.modules.keys()):
@@ -28,9 +31,7 @@ def _block_boto3():
             saved[mod_name] = sys.modules.pop(mod_name)
 
     if "trendradar.storage.remote" in sys.modules:
-        saved["trendradar.storage.remote"] = sys.modules.pop(
-            "trendradar.storage.remote"
-        )
+        saved["trendradar.storage.remote"] = sys.modules.pop("trendradar.storage.remote")
 
     blocker = {name: None for name in modules_to_block}
     return saved, blocker

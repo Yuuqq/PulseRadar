@@ -4,7 +4,6 @@
 提供消息分批发送的辅助函数
 """
 
-
 from trendradar.logging import get_logger
 
 logger = get_logger(__name__)
@@ -77,9 +76,7 @@ def truncate_to_bytes(text: str, max_bytes: int) -> str:
     return ""
 
 
-def add_batch_headers(
-    batches: list[str], format_type: str, max_bytes: int
-) -> list[str]:
+def add_batch_headers(batches: list[str], format_type: str, max_bytes: int) -> list[str]:
     """为批次添加头部，动态计算确保总大小不超过限制
 
     Args:

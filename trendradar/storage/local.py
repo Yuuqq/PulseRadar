@@ -134,8 +134,9 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
             # 确保目录存在
             db_path.parent.mkdir(parents=True, exist_ok=True)
 
-        success, new_count, updated_count, title_changed_count, off_list_count = \
+        success, new_count, updated_count, title_changed_count, off_list_count = (
             self._save_news_data_impl(data, "[本地存储]")
+        )
 
         if success:
             # 输出详细的存储统计日志
@@ -146,8 +147,14 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
                 log_parts.append(f"标题变更 {title_changed_count} 条")
             if off_list_count > 0:
                 log_parts.append(f"脱榜 {off_list_count} 条")
-            logger.info("处理完成", backend="local", new=new_count, updated=updated_count,
-                        title_changed=title_changed_count, off_list=off_list_count)
+            logger.info(
+                "处理完成",
+                backend="local",
+                new=new_count,
+                updated=updated_count,
+                title_changed=title_changed_count,
+                off_list=off_list_count,
+            )
 
         return success
 
@@ -211,7 +218,9 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
         success = self._record_ai_analysis_impl(analysis_mode, date)
         if success:
             now_str = self._get_configured_time().strftime("%Y-%m-%d %H:%M:%S")
-            logger.info("AI 分析记录已保存", backend="local", analysis_mode=analysis_mode, time=now_str)
+            logger.info(
+                "AI 分析记录已保存", backend="local", analysis_mode=analysis_mode, time=now_str
+            )
         return success
 
     def reset_push_state(self, date: str | None = None) -> bool:
@@ -373,7 +382,9 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
             logger.error("保存 TXT 快照失败", backend="local", error=str(e))
             return None
 
-    def save_html_report(self, html_content: str, filename: str, is_summary: bool = False) -> str | None:
+    def save_html_report(
+        self, html_content: str, filename: str, is_summary: bool = False
+    ) -> str | None:
         """
         保存 HTML 报告
 
@@ -447,15 +458,15 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
         def parse_date_from_name(name: str) -> datetime | None:
             """从文件名或目录名解析日期 (ISO 格式: YYYY-MM-DD)"""
             # 移除 .db 后缀
-            name = name.replace('.db', '')
+            name = name.replace(".db", "")
             try:
-                date_match = re.match(r'(\d{4})-(\d{2})-(\d{2})', name)
+                date_match = re.match(r"(\d{4})-(\d{2})-(\d{2})", name)
                 if date_match:
                     return datetime(
                         int(date_match.group(1)),
                         int(date_match.group(2)),
                         int(date_match.group(3)),
-                        tzinfo=pytz.timezone(self.timezone)
+                        tzinfo=pytz.timezone(self.timezone),
                     )
             except Exception:
                 pass
@@ -487,9 +498,13 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
                         try:
                             db_file.unlink()
                             deleted_count += 1
-                            logger.info("清理过期数据", backend="local", path=f"{db_type}/{db_file.name}")
+                            logger.info(
+                                "清理过期数据", backend="local", path=f"{db_type}/{db_file.name}"
+                            )
                         except Exception as e:
-                            logger.error("删除文件失败", backend="local", path=str(db_file), error=str(e))
+                            logger.error(
+                                "删除文件失败", backend="local", path=str(db_file), error=str(e)
+                            )
 
             # 清理快照目录 (txt/, html/)
             for snapshot_type in ["txt", "html"]:
@@ -498,7 +513,7 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
                     continue
 
                 for date_folder in snapshot_dir.iterdir():
-                    if not date_folder.is_dir() or date_folder.name.startswith('.'):
+                    if not date_folder.is_dir() or date_folder.name.startswith("."):
                         continue
 
                     folder_date = parse_date_from_name(date_folder.name)
@@ -506,9 +521,15 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
                         try:
                             shutil.rmtree(date_folder)
                             deleted_count += 1
-                            logger.info("清理过期数据", backend="local", path=f"{snapshot_type}/{date_folder.name}")
+                            logger.info(
+                                "清理过期数据",
+                                backend="local",
+                                path=f"{snapshot_type}/{date_folder.name}",
+                            )
                         except Exception as e:
-                            logger.error("删除目录失败", backend="local", path=str(date_folder), error=str(e))
+                            logger.error(
+                                "删除目录失败", backend="local", path=str(date_folder), error=str(e)
+                            )
 
             if deleted_count > 0:
                 logger.info("共清理过期文件/目录", backend="local", count=deleted_count)

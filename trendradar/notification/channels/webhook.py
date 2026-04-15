@@ -77,16 +77,21 @@ def send_to_generic_webhook(
 
     logger.info(
         "\u6d88\u606f\u5206\u6279\u53d1\u9001",
-        channel="generic_webhook", account_label=log_prefix,
-        batches=len(batches), report_type=report_type,
+        channel="generic_webhook",
+        account_label=log_prefix,
+        batches=len(batches),
+        report_type=report_type,
     )
 
     for i, batch_content in enumerate(batches, 1):
         content_size = len(batch_content.encode("utf-8"))
         logger.debug(
             "\u53d1\u9001\u6279\u6b21",
-            channel="generic_webhook", account_label=log_prefix,
-            batch=i, total=len(batches), size=content_size,
+            channel="generic_webhook",
+            account_label=log_prefix,
+            batch=i,
+            total=len(batches),
+            size=content_size,
             report_type=report_type,
         )
 
@@ -94,13 +99,16 @@ def send_to_generic_webhook(
             if payload_template:
                 json_content = json.dumps(batch_content)[1:-1]
                 json_title = json.dumps(report_type)[1:-1]
-                payload_str = payload_template.replace("{content}", json_content).replace("{title}", json_title)
+                payload_str = payload_template.replace("{content}", json_content).replace(
+                    "{title}", json_title
+                )
                 try:
                     payload = json.loads(payload_str)
                 except json.JSONDecodeError as e:
                     logger.error(
                         "JSON \u6a21\u677f\u89e3\u6790\u5931\u8d25",
-                        channel="generic_webhook", account_label=log_prefix,
+                        channel="generic_webhook",
+                        account_label=log_prefix,
                         error=str(e),
                     )
                     payload = {"title": report_type, "content": batch_content}
@@ -108,39 +116,53 @@ def send_to_generic_webhook(
                 payload = {"title": report_type, "content": batch_content}
 
             response = requests.post(
-                webhook_url, headers=headers, json=payload,
-                proxies=proxies, timeout=30,
+                webhook_url,
+                headers=headers,
+                json=payload,
+                proxies=proxies,
+                timeout=30,
             )
 
             if 200 <= response.status_code < 300:
                 logger.info(
                     "\u6279\u6b21\u53d1\u9001\u6210\u529f",
-                    channel="generic_webhook", account_label=log_prefix,
-                    batch=i, total=len(batches), report_type=report_type,
+                    channel="generic_webhook",
+                    account_label=log_prefix,
+                    batch=i,
+                    total=len(batches),
+                    report_type=report_type,
                 )
                 if i < len(batches):
                     time.sleep(batch_interval)
             else:
                 logger.error(
                     "\u6279\u6b21\u53d1\u9001\u5931\u8d25",
-                    channel="generic_webhook", account_label=log_prefix,
-                    batch=i, total=len(batches),
-                    report_type=report_type, status_code=response.status_code,
+                    channel="generic_webhook",
+                    account_label=log_prefix,
+                    batch=i,
+                    total=len(batches),
+                    report_type=report_type,
+                    status_code=response.status_code,
                     response_text=response.text,
                 )
                 return False
         except Exception as e:
             logger.error(
                 "\u6279\u6b21\u53d1\u9001\u51fa\u9519",
-                channel="generic_webhook", account_label=log_prefix,
-                batch=i, total=len(batches),
-                report_type=report_type, error=str(e),
+                channel="generic_webhook",
+                account_label=log_prefix,
+                batch=i,
+                total=len(batches),
+                report_type=report_type,
+                error=str(e),
             )
             return False
 
     logger.info(
         "\u6240\u6709\u6279\u6b21\u53d1\u9001\u5b8c\u6210",
-        channel="generic_webhook", account_label=log_prefix,
-        batches=len(batches), report_type=report_type,
+        channel="generic_webhook",
+        account_label=log_prefix,
+        batches=len(batches),
+        report_type=report_type,
     )
     return True

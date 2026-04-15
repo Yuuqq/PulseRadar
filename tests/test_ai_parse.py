@@ -1,4 +1,3 @@
-
 from __future__ import annotations
 
 
@@ -24,4 +23,3 @@ def test_ai_analyzer_parse_response_json_code_block():
     assert parsed.success is True
     assert parsed.core_trends == "A"
     assert parsed.outlook_strategy == "E"
-

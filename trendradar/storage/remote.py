@@ -20,6 +20,7 @@ try:
     import boto3
     from botocore.config import Config as BotoConfig
     from botocore.exceptions import ClientError
+
     HAS_BOTO3 = True
 except ImportError:
     HAS_BOTO3 = False
@@ -99,7 +100,7 @@ class RemoteStorageBackend(SQLiteStorageMixin, StorageBackend):
         # - 腾讯云 COS 和 阿里云 OSS 使用 SigV2 以避免 chunked encoding 问题
         # - 其他服务商（AWS S3、Cloudflare R2、MinIO 等）默认使用 SigV4
         use_sigv2 = "myqcloud.com" in endpoint_url.lower() or "aliyuncs.com" in endpoint_url.lower()
-        signature_version = 's3' if use_sigv2 else 's3v4'
+        signature_version = "s3" if use_sigv2 else "s3v4"
 
         s3_config = BotoConfig(
             s3={"addressing_style": "virtual"},
@@ -121,7 +122,9 @@ class RemoteStorageBackend(SQLiteStorageMixin, StorageBackend):
         self._downloaded_files: list[Path] = []
         self._db_connections: dict[str, sqlite3.Connection] = {}
 
-        logger.info("初始化完成", backend="remote", bucket=bucket_name, signature_version=signature_version)
+        logger.info(
+            "初始化完成", backend="remote", bucket=bucket_name, signature_version=signature_version
+        )
 
     @property
     def backend_name(self) -> str:
@@ -231,8 +234,8 @@ class RemoteStorageBackend(SQLiteStorageMixin, StorageBackend):
             # 使用 get_object + iter_chunks 替代 download_file
             # iter_chunks 会自动处理 chunked transfer encoding
             response = self.s3_client.get_object(Bucket=self.bucket_name, Key=r2_key)
-            with open(local_path, 'wb') as f:
-                for chunk in response['Body'].iter_chunks(chunk_size=1024*1024):
+            with open(local_path, "wb") as f:
+                for chunk in response["Body"].iter_chunks(chunk_size=1024 * 1024):
                     f.write(chunk)
             self._downloaded_files.append(local_path)
             logger.info("已下载", backend="remote", key=r2_key, local_path=str(local_path))
@@ -244,7 +247,9 @@ class RemoteStorageBackend(SQLiteStorageMixin, StorageBackend):
                 logger.info("文件不存在，将创建新数据库", backend="remote", key=r2_key)
                 return None
             else:
-                logger.error("下载失败", backend="remote", key=r2_key, error_code=error_code, error=str(e))
+                logger.error(
+                    "下载失败", backend="remote", key=r2_key, error_code=error_code, error=str(e)
+                )
                 raise
         except Exception as e:
             logger.error("下载异常", backend="remote", key=r2_key, error=str(e))
@@ -271,12 +276,18 @@ class RemoteStorageBackend(SQLiteStorageMixin, StorageBackend):
         try:
             # 获取本地文件大小
             local_size = local_path.stat().st_size
-            logger.debug("准备上传", backend="remote", local_path=str(local_path), size_bytes=local_size, key=r2_key)
+            logger.debug(
+                "准备上传",
+                backend="remote",
+                local_path=str(local_path),
+                size_bytes=local_size,
+                key=r2_key,
+            )
 
             # 读取文件内容为 bytes 后上传
             # 避免传入文件对象时 requests 库使用 chunked transfer encoding
             # 腾讯云 COS 等 S3 兼容服务可能无法正确处理 chunked encoding
-            with open(local_path, 'rb') as f:
+            with open(local_path, "rb") as f:
                 file_content = f.read()
 
             # 使用 put_object 并明确设置 ContentLength，确保不使用 chunked encoding
@@ -285,7 +296,7 @@ class RemoteStorageBackend(SQLiteStorageMixin, StorageBackend):
                 Key=r2_key,
                 Body=file_content,
                 ContentLength=local_size,
-                ContentType='application/x-sqlite3',
+                ContentType="application/x-sqlite3",
             )
             logger.info("已上传", backend="remote", local_path=str(local_path), key=r2_key)
 
@@ -351,8 +362,9 @@ class RemoteStorageBackend(SQLiteStorageMixin, StorageBackend):
             logger.info("已有历史记录，将合并新数据", backend="remote", existing=existing_count)
 
         # 使用 mixin 的实现保存数据
-        success, new_count, updated_count, title_changed_count, off_list_count = \
+        success, new_count, updated_count, title_changed_count, off_list_count = (
             self._save_news_data_impl(data, "[远程存储]")
+        )
 
         if not success:
             return False
@@ -363,8 +375,15 @@ class RemoteStorageBackend(SQLiteStorageMixin, StorageBackend):
         final_count = row[0] if row else 0
 
         # 输出详细的存储统计日志
-        logger.info("处理完成", backend="remote", new=new_count, updated=updated_count,
-                    title_changed=title_changed_count, off_list=off_list_count, total=final_count)
+        logger.info(
+            "处理完成",
+            backend="remote",
+            new=new_count,
+            updated=updated_count,
+            title_changed=title_changed_count,
+            off_list=off_list_count,
+            total=final_count,
+        )
 
         # 上传到远程存储
         if self._upload_sqlite(data.date):
@@ -426,7 +445,9 @@ class RemoteStorageBackend(SQLiteStorageMixin, StorageBackend):
 
         if success:
             now_str = self._get_configured_time().strftime("%Y-%m-%d %H:%M:%S")
-            logger.info("AI 分析记录已保存", backend="remote", analysis_mode=analysis_mode, time=now_str)
+            logger.info(
+                "AI 分析记录已保存", backend="remote", analysis_mode=analysis_mode, time=now_str
+            )
 
             # 上传到远程存储 确保记录持久化
             if self._upload_sqlite(date):
@@ -578,7 +599,9 @@ class RemoteStorageBackend(SQLiteStorageMixin, StorageBackend):
             logger.error("保存 TXT 快照失败", backend="remote", error=str(e))
             return None
 
-    def save_html_report(self, html_content: str, filename: str, is_summary: bool = False) -> str | None:
+    def save_html_report(
+        self, html_content: str, filename: str, is_summary: bool = False
+    ) -> str | None:
         """保存 HTML 报告到临时目录"""
         if not self.enable_html:
             return None
@@ -632,7 +655,9 @@ class RemoteStorageBackend(SQLiteStorageMixin, StorageBackend):
             except Exception as e:
                 # 忽略 Python 关闭时的错误
                 if sys.meta_path is not None:
-                    logger.warning("清理临时目录失败", backend="remote", temp_dir=str(temp_dir), error=str(e))
+                    logger.warning(
+                        "清理临时目录失败", backend="remote", temp_dir=str(temp_dir), error=str(e)
+                    )
 
         downloaded_files = getattr(self, "_downloaded_files", None)
         if downloaded_files:
@@ -656,7 +681,7 @@ class RemoteStorageBackend(SQLiteStorageMixin, StorageBackend):
 
         try:
             # 列出远程存储中 news/ 前缀下的所有对象
-            paginator = self.s3_client.get_paginator('list_objects_v2')
+            paginator = self.s3_client.get_paginator("list_objects_v2")
             pages = paginator.paginate(Bucket=self.bucket_name, Prefix="news/")
 
             # 收集需要删除的对象键
@@ -664,41 +689,42 @@ class RemoteStorageBackend(SQLiteStorageMixin, StorageBackend):
             deleted_dates = set()
 
             for page in pages:
-                if 'Contents' not in page:
+                if "Contents" not in page:
                     continue
 
-                for obj in page['Contents']:
-                    key = obj['Key']
+                for obj in page["Contents"]:
+                    key = obj["Key"]
 
                     # 解析日期（格式: news/YYYY-MM-DD.db）
                     folder_date = None
                     date_str = None
                     try:
-                        date_match = re.match(r'news/(\d{4})-(\d{2})-(\d{2})\.db$', key)
+                        date_match = re.match(r"news/(\d{4})-(\d{2})-(\d{2})\.db$", key)
                         if date_match:
                             folder_date = datetime(
                                 int(date_match.group(1)),
                                 int(date_match.group(2)),
                                 int(date_match.group(3)),
-                                tzinfo=pytz.timezone(self.timezone)
+                                tzinfo=pytz.timezone(self.timezone),
                             )
-                            date_str = f"{date_match.group(1)}-{date_match.group(2)}-{date_match.group(3)}"
+                            date_str = (
+                                f"{date_match.group(1)}-{date_match.group(2)}-{date_match.group(3)}"
+                            )
                     except Exception:
                         continue
 
                     if folder_date and folder_date < cutoff_date:
-                        objects_to_delete.append({'Key': key})
+                        objects_to_delete.append({"Key": key})
                         deleted_dates.add(date_str)
 
             # 批量删除对象（每次最多 1000 个）
             if objects_to_delete:
                 batch_size = 1000
                 for i in range(0, len(objects_to_delete), batch_size):
-                    batch = objects_to_delete[i:i + batch_size]
+                    batch = objects_to_delete[i : i + batch_size]
                     try:
                         self.s3_client.delete_objects(
-                            Bucket=self.bucket_name,
-                            Delete={'Objects': batch}
+                            Bucket=self.bucket_name, Delete={"Objects": batch}
                         )
                         logger.info("删除对象批次", backend="remote", count=len(batch))
                     except Exception as e:
@@ -778,10 +804,12 @@ class RemoteStorageBackend(SQLiteStorageMixin, StorageBackend):
             try:
                 local_date_dir.mkdir(parents=True, exist_ok=True)
                 response = self.s3_client.get_object(Bucket=self.bucket_name, Key=remote_key)
-                with open(local_db_path, 'wb') as f:
-                    for chunk in response['Body'].iter_chunks(chunk_size=1024*1024):
+                with open(local_db_path, "wb") as f:
+                    for chunk in response["Body"].iter_chunks(chunk_size=1024 * 1024):
                         f.write(chunk)
-                logger.info("已拉取", backend="remote", key=remote_key, local_path=str(local_db_path))
+                logger.info(
+                    "已拉取", backend="remote", key=remote_key, local_path=str(local_db_path)
+                )
                 pulled_count += 1
             except Exception as e:
                 logger.error("拉取失败", backend="remote", date=date_str, error=str(e))
@@ -799,17 +827,17 @@ class RemoteStorageBackend(SQLiteStorageMixin, StorageBackend):
         dates = []
 
         try:
-            paginator = self.s3_client.get_paginator('list_objects_v2')
+            paginator = self.s3_client.get_paginator("list_objects_v2")
             pages = paginator.paginate(Bucket=self.bucket_name, Prefix="news/")
 
             for page in pages:
-                if 'Contents' not in page:
+                if "Contents" not in page:
                     continue
 
-                for obj in page['Contents']:
-                    key = obj['Key']
+                for obj in page["Contents"]:
+                    key = obj["Key"]
                     # 解析日期
-                    date_match = re.match(r'news/(\d{4}-\d{2}-\d{2})\.db$', key)
+                    date_match = re.match(r"news/(\d{4}-\d{2}-\d{2})\.db$", key)
                     if date_match:
                         dates.append(date_match.group(1))
 

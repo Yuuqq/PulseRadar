@@ -5,7 +5,6 @@ RSS 消息分批处理子模块
 以及单条 RSS 条目的格式化辅助函数。
 """
 
-
 from trendradar.report.formatter import format_title_for_platform
 from trendradar.utils.time import DEFAULT_TIMEZONE, format_iso_time_friendly
 
@@ -122,7 +121,9 @@ def _process_rss_stats_section(
             elif count >= 5:
                 word_header = f"📈 <font color='grey'>{sequence_display}</font> **{word}** : <font color='orange'>{count}</font> 条\n\n"
             else:
-                word_header = f"📌 <font color='grey'>{sequence_display}</font> **{word}** : {count} 条\n\n"
+                word_header = (
+                    f"📌 <font color='grey'>{sequence_display}</font> **{word}** : {count} 条\n\n"
+                )
         elif format_type == "dingtalk":
             if count >= 10:
                 word_header = f"🔥 {sequence_display} **{word}** : **{count}** 条\n\n"
@@ -143,17 +144,29 @@ def _process_rss_stats_section(
         if stat["titles"]:
             first_title_data = stat["titles"][0]
             if format_type in ("wework", "bark"):
-                formatted_title = format_title_for_platform("wework", first_title_data, show_source=True)
+                formatted_title = format_title_for_platform(
+                    "wework", first_title_data, show_source=True
+                )
             elif format_type == "telegram":
-                formatted_title = format_title_for_platform("telegram", first_title_data, show_source=True)
+                formatted_title = format_title_for_platform(
+                    "telegram", first_title_data, show_source=True
+                )
             elif format_type == "ntfy":
-                formatted_title = format_title_for_platform("ntfy", first_title_data, show_source=True)
+                formatted_title = format_title_for_platform(
+                    "ntfy", first_title_data, show_source=True
+                )
             elif format_type == "feishu":
-                formatted_title = format_title_for_platform("feishu", first_title_data, show_source=True)
+                formatted_title = format_title_for_platform(
+                    "feishu", first_title_data, show_source=True
+                )
             elif format_type == "dingtalk":
-                formatted_title = format_title_for_platform("dingtalk", first_title_data, show_source=True)
+                formatted_title = format_title_for_platform(
+                    "dingtalk", first_title_data, show_source=True
+                )
             elif format_type == "slack":
-                formatted_title = format_title_for_platform("slack", first_title_data, show_source=True)
+                formatted_title = format_title_for_platform(
+                    "slack", first_title_data, show_source=True
+                )
             else:
                 formatted_title = f"{first_title_data['title']}"
 
@@ -182,13 +195,17 @@ def _process_rss_stats_section(
             if format_type in ("wework", "bark"):
                 formatted_title = format_title_for_platform("wework", title_data, show_source=True)
             elif format_type == "telegram":
-                formatted_title = format_title_for_platform("telegram", title_data, show_source=True)
+                formatted_title = format_title_for_platform(
+                    "telegram", title_data, show_source=True
+                )
             elif format_type == "ntfy":
                 formatted_title = format_title_for_platform("ntfy", title_data, show_source=True)
             elif format_type == "feishu":
                 formatted_title = format_title_for_platform("feishu", title_data, show_source=True)
             elif format_type == "dingtalk":
-                formatted_title = format_title_for_platform("dingtalk", title_data, show_source=True)
+                formatted_title = format_title_for_platform(
+                    "dingtalk", title_data, show_source=True
+                )
             elif format_type == "slack":
                 formatted_title = format_title_for_platform("slack", title_data, show_source=True)
             else:
@@ -339,17 +356,29 @@ def _process_rss_new_titles_section(
             first_title_data = titles[0].copy()
             first_title_data["is_new"] = False
             if format_type in ("wework", "bark"):
-                formatted_title = format_title_for_platform("wework", first_title_data, show_source=False)
+                formatted_title = format_title_for_platform(
+                    "wework", first_title_data, show_source=False
+                )
             elif format_type == "telegram":
-                formatted_title = format_title_for_platform("telegram", first_title_data, show_source=False)
+                formatted_title = format_title_for_platform(
+                    "telegram", first_title_data, show_source=False
+                )
             elif format_type == "ntfy":
-                formatted_title = format_title_for_platform("ntfy", first_title_data, show_source=False)
+                formatted_title = format_title_for_platform(
+                    "ntfy", first_title_data, show_source=False
+                )
             elif format_type == "feishu":
-                formatted_title = format_title_for_platform("feishu", first_title_data, show_source=False)
+                formatted_title = format_title_for_platform(
+                    "feishu", first_title_data, show_source=False
+                )
             elif format_type == "dingtalk":
-                formatted_title = format_title_for_platform("dingtalk", first_title_data, show_source=False)
+                formatted_title = format_title_for_platform(
+                    "dingtalk", first_title_data, show_source=False
+                )
             elif format_type == "slack":
-                formatted_title = format_title_for_platform("slack", first_title_data, show_source=False)
+                formatted_title = format_title_for_platform(
+                    "slack", first_title_data, show_source=False
+                )
             else:
                 formatted_title = f"{first_title_data['title']}"
 
@@ -377,13 +406,17 @@ def _process_rss_new_titles_section(
             if format_type in ("wework", "bark"):
                 formatted_title = format_title_for_platform("wework", title_data, show_source=False)
             elif format_type == "telegram":
-                formatted_title = format_title_for_platform("telegram", title_data, show_source=False)
+                formatted_title = format_title_for_platform(
+                    "telegram", title_data, show_source=False
+                )
             elif format_type == "ntfy":
                 formatted_title = format_title_for_platform("ntfy", title_data, show_source=False)
             elif format_type == "feishu":
                 formatted_title = format_title_for_platform("feishu", title_data, show_source=False)
             elif format_type == "dingtalk":
-                formatted_title = format_title_for_platform("dingtalk", title_data, show_source=False)
+                formatted_title = format_title_for_platform(
+                    "dingtalk", title_data, show_source=False
+                )
             elif format_type == "slack":
                 formatted_title = format_title_for_platform("slack", title_data, show_source=False)
             else:

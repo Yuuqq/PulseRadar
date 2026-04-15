@@ -47,7 +47,7 @@ class PushRecordManager:
 
     def _default_get_time(self) -> datetime:
         """默认时间获取函数（使用 storage_backend 的时区配置）"""
-        timezone = getattr(self.storage_backend, 'timezone', DEFAULT_TIMEZONE)
+        timezone = getattr(self.storage_backend, "timezone", DEFAULT_TIMEZONE)
         return datetime.now(pytz.timezone(timezone))
 
     def has_pushed_today(self) -> bool:
@@ -182,7 +182,7 @@ class PushRecordManager:
         """
         try:
             # 通过存储后端重置推送记录
-            if hasattr(self.storage_backend, 'reset_push_state'):
+            if hasattr(self.storage_backend, "reset_push_state"):
                 return self.storage_backend.reset_push_state()
             else:
                 logger.warning("存储后端不支持重置推送状态")
@@ -199,7 +199,7 @@ class PushRecordManager:
             是否重置成功
         """
         try:
-            if hasattr(self.storage_backend, 'reset_ai_analysis_state'):
+            if hasattr(self.storage_backend, "reset_ai_analysis_state"):
                 return self.storage_backend.reset_ai_analysis_state()
             else:
                 logger.warning("存储后端不支持重置 AI 分析状态")

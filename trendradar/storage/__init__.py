@@ -23,6 +23,7 @@ from trendradar.storage.sqlite_mixin import SQLiteStorageMixin
 # 远程后端可选导入（需要 boto3）
 try:
     from trendradar.storage.remote import RemoteStorageBackend
+
     HAS_REMOTE = True
 except ImportError:
     RemoteStorageBackend = None

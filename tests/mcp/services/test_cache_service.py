@@ -3,6 +3,7 @@
 Covers make_cache_key (pure function) and CacheService (set/get/delete/clear,
 expiry semantics, cleanup_expired, get_stats).
 """
+
 from __future__ import annotations
 
 import time

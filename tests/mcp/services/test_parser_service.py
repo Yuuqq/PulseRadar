@@ -4,6 +4,7 @@ Strategy: create a minimal SQLite database in tmp_path that matches the
 trendradar news schema (schema.sql), then exercise ParserService against it.
 No external I/O, no network.
 """
+
 from __future__ import annotations
 
 import sqlite3
@@ -69,8 +70,16 @@ def _create_news_db(db_path: Path) -> None:
            first_crawl_time, last_crawl_time, crawl_count)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?)
         """,
-        ("Test Headline", "zhihu", 1, "http://example.com/1", "",
-         "2025-01-01 00:00:00", "2025-01-01 00:10:00", 2),
+        (
+            "Test Headline",
+            "zhihu",
+            1,
+            "http://example.com/1",
+            "",
+            "2025-01-01 00:00:00",
+            "2025-01-01 00:10:00",
+            2,
+        ),
     )
     news_id = cur.lastrowid
     cur.execute(
@@ -95,9 +104,7 @@ def _create_news_db(db_path: Path) -> None:
 @pytest.fixture
 def fresh_cache(monkeypatch):
     cache = CacheService()
-    monkeypatch.setattr(
-        "mcp_server.services.parser_service.get_cache", lambda: cache
-    )
+    monkeypatch.setattr("mcp_server.services.parser_service.get_cache", lambda: cache)
     return cache
 
 
@@ -176,9 +183,7 @@ def test_parse_yaml_config_raises_on_missing_file(tmp_path, fresh_cache):
 def test_parse_yaml_config_reads_valid_file(tmp_path, fresh_cache):
     config_dir = tmp_path / "config"
     config_dir.mkdir()
-    (config_dir / "config.yaml").write_text(
-        "timezone: UTC\nplatforms: []\n", encoding="utf-8"
-    )
+    (config_dir / "config.yaml").write_text("timezone: UTC\nplatforms: []\n", encoding="utf-8")
     svc = ParserService(project_root=str(tmp_path))
 
     data = svc.parse_yaml_config()

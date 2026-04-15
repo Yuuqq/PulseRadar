@@ -21,6 +21,7 @@ def main():
     args = parser.parse_args()
 
     from trendradar.logging import configure_logging
+
     configure_logging(debug=args.debug)
 
     run_server(host=args.host, port=args.port, debug=args.debug)

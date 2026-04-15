@@ -125,11 +125,11 @@ def read_all_today_titles_from_storage(
 
             for item in news_list:
                 title = item.title
-                ranks = getattr(item, 'ranks', [item.rank])
-                first_time = getattr(item, 'first_time', item.crawl_time)
-                last_time = getattr(item, 'last_time', item.crawl_time)
-                count = getattr(item, 'count', 1)
-                rank_timeline = getattr(item, 'rank_timeline', [])
+                ranks = getattr(item, "ranks", [item.rank])
+                first_time = getattr(item, "first_time", item.crawl_time)
+                last_time = getattr(item, "last_time", item.crawl_time)
+                count = getattr(item, "count", 1)
+                rank_timeline = getattr(item, "rank_timeline", [])
 
                 all_results[source_id][title] = {
                     "ranks": ranks,
@@ -236,7 +236,7 @@ def detect_latest_new_titles_from_storage(
 
             historical_titles[source_id] = set()
             for item in news_list:
-                first_time = getattr(item, 'first_time', item.crawl_time)
+                first_time = getattr(item, "first_time", item.crawl_time)
                 # 如果该记录的首次出现时间早于最新批次，则该标题是历史标题
                 if first_time < latest_time:
                     historical_titles[source_id].add(item.title)

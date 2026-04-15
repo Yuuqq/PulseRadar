@@ -42,13 +42,23 @@ def send_to_wework(
     """
     headers = {"Content-Type": "application/json"}
     proxies = {"http": proxy_url, "https": proxy_url} if proxy_url else None
-    log_prefix = f"\u4f01\u4e1a\u5fae\u4fe1{account_label}" if account_label else "\u4f01\u4e1a\u5fae\u4fe1"
+    log_prefix = (
+        f"\u4f01\u4e1a\u5fae\u4fe1{account_label}" if account_label else "\u4f01\u4e1a\u5fae\u4fe1"
+    )
 
     is_text_mode = msg_type.lower() == "text"
     if is_text_mode:
-        logger.info("\u4f7f\u7528 text \u683c\u5f0f\uff08\u4e2a\u4eba\u5fae\u4fe1\u6a21\u5f0f\uff09", channel="wework", report_type=report_type)
+        logger.info(
+            "\u4f7f\u7528 text \u683c\u5f0f\uff08\u4e2a\u4eba\u5fae\u4fe1\u6a21\u5f0f\uff09",
+            channel="wework",
+            report_type=report_type,
+        )
     else:
-        logger.info("\u4f7f\u7528 markdown \u683c\u5f0f\uff08\u7fa4\u673a\u5668\u4eba\u6a21\u5f0f\uff09", channel="wework", report_type=report_type)
+        logger.info(
+            "\u4f7f\u7528 markdown \u683c\u5f0f\uff08\u7fa4\u673a\u5668\u4eba\u6a21\u5f0f\uff09",
+            channel="wework",
+            report_type=report_type,
+        )
 
     header_format_type = "wework_text" if is_text_mode else "wework"
 
@@ -73,8 +83,10 @@ def send_to_wework(
 
     logger.info(
         "\u6d88\u606f\u5206\u6279\u53d1\u9001",
-        channel="wework", account_label=log_prefix,
-        batches=len(batches), report_type=report_type,
+        channel="wework",
+        account_label=log_prefix,
+        batches=len(batches),
+        report_type=report_type,
     )
 
     for i, batch_content in enumerate(batches, 1):
@@ -88,54 +100,74 @@ def send_to_wework(
 
         logger.debug(
             "\u53d1\u9001\u6279\u6b21",
-            channel="wework", account_label=log_prefix,
-            batch=i, total=len(batches), size=content_size,
+            channel="wework",
+            account_label=log_prefix,
+            batch=i,
+            total=len(batches),
+            size=content_size,
             report_type=report_type,
         )
 
         try:
             response = requests.post(
-                webhook_url, headers=headers, json=payload,
-                proxies=proxies, timeout=30,
+                webhook_url,
+                headers=headers,
+                json=payload,
+                proxies=proxies,
+                timeout=30,
             )
             if response.status_code == 200:
                 result = response.json()
                 if result.get("errcode") == 0:
                     logger.info(
                         "\u6279\u6b21\u53d1\u9001\u6210\u529f",
-                        channel="wework", account_label=log_prefix,
-                        batch=i, total=len(batches), report_type=report_type,
+                        channel="wework",
+                        account_label=log_prefix,
+                        batch=i,
+                        total=len(batches),
+                        report_type=report_type,
                     )
                     if i < len(batches):
                         time.sleep(batch_interval)
                 else:
                     logger.error(
                         "\u6279\u6b21\u53d1\u9001\u5931\u8d25",
-                        channel="wework", account_label=log_prefix,
-                        batch=i, total=len(batches),
-                        report_type=report_type, error=result.get("errmsg"),
+                        channel="wework",
+                        account_label=log_prefix,
+                        batch=i,
+                        total=len(batches),
+                        report_type=report_type,
+                        error=result.get("errmsg"),
                     )
                     return False
             else:
                 logger.error(
                     "\u6279\u6b21\u53d1\u9001\u5931\u8d25",
-                    channel="wework", account_label=log_prefix,
-                    batch=i, total=len(batches),
-                    report_type=report_type, status_code=response.status_code,
+                    channel="wework",
+                    account_label=log_prefix,
+                    batch=i,
+                    total=len(batches),
+                    report_type=report_type,
+                    status_code=response.status_code,
                 )
                 return False
         except Exception as e:
             logger.error(
                 "\u6279\u6b21\u53d1\u9001\u51fa\u9519",
-                channel="wework", account_label=log_prefix,
-                batch=i, total=len(batches),
-                report_type=report_type, error=str(e),
+                channel="wework",
+                account_label=log_prefix,
+                batch=i,
+                total=len(batches),
+                report_type=report_type,
+                error=str(e),
             )
             return False
 
     logger.info(
         "\u6240\u6709\u6279\u6b21\u53d1\u9001\u5b8c\u6210",
-        channel="wework", account_label=log_prefix,
-        batches=len(batches), report_type=report_type,
+        channel="wework",
+        account_label=log_prefix,
+        batches=len(batches),
+        report_type=report_type,
     )
     return True

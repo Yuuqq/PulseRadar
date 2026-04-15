@@ -1,4 +1,3 @@
-
 from __future__ import annotations
 
 from datetime import datetime
@@ -53,4 +52,3 @@ def test_splitter_respects_max_bytes_and_keeps_first_title_with_header():
     first_batch = batches[0]
     assert "KW" in first_batch
     assert "TITLE1" in first_batch
-

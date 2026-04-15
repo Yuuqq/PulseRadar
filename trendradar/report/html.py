@@ -64,7 +64,8 @@ def render_html_content(
     if region_order is None:
         region_order = default_region_order
 
-    html = """
+    html = (
+        """
     <!DOCTYPE html>
     <html>
     <head>
@@ -72,9 +73,13 @@ def render_html_content(
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>热点新闻分析</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <style>""" + REPORT_CSS + """        </style>
+        <style>"""
+        + REPORT_CSS
+        + """        </style>
     </head>
-    <body data-default-view=""" + display_mode + """>
+    <body data-default-view="""
+        + display_mode
+        + """>
         <div class="container">
             <div class="header">
                 <div class="save-buttons">
@@ -87,6 +92,7 @@ def render_html_content(
                     <div class="info-item">
                         <span class="info-label">报告类型</span>
                         <span class="info-value">"""
+    )
 
     # 处理报告类型显示（根据 mode 直接显示）
     if mode == "current":
@@ -148,7 +154,11 @@ def render_html_content(
     stats_html = ""
     if report_data["stats"]:
         view_options = [display_mode]
-        if alternate_report_data and alternate_display_mode and alternate_display_mode not in view_options:
+        if (
+            alternate_report_data
+            and alternate_display_mode
+            and alternate_display_mode not in view_options
+        ):
             view_options.append(alternate_display_mode)
 
         view_toggle_html = ""
@@ -157,7 +167,9 @@ def render_html_content(
             view_order = [v for v in ["keyword", "platform"] if v in view_options]
             view_toggle_html = '<div class="view-toggle" role="tablist">'
             for view in view_order:
-                view_toggle_html += f'<button class="view-btn" data-view="{view}">{labels.get(view, view)}</button>'
+                view_toggle_html += (
+                    f'<button class="view-btn" data-view="{view}">{labels.get(view, view)}</button>'
+                )
             view_toggle_html += "</div>"
 
         controls_html = f"""
@@ -173,7 +185,9 @@ def render_html_content(
         main_view_html = build_hotlist_view(report_data["stats"], display_mode)
         alternate_view_html = ""
         if alternate_report_data and alternate_display_mode:
-            alternate_view_html = build_hotlist_view(alternate_report_data.get("stats", []), alternate_display_mode)
+            alternate_view_html = build_hotlist_view(
+                alternate_report_data.get("stats", []), alternate_display_mode
+            )
 
         stats_html = f"""
                 <div class="hotlist-section">
@@ -188,7 +202,7 @@ def render_html_content(
     if show_new_section and report_data["new_titles"]:
         new_titles_html += f"""
                 <div class="new-section">
-                    <div class="new-section-title">本次新增热点 (共 {report_data['total_new_count']} 条)</div>"""
+                    <div class="new-section-title">本次新增热点 (共 {report_data["total_new_count"]} 条)</div>"""
 
         for source_data in report_data["new_titles"]:
             escaped_source = html_escape(source_data["source_name"])
@@ -331,17 +345,21 @@ def render_html_content(
         html += f"""
                     <br>
                     <span style="color: #ea580c; font-weight: 500;">
-                        发现新版本 {update_info['remote_version']}，当前版本 {update_info['current_version']}
+                        发现新版本 {update_info["remote_version"]}，当前版本 {update_info["current_version"]}
                     </span>"""
 
-    html += """
+    html += (
+        """
                 </div>
             </div>
         </div>
 
-        <script>""" + REPORT_JS + """        </script>
+        <script>"""
+        + REPORT_JS
+        + """        </script>
     </body>
     </html>
     """
+    )
 
     return html

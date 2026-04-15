@@ -1,4 +1,5 @@
 """东方财富 7x24 快讯爬虫插件"""
+
 import json
 from datetime import datetime
 
@@ -66,12 +67,7 @@ class EastMoneyPlugin(CrawlerPlugin):
             title = str(item.get("title") or item.get("simtitle") or "").strip()
             if not title:
                 continue
-            url = (
-                item.get("url_w")
-                or item.get("url_unique")
-                or item.get("url_m")
-                or ""
-            )
+            url = item.get("url_w") or item.get("url_unique") or item.get("url_m") or ""
             items.append(FetchedItem(title=title, url=url, rank=idx))
 
         return items

@@ -62,16 +62,21 @@ def send_to_dingtalk(
 
     logger.info(
         "\u6d88\u606f\u5206\u6279\u53d1\u9001",
-        channel="dingtalk", account_label=log_prefix,
-        batches=len(batches), report_type=report_type,
+        channel="dingtalk",
+        account_label=log_prefix,
+        batches=len(batches),
+        report_type=report_type,
     )
 
     for i, batch_content in enumerate(batches, 1):
         content_size = len(batch_content.encode("utf-8"))
         logger.debug(
             "\u53d1\u9001\u6279\u6b21",
-            channel="dingtalk", account_label=log_prefix,
-            batch=i, total=len(batches), size=content_size,
+            channel="dingtalk",
+            account_label=log_prefix,
+            batch=i,
+            total=len(batches),
+            size=content_size,
             report_type=report_type,
         )
 
@@ -85,47 +90,64 @@ def send_to_dingtalk(
 
         try:
             response = requests.post(
-                webhook_url, headers=headers, json=payload,
-                proxies=proxies, timeout=30,
+                webhook_url,
+                headers=headers,
+                json=payload,
+                proxies=proxies,
+                timeout=30,
             )
             if response.status_code == 200:
                 result = response.json()
                 if result.get("errcode") == 0:
                     logger.info(
                         "\u6279\u6b21\u53d1\u9001\u6210\u529f",
-                        channel="dingtalk", account_label=log_prefix,
-                        batch=i, total=len(batches), report_type=report_type,
+                        channel="dingtalk",
+                        account_label=log_prefix,
+                        batch=i,
+                        total=len(batches),
+                        report_type=report_type,
                     )
                     if i < len(batches):
                         time.sleep(batch_interval)
                 else:
                     logger.error(
                         "\u6279\u6b21\u53d1\u9001\u5931\u8d25",
-                        channel="dingtalk", account_label=log_prefix,
-                        batch=i, total=len(batches),
-                        report_type=report_type, error=result.get("errmsg"),
+                        channel="dingtalk",
+                        account_label=log_prefix,
+                        batch=i,
+                        total=len(batches),
+                        report_type=report_type,
+                        error=result.get("errmsg"),
                     )
                     return False
             else:
                 logger.error(
                     "\u6279\u6b21\u53d1\u9001\u5931\u8d25",
-                    channel="dingtalk", account_label=log_prefix,
-                    batch=i, total=len(batches),
-                    report_type=report_type, status_code=response.status_code,
+                    channel="dingtalk",
+                    account_label=log_prefix,
+                    batch=i,
+                    total=len(batches),
+                    report_type=report_type,
+                    status_code=response.status_code,
                 )
                 return False
         except Exception as e:
             logger.error(
                 "\u6279\u6b21\u53d1\u9001\u51fa\u9519",
-                channel="dingtalk", account_label=log_prefix,
-                batch=i, total=len(batches),
-                report_type=report_type, error=str(e),
+                channel="dingtalk",
+                account_label=log_prefix,
+                batch=i,
+                total=len(batches),
+                report_type=report_type,
+                error=str(e),
             )
             return False
 
     logger.info(
         "\u6240\u6709\u6279\u6b21\u53d1\u9001\u5b8c\u6210",
-        channel="dingtalk", account_label=log_prefix,
-        batches=len(batches), report_type=report_type,
+        channel="dingtalk",
+        account_label=log_prefix,
+        batches=len(batches),
+        report_type=report_type,
     )
     return True

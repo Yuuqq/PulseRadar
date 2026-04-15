@@ -14,6 +14,7 @@ from typing import Any
 
 try:
     import feedparser
+
     HAS_FEEDPARSER = True
 except ImportError:
     HAS_FEEDPARSER = False
@@ -23,6 +24,7 @@ except ImportError:
 @dataclass
 class ParsedRSSItem:
     """解析后的 RSS 条目"""
+
     title: str
     url: str
     published_at: str | None = None
@@ -154,7 +156,7 @@ class RSSParser:
         if summary:
             summary = self._clean_text(summary)
             if len(summary) > self.max_summary_length:
-                summary = summary[:self.max_summary_length] + "..."
+                summary = summary[: self.max_summary_length] + "..."
 
         # 作者
         author = None
@@ -205,9 +207,9 @@ class RSSParser:
         """
         import requests
 
-        response = requests.get(url, timeout=timeout, headers={
-            "User-Agent": "TrendRadar/2.0 RSS Reader"
-        })
+        response = requests.get(
+            url, timeout=timeout, headers={"User-Agent": "TrendRadar/2.0 RSS Reader"}
+        )
         response.raise_for_status()
 
         return self.parse(response.text, url)
@@ -252,10 +254,10 @@ class RSSParser:
         text = html.unescape(text)
 
         # 移除 HTML 标签
-        text = re.sub(r'<[^>]+>', '', text)
+        text = re.sub(r"<[^>]+>", "", text)
 
         # 移除多余空白
-        text = re.sub(r'\s+', ' ', text)
+        text = re.sub(r"\s+", " ", text)
 
         return text.strip()
 
@@ -306,7 +308,7 @@ class RSSParser:
 
         # 截断过长的摘要
         if len(summary) > self.max_summary_length:
-            summary = summary[:self.max_summary_length] + "..."
+            summary = summary[: self.max_summary_length] + "..."
 
         return summary
 

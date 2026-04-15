@@ -365,7 +365,9 @@ def render_rss_html_content(
 
             if url:
                 escaped_url = html_escape(url)
-                html += f'<a href="{escaped_url}" target="_blank" class="rss-link">{escaped_title}</a>'
+                html += (
+                    f'<a href="{escaped_url}" target="_blank" class="rss-link">{escaped_title}</a>'
+                )
             else:
                 html += escaped_title
 

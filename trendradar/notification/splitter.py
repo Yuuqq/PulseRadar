@@ -97,7 +97,7 @@ def split_content_into_batches(
         len(stat["titles"]) for stat in report_data["stats"] if stat["count"] > 0
     )
     total_titles = total_hotlist_count
-    
+
     # 累加 RSS 条目数
     if rss_items:
         total_titles += sum(stat.get("count", 0) for stat in rss_items)
@@ -106,7 +106,7 @@ def split_content_into_batches(
 
     # 构建头部信息
     base_header = ""
-    
+
     # 准备 AI 分析统计行（如果存在）
     ai_stats_line = ""
     if ai_stats and ai_stats.get("analyzed_news", 0) > 0:
@@ -123,11 +123,7 @@ def split_content_into_batches(
         # 如果 AI 模式与推送模式不同，显示模式标识
         mode_suffix = ""
         if ai_mode and ai_mode != mode:
-            mode_map = {
-                "daily": "全天汇总",
-                "current": "当前榜单",
-                "incremental": "增量分析"
-            }
+            mode_map = {"daily": "全天汇总", "current": "当前榜单", "incremental": "增量分析"}
             mode_label = mode_map.get(ai_mode, ai_mode)
             mode_suffix = f" ({mode_label})"
 
@@ -230,7 +226,9 @@ def split_content_into_batches(
         return batches
 
     # 定义处理热点词汇统计的函数
-    def process_stats_section(current_batch, current_batch_has_content, batches, add_separator=True):
+    def process_stats_section(
+        current_batch, current_batch_has_content, batches, add_separator=True
+    ):
         """处理热点词汇统计"""
         if not report_data["stats"]:
             return current_batch, current_batch_has_content, batches
@@ -255,10 +253,7 @@ def split_content_into_batches(
 
         # 添加统计标题
         test_content = current_batch + actual_stats_header
-        if (
-            len(test_content.encode("utf-8")) + len(base_footer.encode("utf-8"))
-            < max_bytes
-        ):
+        if len(test_content.encode("utf-8")) + len(base_footer.encode("utf-8")) < max_bytes:
             current_batch = test_content
             current_batch_has_content = True
         else:
@@ -278,13 +273,9 @@ def split_content_into_batches(
             word_header = ""
             if format_type in ("wework", "bark"):
                 if count >= 10:
-                    word_header = (
-                        f"🔥 {sequence_display} **{word}** : **{count}** 条\n\n"
-                    )
+                    word_header = f"🔥 {sequence_display} **{word}** : **{count}** 条\n\n"
                 elif count >= 5:
-                    word_header = (
-                        f"📈 {sequence_display} **{word}** : **{count}** 条\n\n"
-                    )
+                    word_header = f"📈 {sequence_display} **{word}** : **{count}** 条\n\n"
                 else:
                     word_header = f"📌 {sequence_display} **{word}** : {count} 条\n\n"
             elif format_type == "telegram":
@@ -296,13 +287,9 @@ def split_content_into_batches(
                     word_header = f"📌 {sequence_display} {word} : {count} 条\n\n"
             elif format_type == "ntfy":
                 if count >= 10:
-                    word_header = (
-                        f"🔥 {sequence_display} **{word}** : **{count}** 条\n\n"
-                    )
+                    word_header = f"🔥 {sequence_display} **{word}** : **{count}** 条\n\n"
                 elif count >= 5:
-                    word_header = (
-                        f"📈 {sequence_display} **{word}** : **{count}** 条\n\n"
-                    )
+                    word_header = f"📈 {sequence_display} **{word}** : **{count}** 条\n\n"
                 else:
                     word_header = f"📌 {sequence_display} **{word}** : {count} 条\n\n"
             elif format_type == "feishu":
@@ -314,24 +301,16 @@ def split_content_into_batches(
                     word_header = f"📌 <font color='grey'>{sequence_display}</font> **{word}** : {count} 条\n\n"
             elif format_type == "dingtalk":
                 if count >= 10:
-                    word_header = (
-                        f"🔥 {sequence_display} **{word}** : **{count}** 条\n\n"
-                    )
+                    word_header = f"🔥 {sequence_display} **{word}** : **{count}** 条\n\n"
                 elif count >= 5:
-                    word_header = (
-                        f"📈 {sequence_display} **{word}** : **{count}** 条\n\n"
-                    )
+                    word_header = f"📈 {sequence_display} **{word}** : **{count}** 条\n\n"
                 else:
                     word_header = f"📌 {sequence_display} **{word}** : {count} 条\n\n"
             elif format_type == "slack":
                 if count >= 10:
-                    word_header = (
-                        f"🔥 {sequence_display} *{word}* : *{count}* 条\n\n"
-                    )
+                    word_header = f"🔥 {sequence_display} *{word}* : *{count}* 条\n\n"
                 elif count >= 5:
-                    word_header = (
-                        f"📈 {sequence_display} *{word}* : *{count}* 条\n\n"
-                    )
+                    word_header = f"📈 {sequence_display} *{word}* : *{count}* 条\n\n"
                 else:
                     word_header = f"📌 {sequence_display} *{word}* : {count} 条\n\n"
 
@@ -344,11 +323,17 @@ def split_content_into_batches(
                 first_title_data = stat["titles"][0]
                 if format_type in ("wework", "bark"):
                     formatted_title = format_title_for_platform(
-                        "wework", first_title_data, show_source=show_source, show_keyword=show_keyword
+                        "wework",
+                        first_title_data,
+                        show_source=show_source,
+                        show_keyword=show_keyword,
                     )
                 elif format_type == "telegram":
                     formatted_title = format_title_for_platform(
-                        "telegram", first_title_data, show_source=show_source, show_keyword=show_keyword
+                        "telegram",
+                        first_title_data,
+                        show_source=show_source,
+                        show_keyword=show_keyword,
                     )
                 elif format_type == "ntfy":
                     formatted_title = format_title_for_platform(
@@ -356,15 +341,24 @@ def split_content_into_batches(
                     )
                 elif format_type == "feishu":
                     formatted_title = format_title_for_platform(
-                        "feishu", first_title_data, show_source=show_source, show_keyword=show_keyword
+                        "feishu",
+                        first_title_data,
+                        show_source=show_source,
+                        show_keyword=show_keyword,
                     )
                 elif format_type == "dingtalk":
                     formatted_title = format_title_for_platform(
-                        "dingtalk", first_title_data, show_source=show_source, show_keyword=show_keyword
+                        "dingtalk",
+                        first_title_data,
+                        show_source=show_source,
+                        show_keyword=show_keyword,
                     )
                 elif format_type == "slack":
                     formatted_title = format_title_for_platform(
-                        "slack", first_title_data, show_source=show_source, show_keyword=show_keyword
+                        "slack",
+                        first_title_data,
+                        show_source=show_source,
+                        show_keyword=show_keyword,
                     )
                 else:
                     formatted_title = f"{first_title_data['title']}"
@@ -377,10 +371,7 @@ def split_content_into_batches(
             word_with_first_news = word_header + first_news_line
             test_content = current_batch + word_with_first_news
 
-            if (
-                len(test_content.encode("utf-8")) + len(base_footer.encode("utf-8"))
-                >= max_bytes
-            ):
+            if len(test_content.encode("utf-8")) + len(base_footer.encode("utf-8")) >= max_bytes:
                 # 当前批次容纳不下，开启新批次
                 if current_batch_has_content:
                     batches.append(current_batch + base_footer)
@@ -454,16 +445,15 @@ def split_content_into_batches(
                     separator = "\n\n"
 
                 test_content = current_batch + separator
-                if (
-                    len(test_content.encode("utf-8")) + len(base_footer.encode("utf-8"))
-                    < max_bytes
-                ):
+                if len(test_content.encode("utf-8")) + len(base_footer.encode("utf-8")) < max_bytes:
                     current_batch = test_content
 
         return current_batch, current_batch_has_content, batches
 
     # 定义处理新增新闻的函数
-    def process_new_titles_section(current_batch, current_batch_has_content, batches, add_separator=True):
+    def process_new_titles_section(
+        current_batch, current_batch_has_content, batches, add_separator=True
+    ):
         """处理新增新闻"""
         if not show_new_section or not report_data["new_titles"]:
             return current_batch, current_batch_has_content, batches
@@ -473,19 +463,25 @@ def split_content_into_batches(
         if add_separator and current_batch_has_content:
             # 需要添加分割线
             if format_type in ("wework", "bark"):
-                new_header = f"\n\n\n\n🆕 **本次新增热点新闻** (共 {report_data['total_new_count']} 条)\n\n"
-            elif format_type == "telegram":
                 new_header = (
-                    f"\n\n🆕 本次新增热点新闻 (共 {report_data['total_new_count']} 条)\n\n"
+                    f"\n\n\n\n🆕 **本次新增热点新闻** (共 {report_data['total_new_count']} 条)\n\n"
                 )
+            elif format_type == "telegram":
+                new_header = f"\n\n🆕 本次新增热点新闻 (共 {report_data['total_new_count']} 条)\n\n"
             elif format_type == "ntfy":
-                new_header = f"\n\n🆕 **本次新增热点新闻** (共 {report_data['total_new_count']} 条)\n\n"
+                new_header = (
+                    f"\n\n🆕 **本次新增热点新闻** (共 {report_data['total_new_count']} 条)\n\n"
+                )
             elif format_type == "feishu":
                 new_header = f"\n{feishu_separator}\n\n🆕 **本次新增热点新闻** (共 {report_data['total_new_count']} 条)\n\n"
             elif format_type == "dingtalk":
-                new_header = f"\n---\n\n🆕 **本次新增热点新闻** (共 {report_data['total_new_count']} 条)\n\n"
+                new_header = (
+                    f"\n---\n\n🆕 **本次新增热点新闻** (共 {report_data['total_new_count']} 条)\n\n"
+                )
             elif format_type == "slack":
-                new_header = f"\n\n🆕 *本次新增热点新闻* (共 {report_data['total_new_count']} 条)\n\n"
+                new_header = (
+                    f"\n\n🆕 *本次新增热点新闻* (共 {report_data['total_new_count']} 条)\n\n"
+                )
         else:
             # 不需要分割线（第一个区域）
             if format_type in ("wework", "bark"):
@@ -498,10 +494,7 @@ def split_content_into_batches(
                 new_header = f"🆕 *本次新增热点新闻* (共 {report_data['total_new_count']} 条)\n\n"
 
         test_content = current_batch + new_header
-        if (
-            len(test_content.encode("utf-8")) + len(base_footer.encode("utf-8"))
-            >= max_bytes
-        ):
+        if len(test_content.encode("utf-8")) + len(base_footer.encode("utf-8")) >= max_bytes:
             if current_batch_has_content:
                 batches.append(current_batch + base_footer)
             current_batch = base_header + new_header
@@ -514,13 +507,21 @@ def split_content_into_batches(
         for source_data in report_data["new_titles"]:
             source_header = ""
             if format_type in ("wework", "bark"):
-                source_header = f"**{source_data['source_name']}** ({len(source_data['titles'])} 条):\n\n"
+                source_header = (
+                    f"**{source_data['source_name']}** ({len(source_data['titles'])} 条):\n\n"
+                )
             elif format_type == "telegram":
-                source_header = f"{source_data['source_name']} ({len(source_data['titles'])} 条):\n\n"
+                source_header = (
+                    f"{source_data['source_name']} ({len(source_data['titles'])} 条):\n\n"
+                )
             elif format_type == "ntfy" or format_type == "feishu" or format_type == "dingtalk":
-                source_header = f"**{source_data['source_name']}** ({len(source_data['titles'])} 条):\n\n"
+                source_header = (
+                    f"**{source_data['source_name']}** ({len(source_data['titles'])} 条):\n\n"
+                )
             elif format_type == "slack":
-                source_header = f"*{source_data['source_name']}* ({len(source_data['titles'])} 条):\n\n"
+                source_header = (
+                    f"*{source_data['source_name']}* ({len(source_data['titles'])} 条):\n\n"
+                )
 
             # 构建第一条新增新闻
             first_news_line = ""
@@ -558,10 +559,7 @@ def split_content_into_batches(
             source_with_first_news = source_header + first_news_line
             test_content = current_batch + source_with_first_news
 
-            if (
-                len(test_content.encode("utf-8")) + len(base_footer.encode("utf-8"))
-                >= max_bytes
-            ):
+            if len(test_content.encode("utf-8")) + len(base_footer.encode("utf-8")) >= max_bytes:
                 if current_batch_has_content:
                     batches.append(current_batch + base_footer)
                 current_batch = base_header + new_header + source_with_first_news
@@ -643,10 +641,7 @@ def split_content_into_batches(
 
         # 尝试将 AI 内容添加到当前批次
         test_content = current_batch + ai_separator + ai_content
-        if (
-            len(test_content.encode("utf-8")) + len(base_footer.encode("utf-8"))
-            < max_bytes
-        ):
+        if len(test_content.encode("utf-8")) + len(base_footer.encode("utf-8")) < max_bytes:
             current_batch = test_content
             current_batch_has_content = True
         else:
@@ -661,36 +656,67 @@ def split_content_into_batches(
         return current_batch, current_batch_has_content, batches
 
     # 定义处理独立展示区的函数
-    def process_standalone_section_wrapper(current_batch, current_batch_has_content, batches, add_separator=True):
+    def process_standalone_section_wrapper(
+        current_batch, current_batch_has_content, batches, add_separator=True
+    ):
         """处理独立展示区"""
         if not standalone_data:
             return current_batch, current_batch_has_content, batches
         return _process_standalone_section(
-            standalone_data, format_type, feishu_separator, base_header, base_footer,
-            max_bytes, current_batch, current_batch_has_content, batches, timezone,
-            rank_threshold, add_separator
+            standalone_data,
+            format_type,
+            feishu_separator,
+            base_header,
+            base_footer,
+            max_bytes,
+            current_batch,
+            current_batch_has_content,
+            batches,
+            timezone,
+            rank_threshold,
+            add_separator,
         )
 
     # 定义处理 RSS 统计的函数
-    def process_rss_stats_wrapper(current_batch, current_batch_has_content, batches, add_separator=True):
+    def process_rss_stats_wrapper(
+        current_batch, current_batch_has_content, batches, add_separator=True
+    ):
         """处理 RSS 统计"""
         if not rss_items:
             return current_batch, current_batch_has_content, batches
         return _process_rss_stats_section(
-            rss_items, format_type, feishu_separator, base_header, base_footer,
-            max_bytes, current_batch, current_batch_has_content, batches, timezone,
-            add_separator
+            rss_items,
+            format_type,
+            feishu_separator,
+            base_header,
+            base_footer,
+            max_bytes,
+            current_batch,
+            current_batch_has_content,
+            batches,
+            timezone,
+            add_separator,
         )
 
     # 定义处理 RSS 新增的函数
-    def process_rss_new_wrapper(current_batch, current_batch_has_content, batches, add_separator=True):
+    def process_rss_new_wrapper(
+        current_batch, current_batch_has_content, batches, add_separator=True
+    ):
         """处理 RSS 新增"""
         if not rss_new_items:
             return current_batch, current_batch_has_content, batches
         return _process_rss_new_titles_section(
-            rss_new_items, format_type, feishu_separator, base_header, base_footer,
-            max_bytes, current_batch, current_batch_has_content, batches, timezone,
-            add_separator
+            rss_new_items,
+            format_type,
+            feishu_separator,
+            base_header,
+            base_footer,
+            max_bytes,
+            current_batch,
+            current_batch_has_content,
+            batches,
+            timezone,
+            add_separator,
         )
 
     # 按 region_order 顺序处理各区域
@@ -724,9 +750,9 @@ def split_content_into_batches(
             # 处理 RSS 新增（跟随 new_items，继承 add_separator 逻辑）
             # 如果热榜新增产生了内容，RSS 新增需要分割线
             new_batch_changed = (
-                current_batch != batch_before or
-                current_batch_has_content != has_content_before or
-                len(batches) != batches_len_before
+                current_batch != batch_before
+                or current_batch_has_content != has_content_before
+                or len(batches) != batches_len_before
             )
             rss_new_separator = new_batch_changed or has_region_content
             current_batch, current_batch_has_content, batches = process_rss_new_wrapper(
@@ -745,9 +771,9 @@ def split_content_into_batches(
 
         # 检查该区域是否产生了内容
         region_produced_content = (
-            current_batch != batch_before or
-            current_batch_has_content != has_content_before or
-            len(batches) != batches_len_before
+            current_batch != batch_before
+            or current_batch_has_content != has_content_before
+            or len(batches) != batches_len_before
         )
         if region_produced_content:
             has_region_content = True
@@ -766,10 +792,7 @@ def split_content_into_batches(
             failed_header = "\n---\n\n⚠️ **数据获取失败的平台：**\n\n"
 
         test_content = current_batch + failed_header
-        if (
-            len(test_content.encode("utf-8")) + len(base_footer.encode("utf-8"))
-            >= max_bytes
-        ):
+        if len(test_content.encode("utf-8")) + len(base_footer.encode("utf-8")) >= max_bytes:
             if current_batch_has_content:
                 batches.append(current_batch + base_footer)
             current_batch = base_header + failed_header
@@ -787,10 +810,7 @@ def split_content_into_batches(
                 failed_line = f"  • {id_value}\n"
 
             test_content = current_batch + failed_line
-            if (
-                len(test_content.encode("utf-8")) + len(base_footer.encode("utf-8"))
-                >= max_bytes
-            ):
+            if len(test_content.encode("utf-8")) + len(base_footer.encode("utf-8")) >= max_bytes:
                 if current_batch_has_content:
                     batches.append(current_batch + base_footer)
                 current_batch = base_header + failed_header + failed_line
@@ -804,4 +824,3 @@ def split_content_into_batches(
         batches.append(current_batch + base_footer)
 
     return batches
-

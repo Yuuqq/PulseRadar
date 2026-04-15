@@ -40,11 +40,7 @@ class AIClient:
         self.fallback_models = config.get("FALLBACK_MODELS", [])
         self.extra_params = config.get("EXTRA_PARAMS") or {}
 
-    def chat(
-        self,
-        messages: list[dict[str, str]],
-        **kwargs
-    ) -> str:
+    def chat(self, messages: list[dict[str, str]], **kwargs) -> str:
         """
         调用 AI 模型进行对话
 
@@ -116,6 +112,9 @@ class AIClient:
 
         # 验证模型格式（应该包含 provider/model）
         if "/" not in self.model:
-            return False, f"模型格式错误: {self.model}，应为 'provider/model' 格式（如 'deepseek/deepseek-chat'）"
+            return (
+                False,
+                f"模型格式错误: {self.model}，应为 'provider/model' 格式（如 'deepseek/deepseek-chat'）",
+            )
 
         return True, ""

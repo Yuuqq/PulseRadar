@@ -1,4 +1,5 @@
 """TongHuaShunPlugin tests — happy path (GBK HTML) + malformed HTML error."""
+
 from __future__ import annotations
 
 import responses

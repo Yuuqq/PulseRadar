@@ -63,8 +63,10 @@ def send_to_slack(
 
     logger.info(
         "\u6d88\u606f\u5206\u6279\u53d1\u9001",
-        channel="slack", account_label=log_prefix,
-        batches=len(batches), report_type=report_type,
+        channel="slack",
+        account_label=log_prefix,
+        batches=len(batches),
+        report_type=report_type,
     )
 
     for i, batch_content in enumerate(batches, 1):
@@ -73,8 +75,11 @@ def send_to_slack(
         content_size = len(mrkdwn_content.encode("utf-8"))
         logger.debug(
             "\u53d1\u9001\u6279\u6b21",
-            channel="slack", account_label=log_prefix,
-            batch=i, total=len(batches), size=content_size,
+            channel="slack",
+            account_label=log_prefix,
+            batch=i,
+            total=len(batches),
+            size=content_size,
             report_type=report_type,
         )
 
@@ -82,39 +87,57 @@ def send_to_slack(
 
         try:
             response = requests.post(
-                webhook_url, headers=headers, json=payload,
-                proxies=proxies, timeout=30,
+                webhook_url,
+                headers=headers,
+                json=payload,
+                proxies=proxies,
+                timeout=30,
             )
             # Slack returns literal "ok" text on success
             if response.status_code == 200 and response.text == "ok":
                 logger.info(
                     "\u6279\u6b21\u53d1\u9001\u6210\u529f",
-                    channel="slack", account_label=log_prefix,
-                    batch=i, total=len(batches), report_type=report_type,
+                    channel="slack",
+                    account_label=log_prefix,
+                    batch=i,
+                    total=len(batches),
+                    report_type=report_type,
                 )
                 if i < len(batches):
                     time.sleep(batch_interval)
             else:
-                error_msg = response.text if response.text else f"\u72b6\u6001\u7801\uff1a{response.status_code}"
+                error_msg = (
+                    response.text
+                    if response.text
+                    else f"\u72b6\u6001\u7801\uff1a{response.status_code}"
+                )
                 logger.error(
                     "\u6279\u6b21\u53d1\u9001\u5931\u8d25",
-                    channel="slack", account_label=log_prefix,
-                    batch=i, total=len(batches),
-                    report_type=report_type, error=error_msg,
+                    channel="slack",
+                    account_label=log_prefix,
+                    batch=i,
+                    total=len(batches),
+                    report_type=report_type,
+                    error=error_msg,
                 )
                 return False
         except Exception as e:
             logger.error(
                 "\u6279\u6b21\u53d1\u9001\u51fa\u9519",
-                channel="slack", account_label=log_prefix,
-                batch=i, total=len(batches),
-                report_type=report_type, error=str(e),
+                channel="slack",
+                account_label=log_prefix,
+                batch=i,
+                total=len(batches),
+                report_type=report_type,
+                error=str(e),
             )
             return False
 
     logger.info(
         "\u6240\u6709\u6279\u6b21\u53d1\u9001\u5b8c\u6210",
-        channel="slack", account_label=log_prefix,
-        batches=len(batches), report_type=report_type,
+        channel="slack",
+        account_label=log_prefix,
+        batches=len(batches),
+        report_type=report_type,
     )
     return True

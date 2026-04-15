@@ -53,11 +53,7 @@ class ArticleReaderTools:
             time.sleep(BATCH_INTERVAL - elapsed)
         self._last_request_time = time.time()
 
-    def read_article(
-        self,
-        url: str,
-        timeout: int = DEFAULT_TIMEOUT
-    ) -> dict:
+    def read_article(self, url: str, timeout: int = DEFAULT_TIMEOUT) -> dict:
         """
         读取单篇文章内容（Markdown 格式）
 
@@ -71,16 +67,13 @@ class ArticleReaderTools:
         try:
             if not url or not url.startswith(("http://", "https://")):
                 raise InvalidParameterError(
-                    f"无效的 URL: {url}",
-                    suggestion="URL 必须以 http:// 或 https:// 开头"
+                    f"无效的 URL: {url}", suggestion="URL 必须以 http:// 或 https:// 开头"
                 )
 
             self._throttle()
 
             response = requests.get(
-                f"{JINA_READER_BASE}/{url}",
-                headers=self._build_headers(),
-                timeout=timeout
+                f"{JINA_READER_BASE}/{url}", headers=self._build_headers(), timeout=timeout
             )
 
             if response.status_code == 200:
@@ -90,8 +83,8 @@ class ArticleReaderTools:
                         "url": url,
                         "content": response.text,
                         "format": "markdown",
-                        "content_length": len(response.text)
-                    }
+                        "content_length": len(response.text),
+                    },
                 }
             elif response.status_code == 429:
                 return {
@@ -99,8 +92,8 @@ class ArticleReaderTools:
                     "error": {
                         "code": "RATE_LIMITED",
                         "message": "Jina Reader 速率限制，请稍后重试",
-                        "suggestion": "免费限制: 100 RPM / 2 并发，可配置 API Key 提升限额"
-                    }
+                        "suggestion": "免费限制: 100 RPM / 2 并发，可配置 API Key 提升限额",
+                    },
                 }
             else:
                 return {
@@ -108,8 +101,8 @@ class ArticleReaderTools:
                     "error": {
                         "code": "FETCH_FAILED",
                         "message": f"HTTP {response.status_code}: {response.reason}",
-                        "url": url
-                    }
+                        "url": url,
+                    },
                 }
 
         except requests.Timeout:
@@ -119,26 +112,18 @@ class ArticleReaderTools:
                     "code": "TIMEOUT",
                     "message": f"请求超时（{timeout}秒）",
                     "url": url,
-                    "suggestion": "可尝试增加 timeout 参数"
-                }
+                    "suggestion": "可尝试增加 timeout 参数",
+                },
             }
         except MCPError as e:
             return {"success": False, "error": e.to_dict()}
         except Exception as e:
             return {
                 "success": False,
-                "error": {
-                    "code": "REQUEST_ERROR",
-                    "message": str(e),
-                    "url": url
-                }
+                "error": {"code": "REQUEST_ERROR", "message": str(e), "url": url},
             }
 
-    def read_articles_batch(
-        self,
-        urls: list[str],
-        timeout: int = DEFAULT_TIMEOUT
-    ) -> dict:
+    def read_articles_batch(self, urls: list[str], timeout: int = DEFAULT_TIMEOUT) -> dict:
         """
         批量读取多篇文章内容（最多 5 篇，间隔 5 秒）
 
@@ -151,10 +136,7 @@ class ArticleReaderTools:
         """
         try:
             if not urls:
-                raise InvalidParameterError(
-                    "URL 列表不能为空",
-                    suggestion="请提供至少一个 URL"
-                )
+                raise InvalidParameterError("URL 列表不能为空", suggestion="请提供至少一个 URL")
 
             # 限制最多 5 篇
             actual_urls = urls[:MAX_BATCH_SIZE]
@@ -167,13 +149,15 @@ class ArticleReaderTools:
             for i, url in enumerate(actual_urls):
                 result = self.read_article(url=url, timeout=timeout)
 
-                results.append({
-                    "index": i + 1,
-                    "url": url,
-                    "success": result["success"],
-                    "data": result.get("data"),
-                    "error": result.get("error")
-                })
+                results.append(
+                    {
+                        "index": i + 1,
+                        "url": url,
+                        "success": result["success"],
+                        "data": result.get("data"),
+                        "error": result.get("error"),
+                    }
+                )
 
                 if result["success"]:
                     succeeded += 1
@@ -192,16 +176,12 @@ class ArticleReaderTools:
                     "interval_seconds": BATCH_INTERVAL,
                 },
                 "articles": results,
-                "note": f"已跳过 {skipped} 篇（单次上限 {MAX_BATCH_SIZE} 篇）" if skipped > 0 else None
+                "note": f"已跳过 {skipped} 篇（单次上限 {MAX_BATCH_SIZE} 篇）"
+                if skipped > 0
+                else None,
             }
 
         except MCPError as e:
             return {"success": False, "error": e.to_dict()}
         except Exception as e:
-            return {
-                "success": False,
-                "error": {
-                    "code": "BATCH_ERROR",
-                    "message": str(e)
-                }
-            }
+            return {"success": False, "error": {"code": "BATCH_ERROR", "message": str(e)}}

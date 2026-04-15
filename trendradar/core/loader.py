@@ -68,7 +68,9 @@ def _load_app_config(config_data: dict) -> dict:
         "CONFIGS_VERSION_CHECK_URL": advanced.get("configs_version_check_url", ""),
         "SHOW_VERSION_UPDATE": app_config.get("show_version_update", True),
         "TIMEZONE": _get_env_str("TIMEZONE") or app_config.get("timezone", DEFAULT_TIMEZONE),
-        "DEBUG": _get_env_bool("DEBUG") if _get_env_bool("DEBUG") is not None else advanced.get("debug", False),
+        "DEBUG": _get_env_bool("DEBUG")
+        if _get_env_bool("DEBUG") is not None
+        else advanced.get("debug", False),
     }
 
 
@@ -99,9 +101,15 @@ def _load_report_config(config_data: dict) -> dict:
         "REPORT_MODE": report_config.get("mode", "daily"),
         "DISPLAY_MODE": report_config.get("display_mode", "keyword"),
         "RANK_THRESHOLD": report_config.get("rank_threshold", 10),
-        "SORT_BY_POSITION_FIRST": sort_by_position_env if sort_by_position_env is not None else report_config.get("sort_by_position_first", False),
-        "MAX_NEWS_PER_KEYWORD": report_config.get("max_news_per_keyword", 0) if max_news_env is None else max_news_env,
-        "MAX_KEYWORDS": report_config.get("max_keywords", 0) if max_keywords_env is None else max_keywords_env,
+        "SORT_BY_POSITION_FIRST": sort_by_position_env
+        if sort_by_position_env is not None
+        else report_config.get("sort_by_position_first", False),
+        "MAX_NEWS_PER_KEYWORD": report_config.get("max_news_per_keyword", 0)
+        if max_news_env is None
+        else max_news_env,
+        "MAX_KEYWORDS": report_config.get("max_keywords", 0)
+        if max_keywords_env is None
+        else max_keywords_env,
     }
 
 
@@ -120,7 +128,9 @@ def _load_notification_config(config_data: dict) -> dict:
         "SLACK_BATCH_SIZE": batch_size.get("slack", 4000),
         "BATCH_SEND_INTERVAL": advanced.get("batch_send_interval", 1.0),
         "FEISHU_MESSAGE_SEPARATOR": advanced.get("feishu_message_separator", "---"),
-        "MAX_ACCOUNTS_PER_CHANNEL": _get_env_int_with_default("MAX_ACCOUNTS_PER_CHANNEL", advanced.get("max_accounts_per_channel", 3)),
+        "MAX_ACCOUNTS_PER_CHANNEL": _get_env_int_with_default(
+            "MAX_ACCOUNTS_PER_CHANNEL", advanced.get("max_accounts_per_channel", 3)
+        ),
     }
 
 
@@ -138,7 +148,9 @@ def _load_push_window_config(config_data: dict) -> dict:
             "START": _get_env_str("PUSH_WINDOW_START") or push_window.get("start", "08:00"),
             "END": _get_env_str("PUSH_WINDOW_END") or push_window.get("end", "22:00"),
         },
-        "ONCE_PER_DAY": once_per_day_env if once_per_day_env is not None else push_window.get("once_per_day", True),
+        "ONCE_PER_DAY": once_per_day_env
+        if once_per_day_env is not None
+        else push_window.get("once_per_day", True),
     }
 
 
@@ -171,10 +183,14 @@ def _load_rss_config(config_data: dict) -> dict:
     try:
         max_age_days = int(raw_max_age)
         if max_age_days < 0:
-            logger.warning("RSS freshness_filter.max_age_days 为负数，使用默认值 3", max_age_days=max_age_days)
+            logger.warning(
+                "RSS freshness_filter.max_age_days 为负数，使用默认值 3", max_age_days=max_age_days
+            )
             max_age_days = 3
     except (ValueError, TypeError):
-        logger.warning("RSS freshness_filter.max_age_days 格式错误，使用默认值 3", raw_value=raw_max_age)
+        logger.warning(
+            "RSS freshness_filter.max_age_days 格式错误，使用默认值 3", raw_value=raw_max_age
+        )
         max_age_days = 3
 
     # RSS 配置直接从 config.yaml 读取，不再支持环境变量
@@ -241,12 +257,10 @@ def _load_ai_config(config_data: dict) -> dict:
         "MODEL": _get_env_str("AI_MODEL") or ai_config.get("model", ""),
         "API_KEY": _get_env_str("AI_API_KEY") or ai_config.get("api_key", ""),
         "API_BASE": _get_env_str("AI_API_BASE") or ai_config.get("api_base", ""),
-
         # 生成参数
         "TIMEOUT": timeout_env if timeout_env is not None else ai_config.get("timeout", 120),
         "TEMPERATURE": ai_config.get("temperature", 1.0),
         "MAX_TOKENS": ai_config.get("max_tokens", 5000),
-
         # LiteLLM 高级选项
         "NUM_RETRIES": ai_config.get("num_retries", 2),
         "FALLBACK_MODELS": ai_config.get("fallback_models", []),
@@ -272,12 +286,18 @@ def _load_ai_analysis_config(config_data: dict) -> dict:
         "INCLUDE_RSS": ai_config.get("include_rss", True),
         "INCLUDE_RANK_TIMELINE": ai_config.get("include_rank_timeline", False),
         "ANALYSIS_WINDOW": {
-            "ENABLED": window_enabled_env if window_enabled_env is not None else analysis_window.get("enabled", False),
+            "ENABLED": window_enabled_env
+            if window_enabled_env is not None
+            else analysis_window.get("enabled", False),
             "TIME_RANGE": {
-                "START": _get_env_str("AI_ANALYSIS_WINDOW_START") or analysis_window.get("start", "09:00"),
-                "END": _get_env_str("AI_ANALYSIS_WINDOW_END") or analysis_window.get("end", "22:00"),
+                "START": _get_env_str("AI_ANALYSIS_WINDOW_START")
+                or analysis_window.get("start", "09:00"),
+                "END": _get_env_str("AI_ANALYSIS_WINDOW_END")
+                or analysis_window.get("end", "22:00"),
             },
-            "ONCE_PER_DAY": window_once_per_day_env if window_once_per_day_env is not None else analysis_window.get("once_per_day", False),
+            "ONCE_PER_DAY": window_once_per_day_env
+            if window_once_per_day_env is not None
+            else analysis_window.get("once_per_day", False),
         },
     }
 
@@ -290,7 +310,8 @@ def _load_ai_translation_config(config_data: dict) -> dict:
 
     return {
         "ENABLED": enabled_env if enabled_env is not None else trans_config.get("enabled", False),
-        "LANGUAGE": _get_env_str("AI_TRANSLATION_LANGUAGE") or trans_config.get("language", "English"),
+        "LANGUAGE": _get_env_str("AI_TRANSLATION_LANGUAGE")
+        or trans_config.get("language", "English"),
         "PROMPT_FILE": trans_config.get("prompt_file", "ai_translation_prompt.txt"),
     }
 
@@ -316,18 +337,25 @@ def _load_storage_config(config_data: dict) -> dict:
         },
         "LOCAL": {
             "DATA_DIR": local.get("data_dir", "output"),
-            "RETENTION_DAYS": _get_env_int_with_default("LOCAL_RETENTION_DAYS", local.get("retention_days", 0)),
+            "RETENTION_DAYS": _get_env_int_with_default(
+                "LOCAL_RETENTION_DAYS", local.get("retention_days", 0)
+            ),
         },
         "REMOTE": {
             "ENDPOINT_URL": _get_env_str("S3_ENDPOINT_URL") or remote.get("endpoint_url", ""),
             "BUCKET_NAME": _get_env_str("S3_BUCKET_NAME") or remote.get("bucket_name", ""),
             "ACCESS_KEY_ID": _get_env_str("S3_ACCESS_KEY_ID") or remote.get("access_key_id", ""),
-            "SECRET_ACCESS_KEY": _get_env_str("S3_SECRET_ACCESS_KEY") or remote.get("secret_access_key", ""),
+            "SECRET_ACCESS_KEY": _get_env_str("S3_SECRET_ACCESS_KEY")
+            or remote.get("secret_access_key", ""),
             "REGION": _get_env_str("S3_REGION") or remote.get("region", ""),
-            "RETENTION_DAYS": _get_env_int_with_default("REMOTE_RETENTION_DAYS", remote.get("retention_days", 0)),
+            "RETENTION_DAYS": _get_env_int_with_default(
+                "REMOTE_RETENTION_DAYS", remote.get("retention_days", 0)
+            ),
         },
         "PULL": {
-            "ENABLED": pull_enabled_env if pull_enabled_env is not None else pull.get("enabled", False),
+            "ENABLED": pull_enabled_env
+            if pull_enabled_env is not None
+            else pull.get("enabled", False),
             "DAYS": _get_env_int_with_default("PULL_DAYS", pull.get("days", 7)),
         },
     }
@@ -353,7 +381,8 @@ def _load_webhook_config(config_data: dict) -> dict:
         # 飞书
         "FEISHU_WEBHOOK_URL": _get_env_str("FEISHU_WEBHOOK_URL") or feishu.get("webhook_url", ""),
         # 钉钉
-        "DINGTALK_WEBHOOK_URL": _get_env_str("DINGTALK_WEBHOOK_URL") or dingtalk.get("webhook_url", ""),
+        "DINGTALK_WEBHOOK_URL": _get_env_str("DINGTALK_WEBHOOK_URL")
+        or dingtalk.get("webhook_url", ""),
         # 企业微信
         "WEWORK_WEBHOOK_URL": _get_env_str("WEWORK_WEBHOOK_URL") or wework.get("webhook_url", ""),
         "WEWORK_MSG_TYPE": _get_env_str("WEWORK_MSG_TYPE") or wework.get("msg_type", "markdown"),
@@ -367,7 +396,9 @@ def _load_webhook_config(config_data: dict) -> dict:
         "EMAIL_SMTP_SERVER": _get_env_str("EMAIL_SMTP_SERVER") or email.get("smtp_server", ""),
         "EMAIL_SMTP_PORT": _get_env_str("EMAIL_SMTP_PORT") or email.get("smtp_port", ""),
         # ntfy
-        "NTFY_SERVER_URL": _get_env_str("NTFY_SERVER_URL") or ntfy.get("server_url") or "https://ntfy.sh",
+        "NTFY_SERVER_URL": _get_env_str("NTFY_SERVER_URL")
+        or ntfy.get("server_url")
+        or "https://ntfy.sh",
         "NTFY_TOPIC": _get_env_str("NTFY_TOPIC") or ntfy.get("topic", ""),
         "NTFY_TOKEN": _get_env_str("NTFY_TOKEN") or ntfy.get("token", ""),
         # Bark
@@ -375,8 +406,10 @@ def _load_webhook_config(config_data: dict) -> dict:
         # Slack
         "SLACK_WEBHOOK_URL": _get_env_str("SLACK_WEBHOOK_URL") or slack.get("webhook_url", ""),
         # 通用 Webhook
-        "GENERIC_WEBHOOK_URL": _get_env_str("GENERIC_WEBHOOK_URL") or generic.get("webhook_url", ""),
-        "GENERIC_WEBHOOK_TEMPLATE": _get_env_str("GENERIC_WEBHOOK_TEMPLATE") or generic.get("payload_template", ""),
+        "GENERIC_WEBHOOK_URL": _get_env_str("GENERIC_WEBHOOK_URL")
+        or generic.get("webhook_url", ""),
+        "GENERIC_WEBHOOK_TEMPLATE": _get_env_str("GENERIC_WEBHOOK_TEMPLATE")
+        or generic.get("payload_template", ""),
     }
 
 
@@ -409,7 +442,7 @@ def _print_notification_sources(config: dict) -> None:
         valid, count = validate_paired_configs(
             {"bot_token": tokens, "chat_id": chat_ids},
             "Telegram",
-            required_keys=["bot_token", "chat_id"]
+            required_keys=["bot_token", "chat_id"],
         )
         if valid and count > 0:
             count = min(count, max_accounts)
@@ -424,10 +457,7 @@ def _print_notification_sources(config: dict) -> None:
         topics = parse_multi_account_config(config["NTFY_TOPIC"])
         tokens = parse_multi_account_config(config["NTFY_TOKEN"])
         if tokens:
-            valid, count = validate_paired_configs(
-                {"topic": topics, "token": tokens},
-                "ntfy"
-            )
+            valid, count = validate_paired_configs({"topic": topics, "token": tokens}, "ntfy")
             if valid and count > 0:
                 count = min(count, max_accounts)
                 server_source = "环境变量" if os.environ.get("NTFY_SERVER_URL") else "配置文件"

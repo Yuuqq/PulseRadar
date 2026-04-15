@@ -1,4 +1,5 @@
 """GNews API 爬虫插件"""
+
 import contextlib
 from datetime import datetime, timezone
 

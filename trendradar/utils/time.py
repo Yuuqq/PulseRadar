@@ -35,9 +35,7 @@ def get_configured_time(timezone: str = DEFAULT_TIMEZONE) -> datetime:
     return datetime.now(tz)
 
 
-def format_date_folder(
-    date: str | None = None, timezone: str = DEFAULT_TIMEZONE
-) -> str:
+def format_date_folder(date: str | None = None, timezone: str = DEFAULT_TIMEZONE) -> str:
     """
     格式化日期文件夹名 (ISO 格式: YYYY-MM-DD)
 
@@ -368,7 +366,9 @@ class TimeWindowChecker:
 
             return f"{hour:02d}:{minute:02d}"
         except Exception as e:
-            logger.warning("时间格式化错误", window_name=self.window_name, time_str=time_str, error=str(e))
+            logger.warning(
+                "时间格式化错误", window_name=self.window_name, time_str=time_str, error=str(e)
+            )
             return time_str
 
     def check_window(

@@ -23,7 +23,7 @@ class TrendItem:
     title: str
     current_rank: int
     previous_rank: int | None  # None = newly appeared
-    rank_change: int              # positive = improved, negative = dropped
+    rank_change: int  # positive = improved, negative = dropped
     platform_count: int
     platforms: tuple[str, ...]
     is_new: bool
@@ -140,9 +140,7 @@ class TrendAnalyzer:
             if platform_count >= _CROSS_PLATFORM_MIN:
                 cross_platform.append(item)
 
-        disappeared = [
-            title for title in previous_topics if title not in current_topics
-        ]
+        disappeared = [title for title in previous_topics if title not in current_topics]
 
         # Sort each bucket by heat (highest first).
         new_trends.sort(key=lambda x: x.heat_score, reverse=True)

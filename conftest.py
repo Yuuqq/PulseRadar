@@ -2,6 +2,7 @@
 
 Applies environment-level patches that must run before any library imports.
 """
+
 from __future__ import annotations
 
 # ---------------------------------------------------------------------------

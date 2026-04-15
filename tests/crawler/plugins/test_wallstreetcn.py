@@ -1,4 +1,5 @@
 """WallStreetCNPlugin tests — happy path + non-20000 code error mode."""
+
 from __future__ import annotations
 
 import responses

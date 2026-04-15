@@ -1,4 +1,5 @@
 """Shared assertion helpers for crawler plugin tests (Plan 02-03 / D-23)."""
+
 from __future__ import annotations
 
 from trendradar.crawler.base import CrawlResult, FetchedItem
@@ -15,9 +16,7 @@ def assert_fetched_item_shape(item: FetchedItem) -> None:
 def assert_crawl_result_success(result: CrawlResult, min_items: int = 1) -> None:
     """Assert a CrawlResult represents a successful crawl with >= min_items items."""
     assert result.success, f"expected success but got errors: {result.errors}"
-    assert len(result.items) >= min_items, (
-        f"expected >={min_items} items, got {len(result.items)}"
-    )
+    assert len(result.items) >= min_items, f"expected >={min_items} items, got {len(result.items)}"
     for item in result.items:
         assert_fetched_item_shape(item)
 

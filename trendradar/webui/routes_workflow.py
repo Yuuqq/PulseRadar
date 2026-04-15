@@ -95,7 +95,9 @@ def export_workflow_templates():
         "items": items,
     }
     content = json.dumps(payload, ensure_ascii=False, indent=2)
-    filename = f"trendradar-workflow-templates-{datetime.now(timezone.utc).strftime('%Y%m%d-%H%M%S')}.json"
+    filename = (
+        f"trendradar-workflow-templates-{datetime.now(timezone.utc).strftime('%Y%m%d-%H%M%S')}.json"
+    )
     return Response(
         content,
         content_type="application/json; charset=utf-8",

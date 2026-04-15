@@ -1,4 +1,5 @@
 """TheNewsAPIPlugin tests — happy path + missing api_key error mode."""
+
 from __future__ import annotations
 
 import responses

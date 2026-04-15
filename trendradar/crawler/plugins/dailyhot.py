@@ -1,4 +1,5 @@
 """DailyHot 热榜 API 爬虫插件"""
+
 from datetime import datetime
 
 import requests
@@ -137,11 +138,13 @@ class DailyHotPlugin(CrawlerPlugin):
             rank_offset = 0
             for pname, pitems in platform_map.items():
                 for fi in pitems:
-                    all_items.append(FetchedItem(
-                        title=f"[{pname}] {fi.title}",
-                        url=fi.url,
-                        rank=rank_offset + fi.rank,
-                    ))
+                    all_items.append(
+                        FetchedItem(
+                            title=f"[{pname}] {fi.title}",
+                            url=fi.url,
+                            rank=rank_offset + fi.rank,
+                        )
+                    )
                 rank_offset += len(pitems)
 
             logger.info(

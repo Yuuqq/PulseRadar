@@ -1,4 +1,5 @@
 """自适应限速器"""
+
 import threading
 import time
 from collections import defaultdict
@@ -6,6 +7,7 @@ from collections import defaultdict
 from trendradar.logging import get_logger
 
 logger = get_logger(__name__)
+
 
 class RateLimiter:
     """

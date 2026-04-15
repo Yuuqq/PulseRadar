@@ -18,15 +18,17 @@ logger = get_logger(__name__)
 @dataclass
 class TranslationResult:
     """翻译结果"""
-    translated_text: str = ""       # 翻译后的文本
-    original_text: str = ""         # 原始文本
-    success: bool = False           # 是否成功
-    error: str = ""                 # 错误信息
+
+    translated_text: str = ""  # 翻译后的文本
+    original_text: str = ""  # 原始文本
+    success: bool = False  # 是否成功
+    error: str = ""  # 错误信息
 
 
 @dataclass
 class BatchTranslationResult:
     """批量翻译结果"""
+
     results: list[TranslationResult] = field(default_factory=list)
     success_count: int = 0
     fail_count: int = 0
@@ -147,19 +149,17 @@ class AITranslator:
 
         if not self.enabled:
             for text in texts:
-                batch_result.results.append(TranslationResult(
-                    original_text=text,
-                    error="翻译功能未启用"
-                ))
+                batch_result.results.append(
+                    TranslationResult(original_text=text, error="翻译功能未启用")
+                )
             batch_result.fail_count = len(texts)
             return batch_result
 
         if not self.client.api_key:
             for text in texts:
-                batch_result.results.append(TranslationResult(
-                    original_text=text,
-                    error="未配置 AI API Key"
-                ))
+                batch_result.results.append(
+                    TranslationResult(original_text=text, error="未配置 AI API Key")
+                )
             batch_result.fail_count = len(texts)
             return batch_result
 
@@ -252,7 +252,7 @@ class AITranslator:
                     if current_idx is not None:
                         results.append((current_idx, "\n".join(current_text).strip()))
                     current_idx = idx
-                    current_text = [stripped[bracket_end + 1:].strip()]
+                    current_text = [stripped[bracket_end + 1 :].strip()]
                 except ValueError:
                     if current_idx is not None:
                         current_text.append(line)
@@ -276,7 +276,7 @@ class AITranslator:
                 stripped = line.strip()
                 if stripped.startswith("[") and "]" in stripped:
                     bracket_end = stripped.index("]")
-                    translated.append(stripped[bracket_end + 1:].strip())
+                    translated.append(stripped[bracket_end + 1 :].strip())
                 elif stripped:
                     translated.append(stripped)
 

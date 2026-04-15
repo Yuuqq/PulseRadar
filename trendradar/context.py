@@ -203,9 +203,7 @@ class AppContext:
         """读取当天所有标题"""
         return read_all_today_titles(self.get_storage_manager(), platform_ids, quiet=quiet)
 
-    def detect_new_titles(
-        self, platform_ids: list[str] | None = None, quiet: bool = False
-    ) -> dict:
+    def detect_new_titles(self, platform_ids: list[str] | None = None, quiet: bool = False) -> dict:
         """检测最新批次的新增标题"""
         return detect_latest_new_titles(self.get_storage_manager(), platform_ids, quiet=quiet)
 
@@ -317,7 +315,14 @@ class AppContext:
             output_dir="output",
             date_folder=self.format_date(),
             time_filename=self.format_time(),
-            render_html_func=lambda *args, **kwargs: self.render_html(*args, rss_items=rss_items, rss_new_items=rss_new_items, ai_analysis=ai_analysis, standalone_data=standalone_data, **kwargs),
+            render_html_func=lambda *args, **kwargs: self.render_html(
+                *args,
+                rss_items=rss_items,
+                rss_new_items=rss_new_items,
+                ai_analysis=ai_analysis,
+                standalone_data=standalone_data,
+                **kwargs,
+            ),
             matches_word_groups_func=self.matches_word_groups,
             load_frequency_words_func=self.load_frequency_words,
             alternate_stats=alternate_stats,

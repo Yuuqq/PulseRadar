@@ -51,7 +51,8 @@ def send_to_email(
         if not html_file_path or not Path(html_file_path).exists():
             logger.error(
                 "HTML\u6587\u4ef6\u4e0d\u5b58\u5728\u6216\u672a\u63d0\u4f9b",
-                channel="email", html_file_path=html_file_path,
+                channel="email",
+                html_file_path=html_file_path,
             )
             return False
 
@@ -78,7 +79,8 @@ def send_to_email(
         else:
             logger.warning(
                 "\u672a\u8bc6\u522b\u7684\u90ae\u7bb1\u670d\u52a1\u5546\uff0c\u4f7f\u7528\u901a\u7528 SMTP \u914d\u7f6e",
-                channel="email", domain=domain,
+                channel="email",
+                domain=domain,
             )
             smtp_server = f"smtp.{domain}"
             smtp_port = 587
@@ -107,7 +109,7 @@ def send_to_email(
 TrendRadar \u70ed\u70b9\u5206\u6790\u62a5\u544a
 ========================
 \u62a5\u544a\u7c7b\u578b\uff1a{report_type}
-\u751f\u6210\u65f6\u95f4\uff1a{now.strftime('%Y-%m-%d %H:%M:%S')}
+\u751f\u6210\u65f6\u95f4\uff1a{now.strftime("%Y-%m-%d %H:%M:%S")}
 
 \u8bf7\u4f7f\u7528\u652f\u6301HTML\u7684\u90ae\u4ef6\u5ba2\u6237\u7aef\u67e5\u770b\u5b8c\u6574\u62a5\u544a\u5185\u5bb9\u3002
         """
@@ -119,8 +121,10 @@ TrendRadar \u70ed\u70b9\u5206\u6790\u62a5\u544a
 
         logger.info(
             "\u6b63\u5728\u53d1\u9001\u90ae\u4ef6",
-            channel="email", to=to_email,
-            smtp_server=smtp_server, smtp_port=smtp_port,
+            channel="email",
+            to=to_email,
+            smtp_server=smtp_server,
+            smtp_port=smtp_port,
             from_email=from_email,
         )
 
@@ -142,38 +146,64 @@ TrendRadar \u70ed\u70b9\u5206\u6790\u62a5\u544a
 
             logger.info(
                 "\u90ae\u4ef6\u53d1\u9001\u6210\u529f",
-                channel="email", report_type=report_type, to=to_email,
+                channel="email",
+                report_type=report_type,
+                to=to_email,
             )
             return True
 
         except smtplib.SMTPServerDisconnected:
-            logger.error("\u90ae\u4ef6\u53d1\u9001\u5931\u8d25\uff1a\u670d\u52a1\u5668\u610f\u5916\u65ad\u5f00\u8fde\u63a5", channel="email")
+            logger.error(
+                "\u90ae\u4ef6\u53d1\u9001\u5931\u8d25\uff1a\u670d\u52a1\u5668\u610f\u5916\u65ad\u5f00\u8fde\u63a5",
+                channel="email",
+            )
             return False
 
     except smtplib.SMTPAuthenticationError as e:
-        logger.error("\u90ae\u4ef6\u53d1\u9001\u5931\u8d25\uff1a\u8ba4\u8bc1\u9519\u8bef", channel="email", error=str(e))
+        logger.error(
+            "\u90ae\u4ef6\u53d1\u9001\u5931\u8d25\uff1a\u8ba4\u8bc1\u9519\u8bef",
+            channel="email",
+            error=str(e),
+        )
         return False
     except smtplib.SMTPRecipientsRefused as e:
-        logger.error("\u90ae\u4ef6\u53d1\u9001\u5931\u8d25\uff1a\u6536\u4ef6\u4eba\u5730\u5740\u88ab\u62d2\u7edd", channel="email", error=str(e))
+        logger.error(
+            "\u90ae\u4ef6\u53d1\u9001\u5931\u8d25\uff1a\u6536\u4ef6\u4eba\u5730\u5740\u88ab\u62d2\u7edd",
+            channel="email",
+            error=str(e),
+        )
         return False
     except smtplib.SMTPSenderRefused as e:
-        logger.error("\u90ae\u4ef6\u53d1\u9001\u5931\u8d25\uff1a\u53d1\u4ef6\u4eba\u5730\u5740\u88ab\u62d2\u7edd", channel="email", error=str(e))
+        logger.error(
+            "\u90ae\u4ef6\u53d1\u9001\u5931\u8d25\uff1a\u53d1\u4ef6\u4eba\u5730\u5740\u88ab\u62d2\u7edd",
+            channel="email",
+            error=str(e),
+        )
         return False
     except smtplib.SMTPDataError as e:
-        logger.error("\u90ae\u4ef6\u53d1\u9001\u5931\u8d25\uff1a\u90ae\u4ef6\u6570\u636e\u9519\u8bef", channel="email", error=str(e))
+        logger.error(
+            "\u90ae\u4ef6\u53d1\u9001\u5931\u8d25\uff1a\u90ae\u4ef6\u6570\u636e\u9519\u8bef",
+            channel="email",
+            error=str(e),
+        )
         return False
     except smtplib.SMTPConnectError as e:
         logger.error(
             "\u90ae\u4ef6\u53d1\u9001\u5931\u8d25\uff1a\u65e0\u6cd5\u8fde\u63a5\u5230 SMTP \u670d\u52a1\u5668",
-            channel="email", smtp_server=smtp_server, smtp_port=smtp_port,
+            channel="email",
+            smtp_server=smtp_server,
+            smtp_port=smtp_port,
             error=str(e),
         )
         return False
     except Exception as e:
         logger.error(
             "\u90ae\u4ef6\u53d1\u9001\u5931\u8d25",
-            channel="email", report_type=report_type, error=str(e),
+            channel="email",
+            report_type=report_type,
+            error=str(e),
         )
         import traceback
+
         traceback.print_exc()
         return False

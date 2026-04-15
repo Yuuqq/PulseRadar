@@ -3,6 +3,7 @@
 Strategy: patch DataService to avoid SQLite; verify the unified dispatcher
 handles invalid modes and forwards valid requests.
 """
+
 from __future__ import annotations
 
 from unittest.mock import MagicMock, patch

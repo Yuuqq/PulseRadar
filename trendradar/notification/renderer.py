@@ -55,16 +55,18 @@ def render_feishu_content(
             sequence_display = f"<font color='grey'>[{i + 1}/{total_count}]</font>"
 
             if count >= 10:
-                stats_content += f"🔥 {sequence_display} **{word}** : <font color='red'>{count}</font> 条\n\n"
+                stats_content += (
+                    f"🔥 {sequence_display} **{word}** : <font color='red'>{count}</font> 条\n\n"
+                )
             elif count >= 5:
-                stats_content += f"📈 {sequence_display} **{word}** : <font color='orange'>{count}</font> 条\n\n"
+                stats_content += (
+                    f"📈 {sequence_display} **{word}** : <font color='orange'>{count}</font> 条\n\n"
+                )
             else:
                 stats_content += f"📌 {sequence_display} **{word}** : {count} 条\n\n"
 
             for j, title_data in enumerate(stat["titles"], 1):
-                formatted_title = format_title_for_platform(
-                    "feishu", title_data, show_source=True
-                )
+                formatted_title = format_title_for_platform("feishu", title_data, show_source=True)
                 stats_content += f"  {j}. {formatted_title}\n"
 
                 if j < len(stat["titles"]):
@@ -135,9 +137,7 @@ def render_feishu_content(
 
     # 获取当前时间
     now = get_time_func() if get_time_func else datetime.now()
-    text_content += (
-        f"\n\n<font color='grey'>更新时间：{now.strftime('%Y-%m-%d %H:%M:%S')}</font>"
-    )
+    text_content += f"\n\n<font color='grey'>更新时间：{now.strftime('%Y-%m-%d %H:%M:%S')}</font>"
 
     if update_info:
         text_content += f"\n<font color='grey'>TrendRadar 发现新版本 {update_info['remote_version']}，当前 {update_info['current_version']}</font>"
@@ -171,9 +171,7 @@ def render_dingtalk_content(
     if region_order is None:
         region_order = DEFAULT_REGION_ORDER
 
-    total_titles = sum(
-        len(stat["titles"]) for stat in report_data["stats"] if stat["count"] > 0
-    )
+    total_titles = sum(len(stat["titles"]) for stat in report_data["stats"] if stat["count"] > 0)
     now = get_time_func() if get_time_func else datetime.now()
 
     # 头部信息
@@ -222,7 +220,9 @@ def render_dingtalk_content(
         )
 
         for source_data in report_data["new_titles"]:
-            new_titles_content += f"**{source_data['source_name']}** ({len(source_data['titles'])} 条):\n\n"
+            new_titles_content += (
+                f"**{source_data['source_name']}** ({len(source_data['titles'])} 条):\n\n"
+            )
 
             for j, title_data in enumerate(source_data["titles"], 1):
                 title_data_copy = title_data.copy()
@@ -482,6 +482,7 @@ def render_rss_markdown_content(
 
 
 # === RSS 内容渲染辅助函数（用于合并推送） ===
+
 
 def _render_rss_section_feishu(rss_items: list, separator: str = "---") -> str:
     """渲染 RSS 内容区块（飞书格式，用于合并推送）"""

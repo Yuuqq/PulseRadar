@@ -22,11 +22,12 @@ logger = get_logger(__name__)
 @dataclass
 class RSSFeedConfig:
     """RSS 源配置"""
-    id: str                     # 源 ID
-    name: str                   # 显示名称
-    url: str                    # RSS URL
-    max_items: int = 0          # 最大条目数（0=不限制）
-    enabled: bool = True        # 是否启用
+
+    id: str  # 源 ID
+    name: str  # 显示名称
+    url: str  # RSS URL
+    max_items: int = 0  # 最大条目数（0=不限制）
+    enabled: bool = True  # 是否启用
     max_age_days: int | None = None  # 文章最大年龄（天），覆盖全局设置；None=使用全局，0=禁用过滤
 
 
@@ -72,11 +73,13 @@ class RSSFetcher:
     def _create_session(self) -> requests.Session:
         """创建请求会话"""
         session = requests.Session()
-        session.headers.update({
-            "User-Agent": "TrendRadar/2.0 RSS Reader (https://github.com/trendradar)",
-            "Accept": "application/feed+json, application/json, application/rss+xml, application/atom+xml, application/xml, text/xml, */*",
-            "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
-        })
+        session.headers.update(
+            {
+                "User-Agent": "TrendRadar/2.0 RSS Reader (https://github.com/trendradar)",
+                "Accept": "application/feed+json, application/json, application/rss+xml, application/atom+xml, application/xml, text/xml, */*",
+                "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+            }
+        )
 
         if self.use_proxy and self.proxy_url:
             session.proxies = {
@@ -146,7 +149,7 @@ class RSSFetcher:
 
             # 限制条目数量（0=不限制）
             if feed.max_items > 0:
-                parsed_items = parsed_items[:feed.max_items]
+                parsed_items = parsed_items[: feed.max_items]
 
             # 转换为 RSSItem（使用配置的时区）
             now = get_configured_time(self.timezone)
@@ -281,11 +284,17 @@ class RSSFetcher:
                     max_age_days = int(max_age_days_raw)
                     if max_age_days < 0:
                         feed_id = feed_config.get("id", "unknown")
-                        logger.warning("[警告] RSS feed max_age_days 为负数，将使用全局默认值", feed_id=feed_id)
+                        logger.warning(
+                            "[警告] RSS feed max_age_days 为负数，将使用全局默认值", feed_id=feed_id
+                        )
                         max_age_days = None
                 except (ValueError, TypeError):
                     feed_id = feed_config.get("id", "unknown")
-                    logger.warning("[警告] RSS feed max_age_days 格式错误", feed_id=feed_id, raw_value=max_age_days_raw)
+                    logger.warning(
+                        "[警告] RSS feed max_age_days 格式错误",
+                        feed_id=feed_id,
+                        raw_value=max_age_days_raw,
+                    )
                     max_age_days = None
 
             feed = RSSFeedConfig(

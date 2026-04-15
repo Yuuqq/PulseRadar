@@ -119,7 +119,12 @@ class DataFetcher:
                     base_wait = random.uniform(min_retry_wait, max_retry_wait)
                     additional_wait = (retries - 1) * random.uniform(1, 2)
                     wait_time = base_wait + additional_wait
-                    logger.warning("请求失败，准备重试", id_value=id_value, error=str(e), wait_time=round(wait_time, 2))
+                    logger.warning(
+                        "请求失败，准备重试",
+                        id_value=id_value,
+                        error=str(e),
+                        wait_time=round(wait_time, 2),
+                    )
                     time.sleep(wait_time)
                 else:
                     logger.error("请求失败", id_value=id_value, error=str(e))

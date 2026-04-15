@@ -1,4 +1,3 @@
-
 from __future__ import annotations
 
 import pytest
@@ -84,12 +83,20 @@ def test_discover_finds_all_builtin_plugins():
     all_plugins = CrawlerRegistry.get_all()
 
     # The project has 9 plugin files in plugins/
-    assert len(all_plugins) >= 9, f"Expected >= 9 plugins, got {len(all_plugins)}: {list(all_plugins.keys())}"
+    assert len(all_plugins) >= 9, (
+        f"Expected >= 9 plugins, got {len(all_plugins)}: {list(all_plugins.keys())}"
+    )
 
     expected_types = {
-        "dailyhot", "vvhan", "newsapi", "gnews",
-        "mediastack", "eastmoney", "thenewsapi",
-        "wallstreetcn", "10jqka",
+        "dailyhot",
+        "vvhan",
+        "newsapi",
+        "gnews",
+        "mediastack",
+        "eastmoney",
+        "thenewsapi",
+        "wallstreetcn",
+        "10jqka",
     }
     registered_types = set(all_plugins.keys())
     assert expected_types.issubset(registered_types), (

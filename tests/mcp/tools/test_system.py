@@ -3,6 +3,7 @@
 Strategy: patch DataService + external HTTP; verify get_system_status shape and
 check_version handles HTTP failures gracefully.
 """
+
 from __future__ import annotations
 
 from unittest.mock import MagicMock, patch

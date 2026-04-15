@@ -124,15 +124,9 @@ class JobManager:
                 )
                 """
             )
-            conn.execute(
-                "CREATE INDEX IF NOT EXISTS idx_jobs_created_at ON jobs(created_at DESC)"
-            )
-            conn.execute(
-                "CREATE INDEX IF NOT EXISTS idx_jobs_status ON jobs(status)"
-            )
-            conn.execute(
-                "CREATE INDEX IF NOT EXISTS idx_jobs_stage ON jobs(stage)"
-            )
+            conn.execute("CREATE INDEX IF NOT EXISTS idx_jobs_created_at ON jobs(created_at DESC)")
+            conn.execute("CREATE INDEX IF NOT EXISTS idx_jobs_status ON jobs(status)")
+            conn.execute("CREATE INDEX IF NOT EXISTS idx_jobs_stage ON jobs(stage)")
             conn.execute(
                 "CREATE INDEX IF NOT EXISTS idx_jobs_status_created ON jobs(status, created_at DESC)"
             )
@@ -232,7 +226,9 @@ class JobManager:
                     continue
 
             last_ts = (
-                _parse_ts(row["updated_at"]) or _parse_ts(row["started_at"]) or _parse_ts(row["created_at"])
+                _parse_ts(row["updated_at"])
+                or _parse_ts(row["started_at"])
+                or _parse_ts(row["created_at"])
             )
             if last_ts is None:
                 is_stale = True
@@ -327,7 +323,9 @@ class JobManager:
         return self.create_job([sys.executable, "-m", "trendradar"])
 
     def _start_job(self, job_id: str, command: list[str]) -> None:
-        self._update_job(job_id, status="running", stage="starting", started_at=_utc_now(), error="")
+        self._update_job(
+            job_id, status="running", stage="starting", started_at=_utc_now(), error=""
+        )
         thread = threading.Thread(
             target=self._run_process,
             args=(job_id, command),
@@ -596,7 +594,15 @@ class JobManager:
                             id, name, scope, force_ai, force_push, created_at, updated_at
                         ) VALUES (?, ?, ?, ?, ?, ?, ?)
                         """,
-                        (target_id, safe_name, safe_scope, safe_force_ai, safe_force_push, now, now),
+                        (
+                            target_id,
+                            safe_name,
+                            safe_scope,
+                            safe_force_ai,
+                            safe_force_push,
+                            now,
+                            now,
+                        ),
                     )
 
             overflow_rows = conn.execute(
@@ -669,7 +675,9 @@ class JobManager:
         where_clauses: list[str] = []
         params: list[Any] = []
 
-        normalized_statuses = [str(status).strip().lower() for status in (statuses or []) if str(status).strip()]
+        normalized_statuses = [
+            str(status).strip().lower() for status in (statuses or []) if str(status).strip()
+        ]
         if normalized_statuses:
             placeholders = ", ".join(["?"] * len(normalized_statuses))
             where_clauses.append(f"LOWER(status) IN ({placeholders})")
@@ -679,7 +687,7 @@ class JobManager:
         if keyword:
             like = f"%{keyword.lower()}%"
             where_clauses.append(
-                "(" 
+                "("
                 "LOWER(id) LIKE ? OR "
                 "LOWER(status) LIKE ? OR "
                 "LOWER(stage) LIKE ? OR "
@@ -781,7 +789,11 @@ class JobManager:
 
         failure_stage: str | None = None
         if status == "failed":
-            failure_stage = latest_stage if latest_stage in JOB_STAGE_SEQUENCE and latest_stage != "finished" else None
+            failure_stage = (
+                latest_stage
+                if latest_stage in JOB_STAGE_SEQUENCE and latest_stage != "finished"
+                else None
+            )
             if not failure_stage:
                 failure_stage = latest_inferred or ("starting" if started_at else "queued")
 
@@ -893,7 +905,9 @@ class JobManager:
 
         return len(job_ids)
 
-    def get_clearable_final_jobs_count(self, keep_latest: int = 20, limit: int = 2000) -> dict[str, int]:
+    def get_clearable_final_jobs_count(
+        self, keep_latest: int = 20, limit: int = 2000
+    ) -> dict[str, int]:
         safe_keep = max(0, int(keep_latest))
         safe_limit = max(1, min(int(limit), 10000))
         statuses = sorted(FINAL_STATUSES)
@@ -972,7 +986,11 @@ class JobManager:
 
         target_id = target_job["id"]
         logs = self.get_job_logs(target_id, tail=50)
-        last_run = target_job.get("finished_at") or target_job.get("started_at") or target_job.get("created_at")
+        last_run = (
+            target_job.get("finished_at")
+            or target_job.get("started_at")
+            or target_job.get("created_at")
+        )
         return {
             "running": target_job.get("status") in ACTIVE_STATUSES,
             "last_run": last_run,

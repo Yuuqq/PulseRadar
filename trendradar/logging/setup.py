@@ -30,9 +30,7 @@ def configure_logging(debug: bool = False, json_output: bool = False) -> None:
     ]
 
     if json_output:
-        renderer: structlog.types.Processor = structlog.processors.JSONRenderer(
-            ensure_ascii=False
-        )
+        renderer: structlog.types.Processor = structlog.processors.JSONRenderer(ensure_ascii=False)
     else:
         renderer = structlog.dev.ConsoleRenderer(colors=sys.stderr.isatty())
 

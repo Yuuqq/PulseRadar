@@ -61,7 +61,9 @@ def build_hotlist_view(stats: list[dict], view_mode: str) -> str:
                 stats_html += f'<span class="source-name">{source_name}</span>'
             else:
                 if matched_keyword:
-                    stats_html += f'<span class="keyword-tag">[{html_escape(matched_keyword)}]</span>'
+                    stats_html += (
+                        f'<span class="keyword-tag">[{html_escape(matched_keyword)}]</span>'
+                    )
                 else:
                     stats_html += f'<span class="keyword-tag">[{escaped_word}]</span>'
 
@@ -87,11 +89,7 @@ def build_hotlist_view(stats: list[dict], view_mode: str) -> str:
             # 处理时间显示
             time_display = title_data.get("time_display", "")
             if time_display:
-                simplified_time = (
-                    time_display.replace(" ~ ", "~")
-                    .replace("[", "")
-                    .replace("]", "")
-                )
+                simplified_time = time_display.replace(" ~ ", "~").replace("[", "").replace("]", "")
                 stats_html += f'<span class="time-info">{html_escape(simplified_time)}</span>'
 
             # 处理出现次数
@@ -109,7 +107,9 @@ def build_hotlist_view(stats: list[dict], view_mode: str) -> str:
 
             if link_url:
                 escaped_url = html_escape(link_url)
-                stats_html += f'<a href="{escaped_url}" target="_blank" class="news-link">{escaped_title}</a>'
+                stats_html += (
+                    f'<a href="{escaped_url}" target="_blank" class="news-link">{escaped_title}</a>'
+                )
             else:
                 stats_html += escaped_title
 
@@ -130,8 +130,8 @@ def build_hotlist_view(stats: list[dict], view_mode: str) -> str:
                     </button>"""
         for tab in tabs:
             tabs_html += f"""
-                    <button class="topic-tab" data-topic="{tab['word']}">
-                        {tab['word']} <span class="topic-count">{tab['count']}</span>
+                    <button class="topic-tab" data-topic="{tab["word"]}">
+                        {tab["word"]} <span class="topic-count">{tab["count"]}</span>
                     </button>"""
         tabs_html += """
                 </div>"""
@@ -225,7 +225,9 @@ def render_rss_stats_html(stats: list[dict], title: str = "RSS 订阅更新") ->
             escaped_title = html_escape(item_title)
             if url:
                 escaped_url = html_escape(url)
-                rss_html += f'<a href="{escaped_url}" target="_blank" class="rss-link">{escaped_title}</a>'
+                rss_html += (
+                    f'<a href="{escaped_url}" target="_blank" class="rss-link">{escaped_title}</a>'
+                )
             else:
                 rss_html += escaped_title
 
@@ -369,7 +371,9 @@ def render_standalone_html(data: dict | None) -> str:
                 standalone_html += f'<span class="time-info">{html_escape(first_time_display)}~{html_escape(last_time_display)}</span>'
             elif first_time:
                 first_time_display = convert_time_for_display(first_time)
-                standalone_html += f'<span class="time-info">{html_escape(first_time_display)}</span>'
+                standalone_html += (
+                    f'<span class="time-info">{html_escape(first_time_display)}</span>'
+                )
 
             # 出现次数（复用 count-info 样式）
             if count > 1:
@@ -383,7 +387,9 @@ def render_standalone_html(data: dict | None) -> str:
             escaped_title = html_escape(title)
             if url:
                 escaped_url = html_escape(url)
-                standalone_html += f'<a href="{escaped_url}" target="_blank" class="news-link">{escaped_title}</a>'
+                standalone_html += (
+                    f'<a href="{escaped_url}" target="_blank" class="news-link">{escaped_title}</a>'
+                )
             else:
                 standalone_html += escaped_title
 
@@ -445,7 +451,9 @@ def render_standalone_html(data: dict | None) -> str:
             escaped_title = html_escape(title)
             if url:
                 escaped_url = html_escape(url)
-                standalone_html += f'<a href="{escaped_url}" target="_blank" class="news-link">{escaped_title}</a>'
+                standalone_html += (
+                    f'<a href="{escaped_url}" target="_blank" class="news-link">{escaped_title}</a>'
+                )
             else:
                 standalone_html += escaped_title
 

@@ -64,9 +64,7 @@ class HistorySearcher:
     def __init__(self, storage_manager):
         self.storage_manager = storage_manager
 
-    def search(
-        self, keyword: str, days: int = 7, limit: int = 200
-    ) -> HistoryResult:
+    def search(self, keyword: str, days: int = 7, limit: int = 200) -> HistoryResult:
         """
         Search historical crawl data for a keyword.
 
@@ -81,9 +79,7 @@ class HistorySearcher:
         days = max(1, min(days, 30))
         limit = max(1, min(limit, 500))
 
-        raw_hits = self.storage_manager.search_titles(
-            keyword, days=days, limit=limit
-        )
+        raw_hits = self.storage_manager.search_titles(keyword, days=days, limit=limit)
 
         if not raw_hits:
             return HistoryResult(keyword=keyword)

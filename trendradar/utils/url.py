@@ -22,13 +22,25 @@ PLATFORM_PARAMS_TO_REMOVE: dict[str, set[str]] = {
 # 这些参数通常由分享链接或广告追踪添加，不影响内容识别
 COMMON_TRACKING_PARAMS: set[str] = {
     # UTM 追踪参数
-    "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content",
+    "utm_source",
+    "utm_medium",
+    "utm_campaign",
+    "utm_term",
+    "utm_content",
     # 常见追踪参数
-    "ref", "referrer", "source", "channel",
+    "ref",
+    "referrer",
+    "source",
+    "channel",
     # 时间戳和随机参数
-    "_t", "timestamp", "_", "random",
+    "_t",
+    "timestamp",
+    "_",
+    "random",
     # 分享相关
-    "share_token", "share_id", "share_from",
+    "share_token",
+    "share_id",
+    "share_from",
 }
 
 
@@ -91,14 +103,16 @@ def normalize_url(url: str, platform_id: str = "") -> str:
 
         # 如果过滤后没有参数了，返回不带查询字符串的 URL
         if not filtered_params:
-            return urlunparse((
-                parsed.scheme,
-                parsed.netloc,
-                parsed.path,
-                parsed.params,
-                "",  # 空查询字符串
-                ""   # 移除 fragment
-            ))
+            return urlunparse(
+                (
+                    parsed.scheme,
+                    parsed.netloc,
+                    parsed.path,
+                    parsed.params,
+                    "",  # 空查询字符串
+                    "",  # 移除 fragment
+                )
+            )
 
         # 重建查询字符串（按字母序排序以确保一致性）
         sorted_params = []
@@ -109,14 +123,16 @@ def normalize_url(url: str, platform_id: str = "") -> str:
         new_query = urlencode(sorted_params)
 
         # 重建 URL（移除 fragment）
-        normalized = urlunparse((
-            parsed.scheme,
-            parsed.netloc,
-            parsed.path,
-            parsed.params,
-            new_query,
-            ""  # 移除 fragment
-        ))
+        normalized = urlunparse(
+            (
+                parsed.scheme,
+                parsed.netloc,
+                parsed.path,
+                parsed.params,
+                new_query,
+                "",  # 移除 fragment
+            )
+        )
 
         return normalized
 

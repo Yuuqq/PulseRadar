@@ -4,7 +4,6 @@
 从 NewsAnalyzer 中提取的通知派发逻辑，接受显式参数而非 self。
 """
 
-
 from trendradar.ai import AIAnalysisResult
 from trendradar.context import AppContext
 from trendradar.core.ai_service import run_ai_analysis
@@ -22,11 +21,7 @@ def has_notification_configured(ctx: AppContext) -> bool:
             cfg["DINGTALK_WEBHOOK_URL"],
             cfg["WEWORK_WEBHOOK_URL"],
             (cfg["TELEGRAM_BOT_TOKEN"] and cfg["TELEGRAM_CHAT_ID"]),
-            (
-                cfg["EMAIL_FROM"]
-                and cfg["EMAIL_PASSWORD"]
-                and cfg["EMAIL_TO"]
-            ),
+            (cfg["EMAIL_FROM"] and cfg["EMAIL_PASSWORD"] and cfg["EMAIL_TO"]),
             (cfg["NTFY_SERVER_URL"] and cfg["NTFY_TOPIC"]),
             cfg["BARK_URL"],
             cfg["SLACK_WEBHOOK_URL"],
@@ -45,9 +40,7 @@ def has_valid_content(
         return any(stat["count"] > 0 for stat in stats)
     else:
         has_matched_news = any(stat["count"] > 0 for stat in stats)
-        has_new_news = bool(
-            new_titles and any(len(titles) > 0 for titles in new_titles.values())
-        )
+        has_new_news = bool(new_titles and any(len(titles) > 0 for titles in new_titles.values()))
         return has_matched_news or has_new_news
 
 
@@ -119,7 +112,7 @@ def send_notification_if_needed(
                 now = ctx.get_time()
                 logger.info(
                     "推送窗口控制：跳过",
-                    current_time=now.strftime('%H:%M'),
+                    current_time=now.strftime("%H:%M"),
                     window=f"{time_range_start}-{time_range_end}",
                 )
                 return False
@@ -181,7 +174,11 @@ def send_notification_if_needed(
     elif not cfg["ENABLE_NOTIFICATION"]:
         logger.info("跳过通知：通知功能已禁用", report_type=report_type)
     elif cfg["ENABLE_NOTIFICATION"] and has_notif and not has_any_content:
-        mode_name = mode_strategies.get(report_mode, {}).get('mode_name', report_mode) if mode_strategies else report_mode
+        mode_name = (
+            mode_strategies.get(report_mode, {}).get("mode_name", report_mode)
+            if mode_strategies
+            else report_mode
+        )
         if report_mode == "incremental":
             if not has_rss_content:
                 logger.info("跳过通知：增量模式下未检测到匹配的新闻和RSS")

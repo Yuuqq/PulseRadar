@@ -1,4 +1,3 @@
-
 from __future__ import annotations
 
 from unittest.mock import MagicMock
@@ -27,6 +26,7 @@ def _make_ctx(config_overrides=None):
 # prepare_standalone_data tests
 # ---------------------------------------------------------------------------
 
+
 def test_prepare_standalone_data_returns_none_when_disabled():
     from trendradar.core.pipeline import prepare_standalone_data
 
@@ -38,12 +38,14 @@ def test_prepare_standalone_data_returns_none_when_disabled():
 def test_prepare_standalone_data_returns_none_when_no_platforms_or_rss():
     from trendradar.core.pipeline import prepare_standalone_data
 
-    ctx = _make_ctx({
-        "DISPLAY": {
-            "REGIONS": {"STANDALONE": True},
-            "STANDALONE": {"PLATFORMS": [], "RSS_FEEDS": [], "MAX_ITEMS": 20},
-        },
-    })
+    ctx = _make_ctx(
+        {
+            "DISPLAY": {
+                "REGIONS": {"STANDALONE": True},
+                "STANDALONE": {"PLATFORMS": [], "RSS_FEEDS": [], "MAX_ITEMS": 20},
+            },
+        }
+    )
     result = prepare_standalone_data(ctx, results={}, id_to_name={})
     assert result is None
 
@@ -51,12 +53,14 @@ def test_prepare_standalone_data_returns_none_when_no_platforms_or_rss():
 def test_prepare_standalone_data_extracts_platform_items():
     from trendradar.core.pipeline import prepare_standalone_data
 
-    ctx = _make_ctx({
-        "DISPLAY": {
-            "REGIONS": {"STANDALONE": True},
-            "STANDALONE": {"PLATFORMS": ["weibo"], "RSS_FEEDS": [], "MAX_ITEMS": 5},
-        },
-    })
+    ctx = _make_ctx(
+        {
+            "DISPLAY": {
+                "REGIONS": {"STANDALONE": True},
+                "STANDALONE": {"PLATFORMS": ["weibo"], "RSS_FEEDS": [], "MAX_ITEMS": 5},
+            },
+        }
+    )
 
     results = {
         "weibo": {
@@ -77,12 +81,14 @@ def test_prepare_standalone_data_extracts_platform_items():
 def test_prepare_standalone_data_respects_max_items():
     from trendradar.core.pipeline import prepare_standalone_data
 
-    ctx = _make_ctx({
-        "DISPLAY": {
-            "REGIONS": {"STANDALONE": True},
-            "STANDALONE": {"PLATFORMS": ["src"], "RSS_FEEDS": [], "MAX_ITEMS": 1},
-        },
-    })
+    ctx = _make_ctx(
+        {
+            "DISPLAY": {
+                "REGIONS": {"STANDALONE": True},
+                "STANDALONE": {"PLATFORMS": ["src"], "RSS_FEEDS": [], "MAX_ITEMS": 1},
+            },
+        }
+    )
 
     results = {
         "src": {
@@ -100,17 +106,40 @@ def test_prepare_standalone_data_respects_max_items():
 def test_prepare_standalone_data_extracts_rss_feeds():
     from trendradar.core.pipeline import prepare_standalone_data
 
-    ctx = _make_ctx({
-        "DISPLAY": {
-            "REGIONS": {"STANDALONE": True},
-            "STANDALONE": {"PLATFORMS": [], "RSS_FEEDS": ["feed1"], "MAX_ITEMS": 10},
-        },
-    })
+    ctx = _make_ctx(
+        {
+            "DISPLAY": {
+                "REGIONS": {"STANDALONE": True},
+                "STANDALONE": {"PLATFORMS": [], "RSS_FEEDS": ["feed1"], "MAX_ITEMS": 10},
+            },
+        }
+    )
 
     rss_items = [
-        {"feed_id": "feed1", "feed_name": "My Feed", "title": "Article 1", "url": "http://r1", "published_at": "", "author": ""},
-        {"feed_id": "feed1", "feed_name": "My Feed", "title": "Article 2", "url": "http://r2", "published_at": "", "author": ""},
-        {"feed_id": "other_feed", "feed_name": "Other", "title": "Excluded", "url": "http://x", "published_at": "", "author": ""},
+        {
+            "feed_id": "feed1",
+            "feed_name": "My Feed",
+            "title": "Article 1",
+            "url": "http://r1",
+            "published_at": "",
+            "author": "",
+        },
+        {
+            "feed_id": "feed1",
+            "feed_name": "My Feed",
+            "title": "Article 2",
+            "url": "http://r2",
+            "published_at": "",
+            "author": "",
+        },
+        {
+            "feed_id": "other_feed",
+            "feed_name": "Other",
+            "title": "Excluded",
+            "url": "http://x",
+            "published_at": "",
+            "author": "",
+        },
     ]
 
     data = prepare_standalone_data(ctx, results={}, id_to_name={}, rss_items=rss_items)
@@ -123,6 +152,7 @@ def test_prepare_standalone_data_extracts_rss_feeds():
 # ---------------------------------------------------------------------------
 # run_analysis_pipeline tests
 # ---------------------------------------------------------------------------
+
 
 def test_run_analysis_pipeline_basic_flow():
     from trendradar.core.pipeline import run_analysis_pipeline
@@ -160,10 +190,12 @@ def test_run_analysis_pipeline_basic_flow():
 def test_run_analysis_pipeline_with_ai_enabled():
     from trendradar.core.pipeline import run_analysis_pipeline
 
-    ctx = _make_ctx({
-        "STORAGE": {"FORMATS": {"HTML": False}},
-        "AI_ANALYSIS": {"ENABLED": True},
-    })
+    ctx = _make_ctx(
+        {
+            "STORAGE": {"FORMATS": {"HTML": False}},
+            "AI_ANALYSIS": {"ENABLED": True},
+        }
+    )
     ctx.count_frequency.return_value = (
         [{"word": "ai", "count": 5, "titles": []}],
         20,
@@ -196,11 +228,13 @@ def test_run_analysis_pipeline_with_ai_enabled():
 def test_run_analysis_pipeline_with_html_enabled():
     from trendradar.core.pipeline import run_analysis_pipeline
 
-    ctx = _make_ctx({
-        "STORAGE": {"FORMATS": {"HTML": True}},
-        "AI_ANALYSIS": {"ENABLED": False},
-        "SHOW_VERSION_UPDATE": False,
-    })
+    ctx = _make_ctx(
+        {
+            "STORAGE": {"FORMATS": {"HTML": True}},
+            "AI_ANALYSIS": {"ENABLED": False},
+            "SHOW_VERSION_UPDATE": False,
+        }
+    )
     ctx.count_frequency.return_value = ([{"word": "w", "count": 1, "titles": []}], 5)
     ctx.display_mode = "keyword"
     ctx.generate_html.return_value = "/path/to/report.html"

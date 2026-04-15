@@ -35,6 +35,7 @@ def pipeline_ctx(pipeline_config, tmp_path):
     against tmp_path storage.
     """
     from trendradar.context import AppContext
+
     ctx = AppContext(pipeline_config)
     # Patch load_frequency_words to avoid file I/O (Pitfall 6)
     ctx.load_frequency_words = lambda frequency_file=None: ([], [], [])
@@ -83,6 +84,7 @@ def html_report_factory(tmp_path):
     Returns a callable that accepts report_mode and creates a file
     with stable substring markers for assertion.
     """
+
     def _create(report_mode: str = "incremental") -> str:
         html_dir = tmp_path / "output" / "html"
         html_dir.mkdir(parents=True, exist_ok=True)
@@ -99,6 +101,7 @@ def html_report_factory(tmp_path):
         with open(html_file, "w", encoding="utf-8") as f:
             f.write(content)
         return html_file
+
     return _create
 
 
@@ -119,9 +122,10 @@ def mock_callbacks(html_report_factory):
         def _run(*args, **kwargs):
             return (
                 [{"keyword": "test", "count": 1}],  # stats
-                html_file,                            # html_file path
-                None,                                 # ai_result
+                html_file,  # html_file path
+                None,  # ai_result
             )
+
         return MagicMock(side_effect=_run, name="run_analysis_pipeline_fn")
 
     return {

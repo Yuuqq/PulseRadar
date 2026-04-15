@@ -3,6 +3,7 @@
 Strategy: use `responses` to intercept Jina Reader HTTP calls so tests never
 hit the network. Also stubs the internal _throttle() so tests do not sleep.
 """
+
 from __future__ import annotations
 
 from unittest.mock import patch

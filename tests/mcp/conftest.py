@@ -14,6 +14,7 @@ def _reset_mcp_tools_instances():
     Per Plan 02-04 D-11 and RESEARCH.md Open Question #2.
     """
     import mcp_server.server as srv
+
     srv._tools_instances.clear()
     yield
     srv._tools_instances.clear()

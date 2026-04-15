@@ -1,4 +1,5 @@
 """爬虫插件基类"""
+
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from datetime import datetime
@@ -7,6 +8,7 @@ from datetime import datetime
 @dataclass(frozen=True, slots=True)
 class FetchedItem:
     """单条抓取结果"""
+
     title: str
     url: str = ""
     mobile_url: str = ""
@@ -16,6 +18,7 @@ class FetchedItem:
 @dataclass(frozen=True, slots=True)
 class CrawlResult:
     """单数据源抓取结果"""
+
     source_id: str
     source_name: str
     items: tuple[FetchedItem, ...]

@@ -4,7 +4,6 @@
 从 NewsAnalyzer 中提取的纯函数，接受显式参数而非 self。
 """
 
-
 from trendradar.context import AppContext
 from trendradar.core.analyzer import convert_keyword_stats_to_platform_stats
 from trendradar.logging import get_logger
@@ -111,11 +110,13 @@ def prepare_standalone_data(
             items = items[:max_items]
 
         if items:
-            standalone_data["platforms"].append({
-                "id": platform_id,
-                "name": platform_name,
-                "items": items,
-            })
+            standalone_data["platforms"].append(
+                {
+                    "id": platform_id,
+                    "name": platform_name,
+                    "items": items,
+                }
+            )
 
     # 提取 RSS 数据
     if rss_items and rss_feed_ids:
@@ -128,12 +129,14 @@ def prepare_standalone_data(
                         "name": item.get("feed_name", feed_id),
                         "items": [],
                     }
-                feed_items_map[feed_id]["items"].append({
-                    "title": item.get("title", ""),
-                    "url": item.get("url", ""),
-                    "published_at": item.get("published_at", ""),
-                    "author": item.get("author", ""),
-                })
+                feed_items_map[feed_id]["items"].append(
+                    {
+                        "title": item.get("title", ""),
+                        "url": item.get("url", ""),
+                        "published_at": item.get("published_at", ""),
+                        "author": item.get("author", ""),
+                    }
+                )
 
         for feed_id in rss_feed_ids:
             if feed_id in feed_items_map:
@@ -142,11 +145,13 @@ def prepare_standalone_data(
                 if max_items > 0:
                     items = items[:max_items]
                 if items:
-                    standalone_data["rss_feeds"].append({
-                        "id": feed_id,
-                        "name": feed_data["name"],
-                        "items": items,
-                    })
+                    standalone_data["rss_feeds"].append(
+                        {
+                            "id": feed_id,
+                            "name": feed_data["name"],
+                            "items": items,
+                        }
+                    )
 
     if not standalone_data["platforms"] and not standalone_data["rss_feeds"]:
         return None

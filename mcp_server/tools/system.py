@@ -47,27 +47,21 @@ class SystemManagementTools:
 
             return {
                 "success": True,
-                "summary": {
-                    "description": "系统运行状态和健康检查信息"
-                },
-                "data": status
+                "summary": {"description": "系统运行状态和健康检查信息"},
+                "data": status,
             }
 
         except MCPError as e:
-            return {
-                "success": False,
-                "error": e.to_dict()
-            }
+            return {"success": False, "error": e.to_dict()}
         except Exception as e:
-            return {
-                "success": False,
-                "error": {
-                    "code": "INTERNAL_ERROR",
-                    "message": str(e)
-                }
-            }
+            return {"success": False, "error": {"code": "INTERNAL_ERROR", "message": str(e)}}
 
-    def trigger_crawl(self, platforms: list[str] | None = None, save_to_local: bool = False, include_url: bool = False) -> dict:
+    def trigger_crawl(
+        self,
+        platforms: list[str] | None = None,
+        save_to_local: bool = False,
+        include_url: bool = False,
+    ) -> dict:
         """
         手动触发一次临时爬取任务（可选持久化）
 
@@ -111,8 +105,7 @@ class SystemManagementTools:
             config_path = self.project_root / "config" / "config.yaml"
             if not config_path.exists():
                 raise CrawlTaskError(
-                    "配置文件不存在",
-                    suggestion=f"请确保配置文件存在: {config_path}"
+                    "配置文件不存在", suggestion=f"请确保配置文件存在: {config_path}"
                 )
 
             # 读取配置
@@ -124,13 +117,13 @@ class SystemManagementTools:
             if not platforms_config.get("enabled", True):
                 raise CrawlTaskError(
                     "热榜平台已禁用",
-                    suggestion="请检查 config/config.yaml 中的 platforms.enabled 配置"
+                    suggestion="请检查 config/config.yaml 中的 platforms.enabled 配置",
                 )
             all_platforms = platforms_config.get("sources", [])
             if not all_platforms:
                 raise CrawlTaskError(
                     "配置文件中没有平台配置",
-                    suggestion="请检查 config/config.yaml 中的 platforms.sources 配置"
+                    suggestion="请检查 config/config.yaml 中的 platforms.sources 配置",
                 )
 
             # 过滤平台
@@ -139,7 +132,7 @@ class SystemManagementTools:
                 if not target_platforms:
                     raise CrawlTaskError(
                         f"指定的平台不存在: {platforms}",
-                        suggestion=f"可用平台: {[p['id'] for p in all_platforms]}"
+                        suggestion=f"可用平台: {[p['id'] for p in all_platforms]}",
                     )
             else:
                 target_platforms = all_platforms
@@ -160,15 +153,14 @@ class SystemManagementTools:
             proxy_url = None
             if crawler_config.get("use_proxy"):
                 proxy_url = crawler_config.get("default_proxy")
-            
+
             api_url = (crawler_config.get("api_url", "") or "").strip() or None
             fetcher = DataFetcher(proxy_url=proxy_url, api_url=api_url)
             request_interval = crawler_config.get("request_interval", 100)
 
             # 执行爬取
             results, id_to_name, failed_ids = fetcher.crawl_websites(
-                ids_list=ids,
-                request_interval=request_interval
+                ids_list=ids, request_interval=request_interval
             )
 
             # 获取当前时间（统一使用 trendradar 的时间工具）
@@ -184,7 +176,7 @@ class SystemManagementTools:
                 id_to_name=id_to_name,
                 failed_ids=failed_ids,
                 crawl_time=crawl_time_str,
-                crawl_date=crawl_date
+                crawl_date=crawl_date,
             )
 
             # 初始化存储后端
@@ -192,7 +184,7 @@ class SystemManagementTools:
                 data_dir=str(self.project_root / "output"),
                 enable_txt=True,
                 enable_html=True,
-                timezone=timezone
+                timezone=timezone,
             )
 
             # 尝试持久化数据
@@ -204,7 +196,7 @@ class SystemManagementTools:
                 # 1. 保存到 SQLite (核心持久化)
                 if storage.save_news_data(news_data):
                     save_success = True
-                
+
                 # 2. 如果请求保存到本地，生成 TXT/HTML 快照
                 if save_to_local:
                     # 保存 TXT
@@ -213,7 +205,9 @@ class SystemManagementTools:
                         saved_files["txt"] = txt_path
 
                     # 保存 HTML (使用简化版生成器)
-                    html_content = self._generate_simple_html(results, id_to_name, failed_ids, current_time)
+                    html_content = self._generate_simple_html(
+                        results, id_to_name, failed_ids, current_time
+                    )
                     html_filename = f"{crawl_time_str}.html"
                     html_path = storage.save_html_report(html_content, html_filename)
                     if html_path:
@@ -239,7 +233,7 @@ class SystemManagementTools:
                         "platform_id": platform_id,
                         "platform_name": platform_name,
                         "title": title,
-                        "ranks": info.get("ranks", [])
+                        "ranks": info.get("ranks", []),
                     }
                     if include_url:
                         news_item["url"] = info.get("url", "")
@@ -256,9 +250,9 @@ class SystemManagementTools:
                     "total_news": len(news_response_data),
                     "platforms": list(results.keys()),
                     "failed_platforms": failed_ids,
-                    "saved_to_local": save_success and save_to_local
+                    "saved_to_local": save_success and save_to_local,
                 },
-                "data": news_response_data
+                "data": news_response_data,
             }
 
             if save_success:
@@ -271,8 +265,13 @@ class SystemManagementTools:
                 # 明确告知用户保存失败
                 result["saved_to_local"] = False
                 result["save_error"] = save_error_msg
-                if "Read-only file system" in save_error_msg or "Permission denied" in save_error_msg:
-                    result["note"] = "爬取成功，但无法写入数据库（Docker只读模式）。数据仅在本次返回中有效。"
+                if (
+                    "Read-only file system" in save_error_msg
+                    or "Permission denied" in save_error_msg
+                ):
+                    result["note"] = (
+                        "爬取成功，但无法写入数据库（Docker只读模式）。数据仅在本次返回中有效。"
+                    )
                 else:
                     result["note"] = f"爬取成功但保存失败: {save_error_msg}"
 
@@ -282,19 +281,17 @@ class SystemManagementTools:
             return result
 
         except MCPError as e:
-            return {
-                "success": False,
-                "error": e.to_dict()
-            }
+            return {"success": False, "error": e.to_dict()}
         except Exception as e:
             import traceback
+
             return {
                 "success": False,
                 "error": {
                     "code": "INTERNAL_ERROR",
                     "message": str(e),
-                    "traceback": traceback.format_exc()
-                }
+                    "traceback": traceback.format_exc(),
+                },
             }
 
     def _generate_simple_html(self, results: dict, id_to_name: dict, failed_ids: list, now) -> str:
@@ -327,7 +324,9 @@ class SystemManagementTools:
 """
 
         # 添加时间戳
-        html += f'        <p class="timestamp">爬取时间: {now.strftime("%Y-%m-%d %H:%M:%S")}</p>\n\n'
+        html += (
+            f'        <p class="timestamp">爬取时间: {now.strftime("%Y-%m-%d %H:%M:%S")}</p>\n\n'
+        )
 
         # 遍历每个平台
         for platform_id, titles_data in results.items():
@@ -355,19 +354,19 @@ class SystemManagementTools:
                     html += f'                <a class="link" href="{self._html_escape(url)}" target="_blank">链接</a>\n'
                 if mobile_url and mobile_url != url:
                     html += f'                <a class="link" href="{self._html_escape(mobile_url)}" target="_blank">移动版</a>\n'
-                html += '            </div>\n'
+                html += "            </div>\n"
 
-            html += '        </div>\n\n'
+            html += "        </div>\n\n"
 
         # 失败的平台
         if failed_ids:
             html += '        <div class="failed">\n'
-            html += '            <h3>请求失败的平台</h3>\n'
-            html += '            <ul>\n'
+            html += "            <h3>请求失败的平台</h3>\n"
+            html += "            <ul>\n"
             for platform_id in failed_ids:
-                html += f'                <li>{self._html_escape(platform_id)}</li>\n'
-            html += '            </ul>\n'
-            html += '        </div>\n'
+                html += f"                <li>{self._html_escape(platform_id)}</li>\n"
+            html += "            </ul>\n"
+            html += "        </div>\n"
 
         html += """    </div>
 </body>
@@ -425,17 +424,11 @@ class SystemManagementTools:
                 return 0, 0, 0
 
         def check_single_version(
-            name: str,
-            local_version: str,
-            remote_url: str,
-            proxies: dict | None,
-            headers: dict
+            name: str, local_version: str, remote_url: str, proxies: dict | None, headers: dict
         ) -> dict:
             """检查单个组件的版本"""
             try:
-                response = requests.get(
-                    remote_url, proxies=proxies, headers=headers, timeout=10
-                )
+                response = requests.get(remote_url, proxies=proxies, headers=headers, timeout=10)
                 response.raise_for_status()
                 remote_version = response.text.strip()
 
@@ -446,7 +439,9 @@ class SystemManagementTools:
                 if need_update:
                     message = f"发现新版本 {remote_version}，当前版本 {local_version}，建议更新"
                 elif local_tuple > remote_tuple:
-                    message = f"当前版本 {local_version} 高于远程版本 {remote_version}（可能是开发版本）"
+                    message = (
+                        f"当前版本 {local_version} 高于远程版本 {remote_version}（可能是开发版本）"
+                    )
                 else:
                     message = f"当前版本 {local_version} 已是最新版本"
 
@@ -458,28 +453,28 @@ class SystemManagementTools:
                     "need_update": need_update,
                     "current_parsed": list(local_tuple),
                     "remote_parsed": list(remote_tuple),
-                    "message": message
+                    "message": message,
                 }
             except requests.exceptions.Timeout:
                 return {
                     "success": False,
                     "name": name,
                     "current_version": local_version,
-                    "error": "获取远程版本超时"
+                    "error": "获取远程版本超时",
                 }
             except requests.exceptions.RequestException as e:
                 return {
                     "success": False,
                     "name": name,
                     "current_version": local_version,
-                    "error": f"网络请求失败: {e!s}"
+                    "error": f"网络请求失败: {e!s}",
                 }
             except Exception as e:
                 return {
                     "success": False,
                     "name": name,
                     "current_version": local_version,
-                    "error": str(e)
+                    "error": str(e),
                 }
 
         try:
@@ -494,8 +489,8 @@ class SystemManagementTools:
                     "success": False,
                     "error": {
                         "code": "CONFIG_NOT_FOUND",
-                        "message": f"配置文件不存在: {config_path}"
-                    }
+                        "message": f"配置文件不存在: {config_path}",
+                    },
                 }
 
             with open(config_path, encoding="utf-8") as f:
@@ -504,11 +499,11 @@ class SystemManagementTools:
             advanced_config = config_data.get("advanced", {})
             trendradar_url = advanced_config.get(
                 "version_check_url",
-                "https://raw.githubusercontent.com/sansan0/TrendRadar/refs/heads/master/version"
+                "https://raw.githubusercontent.com/sansan0/TrendRadar/refs/heads/master/version",
             )
             mcp_url = advanced_config.get(
                 "mcp_version_check_url",
-                "https://raw.githubusercontent.com/sansan0/TrendRadar/refs/heads/master/version_mcp"
+                "https://raw.githubusercontent.com/sansan0/TrendRadar/refs/heads/master/version_mcp",
             )
 
             # 配置代理
@@ -527,42 +522,30 @@ class SystemManagementTools:
             trendradar_result = check_single_version(
                 "TrendRadar", trendradar_version, trendradar_url, proxies, headers
             )
-            mcp_result = check_single_version(
-                "MCP Server", mcp_version, mcp_url, proxies, headers
-            )
+            mcp_result = check_single_version("MCP Server", mcp_version, mcp_url, proxies, headers)
 
             # 判断是否有任何更新
             any_update = (
-                (trendradar_result.get("success") and trendradar_result.get("need_update", False)) or
-                (mcp_result.get("success") and mcp_result.get("need_update", False))
-            )
+                trendradar_result.get("success") and trendradar_result.get("need_update", False)
+            ) or (mcp_result.get("success") and mcp_result.get("need_update", False))
 
             return {
                 "success": True,
                 "summary": {
                     "description": "版本检查结果（TrendRadar + MCP Server）",
-                    "any_update": any_update
+                    "any_update": any_update,
                 },
                 "data": {
                     "trendradar": trendradar_result,
                     "mcp": mcp_result,
-                    "any_update": any_update
-                }
+                    "any_update": any_update,
+                },
             }
 
         except ImportError as e:
             return {
                 "success": False,
-                "error": {
-                    "code": "IMPORT_ERROR",
-                    "message": f"无法导入版本信息: {e!s}"
-                }
+                "error": {"code": "IMPORT_ERROR", "message": f"无法导入版本信息: {e!s}"},
             }
         except Exception as e:
-            return {
-                "success": False,
-                "error": {
-                    "code": "INTERNAL_ERROR",
-                    "message": str(e)
-                }
-            }
+            return {"success": False, "error": {"code": "INTERNAL_ERROR", "message": str(e)}}

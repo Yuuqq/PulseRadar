@@ -4,7 +4,6 @@
 提供多账号推送配置的解析、验证和限制功能
 """
 
-
 from trendradar.logging import get_logger
 
 logger = get_logger(__name__)
@@ -40,9 +39,7 @@ def parse_multi_account_config(config_value: str, separator: str = ";") -> list[
 
 
 def validate_paired_configs(
-    configs: dict[str, list[str]],
-    channel_name: str,
-    required_keys: list[str] | None = None
+    configs: dict[str, list[str]], channel_name: str, required_keys: list[str] | None = None
 ) -> tuple[bool, int]:
     """
     验证配对配置的数量是否一致
@@ -96,11 +93,7 @@ def validate_paired_configs(
     return True, next(iter(unique_lengths)) if unique_lengths else 0
 
 
-def limit_accounts(
-    accounts: list[str],
-    max_count: int,
-    channel_name: str
-) -> list[str]:
+def limit_accounts(accounts: list[str], max_count: int, channel_name: str) -> list[str]:
     """
     限制账号数量
 

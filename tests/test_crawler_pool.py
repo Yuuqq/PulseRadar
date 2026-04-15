@@ -1,4 +1,3 @@
-
 from __future__ import annotations
 
 import time
@@ -108,6 +107,7 @@ def test_timeout_handling_slow_plugin():
     # (b) returns partial results (if pool catches it).
     # Current code does NOT catch TimeoutError from as_completed, so it raises.
     import concurrent.futures
+
     try:
         results = pool.fetch_all(tasks)
         # If we get here, pool handled the timeout internally.

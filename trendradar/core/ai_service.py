@@ -4,7 +4,6 @@ AI 分析服务
 从 NewsAnalyzer 中提取的 AI 分析相关逻辑，接受显式参数而非 self。
 """
 
-
 from trendradar.ai import AIAnalysisResult, AIAnalyzer
 from trendradar.context import AppContext
 from trendradar.core.analyzer import convert_keyword_stats_to_platform_stats
@@ -170,6 +169,7 @@ def prepare_ai_analysis_data(
         logger.error("准备 AI 模式数据时出错", ai_mode=ai_mode, error=str(e))
         if ctx.config.get("DEBUG", False):
             import traceback
+
             traceback.print_exc()
         return [], None
 
@@ -212,7 +212,7 @@ def run_ai_analysis(
             now = ctx.get_time()
             logger.info(
                 "AI 分析窗口控制：跳过",
-                current_time=now.strftime('%H:%M'),
+                current_time=now.strftime("%H:%M"),
                 window=f"{time_range_start}-{time_range_end}",
             )
             return None

@@ -13,6 +13,7 @@ from ..utils.validators import validate_config_section
 
 class ErrorInfo(TypedDict, total=False):
     """错误信息结构"""
+
     code: str
     message: str
     suggestion: str
@@ -20,6 +21,7 @@ class ErrorInfo(TypedDict, total=False):
 
 class ConfigResult(TypedDict):
     """配置查询结果 - success 字段必需，其他字段可选"""
+
     success: bool
     config: dict[str, Any] | None
     section: str | None
@@ -60,24 +62,18 @@ class ConfigManagementTools:
             # 获取配置
             config = self.data_service.get_current_config(section=section)
 
-            return ConfigResult(
-                success=True,
-                config=config,
-                section=section,
-                error=None
-            )
+            return ConfigResult(success=True, config=config, section=section, error=None)
 
         except MCPError as e:
-            return ConfigResult(
-                success=False,
-                config=None,
-                section=None,
-                error=e.to_dict()
-            )
+            return ConfigResult(success=False, config=None, section=None, error=e.to_dict())
         except Exception as e:
             return ConfigResult(
                 success=False,
                 config=None,
                 section=None,
-                error={"code": "INTERNAL_ERROR", "message": str(e), "suggestion": "请查看服务日志获取详细信息"}
+                error={
+                    "code": "INTERNAL_ERROR",
+                    "message": str(e),
+                    "suggestion": "请查看服务日志获取详细信息",
+                },
             )

@@ -1,4 +1,3 @@
-
 from __future__ import annotations
 
 
@@ -47,4 +46,3 @@ def test_ai_client_passes_extra_params_without_overriding_core(monkeypatch):
 
     # Core params should not be overridden by EXTRA_PARAMS
     assert captured.get("temperature") == 1.0
-

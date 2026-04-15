@@ -1,4 +1,3 @@
-
 from __future__ import annotations
 
 import tempfile
@@ -103,13 +102,20 @@ def test_to_dict_returns_dict_with_expected_keys():
     assert isinstance(d, dict)
 
     expected_keys = {
-        "advanced", "ai", "ai_analysis", "ai_translation",
-        "app", "display", "extra_apis", "notification",
-        "platforms", "report", "rss", "storage",
+        "advanced",
+        "ai",
+        "ai_analysis",
+        "ai_translation",
+        "app",
+        "display",
+        "extra_apis",
+        "notification",
+        "platforms",
+        "report",
+        "rss",
+        "storage",
     }
-    assert expected_keys.issubset(set(d.keys())), (
-        f"Missing keys: {expected_keys - set(d.keys())}"
-    )
+    assert expected_keys.issubset(set(d.keys())), f"Missing keys: {expected_keys - set(d.keys())}"
 
 
 def test_to_dict_nested_values():

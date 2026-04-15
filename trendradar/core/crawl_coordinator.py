@@ -103,7 +103,9 @@ class CrawlCoordinator:
             else:
                 ids.append(platform["id"])
 
-        logger.info("配置的监控平台", platforms=[p.get('name', p['id']) for p in self.ctx.platforms])
+        logger.info(
+            "配置的监控平台", platforms=[p.get("name", p["id"]) for p in self.ctx.platforms]
+        )
         logger.info("开始爬取数据", interval_ms=self.request_interval)
         Path("output").mkdir(parents=True, exist_ok=True)
 
@@ -182,6 +184,7 @@ class CrawlCoordinator:
         logger.info("开始抓取额外 API 数据源", total=len(sources), enabled=enabled_count)
 
         from trendradar.crawler.extra_apis import crawl_extra_sources_concurrent
+
         results, failed = crawl_extra_sources_concurrent(extra_apis_config)
 
         logger.info("额外 API 抓取完成", succeeded=len(results), failed=len(failed))

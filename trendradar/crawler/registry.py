@@ -1,4 +1,5 @@
 """插件自动发现与注册"""
+
 import importlib
 import pkgutil
 from pathlib import Path

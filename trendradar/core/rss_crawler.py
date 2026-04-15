@@ -4,7 +4,6 @@ RSS 数据抓取
 从 NewsAnalyzer 中提取的 RSS 抓取逻辑，接受显式参数而非 self。
 """
 
-
 from trendradar.context import AppContext
 from trendradar.logging import get_logger
 from trendradar.utils.time import DEFAULT_TIMEZONE
@@ -108,6 +107,7 @@ def crawl_rss_data(
         if storage_manager.save_rss_data(rss_data):
             logger.info("RSS 数据已保存到存储后端")
             from trendradar.core.mode_strategy import process_rss_data_by_mode
+
             return process_rss_data_by_mode(
                 ctx=ctx,
                 storage_manager=storage_manager,

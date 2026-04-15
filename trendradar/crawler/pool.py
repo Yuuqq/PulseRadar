@@ -1,4 +1,5 @@
 """并发采集池 — 基于 ThreadPoolExecutor"""
+
 from collections.abc import Sequence
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
@@ -7,6 +8,7 @@ from trendradar.crawler.base import CrawlerPlugin, CrawlResult
 from trendradar.logging import get_logger
 
 logger = get_logger(__name__)
+
 
 class CrawlerPool:
     """
@@ -56,26 +58,30 @@ class CrawlerPool:
                         results.append(result)
                     except Exception as e:
                         logger.error("采集任务异常", source_id=source_id, error=str(e))
-                        results.append(CrawlResult(
-                            source_id=source_id,
-                            source_name=config.get("name", source_id),
-                            items=(),
-                            fetched_at=datetime.now(),
-                            errors=(str(e),),
-                        ))
+                        results.append(
+                            CrawlResult(
+                                source_id=source_id,
+                                source_name=config.get("name", source_id),
+                                items=(),
+                                fetched_at=datetime.now(),
+                                errors=(str(e),),
+                            )
+                        )
             except TimeoutError:
                 # Collect timed-out futures that never completed
                 for future, (source_id, config) in future_to_config.items():
                     if not future.done():
                         logger.error("采集任务超时", source_id=source_id)
                         future.cancel()
-                        results.append(CrawlResult(
-                            source_id=source_id,
-                            source_name=config.get("name", source_id),
-                            items=(),
-                            fetched_at=datetime.now(),
-                            errors=("timeout",),
-                        ))
+                        results.append(
+                            CrawlResult(
+                                source_id=source_id,
+                                source_name=config.get("name", source_id),
+                                items=(),
+                                fetched_at=datetime.now(),
+                                errors=("timeout",),
+                            )
+                        )
 
         succeeded = sum(1 for r in results if r.success)
         failed = sum(1 for r in results if not r.success)

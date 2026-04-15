@@ -1,4 +1,5 @@
 """EastMoneyPlugin tests — happy path (JS wrapper) + malformed wrapper error."""
+
 from __future__ import annotations
 
 import responses
@@ -10,9 +11,7 @@ from tests.crawler._helpers import (
 from trendradar.crawler.plugins.eastmoney import EastMoneyPlugin
 
 # URL template with defaults: channel=102, page_size=50, page=1
-_EASTMONEY_URL = (
-    "https://newsapi.eastmoney.com/kuaixun/v1/getlist_102_ajaxResult_50_1_.html"
-)
+_EASTMONEY_URL = "https://newsapi.eastmoney.com/kuaixun/v1/getlist_102_ajaxResult_50_1_.html"
 
 
 @responses.activate

@@ -20,6 +20,7 @@ from trendradar.core.trend import TrendAnalyzer, TrendItem
 # Fixtures (plain dicts -- no pytest fixtures needed for pure logic)
 # ---------------------------------------------------------------------------
 
+
 def _make_results(*platform_specs):
     """
     Build a crawl-results dict from compact specs.
@@ -37,6 +38,7 @@ def _make_results(*platform_specs):
 # ---------------------------------------------------------------------------
 # TrendAnalyzer.compare_periods
 # ---------------------------------------------------------------------------
+
 
 class TestComparePeriods:
     """Core comparison logic."""
@@ -160,7 +162,7 @@ class TestComparePeriods:
 
         report = TrendAnalyzer().compare_periods(current, previous)
 
-        assert report.total_current == 2   # B, C
+        assert report.total_current == 2  # B, C
         assert report.total_previous == 2  # A, B
 
     def test_id_to_name_mapping(self):
@@ -181,7 +183,8 @@ class TestComparePeriods:
     def test_period_labels(self):
         """Custom period labels pass through to the report."""
         report = TrendAnalyzer().compare_periods(
-            {}, {},
+            {},
+            {},
             current_period_label="2024-01-15 14:00",
             previous_period_label="2024-01-15 08:00",
         )
@@ -209,8 +212,8 @@ class TestComparePeriods:
 # Empty / edge-case inputs
 # ---------------------------------------------------------------------------
 
-class TestEdgeCases:
 
+class TestEdgeCases:
     def test_both_empty(self):
         """No data in either period produces an empty report."""
         report = TrendAnalyzer().compare_periods({}, {})
@@ -279,8 +282,8 @@ class TestEdgeCases:
 # _calculate_heat
 # ---------------------------------------------------------------------------
 
-class TestCalculateHeat:
 
+class TestCalculateHeat:
     def test_rank_1_single_platform(self):
         score = TrendAnalyzer._calculate_heat(1, 1)
         assert score == 98 + 15
@@ -307,8 +310,8 @@ class TestCalculateHeat:
 # _build_topic_index
 # ---------------------------------------------------------------------------
 
-class TestBuildTopicIndex:
 
+class TestBuildTopicIndex:
     def test_best_rank_across_platforms(self):
         """When the same title appears on multiple platforms, keep the best rank."""
         results = _make_results(
@@ -338,13 +341,19 @@ class TestBuildTopicIndex:
 # TrendItem immutability
 # ---------------------------------------------------------------------------
 
-class TestTrendItemFrozen:
 
+class TestTrendItemFrozen:
     def test_frozen(self):
         item = TrendItem(
-            title="T", current_rank=1, previous_rank=None,
-            rank_change=0, platform_count=1, platforms=("p",),
-            is_new=True, is_rising=True, heat_score=100.0,
+            title="T",
+            current_rank=1,
+            previous_rank=None,
+            rank_change=0,
+            platform_count=1,
+            platforms=("p",),
+            is_new=True,
+            is_rising=True,
+            heat_score=100.0,
         )
         try:
             item.title = "changed"

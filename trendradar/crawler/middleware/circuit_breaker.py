@@ -1,10 +1,12 @@
 """熔断器 — 防止对持续失败的数据源反复请求"""
+
 import threading
 import time
 
 from trendradar.logging import get_logger
 
 logger = get_logger(__name__)
+
 
 class CircuitBreaker:
     """
@@ -64,4 +66,6 @@ class CircuitBreaker:
 
             if count >= self._failure_threshold:
                 self._states[key] = self.OPEN
-                logger.warning("熔断器开路", source=key, failures=count, cooldown_seconds=self._cooldown)
+                logger.warning(
+                    "熔断器开路", source=key, failures=count, cooldown_seconds=self._cooldown
+                )

@@ -1,4 +1,5 @@
 """韩小韩热榜 API 爬虫插件"""
+
 from datetime import datetime
 
 import requests
@@ -56,11 +57,13 @@ class VvhanPlugin(CrawlerPlugin):
             title = item.get("title", "").strip()
             if not title:
                 continue
-            items.append(FetchedItem(
-                title=title,
-                url=item.get("url", ""),
-                rank=idx,
-            ))
+            items.append(
+                FetchedItem(
+                    title=title,
+                    url=item.get("url", ""),
+                    rank=idx,
+                )
+            )
         return items
 
     def _fetch_all(self) -> dict[str, list[FetchedItem]]:
@@ -74,11 +77,13 @@ class VvhanPlugin(CrawlerPlugin):
                 title = item.get("title", "").strip()
                 if not title:
                     continue
-                platform_list.append(FetchedItem(
-                    title=title,
-                    url=item.get("url", ""),
-                    rank=idx,
-                ))
+                platform_list.append(
+                    FetchedItem(
+                        title=title,
+                        url=item.get("url", ""),
+                        rank=idx,
+                    )
+                )
             if platform_list:
                 result[platform] = platform_list
         return result
@@ -98,11 +103,13 @@ class VvhanPlugin(CrawlerPlugin):
                 rank_offset = 0
                 for pname, pitems in platform_map.items():
                     for fi in pitems:
-                        all_items.append(FetchedItem(
-                            title=f"[{pname}] {fi.title}",
-                            url=fi.url,
-                            rank=rank_offset + fi.rank,
-                        ))
+                        all_items.append(
+                            FetchedItem(
+                                title=f"[{pname}] {fi.title}",
+                                url=fi.url,
+                                rank=rank_offset + fi.rank,
+                            )
+                        )
                     rank_offset += len(pitems)
                 if not all_items:
                     return CrawlResult(

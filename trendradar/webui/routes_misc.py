@@ -86,7 +86,9 @@ def get_trends():
 
         previous = sm.get_previous_crawl_data()
         if previous is None:
-            return jsonify({"error": "Only one crawl cycle available, need at least two for comparison"}), 404
+            return jsonify(
+                {"error": "Only one crawl cycle available, need at least two for comparison"}
+            ), 404
 
         current_results, current_names, _ = convert_news_data_to_results(latest)
         previous_results, prev_names, _ = convert_news_data_to_results(previous)
@@ -114,19 +116,21 @@ def get_trends():
                 "heat_score": item.heat_score,
             }
 
-        return jsonify({
-            "current_period": report.current_period,
-            "previous_period": report.previous_period,
-            "generated_at": report.generated_at.isoformat(),
-            "total_current": report.total_current,
-            "total_previous": report.total_previous,
-            "new_trends": [_item_to_dict(t) for t in report.new_trends],
-            "rising_trends": [_item_to_dict(t) for t in report.rising_trends],
-            "falling_trends": [_item_to_dict(t) for t in report.falling_trends],
-            "stable_trends": [_item_to_dict(t) for t in report.stable_trends],
-            "disappeared": report.disappeared,
-            "cross_platform": [_item_to_dict(t) for t in report.cross_platform],
-        })
+        return jsonify(
+            {
+                "current_period": report.current_period,
+                "previous_period": report.previous_period,
+                "generated_at": report.generated_at.isoformat(),
+                "total_current": report.total_current,
+                "total_previous": report.total_previous,
+                "new_trends": [_item_to_dict(t) for t in report.new_trends],
+                "rising_trends": [_item_to_dict(t) for t in report.rising_trends],
+                "falling_trends": [_item_to_dict(t) for t in report.falling_trends],
+                "stable_trends": [_item_to_dict(t) for t in report.stable_trends],
+                "disappeared": report.disappeared,
+                "cross_platform": [_item_to_dict(t) for t in report.cross_platform],
+            }
+        )
     except Exception as exc:
         return jsonify({"error": str(exc)}), 500
 
@@ -209,7 +213,9 @@ def test_source():
                 if result.success:
                     count = len(result.items)
                     sample = [{"title": item.title, "url": item.url} for item in result.items[:3]]
-                    return jsonify({"success": True, "message": f"获取成功: {count} 条", "sample": sample})
+                    return jsonify(
+                        {"success": True, "message": f"获取成功: {count} 条", "sample": sample}
+                    )
                 errors = "; ".join(result.errors) if result.errors else "获取失败或无数据"
                 return jsonify({"success": False, "error": errors})
             finally:

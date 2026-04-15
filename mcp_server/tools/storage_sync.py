@@ -57,10 +57,13 @@ class StorageSyncTools:
         remote_config = storage_config.get("remote", {})
 
         return {
-            "endpoint_url": remote_config.get("endpoint_url") or os.environ.get("S3_ENDPOINT_URL", ""),
+            "endpoint_url": remote_config.get("endpoint_url")
+            or os.environ.get("S3_ENDPOINT_URL", ""),
             "bucket_name": remote_config.get("bucket_name") or os.environ.get("S3_BUCKET_NAME", ""),
-            "access_key_id": remote_config.get("access_key_id") or os.environ.get("S3_ACCESS_KEY_ID", ""),
-            "secret_access_key": remote_config.get("secret_access_key") or os.environ.get("S3_SECRET_ACCESS_KEY", ""),
+            "access_key_id": remote_config.get("access_key_id")
+            or os.environ.get("S3_ACCESS_KEY_ID", ""),
+            "secret_access_key": remote_config.get("secret_access_key")
+            or os.environ.get("S3_SECRET_ACCESS_KEY", ""),
             "region": remote_config.get("region") or os.environ.get("S3_REGION", ""),
         }
 
@@ -68,10 +71,10 @@ class StorageSyncTools:
         """检查是否有有效的远程存储配置"""
         config = self._get_remote_config()
         return bool(
-            config.get("bucket_name") and
-            config.get("access_key_id") and
-            config.get("secret_access_key") and
-            config.get("endpoint_url")
+            config.get("bucket_name")
+            and config.get("access_key_id")
+            and config.get("secret_access_key")
+            and config.get("endpoint_url")
         )
 
     def _get_remote_backend(self):
@@ -121,25 +124,23 @@ class StorageSyncTools:
         - ISO 格式：YYYY-MM-DD
         """
         # 尝试 ISO 格式
-        iso_match = re.match(r'(\d{4})-(\d{2})-(\d{2})', folder_name)
+        iso_match = re.match(r"(\d{4})-(\d{2})-(\d{2})", folder_name)
         if iso_match:
             try:
                 return datetime(
-                    int(iso_match.group(1)),
-                    int(iso_match.group(2)),
-                    int(iso_match.group(3))
+                    int(iso_match.group(1)), int(iso_match.group(2)), int(iso_match.group(3))
                 )
             except ValueError:
                 pass
 
         # 尝试中文格式
-        chinese_match = re.match(r'(\d{4})年(\d{2})月(\d{2})日', folder_name)
+        chinese_match = re.match(r"(\d{4})年(\d{2})月(\d{2})日", folder_name)
         if chinese_match:
             try:
                 return datetime(
                     int(chinese_match.group(1)),
                     int(chinese_match.group(2)),
-                    int(chinese_match.group(3))
+                    int(chinese_match.group(3)),
                 )
             except ValueError:
                 pass
@@ -196,7 +197,7 @@ class StorageSyncTools:
         return {
             "news": sorted(list(news_dates), reverse=True),
             "rss": sorted(list(rss_dates), reverse=True),
-            "all": sorted(list(all_dates), reverse=True)
+            "all": sorted(list(all_dates), reverse=True),
         }
 
     def _calculate_dir_size(self, path: Path) -> int:
@@ -226,8 +227,8 @@ class StorageSyncTools:
                     "error": {
                         "code": "REMOTE_NOT_CONFIGURED",
                         "message": "未配置远程存储",
-                        "suggestion": "请在 config/config.yaml 中配置 storage.remote 或设置环境变量"
-                    }
+                        "suggestion": "请在 config/config.yaml 中配置 storage.remote 或设置环境变量",
+                    },
                 }
 
             # 获取远程后端
@@ -238,8 +239,8 @@ class StorageSyncTools:
                     "error": {
                         "code": "REMOTE_BACKEND_FAILED",
                         "message": "无法创建远程存储后端",
-                        "suggestion": "请检查远程存储配置和 boto3 是否已安装"
-                    }
+                        "suggestion": "请检查远程存储配置和 boto3 是否已安装",
+                    },
                 }
 
             # 获取本地数据目录
@@ -254,6 +255,7 @@ class StorageSyncTools:
 
             # 计算需要拉取的日期（最近 N 天）
             from trendradar.utils.time import get_configured_time
+
             config = self._load_config()
             timezone = config.get("app", {}).get("timezone", "Asia/Shanghai")
             now = get_configured_time(timezone)
@@ -284,9 +286,7 @@ class StorageSyncTools:
 
                     local_date_dir.mkdir(parents=True, exist_ok=True)
                     remote_backend.s3_client.download_file(
-                        remote_backend.bucket_name,
-                        remote_key,
-                        str(local_db_path)
+                        remote_backend.bucket_name, remote_key, str(local_db_path)
                     )
                     synced_dates.append(date_str)
                     print(f"[存储同步] 已拉取: {date_str}")
@@ -300,33 +300,22 @@ class StorageSyncTools:
                     "description": "远程存储同步结果",
                     "synced_files": len(synced_dates),
                     "skipped_count": len(skipped_dates),
-                    "failed_count": len(failed_dates)
+                    "failed_count": len(failed_dates),
                 },
                 "data": {
                     "synced_dates": synced_dates,
                     "skipped_dates": skipped_dates,
-                    "failed_dates": failed_dates
+                    "failed_dates": failed_dates,
                 },
-                "message": f"成功同步 {len(synced_dates)} 天数据" + (
-                    f"，跳过 {len(skipped_dates)} 天（本地已存在）" if skipped_dates else ""
-                ) + (
-                    f"，失败 {len(failed_dates)} 天" if failed_dates else ""
-                )
+                "message": f"成功同步 {len(synced_dates)} 天数据"
+                + (f"，跳过 {len(skipped_dates)} 天（本地已存在）" if skipped_dates else "")
+                + (f"，失败 {len(failed_dates)} 天" if failed_dates else ""),
             }
 
         except MCPError as e:
-            return {
-                "success": False,
-                "error": e.to_dict()
-            }
+            return {"success": False, "error": e.to_dict()}
         except Exception as e:
-            return {
-                "success": False,
-                "error": {
-                    "code": "INTERNAL_ERROR",
-                    "message": str(e)
-                }
-            }
+            return {"success": False, "error": {"code": "INTERNAL_ERROR", "message": str(e)}}
 
     def get_storage_status(self) -> dict:
         """
@@ -407,28 +396,15 @@ class StorageSyncTools:
                 "success": True,
                 "summary": {
                     "description": "存储配置和状态信息",
-                    "backend": storage_config.get("backend", "auto")
+                    "backend": storage_config.get("backend", "auto"),
                 },
-                "data": {
-                    "local": local_status,
-                    "remote": remote_status,
-                    "pull": pull_status
-                }
+                "data": {"local": local_status, "remote": remote_status, "pull": pull_status},
             }
 
         except MCPError as e:
-            return {
-                "success": False,
-                "error": e.to_dict()
-            }
+            return {"success": False, "error": e.to_dict()}
         except Exception as e:
-            return {
-                "success": False,
-                "error": {
-                    "code": "INTERNAL_ERROR",
-                    "message": str(e)
-                }
-            }
+            return {"success": False, "error": {"code": "INTERNAL_ERROR", "message": str(e)}}
 
     def list_available_dates(self, source: str = "both") -> dict:
         """
@@ -445,10 +421,7 @@ class StorageSyncTools:
         """
         try:
             data_result = {}
-            summary_info = {
-                "description": "可用日期列表",
-                "source": source
-            }
+            summary_info = {"description": "可用日期列表", "source": source}
 
             # 本地日期
             if source in ("local", "both"):
@@ -481,7 +454,7 @@ class StorageSyncTools:
                         "count": 0,
                         "earliest": None,
                         "latest": None,
-                        "error": "未配置远程存储"
+                        "error": "未配置远程存储",
                     }
                 else:
                     remote_backend = self._get_remote_backend()
@@ -502,7 +475,7 @@ class StorageSyncTools:
                                 "count": 0,
                                 "earliest": None,
                                 "latest": None,
-                                "error": str(e)
+                                "error": str(e),
                             }
                     else:
                         data_result["remote"] = {
@@ -511,7 +484,7 @@ class StorageSyncTools:
                             "count": 0,
                             "earliest": None,
                             "latest": None,
-                            "error": "无法创建远程存储后端"
+                            "error": "无法创建远程存储后端",
                         }
 
             # 如果同时查询两者，计算差异
@@ -525,22 +498,9 @@ class StorageSyncTools:
                     "both": sorted(list(local_set & remote_set), reverse=True),
                 }
 
-            return {
-                "success": True,
-                "summary": summary_info,
-                "data": data_result
-            }
+            return {"success": True, "summary": summary_info, "data": data_result}
 
         except MCPError as e:
-            return {
-                "success": False,
-                "error": e.to_dict()
-            }
+            return {"success": False, "error": e.to_dict()}
         except Exception as e:
-            return {
-                "success": False,
-                "error": {
-                    "code": "INTERNAL_ERROR",
-                    "message": str(e)
-                }
-            }
+            return {"success": False, "error": {"code": "INTERNAL_ERROR", "message": str(e)}}

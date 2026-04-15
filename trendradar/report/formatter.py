@@ -4,7 +4,6 @@
 提供多平台标题格式化功能
 """
 
-
 from trendradar.report.helpers import clean_title, format_rank_display, html_escape
 
 
@@ -42,9 +41,7 @@ def format_title_for_platform(
     Returns:
         格式化后的标题字符串
     """
-    rank_display = format_rank_display(
-        title_data["ranks"], title_data["rank_threshold"], platform
-    )
+    rank_display = format_rank_display(title_data["ranks"], title_data["rank_threshold"], platform)
 
     link_url = title_data["mobile_url"] or title_data["url"]
     cleaned_title = clean_title(title_data["title"])

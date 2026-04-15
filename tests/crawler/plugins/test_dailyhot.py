@@ -1,4 +1,5 @@
 """DailyHotPlugin crawler plugin tests — happy path + HTTP 500 error mode."""
+
 from __future__ import annotations
 
 import responses

@@ -3,6 +3,7 @@
 Strategy: patch DataService to return a controlled config dict. The public
 surface is a single method: get_current_config(section=...).
 """
+
 from __future__ import annotations
 
 from unittest.mock import MagicMock, patch
@@ -19,12 +20,15 @@ def _make_tools(tmp_path, config_return):
 
 
 def test_get_current_config_all_returns_success(tmp_path):
-    tools = _make_tools(tmp_path, config_return={
-        "crawler": {"platforms": ["zhihu"]},
-        "push": {},
-        "keywords": {"word_groups": []},
-        "weights": {"rank_weight": 0.6},
-    })
+    tools = _make_tools(
+        tmp_path,
+        config_return={
+            "crawler": {"platforms": ["zhihu"]},
+            "push": {},
+            "keywords": {"word_groups": []},
+            "weights": {"rank_weight": 0.6},
+        },
+    )
 
     result = tools.get_current_config(section="all")
 

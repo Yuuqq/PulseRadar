@@ -3,6 +3,7 @@
 Strategy: patch DataService so the analytics tools do not hit ParserService/SQLite.
 Exercises unified dispatcher and at least one concrete analysis path.
 """
+
 from __future__ import annotations
 
 from unittest.mock import MagicMock, patch
@@ -51,9 +52,7 @@ def test_analyze_data_insights_unified_dispatches_to_platform_compare(tmp_path):
 
     sentinel = {"success": True, "summary": {"description": "stub"}, "data": {}}
     with patch.object(tools, "compare_platforms", return_value=sentinel) as mock_cp:
-        result = tools.analyze_data_insights_unified(
-            insight_type="platform_compare", topic="AI"
-        )
+        result = tools.analyze_data_insights_unified(insight_type="platform_compare", topic="AI")
 
     assert result is sentinel
     mock_cp.assert_called_once()

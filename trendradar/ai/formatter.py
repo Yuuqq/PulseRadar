@@ -24,33 +24,35 @@ def _format_list_content(text: str) -> str:
     """
     if not text:
         return ""
-    
+
     # 去除首尾空白，防止 AI 返回的内容开头就有换行导致显示空行
     text = text.strip()
-    
+
     # 1. 规范化：确保 "1." 后面有空格
-    result = re.sub(r'(\d+)\.([^ \d])', r'\1. \2', text)
+    result = re.sub(r"(\d+)\.([^ \d])", r"\1. \2", text)
 
     # 2. 强制换行：匹配 "数字."，且前面不是换行符
-    result = re.sub(r'(?<=[^\n])\s+(\d+\.)', r'\n\1', result)
-    
+    result = re.sub(r"(?<=[^\n])\s+(\d+\.)", r"\n\1", result)
+
     # 3. 处理 "1.**粗体**" 这种情况（虽然 Prompt 要求不输出 Markdown，但防御性处理）
-    result = re.sub(r'(?<=[^\n])(\d+\.\*\*)', r'\n\1', result)
+    result = re.sub(r"(?<=[^\n])(\d+\.\*\*)", r"\n\1", result)
 
     # 4. 处理中文标点后的换行
-    result = re.sub(r'([：:;,。；，])\s*(\d+\.)', r'\1\n\2', result)
+    result = re.sub(r"([：:;,。；，])\s*(\d+\.)", r"\1\n\2", result)
 
     # 5. 处理 "XX方面："、"XX领域：" 等子标题换行
     # 只有在中文标点（句号、逗号、分号等）后才触发换行，避免破坏 "1. XX领域：" 格式
-    result = re.sub(r'([。！？；，、])\s*([a-zA-Z0-9\u4e00-\u9fa5]+(方面|领域)[:：])', r'\1\n\2', result)
+    result = re.sub(
+        r"([。！？；，、])\s*([a-zA-Z0-9\u4e00-\u9fa5]+(方面|领域)[:：])", r"\1\n\2", result
+    )
 
     # 6. 处理 "【XX】："(如【宏观主线】：) 前的换行，确保视觉分隔
-    result = re.sub(r'(?<=[^\n])\s*(【[^】]+】[:：])', r'\n\n\1', result)
+    result = re.sub(r"(?<=[^\n])\s*(【[^】]+】[:：])", r"\n\n\1", result)
 
     # 7. 在列表项之间增加视觉空行（将 \n数字. 替换为 \n\n数字.）
     # 但排除标题行（以冒号结尾）之后的情况，避免标题和第一项之间有空行
     # (?<![:：]) 是负向后瞻，表示前面不能是冒号
-    result = re.sub(r'(?<![:：])\n(\d+\.)', r'\n\n\1', result)
+    result = re.sub(r"(?<![:：])\n(\d+\.)", r"\n\n\1", result)
 
     return result
 
@@ -66,22 +68,16 @@ def render_ai_analysis_markdown(result: AIAnalysisResult) -> str:
         lines.extend(["**核心热点态势**", _format_list_content(result.core_trends), ""])
 
     if result.sentiment_controversy:
-        lines.extend(
-            ["**舆论风向争议**", _format_list_content(result.sentiment_controversy), ""]
-        )
+        lines.extend(["**舆论风向争议**", _format_list_content(result.sentiment_controversy), ""])
 
     if result.signals:
         lines.extend(["**异动与弱信号**", _format_list_content(result.signals), ""])
 
     if result.rss_insights:
-        lines.extend(
-            ["**RSS 深度洞察**", _format_list_content(result.rss_insights), ""]
-        )
+        lines.extend(["**RSS 深度洞察**", _format_list_content(result.rss_insights), ""])
 
     if result.outlook_strategy:
-        lines.extend(
-            ["**研判策略建议**", _format_list_content(result.outlook_strategy)]
-        )
+        lines.extend(["**研判策略建议**", _format_list_content(result.outlook_strategy)])
 
     return "\n".join(lines)
 
@@ -97,22 +93,16 @@ def render_ai_analysis_feishu(result: AIAnalysisResult) -> str:
         lines.extend(["**核心热点态势**", _format_list_content(result.core_trends), ""])
 
     if result.sentiment_controversy:
-        lines.extend(
-            ["**舆论风向争议**", _format_list_content(result.sentiment_controversy), ""]
-        )
+        lines.extend(["**舆论风向争议**", _format_list_content(result.sentiment_controversy), ""])
 
     if result.signals:
         lines.extend(["**异动与弱信号**", _format_list_content(result.signals), ""])
 
     if result.rss_insights:
-        lines.extend(
-            ["**RSS 深度洞察**", _format_list_content(result.rss_insights), ""]
-        )
+        lines.extend(["**RSS 深度洞察**", _format_list_content(result.rss_insights), ""])
 
     if result.outlook_strategy:
-        lines.extend(
-            ["**研判策略建议**", _format_list_content(result.outlook_strategy)]
-        )
+        lines.extend(["**研判策略建议**", _format_list_content(result.outlook_strategy)])
 
     return "\n".join(lines)
 
@@ -125,9 +115,7 @@ def render_ai_analysis_dingtalk(result: AIAnalysisResult) -> str:
     lines = ["### ✨ AI 热点分析", ""]
 
     if result.core_trends:
-        lines.extend(
-            ["#### 核心热点态势", _format_list_content(result.core_trends), ""]
-        )
+        lines.extend(["#### 核心热点态势", _format_list_content(result.core_trends), ""])
 
     if result.sentiment_controversy:
         lines.extend(
@@ -142,14 +130,10 @@ def render_ai_analysis_dingtalk(result: AIAnalysisResult) -> str:
         lines.extend(["#### 异动与弱信号", _format_list_content(result.signals), ""])
 
     if result.rss_insights:
-        lines.extend(
-            ["#### RSS 深度洞察", _format_list_content(result.rss_insights), ""]
-        )
+        lines.extend(["#### RSS 深度洞察", _format_list_content(result.rss_insights), ""])
 
     if result.outlook_strategy:
-        lines.extend(
-            ["#### 研判策略建议", _format_list_content(result.outlook_strategy)]
-        )
+        lines.extend(["#### 研判策略建议", _format_list_content(result.outlook_strategy)])
 
     return "\n".join(lines)
 
@@ -157,9 +141,7 @@ def render_ai_analysis_dingtalk(result: AIAnalysisResult) -> str:
 def render_ai_analysis_html(result: AIAnalysisResult) -> str:
     """渲染为 HTML 格式（邮件）"""
     if not result.success:
-        return (
-            f'<div class="ai-error">⚠️ AI 分析失败: {_escape_html(result.error)}</div>'
-        )
+        return f'<div class="ai-error">⚠️ AI 分析失败: {_escape_html(result.error)}</div>'
 
     html_parts = ['<div class="ai-analysis">', "<h3>✨ AI 热点分析</h3>"]
 
@@ -238,9 +220,7 @@ def render_ai_analysis_plain(result: AIAnalysisResult) -> str:
         lines.extend(["[核心热点态势]", _format_list_content(result.core_trends), ""])
 
     if result.sentiment_controversy:
-        lines.extend(
-            ["[舆论风向争议]", _format_list_content(result.sentiment_controversy), ""]
-        )
+        lines.extend(["[舆论风向争议]", _format_list_content(result.sentiment_controversy), ""])
 
     if result.signals:
         lines.extend(["[异动与弱信号]", _format_list_content(result.signals), ""])

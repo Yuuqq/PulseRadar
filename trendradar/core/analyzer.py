@@ -142,11 +142,13 @@ def count_word_frequency(
 
     # 默认时间转换函数
     if convert_time_func is None:
+
         def convert_time_func(x):
             return x
 
     # 默认首次爬取检测函数
     if is_first_crawl_func is None:
+
         def is_first_crawl_func():
             return True
 
@@ -274,16 +276,14 @@ def count_word_frequency(
                     # 原有的匹配逻辑（支持正则语法）
                     if required_words:
                         all_required_present = all(
-                            _word_matches(req_item, title_lower)
-                            for req_item in required_words
+                            _word_matches(req_item, title_lower) for req_item in required_words
                         )
                         if not all_required_present:
                             continue
 
                     if normal_words:
                         any_normal_present = any(
-                            _word_matches(normal_item, title_lower)
-                            for normal_item in normal_words
+                            _word_matches(normal_item, title_lower) for normal_item in normal_words
                         )
                         if not any_normal_present:
                             continue
@@ -307,11 +307,7 @@ def count_word_frequency(
                     and title_info
                     and source_id in title_info
                     and title in title_info[source_id]
-                ) or (
-                    title_info
-                    and source_id in title_info
-                    and title in title_info[source_id]
-                ):
+                ) or (title_info and source_id in title_info and title in title_info[source_id]):
                     info = title_info[source_id][title]
                     first_time = info.get("first_time", "")
                     last_time = info.get("last_time", "")
@@ -383,8 +379,7 @@ def count_word_frequency(
                 total_new_count = sum(len(titles) for titles in new_titles.values())
                 filter_status = (
                     "全部显示"
-                    if len(word_groups) == 1
-                    and word_groups[0]["group_key"] == "全部新闻"
+                    if len(word_groups) == 1 and word_groups[0]["group_key"] == "全部新闻"
                     else "匹配频率词"
                 )
                 if not quiet:
@@ -431,9 +426,7 @@ def count_word_frequency(
 
     stats = []
     # 创建 group_key 到位置、最大数量、显示名称的映射
-    group_key_to_position = {
-        group["group_key"]: idx for idx, group in enumerate(word_groups)
-    }
+    group_key_to_position = {group["group_key"]: idx for idx, group in enumerate(word_groups)}
     group_key_to_max_count = {
         group["group_key"]: group.get("max_count", 0) for group in word_groups
     }
@@ -475,9 +468,7 @@ def count_word_frequency(
                 "position": group_key_to_position.get(group_key, 999),
                 "titles": sorted_titles,
                 "percentage": (
-                    round(data["count"] / total_titles * 100, 2)
-                    if total_titles > 0
-                    else 0
+                    round(data["count"] / total_titles * 100, 2) if total_titles > 0 else 0
                 ),
             }
         )
@@ -590,11 +581,7 @@ def count_rss_frequency(
 
     # 为每个条目分配一个基于发布时间的"排名"
     # 按发布时间排序，最新的排在前面
-    sorted_items = sorted(
-        rss_items,
-        key=lambda x: x.get("published_at", ""),
-        reverse=True
-    )
+    sorted_items = sorted(rss_items, key=lambda x: x.get("published_at", ""), reverse=True)
     url_to_rank = {item.get("url", ""): idx + 1 for idx, item in enumerate(sorted_items)}
 
     for item in rss_items:
@@ -625,8 +612,7 @@ def count_rss_frequency(
                 # 检查必须词（支持正则语法）
                 if required_words:
                     all_required_present = all(
-                        _word_matches(req_item, title_lower)
-                        for req_item in required_words
+                        _word_matches(req_item, title_lower) for req_item in required_words
                     )
                     if not all_required_present:
                         continue
@@ -634,8 +620,7 @@ def count_rss_frequency(
                 # 检查普通词（支持正则语法）
                 if normal_words:
                     any_normal_present = any(
-                        _word_matches(normal_item, title_lower)
-                        for normal_item in normal_words
+                        _word_matches(normal_item, title_lower) for normal_item in normal_words
                     )
                     if not any_normal_present:
                         continue
@@ -647,7 +632,11 @@ def count_rss_frequency(
 
                 # 格式化时间显示
                 published_at = item.get("published_at", "")
-                time_display = format_iso_time_friendly(published_at, timezone, include_date=True) if published_at else ""
+                time_display = (
+                    format_iso_time_friendly(published_at, timezone, include_date=True)
+                    if published_at
+                    else ""
+                )
 
                 # 判断是否为新增
                 is_new = url in new_urls if url else False
@@ -671,9 +660,7 @@ def count_rss_frequency(
 
     # 构建统计结果
     stats = []
-    group_key_to_position = {
-        group["group_key"]: idx for idx, group in enumerate(word_groups)
-    }
+    group_key_to_position = {group["group_key"]: idx for idx, group in enumerate(word_groups)}
     group_key_to_max_count = {
         group["group_key"]: group.get("max_count", 0) for group in word_groups
     }
@@ -686,10 +673,7 @@ def count_rss_frequency(
             continue
 
         # 按发布时间排序（最新在前）
-        sorted_titles = sorted(
-            data["titles"],
-            key=lambda x: x["ranks"][0] if x["ranks"] else 999
-        )
+        sorted_titles = sorted(data["titles"], key=lambda x: x["ranks"][0] if x["ranks"] else 999)
 
         # 应用最大显示数量限制
         group_max_count = group_key_to_max_count.get(group_key, 0)
@@ -701,13 +685,15 @@ def count_rss_frequency(
         # 优先使用 display_name，否则使用 group_key
         display_word = group_key_to_display_name.get(group_key) or group_key
 
-        stats.append({
-            "word": display_word,
-            "count": data["count"],
-            "position": group_key_to_position.get(group_key, 999),
-            "titles": sorted_titles,
-            "percentage": round(data["count"] / total_items * 100, 2) if total_items > 0 else 0,
-        })
+        stats.append(
+            {
+                "word": display_word,
+                "count": data["count"],
+                "position": group_key_to_position.get(group_key, 999),
+                "titles": sorted_titles,
+                "percentage": round(data["count"] / total_items * 100, 2) if total_items > 0 else 0,
+            }
+        )
 
     # 排序
     if sort_by_position_first:
@@ -782,12 +768,14 @@ def convert_keyword_stats_to_platform_stats(
     # 4. 构建平台统计结果
     platform_stats = []
     for source_name, titles in platform_map.items():
-        platform_stats.append({
-            "word": source_name,  # 平台名作为分组标识
-            "count": len(titles),
-            "titles": titles,
-            "percentage": 0,  # 可后续计算
-        })
+        platform_stats.append(
+            {
+                "word": source_name,  # 平台名作为分组标识
+                "count": len(titles),
+                "titles": titles,
+                "percentage": 0,  # 可后续计算
+            }
+        )
 
     # 5. 按新闻条数排序平台
     platform_stats.sort(key=lambda x: -x["count"])

@@ -1,4 +1,3 @@
-
 from __future__ import annotations
 
 # Ensure `import trendradar` works even when pytest uses importlib import mode.
@@ -74,6 +73,7 @@ def mock_app_context(mock_config):
     wiring; only external I/O (AI client, HTTP) is patched separately.
     """
     from trendradar.context import AppContext
+
     return AppContext(mock_config)
 
 
@@ -86,6 +86,7 @@ def mock_http_response():
     URLs do not fail when not all are called (Pitfall 3 countermeasure).
     """
     import responses
+
     with responses.RequestsMock(assert_all_requests_are_fired=False) as rsps:
         yield rsps
 
@@ -103,6 +104,7 @@ def _reset_storage_singleton():
     because each test gets a fresh AppContext via mock_app_context.
     """
     import trendradar.storage.manager as _sm
+
     _sm._storage_manager = None
     yield
     _sm._storage_manager = None

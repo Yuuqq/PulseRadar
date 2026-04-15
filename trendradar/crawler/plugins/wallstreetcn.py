@@ -1,4 +1,5 @@
 """华尔街见闻实时快讯爬虫插件"""
+
 from datetime import datetime
 
 import requests

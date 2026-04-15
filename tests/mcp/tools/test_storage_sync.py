@@ -4,6 +4,7 @@ Strategy: use tmp_path for local storage (no real I/O to user's machine).
 Remote/S3 paths are tested only for the 'unconfigured' branches so boto3 is
 never required.
 """
+
 from __future__ import annotations
 
 from pathlib import Path
@@ -28,16 +29,17 @@ def _write_minimal_config(tmp_path: Path, include_remote: bool = False) -> None:
     if include_remote:
         # Intentionally incomplete — _has_remote_config() must return False.
         config["storage"]["remote"] = {}
-    (config_dir / "config.yaml").write_text(
-        yaml.safe_dump(config), encoding="utf-8"
-    )
+    (config_dir / "config.yaml").write_text(yaml.safe_dump(config), encoding="utf-8")
 
 
 def test_sync_from_remote_without_config_returns_error(tmp_path, monkeypatch):
     # Ensure env does not accidentally supply S3 creds.
     for var in [
-        "S3_ENDPOINT_URL", "S3_BUCKET_NAME", "S3_ACCESS_KEY_ID",
-        "S3_SECRET_ACCESS_KEY", "S3_REGION",
+        "S3_ENDPOINT_URL",
+        "S3_BUCKET_NAME",
+        "S3_ACCESS_KEY_ID",
+        "S3_SECRET_ACCESS_KEY",
+        "S3_REGION",
     ]:
         monkeypatch.delenv(var, raising=False)
 
@@ -52,8 +54,11 @@ def test_sync_from_remote_without_config_returns_error(tmp_path, monkeypatch):
 
 def test_get_storage_status_local_only(tmp_path, monkeypatch):
     for var in [
-        "S3_ENDPOINT_URL", "S3_BUCKET_NAME", "S3_ACCESS_KEY_ID",
-        "S3_SECRET_ACCESS_KEY", "S3_REGION",
+        "S3_ENDPOINT_URL",
+        "S3_BUCKET_NAME",
+        "S3_ACCESS_KEY_ID",
+        "S3_SECRET_ACCESS_KEY",
+        "S3_REGION",
     ]:
         monkeypatch.delenv(var, raising=False)
 
@@ -76,8 +81,11 @@ def test_get_storage_status_local_only(tmp_path, monkeypatch):
 
 def test_list_available_dates_local_source(tmp_path, monkeypatch):
     for var in [
-        "S3_ENDPOINT_URL", "S3_BUCKET_NAME", "S3_ACCESS_KEY_ID",
-        "S3_SECRET_ACCESS_KEY", "S3_REGION",
+        "S3_ENDPOINT_URL",
+        "S3_BUCKET_NAME",
+        "S3_ACCESS_KEY_ID",
+        "S3_SECRET_ACCESS_KEY",
+        "S3_REGION",
     ]:
         monkeypatch.delenv(var, raising=False)
 

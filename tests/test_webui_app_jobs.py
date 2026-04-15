@@ -1,4 +1,3 @@
-
 from __future__ import annotations
 
 import json
@@ -175,7 +174,16 @@ def test_jobs_api_supports_status_filter(webui_client):
     assert queued_payload["queue_position"] >= 1
 
     timeline = queued_payload.get("timeline") or []
-    assert [item["key"] for item in timeline] == ["queued", "starting", "crawl", "rss", "ai", "report", "notify", "finished"]
+    assert [item["key"] for item in timeline] == [
+        "queued",
+        "starting",
+        "crawl",
+        "rss",
+        "ai",
+        "report",
+        "notify",
+        "finished",
+    ]
     assert all("reached" in item for item in timeline)
     assert all("failed" in item for item in timeline)
 
@@ -185,10 +193,14 @@ def test_failed_job_timeline_marks_failure_stage(webui_client):
 
     job = manager.create_job(["python", "-c", "print('timeline-fail')"])
     manager.create_job(["python", "-c", "print('queued')"])
-    manager._update_job(job["id"], status="running", stage="starting", started_at="2026-02-09T12:00:00Z")
+    manager._update_job(
+        job["id"], status="running", stage="starting", started_at="2026-02-09T12:00:00Z"
+    )
     manager._append_log(job["id"], "[info] start crawling source")
     manager._append_log(job["id"], "[info] ai analyzing content")
-    manager._update_job(job["id"], status="failed", stage="ai", finished_at="2026-02-09T12:00:09Z", error="boom")
+    manager._update_job(
+        job["id"], status="failed", stage="ai", finished_at="2026-02-09T12:00:09Z", error="boom"
+    )
 
     detail_response = client.get(f"/api/jobs/{job['id']}")
     assert detail_response.status_code == 200
@@ -278,9 +290,13 @@ def test_retry_job_from_failed_stage_uses_strategy_flags(webui_client):
     client, manager = webui_client
 
     notify_job = manager.create_job(["python", "-m", "trendradar"])
-    manager._update_job(notify_job["id"], status="running", stage="starting", started_at="2026-02-09T12:00:00Z")
+    manager._update_job(
+        notify_job["id"], status="running", stage="starting", started_at="2026-02-09T12:00:00Z"
+    )
     manager._append_log(notify_job["id"], "[notify] push webhook sending")
-    manager._update_job(notify_job["id"], status="failed", stage="notify", finished_at="2026-02-09T12:00:09Z")
+    manager._update_job(
+        notify_job["id"], status="failed", stage="notify", finished_at="2026-02-09T12:00:09Z"
+    )
 
     notify_response = client.post(
         f"/api/jobs/{notify_job['id']}/retry",
@@ -296,9 +312,13 @@ def test_retry_job_from_failed_stage_uses_strategy_flags(webui_client):
     assert "--force-push" in (notify_retry_job.get("command") or [])
 
     ai_job = manager.create_job(["python", "-m", "trendradar"])
-    manager._update_job(ai_job["id"], status="running", stage="starting", started_at="2026-02-09T13:00:00Z")
+    manager._update_job(
+        ai_job["id"], status="running", stage="starting", started_at="2026-02-09T13:00:00Z"
+    )
     manager._append_log(ai_job["id"], "[ai] analysis begin")
-    manager._update_job(ai_job["id"], status="failed", stage="ai", finished_at="2026-02-09T13:00:09Z")
+    manager._update_job(
+        ai_job["id"], status="failed", stage="ai", finished_at="2026-02-09T13:00:09Z"
+    )
 
     ai_response = client.post(
         f"/api/jobs/{ai_job['id']}/retry",
@@ -318,9 +338,13 @@ def test_retry_job_from_failed_stage_falls_back_to_full(webui_client):
     client, manager = webui_client
 
     crawl_job = manager.create_job(["python", "-m", "trendradar"])
-    manager._update_job(crawl_job["id"], status="running", stage="starting", started_at="2026-02-09T14:00:00Z")
+    manager._update_job(
+        crawl_job["id"], status="running", stage="starting", started_at="2026-02-09T14:00:00Z"
+    )
     manager._append_log(crawl_job["id"], "[crawl] fetch hot topics")
-    manager._update_job(crawl_job["id"], status="failed", stage="crawl", finished_at="2026-02-09T14:00:09Z")
+    manager._update_job(
+        crawl_job["id"], status="failed", stage="crawl", finished_at="2026-02-09T14:00:09Z"
+    )
 
     response = client.post(
         f"/api/jobs/{crawl_job['id']}/retry",
@@ -343,7 +367,9 @@ def test_retry_job_detail_contains_strategy_info(webui_client):
     client, manager = webui_client
 
     source = manager.create_job(["python", "-m", "trendradar"])
-    manager._update_job(source["id"], status="failed", stage="notify", finished_at="2026-02-09T15:00:09Z")
+    manager._update_job(
+        source["id"], status="failed", stage="notify", finished_at="2026-02-09T15:00:09Z"
+    )
 
     retry_response = client.post(
         f"/api/jobs/{source['id']}/retry",
@@ -417,6 +443,7 @@ def test_base_layout_contains_global_confirm_modal(webui_client):
     assert "global-confirm-modal" in html
     assert "global-confirm-title" in html
     assert "global-confirm-ok" in html
+
 
 def test_workflow_page_is_available(webui_client):
     client, _ = webui_client
@@ -579,8 +606,14 @@ def test_workflow_templates_import_preview(webui_client):
     assert preview["update"] == 1
     assert preview["skip"] == 2
     assert len(preview["entries"]) == 4
-    assert any(entry.get("action") == "update" and entry.get("name") == "Keep Me" for entry in preview["entries"])
-    assert any(entry.get("action") == "create" and entry.get("name") == "New One" for entry in preview["entries"])
+    assert any(
+        entry.get("action") == "update" and entry.get("name") == "Keep Me"
+        for entry in preview["entries"]
+    )
+    assert any(
+        entry.get("action") == "create" and entry.get("name") == "New One"
+        for entry in preview["entries"]
+    )
 
 
 def test_rss_page_includes_feed_profiles(webui_client):

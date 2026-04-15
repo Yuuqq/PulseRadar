@@ -107,7 +107,9 @@ def check_all_versions(
         config_files_count=len(remote_config_versions) if configs_version_url else None,
     )
 
-    program_status = compare_version(__version__, remote_version) if remote_version else "(无法比较)"
+    program_status = (
+        compare_version(__version__, remote_version) if remote_version else "(无法比较)"
+    )
     logger.info("主程序版本", version=__version__, status=program_status)
 
     config_files = [

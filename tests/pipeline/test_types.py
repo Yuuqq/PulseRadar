@@ -4,6 +4,7 @@ Tests for frozen DTO definitions at stage boundaries.
 Verifies structure, defaults, immutability, and full population of
 CrawlOutput, AnalysisOutput, and RSSOutput dataclasses.
 """
+
 import sys
 from dataclasses import FrozenInstanceError
 
@@ -24,11 +25,7 @@ class TestRSSOutput:
 
     def test_rss_output_with_data(self):
         """RSSOutput can be created with all fields populated."""
-        rss = RSSOutput(
-            stats_items=[{"x": 1}],
-            new_items=[{"y": 2}],
-            raw_items=[{"z": 3}]
-        )
+        rss = RSSOutput(stats_items=[{"x": 1}], new_items=[{"y": 2}], raw_items=[{"z": 3}])
         assert rss.stats_items == [{"x": 1}]
         assert rss.new_items == [{"y": 2}]
         assert rss.raw_items == [{"z": 3}]
@@ -58,16 +55,9 @@ class TestCrawlOutput:
 
     def test_crawl_output_full_population(self):
         """Test 5: CrawlOutput with all fields populated."""
-        rss = RSSOutput(
-            stats_items=[{"x": 1}],
-            new_items=[{"y": 2}],
-            raw_items=[{"z": 3}]
-        )
+        rss = RSSOutput(stats_items=[{"x": 1}], new_items=[{"y": 2}], raw_items=[{"z": 3}])
         crawl = CrawlOutput(
-            results={"p1": {}},
-            id_to_name={"p1": "Platform1"},
-            failed_ids=("p2",),
-            rss=rss
+            results={"p1": {}}, id_to_name={"p1": "Platform1"}, failed_ids=("p2",), rss=rss
         )
         assert crawl.results == {"p1": {}}
         assert crawl.id_to_name == {"p1": "Platform1"}
@@ -93,7 +83,7 @@ class TestAnalysisOutput:
         analysis = AnalysisOutput(
             stats=[{"word": "test", "count": 1}],
             html_file_path="/tmp/report.html",
-            ai_result=ai_result_obj
+            ai_result=ai_result_obj,
         )
         assert analysis.stats == [{"word": "test", "count": 1}]
         assert analysis.html_file_path == "/tmp/report.html"

@@ -3,6 +3,7 @@
 Strategy: patch ParserService to avoid SQLite/file I/O. Each test exercises a
 public method and asserts on the return shape or cache behaviour.
 """
+
 from __future__ import annotations
 
 from datetime import datetime
@@ -23,9 +24,7 @@ def fresh_cache(monkeypatch):
     leak through subsequent test runs.
     """
     cache = CacheService()
-    monkeypatch.setattr(
-        "mcp_server.services.data_service.get_cache", lambda: cache
-    )
+    monkeypatch.setattr("mcp_server.services.data_service.get_cache", lambda: cache)
     return cache
 
 
@@ -64,12 +63,7 @@ def test_get_latest_news_returns_sorted_list(service):
 
 def test_get_latest_news_respects_limit(service):
     service.parser.read_all_titles_for_date.return_value = (
-        {
-            "zhihu": {
-                f"T{i}": {"ranks": [i], "url": "", "mobileUrl": ""}
-                for i in range(1, 6)
-            }
-        },
+        {"zhihu": {f"T{i}": {"ranks": [i], "url": "", "mobileUrl": ""} for i in range(1, 6)}},
         {"zhihu": "Zhihu"},
         {},
     )
@@ -105,12 +99,8 @@ def test_search_news_by_keyword_finds_matches(service):
     service.parser.read_all_titles_for_date.return_value = (
         {
             "zhihu": {
-                "AI breakthrough in 2025": {
-                    "ranks": [1], "url": "http://a", "mobileUrl": ""
-                },
-                "Unrelated news": {
-                    "ranks": [5], "url": "http://b", "mobileUrl": ""
-                },
+                "AI breakthrough in 2025": {"ranks": [1], "url": "http://a", "mobileUrl": ""},
+                "Unrelated news": {"ranks": [5], "url": "http://b", "mobileUrl": ""},
             }
         },
         {"zhihu": "Zhihu"},

@@ -4,6 +4,7 @@ Strategy: patch mcp_server.tools.data_query.DataService to avoid going through
 ParserService/SQLite and to keep tests fast + isolated. Exercises the public
 surface directly (D-10: tool class methods, not async wrappers).
 """
+
 from __future__ import annotations
 
 from unittest.mock import MagicMock, patch

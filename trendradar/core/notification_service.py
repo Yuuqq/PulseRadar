@@ -9,6 +9,7 @@ from typing import Dict, List, Optional
 
 from trendradar.context import AppContext
 from trendradar.ai import AIAnalysisResult
+from trendradar.core.ai_service import run_ai_analysis
 from trendradar.logging import get_logger
 
 logger = get_logger(__name__)
@@ -59,8 +60,7 @@ def send_notification_if_needed(
     report_mode: str,
     update_info: Optional[Dict],
     proxy_url: Optional[str],
-    get_mode_strategy_fn,
-    run_ai_analysis_fn,
+    mode_strategies: Optional[Dict],
     stats: List[Dict],
     report_type: str,
     mode: str,
@@ -82,8 +82,7 @@ def send_notification_if_needed(
         report_mode: 报告模式
         update_info: 版本更新信息
         proxy_url: 代理 URL
-        get_mode_strategy_fn: 模式策略获取函数
-        run_ai_analysis_fn: AI 分析执行函数
+        mode_strategies: 模式策略字典（用于日志）
         stats: 统计数据列表
         report_type: 报告类型字符串
         mode: 运行模式
@@ -140,8 +139,14 @@ def send_notification_if_needed(
         if ai_result is None:
             ai_config = cfg.get("AI_ANALYSIS", {})
             if ai_config.get("ENABLED", False):
-                ai_result = run_ai_analysis_fn(
-                    stats, rss_items, mode, report_type, id_to_name, current_results=current_results
+                ai_result = run_ai_analysis(
+                    ctx=ctx,
+                    stats=stats,
+                    rss_items=rss_items,
+                    mode=mode,
+                    report_type=report_type,
+                    id_to_name=id_to_name,
+                    current_results=current_results,
                 )
 
         report_data = ctx.prepare_report(stats, failed_ids, new_titles, id_to_name, mode)
@@ -180,13 +185,13 @@ def send_notification_if_needed(
     elif not cfg["ENABLE_NOTIFICATION"]:
         logger.info("跳过通知：通知功能已禁用", report_type=report_type)
     elif cfg["ENABLE_NOTIFICATION"] and has_notif and not has_any_content:
-        mode_strategy = get_mode_strategy_fn()
+        mode_name = mode_strategies.get(report_mode, {}).get('mode_name', report_mode) if mode_strategies else report_mode
         if report_mode == "incremental":
             if not has_rss_content:
                 logger.info("跳过通知：增量模式下未检测到匹配的新闻和RSS")
             else:
                 logger.info("跳过通知：增量模式下新闻未匹配到关键词")
         else:
-            logger.info("跳过通知：未检测到匹配的新闻", mode=mode_strategy['mode_name'])
+            logger.info("跳过通知：未检测到匹配的新闻", mode=mode_name)
 
     return False

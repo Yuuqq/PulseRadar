@@ -169,8 +169,8 @@ def run_analysis_pipeline(
     id_to_name: Dict,
     report_mode: str,
     update_info: Optional[Dict],
-    run_ai_analysis_fn,
-    get_mode_strategy_fn,
+    report_type: str,
+    ai_result: object = None,
     failed_ids: Optional[List] = None,
     global_filters: Optional[List[str]] = None,
     quiet: bool = False,
@@ -179,7 +179,7 @@ def run_analysis_pipeline(
     standalone_data: Optional[Dict] = None,
 ) -> Tuple[List[Dict], Optional[str], object]:
     """
-    统一的分析流水线：数据处理 -> 统计计算 -> AI分析 -> HTML生成
+    统一的分析流水线：数据处理 -> 统计计算 -> HTML生成
 
     Args:
         ctx: 应用上下文
@@ -192,8 +192,8 @@ def run_analysis_pipeline(
         id_to_name: 平台 ID 到名称映射
         report_mode: 当前报告模式字符串
         update_info: 版本更新信息
-        run_ai_analysis_fn: AI 分析执行函数（callable）
-        get_mode_strategy_fn: 模式策略获取函数（callable）
+        report_type: 报告类型字符串
+        ai_result: AI 分析结果（由调用者预先计算）
         failed_ids: 失败的平台 ID 列表
         global_filters: 全局过滤词列表
         quiet: 是否静默运行
@@ -238,15 +238,8 @@ def run_analysis_pipeline(
         )
         alternate_display_mode = "platform"
 
-    # AI 分析（如果启用）
-    ai_result = None
-    ai_config = ctx.config.get("AI_ANALYSIS", {})
-    if ai_config.get("ENABLED", False) and stats:
-        mode_strategy = get_mode_strategy_fn()
-        report_type = mode_strategy["report_type"]
-        ai_result = run_ai_analysis_fn(
-            stats, rss_items, mode, report_type, id_to_name, current_results=data_source
-        )
+    # ai_result is now passed in by caller (AnalysisEngine computes it)
+    # The caller is responsible for running AI analysis before calling this function
 
     # HTML 生成
     html_file = None

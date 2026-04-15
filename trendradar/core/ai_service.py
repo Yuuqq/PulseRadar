@@ -15,11 +15,70 @@ from trendradar.logging import get_logger
 logger = get_logger(__name__)
 
 
+def _load_analysis_data(
+    ctx: AppContext,
+    quiet: bool = False,
+) -> Optional[Tuple[Dict, Dict, Dict, Dict, List, List, List]]:
+    """统一的数据加载和预处理，使用当前监控平台列表过滤历史数据"""
+    try:
+        # 获取当前配置的监控平台ID列表
+        current_platform_ids = ctx.platform_ids
+        if not quiet:
+            logger.info("当前监控平台", platform_ids=current_platform_ids)
+
+        all_results, id_to_name, title_info = ctx.read_today_titles(
+            current_platform_ids, quiet=quiet
+        )
+
+        if not all_results:
+            logger.info("没有找到当天的数据")
+            return None
+
+        total_titles = sum(len(titles) for titles in all_results.values())
+        if not quiet:
+            logger.info("读取标题完成", total=total_titles)
+
+        new_titles = ctx.detect_new_titles(current_platform_ids, quiet=quiet)
+        word_groups, filter_words, global_filters = ctx.load_frequency_words()
+
+        return (
+            all_results,
+            id_to_name,
+            title_info,
+            new_titles,
+            word_groups,
+            filter_words,
+            global_filters,
+        )
+    except Exception as e:
+        logger.error("数据加载失败", error=str(e))
+        return None
+
+
+def _prepare_current_title_info(results: Dict, time_info: str) -> Dict:
+    """从当前抓取结果构建标题信息"""
+    title_info = {}
+    for source_id, titles_data in results.items():
+        title_info[source_id] = {}
+        for title, title_data in titles_data.items():
+            ranks = title_data.get("ranks", [])
+            url = title_data.get("url", "")
+            mobile_url = title_data.get("mobileUrl", "")
+
+            title_info[source_id][title] = {
+                "first_time": time_info,
+                "last_time": time_info,
+                "count": 1,
+                "ranks": ranks,
+                "url": url,
+                "mobileUrl": mobile_url,
+            }
+    return title_info
+
+
 def prepare_ai_analysis_data(
     ctx: AppContext,
     ai_mode: str,
-    prepare_current_title_info_fn,
-    load_analysis_data_fn,
     current_results: Optional[Dict] = None,
     current_id_to_name: Optional[Dict] = None,
 ) -> Tuple[List[Dict], Optional[Dict]]:
@@ -29,8 +88,6 @@ def prepare_ai_analysis_data(
     Args:
         ctx: 应用上下文
         ai_mode: AI 分析模式 (daily/current/incremental)
-        prepare_current_title_info_fn: 构建 title_info 的函数
-        load_analysis_data_fn: 加载历史数据的函数
         current_results: 当前抓取的结果（用于 incremental 模式）
         current_id_to_name: 当前的平台映射（用于 incremental 模式）
 
@@ -46,7 +103,7 @@ def prepare_ai_analysis_data(
                 return [], None
 
             time_info = ctx.format_time()
-            title_info = prepare_current_title_info_fn(current_results, time_info)
+            title_info = _prepare_current_title_info(current_results, time_info)
             new_titles = ctx.detect_new_titles(list(current_results.keys()))
 
             stats, _ = ctx.count_frequency(
@@ -71,7 +128,7 @@ def prepare_ai_analysis_data(
             return stats, current_id_to_name
 
         elif ai_mode in ["daily", "current"]:
-            analysis_data = load_analysis_data_fn(quiet=True)
+            analysis_data = _load_analysis_data(ctx, quiet=True)
             if not analysis_data:
                 logger.error("无法加载历史数据", ai_mode=ai_mode)
                 return [], None
@@ -121,7 +178,6 @@ def prepare_ai_analysis_data(
 
 def run_ai_analysis(
     ctx: AppContext,
-    prepare_ai_data_fn,
     stats: List[Dict],
     rss_items: Optional[List[Dict]],
     mode: str,
@@ -134,7 +190,6 @@ def run_ai_analysis(
 
     Args:
         ctx: 应用上下文
-        prepare_ai_data_fn: 准备 AI 分析数据的函数
         stats: 统计数据
         rss_items: RSS 统计条目
         mode: 报告模式
@@ -188,8 +243,8 @@ def run_ai_analysis(
                 logger.info("使用独立 AI 分析模式", ai_mode=ai_mode, push_mode=mode)
                 logger.info("正在准备 AI 模式数据", ai_mode=ai_mode)
 
-                ai_stats, ai_id_to_name = prepare_ai_data_fn(
-                    ai_mode, current_results, id_to_name
+                ai_stats, ai_id_to_name = prepare_ai_analysis_data(
+                    ctx, ai_mode, current_results, id_to_name
                 )
                 if not ai_stats:
                     logger.warning("无法准备 AI 模式数据，回退到推送模式数据", ai_mode=ai_mode)

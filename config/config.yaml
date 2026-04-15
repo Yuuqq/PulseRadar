@@ -27,9 +27,9 @@ advanced:
     hotness: 0.1
     rank: 0.6
 ai:
-  model: openai/gemini-3-pro-preview
-  api_key: whoisyourai
-  api_base: http://127.0.0.1:8317/v1
+  model: openai/LongCat-Flash-Lite
+  api_key: ak_2Nm46W1o70Cu9IK4PQ4114cY2KB4G
+  api_base: https://api.longcat.chat/openai/v1
   timeout: 120
   temperature: 1
   max_tokens: 5000

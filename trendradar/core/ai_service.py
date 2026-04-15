@@ -235,6 +235,11 @@ def run_ai_analysis(
             ai_mode = mode
             ai_stats = stats
             ai_id_to_name = id_to_name
+            # If stats is empty (called before pipeline), rebuild from current_results
+            if not ai_stats and current_results:
+                ai_stats, ai_id_to_name = prepare_ai_analysis_data(
+                    ctx, ai_mode, current_results, id_to_name
+                )
         elif ai_mode_config in ["daily", "current", "incremental"]:
             ai_mode = ai_mode_config
             if ai_mode != mode:

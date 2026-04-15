@@ -122,6 +122,12 @@ REPORT_CSS = """
                 transition: left 0.3s ease, top 0.3s ease;
             }
 
+            .hotlist-view.masonry-active .topic-tabs {
+                position: relative;
+                width: 100%;
+                z-index: 5;
+            }
+
             /* Masonry for new-section too */
             .new-section.masonry-active {
                 display: block;

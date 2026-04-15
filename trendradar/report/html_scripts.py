@@ -498,7 +498,7 @@ REPORT_JS = """
             function initMasonry() {
                 const GAP = 20;
 
-                function layoutContainer(container, cardSelector, titleSelector) {
+                function layoutContainer(container, cardSelector, skipSelectors) {
                     const cards = Array.from(container.querySelectorAll(cardSelector)).filter(c =>
                         c.dataset.hidden !== 'true' && c.dataset.filtered !== 'true'
                     );
@@ -515,17 +515,26 @@ REPORT_JS = """
                     const colW = (w - GAP * (cols - 1)) / cols;
                     const heights = new Array(cols).fill(0);
 
-                    // Account for title element above cards
-                    let titleH = 0;
-                    if (titleSelector) {
-                        const title = container.querySelector(titleSelector);
-                        if (title) {
-                            title.style.position = 'relative';
-                            titleH = title.offsetHeight + GAP;
-                            heights.fill(titleH);
-                        }
+                    // Position header elements above columns
+                    if (skipSelectors && skipSelectors.length) {
+                        skipSelectors.forEach(sel => {
+                            const el = container.querySelector(sel);
+                            if (el) {
+                                el.style.position = 'relative';
+                                el.style.width = '100%';
+                                el.style.zIndex = '5';
+                            }
+                        });
+                        // Measure total header height
+                        let headerH = 0;
+                        skipSelectors.forEach(sel => {
+                            const el = container.querySelector(sel);
+                            if (el) headerH += el.offsetHeight + GAP;
+                        });
+                        heights.fill(headerH);
                     }
 
+                    // First pass: set width for measurement
                     cards.forEach(card => {
                         card.style.position = 'absolute';
                         card.style.width = colW + 'px';
@@ -533,9 +542,9 @@ REPORT_JS = """
                         card.style.left = '0px';
                         card.style.top = '0px';
                     });
-
                     void container.offsetHeight;
 
+                    // Second pass: place in shortest column
                     cards.forEach(card => {
                         const shortest = heights.indexOf(Math.min(...heights));
                         card.style.left = shortest * (colW + GAP) + 'px';
@@ -549,10 +558,10 @@ REPORT_JS = """
 
                 function layoutAll() {
                     document.querySelectorAll('.hotlist-view').forEach(v =>
-                        layoutContainer(v, '.word-group', null)
+                        layoutContainer(v, '.word-group', ['.topic-tabs'])
                     );
                     document.querySelectorAll('.new-section').forEach(v =>
-                        layoutContainer(v, '.new-source-group', '.new-section-title')
+                        layoutContainer(v, '.new-source-group', ['.new-section-title'])
                     );
                 }
 

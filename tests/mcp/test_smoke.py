@@ -23,13 +23,13 @@ def test_fastmcp_tool_registration_smoke():
                 tools = await client.list_tools()
                 tool_names = {t.name for t in tools}
                 # Verify representative tools are registered
-                assert "get_latest_news" in tool_names, (
-                    f"get_latest_news missing; found: {sorted(tool_names)}"
-                )
+                assert (
+                    "get_latest_news" in tool_names
+                ), f"get_latest_news missing; found: {sorted(tool_names)}"
                 # At least 20 tools expected (24 at time of research)
-                assert len(tool_names) >= 20, (
-                    f"Expected >=20 registered tools, got {len(tool_names)}: {sorted(tool_names)}"
-                )
+                assert (
+                    len(tool_names) >= 20
+                ), f"Expected >=20 registered tools, got {len(tool_names)}: {sorted(tool_names)}"
 
         asyncio.run(_run())
     except AssertionError:
@@ -52,6 +52,6 @@ def test_mcp_tools_registered_fallback():
 
     # FastMCP stores tools in its internal _tool_manager registry.
     # Accept any of a few likely attribute names to survive fastmcp minor upgrades.
-    assert hasattr(mcp, "_tool_manager") or hasattr(mcp, "tools") or hasattr(mcp, "_tools"), (
-        "FastMCP app object does not have expected tool registry attribute"
-    )
+    assert (
+        hasattr(mcp, "_tool_manager") or hasattr(mcp, "tools") or hasattr(mcp, "_tools")
+    ), "FastMCP app object does not have expected tool registry attribute"

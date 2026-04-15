@@ -15,9 +15,9 @@ def test_analyze_trends_removed_from_news_analyzer():
     from trendradar.__main__ import NewsAnalyzer
 
     # _analyze_trends method must NOT exist
-    assert not hasattr(NewsAnalyzer, "_analyze_trends"), (
-        "NewsAnalyzer must NOT have _analyze_trends method (D-05: dead code removed)"
-    )
+    assert not hasattr(
+        NewsAnalyzer, "_analyze_trends"
+    ), "NewsAnalyzer must NOT have _analyze_trends method (D-05: dead code removed)"
 
 
 def test_trend_analyzer_not_imported_in_main():
@@ -25,9 +25,9 @@ def test_trend_analyzer_not_imported_in_main():
     import trendradar.__main__ as main_module
 
     source = inspect.getsource(main_module)
-    assert "TrendAnalyzer" not in source, (
-        "__main__.py must not import or reference TrendAnalyzer (D-05)"
-    )
+    assert (
+        "TrendAnalyzer" not in source
+    ), "__main__.py must not import or reference TrendAnalyzer (D-05)"
     assert "trend_report" not in source, "__main__.py must not contain trend_report variable (D-05)"
 
 
@@ -55,6 +55,6 @@ def test_update_info_is_constructor_parameter():
     from trendradar.__main__ import NewsAnalyzer
 
     sig = inspect.signature(NewsAnalyzer.__init__)
-    assert "update_info" in sig.parameters, (
-        "NewsAnalyzer.__init__ must accept update_info parameter (D-08)"
-    )
+    assert (
+        "update_info" in sig.parameters
+    ), "NewsAnalyzer.__init__ must accept update_info parameter (D-08)"

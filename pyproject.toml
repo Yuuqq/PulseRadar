@@ -107,7 +107,6 @@ ignore = [
     "SIM108",  # if-else-block-instead-of-if-exp (readability preference)
     "RUF012",  # mutable-class-default (incremental fix)
     "RUF034",  # useless-if-else (minor issue, incremental fix)
-    "RUF059",  # unused-unpacked-variable (incremental fix)
 ]
 
 [tool.ruff.lint.isort]

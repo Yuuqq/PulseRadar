@@ -27,9 +27,9 @@ def _assert_notification_kwargs(send_notification_fn: MagicMock) -> None:
     # send_notification_fn is called with 3 positional args + keyword args
     call_args = send_notification_fn.call_args
     # Positional: stats, report_type, report_mode
-    assert len(call_args.args) >= 3, (
-        f"Expected at least 3 positional args, got {len(call_args.args)}"
-    )
+    assert (
+        len(call_args.args) >= 3
+    ), f"Expected at least 3 positional args, got {len(call_args.args)}"
     stats_arg = call_args.args[0]
     assert isinstance(stats_arg, list), f"stats should be a list, got {type(stats_arg)}"
 
@@ -178,9 +178,9 @@ class TestCurrentMode:
         # (c) run_analysis_pipeline_fn was called with historical data
         assert run_pipeline_fn.called
         first_positional_arg = run_pipeline_fn.call_args.args[0]
-        assert "hist_platform" in first_positional_arg, (
-            "run_analysis_pipeline_fn should receive historical results (hist_platform)"
-        )
+        assert (
+            "hist_platform" in first_positional_arg
+        ), "run_analysis_pipeline_fn should receive historical results (hist_platform)"
 
         # (d) send_notification_fn was called
         assert mock_callbacks["send_notification_fn"].called
@@ -299,9 +299,9 @@ class TestDailyMode:
         # (c) run_analysis_pipeline_fn called with historical data
         assert run_pipeline_fn.called
         first_positional_arg = run_pipeline_fn.call_args.args[0]
-        assert "hist_platform" in first_positional_arg, (
-            "run_analysis_pipeline_fn should receive historical results (hist_platform)"
-        )
+        assert (
+            "hist_platform" in first_positional_arg
+        ), "run_analysis_pipeline_fn should receive historical results (hist_platform)"
 
         # (d) send_notification_fn was called
         assert mock_callbacks["send_notification_fn"].called
@@ -359,9 +359,9 @@ class TestDailyMode:
         # (d) run_analysis_pipeline_fn called with CURRENT results (not historical)
         assert run_pipeline_fn.called
         first_positional_arg = run_pipeline_fn.call_args.args[0]
-        assert "test_platform" in first_positional_arg, (
-            "run_analysis_pipeline_fn should receive current results (test_platform) on fallback"
-        )
+        assert (
+            "test_platform" in first_positional_arg
+        ), "run_analysis_pipeline_fn should receive current results (test_platform) on fallback"
 
         # (e) send_notification_fn was called
         assert mock_callbacks["send_notification_fn"].called

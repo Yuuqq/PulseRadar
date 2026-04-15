@@ -9,6 +9,7 @@
 [![License](https://img.shields.io/badge/license-GPL--3.0-blue.svg?style=flat-square)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat-square&logo=python&logoColor=white)](https://python.org)
 [![Ruff](https://img.shields.io/badge/code%20style-ruff-261230?style=flat-square)](https://github.com/astral-sh/ruff)
+[![Live Demo](https://img.shields.io/badge/Live-热点报告-FF6B6B?style=flat-square)](https://yuuqq.github.io/PulseRadar/)
 
 <sub>基于 [TrendRadar](https://github.com/sansan0/TrendRadar) 深度重构</sub>
 

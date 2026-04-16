@@ -191,7 +191,7 @@ def process_rss_data_by_mode(
             logger.info("RSS 增量模式：没有新增条目")
             return None, None, raw_rss_items
 
-        rss_stats, total = count_rss_frequency(
+        rss_stats, _total = count_rss_frequency(
             rss_items=new_items_list,
             word_groups=word_groups,
             filter_words=filter_words,
@@ -213,7 +213,7 @@ def process_rss_data_by_mode(
             logger.info("RSS 当前榜单模式：没有 RSS 数据")
             return None, None, None
 
-        rss_stats, total = count_rss_frequency(
+        rss_stats, _total = count_rss_frequency(
             rss_items=raw_rss_items,
             word_groups=word_groups,
             filter_words=filter_words,

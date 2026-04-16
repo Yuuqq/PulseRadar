@@ -79,7 +79,7 @@ Recent decisions affecting current work:
 
 ### Pending Todos
 
-None yet.
+- [HIGH] Add AI Agent-friendly news API page (api) — 2026-04-16
 
 ### Blockers/Concerns
 

@@ -4,6 +4,7 @@
 提供配置上下文类，封装所有依赖配置的操作，消除全局状态和包装函数。
 """
 
+import os
 from datetime import datetime
 from pathlib import Path
 from typing import Any
@@ -303,6 +304,7 @@ class AppContext:
         alternate_display_mode: str | None = None,
     ) -> str:
         """生成HTML报告"""
+        github_pages_dir = "reports" if os.environ.get("GITHUB_ACTIONS") else None
         return generate_html_report(
             stats=stats,
             total_titles=total_titles,
@@ -327,6 +329,7 @@ class AppContext:
             load_frequency_words_func=self.load_frequency_words,
             alternate_stats=alternate_stats,
             alternate_display_mode=alternate_display_mode,
+            github_pages_dir=github_pages_dir,
         )
 
     def render_html(

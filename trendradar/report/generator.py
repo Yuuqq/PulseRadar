@@ -10,6 +10,13 @@ from collections.abc import Callable
 from pathlib import Path
 
 from trendradar.logging import get_logger
+from trendradar.report.hub import generate_hub_html
+from trendradar.report.manifest import (
+    add_report_entry,
+    build_report_entry,
+    load_manifest,
+    save_manifest,
+)
 
 logger = get_logger(__name__)
 
@@ -169,6 +176,7 @@ def generate_html_report(
     load_frequency_words_func: Callable | None = None,
     alternate_stats: list[dict] | None = None,
     alternate_display_mode: str | None = None,
+    github_pages_dir: str | None = None,
 ) -> str:
     """
     生成 HTML 报告
@@ -177,6 +185,12 @@ def generate_html_report(
     1. 保存时间戳快照到 output/html/日期/时间.html（历史记录）
     2. 复制到 output/html/latest/{mode}.html（最新报告）
     3. 复制到 output/index.html 和根目录 index.html（入口）
+
+    当 github_pages_dir 不为 None 时，额外：
+    4. 写入 {github_pages_dir}/{date}/{time}.html
+    5. 写入 {github_pages_dir}/latest/{mode}.html
+    6. 更新 {github_pages_dir}/manifest.json
+    7. 根目录 index.html 变为 Hub 页面（而非最新报告）
 
     Args:
         stats: 统计结果列表
@@ -193,6 +207,7 @@ def generate_html_report(
         render_html_func: HTML 渲染函数
         matches_word_groups_func: 词组匹配函数
         load_frequency_words_func: 加载频率词函数
+        github_pages_dir: GitHub Pages 报告目录（None 则跳过）
 
     Returns:
         str: 生成的 HTML 文件路径（时间戳快照路径）
@@ -268,7 +283,65 @@ def generate_html_report(
 
     # 根目录 index.html（供 GitHub Pages 访问）
     root_index = Path("index.html")
-    with open(root_index, "w", encoding="utf-8") as f:
-        f.write(html_content)
+    if github_pages_dir:
+        # GitHub Pages 模式：根 index.html 是 Hub 页面
+        _publish_to_github_pages(
+            github_pages_dir,
+            date_folder,
+            time_filename,
+            mode,
+            total_titles,
+            len(report_data.get("stats", [])),
+            html_content,
+            root_index,
+        )
+    else:
+        with open(root_index, "w", encoding="utf-8") as f:
+            f.write(html_content)
 
     return snapshot_file
+
+
+def _publish_to_github_pages(
+    pages_dir: str,
+    date_folder: str,
+    time_filename: str,
+    mode: str,
+    total_titles: int,
+    stats_count: int,
+    html_content: str,
+    root_index: Path,
+) -> None:
+    """将报告发布到 GitHub Pages 目录并生成 Hub 页面"""
+    pages = Path(pages_dir)
+
+    # 1. 写入 reports/{date}/{time}.html
+    report_dir = pages / date_folder
+    report_dir.mkdir(parents=True, exist_ok=True)
+    report_file = report_dir / f"{time_filename}.html"
+    with open(report_file, "w", encoding="utf-8") as f:
+        f.write(html_content)
+
+    # 2. 写入 reports/latest/{mode}.html
+    latest_dir = pages / "latest"
+    latest_dir.mkdir(parents=True, exist_ok=True)
+    with open(latest_dir / f"{mode}.html", "w", encoding="utf-8") as f:
+        f.write(html_content)
+
+    # 3. 更新 manifest.json
+    manifest_path = pages / "manifest.json"
+    manifest = load_manifest(manifest_path)
+    entry = build_report_entry(date_folder, time_filename, mode, total_titles, stats_count)
+    manifest = add_report_entry(manifest, entry)
+    save_manifest(manifest_path, manifest)
+
+    # 4. 生成 Hub 页面作为根 index.html
+    hub_html = generate_hub_html(manifest)
+    with open(root_index, "w", encoding="utf-8") as f:
+        f.write(hub_html)
+
+    logger.info(
+        "GitHub Pages 报告已发布",
+        report=str(report_file),
+        manifest=str(manifest_path),
+    )

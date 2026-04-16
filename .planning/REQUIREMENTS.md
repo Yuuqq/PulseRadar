@@ -38,7 +38,7 @@
 
 ### Quality Tooling
 
-- [ ] **QUAL-01**: ruff is configured (pyproject.toml) with rule sets I, F, E, UP, B, SIM, RUF and passes on the full codebase
+- [x] **QUAL-01**: ruff is configured (pyproject.toml) with rule sets I, F, E, UP, B, SIM, RUF and passes on the full codebase
 - [ ] **QUAL-02**: ruff format has been run and the codebase is consistently formatted
 - [ ] **QUAL-03**: pre-commit hooks run ruff check and ruff format on every commit, execution under 10 seconds
 
@@ -87,7 +87,7 @@
 | REFACTOR-04 | Phase 3 — God Object Decomposition | Pending |
 | REFACTOR-05 | Phase 3 — God Object Decomposition | Complete |
 | REFACTOR-06 | Phase 3 — God Object Decomposition | Pending |
-| QUAL-01 | Phase 4 — Quality Gates | Pending |
+| QUAL-01 | Phase 4 — Quality Gates | Complete |
 | QUAL-02 | Phase 4 — Quality Gates | Pending |
 | QUAL-03 | Phase 4 — Quality Gates | Pending |
 

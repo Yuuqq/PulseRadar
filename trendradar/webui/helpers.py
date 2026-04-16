@@ -75,7 +75,7 @@ def read_json_body() -> dict[str, Any] | None:
 def to_bool(value: Any) -> bool:
     if isinstance(value, bool):
         return value
-    if isinstance(value, (int, float)):
+    if isinstance(value, int | float):
         return value != 0
     text = str(value or "").strip().lower()
     return text in {"1", "true", "yes", "on"}

@@ -38,7 +38,7 @@ def make_cache_key(namespace: str, **params) -> str:
     for k, v in params.items():
         if v is None:
             continue  # 跳过 None 值
-        elif isinstance(v, (list, tuple)):
+        elif isinstance(v, list | tuple):
             # 列表排序后转为字符串
             normalized_params[k] = json.dumps(
                 sorted(v) if all(isinstance(i, str) for i in v) else list(v), ensure_ascii=False

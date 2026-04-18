@@ -8,6 +8,8 @@ TrendRadar is a news aggregation and analysis tool that crawls 20+ Chinese and i
 
 Reduce technical debt without breaking any existing user-facing behavior — all CLI arguments, config.yaml files, and Docker deployments must continue working identically.
 
+**v1.1 refinement:** Extend TrendRadar as a data source for AI Agent ecosystems — not just human users — without breaking any existing behavior.
+
 ## Current State
 
 **Shipped:** v1.0 Tech Debt (2026-04-16)
@@ -19,10 +21,21 @@ Reduce technical debt without breaking any existing user-facing behavior — all
 - boto3 optional dependency, tenacity range unpinned
 - CLI, config.yaml, Docker, MCP server, Web UI all unchanged
 
-## Next Milestone Goals
+## Current Milestone: v1.1 AI Agent News API
 
-See `.planning/todos/pending/` for captured ideas. High-priority candidates:
-- **AI Agent-friendly news API page** — design structured data endpoint for AI Agent consumption
+**Goal:** Provide a pull-based, backend-less structured news summary endpoint for general AI Agent frameworks (LangChain, CrewAI, AutoGPT, etc.) to consume TrendRadar's aggregated trend data on demand.
+
+**Target features:**
+- JSON API files split by keyword group, generated daily and published to GitHub Pages
+- `_index.json` metadata endpoint listing available groups and update timestamps
+- Each group JSON contains `summary`, `trend` block, and cross-platform aggregated `items`
+- AI Agent integration documentation (curl, Python, LangChain examples)
+
+**Key context:**
+- **Pull mode architecture**: reuse existing GitHub Actions + Pages publishing, no backend needed
+- **Reuse existing data**: split by `frequency_words.txt` keyword groups, zero config cost
+- **Complement MCP Server**: MCP for real-time queries; new API for scheduled batch pulls
+- **Design already crystallized**: see `.planning/todos/pending/2026-04-16-ai-agent-friendly-news-api-page.md`
 
 ## Requirements
 
@@ -63,7 +76,9 @@ See `.planning/todos/pending/` for captured ideas. High-priority candidates:
 
 ### Active
 
-(None — ready for next milestone)
+- AI Agent-friendly news API (scheduled pull, split by keyword group) — v1.1 target
+- `_index.json` metadata endpoint — v1.1 target
+- AI Agent integration documentation (curl/Python/LangChain) — v1.1 target
 
 ### Out of Scope
 
@@ -118,4 +133,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-04-16 after v1.0 Tech Debt milestone*
+*Last updated: 2026-04-17 — started v1.1 AI Agent News API milestone*

@@ -47,24 +47,22 @@
 
 ## Traceability
 
-*Phase mapping will be filled by `gsd-roadmapper`.*
-
 | REQ-ID | Phase | Success Criterion |
 |--------|-------|-------------------|
-| API-01 | TBD | TBD |
-| API-02 | TBD | TBD |
-| API-03 | TBD | TBD |
-| API-04 | TBD | TBD |
-| API-05 | TBD | TBD |
-| API-06 | TBD | TBD |
-| API-07 | TBD | TBD |
-| API-08 | TBD | TBD |
-| DOC-01 | TBD | TBD |
-| DOC-02 | TBD | TBD |
-| DOC-03 | TBD | TBD |
-| DOC-04 | TBD | TBD |
-| DOC-05 | TBD | TBD |
-| DOC-06 | TBD | TBD |
+| API-01 | 5. API Data Generation | SC-1, SC-2 |
+| API-02 | 5. API Data Generation | SC-1 |
+| API-03 | 5. API Data Generation | SC-2 |
+| API-04 | 5. API Data Generation | SC-2, SC-3 |
+| API-05 | 5. API Data Generation | SC-2 |
+| API-06 | 5. API Data Generation | SC-2, SC-3 |
+| API-07 | 5. API Data Generation | SC-1 |
+| API-08 | 5. API Data Generation | SC-4, SC-5 |
+| DOC-01 | 6. Integration Documentation | SC-1 |
+| DOC-02 | 6. Integration Documentation | SC-2 |
+| DOC-03 | 6. Integration Documentation | SC-3 |
+| DOC-04 | 6. Integration Documentation | SC-4 |
+| DOC-05 | 6. Integration Documentation | SC-5 |
+| DOC-06 | 6. Integration Documentation | SC-6 |
 
 ---
 *Requirements version: v1.1 | Last updated: 2026-04-17*

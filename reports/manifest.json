@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-04-24T23:07:54.786410+00:00",
+  "generated_at": "2026-04-25T00:04:59.436817+00:00",
   "reports": [
     {
       "date": "2026-04-16",
@@ -1261,6 +1261,16 @@
       "stats_count": 20,
       "path": "reports/2026-04-25/07-07.html",
       "generated_at": "2026-04-24T23:07:54.786384+00:00"
+    },
+    {
+      "date": "2026-04-25",
+      "time": "08:04",
+      "mode": "current",
+      "mode_label": "当前榜单",
+      "total_titles": 443,
+      "stats_count": 21,
+      "path": "reports/2026-04-25/08-04.html",
+      "generated_at": "2026-04-25T00:04:59.436787+00:00"
     }
   ]
 }

@@ -126,7 +126,7 @@ def build_hotlist_view(stats: list[dict], view_mode: str) -> str:
         tabs_html = f"""
                 <div class="topic-tabs" role="tablist" aria-label="主题切换">
                     <button class="topic-tab active" data-topic="all">
-                        全部 <span class="topic-count">{view_news_count}</span>
+                        <span data-i18n-en="All" data-i18n-zh="全部">All</span> <span class="topic-count">{view_news_count}</span>
                     </button>"""
         for tab in tabs:
             tabs_html += f"""

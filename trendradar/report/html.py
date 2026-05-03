@@ -47,6 +47,15 @@ def _get_env() -> Environment:
     )
 
 
+_SECTION_LABELS_EN = {
+    "hotlist": "Hot",
+    "rss": "RSS",
+    "new_items": "New",
+    "standalone": "Standalone",
+    "ai_analysis": "AI Analysis",
+}
+
+
 def _build_section_tabs_html(available_sections: list[str], section_labels: dict[str, str]) -> Markup:
     """构造 section 切换 tab 的 HTML（少于 2 个时返回空 Markup）。"""
     if len(available_sections) <= 1:
@@ -54,13 +63,14 @@ def _build_section_tabs_html(available_sections: list[str], section_labels: dict
     parts = [
         """
                 <div class="section-tabs" role="tablist" aria-label="区域切换">
-                    <button class="section-tab active" data-section="all">全部</button>"""
+                    <button class="section-tab active" data-section="all" data-i18n-en="All" data-i18n-zh="全部">All</button>"""
     ]
     for region in available_sections:
-        label = section_labels.get(region, region)
+        label_zh = section_labels.get(region, region)
+        label_en = _SECTION_LABELS_EN.get(region, label_zh)
         parts.append(
             f"""
-                    <button class="section-tab" data-section="{region}">{label}</button>"""
+                    <button class="section-tab" data-section="{region}" data-i18n-en="{label_en}" data-i18n-zh="{label_zh}">{label_en}</button>"""
         )
     parts.append(
         """

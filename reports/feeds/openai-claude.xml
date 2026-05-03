@@ -4,70 +4,62 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-05-03T13:55:08Z</updated>
+  <updated>2026-05-03T15:11:02Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
-  <entry>
-    <id>urn:pulseradar:2026-05-03:629148da6d03981d</id>
-    <title>做了一个本地 AI Coding Agent 会话浏览器，支持 Claude Code / Cursor / Codex / OpenCode</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1210134"/>
-    <updated>2026-05-03T13:55:08Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 3</summary>
-  </entry>
   <entry>
     <id>urn:pulseradar:2026-05-03:83c963296abf6845</id>
     <title>我用了半年 Claude Code，直到发现这个 GitHub 项目，我才觉得自己之前都在裸奔</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7634152479867437102"/>
-    <updated>2026-05-03T13:55:08Z</updated>
+    <updated>2026-05-03T15:11:02Z</updated>
     <author><name>掘金</name></author>
+    <summary>Rank: 5</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-03:629148da6d03981d</id>
+    <title>做了一个本地 AI Coding Agent 会话浏览器，支持 Claude Code / Cursor / Codex / OpenCode</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1210134"/>
+    <updated>2026-05-03T15:11:02Z</updated>
+    <author><name>V2EX</name></author>
     <summary>Rank: 5</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-03:fb2077470ec4e413</id>
     <title>Claude Code 怎么使用 openai 兼容接口啊</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1210115"/>
-    <updated>2026-05-03T13:55:08Z</updated>
+    <updated>2026-05-03T15:11:02Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 7</summary>
+    <summary>Rank: 9</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-03:03b25da3ff33eef2</id>
     <title>都说 Anthropic 不做人，现在国产模型厂也不做人</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1210113"/>
-    <updated>2026-05-03T13:55:08Z</updated>
+    <updated>2026-05-03T15:11:02Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 8</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-05-03:9cceb52c333bafff</id>
-    <title>Claude Code Routines</title>
-    <link rel="alternate" type="text/html" href="https://www.producthunt.com/products/claude/launches/claude-code-routines"/>
-    <updated>2026-05-03T13:55:08Z</updated>
-    <author><name>Product Hunt</name></author>
-    <summary>Rank: 11</summary>
+    <summary>Rank: 10</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-03:4d4650a11f743b40</id>
     <title>我让 AI 当了回老师，把 Claude Code 从头到尾盘了一遍 🔥</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7634065319067418675"/>
-    <updated>2026-05-03T13:55:08Z</updated>
+    <updated>2026-05-03T15:11:02Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 13</summary>
+    <summary>Rank: 11</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-05-03:be3a338eff924b77</id>
-    <title>用古法网页端对话模式搞了一个网站测试 ChatGPT pro 的能力</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1210091"/>
-    <updated>2026-05-03T13:55:08Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 13</summary>
+    <id>urn:pulseradar:2026-05-03:9cceb52c333bafff</id>
+    <title>Claude Code Routines</title>
+    <link rel="alternate" type="text/html" href="https://www.producthunt.com/products/claude/launches/claude-code-routines"/>
+    <updated>2026-05-03T15:11:02Z</updated>
+    <author><name>Product Hunt</name></author>
+    <summary>Rank: 11</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-03:80c6823f2bf77032</id>
     <title>Claude Opus 4.7</title>
     <link rel="alternate" type="text/html" href="https://www.producthunt.com/products/claude-opus-4-7/launches/claude-opus-4-7"/>
-    <updated>2026-05-03T13:55:08Z</updated>
+    <updated>2026-05-03T15:11:02Z</updated>
     <author><name>Product Hunt</name></author>
     <summary>Rank: 14</summary>
   </entry>
@@ -75,7 +67,7 @@
     <id>urn:pulseradar:2026-05-03:af7f9b6bb24887cb</id>
     <title>Claude Code Desktop App Redesigned</title>
     <link rel="alternate" type="text/html" href="https://www.producthunt.com/products/claude-redesigned/launches/claude-code-desktop-app-redesigned"/>
-    <updated>2026-05-03T13:55:08Z</updated>
+    <updated>2026-05-03T15:11:02Z</updated>
     <author><name>Product Hunt</name></author>
     <summary>Rank: 15</summary>
   </entry>
@@ -83,15 +75,23 @@
     <id>urn:pulseradar:2026-05-03:833fd8b6c0b8e97a</id>
     <title>Claude Code+HA 自动化实战：给宠物龟请个「电子保姆」</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/108453"/>
-    <updated>2026-05-03T13:55:08Z</updated>
+    <updated>2026-05-03T15:11:02Z</updated>
     <author><name>少数派</name></author>
+    <summary>Rank: 15</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-03:be3a338eff924b77</id>
+    <title>用古法网页端对话模式搞了一个网站测试 ChatGPT pro 的能力</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1210091"/>
+    <updated>2026-05-03T15:11:02Z</updated>
+    <author><name>V2EX</name></author>
     <summary>Rank: 15</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-03:7045526460011b62</id>
     <title>Claude Design by Anthropic Labs</title>
     <link rel="alternate" type="text/html" href="https://www.producthunt.com/products/claude/launches/claude-design-by-anthropic-labs-2"/>
-    <updated>2026-05-03T13:55:08Z</updated>
+    <updated>2026-05-03T15:11:02Z</updated>
     <author><name>Product Hunt</name></author>
     <summary>Rank: 17</summary>
   </entry>
@@ -99,16 +99,8 @@
     <id>urn:pulseradar:2026-05-03:4d2c9bed8c8a6a68</id>
     <title>Claude Code满分skill！！这个开源了私人 .claude 目录的项目凭什么拿下 23k Star？</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7634152479867109422"/>
-    <updated>2026-05-03T13:55:08Z</updated>
+    <updated>2026-05-03T15:11:02Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 24</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-05-03:42713c5d36be88e1</id>
-    <title>Claude Code 进阶之路：从记忆系统到子代理编排</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7634341438654644233"/>
-    <updated>2026-05-03T13:55:08Z</updated>
-    <author><name>掘金</name></author>
-    <summary>Rank: 30</summary>
+    <summary>Rank: 26</summary>
   </entry>
 </feed>

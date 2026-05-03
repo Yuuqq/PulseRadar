@@ -119,6 +119,8 @@ def _build_latest_links(latest_by_mode: dict[str, dict]) -> str:
         label_en = mode_labels_en.get(mode, mode)
         label_zh = mode_labels_zh.get(mode, mode)
         path = report.get("path", "#")
+        if path and not path.startswith(("http://", "https://", "/", "#")):
+            path = "/" + path
         links.append(
             f'<a href="{path}" class="latest-link" data-i18n-en="{label_en}" data-i18n-zh="{label_zh}">{label_en}</a>'
         )
@@ -144,6 +146,8 @@ def _build_cards_html(grouped: dict[str, list[dict]]) -> str:
             label_en = _MODE_LABELS_EN.get(mode, r.get("mode_label", mode))
             label_zh = _MODE_LABELS_ZH.get(mode, r.get("mode_label", mode))
             path = r.get("path", "#")
+            if path and not path.startswith(("http://", "https://", "/", "#")):
+                path = "/" + path
             time_display = r.get("time", "")
             total = r.get("total_titles", 0)
             stats = r.get("stats_count", 0)

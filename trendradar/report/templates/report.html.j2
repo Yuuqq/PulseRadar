@@ -20,6 +20,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>PulseRadar · Today's Pulse</title>
+        <link rel="alternate" type="application/atom+xml" title="PulseRadar — Latest" href="/reports/feed.xml">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
@@ -31,6 +32,7 @@
             <div class="header">
                 <div class="save-buttons">
                     <a class="save-btn" href="reports/archive.html" data-i18n-en="Archive" data-i18n-zh="历史归档" title="Archive">Archive</a>
+                    <a class="save-btn" href="/reports/feed.xml" data-i18n-en="RSS" data-i18n-zh="订阅" title="Atom feed">RSS</a>
                     <button class="save-btn lang-toggle" id="lang-toggle" onclick="toggleLang()" aria-label="Toggle language">中</button>
                     <button class="save-btn" onclick="saveAsImage()" data-i18n-en="Save Image" data-i18n-zh="保存为图片">Save Image</button>
                     <button class="save-btn" onclick="saveAsMultipleImages()" data-i18n-en="Save Sections" data-i18n-zh="分段保存">Save Sections</button>

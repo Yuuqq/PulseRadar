@@ -1,15 +1,15 @@
 {
-  "updated": "2026-05-03T18:11:17Z",
+  "updated": "2026-05-03T19:34:05Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 27,
+      "count": 28,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
     "openai-claude": {
       "keyword": "OpenAI / Claude",
-      "count": 12,
+      "count": 14,
       "url": "/reports/feeds/openai-claude.xml"
     },
     "kw-101806f57c": {
@@ -17,19 +17,19 @@
       "count": 11,
       "url": "/reports/feeds/kw-101806f57c.xml"
     },
-    "kw-5f479f2ee3": {
-      "keyword": "微软 / 谷歌 / 苹果",
-      "count": 9,
-      "url": "/reports/feeds/kw-5f479f2ee3.xml"
-    },
     "kw-ac6fb2f2fe": {
       "keyword": "东亚",
       "count": 9,
       "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
+    "kw-5f479f2ee3": {
+      "keyword": "微软 / 谷歌 / 苹果",
+      "count": 8,
+      "url": "/reports/feeds/kw-5f479f2ee3.xml"
+    },
     "kw-4c6737b9f5": {
       "keyword": "华为",
-      "count": 5,
+      "count": 3,
       "url": "/reports/feeds/kw-4c6737b9f5.xml"
     },
     "deepseek": {

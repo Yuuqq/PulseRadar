@@ -63,6 +63,7 @@ def generate_hub_html(manifest: dict) -> str:
     </div>
     <div class="masthead-rule"></div>
     <div class="masthead-controls">
+      <a class="ctrl-btn" href="/" title="Latest issue" data-i18n-en="Latest" data-i18n-zh="最新">Latest</a>
       <button class="ctrl-btn" id="lang-toggle" onclick="toggleLang()" title="Toggle language">中</button>
       <button class="ctrl-btn" onclick="toggleTheme()" title="Toggle theme" id="theme-toggle">◐</button>
     </div>
@@ -262,16 +263,21 @@ body[data-lang="zh"] .masthead-title { font-family: var(--serif-cn); }
   gap: 6px;
 }
 .ctrl-btn {
-  width: 32px; height: 32px;
+  min-width: 32px; height: 32px;
+  padding: 0 10px;
   border: 1px solid var(--hairline);
   background: var(--bg-elev);
   color: var(--ink);
-  font-family: var(--serif-cn);
-  font-size: 14px;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   cursor: pointer;
   border-radius: 0;
   transition: all 0.15s;
   display: inline-flex; align-items: center; justify-content: center;
+  text-decoration: none;
 }
 .ctrl-btn:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
 

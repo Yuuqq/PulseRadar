@@ -11,6 +11,7 @@ from pathlib import Path
 
 from trendradar.logging import get_logger
 from trendradar.report.cluster import cluster_stats
+from trendradar.report.feeds import write_feeds
 from trendradar.report.hub import generate_hub_html
 from trendradar.report.manifest import (
     add_report_entry,
@@ -298,6 +299,7 @@ def generate_html_report(
             len(report_data.get("stats", [])),
             html_content,
             root_index,
+            report_data=report_data,
         )
     else:
         with open(root_index, "w", encoding="utf-8") as f:
@@ -315,6 +317,7 @@ def _publish_to_github_pages(
     stats_count: int,
     html_content: str,
     root_index: Path,
+    report_data: dict | None = None,
 ) -> None:
     """将报告发布到 GitHub Pages 目录并生成 Hub 页面"""
     pages = Path(pages_dir)
@@ -348,6 +351,14 @@ def _publish_to_github_pages(
     archive_path = pages / "archive.html"
     with open(archive_path, "w", encoding="utf-8") as f:
         f.write(hub_html)
+
+    # 6. 生成 Atom feeds（全站 + 各关键词）
+    if report_data and report_data.get("stats"):
+        try:
+            mapping = write_feeds(pages, report_data["stats"])
+            logger.info("Atom feeds written", feed_count=len(mapping))
+        except Exception as exc:  # noqa: BLE001
+            logger.warning("Failed to write Atom feeds", error=str(exc))
 
     logger.info(
         "GitHub Pages 报告已发布",

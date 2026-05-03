@@ -9,8 +9,8 @@
                     <div class="new-section-title">本次新增热点 (共 {{ total_new_count }} 条)</div>
 {%- for src in sources %}
                     <div class="new-source-group">
-                        <div class="new-source-title">{{ src.source_name }} · {{ src.items|length }}条</div>
-{%- for it in src.items %}
+                        <div class="new-source-title">{{ src.source_name }} · {{ src['items']|length }}条</div>
+{%- for it in src['items'] %}
                         <div class="new-item">
                             <div class="new-item-number">{{ it.number }}</div>
                             <div class="new-item-rank {{ it.rank_class }}">{{ it.rank_text }}</div>

@@ -40,15 +40,27 @@ def build_hotlist_view(stats: list[dict], view_mode: str) -> str:
                         <div class="word-index">{i}/{total_count}</div>
                     </div>"""
 
-        # 处理每个词组下的新闻标题，给每条新闻标上序号
-        for j, title_data in enumerate(stat["titles"], 1):
+        # 处理每个词组下的新闻标题；隐藏 cluster 的非 head 条目，并对可见条目重新编号
+        visible_idx = 0
+        for title_data in stat["titles"]:
+            if title_data.get("cluster_role") == "hidden":
+                continue
+            visible_idx += 1
+            j = visible_idx
             is_new = title_data.get("is_new", False)
             new_class = "new" if is_new else ""
             source_name = html_escape(title_data.get("source_name", ""))
             matched_keyword = title_data.get("matched_keyword", "")
             html_escape(matched_keyword) if matched_keyword else escaped_word
 
-            search_blob = f"{title_data.get('title', '')} {title_data.get('source_name', '')} {matched_keyword} {stat['word']}"
+            # 搜索 blob：把 cluster 隐藏成员的标题+来源也并入，使搜索仍能命中
+            search_blob = (
+                f"{title_data.get('title', '')} {title_data.get('source_name', '')} "
+                f"{matched_keyword} {stat['word']}"
+            )
+            if title_data.get("cluster_role") == "head":
+                for member in title_data.get("cluster_sources") or []:
+                    search_blob += f" {member.get('title','')} {member.get('source_name','')}"
             search_attr = html_escape(search_blob.lower())
 
             stats_html += f"""
@@ -112,6 +124,36 @@ def build_hotlist_view(stats: list[dict], view_mode: str) -> str:
                 )
             else:
                 stats_html += escaped_title
+
+            # cluster 徽章 + 折叠的其它来源列表
+            if title_data.get("cluster_role") == "head":
+                members = title_data.get("cluster_sources") or []
+                if members:
+                    badge_n = len(members)
+                    stats_html += (
+                        f'<details class="cluster-toggle">'
+                        f'<summary class="cluster-badge" '
+                        f'data-i18n-en="+ {badge_n} more sources" '
+                        f'data-i18n-zh="+ {badge_n} 家其它来源">'
+                        f'+ {badge_n} more sources</summary>'
+                        f'<ul class="cluster-list">'
+                    )
+                    for member in members:
+                        m_src = html_escape(member.get("source_name", ""))
+                        m_title = html_escape(member.get("title", ""))
+                        m_url = html_escape(member.get("url", ""))
+                        if m_url:
+                            stats_html += (
+                                f'<li><span class="cluster-src">{m_src}</span>'
+                                f'<a href="{m_url}" target="_blank" '
+                                f'class="cluster-link">{m_title}</a></li>'
+                            )
+                        else:
+                            stats_html += (
+                                f'<li><span class="cluster-src">{m_src}</span>'
+                                f'<span>{m_title}</span></li>'
+                            )
+                    stats_html += "</ul></details>"
 
             stats_html += """
                             </div>

@@ -21,8 +21,25 @@ The Flask web UI (`trendradar/webui/app.py`) has no authentication. Bound to `12
 ### Large Main Module
 `trendradar/__main__.py` is 835 lines. The `NewsAnalyzer` class (lines 45-660) has many methods and orchestrates the entire pipeline. While methods have been extracted to `core/pipeline.py` and `core/mode_strategy.py`, the class still acts as a god object.
 
-### Mutable Config Dict
-Despite Pydantic models existing in `trendradar/models/config.py`, the runtime still passes a mutable `Dict` through `AppContext`. The Pydantic models are used for validation but converted back to dicts via `to_dict()`. This creates two parallel config representations.
+### Mutable Config Dict (部分修复 — 2026-05)
+**已处理**：
+- `trendradar/models/config.py:TrendRadarConfig.to_legacy_dict()` 新方法把 Pydantic 模型直接序列化为 `loader.load_config` 历史返回的扁平 UPPER_CASE 字典格式，并在该方法内部统一应用 webhook 环境变量覆盖。
+- 新增 `tests/test_pydantic_legacy_dict.py` 契约测试：在完整 fixture YAML 上对比两条加载路径，断言顶层键集合一致 + 关键标量/嵌套字段值一致 + webhook env override 生效。该测试将在两条路径出现新漂移时立即失败。
+
+**仍待处理（风险较高，需独立会话评估）**：
+- `loader.py:_load_*` 系列函数与 Pydantic 模型在多处默认值上漂移：
+  - `report.mode`：loader 默认 `daily`，Pydantic 默认 `current`
+  - `report.rank_threshold`：loader 默认 `10`，Pydantic 默认 `5`
+  - `display.region_order`：loader 默认 `[hotlist, rss, new_items, ...]`，Pydantic 默认 `[new_items, hotlist, rss, ...]`
+  - `ai.num_retries`：loader `2` vs Pydantic `1`；`ai.model`：loader `""` vs Pydantic `openai/gemini-3-pro-preview`
+  - `ai_analysis.enabled/include_rss/include_rank_timeline/max_news_for_analysis` 多项不一致
+  - `ai_translation.enabled/language` 不一致
+  - `notification.batch_size.feishu/bark`：loader 用 `29000/3600` 兜底，Pydantic 用 YAML 字段默认 `30000/4000`
+- 完整切换到 Pydantic 路径前，需先逐项确认哪些默认值是历史用户依赖、哪些是文档错误。
+- 切换后即可删除 `loader._load_*` 系列函数，把 `load_config()` 改为 `TrendRadarConfig.from_yaml(p).to_legacy_dict()` 一行实现。
+
+### AppContext 仍是 dict
+`AppContext` 仍然包装 `dict`。`to_legacy_dict()` 已为后续切换做好接线点，但 AppContext 本身的迁移（直接持有 Pydantic 实例）尚未启动。
 
 ### Storage Manager Singleton
 `trendradar/storage/manager.py:19` has a module-level `_storage_manager` singleton pattern that could cause issues in testing or multi-context scenarios.

@@ -830,3 +830,217 @@ class TrendRadarConfig(BaseModel):
             嵌套字典，键与 YAML 原始结构对齐
         """
         return self.model_dump(by_alias=True)
+
+    # ------------------------------------------------------------------
+    # 旧版扁平大写字典格式（与 trendradar.core.loader.load_config 对齐）
+    # ------------------------------------------------------------------
+
+    def to_legacy_dict(self) -> dict[str, Any]:
+        """
+        将配置导出为 ``trendradar.core.loader.load_config`` 历史返回的
+        扁平 UPPER_CASE 字典格式。
+
+        目的：建立 Pydantic 模型作为 *配置 schema 的单一权威来源*，
+        让仍依赖旧 dict 接口的下游代码可以无缝消费同一份模型。
+
+        注意：本方法仅做 *结构* 与 *字段名* 的映射；字段默认值由
+        Pydantic 模型决定，与历史 ``loader.py`` 中部分零散的硬编码默认
+        存在已记录的漂移（详见 ``.planning/codebase/CONCERNS.md``）。
+        Webhook 环境变量覆盖在此处补齐，与 ``loader._load_webhook_config``
+        语义保持一致。
+
+        Returns:
+            扁平大写字典，结构与 ``load_config()`` 返回值对齐
+        """
+        adv = self.advanced
+        result: dict[str, Any] = {}
+
+        # 应用配置
+        result["VERSION_CHECK_URL"] = adv.version_check_url
+        result["CONFIGS_VERSION_CHECK_URL"] = adv.configs_version_check_url
+        result["SHOW_VERSION_UPDATE"] = self.app.show_version_update
+        result["TIMEZONE"] = self.app.timezone
+        result["DEBUG"] = adv.debug
+
+        # 爬虫配置
+        result["REQUEST_INTERVAL"] = adv.crawler.request_interval
+        result["USE_PROXY"] = adv.crawler.use_proxy
+        result["DEFAULT_PROXY"] = adv.crawler.default_proxy
+        result["CRAWLER_API_URL"] = adv.crawler.api_url
+        result["ENABLE_CRAWLER"] = self.platforms.enabled
+
+        # 报告配置
+        result["REPORT_MODE"] = self.report.mode
+        result["DISPLAY_MODE"] = self.report.display_mode
+        result["RANK_THRESHOLD"] = self.report.rank_threshold
+        result["SORT_BY_POSITION_FIRST"] = self.report.sort_by_position_first
+        result["MAX_NEWS_PER_KEYWORD"] = self.report.max_news_per_keyword
+        result["MAX_KEYWORDS"] = self.report.max_keywords
+
+        # 通知配置
+        result["ENABLE_NOTIFICATION"] = self.notification.enabled
+        result["MESSAGE_BATCH_SIZE"] = adv.batch_size.default
+        result["DINGTALK_BATCH_SIZE"] = adv.batch_size.dingtalk
+        result["FEISHU_BATCH_SIZE"] = adv.batch_size.feishu
+        result["BARK_BATCH_SIZE"] = adv.batch_size.bark
+        result["SLACK_BATCH_SIZE"] = adv.batch_size.slack
+        result["BATCH_SEND_INTERVAL"] = adv.batch_send_interval
+        result["FEISHU_MESSAGE_SEPARATOR"] = adv.feishu_message_separator
+        result["MAX_ACCOUNTS_PER_CHANNEL"] = adv.max_accounts_per_channel
+
+        # 推送窗口
+        pw = self.notification.push_window
+        result["PUSH_WINDOW"] = {
+            "ENABLED": pw.enabled,
+            "TIME_RANGE": {"START": pw.start, "END": pw.end},
+            "ONCE_PER_DAY": pw.once_per_day,
+        }
+
+        # 权重配置
+        result["WEIGHT_CONFIG"] = {
+            "RANK_WEIGHT": adv.weight.rank,
+            "FREQUENCY_WEIGHT": adv.weight.frequency,
+            "HOTNESS_WEIGHT": adv.weight.hotness,
+        }
+
+        # 平台
+        result["PLATFORMS"] = [p.model_dump(by_alias=True) for p in self.platforms.sources]
+
+        # RSS
+        rss_proxy = adv.rss.proxy_url or adv.crawler.default_proxy
+        result["RSS"] = {
+            "ENABLED": self.rss.enabled,
+            "REQUEST_INTERVAL": adv.rss.request_interval,
+            "TIMEOUT": adv.rss.timeout,
+            "USE_PROXY": adv.rss.use_proxy,
+            "PROXY_URL": rss_proxy,
+            "FEEDS": [f.model_dump(by_alias=True) for f in self.rss.feeds],
+            "FRESHNESS_FILTER": {
+                "ENABLED": self.rss.freshness_filter.enabled,
+                "MAX_AGE_DAYS": self.rss.freshness_filter.max_age_days,
+            },
+        }
+
+        # AI
+        ai = self.ai
+        result["AI"] = {
+            "MODEL": ai.model,
+            "API_KEY": ai.api_key,
+            "API_BASE": ai.api_base,
+            "TIMEOUT": ai.timeout,
+            "TEMPERATURE": ai.temperature,
+            "MAX_TOKENS": ai.max_tokens,
+            "NUM_RETRIES": ai.num_retries,
+            "FALLBACK_MODELS": list(ai.fallback_models),
+            "EXTRA_PARAMS": getattr(ai, "extra_params", {}) or {},
+        }
+
+        # AI 分析
+        aa = self.ai_analysis
+        aw = aa.analysis_window
+        result["AI_ANALYSIS"] = {
+            "ENABLED": aa.enabled,
+            "LANGUAGE": aa.language,
+            "PROMPT_FILE": aa.prompt_file,
+            "MODE": aa.mode,
+            "MAX_NEWS_FOR_ANALYSIS": aa.max_news_for_analysis,
+            "INCLUDE_RSS": aa.include_rss,
+            "INCLUDE_RANK_TIMELINE": aa.include_rank_timeline,
+            "ANALYSIS_WINDOW": {
+                "ENABLED": aw.enabled,
+                "TIME_RANGE": {"START": aw.start, "END": aw.end},
+                "ONCE_PER_DAY": aw.once_per_day,
+            },
+        }
+
+        # AI 翻译
+        at = self.ai_translation
+        result["AI_TRANSLATION"] = {
+            "ENABLED": at.enabled,
+            "LANGUAGE": at.language,
+            "PROMPT_FILE": at.prompt_file,
+        }
+
+        # 显示
+        d = self.display
+        result["DISPLAY"] = {
+            "REGION_ORDER": list(d.region_order),
+            "REGIONS": {
+                "HOTLIST": d.regions.hotlist,
+                "NEW_ITEMS": d.regions.new_items,
+                "RSS": d.regions.rss,
+                "STANDALONE": d.regions.standalone,
+                "AI_ANALYSIS": d.regions.ai_analysis,
+            },
+            "STANDALONE": {
+                "PLATFORMS": list(d.standalone.platforms),
+                "RSS_FEEDS": list(d.standalone.rss_feeds),
+                "MAX_ITEMS": d.standalone.max_items,
+            },
+        }
+
+        # 存储
+        st = self.storage
+        result["STORAGE"] = {
+            "BACKEND": st.backend,
+            "FORMATS": {
+                "SQLITE": st.formats.sqlite,
+                "TXT": st.formats.txt,
+                "HTML": st.formats.html,
+            },
+            "LOCAL": {
+                "DATA_DIR": st.local.data_dir,
+                "RETENTION_DAYS": st.local.retention_days,
+            },
+            "REMOTE": {
+                "ENDPOINT_URL": st.remote.endpoint_url,
+                "BUCKET_NAME": st.remote.bucket_name,
+                "ACCESS_KEY_ID": st.remote.access_key_id,
+                "SECRET_ACCESS_KEY": st.remote.secret_access_key,
+                "REGION": st.remote.region,
+                "RETENTION_DAYS": st.remote.retention_days,
+            },
+            "PULL": {
+                "ENABLED": st.pull.enabled,
+                "DAYS": st.pull.days,
+            },
+        }
+
+        # Extra APIs（保留原始 dict 形态，匹配 loader 行为）
+        result["EXTRA_APIS"] = self.extra_apis.model_dump(by_alias=True)
+
+        # Webhook（与 loader._load_webhook_config 对齐：env 优先，其次 YAML）
+        ch = self.notification.channels
+
+        def _env_or(default: str, env_key: str) -> str:
+            val = os.environ.get(env_key, "").strip()
+            return val if val else default
+
+        result["FEISHU_WEBHOOK_URL"] = _env_or(ch.feishu.webhook_url, "FEISHU_WEBHOOK_URL")
+        result["DINGTALK_WEBHOOK_URL"] = _env_or(
+            ch.dingtalk.webhook_url, "DINGTALK_WEBHOOK_URL"
+        )
+        result["WEWORK_WEBHOOK_URL"] = _env_or(ch.wework.webhook_url, "WEWORK_WEBHOOK_URL")
+        result["WEWORK_MSG_TYPE"] = _env_or(ch.wework.msg_type, "WEWORK_MSG_TYPE")
+        result["TELEGRAM_BOT_TOKEN"] = _env_or(ch.telegram.bot_token, "TELEGRAM_BOT_TOKEN")
+        result["TELEGRAM_CHAT_ID"] = _env_or(ch.telegram.chat_id, "TELEGRAM_CHAT_ID")
+        result["EMAIL_FROM"] = _env_or(ch.email.from_, "EMAIL_FROM")
+        result["EMAIL_PASSWORD"] = _env_or(ch.email.password, "EMAIL_PASSWORD")
+        result["EMAIL_TO"] = _env_or(ch.email.to, "EMAIL_TO")
+        result["EMAIL_SMTP_SERVER"] = _env_or(ch.email.smtp_server, "EMAIL_SMTP_SERVER")
+        result["EMAIL_SMTP_PORT"] = _env_or(ch.email.smtp_port, "EMAIL_SMTP_PORT")
+        result["NTFY_SERVER_URL"] = _env_or(
+            ch.ntfy.server_url or "https://ntfy.sh", "NTFY_SERVER_URL"
+        )
+        result["NTFY_TOPIC"] = _env_or(ch.ntfy.topic, "NTFY_TOPIC")
+        result["NTFY_TOKEN"] = _env_or(ch.ntfy.token, "NTFY_TOKEN")
+        result["BARK_URL"] = _env_or(ch.bark.url, "BARK_URL")
+        result["SLACK_WEBHOOK_URL"] = _env_or(ch.slack.webhook_url, "SLACK_WEBHOOK_URL")
+        result["GENERIC_WEBHOOK_URL"] = _env_or(
+            ch.generic_webhook.webhook_url, "GENERIC_WEBHOOK_URL"
+        )
+        result["GENERIC_WEBHOOK_TEMPLATE"] = _env_or(
+            ch.generic_webhook.payload_template, "GENERIC_WEBHOOK_TEMPLATE"
+        )
+
+        return result

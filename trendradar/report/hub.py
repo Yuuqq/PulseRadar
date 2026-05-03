@@ -129,6 +129,10 @@ def _build_latest_links(latest_by_mode: dict[str, dict]) -> str:
     )
 
 
+_MODE_LABELS_EN = {"current": "Current", "daily": "Daily", "incremental": "Incremental"}
+_MODE_LABELS_ZH = {"current": "当前榜单", "daily": "全天汇总", "incremental": "增量分析"}
+
+
 def _build_cards_html(grouped: dict[str, list[dict]]) -> str:
     sections = []
     for date in sorted(grouped.keys(), reverse=True):
@@ -136,7 +140,8 @@ def _build_cards_html(grouped: dict[str, list[dict]]) -> str:
         cards = []
         for r in reports:
             mode = r.get("mode", "")
-            mode_label = r.get("mode_label", mode)
+            label_en = _MODE_LABELS_EN.get(mode, r.get("mode_label", mode))
+            label_zh = _MODE_LABELS_ZH.get(mode, r.get("mode_label", mode))
             path = r.get("path", "#")
             time_display = r.get("time", "")
             total = r.get("total_titles", 0)
@@ -144,7 +149,7 @@ def _build_cards_html(grouped: dict[str, list[dict]]) -> str:
             cards.append(
                 f'<a href="{path}" class="card" data-mode="{mode}" data-date="{date}">'
                 f'<div class="card-time">{time_display}</div>'
-                f'<span class="card-badge mode-{mode}">{mode_label}</span>'
+                f'<span class="card-badge mode-{mode}" data-i18n-en="{label_en}" data-i18n-zh="{label_zh}">{label_en}</span>'
                 f'<div class="card-stats">'
                 f'<span class="stat-num">{total}</span>'
                 f'<span class="stat-label" data-i18n-en="signals" data-i18n-zh="条新闻">signals</span>'

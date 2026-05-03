@@ -190,7 +190,7 @@ report:
   display_mode: keyword
   max_keywords: 0
   max_news_per_keyword: 0
-  mode: current
+  mode: daily
   rank_threshold: 5
   sort_by_position_first: false
 rss:

@@ -10,6 +10,7 @@ from collections.abc import Callable
 from pathlib import Path
 
 from trendradar.logging import get_logger
+from trendradar.report.cluster import cluster_stats
 from trendradar.report.hub import generate_hub_html
 from trendradar.report.manifest import (
     add_report_entry,
@@ -150,6 +151,9 @@ def prepare_report_data(
                 "titles": processed_titles,
             }
         )
+
+    # 跨源去重 / 同事件聚类（同一关键词组内、跨平台合并）
+    cluster_stats(processed_stats)
 
     return {
         "stats": processed_stats,

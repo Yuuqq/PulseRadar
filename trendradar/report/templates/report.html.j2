@@ -124,6 +124,11 @@
                     for (var i = 0; i < nodes.length; i++) {
                         nodes[i].textContent = nodes[i].getAttribute("data-i18n-" + next) || "";
                     }
+                    var phNodes = document.querySelectorAll("[data-i18n-" + next + "-placeholder]");
+                    for (var j = 0; j < phNodes.length; j++) {
+                        var v = phNodes[j].getAttribute("data-i18n-" + next + "-placeholder");
+                        if (v !== null) phNodes[j].setAttribute("placeholder", v);
+                    }
                     try { localStorage.setItem("pulseradar.lang", next); } catch (e) {}
                 };
 

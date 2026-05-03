@@ -7,8 +7,12 @@
 import contextlib
 import webbrowser
 from pathlib import Path
+from typing import TYPE_CHECKING
 
 from trendradar.context import AppContext
+
+if TYPE_CHECKING:
+    from trendradar.core.mode_strategies import ModeStrategy
 from trendradar.core.ai_service import (
     _load_analysis_data,
     _prepare_current_title_info,
@@ -295,8 +299,8 @@ def execute_mode_strategy(
     proxy_url: str | None,
     is_docker_container: bool,
     should_open_browser: bool,
-    mode_strategy: dict,
-    mode_strategies: dict,
+    mode_strategy: "ModeStrategy",
+    mode_strategies: "dict[str, ModeStrategy]",
     results: dict,
     id_to_name: dict,
     failed_ids: list,

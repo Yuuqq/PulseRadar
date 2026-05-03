@@ -38,6 +38,12 @@ The Flask web UI (`trendradar/webui/app.py`) has no authentication. Bound to `12
 - 完整切换到 Pydantic 路径前，需先逐项确认哪些默认值是历史用户依赖、哪些是文档错误。
 - 切换后即可删除 `loader._load_*` 系列函数，把 `load_config()` 改为 `TrendRadarConfig.from_yaml(p).to_legacy_dict()` 一行实现。
 
+### MODE_STRATEGIES 类型化 (已完成 — 2026-05)
+- 抽出到 `trendradar/core/mode_strategies.py`：`MODE_STRATEGIES`/`ModeStrategy` TypedDict/`ReportMode` Literal/`get_mode_strategy()`/`DEFAULT_REPORT_MODE`。
+- `AnalysisEngine.MODE_STRATEGIES` 现为模块级表的别名（同一对象）。
+- `mode_strategy.execute_mode_strategy` 参数类型从 `dict` 收紧到 `ModeStrategy`/`dict[str, ModeStrategy]`。
+- `tests/test_mode_strategies.py` 覆盖：3 个规范模式存在、TypedDict 字段一致、unknown 回退到 daily、AnalysisEngine 类属性 is 同对象。
+
 ### AppContext 仍是 dict
 `AppContext` 仍然包装 `dict`。`to_legacy_dict()` 已为后续切换做好接线点，但 AppContext 本身的迁移（直接持有 Pydantic 实例）尚未启动。
 

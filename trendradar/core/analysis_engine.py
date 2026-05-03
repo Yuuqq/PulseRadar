@@ -7,6 +7,11 @@ AnalysisEngine — 第二个编排器类
 import os
 
 from trendradar.context import AppContext
+from trendradar.core.mode_strategies import (
+    MODE_STRATEGIES,
+    ModeStrategy,
+    get_mode_strategy,
+)
 from trendradar.core.mode_strategy import execute_mode_strategy
 from trendradar.core.types import AnalysisOutput, CrawlOutput
 from trendradar.logging import get_logger
@@ -34,27 +39,9 @@ def _detect_docker_environment() -> bool:
 class AnalysisEngine:
     """分析引擎 — 编排模式策略、分析流水线和 AI 分析"""
 
-    # 模式策略定义（从 __main__.py 复制）
-    MODE_STRATEGIES = {
-        "incremental": {
-            "mode_name": "增量模式",
-            "description": "增量模式（只关注新增新闻，无新增时不推送）",
-            "report_type": "增量分析",
-            "should_send_notification": True,
-        },
-        "current": {
-            "mode_name": "当前榜单模式",
-            "description": "当前榜单模式（当前榜单匹配新闻 + 新增新闻区域 + 按时推送）",
-            "report_type": "当前榜单",
-            "should_send_notification": True,
-        },
-        "daily": {
-            "mode_name": "全天汇总模式",
-            "description": "全天汇总模式（所有匹配新闻 + 新增新闻区域 + 按时推送）",
-            "report_type": "全天汇总",
-            "should_send_notification": True,
-        },
-    }
+    # 模式策略表（单一权威来源在 trendradar.core.mode_strategies）
+    # 保留类属性别名以维持向后兼容。
+    MODE_STRATEGIES: dict[str, ModeStrategy] = MODE_STRATEGIES  # type: ignore[assignment]
 
     def __init__(
         self,
@@ -116,9 +103,9 @@ class AnalysisEngine:
         # will be wired in Plan 04 when the facade is collapsed.
         return AnalysisOutput(stats=[], html_file_path=html_file, ai_result=None)
 
-    def _get_mode_strategy(self) -> dict:
-        """获取当前报告模式的策略配置"""
-        return self.MODE_STRATEGIES.get(self.report_mode, self.MODE_STRATEGIES["daily"])
+    def _get_mode_strategy(self) -> ModeStrategy:
+        """获取当前报告模式的策略配置（未知模式回退到 daily）"""
+        return get_mode_strategy(self.report_mode)
 
     def _should_open_browser(self) -> bool:
         """判断是否应该打开浏览器"""

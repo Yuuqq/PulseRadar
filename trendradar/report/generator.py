@@ -339,9 +339,9 @@ def _publish_to_github_pages(
     with open(root_index, "w", encoding="utf-8") as f:
         f.write(html_content)
 
-    # 5. 生成 Hub 归档页 -> archive.html
+    # 5. 生成 Hub 归档页 -> reports/archive.html（在 git add reports/ 范围内）
     hub_html = generate_hub_html(manifest)
-    archive_path = Path("archive.html")
+    archive_path = pages / "archive.html"
     with open(archive_path, "w", encoding="utf-8") as f:
         f.write(hub_html)
 

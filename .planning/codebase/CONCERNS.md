@@ -38,6 +38,21 @@ The Flask web UI (`trendradar/webui/app.py`) has no authentication. Bound to `12
 - 完整切换到 Pydantic 路径前，需先逐项确认哪些默认值是历史用户依赖、哪些是文档错误。
 - 切换后即可删除 `loader._load_*` 系列函数，把 `load_config()` 改为 `TrendRadarConfig.from_yaml(p).to_legacy_dict()` 一行实现。
 
+### section_helpers 仍是 f-string 拼接 (Task 2.3 — 未完成)
+`trendradar/report/html_sections.py` 仍有 ~460 行 HTML 通过 f-string + `+=` 累加构建（`build_hotlist_view` 135 行 / `render_rss_stats_html` 100 行 / `render_standalone_html` 227 行）。Task 2.0 已把主壳搬到 Jinja2，但这三个 section 函数因为以下风险点暂未一并迁移：
+
+1. **空白字节敏感**：现有输出的缩进/换行被前端 CSS 隐式依赖（已在线上跑），任何 Jinja2 `{%- -%}` 控制差异都可能造成 diff，需要逐行对齐。
+2. **escape 语义双轨**：现有代码显式调用 `trendradar.report.helpers.html_escape`；切到 Jinja2 后默认走 `markupsafe.escape`。两者对 `&`/`'`/`/` 处理需要逐字符核对，否则会发生双重转义或漏转义。
+3. **缺验证手段**：无 HTML 字节级 snapshot 测试。迁移前必须先建立 snapshot fixture（在 `tests/fixtures/` 下放固定输入 + 现有输出），否则无从证明等价。
+
+**推荐独立会话步骤**：
+- Step A：在 `tests/test_html_sections_snapshot.py` 中用 3 组固定输入冻结当前三个函数的字节输出（先做基线）
+- Step B：新建 `trendradar/report/templates/_sections.html.j2`，定义 `hotlist_view`/`rss_stats`/`standalone` 三个 macro，用 `{% autoescape true %}` + Jinja2 默认 escape
+- Step C：函数体改为 `template.render(...)`，跑 snapshot 测试，对比 diff 调整 macro 的空白控制直到字节一致
+- Step D：评估是否将 helpers.html_escape 全局替换为 markupsafe.escape
+
+预计 1-2 小时聚焦工作量，不适合穿插在多任务会话中做。
+
 ### MODE_STRATEGIES 类型化 (已完成 — 2026-05)
 - 抽出到 `trendradar/core/mode_strategies.py`：`MODE_STRATEGIES`/`ModeStrategy` TypedDict/`ReportMode` Literal/`get_mode_strategy()`/`DEFAULT_REPORT_MODE`。
 - `AnalysisEngine.MODE_STRATEGIES` 现为模块级表的别名（同一对象）。

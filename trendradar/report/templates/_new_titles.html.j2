@@ -1,0 +1,25 @@
+{#- 本次新增热点 -#}
+{#- Context vars:
+      total_new_count : int
+      sources         : list[dict] with keys: source_name, items
+      items           : list[dict] with keys: number, rank_class, rank_text, escaped_title, link_url
+-#}
+
+                <div class="new-section">
+                    <div class="new-section-title">本次新增热点 (共 {{ total_new_count }} 条)</div>
+{%- for src in sources %}
+                    <div class="new-source-group">
+                        <div class="new-source-title">{{ src.source_name }} · {{ src.items|length }}条</div>
+{%- for it in src.items %}
+                        <div class="new-item">
+                            <div class="new-item-number">{{ it.number }}</div>
+                            <div class="new-item-rank {{ it.rank_class }}">{{ it.rank_text }}</div>
+                            <div class="new-item-content">
+                                <div class="new-item-title">{% if it.link_url %}<a href="{{ it.link_url }}" target="_blank" class="news-link">{{ it.title }}</a>{% else %}{{ it.title }}{% endif %}
+                                </div>
+                            </div>
+                        </div>
+{%- endfor %}
+                    </div>
+{%- endfor %}
+                </div>

@@ -35,16 +35,24 @@ Despite Pydantic models existing in `trendradar/models/config.py`, the runtime s
 - `AGENTS.md` and `README-EN.md` are in English
 - Mixed language makes onboarding harder for non-Chinese speakers
 
-### Inline HTML Generation
-`trendradar/report/html.py`, `html_sections.py`, `html_styles.py`, `html_scripts.py` generate HTML by string concatenation. No templating engine (Jinja2 is only used for web UI). This makes report HTML fragile to edit.
+### Inline HTML Generation (部分修复 — 2026-05)
+**已处理**：
+- `html_styles.py` (1197 行 CSS 字符串) → 抽到 `trendradar/report/templates/report.css`，模块降为薄加载器
+- `html_scripts.py` (578 行 JS 字符串) → 抽到 `trendradar/report/templates/report.js`，模块降为薄加载器
+- `html.py` 主壳由字符串拼接改为 Jinja2 模板渲染（`templates/report.html.j2`），失败平台列表与"本次新增热点"区块也改为模板循环
+- 净减少 ~1760 行 Python 字符串拼接代码
+
+**仍待处理**：
+- `html_sections.py` 内的 `build_hotlist_view`、`render_rss_stats_html`、`render_standalone_html` 等仍以字符串拼接形式构造区块 HTML（被本模块以 `Markup` 包装注入主模板）。后续可逐个改为 Jinja2 macros，但风险较高、需要逐区块对比输出验证。
+- `rss_html.py` (477 行) 独立的 RSS 报告生成器尚未模板化。
 
 ### Config Key Case Transformation
 Config keys are lowercase in YAML but UPPERCASE in Python. This transformation happens in `trendradar/core/config.py` and creates a non-obvious mapping that must be remembered.
 
 ## Performance
 
-### Sequential Crawling
-The main crawler (`trendradar/crawler/fetcher.py`) appears to crawl platforms sequentially with `request_interval` delays. Extra APIs use concurrent crawling (`crawl_extra_sources_concurrent`), but the primary hotlist crawl is serial.
+### Concurrent Crawling (已修复)
+主热榜爬取 `trendradar/crawler/fetcher.py:crawl_websites` 已改为基于 `ThreadPoolExecutor`（最多 10 路并发）+ 20ms 提交错峰。`request_interval` 参数保留为兼容旧调用方但实际未再使用，已在 docstring 中说明。文档此前的"sequential"描述已过期。
 
 ### SQLite for Storage
 Using SQLite as the primary local storage backend. Fine for single-process access but could be a bottleneck if multiple processes (e.g., web UI + crawler) access simultaneously.

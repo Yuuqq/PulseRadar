@@ -415,18 +415,29 @@ body[data-lang="zh"] .date-heading { font-family: var(--serif-cn); }
   line-height: 1;
 }
 .card-badge {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--sans);
   font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  padding: 2px 8px;
-  margin-bottom: 10px;
-  border: 1px solid currentColor;
+  padding: 0;
+  margin-bottom: 12px;
+  border: 0;
+  background: transparent;
+}
+.card-badge::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 2px;
+  background: currentColor;
 }
 .mode-current { color: var(--crimson); }
 .mode-daily { color: var(--warm); }
-.mode-incremental { color: var(--ink-soft); }
+.mode-incremental { color: var(--muted); }
 .card-stats {
   font-size: 12px;
   color: var(--muted);

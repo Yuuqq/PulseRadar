@@ -99,12 +99,16 @@ def _build_hotlist_section(
 
     view_toggle_html = ""
     if len(view_options) > 1:
-        labels = {"keyword": "关键词", "platform": "平台"}
+        labels_en = {"keyword": "Keyword", "platform": "Platform"}
+        labels_zh = {"keyword": "关键词", "platform": "平台"}
         view_order = [v for v in ["keyword", "platform"] if v in view_options]
         view_toggle_html = '<div class="view-toggle" role="tablist">'
         for view in view_order:
+            le = labels_en.get(view, view)
+            lz = labels_zh.get(view, view)
             view_toggle_html += (
-                f'<button class="view-btn" data-view="{view}">{labels.get(view, view)}</button>'
+                f'<button class="view-btn" data-view="{view}" '
+                f'data-i18n-en="{le}" data-i18n-zh="{lz}">{le}</button>'
             )
         view_toggle_html += "</div>"
 
@@ -123,12 +127,16 @@ def _build_hotlist_section(
                             {view_toggle_html}
                         </div>
                         <div class="controls-right">
-                            <input id="search-input" class="search-input" type="search" placeholder="搜索标题/来源/关键词">
+                            <input id="search-input" class="search-input" type="search"
+                                placeholder="Search title / source / keyword"
+                                data-i18n-en-placeholder="Search title / source / keyword"
+                                data-i18n-zh-placeholder="搜索标题/来源/关键词">
                         </div>
                     </div>
                     {main_view_html}
                     {alternate_view_html}
-                    <div id="search-empty" style="display:none; color:#94a3b8; font-size:13px; margin-top:8px;">无匹配结果</div>
+                    <div id="search-empty" style="display:none; color:#94a3b8; font-size:13px; margin-top:8px;"
+                        data-i18n-en="No matches" data-i18n-zh="无匹配结果">No matches</div>
                 </div>"""
     )
 

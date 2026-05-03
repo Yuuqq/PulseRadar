@@ -195,6 +195,57 @@ body[data-lang="zh"] .masthead-title { font-family: var(--serif-cn); }
     margin-top: 24px;
 }
 
+/* Section tabs — magazine-style nav */
+.section-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    align-items: stretch;
+    margin: 8px 0 4px;
+    padding: 0;
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+}
+.section-tab {
+    appearance: none;
+    -webkit-appearance: none;
+    background: transparent;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    margin: 0;
+    padding: 12px 18px;
+    font-family: var(--sans, "Inter", system-ui, sans-serif);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    cursor: pointer;
+    transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+    line-height: 1;
+}
+.section-tab + .section-tab {
+    border-left: 1px solid var(--hairline);
+}
+.section-tab:hover {
+    color: var(--ink);
+    background: rgba(0, 0, 0, 0.02);
+}
+.section-tab.active {
+    color: var(--crimson);
+    border-bottom-color: var(--crimson);
+}
+[data-theme="dark"] .section-tab:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+@media (max-width: 640px) {
+    .section-tab {
+        padding: 10px 12px;
+        font-size: 10px;
+        letter-spacing: 0.12em;
+    }
+}
+
 .report-section {
     padding: 20px 0 8px;
     border-top: 1px solid var(--hairline);

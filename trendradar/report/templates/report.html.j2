@@ -1,4 +1,4 @@
-{#- HTML 报告主模板 -#}
+{#- HTML 报告主模板 — Magazine 版（双语） -#}
 {#-
   Context vars:
     css                : str  -- 内联 CSS 文本
@@ -15,37 +15,70 @@
 -#}
 
     <!DOCTYPE html>
-    <html>
+    <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>PulseRadar</title>
+        <title>PulseRadar · Today's Pulse</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <style>{{ css }}        </style>
     </head>
-    <body data-default-view={{ display_mode }}>
+    <body data-default-view={{ display_mode }} data-lang="en">
         <div class="container">
             <div class="header">
                 <div class="save-buttons">
-                    <button class="save-btn" onclick="saveAsImage()">保存为图片</button>
-                    <button class="save-btn" onclick="saveAsMultipleImages()">分段保存</button>
-                    <button class="save-btn theme-toggle" id="theme-toggle" onclick="toggleTheme()" aria-label="切换主题">🌙</button>
+                    <button class="save-btn lang-toggle" id="lang-toggle" onclick="toggleLang()" aria-label="Toggle language">中</button>
+                    <button class="save-btn" onclick="saveAsImage()" data-i18n-en="Save Image" data-i18n-zh="保存为图片">Save Image</button>
+                    <button class="save-btn" onclick="saveAsMultipleImages()" data-i18n-en="Save Sections" data-i18n-zh="分段保存">Save Sections</button>
+                    <button class="save-btn theme-toggle" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">🌙</button>
                 </div>
-                <div class="header-row">
-                    <div class="header-title">PulseRadar</div>
-                    <div class="header-info">
-                        <span class="info-tag">{{ mode_label }}</span>
-                        <span class="info-tag">采集 {{ total_titles }}</span>
-                        <span class="info-tag">命中 {{ hot_news_count }}</span>
-                        <span class="info-tag">{{ time_str }}</span>
+
+                <div class="masthead">
+                    <div class="masthead-side masthead-left">
+                        <div class="masthead-meta-strong">{{ time_str }}</div>
+                        <div class="masthead-meta">
+                            <span data-i18n-en="ISSUE NO." data-i18n-zh="第">ISSUE NO.</span>
+                            {{ hot_news_count }}<span data-i18n-en="" data-i18n-zh=" 期"></span>
+                        </div>
                     </div>
+
+                    <h1 class="masthead-title">
+                        <span class="brand" data-i18n-en="PulseRadar" data-i18n-zh="脉搏雷达">PulseRadar</span>
+                        <span class="masthead-sep">·</span>
+                        <span class="tagline" data-i18n-en="Today's Pulse" data-i18n-zh="今日热点">Today's Pulse</span>
+                    </h1>
+
+                    <div class="masthead-side masthead-right">
+                        <div class="masthead-meta-strong">
+                            <span data-i18n-en="SIGNALS" data-i18n-zh="信号数">SIGNALS</span>: {{ total_titles }}
+                        </div>
+                        <div class="masthead-meta">
+                            {%- if display_mode == "platform" -%}
+                            <span data-i18n-en="Platform Mode" data-i18n-zh="平台模式">Platform Mode</span>
+                            {%- else -%}
+                            <span data-i18n-en="Keyword Mode" data-i18n-zh="关键词模式">Keyword Mode</span>
+                            {%- endif -%}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="masthead-mobile">
+                    <span class="masthead-meta">{{ time_str }}</span>
+                    <span class="masthead-meta">
+                        <span data-i18n-en="SIGNALS" data-i18n-zh="信号数">SIGNALS</span>: {{ total_titles }}
+                    </span>
                 </div>
             </div>
 
             <div class="content">
 {%- if failed_ids %}
                 <div class="error-section">
-                    <div class="error-title">⚠️ 请求失败的平台</div>
+                    <div class="error-title">
+                        <span data-i18n-en="Failed Platforms" data-i18n-zh="请求失败的平台">Failed Platforms</span>
+                    </div>
                     <ul class="error-list">
 {%- for fid in failed_ids %}<li class="error-item">{{ fid }}</li>{% endfor %}
                     </ul>
@@ -57,20 +90,60 @@
 
             <div class="footer">
                 <div class="footer-content">
-                    由 <span class="project-name">PulseRadar</span> 生成 ·
-                    <a href="https://github.com/sansan0/TrendRadar" target="_blank" class="footer-link">
-                        基于 TrendRadar
-                    </a>
+                    <span data-i18n-en="Generated by" data-i18n-zh="由">Generated by</span>
+                    <span class="project-name">PulseRadar</span>
+                    <span class="footer-sep">·</span>
+                    <a href="https://github.com/sansan0/TrendRadar" target="_blank" class="footer-link" data-i18n-en="Based on TrendRadar" data-i18n-zh="基于 TrendRadar">Based on TrendRadar</a>
 {%- if update_info %}
                     <br>
-                    <span style="color: #ea580c; font-weight: 500;">
-                        发现新版本 {{ update_info.remote_version }}，当前版本 {{ update_info.current_version }}
+                    <span class="update-info">
+                        <span data-i18n-en="New version available" data-i18n-zh="发现新版本">New version available</span>
+                        {{ update_info.remote_version }} ·
+                        <span data-i18n-en="current" data-i18n-zh="当前">current</span>
+                        {{ update_info.current_version }}
                     </span>
 {%- endif %}
                 </div>
             </div>
         </div>
 
+        <script>
+            // Lightweight i18n toggle for chrome strings (data-i18n-en/zh).
+            // News content remains in original language.
+            (function () {
+                window.toggleLang = function () {
+                    var body = document.body;
+                    var current = body.dataset.lang === "zh" ? "zh" : "en";
+                    var next = current === "zh" ? "en" : "zh";
+                    body.dataset.lang = next;
+                    document.documentElement.setAttribute("lang", next === "zh" ? "zh-CN" : "en");
+                    var btn = document.getElementById("lang-toggle");
+                    if (btn) btn.textContent = next === "zh" ? "EN" : "中";
+                    var nodes = document.querySelectorAll("[data-i18n-" + next + "]");
+                    for (var i = 0; i < nodes.length; i++) {
+                        nodes[i].textContent = nodes[i].getAttribute("data-i18n-" + next) || "";
+                    }
+                    try { localStorage.setItem("pulseradar.lang", next); } catch (e) {}
+                };
+
+                // Restore saved language preference (default: en)
+                try {
+                    var saved = localStorage.getItem("pulseradar.lang");
+                    if (saved === "zh") {
+                        // Defer until DOM ready so all elements exist
+                        if (document.readyState === "loading") {
+                            document.addEventListener("DOMContentLoaded", function () {
+                                document.body.dataset.lang = "en"; // toggleLang flips it
+                                window.toggleLang();
+                            });
+                        } else {
+                            document.body.dataset.lang = "en";
+                            window.toggleLang();
+                        }
+                    }
+                } catch (e) {}
+            })();
+        </script>
         <script>{{ js }}        </script>
     </body>
     </html>

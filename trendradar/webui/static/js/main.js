@@ -4,6 +4,62 @@ let pollInterval = null;
 let currentJobId = null;
 let globalConfirmResolver = null;
 
+// ---------------------------------------------------------------------------
+// 全局 fetch 包装：自动附加 X-Requested-With（CSRF 防护需要），
+// 并在收到 401 时跳转到登录页。
+// ---------------------------------------------------------------------------
+(function installFetchInterceptor() {
+    if (typeof window === 'undefined' || !window.fetch || window.__trFetchPatched) {
+        return;
+    }
+    const originalFetch = window.fetch.bind(window);
+    window.__trFetchPatched = true;
+    window.fetch = function patchedFetch(input, init) {
+        const opts = Object.assign({}, init || {});
+        // 同源请求才注入头部
+        let isSameOrigin = true;
+        try {
+            const url = typeof input === 'string' ? input : (input && input.url) || '';
+            if (/^https?:\/\//i.test(url)) {
+                isSameOrigin = new URL(url).origin === window.location.origin;
+            }
+        } catch (_) { /* ignore */ }
+
+        if (isSameOrigin) {
+            const headers = new Headers(opts.headers || (typeof input !== 'string' && input && input.headers) || {});
+            if (!headers.has('X-Requested-With')) {
+                headers.set('X-Requested-With', 'XMLHttpRequest');
+            }
+            opts.headers = headers;
+            if (opts.credentials === undefined) {
+                opts.credentials = 'same-origin';
+            }
+        }
+
+        return originalFetch(input, opts).then((resp) => {
+            if (resp && resp.status === 401 && isSameOrigin) {
+                const path = window.location.pathname + window.location.search;
+                if (!/^\/(login|setup)\b/.test(window.location.pathname)) {
+                    window.location.href = '/login?next=' + encodeURIComponent(path);
+                }
+            }
+            return resp;
+        });
+    };
+})();
+
+// 退出登录按钮
+document.addEventListener('DOMContentLoaded', () => {
+    const logoutBtn = document.getElementById('logout-btn');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', () => {
+            fetch('/logout', { method: 'POST' })
+                .then(() => { window.location.href = '/login'; })
+                .catch(() => { window.location.href = '/login'; });
+        });
+    }
+});
+
 function showToast(message, type = 'info') {
     const toast = document.getElementById('toast');
     if (!toast) return;

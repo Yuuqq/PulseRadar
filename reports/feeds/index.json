@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-03T11:19:13Z",
+  "updated": "2026-05-03T11:21:55Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
@@ -66,6 +66,11 @@
       "keyword": "特斯拉",
       "count": 1,
       "url": "/reports/feeds/kw-3f426f96e0.xml"
+    },
+    "kw-4866e189d5": {
+      "keyword": "印度",
+      "count": 1,
+      "url": "/reports/feeds/kw-4866e189d5.xml"
     }
   }
 }

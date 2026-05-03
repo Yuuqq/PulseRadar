@@ -335,9 +335,14 @@ def _publish_to_github_pages(
     manifest = add_report_entry(manifest, entry)
     save_manifest(manifest_path, manifest)
 
-    # 4. 生成 Hub 页面作为根 index.html
-    hub_html = generate_hub_html(manifest)
+    # 4. 根目录 index.html = 最新报告（首页直接显示当期内容）
     with open(root_index, "w", encoding="utf-8") as f:
+        f.write(html_content)
+
+    # 5. 生成 Hub 归档页 -> archive.html
+    hub_html = generate_hub_html(manifest)
+    archive_path = Path("archive.html")
+    with open(archive_path, "w", encoding="utf-8") as f:
         f.write(hub_html)
 
     logger.info(

@@ -1,10 +1,10 @@
 {
-  "updated": "2026-05-04T22:32:53Z",
+  "updated": "2026-05-04T23:29:47Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 19,
+      "count": 20,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
     "kw-5f479f2ee3": {
@@ -12,19 +12,19 @@
       "count": 11,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
     },
-    "kw-101806f57c": {
-      "keyword": "中国",
-      "count": 11,
-      "url": "/reports/feeds/kw-101806f57c.xml"
-    },
     "openai-claude": {
       "keyword": "OpenAI / Claude",
       "count": 10,
       "url": "/reports/feeds/openai-claude.xml"
     },
+    "kw-101806f57c": {
+      "keyword": "中国",
+      "count": 10,
+      "url": "/reports/feeds/kw-101806f57c.xml"
+    },
     "kw-be93bcade4": {
       "keyword": "北美",
-      "count": 9,
+      "count": 8,
       "url": "/reports/feeds/kw-be93bcade4.xml"
     },
     "kw-4c6737b9f5": {
@@ -47,11 +47,6 @@
       "count": 2,
       "url": "/reports/feeds/kw-3f426f96e0.xml"
     },
-    "kw-5bdcf826f2": {
-      "keyword": "俄罗斯",
-      "count": 2,
-      "url": "/reports/feeds/kw-5bdcf826f2.xml"
-    },
     "kw-22582edf78": {
       "keyword": "大疆",
       "count": 1,
@@ -67,10 +62,20 @@
       "count": 1,
       "url": "/reports/feeds/kw-b0922629ca.xml"
     },
+    "kw-3842b66185": {
+      "keyword": "腾讯",
+      "count": 1,
+      "url": "/reports/feeds/kw-3842b66185.xml"
+    },
     "kw-77c22b5841": {
       "keyword": "西欧",
       "count": 1,
       "url": "/reports/feeds/kw-77c22b5841.xml"
+    },
+    "kw-5bdcf826f2": {
+      "keyword": "俄罗斯",
+      "count": 1,
+      "url": "/reports/feeds/kw-5bdcf826f2.xml"
     },
     "kw-4866e189d5": {
       "keyword": "印度",

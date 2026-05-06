@@ -4,62 +4,78 @@
   <subtitle>Subscribe to keyword: 微软 / 谷歌 / 苹果</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/kw-5f479f2ee3.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-05-06T17:03:15Z</updated>
+  <updated>2026-05-06T19:10:51Z</updated>
   <id>urn:pulseradar:feed:904a911d6c5f</id>
   <author><name>PulseRadar</name></author>
+  <entry>
+    <id>urn:pulseradar:2026-05-06:f9e3d48dac608ba9</id>
+    <title>Google tools for customizing searches</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48032240"/>
+    <updated>2026-05-06T19:10:51Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 11</summary>
+  </entry>
   <entry>
     <id>urn:pulseradar:2026-05-06:6901eb8028a61471</id>
     <title>用 Codex 写了第一个 iOS App，经文全部开源了，顺便聊聊苹果审核</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1210659"/>
-    <updated>2026-05-06T17:03:15Z</updated>
+    <updated>2026-05-06T19:10:51Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 8</summary>
+    <summary>Rank: 11</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-06:a6d3d468b9175434</id>
     <title>安卓有望在5月13日公布全新视觉设计</title>
     <link rel="alternate" type="text/html" href="https://www.coolapk.com/feed/71586575"/>
-    <updated>2026-05-06T17:03:15Z</updated>
+    <updated>2026-05-06T19:10:51Z</updated>
     <author><name>酷安</name></author>
-    <summary>Rank: 10</summary>
+    <summary>Rank: 14</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-06:9eb44edeb8e39537</id>
     <title>iOS 列表性能优化实战：从 45fps 到 60fps 的蜕变</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7635102638107754534"/>
-    <updated>2026-05-06T17:03:15Z</updated>
+    <updated>2026-05-06T19:10:51Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 21</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-06:1e72c22e1c2c054f</id>
+    <title>Google Cloud fraud defense, the next evolution of reCAPTCHA</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48039362"/>
+    <updated>2026-05-06T19:10:51Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 22</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-06:d6d2450096b4af42</id>
     <title>时隔 5 年的大更新：AirPods Max 2 首发体验</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/108118"/>
-    <updated>2026-05-06T17:03:15Z</updated>
+    <updated>2026-05-06T19:10:51Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 22</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-05-06:ba46b2b605c964c6</id>
-    <title>重磅发布！KMP 双端订阅支付彻底封神，一套代码搞定 iOS+Android</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7635869939150438451"/>
-    <updated>2026-05-06T17:03:15Z</updated>
-    <author><name>掘金</name></author>
-    <summary>Rank: 23</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-06:84ffa6327b088e3b</id>
     <title>YouTube, your RSS feeds are broken</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48030964"/>
-    <updated>2026-05-06T17:03:15Z</updated>
+    <updated>2026-05-06T19:10:51Z</updated>
     <author><name>Hacker News</name></author>
+    <summary>Rank: 24</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-06:ba46b2b605c964c6</id>
+    <title>重磅发布！KMP 双端订阅支付彻底封神，一套代码搞定 iOS+Android</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7635869939150438451"/>
+    <updated>2026-05-06T19:10:51Z</updated>
+    <author><name>掘金</name></author>
     <summary>Rank: 24</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-06:103d7b9a27fb3600</id>
     <title>iOS 26.4 值得关注的新特性</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/107743"/>
-    <updated>2026-05-06T17:03:15Z</updated>
+    <updated>2026-05-06T19:10:51Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 26</summary>
   </entry>
@@ -67,8 +83,16 @@
     <id>urn:pulseradar:2026-05-06:b9aab988fb549d94</id>
     <title>安卓黑科技：实现多平台商品详情页一键跳转APP</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7635702552887115827"/>
-    <updated>2026-05-06T17:03:15Z</updated>
+    <updated>2026-05-06T19:10:51Z</updated>
     <author><name>掘金</name></author>
+    <summary>Rank: 27</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-06:e3a8b6406f2bed75</id>
+    <title>Google Chrome silently installs a 4 GB AI model on your device without consent</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48019219"/>
+    <updated>2026-05-06T19:10:51Z</updated>
+    <author><name>Hacker News</name></author>
     <summary>Rank: 30</summary>
   </entry>
 </feed>

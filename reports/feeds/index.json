@@ -1,15 +1,15 @@
 {
-  "updated": "2026-05-07T19:14:35Z",
+  "updated": "2026-05-07T20:48:03Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 26,
+      "count": 27,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 17,
+      "count": 16,
       "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-5f479f2ee3": {
@@ -19,18 +19,13 @@
     },
     "kw-ac6fb2f2fe": {
       "keyword": "东亚",
-      "count": 8,
+      "count": 10,
       "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
     "openai-claude": {
       "keyword": "OpenAI / Claude",
       "count": 8,
       "url": "/reports/feeds/openai-claude.xml"
-    },
-    "kw-4c6737b9f5": {
-      "keyword": "华为",
-      "count": 4,
-      "url": "/reports/feeds/kw-4c6737b9f5.xml"
     },
     "kw-be93bcade4": {
       "keyword": "北美",
@@ -42,6 +37,21 @@
       "count": 3,
       "url": "/reports/feeds/deepseek.xml"
     },
+    "kw-4c6737b9f5": {
+      "keyword": "华为",
+      "count": 3,
+      "url": "/reports/feeds/kw-4c6737b9f5.xml"
+    },
+    "kw-3842b66185": {
+      "keyword": "腾讯",
+      "count": 2,
+      "url": "/reports/feeds/kw-3842b66185.xml"
+    },
+    "kw-8ea9aebb87": {
+      "keyword": "英伟达 / AMD",
+      "count": 2,
+      "url": "/reports/feeds/kw-8ea9aebb87.xml"
+    },
     "kw-9e9d8bf4f6": {
       "keyword": "自动驾驶",
       "count": 2,
@@ -52,15 +62,15 @@
       "count": 2,
       "url": "/reports/feeds/kw-a44c35f5da.xml"
     },
-    "kw-2dd56c6548": {
-      "keyword": "航天",
-      "count": 2,
-      "url": "/reports/feeds/kw-2dd56c6548.xml"
-    },
     "kw-6ba2f2e06f": {
       "keyword": "胖东来",
       "count": 1,
       "url": "/reports/feeds/kw-6ba2f2e06f.xml"
+    },
+    "kw-ff594893ce": {
+      "keyword": "比亚迪",
+      "count": 1,
+      "url": "/reports/feeds/kw-ff594893ce.xml"
     },
     "kw-867b934d82": {
       "keyword": "黑神话悟空",
@@ -72,15 +82,10 @@
       "count": 1,
       "url": "/reports/feeds/kw-b0922629ca.xml"
     },
-    "kw-3842b66185": {
-      "keyword": "腾讯",
+    "kw-729c87507a": {
+      "keyword": "字节跳动",
       "count": 1,
-      "url": "/reports/feeds/kw-3842b66185.xml"
-    },
-    "kw-8ea9aebb87": {
-      "keyword": "英伟达 / AMD",
-      "count": 1,
-      "url": "/reports/feeds/kw-8ea9aebb87.xml"
+      "url": "/reports/feeds/kw-729c87507a.xml"
     },
     "kw-de0204639b": {
       "keyword": "芯片",
@@ -91,6 +96,11 @@
       "keyword": "水电 / 光伏 / 核能 / 能源",
       "count": 1,
       "url": "/reports/feeds/kw-426b53cba7.xml"
+    },
+    "kw-2dd56c6548": {
+      "keyword": "航天",
+      "count": 1,
+      "url": "/reports/feeds/kw-2dd56c6548.xml"
     },
     "kw-7a807e5e3b": {
       "keyword": "量子 / 脑机 / 基因",

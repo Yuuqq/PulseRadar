@@ -4,87 +4,95 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-05-08T06:16:08Z</updated>
+  <updated>2026-05-08T08:09:32Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
+  <entry>
+    <id>urn:pulseradar:2026-05-08:bec45de81dc191a2</id>
+    <title>有人试过 MuMu 的 CLI 工具吗？配合 Claude 可以自动完成游戏日常了</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1211188"/>
+    <updated>2026-05-08T08:09:32Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 2</summary>
+  </entry>
   <entry>
     <id>urn:pulseradar:2026-05-08:297943153759ea23</id>
     <title>用好CC，事半功倍！Claude Code 命令大全，黄金命令推荐、多模型配置、实践指南、Hooks 和踩坑记录大全</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7636949170260328475"/>
-    <updated>2026-05-08T06:16:08Z</updated>
+    <updated>2026-05-08T08:09:32Z</updated>
     <author><name>掘金</name></author>
+    <summary>Rank: 9</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-08:9cceb52c333bafff</id>
+    <title>Claude Code Routines</title>
+    <link rel="alternate" type="text/html" href="https://www.producthunt.com/products/claude/launches/claude-code-routines"/>
+    <updated>2026-05-08T08:09:32Z</updated>
+    <author><name>Product Hunt</name></author>
     <summary>Rank: 10</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-08:c250bf44023d8970</id>
     <title>Natural Language Autoencoders: Turning Claude&apos;s Thoughts into Text</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48052537"/>
-    <updated>2026-05-08T06:16:08Z</updated>
+    <updated>2026-05-08T08:09:32Z</updated>
     <author><name>Hacker News</name></author>
-    <summary>Rank: 11</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-05-08:9cceb52c333bafff</id>
-    <title>Claude Code Routines</title>
-    <link rel="alternate" type="text/html" href="https://www.producthunt.com/products/claude/launches/claude-code-routines"/>
-    <updated>2026-05-08T06:16:08Z</updated>
-    <author><name>Product Hunt</name></author>
-    <summary>Rank: 11</summary>
+    <summary>Rank: 13</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-08:80c6823f2bf77032</id>
     <title>Claude Opus 4.7</title>
     <link rel="alternate" type="text/html" href="https://www.producthunt.com/products/claude-opus-4-7/launches/claude-opus-4-7"/>
-    <updated>2026-05-08T06:16:08Z</updated>
+    <updated>2026-05-08T08:09:32Z</updated>
     <author><name>Product Hunt</name></author>
-    <summary>Rank: 14</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-05-08:dbb470283e118e06</id>
-    <title>[开源] 在手机上继续和你电脑上的 claude code 和 codex 对话</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1211103"/>
-    <updated>2026-05-08T06:16:08Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 14</summary>
+    <summary>Rank: 13</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-08:af7f9b6bb24887cb</id>
     <title>Claude Code Desktop App Redesigned</title>
     <link rel="alternate" type="text/html" href="https://www.producthunt.com/products/claude-redesigned/launches/claude-code-desktop-app-redesigned"/>
-    <updated>2026-05-08T06:16:08Z</updated>
+    <updated>2026-05-08T08:09:32Z</updated>
     <author><name>Product Hunt</name></author>
-    <summary>Rank: 16</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-05-08:833fd8b6c0b8e97a</id>
-    <title>Claude Code+HA 自动化实战：给宠物龟请个「电子保姆」</title>
-    <link rel="alternate" type="text/html" href="https://sspai.com/post/108453"/>
-    <updated>2026-05-08T06:16:08Z</updated>
-    <author><name>少数派</name></author>
-    <summary>Rank: 17</summary>
+    <summary>Rank: 15</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-08:7045526460011b62</id>
     <title>Claude Design by Anthropic Labs</title>
     <link rel="alternate" type="text/html" href="https://www.producthunt.com/products/claude/launches/claude-design-by-anthropic-labs-2"/>
-    <updated>2026-05-08T06:16:08Z</updated>
+    <updated>2026-05-08T08:09:32Z</updated>
     <author><name>Product Hunt</name></author>
-    <summary>Rank: 18</summary>
+    <summary>Rank: 17</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-08:833fd8b6c0b8e97a</id>
+    <title>Claude Code+HA 自动化实战：给宠物龟请个「电子保姆」</title>
+    <link rel="alternate" type="text/html" href="https://sspai.com/post/108453"/>
+    <updated>2026-05-08T08:09:32Z</updated>
+    <author><name>少数派</name></author>
+    <summary>Rank: 17</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-08:dbb470283e118e06</id>
+    <title>[开源] 在手机上继续和你电脑上的 claude code 和 codex 对话</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1211103"/>
+    <updated>2026-05-08T08:09:32Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 22</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-08:98969e4843480fe7</id>
     <title>Hardening Firefox with Claude Mythos Preview</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48051079"/>
-    <updated>2026-05-08T06:16:08Z</updated>
+    <updated>2026-05-08T08:09:32Z</updated>
     <author><name>Hacker News</name></author>
-    <summary>Rank: 23</summary>
+    <summary>Rank: 24</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-05-08:ffeee1c9d470595d</id>
-    <title>做了个在线简历工具：一个简历，多种版本，用 Claude Code 改起来很爽</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1211021"/>
-    <updated>2026-05-08T06:16:08Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 29</summary>
+    <id>urn:pulseradar:2026-05-08:acdf355e22bd4bcb</id>
+    <title>你大概率没用对 Claude Code 的五大能力</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7637046499474276415"/>
+    <updated>2026-05-08T08:09:32Z</updated>
+    <author><name>掘金</name></author>
+    <summary>Rank: 25</summary>
   </entry>
 </feed>

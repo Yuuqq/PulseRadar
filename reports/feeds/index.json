@@ -1,41 +1,41 @@
 {
-  "updated": "2026-05-08T19:55:00Z",
+  "updated": "2026-05-08T21:34:15Z",
   "global": "/reports/feed.xml",
   "feeds": {
+    "kw-101806f57c": {
+      "keyword": "中国",
+      "count": 19,
+      "url": "/reports/feeds/kw-101806f57c.xml"
+    },
     "kw-7342c24991": {
       "keyword": "AI 相关",
       "count": 20,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
-    "kw-101806f57c": {
-      "keyword": "中国",
-      "count": 17,
-      "url": "/reports/feeds/kw-101806f57c.xml"
-    },
     "kw-be93bcade4": {
       "keyword": "北美",
-      "count": 11,
+      "count": 12,
       "url": "/reports/feeds/kw-be93bcade4.xml"
     },
     "kw-5f479f2ee3": {
       "keyword": "微软 / 谷歌 / 苹果",
-      "count": 9,
+      "count": 8,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
     },
     "openai-claude": {
       "keyword": "OpenAI / Claude",
-      "count": 7,
+      "count": 8,
       "url": "/reports/feeds/openai-claude.xml"
-    },
-    "kw-ac6fb2f2fe": {
-      "keyword": "东亚",
-      "count": 4,
-      "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
     "kw-4c6737b9f5": {
       "keyword": "华为",
       "count": 4,
       "url": "/reports/feeds/kw-4c6737b9f5.xml"
+    },
+    "kw-ac6fb2f2fe": {
+      "keyword": "东亚",
+      "count": 3,
+      "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
     "deepseek": {
       "keyword": "DeepSeek",
@@ -44,7 +44,7 @@
     },
     "kw-8ea9aebb87": {
       "keyword": "英伟达 / AMD",
-      "count": 2,
+      "count": 3,
       "url": "/reports/feeds/kw-8ea9aebb87.xml"
     },
     "kw-77c22b5841": {

@@ -1,10 +1,10 @@
 {
-  "updated": "2026-05-09T21:09:54Z",
+  "updated": "2026-05-09T22:07:13Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 28,
+      "count": 27,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
     "kw-101806f57c": {
@@ -24,7 +24,7 @@
     },
     "kw-ac6fb2f2fe": {
       "keyword": "东亚",
-      "count": 8,
+      "count": 7,
       "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
     "kw-be93bcade4": {
@@ -57,11 +57,6 @@
       "count": 2,
       "url": "/reports/feeds/kw-3f426f96e0.xml"
     },
-    "kw-426b53cba7": {
-      "keyword": "水电 / 光伏 / 核能 / 能源",
-      "count": 2,
-      "url": "/reports/feeds/kw-426b53cba7.xml"
-    },
     "kw-6ba2f2e06f": {
       "keyword": "胖东来",
       "count": 1,
@@ -86,6 +81,11 @@
       "keyword": "英伟达 / AMD",
       "count": 1,
       "url": "/reports/feeds/kw-8ea9aebb87.xml"
+    },
+    "kw-426b53cba7": {
+      "keyword": "水电 / 光伏 / 核能 / 能源",
+      "count": 1,
+      "url": "/reports/feeds/kw-426b53cba7.xml"
     },
     "kw-a44c35f5da": {
       "keyword": "机器人 / 机器狗 / 具身智能",

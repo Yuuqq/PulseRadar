@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-09T17:28:59Z",
+  "updated": "2026-05-09T18:13:36Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
@@ -29,7 +29,7 @@
     },
     "kw-be93bcade4": {
       "keyword": "北美",
-      "count": 8,
+      "count": 7,
       "url": "/reports/feeds/kw-be93bcade4.xml"
     },
     "kw-729c87507a": {
@@ -62,6 +62,11 @@
       "count": 2,
       "url": "/reports/feeds/kw-3f426f96e0.xml"
     },
+    "kw-426b53cba7": {
+      "keyword": "水电 / 光伏 / 核能 / 能源",
+      "count": 2,
+      "url": "/reports/feeds/kw-426b53cba7.xml"
+    },
     "kw-6ba2f2e06f": {
       "keyword": "胖东来",
       "count": 1,
@@ -76,11 +81,6 @@
       "keyword": "腾讯",
       "count": 1,
       "url": "/reports/feeds/kw-3842b66185.xml"
-    },
-    "kw-426b53cba7": {
-      "keyword": "水电 / 光伏 / 核能 / 能源",
-      "count": 1,
-      "url": "/reports/feeds/kw-426b53cba7.xml"
     },
     "kw-a44c35f5da": {
       "keyword": "机器人 / 机器狗 / 具身智能",

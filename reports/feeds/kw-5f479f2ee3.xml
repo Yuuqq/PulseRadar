@@ -4,30 +4,38 @@
   <subtitle>Subscribe to keyword: 微软 / 谷歌 / 苹果</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/kw-5f479f2ee3.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-05-10T16:30:45Z</updated>
+  <updated>2026-05-10T17:30:46Z</updated>
   <id>urn:pulseradar:feed:904a911d6c5f</id>
   <author><name>PulseRadar</name></author>
+  <entry>
+    <id>urn:pulseradar:2026-05-10:874a15eae11b13d5</id>
+    <title>一日一技｜为什么你应该关闭 iOS 的键盘声音</title>
+    <link rel="alternate" type="text/html" href="https://sspai.com/post/109460"/>
+    <updated>2026-05-10T17:30:46Z</updated>
+    <author><name>少数派</name></author>
+    <summary>Rank: 2</summary>
+  </entry>
   <entry>
     <id>urn:pulseradar:2026-05-10:59aedc57138b8d19</id>
     <title>AutoLXB 安卓自动化助手更新：支持任务路线记录、回放与跨设备导入导出，探索自动化任务跨设备复用方案</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1211708"/>
-    <updated>2026-05-10T16:30:45Z</updated>
+    <updated>2026-05-10T17:30:46Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 2</summary>
+    <summary>Rank: 3</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-10:62c9aa7f91e534aa</id>
     <title>写了一个 Beancount iOS 客户端，可能是 AI 时代下记账类应用的终点</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1211679"/>
-    <updated>2026-05-10T16:30:45Z</updated>
+    <updated>2026-05-10T17:30:46Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 11</summary>
+    <summary>Rank: 12</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-10:84acfd1ce3a1bafd</id>
     <title>经典，Flutter iOS 又修复了一个构建问题，还是很抽象</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7637433660883714090"/>
-    <updated>2026-05-10T16:30:45Z</updated>
+    <updated>2026-05-10T17:30:46Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 13</summary>
   </entry>
@@ -35,23 +43,15 @@
     <id>urn:pulseradar:2026-05-10:09a2724d0e095f03</id>
     <title>Chrome 插件开发</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1211610"/>
-    <updated>2026-05-10T16:30:45Z</updated>
+    <updated>2026-05-10T17:30:46Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 18</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-05-10:a60a132f8f2648f5</id>
-    <title>Gemini API File Search is now multimodal</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48080702"/>
-    <updated>2026-05-10T16:30:45Z</updated>
-    <author><name>Hacker News</name></author>
     <summary>Rank: 19</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-10:acaa76b8a9922128</id>
     <title>Chrome&apos;s AI features may be hogging 4GB of your computer storage</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48084710"/>
-    <updated>2026-05-10T16:30:45Z</updated>
+    <updated>2026-05-10T17:30:46Z</updated>
     <author><name>Hacker News</name></author>
     <summary>Rank: 21</summary>
   </entry>
@@ -59,7 +59,7 @@
     <id>urn:pulseradar:2026-05-10:6afa1ed7c8ea4576</id>
     <title>Now In Android 精讲 10 - AGENTS.md：写给 AI Agent 的项目说明书</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7636761209605423154"/>
-    <updated>2026-05-10T16:30:45Z</updated>
+    <updated>2026-05-10T17:30:46Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 21</summary>
   </entry>
@@ -67,40 +67,48 @@
     <id>urn:pulseradar:2026-05-10:0d6487810b6642dc</id>
     <title>[开源] Codeg V0.12：全新桌面宠物登场｜专注于代码生成的多智能体 IDE（cc、codex、gemini、opencode……）</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1211650"/>
-    <updated>2026-05-10T16:30:45Z</updated>
+    <updated>2026-05-10T17:30:46Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 22</summary>
+    <summary>Rank: 23</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-10:a60a132f8f2648f5</id>
+    <title>Gemini API File Search is now multimodal</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48080702"/>
+    <updated>2026-05-10T17:30:46Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 26</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-10:d6d2450096b4af42</id>
     <title>时隔 5 年的大更新：AirPods Max 2 首发体验</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/108118"/>
-    <updated>2026-05-10T16:30:45Z</updated>
+    <updated>2026-05-10T17:30:46Z</updated>
     <author><name>少数派</name></author>
-    <summary>Rank: 23</summary>
+    <summary>Rank: 26</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-10:82733b8d8ce9a577</id>
     <title>做了一个 YouTube to MP3 小页面，想听听进度和预览路径的反馈</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1211644"/>
-    <updated>2026-05-10T16:30:45Z</updated>
+    <updated>2026-05-10T17:30:46Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 25</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-05-10:103d7b9a27fb3600</id>
-    <title>iOS 26.4 值得关注的新特性</title>
-    <link rel="alternate" type="text/html" href="https://sspai.com/post/107743"/>
-    <updated>2026-05-10T16:30:45Z</updated>
-    <author><name>少数派</name></author>
-    <summary>Rank: 27</summary>
+    <summary>Rank: 26</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-10:2556ec5b82eb5ab1</id>
     <title>自己做了一个 Chrome 图片批量下载插件，叫 Image Harvest 🌾</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1211632"/>
-    <updated>2026-05-10T16:30:45Z</updated>
+    <updated>2026-05-10T17:30:46Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 27</summary>
+    <summary>Rank: 28</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-10:103d7b9a27fb3600</id>
+    <title>iOS 26.4 值得关注的新特性</title>
+    <link rel="alternate" type="text/html" href="https://sspai.com/post/107743"/>
+    <updated>2026-05-10T17:30:46Z</updated>
+    <author><name>少数派</name></author>
+    <summary>Rank: 30</summary>
   </entry>
 </feed>

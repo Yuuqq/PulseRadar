@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-10T17:30:46Z",
+  "updated": "2026-05-10T18:32:34Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
@@ -14,7 +14,7 @@
     },
     "openai-claude": {
       "keyword": "OpenAI / Claude",
-      "count": 17,
+      "count": 15,
       "url": "/reports/feeds/openai-claude.xml"
     },
     "kw-5f479f2ee3": {
@@ -24,7 +24,7 @@
     },
     "kw-ac6fb2f2fe": {
       "keyword": "东亚",
-      "count": 11,
+      "count": 12,
       "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
     "kw-be93bcade4": {
@@ -81,11 +81,6 @@
       "keyword": "京东",
       "count": 1,
       "url": "/reports/feeds/kw-b0922629ca.xml"
-    },
-    "kw-5bdcf826f2": {
-      "keyword": "俄罗斯",
-      "count": 1,
-      "url": "/reports/feeds/kw-5bdcf826f2.xml"
     },
     "kw-2dd56c6548": {
       "keyword": "航天",

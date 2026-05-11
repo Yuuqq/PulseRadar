@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-11T18:17:46Z",
+  "updated": "2026-05-11T20:17:04Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
@@ -12,25 +12,25 @@
       "count": 13,
       "url": "/reports/feeds/kw-101806f57c.xml"
     },
-    "kw-5f479f2ee3": {
-      "keyword": "微软 / 谷歌 / 苹果",
-      "count": 10,
-      "url": "/reports/feeds/kw-5f479f2ee3.xml"
-    },
     "openai-claude": {
       "keyword": "OpenAI / Claude",
       "count": 10,
       "url": "/reports/feeds/openai-claude.xml"
     },
+    "kw-5f479f2ee3": {
+      "keyword": "微软 / 谷歌 / 苹果",
+      "count": 9,
+      "url": "/reports/feeds/kw-5f479f2ee3.xml"
+    },
+    "kw-3842b66185": {
+      "keyword": "腾讯",
+      "count": 6,
+      "url": "/reports/feeds/kw-3842b66185.xml"
+    },
     "kw-729c87507a": {
       "keyword": "字节跳动",
       "count": 5,
       "url": "/reports/feeds/kw-729c87507a.xml"
-    },
-    "kw-3842b66185": {
-      "keyword": "腾讯",
-      "count": 4,
-      "url": "/reports/feeds/kw-3842b66185.xml"
     },
     "kw-be93bcade4": {
       "keyword": "北美",
@@ -71,6 +71,11 @@
       "keyword": "比亚迪",
       "count": 1,
       "url": "/reports/feeds/kw-ff594893ce.xml"
+    },
+    "kw-3d21f79c2a": {
+      "keyword": "申奥",
+      "count": 1,
+      "url": "/reports/feeds/kw-3d21f79c2a.xml"
     },
     "kw-8ea9aebb87": {
       "keyword": "英伟达 / AMD",

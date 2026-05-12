@@ -4,30 +4,30 @@
   <subtitle>Subscribe to keyword: AI 相关</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/kw-7342c24991.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-05-12T01:17:20Z</updated>
+  <updated>2026-05-12T05:03:46Z</updated>
   <id>urn:pulseradar:feed:dfb23af4884d</id>
   <author><name>PulseRadar</name></author>
+  <entry>
+    <id>urn:pulseradar:2026-05-12:9ed92029ed0a3314</id>
+    <title>ToolBake - 写了个完全可自定义工具，支持图片视频音频处理的网页工具平台，也支持由 AI 快速生成工具</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1212124"/>
+    <updated>2026-05-12T05:03:46Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 1</summary>
+  </entry>
   <entry>
     <id>urn:pulseradar:2026-05-12:4fc2685a01af6dd7</id>
     <title>把AI用到了最有意义的场合</title>
     <link rel="alternate" type="text/html" href="https://www.douyin.com/hot/2495756"/>
-    <updated>2026-05-12T01:17:20Z</updated>
+    <updated>2026-05-12T05:03:46Z</updated>
     <author><name>抖音</name></author>
-    <summary>Rank: 1</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-05-12:d4fe572b9f6e1cfd</id>
-    <title>我做了一个 AI Native 的极简风 Markdown 所见即所得编辑器，真心求 issue，求建议， mac/win/ Linux</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1212037"/>
-    <updated>2026-05-12T01:17:20Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 1</summary>
+    <summary>Rank: 2</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-12:dd7fce7e527a0d78</id>
     <title>If AI writes your code, why use Python?</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48100433"/>
-    <updated>2026-05-12T01:17:20Z</updated>
+    <updated>2026-05-12T05:03:46Z</updated>
     <author><name>Hacker News</name></author>
     <summary>Rank: 3</summary>
   </entry>
@@ -35,71 +35,79 @@
     <id>urn:pulseradar:2026-05-12:59fdee87501fe7c6</id>
     <title>超越 Vibe Coding —— AI 辅助编程指南</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7637407916647972910"/>
-    <updated>2026-05-12T01:17:20Z</updated>
+    <updated>2026-05-12T05:03:46Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 7</summary>
+    <summary>Rank: 5</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-12:5803bc46b0dbebbe</id>
+    <title>快手：正在评估拟议重组可灵AI之相关资产及业务的方案，拟议方案仍处于初步阶段</title>
+    <link rel="alternate" type="text/html" href="https://www.36kr.com/newsflashes/3805794741804809"/>
+    <updated>2026-05-12T05:03:46Z</updated>
+    <author><name>36氪</name></author>
+    <summary>Rank: 6</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-12:0aadf6b4ad025571</id>
     <title>我写了一个 skill，用 AI 给 AI「除味儿」</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/109288"/>
-    <updated>2026-05-12T01:17:20Z</updated>
+    <updated>2026-05-12T05:03:46Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 7</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-05-12:81c81e1322d742d8</id>
-    <title>感觉 AI 编程很符合“小黄鸭调试法”</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1212019"/>
-    <updated>2026-05-12T01:17:20Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 7</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-05-12:6c8fe5ab0d8ee157</id>
-    <title>面试官：说一下你现在使用的 AI IDE，什么，JoyCode 是什么？</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7637367483129888768"/>
-    <updated>2026-05-12T01:17:20Z</updated>
-    <author><name>掘金</name></author>
-    <summary>Rank: 9</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-05-12:3ec336bce2eee52e</id>
-    <title>pagegrok 本地 AI 接入网页理解，浏览器页面选区解读</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1212007"/>
-    <updated>2026-05-12T01:17:20Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 9</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-05-12:6dca0637c4873802</id>
-    <title>做了一个 AI 动漫图片生成网站，前 100 个用户额外 20%折扣</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1212004"/>
-    <updated>2026-05-12T01:17:20Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 11</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-12:f52073b64845a756</id>
     <title>I let AI build a tool to help me figure out what was waking me up at night</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48100662"/>
-    <updated>2026-05-12T01:17:20Z</updated>
+    <updated>2026-05-12T05:03:46Z</updated>
     <author><name>Hacker News</name></author>
-    <summary>Rank: 12</summary>
+    <summary>Rank: 9</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-12:6c8fe5ab0d8ee157</id>
+    <title>面试官：说一下你现在使用的 AI IDE，什么，JoyCode 是什么？</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7637367483129888768"/>
+    <updated>2026-05-12T05:03:46Z</updated>
+    <author><name>掘金</name></author>
+    <summary>Rank: 9</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-12:7abbc4b728c2729f</id>
+    <title>贾跃亭出任 FF 全球 CEO，公司将升为物理 AI 生态公司，这是什么概念，市场为何愿意不断为其梦想买单？</title>
+    <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2037128887558207003"/>
+    <updated>2026-05-12T05:03:46Z</updated>
+    <author><name>知乎</name></author>
+    <summary>Rank: 9</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-12:3012328b1fa9a295</id>
+    <title>之前用 AI 做了一版的本地 API 文档编辑器, 今天开源一下, 有需求的朋友自取, MIT 协议</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1212087"/>
+    <updated>2026-05-12T05:03:46Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 10</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-12:3a70039fb216646a</id>
     <title>Ask Product Hunt AI</title>
     <link rel="alternate" type="text/html" href="https://www.producthunt.com/products/producthunt/launches/ask-product-hunt-ai"/>
-    <updated>2026-05-12T01:17:20Z</updated>
+    <updated>2026-05-12T05:03:46Z</updated>
     <author><name>Product Hunt</name></author>
     <summary>Rank: 12</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-05-12:e38b18092c6b76b3</id>
-    <title>搞了大半年的文档解析引擎，今天终于开源了——专治 AI 幻觉，欢迎老铁们来试试</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1211988"/>
-    <updated>2026-05-12T01:17:20Z</updated>
+    <id>urn:pulseradar:2026-05-12:02eb6ddc636ae7e8</id>
+    <title>AI时代如何评价各专业</title>
+    <link rel="alternate" type="text/html" href="https://search.bilibili.com/all?keyword=AI%E6%97%B6%E4%BB%A3%E5%A6%82%E4%BD%95%E8%AF%84%E4%BB%B7%E5%90%84%E4%B8%93%E4%B8%9A"/>
+    <updated>2026-05-12T05:03:46Z</updated>
+    <author><name>bilibili 热搜</name></author>
+    <summary>Rank: 13</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-12:bb3a9a76ff5939e6</id>
+    <title>开发了一个 Notion/飞书 风格可协作的 AI 编辑器</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1212061"/>
+    <updated>2026-05-12T05:03:46Z</updated>
     <author><name>V2EX</name></author>
     <summary>Rank: 17</summary>
   </entry>
@@ -107,87 +115,111 @@
     <id>urn:pulseradar:2026-05-12:f3889786dee07de1</id>
     <title>AI 输出中的 ** 是怎么来的：谈中文 Markdown 强调标记的渲染问题</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/108768"/>
-    <updated>2026-05-12T01:17:20Z</updated>
+    <updated>2026-05-12T05:03:46Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 18</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-05-12:02eb6ddc636ae7e8</id>
-    <title>AI时代如何评价各专业</title>
-    <link rel="alternate" type="text/html" href="https://search.bilibili.com/all?keyword=AI%E6%97%B6%E4%BB%A3%E5%A6%82%E4%BD%95%E8%AF%84%E4%BB%B7%E5%90%84%E4%B8%93%E4%B8%9A"/>
-    <updated>2026-05-12T01:17:20Z</updated>
-    <author><name>bilibili 热搜</name></author>
-    <summary>Rank: 19</summary>
+    <id>urn:pulseradar:2026-05-12:eeb44d0be8077a72</id>
+    <title>从加法到减法：人工智能时代最难的，不是创新，而是割舍</title>
+    <link rel="alternate" type="text/html" href="https://m.thepaper.cn/newsDetail_forward_33149674"/>
+    <updated>2026-05-12T05:03:46Z</updated>
+    <author><name>澎湃新闻</name></author>
+    <summary>Rank: 18</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-05-12:57a6f4df4dad2ace</id>
-    <title>Bild AI (YC W25) Is Hiring Founding Product Engineers</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48098122"/>
-    <updated>2026-05-12T01:17:20Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 19</summary>
+    <id>urn:pulseradar:2026-05-12:5b7c9abe345873a3</id>
+    <title>上海AI实验室联合团队攻克芯片核心材料光刻胶稳定制备难题</title>
+    <link rel="alternate" type="text/html" href="https://www.36kr.com/newsflashes/3805700079721985"/>
+    <updated>2026-05-12T05:03:46Z</updated>
+    <author><name>36氪</name></author>
+    <summary>Rank: 20</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-05-12:a8cbdd6d8083b9e6</id>
-    <title>用 AI 做低价英语学习工具：不是 PPT，这半个月我做了这些</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1211980"/>
-    <updated>2026-05-12T01:17:20Z</updated>
+    <id>urn:pulseradar:2026-05-12:d4fe572b9f6e1cfd</id>
+    <title>我做了一个 AI Native 的极简风 Markdown 所见即所得编辑器，真心求 issue，求建议， mac/win/ Linux</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1212037"/>
+    <updated>2026-05-12T05:03:46Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 19</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-05-12:62021a8821e1772e</id>
-    <title>程序员蒸馏自己点亮AI</title>
-    <link rel="alternate" type="text/html" href="https://search.bilibili.com/all?keyword=%E7%A8%8B%E5%BA%8F%E5%91%98%E8%92%B8%E9%A6%8F%E8%87%AA%E5%B7%B1%E7%82%B9%E4%BA%AEAI"/>
-    <updated>2026-05-12T01:17:20Z</updated>
-    <author><name>bilibili 热搜</name></author>
-    <summary>Rank: 23</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-05-12:e2b0512d8b7b3910</id>
-    <title>Spec：让 AI 在实现前真正理解问题</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7637407916648677422"/>
-    <updated>2026-05-12T01:17:20Z</updated>
-    <author><name>掘金</name></author>
-    <summary>Rank: 24</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-05-12:d9e8dbc4683f33ee</id>
-    <title>Show HN: E2a – Open-source email gateway for AI agents</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48100227"/>
-    <updated>2026-05-12T01:17:20Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 25</summary>
+    <summary>Rank: 20</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-12:79639553c4412139</id>
     <title>超越Vibe Coding —— AI 辅助编程进阶指南</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7637710008821481499"/>
-    <updated>2026-05-12T01:17:20Z</updated>
+    <updated>2026-05-12T05:03:46Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 25</summary>
+    <summary>Rank: 21</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-05-12:518ff69fb9406a38</id>
-    <title>AI 时代，我关于教育的思考</title>
-    <link rel="alternate" type="text/html" href="https://sspai.com/post/108300"/>
-    <updated>2026-05-12T01:17:20Z</updated>
-    <author><name>少数派</name></author>
-    <summary>Rank: 26</summary>
+    <id>urn:pulseradar:2026-05-12:e2b0512d8b7b3910</id>
+    <title>Spec：让 AI 在实现前真正理解问题</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7637407916648677422"/>
+    <updated>2026-05-12T05:03:46Z</updated>
+    <author><name>掘金</name></author>
+    <summary>Rank: 22</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-12:81c81e1322d742d8</id>
+    <title>感觉 AI 编程很符合“小黄鸭调试法”</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1212019"/>
+    <updated>2026-05-12T05:03:46Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 23</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-12:0f78426c2c098276</id>
     <title>AI Agent的“骨架”之争：四种Harness设计哲学深度解构</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7637350076563505171"/>
-    <updated>2026-05-12T01:17:20Z</updated>
+    <updated>2026-05-12T05:03:46Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 27</summary>
+    <summary>Rank: 24</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-12:3ec336bce2eee52e</id>
+    <title>pagegrok 本地 AI 接入网页理解，浏览器页面选区解读</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1212007"/>
+    <updated>2026-05-12T05:03:46Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 24</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-12:57a6f4df4dad2ace</id>
+    <title>Bild AI (YC W25) Is Hiring Founding Product Engineers</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48098122"/>
+    <updated>2026-05-12T05:03:46Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 26</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-12:518ff69fb9406a38</id>
+    <title>AI 时代，我关于教育的思考</title>
+    <link rel="alternate" type="text/html" href="https://sspai.com/post/108300"/>
+    <updated>2026-05-12T05:03:46Z</updated>
+    <author><name>少数派</name></author>
+    <summary>Rank: 26</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-12:6dca0637c4873802</id>
+    <title>做了一个 AI 动漫图片生成网站，前 100 个用户额外 20%折扣</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1212004"/>
+    <updated>2026-05-12T05:03:46Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 26</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-12:69f6c48511139620</id>
     <title>Skills 热潮过去后，我重新理解了 AI Agent 的方向</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7637477381956354063"/>
-    <updated>2026-05-12T01:17:20Z</updated>
+    <updated>2026-05-12T05:03:46Z</updated>
+    <author><name>掘金</name></author>
+    <summary>Rank: 28</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-12:bdd3c99d237fb2f3</id>
+    <title>程序员连夜带团队跑路，省了23万：这AI太贵，真的用不起了</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7638525040419668031"/>
+    <updated>2026-05-12T05:03:46Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 29</summary>
   </entry>
@@ -195,16 +227,24 @@
     <id>urn:pulseradar:2026-05-12:6d8b2e87b3892b91</id>
     <title>买前必看：千问 AI 眼镜 G1 自费长测</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/108103"/>
-    <updated>2026-05-12T01:17:20Z</updated>
+    <updated>2026-05-12T05:03:46Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 29</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-05-12:4ea2a3e5fc317e19</id>
-    <title>论文严查AI使用率是否合理</title>
-    <link rel="alternate" type="text/html" href="https://search.bilibili.com/all?keyword=%E8%AE%BA%E6%96%87%E4%B8%A5%E6%9F%A5AI%E4%BD%BF%E7%94%A8%E7%8E%87%E6%98%AF%E5%90%A6%E5%90%88%E7%90%86"/>
-    <updated>2026-05-12T01:17:20Z</updated>
-    <author><name>bilibili 热搜</name></author>
+    <id>urn:pulseradar:2026-05-12:a74626920362cebc</id>
+    <title>AI牛市过热了吗</title>
+    <link rel="alternate" type="text/html" href="https://www.toutiao.com/trending/7638833646845038099/"/>
+    <updated>2026-05-12T05:03:46Z</updated>
+    <author><name>今日头条</name></author>
+    <summary>Rank: 29</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-12:15972027eaf5c8a4</id>
+    <title>用AI写业务代码后，必须要坚持自己做的几件事情——过程控制</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7637797087795920932"/>
+    <updated>2026-05-12T05:03:46Z</updated>
+    <author><name>掘金</name></author>
     <summary>Rank: 30</summary>
   </entry>
 </feed>

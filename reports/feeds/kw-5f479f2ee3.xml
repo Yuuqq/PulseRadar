@@ -4,14 +4,22 @@
   <subtitle>Subscribe to keyword: 微软 / 谷歌 / 苹果</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/kw-5f479f2ee3.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-05-15T08:21:49Z</updated>
+  <updated>2026-05-15T10:58:44Z</updated>
   <id>urn:pulseradar:feed:904a911d6c5f</id>
   <author><name>PulseRadar</name></author>
+  <entry>
+    <id>urn:pulseradar:2026-05-15:6873000fe00228f8</id>
+    <title>Explore Wikipedia Like a Windows XP Desktop</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48146129"/>
+    <updated>2026-05-15T10:58:44Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 1</summary>
+  </entry>
   <entry>
     <id>urn:pulseradar:2026-05-15:53b49e1c8aa21c61</id>
     <title>2026 Android I/O ，全新 AI 手机、 Android PC 和车载驾驶</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7638601174863380516"/>
-    <updated>2026-05-15T08:21:49Z</updated>
+    <updated>2026-05-15T10:58:44Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 5</summary>
   </entry>
@@ -19,71 +27,79 @@
     <id>urn:pulseradar:2026-05-15:874a15eae11b13d5</id>
     <title>一日一技｜为什么你应该关闭 iOS 的键盘声音</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/109460"/>
-    <updated>2026-05-15T08:21:49Z</updated>
+    <updated>2026-05-15T10:58:44Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 5</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-05-15:27d932663a4b6968</id>
-    <title>First public macOS kernel memory corruption exploit on Apple M5</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48139219"/>
-    <updated>2026-05-15T08:21:49Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 9</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-05-15:059cfacc45568ee2</id>
-    <title>阿联酋东西输油管道或明年投运，将提高阿布扎比国家石油公司出口能力</title>
-    <link rel="alternate" type="text/html" href="https://www.36kr.com/newsflashes/3810222974754308"/>
-    <updated>2026-05-15T08:21:49Z</updated>
-    <author><name>36氪</name></author>
-    <summary>Rank: 10</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-05-15:e1893a599747e44e</id>
-    <title>终于，Flutter 修复 Android 中文字体异常，但是很草台，不知怎么吐槽</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7639006640004251667"/>
-    <updated>2026-05-15T08:21:49Z</updated>
-    <author><name>掘金</name></author>
-    <summary>Rank: 10</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-15:4cede3cdd417c389</id>
     <title>为什么 Android 不用接口做 Activity 通信？</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7638897090145075246"/>
-    <updated>2026-05-15T08:21:49Z</updated>
+    <updated>2026-05-15T10:58:44Z</updated>
+    <author><name>掘金</name></author>
+    <summary>Rank: 10</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-15:27d932663a4b6968</id>
+    <title>First public macOS kernel memory corruption exploit on Apple M5</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48139219"/>
+    <updated>2026-05-15T10:58:44Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 11</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-15:e1893a599747e44e</id>
+    <title>终于，Flutter 修复 Android 中文字体异常，但是很草台，不知怎么吐槽</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7639006640004251667"/>
+    <updated>2026-05-15T10:58:44Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 11</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-05-15:6d2b284e53e897f4</id>
-    <title>分享一个 macos 小工具，批量裁切图片/视频到符合 YouTube Ins 等社媒要求尺寸</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1212939"/>
-    <updated>2026-05-15T08:21:49Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 18</summary>
+    <id>urn:pulseradar:2026-05-15:7d3dbc6bdbe996e7</id>
+    <title>速看！本周数码圈大事件：索尼发布万元旗舰、谷歌宣布推出Googlebook、OPPO再次致歉并发布问责通告、苹果618活动来袭，还有多款新机定档本月发布。</title>
+    <link rel="alternate" type="text/html" href="https://www.coolapk.com/feed/71763402"/>
+    <updated>2026-05-15T10:58:44Z</updated>
+    <author><name>酷安</name></author>
+    <summary>Rank: 14</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-05-15:20fbd9a1cf77b8ae</id>
-    <title>[内购限免] 拾字 - iOS 离线扫描王&amp;图片转文字</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1212936"/>
-    <updated>2026-05-15T08:21:49Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 19</summary>
+    <id>urn:pulseradar:2026-05-15:9d64754e9b439c26</id>
+    <title>比尔·阿克曼：潘兴广场将披露对微软新持仓</title>
+    <link rel="alternate" type="text/html" href="https://www.36kr.com/newsflashes/3810365794164489"/>
+    <updated>2026-05-15T10:58:44Z</updated>
+    <author><name>36氪</name></author>
+    <summary>Rank: 16</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-15:b36e5ac70cc7afb9</id>
     <title>Android Studio 放着没怎么用，怎么也会越来越卡？</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7639631116610519082"/>
-    <updated>2026-05-15T08:21:49Z</updated>
+    <updated>2026-05-15T10:58:44Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 24</summary>
+    <summary>Rank: 19</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-15:6d2b284e53e897f4</id>
+    <title>分享一个 macos 小工具，批量裁切图片/视频到符合 YouTube Ins 等社媒要求尺寸</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1212939"/>
+    <updated>2026-05-15T10:58:44Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 25</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-15:20fbd9a1cf77b8ae</id>
+    <title>[内购限免] 拾字 - iOS 离线扫描王&amp;图片转文字</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1212936"/>
+    <updated>2026-05-15T10:58:44Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 26</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-15:d6d2450096b4af42</id>
     <title>时隔 5 年的大更新：AirPods Max 2 首发体验</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/108118"/>
-    <updated>2026-05-15T08:21:49Z</updated>
+    <updated>2026-05-15T10:58:44Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 30</summary>
   </entry>

@@ -4,14 +4,22 @@
   <subtitle>Subscribe to keyword: 微软 / 谷歌 / 苹果</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/kw-5f479f2ee3.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-05-15T20:00:30Z</updated>
+  <updated>2026-05-15T21:34:09Z</updated>
   <id>urn:pulseradar:feed:904a911d6c5f</id>
   <author><name>PulseRadar</name></author>
+  <entry>
+    <id>urn:pulseradar:2026-05-15:73dceae346a6c96d</id>
+    <title>WinCE64 – Windows CE 2.11 for N64</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48152729"/>
+    <updated>2026-05-15T21:34:09Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 2</summary>
+  </entry>
   <entry>
     <id>urn:pulseradar:2026-05-15:7d3dbc6bdbe996e7</id>
     <title>速看！本周数码圈大事件：索尼发布万元旗舰、谷歌宣布推出Googlebook、OPPO再次致歉并发布问责通告、苹果618活动来袭，还有多款新机定档本月发布。</title>
     <link rel="alternate" type="text/html" href="https://www.coolapk.com/feed/71763402"/>
-    <updated>2026-05-15T20:00:30Z</updated>
+    <updated>2026-05-15T21:34:09Z</updated>
     <author><name>酷安</name></author>
     <summary>Rank: 3</summary>
   </entry>
@@ -19,23 +27,15 @@
     <id>urn:pulseradar:2026-05-15:bac061a04bc5cc01</id>
     <title>一个 Apple Music 风格的李志音乐播放器</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1213100"/>
-    <updated>2026-05-15T20:00:30Z</updated>
+    <updated>2026-05-15T21:34:09Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 3</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-05-15:01f1d21b503c019e</id>
-    <title>U.S. DOJ demands Apple and Google unmask over 100k users of car-tinkering app</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48151383"/>
-    <updated>2026-05-15T20:00:30Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 5</summary>
+    <summary>Rank: 4</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-15:53b49e1c8aa21c61</id>
     <title>2026 Android I/O ，全新 AI 手机、 Android PC 和车载驾驶</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7638601174863380516"/>
-    <updated>2026-05-15T20:00:30Z</updated>
+    <updated>2026-05-15T21:34:09Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 5</summary>
   </entry>
@@ -43,31 +43,39 @@
     <id>urn:pulseradar:2026-05-15:874a15eae11b13d5</id>
     <title>一日一技｜为什么你应该关闭 iOS 的键盘声音</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/109460"/>
-    <updated>2026-05-15T20:00:30Z</updated>
+    <updated>2026-05-15T21:34:09Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 5</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-05-15:6873000fe00228f8</id>
-    <title>Explore Wikipedia Like a Windows XP Desktop</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48146129"/>
-    <updated>2026-05-15T20:00:30Z</updated>
+    <id>urn:pulseradar:2026-05-15:01f1d21b503c019e</id>
+    <title>U.S. DOJ demands Apple and Google unmask over 100k users of car-tinkering app</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48151383"/>
+    <updated>2026-05-15T21:34:09Z</updated>
     <author><name>Hacker News</name></author>
-    <summary>Rank: 8</summary>
+    <summary>Rank: 7</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-15:4cede3cdd417c389</id>
     <title>为什么 Android 不用接口做 Activity 通信？</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7638897090145075246"/>
-    <updated>2026-05-15T20:00:30Z</updated>
+    <updated>2026-05-15T21:34:09Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 9</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-15:f64b1f21dd648fa7</id>
+    <title>Waymo updates 3,800 robotaxis after they &apos;drive into standing water&apos;</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48151767"/>
+    <updated>2026-05-15T21:34:09Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 10</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-15:e1893a599747e44e</id>
     <title>终于，Flutter 修复 Android 中文字体异常，但是很草台，不知怎么吐槽</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7639006640004251667"/>
-    <updated>2026-05-15T20:00:30Z</updated>
+    <updated>2026-05-15T21:34:09Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 10</summary>
   </entry>
@@ -75,31 +83,23 @@
     <id>urn:pulseradar:2026-05-15:b36e5ac70cc7afb9</id>
     <title>Android Studio 放着没怎么用，怎么也会越来越卡？</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7639631116610519082"/>
-    <updated>2026-05-15T20:00:30Z</updated>
+    <updated>2026-05-15T21:34:09Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 15</summary>
+    <summary>Rank: 16</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-05-15:d6f983f2220ccb59</id>
-    <title>Waymo recalls 3,800 robotaxis after they drive into flood waters</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48151767"/>
-    <updated>2026-05-15T20:00:30Z</updated>
+    <id>urn:pulseradar:2026-05-15:6873000fe00228f8</id>
+    <title>Explore Wikipedia Like a Windows XP Desktop</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48146129"/>
+    <updated>2026-05-15T21:34:09Z</updated>
     <author><name>Hacker News</name></author>
-    <summary>Rank: 23</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-05-15:27d932663a4b6968</id>
-    <title>First public macOS kernel memory corruption exploit on Apple M5</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48139219"/>
-    <updated>2026-05-15T20:00:30Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 27</summary>
+    <summary>Rank: 17</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-15:d6d2450096b4af42</id>
     <title>时隔 5 年的大更新：AirPods Max 2 首发体验</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/108118"/>
-    <updated>2026-05-15T20:00:30Z</updated>
+    <updated>2026-05-15T21:34:09Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 30</summary>
   </entry>

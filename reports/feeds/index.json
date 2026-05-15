@@ -1,10 +1,10 @@
 {
-  "updated": "2026-05-15T21:34:09Z",
+  "updated": "2026-05-15T23:28:38Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 22,
+      "count": 23,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
     "kw-5f479f2ee3": {
@@ -24,7 +24,7 @@
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 6,
+      "count": 8,
       "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-8ea9aebb87": {
@@ -47,20 +47,20 @@
       "count": 3,
       "url": "/reports/feeds/kw-729c87507a.xml"
     },
-    "kw-77c22b5841": {
-      "keyword": "西欧",
-      "count": 3,
-      "url": "/reports/feeds/kw-77c22b5841.xml"
-    },
-    "kw-de0204639b": {
-      "keyword": "芯片",
-      "count": 3,
-      "url": "/reports/feeds/kw-de0204639b.xml"
-    },
     "kw-a44c35f5da": {
       "keyword": "机器人 / 机器狗 / 具身智能",
       "count": 3,
       "url": "/reports/feeds/kw-a44c35f5da.xml"
+    },
+    "kw-77c22b5841": {
+      "keyword": "西欧",
+      "count": 2,
+      "url": "/reports/feeds/kw-77c22b5841.xml"
+    },
+    "kw-de0204639b": {
+      "keyword": "芯片",
+      "count": 2,
+      "url": "/reports/feeds/kw-de0204639b.xml"
     },
     "deepseek": {
       "keyword": "DeepSeek",
@@ -86,6 +86,11 @@
       "keyword": "俄罗斯",
       "count": 1,
       "url": "/reports/feeds/kw-5bdcf826f2.xml"
+    },
+    "kw-4866e189d5": {
+      "keyword": "印度",
+      "count": 1,
+      "url": "/reports/feeds/kw-4866e189d5.xml"
     }
   }
 }

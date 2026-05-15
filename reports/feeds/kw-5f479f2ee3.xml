@@ -4,30 +4,46 @@
   <subtitle>Subscribe to keyword: 微软 / 谷歌 / 苹果</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/kw-5f479f2ee3.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-05-15T01:21:59Z</updated>
+  <updated>2026-05-15T05:13:45Z</updated>
   <id>urn:pulseradar:feed:904a911d6c5f</id>
   <author><name>PulseRadar</name></author>
   <entry>
-    <id>urn:pulseradar:2026-05-15:27d932663a4b6968</id>
-    <title>First public macOS kernel memory corruption exploit on Apple M5</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48139219"/>
-    <updated>2026-05-15T01:21:59Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 3</summary>
+    <id>urn:pulseradar:2026-05-15:6d2b284e53e897f4</id>
+    <title>分享一个 macos 小工具，批量裁切图片/视频到符合 YouTube Ins 等社媒要求尺寸</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1212939"/>
+    <updated>2026-05-15T05:13:45Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 4</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-15:874a15eae11b13d5</id>
     <title>一日一技｜为什么你应该关闭 iOS 的键盘声音</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/109460"/>
-    <updated>2026-05-15T01:21:59Z</updated>
+    <updated>2026-05-15T05:13:45Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 5</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-15:20fbd9a1cf77b8ae</id>
+    <title>[内购限免] 拾字 - iOS 离线扫描王&amp;图片转文字</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1212936"/>
+    <updated>2026-05-15T05:13:45Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 5</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-15:27d932663a4b6968</id>
+    <title>First public macOS kernel memory corruption exploit on Apple M5</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48139219"/>
+    <updated>2026-05-15T05:13:45Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 7</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-15:53b49e1c8aa21c61</id>
     <title>2026 Android I/O ，全新 AI 手机、 Android PC 和车载驾驶</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7638601174863380516"/>
-    <updated>2026-05-15T01:21:59Z</updated>
+    <updated>2026-05-15T05:13:45Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 9</summary>
   </entry>
@@ -35,23 +51,39 @@
     <id>urn:pulseradar:2026-05-15:e1893a599747e44e</id>
     <title>终于，Flutter 修复 Android 中文字体异常，但是很草台，不知怎么吐槽</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7639006640004251667"/>
-    <updated>2026-05-15T01:21:59Z</updated>
+    <updated>2026-05-15T05:13:45Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 15</summary>
+    <summary>Rank: 14</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-15:4cede3cdd417c389</id>
     <title>为什么 Android 不用接口做 Activity 通信？</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7638897090145075246"/>
-    <updated>2026-05-15T01:21:59Z</updated>
+    <updated>2026-05-15T05:13:45Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 17</summary>
+    <summary>Rank: 15</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-15:95235983bc1faa39</id>
+    <title>Gemini 要重新做教育认证了，之前薅了谷歌的羊毛的，谷歌喊你们 5.28 前做教育认证了</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1212849"/>
+    <updated>2026-05-15T05:13:45Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 20</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-15:9b9b385634e84019</id>
+    <title>库克你的iPhone在北京烫吗</title>
+    <link rel="alternate" type="text/html" href="https://s.weibo.com/weibo?q=%E5%BA%93%E5%85%8B%E4%BD%A0%E7%9A%84iPhone%E5%9C%A8%E5%8C%97%E4%BA%AC%E7%83%AB%E5%90%97&amp;t=31&amp;band_rank=21&amp;Refer=top"/>
+    <updated>2026-05-15T05:13:45Z</updated>
+    <author><name>微博</name></author>
+    <summary>Rank: 21</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-15:d6d2450096b4af42</id>
     <title>时隔 5 年的大更新：AirPods Max 2 首发体验</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/108118"/>
-    <updated>2026-05-15T01:21:59Z</updated>
+    <updated>2026-05-15T05:13:45Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 30</summary>
   </entry>

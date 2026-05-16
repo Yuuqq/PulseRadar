@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-16T21:12:39Z",
+  "updated": "2026-05-16T22:11:22Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
@@ -19,17 +19,17 @@
     },
     "openai-claude": {
       "keyword": "OpenAI / Claude",
-      "count": 10,
+      "count": 9,
       "url": "/reports/feeds/openai-claude.xml"
     },
     "kw-4c6737b9f5": {
       "keyword": "华为",
-      "count": 7,
+      "count": 5,
       "url": "/reports/feeds/kw-4c6737b9f5.xml"
     },
     "kw-729c87507a": {
       "keyword": "字节跳动",
-      "count": 4,
+      "count": 3,
       "url": "/reports/feeds/kw-729c87507a.xml"
     },
     "kw-8ea9aebb87": {
@@ -46,6 +46,11 @@
       "keyword": "DeepSeek",
       "count": 2,
       "url": "/reports/feeds/deepseek.xml"
+    },
+    "kw-bde87c6ca1": {
+      "keyword": "国产开源模型",
+      "count": 2,
+      "url": "/reports/feeds/kw-bde87c6ca1.xml"
     },
     "kw-3f426f96e0": {
       "keyword": "特斯拉",
@@ -71,11 +76,6 @@
       "keyword": "腾讯",
       "count": 1,
       "url": "/reports/feeds/kw-3842b66185.xml"
-    },
-    "kw-bde87c6ca1": {
-      "keyword": "国产开源模型",
-      "count": 1,
-      "url": "/reports/feeds/kw-bde87c6ca1.xml"
     },
     "kw-5bdcf826f2": {
       "keyword": "俄罗斯",

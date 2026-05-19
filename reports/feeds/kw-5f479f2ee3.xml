@@ -4,54 +4,62 @@
   <subtitle>Subscribe to keyword: 微软 / 谷歌 / 苹果</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/kw-5f479f2ee3.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-05-19T20:14:02Z</updated>
+  <updated>2026-05-19T21:54:27Z</updated>
   <id>urn:pulseradar:feed:904a911d6c5f</id>
   <author><name>PulseRadar</name></author>
   <entry>
     <id>urn:pulseradar:2026-05-19:d19923fe83fef279</id>
     <title>Gemini 3.5 Flash</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48196570"/>
-    <updated>2026-05-19T20:14:02Z</updated>
+    <updated>2026-05-19T21:54:27Z</updated>
     <author><name>Hacker News</name></author>
     <summary>Rank: 1</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-05-19:2811a29e90f9d281</id>
-    <title>看了一点 Google I/O</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1213952"/>
-    <updated>2026-05-19T20:14:02Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 2</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-19:2e6093ce08ee3907</id>
     <title>Google changes its search box</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48197370"/>
-    <updated>2026-05-19T20:14:02Z</updated>
+    <updated>2026-05-19T21:54:27Z</updated>
     <author><name>Hacker News</name></author>
+    <summary>Rank: 2</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-19:517a5c5172324830</id>
+    <title>OpenAI Adopts Google&apos;s SynthID Watermark for AI Images with Verification Tool</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48198291"/>
+    <updated>2026-05-19T21:54:27Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 3</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-19:2811a29e90f9d281</id>
+    <title>看了一点 Google I/O</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1213952"/>
+    <updated>2026-05-19T21:54:27Z</updated>
+    <author><name>V2EX</name></author>
     <summary>Rank: 4</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-19:32354591157ed8f0</id>
     <title>Apple unveils new accessibility features</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48192224"/>
-    <updated>2026-05-19T20:14:02Z</updated>
+    <updated>2026-05-19T21:54:27Z</updated>
     <author><name>Hacker News</name></author>
-    <summary>Rank: 5</summary>
+    <summary>Rank: 8</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-19:1b0d7e6daa2b8747</id>
     <title>[6-1 前登录直接送无期限 Pro 订阅， AI 功能免费用] 做了一个美观的带 AI 功能的新标签页 Chrome 插件</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1213934"/>
-    <updated>2026-05-19T20:14:02Z</updated>
+    <updated>2026-05-19T21:54:27Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 6</summary>
+    <summary>Rank: 8</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-19:9480b75885ed90b9</id>
     <title>谷歌年度开发者大会揭幕 半导体板块不振美股持续调整 | 今夜看点</title>
     <link rel="alternate" type="text/html" href="https://www.cls.cn/detail/2375879"/>
-    <updated>2026-05-19T20:14:02Z</updated>
+    <updated>2026-05-19T21:54:27Z</updated>
     <author><name>财联社热门</name></author>
     <summary>Rank: 9</summary>
   </entry>
@@ -59,7 +67,7 @@
     <id>urn:pulseradar:2026-05-19:56756937e5b70aff</id>
     <title>书签真正难的不是收藏，而是找回来：我是怎么做这个 Chrome 插件的</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7640643958130819099"/>
-    <updated>2026-05-19T20:14:02Z</updated>
+    <updated>2026-05-19T21:54:27Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 9</summary>
   </entry>
@@ -67,7 +75,7 @@
     <id>urn:pulseradar:2026-05-19:874a15eae11b13d5</id>
     <title>一日一技｜为什么你应该关闭 iOS 的键盘声音</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/109460"/>
-    <updated>2026-05-19T20:14:02Z</updated>
+    <updated>2026-05-19T21:54:27Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 9</summary>
   </entry>
@@ -75,72 +83,56 @@
     <id>urn:pulseradar:2026-05-19:9fd1292282c8a7b5</id>
     <title>Android Clean Architecture 中 Use Case 只能有一个方法吗？</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7640016020847034420"/>
-    <updated>2026-05-19T20:14:02Z</updated>
+    <updated>2026-05-19T21:54:27Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 10</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-05-19:b2fe41392ea937ba</id>
-    <title>谷歌I/O大会今夜揭幕： Gemini 4.0悬念、全栈智能体与AI购物</title>
-    <link rel="alternate" type="text/html" href="https://wallstreetcn.com/articles/3772609"/>
-    <updated>2026-05-19T20:14:02Z</updated>
-    <author><name>华尔街见闻</name></author>
     <summary>Rank: 10</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-19:9120d8e48d0f22e0</id>
     <title>朋友聚会找电影？用《豆瓣一起看》chrome 插件帮你选电影</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1213915"/>
-    <updated>2026-05-19T20:14:02Z</updated>
+    <updated>2026-05-19T21:54:27Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 11</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-05-19:8616f660d13bf57a</id>
-    <title>Gemini Omni</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48196609"/>
-    <updated>2026-05-19T20:14:02Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 14</summary>
+    <summary>Rank: 13</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-19:728e478315693a52</id>
     <title>microsoft /      ai-agents-for-beginners</title>
     <link rel="alternate" type="text/html" href="https://github.com/microsoft/ai-agents-for-beginners"/>
-    <updated>2026-05-19T20:14:02Z</updated>
+    <updated>2026-05-19T21:54:27Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 17</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-05-19:bb43ca4b13207141</id>
-    <title>有没有发现 iOS 上的照片随机显示（Photo Shuffle）壁纸不太随机？我做了个每天自动更换相册内容的 App</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1213871"/>
-    <updated>2026-05-19T20:14:02Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 22</summary>
+    <id>urn:pulseradar:2026-05-19:8616f660d13bf57a</id>
+    <title>Gemini Omni</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48196609"/>
+    <updated>2026-05-19T21:54:27Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 17</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-19:6eded8c7353b1d73</id>
     <title>Android 高级岗 Kotlin 面试题：这些答不上来，基本告别大厂了</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7640428319993774130"/>
-    <updated>2026-05-19T20:14:02Z</updated>
+    <updated>2026-05-19T21:54:27Z</updated>
     <author><name>掘金</name></author>
+    <summary>Rank: 24</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-19:bb43ca4b13207141</id>
+    <title>有没有发现 iOS 上的照片随机显示（Photo Shuffle）壁纸不太随机？我做了个每天自动更换相册内容的 App</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1213871"/>
+    <updated>2026-05-19T21:54:27Z</updated>
+    <author><name>V2EX</name></author>
     <summary>Rank: 24</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-19:cb71424c066d5712</id>
     <title>vibe 了一个通过浏览器(webrtc)连接 Android 手机屏幕的工具</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1213860"/>
-    <updated>2026-05-19T20:14:02Z</updated>
+    <updated>2026-05-19T21:54:27Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 26</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-05-19:1c6f9eae65c80bd0</id>
-    <title>Gemini 的新 ui 还挺好看的</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1213846"/>
-    <updated>2026-05-19T20:14:02Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 30</summary>
+    <summary>Rank: 28</summary>
   </entry>
 </feed>

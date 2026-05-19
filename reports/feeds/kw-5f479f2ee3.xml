@@ -4,86 +4,126 @@
   <subtitle>Subscribe to keyword: 微软 / 谷歌 / 苹果</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/kw-5f479f2ee3.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-05-19T04:42:41Z</updated>
+  <updated>2026-05-19T08:43:46Z</updated>
   <id>urn:pulseradar:feed:904a911d6c5f</id>
   <author><name>PulseRadar</name></author>
+  <entry>
+    <id>urn:pulseradar:2026-05-19:f13af879021b5d7e</id>
+    <title>Turn your Android phone into a ham radio transceiver</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48161772"/>
+    <updated>2026-05-19T08:43:46Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 2</summary>
+  </entry>
   <entry>
     <id>urn:pulseradar:2026-05-19:b36e5ac70cc7afb9</id>
     <title>Android Studio 放着没怎么用，怎么也会越来越卡？</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7639631116610519082"/>
-    <updated>2026-05-19T04:42:41Z</updated>
+    <updated>2026-05-19T08:43:46Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 2</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-05-19:e14192389519c752</id>
-    <title>[开源]视频字幕生成工具以及 Chrome 2FA 工具</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1213765"/>
-    <updated>2026-05-19T04:42:41Z</updated>
+    <id>urn:pulseradar:2026-05-19:1c6f9eae65c80bd0</id>
+    <title>Gemini 的新 ui 还挺好看的</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1213846"/>
+    <updated>2026-05-19T08:43:46Z</updated>
     <author><name>V2EX</name></author>
     <summary>Rank: 2</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-19:bc9c116648837c6f</id>
+    <title>roost 一个统一管理 Claude/Gemini/Codex/Copilot/OpenCode session 的终端工具</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1213843"/>
+    <updated>2026-05-19T08:43:46Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 3</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-19:e14b3dca0f7b0ded</id>
     <title>最新版 rust 桌面就差把 ios 26 的底裤都抄过来了，曲线弹得没眼看，现在动画更是 bug 满天飞#ios26# #HyperOS3# #小米解锁BL#</title>
     <link rel="alternate" type="text/html" href="https://www.coolapk.com/feed/71831858"/>
-    <updated>2026-05-19T04:42:41Z</updated>
+    <updated>2026-05-19T08:43:46Z</updated>
     <author><name>酷安</name></author>
-    <summary>Rank: 3</summary>
+    <summary>Rank: 4</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-05-19:9fd1292282c8a7b5</id>
-    <title>Android Clean Architecture 中 Use Case 只能有一个方法吗？</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7640016020847034420"/>
-    <updated>2026-05-19T04:42:41Z</updated>
-    <author><name>掘金</name></author>
-    <summary>Rank: 5</summary>
+    <id>urn:pulseradar:2026-05-19:81695c2469dd1204</id>
+    <title>Google I/O 快开了，分享一个 Veo Omni AI 视频生成站</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1213840"/>
+    <updated>2026-05-19T08:43:46Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 4</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-19:44f217013425348e</id>
+    <title>九大看点梳理！谷歌I/O大会前瞻：“AI全栈霸主”能否再度惊艳华尔街？</title>
+    <link rel="alternate" type="text/html" href="https://www.cls.cn/detail/2374982"/>
+    <updated>2026-05-19T08:43:46Z</updated>
+    <author><name>财联社热门</name></author>
+    <summary>Rank: 7</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-19:874a15eae11b13d5</id>
     <title>一日一技｜为什么你应该关闭 iOS 的键盘声音</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/109460"/>
-    <updated>2026-05-19T04:42:41Z</updated>
+    <updated>2026-05-19T08:43:46Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 8</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-19:9fd1292282c8a7b5</id>
+    <title>Android Clean Architecture 中 Use Case 只能有一个方法吗？</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7640016020847034420"/>
+    <updated>2026-05-19T08:43:46Z</updated>
+    <author><name>掘金</name></author>
+    <summary>Rank: 10</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-19:56756937e5b70aff</id>
     <title>书签真正难的不是收藏，而是找回来：我是怎么做这个 Chrome 插件的</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7640643958130819099"/>
-    <updated>2026-05-19T04:42:41Z</updated>
+    <updated>2026-05-19T08:43:46Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 10</summary>
+    <summary>Rank: 12</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-19:728e478315693a52</id>
     <title>microsoft /      ai-agents-for-beginners</title>
     <link rel="alternate" type="text/html" href="https://github.com/microsoft/ai-agents-for-beginners"/>
-    <updated>2026-05-19T04:42:41Z</updated>
+    <updated>2026-05-19T08:43:46Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 13</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-05-19:3ceb1472a07430e2</id>
-    <title>我很好奇到底为什么iPhone这小玩意能做到十多年没明显树脂镜片老化，安卓也挺贵老化速度却这么快。#手机摄影#</title>
-    <link rel="alternate" type="text/html" href="https://www.coolapk.com/feed/71823511"/>
-    <updated>2026-05-19T04:42:41Z</updated>
-    <author><name>酷安</name></author>
-    <summary>Rank: 18</summary>
+    <id>urn:pulseradar:2026-05-19:eee7a285727ab314</id>
+    <title>bb push &apos;hello&apos; - 超轻量的 ios 消息推送工具 / 开源 Bark 命令行工具</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1213795"/>
+    <updated>2026-05-19T08:43:46Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 16</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-05-19:8cc298b28db8297b</id>
-    <title>iPhone 18 Pro最新爆料来了</title>
-    <link rel="alternate" type="text/html" href="https://www.douyin.com/hot/2503684"/>
-    <updated>2026-05-19T04:42:41Z</updated>
-    <author><name>抖音</name></author>
-    <summary>Rank: 21</summary>
+    <id>urn:pulseradar:2026-05-19:dae34adfc858b1ad</id>
+    <title>谷歌DeepMind创始人据悉为Anthropic早期投资人</title>
+    <link rel="alternate" type="text/html" href="https://www.36kr.com/newsflashes/3815910562569733"/>
+    <updated>2026-05-19T08:43:46Z</updated>
+    <author><name>36氪</name></author>
+    <summary>Rank: 19</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-05-19:e64c14235888fa82</id>
-    <title>一觉醒来， V2EX Polish 被 chrome 自动停用了</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1213664"/>
-    <updated>2026-05-19T04:42:41Z</updated>
+    <id>urn:pulseradar:2026-05-19:0da317e9ea33379c</id>
+    <title>gemini 学生重新认证。大家现在的搭配啥呢。</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1213776"/>
+    <updated>2026-05-19T08:43:46Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 19</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-19:e14192389519c752</id>
+    <title>[开源]视频字幕生成工具以及 Chrome 2FA 工具</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1213765"/>
+    <updated>2026-05-19T08:43:46Z</updated>
     <author><name>V2EX</name></author>
     <summary>Rank: 22</summary>
   </entry>

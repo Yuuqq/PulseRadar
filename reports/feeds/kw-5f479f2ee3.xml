@@ -4,14 +4,14 @@
   <subtitle>Subscribe to keyword: 微软 / 谷歌 / 苹果</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/kw-5f479f2ee3.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-05-21T05:49:59Z</updated>
+  <updated>2026-05-21T10:10:17Z</updated>
   <id>urn:pulseradar:feed:904a911d6c5f</id>
   <author><name>PulseRadar</name></author>
   <entry>
     <id>urn:pulseradar:2026-05-21:94602ffb14d005bc</id>
     <title>Show HN: I reverse engineered Apple&apos;s video wallpapers</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48215979"/>
-    <updated>2026-05-21T05:49:59Z</updated>
+    <updated>2026-05-21T10:10:17Z</updated>
     <author><name>Hacker News</name></author>
     <summary>Rank: 4</summary>
   </entry>
@@ -19,40 +19,56 @@
     <id>urn:pulseradar:2026-05-21:2355b87893555729</id>
     <title>2026 Google I/O ，意料之外的 Antigravity 2.0 和消失的 Gemini CLI</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7641409122263285766"/>
-    <updated>2026-05-21T05:49:59Z</updated>
+    <updated>2026-05-21T10:10:17Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 5</summary>
+    <summary>Rank: 4</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-21:874a15eae11b13d5</id>
     <title>一日一技｜为什么你应该关闭 iOS 的键盘声音</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/109460"/>
-    <updated>2026-05-21T05:49:59Z</updated>
+    <updated>2026-05-21T10:10:17Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 9</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-05-21:bf62ee8b140cb354</id>
-    <title>Google&apos;s AI is being manipulated. The search giant is quietly fighting back</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48205782"/>
-    <updated>2026-05-21T05:49:59Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 20</summary>
+    <id>urn:pulseradar:2026-05-21:459ad6665c839cb6</id>
+    <title>Handsets - 高性能 Android 自动化 CLI，原生 adb 太卡太慢</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1214432"/>
+    <updated>2026-05-21T10:10:17Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 14</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-21:9728e71e0abdef87</id>
     <title>Android 开发者再不转Kotlin，真的来不及了</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7641229739893784622"/>
-    <updated>2026-05-21T05:49:59Z</updated>
+    <updated>2026-05-21T10:10:17Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 23</summary>
+    <summary>Rank: 21</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-05-21:7c69a888a0b19879</id>
-    <title>Google Declaring War on the Web</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48214449"/>
-    <updated>2026-05-21T05:49:59Z</updated>
+    <id>urn:pulseradar:2026-05-21:c62347d1ebf9b67f</id>
+    <title>Windows 平台的上位机开发，需要用 CAN 通信，能用 go 吗？</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1214393"/>
+    <updated>2026-05-21T10:10:17Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 22</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-21:ce8b5a03817da383</id>
+    <title>Google’s AI is being manipulated. The search giant is quietly fighting back</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48205782"/>
+    <updated>2026-05-21T10:10:17Z</updated>
     <author><name>Hacker News</name></author>
+    <summary>Rank: 26</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-21:3e4cd102ea98a58b</id>
+    <title>Android 架构系列之MVVM 和 MVI 算架构吗？</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7640666940063662090"/>
+    <updated>2026-05-21T10:10:17Z</updated>
+    <author><name>掘金</name></author>
     <summary>Rank: 29</summary>
   </entry>
 </feed>

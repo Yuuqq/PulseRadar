@@ -1,25 +1,25 @@
 {
-  "updated": "2026-05-22T18:15:46Z",
+  "updated": "2026-05-22T20:19:48Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 26,
+      "count": 25,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 13,
+      "count": 14,
       "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-5f479f2ee3": {
       "keyword": "微软 / 谷歌 / 苹果",
-      "count": 12,
+      "count": 10,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
     },
     "openai-claude": {
       "keyword": "OpenAI / Claude",
-      "count": 5,
+      "count": 6,
       "url": "/reports/feeds/openai-claude.xml"
     },
     "kw-ac6fb2f2fe": {
@@ -47,11 +47,6 @@
       "count": 2,
       "url": "/reports/feeds/kw-8ea9aebb87.xml"
     },
-    "kw-3842b66185": {
-      "keyword": "腾讯",
-      "count": 1,
-      "url": "/reports/feeds/kw-3842b66185.xml"
-    },
     "kw-3f426f96e0": {
       "keyword": "特斯拉",
       "count": 1,
@@ -67,11 +62,6 @@
       "count": 1,
       "url": "/reports/feeds/kw-5bdcf826f2.xml"
     },
-    "kw-4866e189d5": {
-      "keyword": "印度",
-      "count": 1,
-      "url": "/reports/feeds/kw-4866e189d5.xml"
-    },
     "kw-426b53cba7": {
       "keyword": "水电 / 光伏 / 核能 / 能源",
       "count": 1,
@@ -81,6 +71,11 @@
       "keyword": "机器人 / 机器狗 / 具身智能",
       "count": 1,
       "url": "/reports/feeds/kw-a44c35f5da.xml"
+    },
+    "kw-2dd56c6548": {
+      "keyword": "航天",
+      "count": 1,
+      "url": "/reports/feeds/kw-2dd56c6548.xml"
     }
   }
 }

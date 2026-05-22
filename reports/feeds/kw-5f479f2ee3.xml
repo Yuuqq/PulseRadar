@@ -4,22 +4,14 @@
   <subtitle>Subscribe to keyword: 微软 / 谷歌 / 苹果</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/kw-5f479f2ee3.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-05-22T05:39:56Z</updated>
+  <updated>2026-05-22T09:57:10Z</updated>
   <id>urn:pulseradar:feed:904a911d6c5f</id>
   <author><name>PulseRadar</name></author>
-  <entry>
-    <id>urn:pulseradar:2026-05-22:bdd683dbb4bc883f</id>
-    <title>iOS 版本 eSIM 扫码工具推荐，快捷解析 eSIM 截图和管理 eSIM 以及生成导出 eSIM 二维码</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1214681"/>
-    <updated>2026-05-22T05:39:56Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 1</summary>
-  </entry>
   <entry>
     <id>urn:pulseradar:2026-05-22:2355b87893555729</id>
     <title>2026 Google I/O ，意料之外的 Antigravity 2.0 和消失的 Gemini CLI</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7641409122263285766"/>
-    <updated>2026-05-22T05:39:56Z</updated>
+    <updated>2026-05-22T09:57:10Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 3</summary>
   </entry>
@@ -27,7 +19,7 @@
     <id>urn:pulseradar:2026-05-22:a399211135bd230d</id>
     <title>ChromeDevTools /      chrome-devtools-mcp</title>
     <link rel="alternate" type="text/html" href="https://github.com/ChromeDevTools/chrome-devtools-mcp"/>
-    <updated>2026-05-22T05:39:56Z</updated>
+    <updated>2026-05-22T09:57:10Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 8</summary>
   </entry>
@@ -35,96 +27,112 @@
     <id>urn:pulseradar:2026-05-22:9df67184fc40dc1c</id>
     <title>Indexing a year of video locally on a 2021 MacBook with Gemma4-31B (50GB swap)</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48222733"/>
-    <updated>2026-05-22T05:39:56Z</updated>
+    <updated>2026-05-22T09:57:10Z</updated>
     <author><name>Hacker News</name></author>
-    <summary>Rank: 8</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-05-22:e0c6a58fd4a8ec70</id>
-    <title>[iOS] 一个简单的文本识别转拼音 App</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1214618"/>
-    <updated>2026-05-22T05:39:56Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 9</summary>
+    <summary>Rank: 11</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-22:874a15eae11b13d5</id>
     <title>一日一技｜为什么你应该关闭 iOS 的键盘声音</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/109460"/>
-    <updated>2026-05-22T05:39:56Z</updated>
+    <updated>2026-05-22T09:57:10Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 11</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-05-22:558630f744a92d74</id>
-    <title>Waymo pauses Atlanta service as its robotaxis keep driving into floods</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48225426"/>
-    <updated>2026-05-22T05:39:56Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 16</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-05-22:9728e71e0abdef87</id>
-    <title>Android 开发者再不转Kotlin，真的来不及了</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7641229739893784622"/>
-    <updated>2026-05-22T05:39:56Z</updated>
-    <author><name>掘金</name></author>
-    <summary>Rank: 16</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-05-22:4a39ce0f8c4e6f6a</id>
-    <title>Google&apos;s Antigravity bait and switch</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48222529"/>
-    <updated>2026-05-22T05:39:56Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 21</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-05-22:3e4cd102ea98a58b</id>
-    <title>Android 架构系列之MVVM 和 MVI 算架构吗？</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7640666940063662090"/>
-    <updated>2026-05-22T05:39:56Z</updated>
-    <author><name>掘金</name></author>
-    <summary>Rank: 23</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-05-22:91b364db3c50e89a</id>
-    <title>谷歌的 aistudio 现在可以直接生成安卓 app 啦</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1214563"/>
-    <updated>2026-05-22T05:39:56Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 23</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-22:2c0940bacd6f53ee</id>
     <title>安卓原生项目迁移KMP——核心迁移</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7641139636971323443"/>
-    <updated>2026-05-22T05:39:56Z</updated>
+    <updated>2026-05-22T09:57:10Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 25</summary>
+    <summary>Rank: 13</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-22:94e6c436cd2a82fc</id>
     <title>重磅官宣：Android UI 开发正式进入 Compose-first 时代</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7641885995420844070"/>
-    <updated>2026-05-22T05:39:56Z</updated>
+    <updated>2026-05-22T09:57:10Z</updated>
+    <author><name>掘金</name></author>
+    <summary>Rank: 14</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-22:be0cf64ac2710f41</id>
+    <title>[求助] 安卓手机的 chatgpt 打开 codex 报错 request is not allowed</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1214705"/>
+    <updated>2026-05-22T09:57:10Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 16</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-22:1ed524464a4a27e8</id>
+    <title>Android 发布全新性能分析器，实用性和性能大升级</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7642158541735116854"/>
+    <updated>2026-05-22T09:57:10Z</updated>
+    <author><name>掘金</name></author>
+    <summary>Rank: 17</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-22:faf37b5ec5b8b645</id>
+    <title>OmniSide：聚合 GPT-5 / Claude 4.5 / Gemini 3 Pro 的 AI 工具，国内可直连</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1214688"/>
+    <updated>2026-05-22T09:57:10Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 19</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-22:2fc3b023aedef1f4</id>
+    <title>见证历史！Swift 6.3 官方支持 Android，跨平台要变天了？</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7641640931922296859"/>
+    <updated>2026-05-22T09:57:10Z</updated>
+    <author><name>掘金</name></author>
+    <summary>Rank: 20</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-22:bdd683dbb4bc883f</id>
+    <title>iOS 版本 eSIM 扫码工具推荐，快捷解析 eSIM 截图和管理 eSIM 以及生成导出 eSIM 二维码</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1214681"/>
+    <updated>2026-05-22T09:57:10Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 22</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-22:558630f744a92d74</id>
+    <title>Waymo pauses Atlanta service as its robotaxis keep driving into floods</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48225426"/>
+    <updated>2026-05-22T09:57:10Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 23</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-22:4a39ce0f8c4e6f6a</id>
+    <title>Google&apos;s Antigravity bait and switch</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48222529"/>
+    <updated>2026-05-22T09:57:10Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 25</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-22:0ee501f702d14e26</id>
+    <title>谷歌I/O解读：小模型反杀旗舰，3.5 Flash凭什么全面超越3.1 Pro？</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7641544730452066338"/>
+    <updated>2026-05-22T09:57:10Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 26</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-05-22:20a27acde9c75d6f</id>
-    <title>做了个 Chrome 扩展，专门用来看 DApp 和钱包之间的 RPC 通信</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1214546"/>
-    <updated>2026-05-22T05:39:56Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 27</summary>
+    <id>urn:pulseradar:2026-05-22:52d0190958b58f09</id>
+    <title>谷歌Antigravity 还活着啊！全新系列四个产品覆盖所有人群！</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7641544730451853346"/>
+    <updated>2026-05-22T09:57:10Z</updated>
+    <author><name>掘金</name></author>
+    <summary>Rank: 30</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-05-22:e26e66d40a6d9c01</id>
-    <title>The IBM-ification of Google?</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48230049"/>
-    <updated>2026-05-22T05:39:56Z</updated>
-    <author><name>Hacker News</name></author>
+    <id>urn:pulseradar:2026-05-22:e0c6a58fd4a8ec70</id>
+    <title>[iOS] 一个简单的文本识别转拼音 App</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1214618"/>
+    <updated>2026-05-22T09:57:10Z</updated>
+    <author><name>V2EX</name></author>
     <summary>Rank: 30</summary>
   </entry>
 </feed>

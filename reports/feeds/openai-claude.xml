@@ -4,39 +4,31 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-05-22T05:39:56Z</updated>
+  <updated>2026-05-22T09:57:10Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
   <entry>
     <id>urn:pulseradar:2026-05-22:f81ea65bc3f5b50a</id>
     <title>anthropics /      claude-plugins-official</title>
     <link rel="alternate" type="text/html" href="https://github.com/anthropics/claude-plugins-official"/>
-    <updated>2026-05-22T05:39:56Z</updated>
+    <updated>2026-05-22T09:57:10Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 1</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-22:56b7033c66ff330f</id>
+    <title>[开源] 开发了一个支持 Claude、Codex 的通知工具，挺实用</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1214743"/>
+    <updated>2026-05-22T09:57:10Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 8</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-22:76cdd694d5a127f0</id>
     <title>Claude Code 在大型项目中的最佳实践指南</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7641417840354099240"/>
-    <updated>2026-05-22T05:39:56Z</updated>
+    <updated>2026-05-22T09:57:10Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 18</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-05-22:1e277b5dce72d5b4</id>
-    <title>Vigil：让 Claude Code 在我睡觉的时候自己跑队列任务 —— 撞墙自动续、跑完自动 commit</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1214573"/>
-    <updated>2026-05-22T05:39:56Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 18</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-05-22:0852d227065a17d7</id>
-    <title>Show HN: Spec-Driven Development Workflow for Claude Code</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48231575"/>
-    <updated>2026-05-22T05:39:56Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 24</summary>
+    <summary>Rank: 10</summary>
   </entry>
 </feed>

@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-23T21:26:32Z",
+  "updated": "2026-05-23T22:25:44Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
@@ -14,7 +14,7 @@
     },
     "kw-5f479f2ee3": {
       "keyword": "微软 / 谷歌 / 苹果",
-      "count": 9,
+      "count": 10,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
     },
     "kw-be93bcade4": {
@@ -71,6 +71,11 @@
       "keyword": "国产开源模型",
       "count": 1,
       "url": "/reports/feeds/kw-bde87c6ca1.xml"
+    },
+    "kw-ac6fb2f2fe": {
+      "keyword": "东亚",
+      "count": 1,
+      "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
     "kw-4866e189d5": {
       "keyword": "印度",

@@ -4,47 +4,39 @@
   <subtitle>Subscribe to keyword: DeepSeek</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/deepseek.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-05-24T14:49:27Z</updated>
+  <updated>2026-05-24T16:33:15Z</updated>
   <id>urn:pulseradar:feed:fcfa9a7dd0bd</id>
   <author><name>PulseRadar</name></author>
   <entry>
     <id>urn:pulseradar:2026-05-24:5895c0459f88a628</id>
     <title>DeepSeek reasonix, DeepSeek native coding agent with high caching and low cost</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48256953"/>
-    <updated>2026-05-24T14:49:27Z</updated>
+    <updated>2026-05-24T16:33:15Z</updated>
     <author><name>Hacker News</name></author>
-    <summary>Rank: 6</summary>
+    <summary>Rank: 1</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-24:b00fc7ce43e8ec00</id>
     <title>梁文锋与DeepSeek的十万亿美元棋盘</title>
     <link rel="alternate" type="text/html" href="https://wallstreetcn.com/articles/3772995"/>
-    <updated>2026-05-24T14:49:27Z</updated>
+    <updated>2026-05-24T16:33:15Z</updated>
     <author><name>华尔街见闻</name></author>
-    <summary>Rank: 9</summary>
+    <summary>Rank: 8</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-24:69f96c5d34df8268</id>
+    <title>DeepSeek to Make Permanent 75% Discount on Flagship AI Model</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48257410"/>
+    <updated>2026-05-24T16:33:15Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 14</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-24:d05af28510604fc6</id>
     <title>deepseek-v4-pro 的 api 结合哪个编程最好用？</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1215075"/>
-    <updated>2026-05-24T14:49:27Z</updated>
+    <updated>2026-05-24T16:33:15Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 20</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-05-24:d5c182091b5fb69a</id>
-    <title>DeepSeek 引入 API 并发限制，这对开发者意味着什么？</title>
-    <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2041119709844788638"/>
-    <updated>2026-05-24T14:49:27Z</updated>
-    <author><name>知乎</name></author>
-    <summary>Rank: 20</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-05-24:dfffdacdf782c246</id>
-    <title>开源 OpenSeek: 给 DeepSeek V4 写了一层 Claude Code 同款的 TUI agent harness</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1215048"/>
-    <updated>2026-05-24T14:49:27Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 30</summary>
+    <summary>Rank: 23</summary>
   </entry>
 </feed>

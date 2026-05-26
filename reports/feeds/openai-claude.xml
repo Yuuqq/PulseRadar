@@ -4,14 +4,22 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-05-26T04:43:48Z</updated>
+  <updated>2026-05-26T08:49:25Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
+  <entry>
+    <id>urn:pulseradar:2026-05-26:c75da93c45b684e8</id>
+    <title>vscode 中 claude 插件读取的磁盘文件，区别于其它 chat 插件</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1215626"/>
+    <updated>2026-05-26T08:49:25Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 2</summary>
+  </entry>
   <entry>
     <id>urn:pulseradar:2026-05-26:a130fc2de640322a</id>
     <title>mukul975 /      Anthropic-Cybersecurity-Skills</title>
     <link rel="alternate" type="text/html" href="https://github.com/mukul975/Anthropic-Cybersecurity-Skills"/>
-    <updated>2026-05-26T04:43:48Z</updated>
+    <updated>2026-05-26T08:49:25Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 5</summary>
   </entry>
@@ -19,32 +27,40 @@
     <id>urn:pulseradar:2026-05-26:ef8882830236713c</id>
     <title>anthropics /      claude-cookbooks</title>
     <link rel="alternate" type="text/html" href="https://github.com/anthropics/claude-cookbooks"/>
-    <updated>2026-05-26T04:43:48Z</updated>
+    <updated>2026-05-26T08:49:25Z</updated>
     <author><name>GitHub Trending</name></author>
-    <summary>Rank: 11</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-05-26:1a434fdf9c396d57</id>
-    <title>庆祝下,claude 给我退款到帐了</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1215467"/>
-    <updated>2026-05-26T04:43:48Z</updated>
-    <author><name>V2EX</name></author>
     <summary>Rank: 11</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-26:d1092ee5602c4420</id>
     <title>基于 Claude Code 实现 CI/CD 完整流程</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7642908132064067634"/>
-    <updated>2026-05-26T04:43:48Z</updated>
+    <updated>2026-05-26T08:49:25Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 13</summary>
+    <summary>Rank: 11</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-26:9656e2285242514b</id>
     <title>零代码复刻 OpenAI DeepResearch：我用 Dify × EdgeOne 打造全球科技热点深度起底神器</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7642996161259159558"/>
-    <updated>2026-05-26T04:43:48Z</updated>
+    <updated>2026-05-26T08:49:25Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 16</summary>
+    <summary>Rank: 12</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-26:9e09e40db20a766c</id>
+    <title>做了三个月烧了一万多刀，搞了个给小白用的桌面 Claude Code</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1215544"/>
+    <updated>2026-05-26T08:49:25Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 17</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-26:e3be6468e1387e11</id>
+    <title>claude 写代码正确姿势是什么？我最近用着怎么这么弱智啊</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1215528"/>
+    <updated>2026-05-26T08:49:25Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 20</summary>
   </entry>
 </feed>

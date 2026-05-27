@@ -4,55 +4,55 @@
   <subtitle>Subscribe to keyword: 微软 / 谷歌 / 苹果</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/kw-5f479f2ee3.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-05-27T11:04:24Z</updated>
+  <updated>2026-05-27T14:38:29Z</updated>
   <id>urn:pulseradar:feed:904a911d6c5f</id>
   <author><name>PulseRadar</name></author>
-  <entry>
-    <id>urn:pulseradar:2026-05-27:aad2adcd10d33fcd</id>
-    <title>微软 Azure 的 openai 服务有需要组队的么？</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1215943"/>
-    <updated>2026-05-27T11:04:24Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 14</summary>
-  </entry>
   <entry>
     <id>urn:pulseradar:2026-05-27:874a15eae11b13d5</id>
     <title>一日一技｜为什么你应该关闭 iOS 的键盘声音</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/109460"/>
-    <updated>2026-05-27T11:04:24Z</updated>
+    <updated>2026-05-27T14:38:29Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 15</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-27:65511a4a6defe7c9</id>
+    <title>iPad Ultra 被曝已放弃开发，iPad 产品线是不是已经触到天花板了？</title>
+    <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2042310569772806238"/>
+    <updated>2026-05-27T14:38:29Z</updated>
+    <author><name>知乎</name></author>
+    <summary>Rank: 18</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-27:b2beadd99c7bb552</id>
     <title>Launch HN: Minicor (YC P26) – Windows desktop automations at scale</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48280729"/>
-    <updated>2026-05-27T11:04:24Z</updated>
+    <updated>2026-05-27T14:38:29Z</updated>
     <author><name>Hacker News</name></author>
-    <summary>Rank: 16</summary>
+    <summary>Rank: 24</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-05-27:6de10ae5e4106285</id>
-    <title>ChatGPT iOS 连接 Mac mini 上的 Codex 很慢，像是远程 UI 初始化卡住</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1215913"/>
-    <updated>2026-05-27T11:04:24Z</updated>
+    <id>urn:pulseradar:2026-05-27:aad2adcd10d33fcd</id>
+    <title>微软 Azure 的 openai 服务有需要组队的么？</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1215943"/>
+    <updated>2026-05-27T14:38:29Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 26</summary>
+    <summary>Rank: 24</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-27:b2daa0325cf7ca44</id>
     <title>Android 架构指南之Data 层不要再暴露 start/stop 了：用 Flow 接管生命周期</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7643295289436389414"/>
-    <updated>2026-05-27T11:04:24Z</updated>
+    <updated>2026-05-27T14:38:29Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 27</summary>
+    <summary>Rank: 26</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-27:dd779aae13337f94</id>
     <title>Android 17 重磅重构！服役 20 年的 MessageQueue 迎来无锁改造，卡顿大幅优化！</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7643280009974071305"/>
-    <updated>2026-05-27T11:04:24Z</updated>
+    <updated>2026-05-27T14:38:29Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 28</summary>
+    <summary>Rank: 29</summary>
   </entry>
 </feed>

@@ -4,55 +4,79 @@
   <subtitle>Subscribe to keyword: 微软 / 谷歌 / 苹果</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/kw-5f479f2ee3.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-05-27T14:38:29Z</updated>
+  <updated>2026-05-27T18:10:48Z</updated>
   <id>urn:pulseradar:feed:904a911d6c5f</id>
   <author><name>PulseRadar</name></author>
+  <entry>
+    <id>urn:pulseradar:2026-05-27:fc3a728d77edcdad</id>
+    <title>DuckDuckGo search saw 28% more visits after Google said people love AI mode</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48296649"/>
+    <updated>2026-05-27T18:10:48Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 2</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-27:96a99d7467d5f87f</id>
+    <title>Gemini, Gophers, and Fingers. Oh My Alternative Internets Beyond HTTPS</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48297467"/>
+    <updated>2026-05-27T18:10:48Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 7</summary>
+  </entry>
   <entry>
     <id>urn:pulseradar:2026-05-27:874a15eae11b13d5</id>
     <title>一日一技｜为什么你应该关闭 iOS 的键盘声音</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/109460"/>
-    <updated>2026-05-27T14:38:29Z</updated>
+    <updated>2026-05-27T18:10:48Z</updated>
     <author><name>少数派</name></author>
-    <summary>Rank: 15</summary>
+    <summary>Rank: 16</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-27:f9d4349809d4a0dd</id>
+    <title>微软被曝将弃用 Claude，是因成本过高还是已掌握核心技术？</title>
+    <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2042293920017691036"/>
+    <updated>2026-05-27T18:10:48Z</updated>
+    <author><name>知乎</name></author>
+    <summary>Rank: 16</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-27:65511a4a6defe7c9</id>
     <title>iPad Ultra 被曝已放弃开发，iPad 产品线是不是已经触到天花板了？</title>
     <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2042310569772806238"/>
-    <updated>2026-05-27T14:38:29Z</updated>
+    <updated>2026-05-27T18:10:48Z</updated>
     <author><name>知乎</name></author>
-    <summary>Rank: 18</summary>
+    <summary>Rank: 17</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-05-27:b2beadd99c7bb552</id>
-    <title>Launch HN: Minicor (YC P26) – Windows desktop automations at scale</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48280729"/>
-    <updated>2026-05-27T14:38:29Z</updated>
+    <id>urn:pulseradar:2026-05-27:cea6c85dbe0e1fc0</id>
+    <title>Show HN: Open-source Workspace (mail,docs,spreadsheet,drive) web/iOS</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48295071"/>
+    <updated>2026-05-27T18:10:48Z</updated>
     <author><name>Hacker News</name></author>
-    <summary>Rank: 24</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-05-27:aad2adcd10d33fcd</id>
-    <title>微软 Azure 的 openai 服务有需要组队的么？</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1215943"/>
-    <updated>2026-05-27T14:38:29Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 24</summary>
+    <summary>Rank: 25</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-27:b2daa0325cf7ca44</id>
     <title>Android 架构指南之Data 层不要再暴露 start/stop 了：用 Flow 接管生命周期</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7643295289436389414"/>
-    <updated>2026-05-27T14:38:29Z</updated>
+    <updated>2026-05-27T18:10:48Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 26</summary>
+    <summary>Rank: 25</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-27:dd779aae13337f94</id>
     <title>Android 17 重磅重构！服役 20 年的 MessageQueue 迎来无锁改造，卡顿大幅优化！</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7643280009974071305"/>
-    <updated>2026-05-27T14:38:29Z</updated>
+    <updated>2026-05-27T18:10:48Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 29</summary>
+    <summary>Rank: 28</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-27:aad2adcd10d33fcd</id>
+    <title>微软 Azure 的 openai 服务有需要组队的么？</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1215943"/>
+    <updated>2026-05-27T18:10:48Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 28</summary>
   </entry>
 </feed>

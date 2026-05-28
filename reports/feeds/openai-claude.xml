@@ -4,38 +4,54 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-05-28T05:48:12Z</updated>
+  <updated>2026-05-28T10:38:09Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
+  <entry>
+    <id>urn:pulseradar:2026-05-28:e1d7729cd39a64e5</id>
+    <title>claude|gpt 被封号的,或者还幸存的来</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1216242"/>
+    <updated>2026-05-28T10:38:09Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 1</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-28:86633fdb66d4433e</id>
+    <title>我给 Claude Code 装了个“红绿灯”，再也不怕忘记确认状态了</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1216229"/>
+    <updated>2026-05-28T10:38:09Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 4</summary>
+  </entry>
   <entry>
     <id>urn:pulseradar:2026-05-28:7526fae3367b31d8</id>
     <title>I think Anthropic and OpenAI have found product-market fit</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48296794"/>
-    <updated>2026-05-28T05:48:12Z</updated>
+    <updated>2026-05-28T10:38:09Z</updated>
     <author><name>Hacker News</name></author>
-    <summary>Rank: 3</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-05-28:61e2955644be1179</id>
-    <title>Why Ctrl+V won&apos;t paste images in Claude Code on WSL, with a fix</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48267432"/>
-    <updated>2026-05-28T05:48:12Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 4</summary>
+    <summary>Rank: 5</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-28:a130fc2de640322a</id>
     <title>mukul975 /      Anthropic-Cybersecurity-Skills</title>
     <link rel="alternate" type="text/html" href="https://github.com/mukul975/Anthropic-Cybersecurity-Skills"/>
-    <updated>2026-05-28T05:48:12Z</updated>
+    <updated>2026-05-28T10:38:09Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 9</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-28:52f57a1e5dd82f44</id>
+    <title>求 codex、claude code 订阅账单每月$200 的，或者国内 coding 订阅，有偿</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1216212"/>
+    <updated>2026-05-28T10:38:09Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 10</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-28:af829ee87e59495e</id>
     <title>Chachamaru127 /      claude-code-harness</title>
     <link rel="alternate" type="text/html" href="https://github.com/Chachamaru127/claude-code-harness"/>
-    <updated>2026-05-28T05:48:12Z</updated>
+    <updated>2026-05-28T10:38:09Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 11</summary>
   </entry>
@@ -43,16 +59,16 @@
     <id>urn:pulseradar:2026-05-28:0a1a497881ade3db</id>
     <title>卧槽！Claude Code 官方插件市场，这波直接让 AI 辅助开发起飞了！</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7643479247916302388"/>
-    <updated>2026-05-28T05:48:12Z</updated>
+    <updated>2026-05-28T10:38:09Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 18</summary>
+    <summary>Rank: 13</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-28:2c3700f04837cf40</id>
     <title>我写了 50 个 Claude Code Skill 才发现，前 30 个都白写了</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7643764221012410411"/>
-    <updated>2026-05-28T05:48:12Z</updated>
+    <updated>2026-05-28T10:38:09Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 29</summary>
+    <summary>Rank: 24</summary>
   </entry>
 </feed>

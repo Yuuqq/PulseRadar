@@ -4,96 +4,71 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-05-29T01:31:46Z</updated>
+  <updated>2026-05-29T05:53:52Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
   <entry>
     <id>urn:pulseradar:2026-05-29:9966f2dea68333e4</id>
     <title>Claude Opus 4.8</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48311647"/>
-    <updated>2026-05-29T01:31:46Z</updated>
+    <updated>2026-05-29T05:53:52Z</updated>
     <author><name>Hacker News</name></author>
-    <summary>Also reported by: 今日头条
-Rank: 1</summary>
+    <summary>Rank: 3</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-05-29:fa712aff525cf285</id>
-    <title>做了个 macOS 菜单栏工具，实时显示 Claude Code + Codex 用量和重置倒计时</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1216310"/>
-    <updated>2026-05-29T01:31:46Z</updated>
-    <author><name>V2EX</name></author>
+    <id>urn:pulseradar:2026-05-29:7d58fafe07921c7d</id>
+    <title>claude opus 4.8 发布了，相较于 opus4.7，有什么提升的地方？</title>
+    <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2043503794751791638"/>
+    <updated>2026-05-29T05:53:52Z</updated>
+    <author><name>知乎</name></author>
     <summary>Rank: 8</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-05-29:0a1a497881ade3db</id>
-    <title>卧槽！Claude Code 官方插件市场，这波直接让 AI 辅助开发起飞了！</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7643479247916302388"/>
-    <updated>2026-05-29T01:31:46Z</updated>
-    <author><name>掘金</name></author>
-    <summary>Rank: 12</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-05-29:06c7e35c5298c5e0</id>
-    <title>[开源] 《织经》—— Claude Code Workflows 深度剖析， 29 章实战手册</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1216289"/>
-    <updated>2026-05-29T01:31:46Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 13</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-05-29:14f49e0533979305</id>
-    <title>做了一个 AI 内容分享工具：把 ChatGPT / Claude 对话变成可公开访问网页</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1216269"/>
-    <updated>2026-05-29T01:31:46Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 17</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-05-29:2c3700f04837cf40</id>
-    <title>我写了 50 个 Claude Code Skill 才发现，前 30 个都白写了</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7643764221012410411"/>
-    <updated>2026-05-29T01:31:46Z</updated>
-    <author><name>掘金</name></author>
-    <summary>Rank: 21</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-05-29:4e77dab28adb64af</id>
-    <title>Anthropic raises $65B in Series H funding at $965B post-money valuation</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48313048"/>
-    <updated>2026-05-29T01:31:46Z</updated>
+    <id>urn:pulseradar:2026-05-29:c3b26f22196727fb</id>
+    <title>Python utility package for building Claude Code hooks</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48318978"/>
+    <updated>2026-05-29T05:53:52Z</updated>
     <author><name>Hacker News</name></author>
-    <summary>Rank: 22</summary>
+    <summary>Rank: 10</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-05-29:65e693c3dee79008</id>
-    <title>让 Claude Code 写出符合规范的中文技术文档，一行命令搞定</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1216259"/>
-    <updated>2026-05-29T01:31:46Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 22</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-05-29:9bfbbf5b113dfab3</id>
-    <title>一行命令给 Claude/Codex 加上 session 接力、文件锁、任务交接、凭据扫描、完成验证和知识记忆</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1216255"/>
-    <updated>2026-05-29T01:31:46Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 24</summary>
+    <id>urn:pulseradar:2026-05-29:d6193eca86516d55</id>
+    <title>OpenAI：正在调查影响用户登录和使用ChatGPT的故障</title>
+    <link rel="alternate" type="text/html" href="https://www.36kr.com/newsflashes/3829840530007941"/>
+    <updated>2026-05-29T05:53:52Z</updated>
+    <author><name>36氪</name></author>
+    <summary>Rank: 18</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-05-29:a25139cb9e42b8ba</id>
     <title>万少的 Claude Code 入门教程</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7643010639149170751"/>
-    <updated>2026-05-29T01:31:46Z</updated>
+    <updated>2026-05-29T05:53:52Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 29</summary>
+    <summary>Rank: 23</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-05-29:e1d7729cd39a64e5</id>
-    <title>claude|gpt 被封号的,或者还幸存的来</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1216242"/>
-    <updated>2026-05-29T01:31:46Z</updated>
+    <id>urn:pulseradar:2026-05-29:fa712aff525cf285</id>
+    <title>做了个 macOS 菜单栏工具，实时显示 Claude Code + Codex 用量和重置倒计时</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1216310"/>
+    <updated>2026-05-29T05:53:52Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 29</summary>
+    <summary>Rank: 25</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-29:4e77dab28adb64af</id>
+    <title>Anthropic raises $65B in Series H funding at $965B post-money valuation</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48313048"/>
+    <updated>2026-05-29T05:53:52Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 27</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-05-29:06c7e35c5298c5e0</id>
+    <title>[开源] 《织经》—— Claude Code Workflows 深度剖析， 29 章实战手册</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1216289"/>
+    <updated>2026-05-29T05:53:52Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 30</summary>
   </entry>
 </feed>

@@ -1,20 +1,20 @@
 {
-  "updated": "2026-05-29T17:50:19Z",
+  "updated": "2026-05-29T20:42:43Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 30,
+      "count": 33,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 9,
+      "count": 11,
       "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-ac6fb2f2fe": {
       "keyword": "东亚",
-      "count": 8,
+      "count": 7,
       "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
     "kw-be93bcade4": {
@@ -24,7 +24,7 @@
     },
     "kw-2dd56c6548": {
       "keyword": "航天",
-      "count": 6,
+      "count": 5,
       "url": "/reports/feeds/kw-2dd56c6548.xml"
     },
     "deepseek": {
@@ -37,35 +37,30 @@
       "count": 5,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
     },
-    "openai-claude": {
-      "keyword": "OpenAI / Claude",
-      "count": 4,
-      "url": "/reports/feeds/openai-claude.xml"
-    },
     "kw-de0204639b": {
       "keyword": "芯片",
       "count": 5,
       "url": "/reports/feeds/kw-de0204639b.xml"
     },
+    "openai-claude": {
+      "keyword": "OpenAI / Claude",
+      "count": 4,
+      "url": "/reports/feeds/openai-claude.xml"
+    },
     "kw-4c6737b9f5": {
       "keyword": "华为",
-      "count": 4,
+      "count": 3,
       "url": "/reports/feeds/kw-4c6737b9f5.xml"
-    },
-    "kw-ff594893ce": {
-      "keyword": "比亚迪",
-      "count": 2,
-      "url": "/reports/feeds/kw-ff594893ce.xml"
-    },
-    "kw-729c87507a": {
-      "keyword": "字节跳动",
-      "count": 2,
-      "url": "/reports/feeds/kw-729c87507a.xml"
     },
     "kw-4866e189d5": {
       "keyword": "印度",
       "count": 2,
       "url": "/reports/feeds/kw-4866e189d5.xml"
+    },
+    "kw-ff594893ce": {
+      "keyword": "比亚迪",
+      "count": 1,
+      "url": "/reports/feeds/kw-ff594893ce.xml"
     },
     "kw-c8722a1700": {
       "keyword": "宇树机器人",
@@ -81,6 +76,16 @@
       "keyword": "京东",
       "count": 1,
       "url": "/reports/feeds/kw-b0922629ca.xml"
+    },
+    "kw-729c87507a": {
+      "keyword": "字节跳动",
+      "count": 1,
+      "url": "/reports/feeds/kw-729c87507a.xml"
+    },
+    "kw-8ea9aebb87": {
+      "keyword": "英伟达 / AMD",
+      "count": 1,
+      "url": "/reports/feeds/kw-8ea9aebb87.xml"
     },
     "kw-77c22b5841": {
       "keyword": "西欧",

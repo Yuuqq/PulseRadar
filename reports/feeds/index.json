@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-30T17:36:37Z",
+  "updated": "2026-05-30T19:48:53Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
@@ -9,7 +9,7 @@
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 13,
+      "count": 12,
       "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-5f479f2ee3": {
@@ -17,25 +17,25 @@
       "count": 9,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
     },
-    "openai-claude": {
-      "keyword": "OpenAI / Claude",
-      "count": 8,
-      "url": "/reports/feeds/openai-claude.xml"
-    },
     "deepseek": {
       "keyword": "DeepSeek",
       "count": 7,
       "url": "/reports/feeds/deepseek.xml"
     },
+    "openai-claude": {
+      "keyword": "OpenAI / Claude",
+      "count": 7,
+      "url": "/reports/feeds/openai-claude.xml"
+    },
+    "kw-be93bcade4": {
+      "keyword": "北美",
+      "count": 6,
+      "url": "/reports/feeds/kw-be93bcade4.xml"
+    },
     "kw-ac6fb2f2fe": {
       "keyword": "东亚",
       "count": 5,
       "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
-    },
-    "kw-be93bcade4": {
-      "keyword": "北美",
-      "count": 5,
-      "url": "/reports/feeds/kw-be93bcade4.xml"
     },
     "kw-4866e189d5": {
       "keyword": "印度",

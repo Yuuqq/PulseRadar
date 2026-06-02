@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-02T05:10:56Z",
+  "updated": "2026-06-02T09:49:09Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
@@ -9,68 +9,63 @@
     },
     "kw-5f479f2ee3": {
       "keyword": "微软 / 谷歌 / 苹果",
-      "count": 14,
+      "count": 13,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 13,
+      "count": 8,
       "url": "/reports/feeds/kw-101806f57c.xml"
+    },
+    "kw-ac6fb2f2fe": {
+      "keyword": "东亚",
+      "count": 6,
+      "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
     "kw-8ea9aebb87": {
       "keyword": "英伟达 / AMD",
-      "count": 10,
-      "url": "/reports/feeds/kw-8ea9aebb87.xml"
-    },
-    "kw-be93bcade4": {
-      "keyword": "北美",
       "count": 6,
-      "url": "/reports/feeds/kw-be93bcade4.xml"
+      "url": "/reports/feeds/kw-8ea9aebb87.xml"
     },
     "openai-claude": {
       "keyword": "OpenAI / Claude",
       "count": 5,
       "url": "/reports/feeds/openai-claude.xml"
     },
-    "kw-4c6737b9f5": {
-      "keyword": "华为",
-      "count": 4,
-      "url": "/reports/feeds/kw-4c6737b9f5.xml"
-    },
-    "kw-c8722a1700": {
-      "keyword": "宇树机器人",
-      "count": 3,
-      "url": "/reports/feeds/kw-c8722a1700.xml"
-    },
     "kw-3842b66185": {
       "keyword": "腾讯",
-      "count": 3,
+      "count": 4,
       "url": "/reports/feeds/kw-3842b66185.xml"
     },
-    "kw-de0204639b": {
-      "keyword": "芯片",
+    "kw-4866e189d5": {
+      "keyword": "印度",
       "count": 3,
-      "url": "/reports/feeds/kw-de0204639b.xml"
+      "url": "/reports/feeds/kw-4866e189d5.xml"
+    },
+    "kw-4c6737b9f5": {
+      "keyword": "华为",
+      "count": 2,
+      "url": "/reports/feeds/kw-4c6737b9f5.xml"
     },
     "kw-bde87c6ca1": {
       "keyword": "国产开源模型",
       "count": 2,
       "url": "/reports/feeds/kw-bde87c6ca1.xml"
     },
-    "kw-ac6fb2f2fe": {
-      "keyword": "东亚",
+    "kw-be93bcade4": {
+      "keyword": "北美",
       "count": 2,
-      "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
-    },
-    "kw-4866e189d5": {
-      "keyword": "印度",
-      "count": 2,
-      "url": "/reports/feeds/kw-4866e189d5.xml"
+      "url": "/reports/feeds/kw-be93bcade4.xml"
     },
     "kw-426b53cba7": {
       "keyword": "水电 / 光伏 / 核能 / 能源",
       "count": 2,
       "url": "/reports/feeds/kw-426b53cba7.xml"
+    },
+    "kw-a44c35f5da": {
+      "keyword": "机器人 / 机器狗 / 具身智能",
+      "count": 2,
+      "url": "/reports/feeds/kw-a44c35f5da.xml"
     },
     "kw-6ba2f2e06f": {
       "keyword": "胖东来",
@@ -82,6 +77,11 @@
       "count": 1,
       "url": "/reports/feeds/deepseek.xml"
     },
+    "kw-c8722a1700": {
+      "keyword": "宇树机器人",
+      "count": 1,
+      "url": "/reports/feeds/kw-c8722a1700.xml"
+    },
     "kw-867b934d82": {
       "keyword": "黑神话悟空",
       "count": 1,
@@ -92,10 +92,15 @@
       "count": 1,
       "url": "/reports/feeds/kw-729c87507a.xml"
     },
-    "kw-9e9d8bf4f6": {
-      "keyword": "自动驾驶",
+    "kw-de0204639b": {
+      "keyword": "芯片",
       "count": 1,
-      "url": "/reports/feeds/kw-9e9d8bf4f6.xml"
+      "url": "/reports/feeds/kw-de0204639b.xml"
+    },
+    "kw-2dd56c6548": {
+      "keyword": "航天",
+      "count": 1,
+      "url": "/reports/feeds/kw-2dd56c6548.xml"
     }
   }
 }

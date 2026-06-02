@@ -4,23 +4,31 @@
   <subtitle>Subscribe to keyword: DeepSeek</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/deepseek.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-06-02T18:59:52Z</updated>
+  <updated>2026-06-02T22:06:45Z</updated>
   <id>urn:pulseradar:feed:fcfa9a7dd0bd</id>
   <author><name>PulseRadar</name></author>
   <entry>
     <id>urn:pulseradar:2026-06-02:6570651b4460b1e6</id>
     <title>Prompt Engineering 实战指南：用 DeepSeek API 写出高质量提示词</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7645526565275533358"/>
-    <updated>2026-06-02T18:59:52Z</updated>
+    <updated>2026-06-02T22:06:45Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 10</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-02:84569c7ea0c68592</id>
+    <title>Bringing Up DeepSeek-V4-Flash on AMD MI300X</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48373675"/>
+    <updated>2026-06-02T22:06:45Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 16</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-02:d1285d9eca76970a</id>
     <title>由于主流 AI 编程助手太贵/额度消耗太快，自己写了个适配 DeepSeek 的本地命令行 Agent 自用</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1217385"/>
-    <updated>2026-06-02T18:59:52Z</updated>
+    <updated>2026-06-02T22:06:45Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 16</summary>
+    <summary>Rank: 19</summary>
   </entry>
 </feed>

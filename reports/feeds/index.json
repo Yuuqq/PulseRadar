@@ -1,15 +1,15 @@
 {
-  "updated": "2026-06-04T21:12:26Z",
+  "updated": "2026-06-04T22:53:25Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 33,
+      "count": 31,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 13,
+      "count": 16,
       "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-5f479f2ee3": {
@@ -22,35 +22,45 @@
       "count": 6,
       "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
-    "kw-be93bcade4": {
-      "keyword": "北美",
-      "count": 5,
-      "url": "/reports/feeds/kw-be93bcade4.xml"
-    },
     "kw-de0204639b": {
       "keyword": "芯片",
-      "count": 4,
+      "count": 5,
       "url": "/reports/feeds/kw-de0204639b.xml"
+    },
+    "kw-be93bcade4": {
+      "keyword": "北美",
+      "count": 4,
+      "url": "/reports/feeds/kw-be93bcade4.xml"
     },
     "kw-4c6737b9f5": {
       "keyword": "华为",
       "count": 3,
       "url": "/reports/feeds/kw-4c6737b9f5.xml"
     },
-    "kw-8ea9aebb87": {
-      "keyword": "英伟达 / AMD",
+    "kw-729c87507a": {
+      "keyword": "字节跳动",
       "count": 3,
-      "url": "/reports/feeds/kw-8ea9aebb87.xml"
+      "url": "/reports/feeds/kw-729c87507a.xml"
     },
     "openai-claude": {
       "keyword": "OpenAI / Claude",
       "count": 3,
       "url": "/reports/feeds/openai-claude.xml"
     },
-    "kw-729c87507a": {
-      "keyword": "字节跳动",
+    "kw-6ba2f2e06f": {
+      "keyword": "胖东来",
       "count": 2,
-      "url": "/reports/feeds/kw-729c87507a.xml"
+      "url": "/reports/feeds/kw-6ba2f2e06f.xml"
+    },
+    "kw-f1da3aa601": {
+      "keyword": "影之刃零",
+      "count": 2,
+      "url": "/reports/feeds/kw-f1da3aa601.xml"
+    },
+    "kw-8ea9aebb87": {
+      "keyword": "英伟达 / AMD",
+      "count": 2,
+      "url": "/reports/feeds/kw-8ea9aebb87.xml"
     },
     "kw-4866e189d5": {
       "keyword": "印度",
@@ -61,11 +71,6 @@
       "keyword": "机器人 / 机器狗 / 具身智能",
       "count": 2,
       "url": "/reports/feeds/kw-a44c35f5da.xml"
-    },
-    "kw-6ba2f2e06f": {
-      "keyword": "胖东来",
-      "count": 1,
-      "url": "/reports/feeds/kw-6ba2f2e06f.xml"
     },
     "deepseek": {
       "keyword": "DeepSeek",
@@ -82,20 +87,10 @@
       "count": 1,
       "url": "/reports/feeds/kw-867b934d82.xml"
     },
-    "kw-f1da3aa601": {
-      "keyword": "影之刃零",
-      "count": 1,
-      "url": "/reports/feeds/kw-f1da3aa601.xml"
-    },
     "kw-bde87c6ca1": {
       "keyword": "国产开源模型",
       "count": 1,
       "url": "/reports/feeds/kw-bde87c6ca1.xml"
-    },
-    "kw-3f426f96e0": {
-      "keyword": "特斯拉",
-      "count": 1,
-      "url": "/reports/feeds/kw-3f426f96e0.xml"
     },
     "kw-77c22b5841": {
       "keyword": "西欧",

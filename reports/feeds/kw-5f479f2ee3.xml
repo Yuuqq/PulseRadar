@@ -4,70 +4,86 @@
   <subtitle>Subscribe to keyword: 微软 / 谷歌 / 苹果</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/kw-5f479f2ee3.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-06-05T14:06:59Z</updated>
+  <updated>2026-06-05T16:59:41Z</updated>
   <id>urn:pulseradar:feed:904a911d6c5f</id>
   <author><name>PulseRadar</name></author>
   <entry>
-    <id>urn:pulseradar:2026-06-05:724d50e683c8a15c</id>
-    <title>Google 秒收录，秀一秀欢迎提交您的 vibe coding 作品</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1218305"/>
-    <updated>2026-06-05T14:06:59Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 1</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-05:8123f5c0bb0e4c68</id>
-    <title>Await：五分钟，把点子变成 iPhone 小组件</title>
-    <link rel="alternate" type="text/html" href="https://sspai.com/post/110106"/>
-    <updated>2026-06-05T14:06:59Z</updated>
-    <author><name>少数派</name></author>
-    <summary>Rank: 3</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-05:0d1932ce14c67423</id>
-    <title>youtube 是不是 down 了？</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1218297"/>
-    <updated>2026-06-05T14:06:59Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 4</summary>
+    <id>urn:pulseradar:2026-06-05:a4eec6a0f478c7b2</id>
+    <title>pg_durable: Microsoft open sources in-database durable execution</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48414367"/>
+    <updated>2026-06-05T16:59:41Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 2</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-05:909fb402ed2f9f9f</id>
     <title>谷歌计划两年内释放 3200 万只蚊子，旨在减少蚊子数抑制疾病传播，放蚊为啥能灭蚊？背后是什么原理？</title>
     <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2045932866278895886"/>
-    <updated>2026-06-05T14:06:59Z</updated>
+    <updated>2026-06-05T16:59:41Z</updated>
     <author><name>知乎</name></author>
-    <summary>Rank: 4</summary>
+    <summary>Rank: 2</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-05:7c4238b9988a3652</id>
     <title>Mouseless – keyboard-driven control of macOS/Linux/Windows</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48383667"/>
-    <updated>2026-06-05T14:06:59Z</updated>
+    <updated>2026-06-05T16:59:41Z</updated>
     <author><name>Hacker News</name></author>
+    <summary>Rank: 3</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-05:8123f5c0bb0e4c68</id>
+    <title>Await：五分钟，把点子变成 iPhone 小组件</title>
+    <link rel="alternate" type="text/html" href="https://sspai.com/post/110106"/>
+    <updated>2026-06-05T16:59:41Z</updated>
+    <author><name>少数派</name></author>
+    <summary>Rank: 3</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-05:724d50e683c8a15c</id>
+    <title>Google 秒收录，秀一秀欢迎提交您的 vibe coding 作品</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1218305"/>
+    <updated>2026-06-05T16:59:41Z</updated>
+    <author><name>V2EX</name></author>
     <summary>Rank: 5</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-05:93caf227efee45c6</id>
     <title>什么才是「好」的 Android 音频输出？从一台旧日 Xperia 说起</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/110120"/>
-    <updated>2026-06-05T14:06:59Z</updated>
+    <updated>2026-06-05T16:59:41Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 7</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-05:0d1932ce14c67423</id>
+    <title>youtube 是不是 down 了？</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1218297"/>
+    <updated>2026-06-05T16:59:41Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 8</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-05:4ef943aa7f6df48a</id>
+    <title>Leak Reveals Microsoft Wants Its AI to Be &apos;Addictive&apos;</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48413924"/>
+    <updated>2026-06-05T16:59:41Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 9</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-05:63c9a97762c813e3</id>
     <title>曝苹果产品路线图已经移除 Vision Pro 系列</title>
     <link rel="alternate" type="text/html" href="https://www.coolapk.com/feed/72159788"/>
-    <updated>2026-06-05T14:06:59Z</updated>
+    <updated>2026-06-05T16:59:41Z</updated>
     <author><name>酷安</name></author>
-    <summary>Rank: 10</summary>
+    <summary>Rank: 11</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-05:5ad1597eb6d1d310</id>
     <title>openclaw /      openclaw-windows-node</title>
     <link rel="alternate" type="text/html" href="https://github.com/openclaw/openclaw-windows-node"/>
-    <updated>2026-06-05T14:06:59Z</updated>
+    <updated>2026-06-05T16:59:41Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 13</summary>
   </entry>
@@ -75,39 +91,47 @@
     <id>urn:pulseradar:2026-06-05:2a6e294b77a5666d</id>
     <title>github /      copilot-sdk</title>
     <link rel="alternate" type="text/html" href="https://github.com/github/copilot-sdk"/>
-    <updated>2026-06-05T14:06:59Z</updated>
+    <updated>2026-06-05T16:59:41Z</updated>
     <author><name>GitHub Trending</name></author>
+    <summary>Rank: 16</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-05:0f497f5a5165b6e9</id>
+    <title>Microsoft MAI-Voice-2</title>
+    <link rel="alternate" type="text/html" href="https://www.producthunt.com/products/mai-image-2-3"/>
+    <updated>2026-06-05T16:59:41Z</updated>
+    <author><name>Product Hunt</name></author>
     <summary>Rank: 16</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-05:16dd7c7fa835375d</id>
     <title>一个 Linux 调度器优化，让 Android 多耗 20% 的电，传音工程师如何发现问题？</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7646955656403238966"/>
-    <updated>2026-06-05T14:06:59Z</updated>
+    <updated>2026-06-05T16:59:41Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 17</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-05:0f497f5a5165b6e9</id>
-    <title>Microsoft MAI-Voice-2</title>
-    <link rel="alternate" type="text/html" href="https://www.producthunt.com/products/mai-image-2-3"/>
-    <updated>2026-06-05T14:06:59Z</updated>
-    <author><name>Product Hunt</name></author>
     <summary>Rank: 17</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-05:cfbf2ef1c0518671</id>
     <title>Android 17 内存管理将严格管控，App 要注意适配</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7647356541462806580"/>
-    <updated>2026-06-05T14:06:59Z</updated>
+    <updated>2026-06-05T16:59:41Z</updated>
     <author><name>掘金</name></author>
+    <summary>Rank: 19</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-05:e5dbf56ed47e2cc4</id>
+    <title>Azure Linux 4.0 is Microsoft&apos;s first general-purpose Linux</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48407499"/>
+    <updated>2026-06-05T16:59:41Z</updated>
+    <author><name>Hacker News</name></author>
     <summary>Rank: 20</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-05:874a15eae11b13d5</id>
     <title>一日一技｜为什么你应该关闭 iOS 的键盘声音</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/109460"/>
-    <updated>2026-06-05T14:06:59Z</updated>
+    <updated>2026-06-05T16:59:41Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 26</summary>
   </entry>

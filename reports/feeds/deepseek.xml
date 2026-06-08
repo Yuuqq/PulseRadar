@@ -4,23 +4,23 @@
   <subtitle>Subscribe to keyword: DeepSeek</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/deepseek.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-06-08T07:13:24Z</updated>
+  <updated>2026-06-08T12:14:36Z</updated>
   <id>urn:pulseradar:feed:fcfa9a7dd0bd</id>
   <author><name>PulseRadar</name></author>
-  <entry>
-    <id>urn:pulseradar:2026-06-08:f0b340879cf86afd</id>
-    <title>DeepSeek V4 Pro beats GPT-5.5 Pro on precision</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48440448"/>
-    <updated>2026-06-08T07:13:24Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 14</summary>
-  </entry>
   <entry>
     <id>urn:pulseradar:2026-06-08:666911939a6df734</id>
     <title>Node.js + DeepSeek API 实战：用 Prompt 5分钟搞定 NLP 文本总结</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7647921947466367019"/>
-    <updated>2026-06-08T07:13:24Z</updated>
+    <updated>2026-06-08T12:14:36Z</updated>
     <author><name>掘金</name></author>
+    <summary>Rank: 14</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-08:f0b340879cf86afd</id>
+    <title>DeepSeek V4 Pro beats GPT-5.5 Pro on precision</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48440448"/>
+    <updated>2026-06-08T12:14:36Z</updated>
+    <author><name>Hacker News</name></author>
     <summary>Rank: 19</summary>
   </entry>
 </feed>

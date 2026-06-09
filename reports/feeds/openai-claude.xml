@@ -4,55 +4,47 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-06-09T04:45:23Z</updated>
+  <updated>2026-06-09T08:46:18Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
-  <entry>
-    <id>urn:pulseradar:2026-06-09:7fc6660b7d8a2f63</id>
-    <title>分析一个插件，一句话让 Claude 生成投行级研报</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1219014"/>
-    <updated>2026-06-09T04:45:23Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 3</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-09:b0f627f9678c4b7b</id>
-    <title>怎么看诺奖得主联手 Claude，40 轮对话证出 12 年物理猜想?</title>
-    <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2047276929548604568"/>
-    <updated>2026-06-09T04:45:23Z</updated>
-    <author><name>知乎</name></author>
-    <summary>Rank: 4</summary>
-  </entry>
   <entry>
     <id>urn:pulseradar:2026-06-09:8f47b58acd85d118</id>
     <title>openai /      plugins</title>
     <link rel="alternate" type="text/html" href="https://github.com/openai/plugins"/>
-    <updated>2026-06-09T04:45:23Z</updated>
+    <updated>2026-06-09T08:46:18Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 9</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-09:f45aad44eee40ec3</id>
-    <title>Claude Artifact Player</title>
-    <link rel="alternate" type="text/html" href="https://www.producthunt.com/products/claude-artifact-player"/>
-    <updated>2026-06-09T04:45:23Z</updated>
-    <author><name>Product Hunt</name></author>
-    <summary>Rank: 9</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-09:d3f28701caeab5fc</id>
-    <title>luongnv89 /      claude-howto</title>
-    <link rel="alternate" type="text/html" href="https://github.com/luongnv89/claude-howto"/>
-    <updated>2026-06-09T04:45:23Z</updated>
-    <author><name>GitHub Trending</name></author>
-    <summary>Rank: 15</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-09:f61a26e8dda4b081</id>
     <title>我给 Claude Code 装了一个红绿灯，AI 干活还是摸鱼，一眼看穿</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7648054502554779698"/>
-    <updated>2026-06-09T04:45:23Z</updated>
+    <updated>2026-06-09T08:46:18Z</updated>
     <author><name>掘金</name></author>
+    <summary>Rank: 10</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-09:d3f28701caeab5fc</id>
+    <title>luongnv89 /      claude-howto</title>
+    <link rel="alternate" type="text/html" href="https://github.com/luongnv89/claude-howto"/>
+    <updated>2026-06-09T08:46:18Z</updated>
+    <author><name>GitHub Trending</name></author>
     <summary>Rank: 15</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-09:7fc6660b7d8a2f63</id>
+    <title>分析一个插件，一句话让 Claude 生成投行级研报</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1219014"/>
+    <updated>2026-06-09T08:46:18Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 21</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-09:5d3f34c4d7e4ce1e</id>
+    <title>别再裸用 Claude Code 了：我常驻的 6 个 MCP + 4 条提效工作流（亲测）</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7648152309277933608"/>
+    <updated>2026-06-09T08:46:18Z</updated>
+    <author><name>掘金</name></author>
+    <summary>Rank: 26</summary>
   </entry>
 </feed>

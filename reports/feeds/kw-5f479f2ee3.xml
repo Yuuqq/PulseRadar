@@ -4,30 +4,46 @@
   <subtitle>Subscribe to keyword: 微软 / 谷歌 / 苹果</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/kw-5f479f2ee3.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-06-09T04:45:23Z</updated>
+  <updated>2026-06-09T08:46:18Z</updated>
   <id>urn:pulseradar:feed:904a911d6c5f</id>
   <author><name>PulseRadar</name></author>
+  <entry>
+    <id>urn:pulseradar:2026-06-09:5a09d3f59806db20</id>
+    <title>Microsoft&apos;s open source tools were hacked to steal passwords of AI developers</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48457830"/>
+    <updated>2026-06-09T08:46:18Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 1</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-09:4a7e255db173ac36</id>
+    <title>在安卓上解决「打开小红书本想查攻略，结果刷了一晚上小视频」的问题，我做了这个 App</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1219111"/>
+    <updated>2026-06-09T08:46:18Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 1</summary>
+  </entry>
   <entry>
     <id>urn:pulseradar:2026-06-09:07ec29f0478fc071</id>
     <title>Apple reveals new AI architecture built around Google Gemini models</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48450142"/>
-    <updated>2026-06-09T04:45:23Z</updated>
+    <updated>2026-06-09T08:46:18Z</updated>
     <author><name>Hacker News</name></author>
     <summary>Rank: 2</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-06-09:cfbf2ef1c0518671</id>
-    <title>Android 17 内存管理将严格管控，App 要注意适配</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7647356541462806580"/>
-    <updated>2026-06-09T04:45:23Z</updated>
-    <author><name>掘金</name></author>
+    <id>urn:pulseradar:2026-06-09:aa129d21ce239621</id>
+    <title>写了一个 Chrome 插件《飞书文档 AI 助手》，欢迎大家试用</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1219110"/>
+    <updated>2026-06-09T08:46:18Z</updated>
+    <author><name>V2EX</name></author>
     <summary>Rank: 2</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-09:d41c71ef51838c1d</id>
     <title>google /      skills</title>
     <link rel="alternate" type="text/html" href="https://github.com/google/skills"/>
-    <updated>2026-06-09T04:45:23Z</updated>
+    <updated>2026-06-09T08:46:18Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 3</summary>
   </entry>
@@ -35,119 +51,79 @@
     <id>urn:pulseradar:2026-06-09:850b4f0e447a264c</id>
     <title>苹果WWDC 2026：Siri AI姗姗来迟，Apple Intelligence全面升级，OS集体迈入27版，股价盘中转跌</title>
     <link rel="alternate" type="text/html" href="https://wallstreetcn.com/articles/3774148"/>
-    <updated>2026-06-09T04:45:23Z</updated>
+    <updated>2026-06-09T08:46:18Z</updated>
     <author><name>华尔街见闻</name></author>
     <summary>Rank: 3</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-09:de4f01a79993d181</id>
-    <title>网友调侃 Gemini 为北美大豆包，称其为最蠢 AI，为什么会被诟病难用？你的使用感受如何？</title>
-    <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2047324900080051711"/>
-    <updated>2026-06-09T04:45:23Z</updated>
-    <author><name>知乎</name></author>
-    <summary>Rank: 5</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-09:d9e82806987547be</id>
-    <title>重磅：继SDK、NDK后谷歌新推出ADK！</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7647438301877501978"/>
-    <updated>2026-06-09T04:45:23Z</updated>
-    <author><name>掘金</name></author>
-    <summary>Rank: 7</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-09:8123f5c0bb0e4c68</id>
     <title>Await：五分钟，把点子变成 iPhone 小组件</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/110106"/>
-    <updated>2026-06-09T04:45:23Z</updated>
+    <updated>2026-06-09T08:46:18Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 7</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-06-09:f73e3c06c07aa76a</id>
-    <title>很久没见过 llm/agent 有这种行为了， gemini 有复古的感觉了</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1218975"/>
-    <updated>2026-06-09T04:45:23Z</updated>
-    <author><name>V2EX</name></author>
+    <id>urn:pulseradar:2026-06-09:62da2193a6b1c75b</id>
+    <title>Android 官方给 Compose 搞了个不需要 UI 环境的 Composable</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7648174967504404522"/>
+    <updated>2026-06-09T08:46:18Z</updated>
+    <author><name>掘金</name></author>
+    <summary>Rank: 8</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-09:e27f2526eea08a4c</id>
+    <title>iOS、Android、Flutter 2026 流行框架对比</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7648169201848401970"/>
+    <updated>2026-06-09T08:46:18Z</updated>
+    <author><name>掘金</name></author>
     <summary>Rank: 9</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-09:34f8786e87f28424</id>
     <title>Apple Core AI Framework</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48449665"/>
-    <updated>2026-06-09T04:45:23Z</updated>
+    <updated>2026-06-09T08:46:18Z</updated>
     <author><name>Hacker News</name></author>
-    <summary>Rank: 10</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-09:e27f2526eea08a4c</id>
-    <title>iOS、Android、Flutter 2026 流行框架对比</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7648169201848401970"/>
-    <updated>2026-06-09T04:45:23Z</updated>
-    <author><name>掘金</name></author>
     <summary>Rank: 11</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-09:93caf227efee45c6</id>
     <title>什么才是「好」的 Android 音频输出？从一台旧日 Xperia 说起</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/110120"/>
-    <updated>2026-06-09T04:45:23Z</updated>
+    <updated>2026-06-09T08:46:18Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 11</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-09:c9cbcd37cdc9fceb</id>
-    <title>Android 开发来看看 Kotlin 2.4.0 更新了个啥</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7647679272668676105"/>
-    <updated>2026-06-09T04:45:23Z</updated>
-    <author><name>掘金</name></author>
-    <summary>Rank: 12</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-09:62da2193a6b1c75b</id>
-    <title>Android 官方给 Compose 搞了个不需要 UI 环境的 Composable</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7648174967504404522"/>
-    <updated>2026-06-09T04:45:23Z</updated>
-    <author><name>掘金</name></author>
-    <summary>Rank: 13</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-09:05094d81af9d4149</id>
-    <title>做了一个 极简，又纯粹 chrome 代理插件</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1218940"/>
-    <updated>2026-06-09T04:45:23Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 15</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-09:b322c9d06530404a</id>
-    <title>iOS 27 加入节假日闹钟，「休息日💤」感觉可以退休了</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1218921"/>
-    <updated>2026-06-09T04:45:23Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 19</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-09:5cd018a7f0db851c</id>
-    <title>Apple bets cheaper AI will woo small developers</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48452000"/>
-    <updated>2026-06-09T04:45:23Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 25</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-09:4adb666daa0c9faf</id>
     <title>Kotlin 2.4.0 正式稳定！Android 升级、Compose、KMP 全变化详解</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7648301796494426139"/>
-    <updated>2026-06-09T04:45:23Z</updated>
+    <updated>2026-06-09T08:46:18Z</updated>
     <author><name>掘金</name></author>
+    <summary>Rank: 22</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-09:f73e3c06c07aa76a</id>
+    <title>很久没见过 llm/agent 有这种行为了， gemini 有复古的感觉了</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1218975"/>
+    <updated>2026-06-09T08:46:18Z</updated>
+    <author><name>V2EX</name></author>
     <summary>Rank: 27</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-09:5cd018a7f0db851c</id>
+    <title>Apple bets cheaper AI will woo small developers</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48452000"/>
+    <updated>2026-06-09T08:46:18Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 28</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-09:874a15eae11b13d5</id>
     <title>一日一技｜为什么你应该关闭 iOS 的键盘声音</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/109460"/>
-    <updated>2026-06-09T04:45:23Z</updated>
+    <updated>2026-06-09T08:46:18Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 30</summary>
   </entry>

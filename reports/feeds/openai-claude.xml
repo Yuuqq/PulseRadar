@@ -4,14 +4,39 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-06-09T15:38:54Z</updated>
+  <updated>2026-06-09T18:30:11Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
+  <entry>
+    <id>urn:pulseradar:2026-06-09:d07d3ccd2449ae9a</id>
+    <title>claude-fable-5 出场了!</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1219209"/>
+    <updated>2026-06-09T18:30:11Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Also reported by: Hacker News
+Rank: 1</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-09:29ebda005ed43888</id>
+    <title>System Card: Claude Fable 5 and Claude Mythos 5 [pdf]</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48463811"/>
+    <updated>2026-06-09T18:30:11Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 3</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-09:dda819c8e7b75e41</id>
+    <title>Claude Mythos 披着 Fable 5 的马甲发布了</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1219205"/>
+    <updated>2026-06-09T18:30:11Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 3</summary>
+  </entry>
   <entry>
     <id>urn:pulseradar:2026-06-09:8f47b58acd85d118</id>
     <title>openai /      plugins</title>
     <link rel="alternate" type="text/html" href="https://github.com/openai/plugins"/>
-    <updated>2026-06-09T15:38:54Z</updated>
+    <updated>2026-06-09T18:30:11Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 13</summary>
   </entry>
@@ -19,8 +44,8 @@
     <id>urn:pulseradar:2026-06-09:5d3f34c4d7e4ce1e</id>
     <title>别再裸用 Claude Code 了：我常驻的 6 个 MCP + 4 条提效工作流（亲测）</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7648152309277933608"/>
-    <updated>2026-06-09T15:38:54Z</updated>
+    <updated>2026-06-09T18:30:11Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 14</summary>
+    <summary>Rank: 13</summary>
   </entry>
 </feed>

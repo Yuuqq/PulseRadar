@@ -4,71 +4,55 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-06-10T12:43:32Z</updated>
+  <updated>2026-06-10T16:47:27Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
-  <entry>
-    <id>urn:pulseradar:2026-06-10:89045c89d9c05cfe</id>
-    <title>Claude Fable 5</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48463808"/>
-    <updated>2026-06-10T12:43:32Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 3</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-10:bcc18cc6279ff75a</id>
-    <title>AWS Bedrock to require sharing data with Anthropic for Mythos and future models</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48473166"/>
-    <updated>2026-06-10T12:43:32Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 5</summary>
-  </entry>
   <entry>
     <id>urn:pulseradar:2026-06-10:5d3f34c4d7e4ce1e</id>
     <title>别再裸用 Claude Code 了：我常驻的 6 个 MCP + 4 条提效工作流（亲测）</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7648152309277933608"/>
-    <updated>2026-06-10T12:43:32Z</updated>
+    <updated>2026-06-10T16:47:27Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 6</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-10:02d92d147a7a5e61</id>
-    <title>基于 Claude Code Workflow 的 Loop Engineering 流水线 - Claude-lights-out</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1219430"/>
-    <updated>2026-06-10T12:43:32Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 6</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-10:1acede2d1d5cb987</id>
-    <title>国内用户通过 CC Switch 绕过 Claude Code 和 Codex 登录和适配难题，实现工具的使用</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1219427"/>
-    <updated>2026-06-10T12:43:32Z</updated>
-    <author><name>V2EX</name></author>
     <summary>Rank: 8</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-10:89045c89d9c05cfe</id>
+    <title>Claude Fable 5</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48463808"/>
+    <updated>2026-06-10T16:47:27Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 9</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-10:d3f28701caeab5fc</id>
     <title>luongnv89 /      claude-howto</title>
     <link rel="alternate" type="text/html" href="https://github.com/luongnv89/claude-howto"/>
-    <updated>2026-06-10T12:43:32Z</updated>
+    <updated>2026-06-10T16:47:27Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 11</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-06-10:4664381c539dfab2</id>
-    <title>Show HN: macOS menu bar gauges for your Claude Code quota</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48473845"/>
-    <updated>2026-06-10T12:43:32Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 12</summary>
+    <id>urn:pulseradar:2026-06-10:02d92d147a7a5e61</id>
+    <title>基于 Claude Code Workflow 的 Loop Engineering 流水线 - Claude-lights-out</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1219430"/>
+    <updated>2026-06-10T16:47:27Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 17</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-06-10:310cb7d7026e5105</id>
-    <title>If Claude Fable stops helping you, you&apos;ll never know</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48467896"/>
-    <updated>2026-06-10T12:43:32Z</updated>
+    <id>urn:pulseradar:2026-06-10:bcc18cc6279ff75a</id>
+    <title>AWS Bedrock to require sharing data with Anthropic for Mythos and future models</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48473166"/>
+    <updated>2026-06-10T16:47:27Z</updated>
     <author><name>Hacker News</name></author>
-    <summary>Rank: 21</summary>
+    <summary>Rank: 19</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-10:1acede2d1d5cb987</id>
+    <title>国内用户通过 CC Switch 绕过 Claude Code 和 Codex 登录和适配难题，实现工具的使用</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1219427"/>
+    <updated>2026-06-10T16:47:27Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 19</summary>
   </entry>
 </feed>

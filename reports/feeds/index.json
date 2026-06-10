@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-10T19:54:03Z",
+  "updated": "2026-06-10T22:27:23Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
@@ -7,19 +7,19 @@
       "count": 22,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
-    "kw-5f479f2ee3": {
-      "keyword": "微软 / 谷歌 / 苹果",
-      "count": 11,
-      "url": "/reports/feeds/kw-5f479f2ee3.xml"
-    },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 10,
+      "count": 12,
       "url": "/reports/feeds/kw-101806f57c.xml"
+    },
+    "kw-5f479f2ee3": {
+      "keyword": "微软 / 谷歌 / 苹果",
+      "count": 10,
+      "url": "/reports/feeds/kw-5f479f2ee3.xml"
     },
     "kw-be93bcade4": {
       "keyword": "北美",
-      "count": 10,
+      "count": 9,
       "url": "/reports/feeds/kw-be93bcade4.xml"
     },
     "kw-ac6fb2f2fe": {
@@ -29,7 +29,7 @@
     },
     "openai-claude": {
       "keyword": "OpenAI / Claude",
-      "count": 7,
+      "count": 6,
       "url": "/reports/feeds/openai-claude.xml"
     },
     "kw-426b53cba7": {
@@ -39,8 +39,13 @@
     },
     "kw-729c87507a": {
       "keyword": "字节跳动",
-      "count": 3,
+      "count": 4,
       "url": "/reports/feeds/kw-729c87507a.xml"
+    },
+    "kw-4866e189d5": {
+      "keyword": "印度",
+      "count": 4,
+      "url": "/reports/feeds/kw-4866e189d5.xml"
     },
     "kw-3842b66185": {
       "keyword": "腾讯",
@@ -62,15 +67,10 @@
       "count": 2,
       "url": "/reports/feeds/kw-8ea9aebb87.xml"
     },
-    "kw-4866e189d5": {
-      "keyword": "印度",
+    "kw-de0204639b": {
+      "keyword": "芯片",
       "count": 2,
-      "url": "/reports/feeds/kw-4866e189d5.xml"
-    },
-    "kw-ff594893ce": {
-      "keyword": "比亚迪",
-      "count": 1,
-      "url": "/reports/feeds/kw-ff594893ce.xml"
+      "url": "/reports/feeds/kw-de0204639b.xml"
     },
     "kw-3f426f96e0": {
       "keyword": "特斯拉",
@@ -81,11 +81,6 @@
       "keyword": "西欧",
       "count": 1,
       "url": "/reports/feeds/kw-77c22b5841.xml"
-    },
-    "kw-de0204639b": {
-      "keyword": "芯片",
-      "count": 1,
-      "url": "/reports/feeds/kw-de0204639b.xml"
     }
   }
 }

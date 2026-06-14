@@ -4,39 +4,47 @@
   <subtitle>Subscribe to keyword: 国产开源模型</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/kw-bde87c6ca1.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-06-13T22:36:51Z</updated>
+  <updated>2026-06-14T01:43:30Z</updated>
   <id>urn:pulseradar:feed:72ab8c720980</id>
   <author><name>PulseRadar</name></author>
   <entry>
-    <id>urn:pulseradar:2026-06-13:e16c2c1a0cd03176</id>
-    <title>使用 glm5.2 完成了一个复杂 2d 渲染桥接引擎，很强， opus 级别的</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1220241"/>
-    <updated>2026-06-13T22:36:51Z</updated>
-    <author><name>V2EX</name></author>
+    <id>urn:pulseradar:2026-06-14:2171f5a5827ae33c</id>
+    <title>如何评价智谱 6 月 13 日发布的 GLM5.2 模型？</title>
+    <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2049161661567723164"/>
+    <updated>2026-06-14T01:43:30Z</updated>
+    <author><name>知乎</name></author>
     <summary>Rank: 1</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-06-13:2171f5a5827ae33c</id>
-    <title>如何评价智谱 6 月 13 日发布的 GLM5.2 模型？</title>
-    <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2049161661567723164"/>
-    <updated>2026-06-13T22:36:51Z</updated>
-    <author><name>知乎</name></author>
+    <id>urn:pulseradar:2026-06-14:212e9a3adf8947e4</id>
+    <title>GLM 5.2 Is Out</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48518684"/>
+    <updated>2026-06-14T01:43:30Z</updated>
+    <author><name>Hacker News</name></author>
     <summary>Rank: 2</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-06-13:5a01f903f107a9f6</id>
-    <title>RTX 5080 and RTX 3090 Setup: 80 Tok/s on Qwen 3.6 27B Q8</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48515454"/>
-    <updated>2026-06-13T22:36:51Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 15</summary>
+    <id>urn:pulseradar:2026-06-14:e16c2c1a0cd03176</id>
+    <title>使用 glm5.2 完成了一个复杂 2d 渲染桥接引擎，很强， opus 级别的</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1220241"/>
+    <updated>2026-06-14T01:43:30Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 3</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-06-13:212e9a3adf8947e4</id>
-    <title>GLM 5.2 Is Out</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48518684"/>
-    <updated>2026-06-13T22:36:51Z</updated>
+    <id>urn:pulseradar:2026-06-14:daf8bfa7333d6034</id>
+    <title>谁降价谁更弱势！摩根大通：智谱和Minimax做了同样的实验，但结果相反</title>
+    <link rel="alternate" type="text/html" href="https://wallstreetcn.com/articles/3774596"/>
+    <updated>2026-06-14T01:43:30Z</updated>
+    <author><name>华尔街见闻</name></author>
+    <summary>Rank: 7</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-14:5a01f903f107a9f6</id>
+    <title>RTX 5080 and RTX 3090 Setup: 80 Tok/s on Qwen 3.6 27B Q8</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48515454"/>
+    <updated>2026-06-14T01:43:30Z</updated>
     <author><name>Hacker News</name></author>
-    <summary>Rank: 17</summary>
+    <summary>Rank: 19</summary>
   </entry>
 </feed>

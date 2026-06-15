@@ -4,71 +4,63 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-06-15T02:00:41Z</updated>
+  <updated>2026-06-15T08:36:01Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
+  <entry>
+    <id>urn:pulseradar:2026-06-15:033cdc1dd42c3022</id>
+    <title>Claude Code 的产品哲学：当价值观成为架构</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7649936611648667686"/>
+    <updated>2026-06-15T08:36:01Z</updated>
+    <author><name>掘金</name></author>
+    <summary>Rank: 2</summary>
+  </entry>
   <entry>
     <id>urn:pulseradar:2026-06-15:2ee7b7225211e46e</id>
     <title>让 Claude Code 拥有自我进化和记忆系统｜得物技术</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7649571695950856234"/>
-    <updated>2026-06-15T02:00:41Z</updated>
+    <updated>2026-06-15T08:36:01Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 7</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-06-15:fb2dd99d95542191</id>
-    <title>1ClickReport — Marketing AI in Claude</title>
-    <link rel="alternate" type="text/html" href="https://www.producthunt.com/products/1click-report"/>
-    <updated>2026-06-15T02:00:41Z</updated>
-    <author><name>Product Hunt</name></author>
-    <summary>Rank: 15</summary>
+    <id>urn:pulseradar:2026-06-15:c837e1f6a445964a</id>
+    <title>Cursor Plus 不能用 Claude 的模型了吗？</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1220531"/>
+    <updated>2026-06-15T08:36:01Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 12</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-15:c96cf718678ef4eb</id>
     <title>如何评价 Claude Fable 5 全球暂停访问？</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7650441125600165898"/>
-    <updated>2026-06-15T02:00:41Z</updated>
+    <updated>2026-06-15T08:36:01Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 17</summary>
+    <summary>Rank: 16</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-15:ac4df9c26770ab81</id>
     <title>Claude Code 每次调用 API 时，上下文是怎么&quot;拼&quot;出来的？</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7649653231382708233"/>
-    <updated>2026-06-15T02:00:41Z</updated>
+    <updated>2026-06-15T08:36:01Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 18</summary>
+    <summary>Rank: 20</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-06-15:98737d7546553c9b</id>
-    <title>chatgpt 的网页太好用了，比 codex 强</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1220367"/>
-    <updated>2026-06-15T02:00:41Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 25</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-15:f40fd8551438d726</id>
-    <title>用 Claude Code 写小说、拍短片和科幻短篇《存续》</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1220363"/>
-    <updated>2026-06-15T02:00:41Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 27</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-15:033cdc1dd42c3022</id>
-    <title>Claude Code 的产品哲学：当价值观成为架构</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7649936611648667686"/>
-    <updated>2026-06-15T02:00:41Z</updated>
+    <id>urn:pulseradar:2026-06-15:5553e7bbe72e8d8a</id>
+    <title>面试官坏笑：“你用 AI 编程一年了，怎么保证 Claude Code 写出来的代码是对的？”我：“直接上 Claude Fable 5 啊！”</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7650809417412509732"/>
+    <updated>2026-06-15T08:36:01Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 28</summary>
+    <summary>Rank: 21</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-06-15:ce7c6b0110df221d</id>
-    <title>阅读陌生代码仓库时， Claude 和 Codex 谁的讲解更好？</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1220348"/>
-    <updated>2026-06-15T02:00:41Z</updated>
+    <id>urn:pulseradar:2026-06-15:19ff0da486feadb1</id>
+    <title>尼区 claude max 5x 440 块钱分享</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1220476"/>
+    <updated>2026-06-15T08:36:01Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 29</summary>
+    <summary>Rank: 24</summary>
   </entry>
 </feed>

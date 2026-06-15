@@ -4,22 +4,30 @@
   <subtitle>Subscribe to keyword: 微软 / 谷歌 / 苹果</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/kw-5f479f2ee3.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-06-15T02:00:41Z</updated>
+  <updated>2026-06-15T08:36:01Z</updated>
   <id>urn:pulseradar:feed:904a911d6c5f</id>
   <author><name>PulseRadar</name></author>
   <entry>
     <id>urn:pulseradar:2026-06-15:21bf01809c528636</id>
     <title>一图流 | Apple WWDC26 开幕式回顾</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/110887"/>
-    <updated>2026-06-15T02:00:41Z</updated>
+    <updated>2026-06-15T08:36:01Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 1</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-15:e841ff8c8739e262</id>
+    <title>Apple Foundation Models</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48536776"/>
+    <updated>2026-06-15T08:36:01Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 2</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-15:61827f4fb79862a2</id>
     <title>Liquid Glass 精调、Apple 智能大升级：WWDC26 发布会回顾</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/110888"/>
-    <updated>2026-06-15T02:00:41Z</updated>
+    <updated>2026-06-15T08:36:01Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 2</summary>
   </entry>
@@ -27,47 +35,23 @@
     <id>urn:pulseradar:2026-06-15:21c34f9407e11717</id>
     <title>2026 Apple 设计奖正式揭晓，细数 12 款 App 的特别之处</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/110763"/>
-    <updated>2026-06-15T02:00:41Z</updated>
+    <updated>2026-06-15T08:36:01Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 3</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-15:da548444480048a0</id>
-    <title>vibe-coding 了一个 Chrome 插件，用于区分测试和生产环境</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1220421"/>
-    <updated>2026-06-15T02:00:41Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 5</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-15:c02d827e9c4610bc</id>
     <title>现代 Android 官方为什么更推荐 Repository 暴露 `suspend fun`，而不是在内部 `launch`</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7650074080125599790"/>
-    <updated>2026-06-15T02:00:41Z</updated>
+    <updated>2026-06-15T08:36:01Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 8</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-15:fb27067b29806f25</id>
-    <title>我的第一个 iOS App ， OAuth 登录的 Cloudflare 管理客户端</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1220405"/>
-    <updated>2026-06-15T02:00:41Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 10</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-15:6ee92d6e24fe0bca</id>
-    <title>谷歌官宣3万字路线图：1亿人类水平的AI就是ASI！</title>
-    <link rel="alternate" type="text/html" href="https://wallstreetcn.com/articles/3774610"/>
-    <updated>2026-06-15T02:00:41Z</updated>
-    <author><name>华尔街见闻</name></author>
-    <summary>Rank: 10</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-15:8123f5c0bb0e4c68</id>
     <title>Await：五分钟，把点子变成 iPhone 小组件</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/110106"/>
-    <updated>2026-06-15T02:00:41Z</updated>
+    <updated>2026-06-15T08:36:01Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 11</summary>
   </entry>
@@ -75,32 +59,32 @@
     <id>urn:pulseradar:2026-06-15:93caf227efee45c6</id>
     <title>什么才是「好」的 Android 音频输出？从一台旧日 Xperia 说起</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/110120"/>
-    <updated>2026-06-15T02:00:41Z</updated>
+    <updated>2026-06-15T08:36:01Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 15</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-06-15:f114da1e284d4ef4</id>
-    <title>Stanford grads walk out on Google CEO Sundar Pichai speech</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48533756"/>
-    <updated>2026-06-15T02:00:41Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 22</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-15:bd302b9347428f54</id>
-    <title>分享个 ChatGPT、Claude、Gemini 在哪买最划算的工具</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1220374"/>
-    <updated>2026-06-15T02:00:41Z</updated>
+    <id>urn:pulseradar:2026-06-15:9359206580efd755</id>
+    <title>[iOS/macOS] Mobirth：为大陆用户做的本土化闹钟、生日/纪念日/倒数日/日历提醒 app</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1220488"/>
+    <updated>2026-06-15T08:36:01Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 22</summary>
+    <summary>Rank: 18</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-15:ece2aab7a1906726</id>
     <title>Windows 11 users are tired of MS account requirements creeping into everything</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48533101"/>
-    <updated>2026-06-15T02:00:41Z</updated>
+    <updated>2026-06-15T08:36:01Z</updated>
     <author><name>Hacker News</name></author>
+    <summary>Rank: 20</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-15:895f348ccc16e229</id>
+    <title>Github Copilot 计费方式修改后的受害者来了</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1220469"/>
+    <updated>2026-06-15T08:36:01Z</updated>
+    <author><name>V2EX</name></author>
     <summary>Rank: 27</summary>
   </entry>
 </feed>

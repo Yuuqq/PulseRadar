@@ -4,38 +4,22 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-06-17T05:24:40Z</updated>
+  <updated>2026-06-17T10:14:20Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
-  <entry>
-    <id>urn:pulseradar:2026-06-17:4b4c046baa0b4010</id>
-    <title>Leaked OpenAI financials show $38.5B loss and compute burn</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48565130"/>
-    <updated>2026-06-17T05:24:40Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 1</summary>
-  </entry>
   <entry>
     <id>urn:pulseradar:2026-06-17:5553e7bbe72e8d8a</id>
     <title>面试官坏笑：“你用 AI 编程一年了，怎么保证 Claude Code 写出来的代码是对的？”我：“直接上 Claude Fable 5 啊！”</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7650809417412509732"/>
-    <updated>2026-06-17T05:24:40Z</updated>
+    <updated>2026-06-17T10:14:20Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 5</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-17:f580ea29d9c8d429</id>
-    <title>开了一堆终端跑 Claude Code?我写了个网页把它们收进一屏</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1220988"/>
-    <updated>2026-06-17T05:24:40Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 9</summary>
+    <summary>Rank: 4</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-17:c96cf718678ef4eb</id>
     <title>如何评价 Claude Fable 5 全球暂停访问？</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7650441125600165898"/>
-    <updated>2026-06-17T05:24:40Z</updated>
+    <updated>2026-06-17T10:14:20Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 14</summary>
   </entry>
@@ -43,8 +27,16 @@
     <id>urn:pulseradar:2026-06-17:a09d3bfe5c3d962d</id>
     <title>团队使用 Claude Code / Codex 的规范治理——献给所有全员 AI 开发的团队</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7651056986951712819"/>
-    <updated>2026-06-17T05:24:40Z</updated>
+    <updated>2026-06-17T10:14:20Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 17</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-17:8b0ab10c7dfc51dd</id>
+    <title>kimi code plan 在 claude code 中 Explore agent 使用的模型会降智吗</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1221065"/>
+    <updated>2026-06-17T10:14:20Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 22</summary>
   </entry>
 </feed>

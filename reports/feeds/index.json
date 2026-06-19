@@ -1,20 +1,20 @@
 {
-  "updated": "2026-06-19T15:50:14Z",
+  "updated": "2026-06-19T18:16:23Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-5f479f2ee3": {
       "keyword": "微软 / 谷歌 / 苹果",
-      "count": 17,
+      "count": 18,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
     },
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 17,
+      "count": 18,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 12,
+      "count": 15,
       "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-ac6fb2f2fe": {
@@ -24,28 +24,23 @@
     },
     "kw-be93bcade4": {
       "keyword": "北美",
-      "count": 6,
+      "count": 7,
       "url": "/reports/feeds/kw-be93bcade4.xml"
+    },
+    "kw-3f426f96e0": {
+      "keyword": "特斯拉",
+      "count": 5,
+      "url": "/reports/feeds/kw-3f426f96e0.xml"
     },
     "kw-bde87c6ca1": {
       "keyword": "国产开源模型",
       "count": 4,
       "url": "/reports/feeds/kw-bde87c6ca1.xml"
     },
-    "kw-3f426f96e0": {
-      "keyword": "特斯拉",
-      "count": 4,
-      "url": "/reports/feeds/kw-3f426f96e0.xml"
-    },
     "kw-de0204639b": {
       "keyword": "芯片",
       "count": 4,
       "url": "/reports/feeds/kw-de0204639b.xml"
-    },
-    "kw-8ea9aebb87": {
-      "keyword": "英伟达 / AMD",
-      "count": 3,
-      "url": "/reports/feeds/kw-8ea9aebb87.xml"
     },
     "kw-4866e189d5": {
       "keyword": "印度",
@@ -86,11 +81,6 @@
       "keyword": "机器人 / 机器狗 / 具身智能",
       "count": 1,
       "url": "/reports/feeds/kw-a44c35f5da.xml"
-    },
-    "kw-2dd56c6548": {
-      "keyword": "航天",
-      "count": 1,
-      "url": "/reports/feeds/kw-2dd56c6548.xml"
     }
   }
 }

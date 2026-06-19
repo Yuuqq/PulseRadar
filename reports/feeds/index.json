@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-19T21:43:44Z",
+  "updated": "2026-06-19T23:35:48Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
@@ -9,27 +9,27 @@
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 15,
+      "count": 14,
       "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-5f479f2ee3": {
       "keyword": "微软 / 谷歌 / 苹果",
-      "count": 16,
+      "count": 15,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
     },
     "kw-be93bcade4": {
       "keyword": "北美",
-      "count": 12,
+      "count": 14,
       "url": "/reports/feeds/kw-be93bcade4.xml"
     },
     "kw-ac6fb2f2fe": {
       "keyword": "东亚",
-      "count": 11,
+      "count": 10,
       "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
     "kw-3f426f96e0": {
       "keyword": "特斯拉",
-      "count": 5,
+      "count": 6,
       "url": "/reports/feeds/kw-3f426f96e0.xml"
     },
     "kw-de0204639b": {
@@ -39,23 +39,23 @@
     },
     "kw-bde87c6ca1": {
       "keyword": "国产开源模型",
-      "count": 4,
+      "count": 3,
       "url": "/reports/feeds/kw-bde87c6ca1.xml"
     },
     "openai-claude": {
       "keyword": "OpenAI / Claude",
-      "count": 4,
-      "url": "/reports/feeds/openai-claude.xml"
-    },
-    "kw-4866e189d5": {
-      "keyword": "印度",
       "count": 3,
-      "url": "/reports/feeds/kw-4866e189d5.xml"
+      "url": "/reports/feeds/openai-claude.xml"
     },
     "kw-3842b66185": {
       "keyword": "腾讯",
       "count": 2,
       "url": "/reports/feeds/kw-3842b66185.xml"
+    },
+    "kw-4866e189d5": {
+      "keyword": "印度",
+      "count": 2,
+      "url": "/reports/feeds/kw-4866e189d5.xml"
     },
     "deepseek": {
       "keyword": "DeepSeek",

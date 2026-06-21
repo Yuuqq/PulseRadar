@@ -4,70 +4,78 @@
   <subtitle>Cross-source aggregated headlines</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feed.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-06-21T10:52:28Z</updated>
+  <updated>2026-06-21T13:21:58Z</updated>
   <id>urn:pulseradar:feed:752ef329333b</id>
   <author><name>PulseRadar</name></author>
   <entry>
-    <id>urn:pulseradar:2026-06-21:cb58baa7c07a9c78</id>
-    <title>企业端开始“算力降本”之际，高盛警告5.3万亿AI资本支出正逼近信贷饱和！</title>
-    <link rel="alternate" type="text/html" href="https://wallstreetcn.com/articles/3775121"/>
-    <updated>2026-06-21T10:52:28Z</updated>
-    <author><name>华尔街见闻</name></author>
-    <summary>Rank: 2</summary>
+    <id>urn:pulseradar:2026-06-21:0973c645272fc3b2</id>
+    <title>参考前几天 v 站看到的一个思路，做一个普通人能看懂的 AI 入门书</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1221795"/>
+    <updated>2026-06-21T13:21:58Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 1</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-21:bc529d4af73e8ffb</id>
     <title>老板：“请说出一个录用你的理由。”我脱口而出：“每个月 AI 支出都超过我的生活费了！”老板愣了一下，随即哈哈大笑：“好吧，你被录用了。”</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7652201148235382803"/>
-    <updated>2026-06-21T10:52:28Z</updated>
+    <updated>2026-06-21T13:21:58Z</updated>
     <author><name>掘金</name></author>
+    <summary>Rank: 3</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-21:cb58baa7c07a9c78</id>
+    <title>企业端开始“算力降本”之际，高盛警告5.3万亿AI资本支出正逼近信贷饱和！</title>
+    <link rel="alternate" type="text/html" href="https://wallstreetcn.com/articles/3775121"/>
+    <updated>2026-06-21T13:21:58Z</updated>
+    <author><name>华尔街见闻</name></author>
     <summary>Rank: 3</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-21:cb4ec768e824d0ea</id>
     <title>我用 AI 一周写完了整个项目，上线第一天就崩了——这是我踩过最贵的 5 个坑</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7652581847890133018"/>
-    <updated>2026-06-21T10:52:28Z</updated>
+    <updated>2026-06-21T13:21:58Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 4</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-06-21:02831d3a2884e053</id>
-    <title>PulsePM AI</title>
-    <link rel="alternate" type="text/html" href="https://www.producthunt.com/products/pulsepm-ai"/>
-    <updated>2026-06-21T10:52:28Z</updated>
-    <author><name>Product Hunt</name></author>
-    <summary>Rank: 5</summary>
+    <id>urn:pulseradar:2026-06-21:f340ed7d97be9bf6</id>
+    <title>对话丨被AI震动的两年人生，数学博士生的新难题：如何证明自己？</title>
+    <link rel="alternate" type="text/html" href="https://m.thepaper.cn/newsDetail_forward_33407734"/>
+    <updated>2026-06-21T13:21:58Z</updated>
+    <author><name>澎湃新闻</name></author>
+    <summary>Rank: 8</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-06-21:1e60fe756f096fb2</id>
-    <title>Free AI Resume Builder</title>
-    <link rel="alternate" type="text/html" href="https://www.producthunt.com/products/free-ai-resume-builder"/>
-    <updated>2026-06-21T10:52:28Z</updated>
+    <id>urn:pulseradar:2026-06-21:225fd6fb1f3094ca</id>
+    <title>“大空头”查诺斯：当前AI产业链存在巨大“财务不匹配”，“AI云”实际是租赁中介，看空SpaceX</title>
+    <link rel="alternate" type="text/html" href="https://wallstreetcn.com/articles/3775129"/>
+    <updated>2026-06-21T13:21:58Z</updated>
+    <author><name>华尔街见闻</name></author>
+    <summary>Rank: 8</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-21:0371a2a0b28e50ef</id>
+    <title>Plansera AI</title>
+    <link rel="alternate" type="text/html" href="https://www.producthunt.com/products/plansera-ai"/>
+    <updated>2026-06-21T13:21:58Z</updated>
     <author><name>Product Hunt</name></author>
-    <summary>Rank: 6</summary>
+    <summary>Rank: 9</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-21:904bd06ef1ef8527</id>
     <title>做了一个根据学习目标让 AI 生成课程的小工具</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1221762"/>
-    <updated>2026-06-21T10:52:28Z</updated>
+    <updated>2026-06-21T13:21:58Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 7</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-21:efe058bddf9edfc1</id>
-    <title>AI算力的物理基石：PTFE从“塑料王”到“M10高速互联刚需材料”的范式跃迁</title>
-    <link rel="alternate" type="text/html" href="https://wallstreetcn.com/premium/articles/3774876?layout=wscn-layout"/>
-    <updated>2026-06-21T10:52:28Z</updated>
-    <author><name>华尔街见闻</name></author>
-    <summary>Rank: 8</summary>
+    <summary>Rank: 9</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-21:56487bc43654fd74</id>
     <title>一套 Spec-First 的 AI 编程工作流</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7652581847889330202"/>
-    <updated>2026-06-21T10:52:28Z</updated>
+    <updated>2026-06-21T13:21:58Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 10</summary>
   </entry>
@@ -75,63 +83,15 @@
     <id>urn:pulseradar:2026-06-21:40bbf1068ad4e58b</id>
     <title>想问问有什么比较好的 AI 工作流真正的能提高工作效率</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1221753"/>
-    <updated>2026-06-21T10:52:28Z</updated>
+    <updated>2026-06-21T13:21:58Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 10</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-21:fb42c7e6c2e2318f</id>
-    <title>女子用AI写3000字股市谣言被罚</title>
-    <link rel="alternate" type="text/html" href="https://www.baidu.com/s?wd=%E5%A5%B3%E5%AD%90%E7%94%A8AI%E5%86%993000%E5%AD%97%E8%82%A1%E5%B8%82%E8%B0%A3%E8%A8%80%E8%A2%AB%E7%BD%9A"/>
-    <updated>2026-06-21T10:52:28Z</updated>
-    <author><name>百度热搜</name></author>
-    <summary>Rank: 11</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-21:370e864d10d5f211</id>
-    <title>AI QuizFactory</title>
-    <link rel="alternate" type="text/html" href="https://www.producthunt.com/products/ai-quizfactory"/>
-    <updated>2026-06-21T10:52:28Z</updated>
-    <author><name>Product Hunt</name></author>
-    <summary>Rank: 11</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-21:f340ed7d97be9bf6</id>
-    <title>对话丨被AI震动的两年人生，数学博士生的新难题：如何证明自己？</title>
-    <link rel="alternate" type="text/html" href="https://m.thepaper.cn/newsDetail_forward_33407734"/>
-    <updated>2026-06-21T10:52:28Z</updated>
-    <author><name>澎湃新闻</name></author>
-    <summary>Rank: 11</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-21:ebb9526ea3b46f1d</id>
-    <title>AI短剧严重“缺脸” 500元买一张脸</title>
-    <link rel="alternate" type="text/html" href="https://www.toutiao.com/trending/7653430042109853737/"/>
-    <updated>2026-06-21T10:52:28Z</updated>
-    <author><name>今日头条</name></author>
-    <summary>Rank: 11</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-21:f737dc410c48ff97</id>
-    <title>Building reliable agentic AI systems</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48615680"/>
-    <updated>2026-06-21T10:52:28Z</updated>
-    <author><name>Hacker News</name></author>
     <summary>Rank: 12</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-21:d148ab4cd0979b59</id>
-    <title>SEO Fragments: Rank &amp; Get AI Citations</title>
-    <link rel="alternate" type="text/html" href="https://www.producthunt.com/products/seo-fragments-rank-get-ai-citations"/>
-    <updated>2026-06-21T10:52:28Z</updated>
-    <author><name>Product Hunt</name></author>
-    <summary>Rank: 13</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-21:3b0c35b281e5e35c</id>
     <title>从插件到 AI 辅助：Obsidian 如何成为我的主力工具</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/109850"/>
-    <updated>2026-06-21T10:52:28Z</updated>
+    <updated>2026-06-21T13:21:58Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 13</summary>
   </entry>
@@ -139,143 +99,127 @@
     <id>urn:pulseradar:2026-06-21:7de66a17de844bd8</id>
     <title>AI Agent 干中学，「造轮子」让我学会了什么？</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/110370"/>
-    <updated>2026-06-21T10:52:28Z</updated>
+    <updated>2026-06-21T13:21:58Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 17</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-21:b121391161999877</id>
-    <title>Empty · 空：一个尊重剧情边界的 AI 阅读伴侣</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1221737"/>
-    <updated>2026-06-21T10:52:28Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 17</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-21:5c3a22555a3ffd1c</id>
-    <title>硬件上新、系统迭代、手机涨价、AI支付，共同构成本周科技数码行业的关键词。</title>
-    <link rel="alternate" type="text/html" href="https://www.coolapk.com/feed/72407613"/>
-    <updated>2026-06-21T10:52:28Z</updated>
-    <author><name>酷安</name></author>
-    <summary>Rank: 18</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-21:df17033518733b48</id>
     <title>AI 如何影响你的审美？</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/110172"/>
-    <updated>2026-06-21T10:52:28Z</updated>
+    <updated>2026-06-21T13:21:58Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 18</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-21:b121391161999877</id>
+    <title>Empty · 空：一个尊重剧情边界的 AI 阅读伴侣</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1221737"/>
+    <updated>2026-06-21T13:21:58Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 19</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-21:8d53d9712a1ae8eb</id>
     <title>Sidefy 增加 MCP，接入 Agent 用 AI 一句话配置效率工具</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1221735"/>
-    <updated>2026-06-21T10:52:28Z</updated>
+    <updated>2026-06-21T13:21:58Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 18</summary>
+    <summary>Rank: 20</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-21:3d4482f2164cbf26</id>
     <title>分享自己使用 ai coding 的方式</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1221733"/>
-    <updated>2026-06-21T10:52:28Z</updated>
+    <updated>2026-06-21T13:21:58Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 19</summary>
+    <summary>Rank: 21</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-06-21:3f94acd3bf899c26</id>
-    <title>AI Music Alarm</title>
-    <link rel="alternate" type="text/html" href="https://www.producthunt.com/products/ai-music-alarm"/>
-    <updated>2026-06-21T10:52:28Z</updated>
-    <author><name>Product Hunt</name></author>
-    <summary>Rank: 20</summary>
+    <id>urn:pulseradar:2026-06-21:dfc78feb89c773e3</id>
+    <title>父亲节用AI表达爱</title>
+    <link rel="alternate" type="text/html" href="https://www.douyin.com/hot/2542302"/>
+    <updated>2026-06-21T13:21:58Z</updated>
+    <author><name>抖音</name></author>
+    <summary>Rank: 23</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-21:f737dc410c48ff97</id>
+    <title>Building reliable agentic AI systems</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48615680"/>
+    <updated>2026-06-21T13:21:58Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 23</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-21:b79a2f6c545153ea</id>
     <title>问一个直击灵魂的问题，你用 AI 做了哪些有意义的工具？</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1221614"/>
-    <updated>2026-06-21T10:52:28Z</updated>
+    <updated>2026-06-21T13:21:58Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 21</summary>
+    <summary>Rank: 23</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-21:31e6e81e629f3a83</id>
     <title>别再迷信 AI 编程王炸组合：OpenSpec+Superpowers 5大实操冲突及解决方案</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7652586257183752233"/>
-    <updated>2026-06-21T10:52:28Z</updated>
+    <updated>2026-06-21T13:21:58Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 23</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-21:4599189e34b39e71</id>
-    <title>问一个私密但又迫切的问题，进入 ai 时代后，大家用 ai 做的项目都实实在在挣到钱了吗</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1221724"/>
-    <updated>2026-06-21T10:52:28Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 23</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-21:cc8b29fdc698c3ee</id>
-    <title>When I reject AI code even if it works</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48614631"/>
-    <updated>2026-06-21T10:52:28Z</updated>
-    <author><name>Hacker News</name></author>
     <summary>Rank: 24</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-21:dfe4d1e7ff2ff947</id>
+    <title>AI 能写代码了，为什么我反而开始要求它先写文档？</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7652606969635471403"/>
+    <updated>2026-06-21T13:21:58Z</updated>
+    <author><name>掘金</name></author>
+    <summary>Rank: 25</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-21:e751cfa20a3eea7e</id>
     <title>当 AI 成为角色：漫谈我的 SillyTavern 使用经验</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/109869"/>
-    <updated>2026-06-21T10:52:28Z</updated>
+    <updated>2026-06-21T13:21:58Z</updated>
     <author><name>少数派</name></author>
+    <summary>Rank: 25</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-21:4599189e34b39e71</id>
+    <title>问一个私密但又迫切的问题，进入 ai 时代后，大家用 ai 做的项目都实实在在挣到钱了吗</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1221724"/>
+    <updated>2026-06-21T13:21:58Z</updated>
+    <author><name>V2EX</name></author>
     <summary>Rank: 25</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-21:a5d5cf3fdc6c9d9c</id>
     <title>Temporary Cloudflare accounts for AI agents</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48608394"/>
-    <updated>2026-06-21T10:52:28Z</updated>
+    <updated>2026-06-21T13:21:58Z</updated>
     <author><name>Hacker News</name></author>
-    <summary>Rank: 26</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-21:dfe4d1e7ff2ff947</id>
-    <title>AI 能写代码了，为什么我反而开始要求它先写文档？</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7652606969635471403"/>
-    <updated>2026-06-21T10:52:28Z</updated>
-    <author><name>掘金</name></author>
-    <summary>Rank: 26</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-21:dfc78feb89c773e3</id>
-    <title>父亲节用AI表达爱</title>
-    <link rel="alternate" type="text/html" href="https://www.douyin.com/hot/2542302"/>
-    <updated>2026-06-21T10:52:28Z</updated>
-    <author><name>抖音</name></author>
-    <summary>Rank: 28</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-21:94cf3634ea979503</id>
-    <title>Google Hits 50% IPv6</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48616800"/>
-    <updated>2026-06-21T10:52:28Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 1</summary>
+    <summary>Rank: 29</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-21:d5ac253443eeb30f</id>
     <title>具透 | 除了 AI，iOS 27 首个开发者测试版中你不能错过的新功能</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/110973"/>
-    <updated>2026-06-21T10:52:28Z</updated>
+    <updated>2026-06-21T13:21:58Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 3</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-21:94cf3634ea979503</id>
+    <title>Google Hits 50% IPv6</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48616800"/>
+    <updated>2026-06-21T13:21:58Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 4</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-21:db96abb31110fc08</id>
     <title>Loupe – A iOS app that raises awareness about what native apps can see</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48608645"/>
-    <updated>2026-06-21T10:52:28Z</updated>
+    <updated>2026-06-21T13:21:58Z</updated>
     <author><name>Hacker News</name></author>
     <summary>Rank: 5</summary>
   </entry>
@@ -283,7 +227,7 @@
     <id>urn:pulseradar:2026-06-21:21bf01809c528636</id>
     <title>一图流 | Apple WWDC26 开幕式回顾</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/110887"/>
-    <updated>2026-06-21T10:52:28Z</updated>
+    <updated>2026-06-21T13:21:58Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 6</summary>
   </entry>
@@ -291,47 +235,47 @@
     <id>urn:pulseradar:2026-06-21:61827f4fb79862a2</id>
     <title>Liquid Glass 精调、Apple 智能大升级：WWDC26 发布会回顾</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/110888"/>
-    <updated>2026-06-21T10:52:28Z</updated>
+    <updated>2026-06-21T13:21:58Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 7</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-21:21c34f9407e11717</id>
-    <title>2026 Apple 设计奖正式揭晓，细数 12 款 App 的特别之处</title>
-    <link rel="alternate" type="text/html" href="https://sspai.com/post/110763"/>
-    <updated>2026-06-21T10:52:28Z</updated>
-    <author><name>少数派</name></author>
-    <summary>Rank: 8</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-21:bda32186ab2ac11c</id>
-    <title>写了个 Chrome 插件，把 X.com/Twitter 上的帖子和收藏离线存到本地，已上架 Chrome</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1221755"/>
-    <updated>2026-06-21T10:52:28Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 9</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-21:2384940cf5f33830</id>
     <title>Windows UI evolution: Clicking an unassociated file</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48616173"/>
-    <updated>2026-06-21T10:52:28Z</updated>
+    <updated>2026-06-21T13:21:58Z</updated>
     <author><name>Hacker News</name></author>
-    <summary>Rank: 10</summary>
+    <summary>Rank: 8</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-21:21c34f9407e11717</id>
+    <title>2026 Apple 设计奖正式揭晓，细数 12 款 App 的特别之处</title>
+    <link rel="alternate" type="text/html" href="https://sspai.com/post/110763"/>
+    <updated>2026-06-21T13:21:58Z</updated>
+    <author><name>少数派</name></author>
+    <summary>Rank: 8</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-21:a2078eba5933598d</id>
     <title>Android 协程并发控制：别动线程池，控制好并发语义就够了</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7652257652502298662"/>
-    <updated>2026-06-21T10:52:28Z</updated>
+    <updated>2026-06-21T13:21:58Z</updated>
     <author><name>掘金</name></author>
+    <summary>Rank: 11</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-21:bda32186ab2ac11c</id>
+    <title>写了个 Chrome 插件，把 X.com/Twitter 上的帖子和收藏离线存到本地，已上架 Chrome</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1221755"/>
+    <updated>2026-06-21T13:21:58Z</updated>
+    <author><name>V2EX</name></author>
     <summary>Rank: 11</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-21:8123f5c0bb0e4c68</id>
     <title>Await：五分钟，把点子变成 iPhone 小组件</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/110106"/>
-    <updated>2026-06-21T10:52:28Z</updated>
+    <updated>2026-06-21T13:21:58Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 16</summary>
   </entry>
@@ -339,31 +283,88 @@
     <id>urn:pulseradar:2026-06-21:0b34e0bcae2637e6</id>
     <title>UHF X11: X11 Built for VisionOS and Apple Vision Pro</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48610853"/>
-    <updated>2026-06-21T10:52:28Z</updated>
+    <updated>2026-06-21T13:21:58Z</updated>
     <author><name>Hacker News</name></author>
-    <summary>Rank: 17</summary>
+    <summary>Rank: 19</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-21:93caf227efee45c6</id>
     <title>什么才是「好」的 Android 音频输出？从一台旧日 Xperia 说起</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/110120"/>
-    <updated>2026-06-21T10:52:28Z</updated>
+    <updated>2026-06-21T13:21:58Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 20</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-06-21:99800eb375d950ad</id>
-    <title>库克释放涨价信号 经销商泼冷水</title>
-    <link rel="alternate" type="text/html" href="https://www.baidu.com/s?wd=%E5%BA%93%E5%85%8B%E9%87%8A%E6%94%BE%E6%B6%A8%E4%BB%B7%E4%BF%A1%E5%8F%B7+%E7%BB%8F%E9%94%80%E5%95%86%E6%B3%BC%E5%86%B7%E6%B0%B4"/>
-    <updated>2026-06-21T10:52:28Z</updated>
-    <author><name>百度热搜</name></author>
-    <summary>Rank: 30</summary>
+    <id>urn:pulseradar:2026-06-21:890101ba2dfdb777</id>
+    <title>中国男篮vs澳大利亚男篮</title>
+    <link rel="alternate" type="text/html" href="https://www.douyin.com/hot/2542378"/>
+    <updated>2026-06-21T13:21:58Z</updated>
+    <author><name>抖音</name></author>
+    <summary>Also reported by: 微博
+Rank: 1</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-21:0e8acecd110fd3e7</id>
+    <title>马宁在世界杯上演黄牌双帽子戏法，中国裁判组亮相世界杯！</title>
+    <link rel="alternate" type="text/html" href="https://m.thepaper.cn/newsDetail_forward_33422790"/>
+    <updated>2026-06-21T13:21:58Z</updated>
+    <author><name>澎湃新闻</name></author>
+    <summary>Rank: 6</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-21:01baa692a07ce17f</id>
+    <title>世界杯小组赛厄瓜多尔VS库拉索，马宁领衔中国裁判组亮相</title>
+    <link rel="alternate" type="text/html" href="https://m.thepaper.cn/newsDetail_forward_33422595"/>
+    <updated>2026-06-21T13:21:58Z</updated>
+    <author><name>澎湃新闻</name></author>
+    <summary>Rank: 7</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-21:62a403fc86a448b0</id>
+    <title>胡锡进：日本签证费涨5倍，影响最大的就是中国大陆游客群体</title>
+    <link rel="alternate" type="text/html" href="https://news.ifeng.com/c/8u8rYyl6aYk"/>
+    <updated>2026-06-21T13:21:58Z</updated>
+    <author><name>凤凰网</name></author>
+    <summary>Rank: 12</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-21:d98b3e78ccbcbf72</id>
+    <title>无畏契约首张中国风地图发布回顾</title>
+    <link rel="alternate" type="text/html" href="https://search.bilibili.com/all?keyword=%E6%97%A0%E7%95%8F%E5%A5%91%E7%BA%A6%E9%A6%96%E5%BC%A0%E4%B8%AD%E5%9B%BD%E9%A3%8E%E5%9C%B0%E5%9B%BE%E5%8F%91%E5%B8%83%E5%9B%9E%E9%A1%BE"/>
+    <updated>2026-06-21T13:21:58Z</updated>
+    <author><name>bilibili 热搜</name></author>
+    <summary>Rank: 13</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-21:ebb0d8c31532660d</id>
+    <title>印度14岁学生布局定居中国</title>
+    <link rel="alternate" type="text/html" href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E5%8D%B0%E5%BA%A614%E5%B2%81%E5%AD%A6%E7%94%9F%E5%B8%83%E5%B1%80%E5%AE%9A%E5%B1%85%E4%B8%AD%E5%9B%BD&amp;topic_id=28355304"/>
+    <updated>2026-06-21T13:21:58Z</updated>
+    <author><name>贴吧</name></author>
+    <summary>Rank: 13</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-21:eb4941934f4d272a</id>
+    <title>世界杯官方发土味喜报祝贺中国裁判</title>
+    <link rel="alternate" type="text/html" href="https://www.toutiao.com/trending/7653466018400747526/"/>
+    <updated>2026-06-21T13:21:58Z</updated>
+    <author><name>今日头条</name></author>
+    <summary>Rank: 18</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-21:22d424836d9605e7</id>
+    <title>佛得角门将母亲中文感谢中国球迷</title>
+    <link rel="alternate" type="text/html" href="https://search.bilibili.com/all?keyword=%E4%BD%9B%E5%BE%97%E8%A7%92%E9%97%A8%E5%B0%86%E6%AF%8D%E4%BA%B2%E4%B8%AD%E6%96%87%E6%84%9F%E8%B0%A2%E4%B8%AD%E5%9B%BD%E7%90%83%E8%BF%B7"/>
+    <updated>2026-06-21T13:21:58Z</updated>
+    <author><name>bilibili 热搜</name></author>
+    <summary>Rank: 21</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-21:794f97373e151f68</id>
     <title>2026 年世界杯小组赛 F 组，突尼斯 0-4 日本，如何评价本场比赛？</title>
     <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2050231270332789671"/>
-    <updated>2026-06-21T10:52:28Z</updated>
+    <updated>2026-06-21T13:21:58Z</updated>
     <author><name>知乎</name></author>
     <summary>Rank: 1</summary>
   </entry>
@@ -371,191 +372,71 @@
     <id>urn:pulseradar:2026-06-21:1a84ac3a04a946bc</id>
     <title>全面压制,日本送突尼斯出局</title>
     <link rel="alternate" type="text/html" href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E5%85%A8%E9%9D%A2%E5%8E%8B%E5%88%B6%2C%E6%97%A5%E6%9C%AC%E9%80%81%E7%AA%81%E5%B0%BC%E6%96%AF%E5%87%BA%E5%B1%80&amp;topic_id=28355314"/>
-    <updated>2026-06-21T10:52:28Z</updated>
+    <updated>2026-06-21T13:21:58Z</updated>
     <author><name>贴吧</name></author>
     <summary>Rank: 2</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-21:3f319f835845f8f5</id>
-    <title>解读日本4-0突尼斯</title>
-    <link rel="alternate" type="text/html" href="https://search.bilibili.com/all?keyword=%E8%A7%A3%E8%AF%BB%E6%97%A5%E6%9C%AC4-0%E7%AA%81%E5%B0%BC%E6%96%AF"/>
-    <updated>2026-06-21T10:52:28Z</updated>
-    <author><name>bilibili 热搜</name></author>
-    <summary>Rank: 4</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-21:935330939dc032c6</id>
-    <title>日本足球赢在“跟自己较劲”的细节里</title>
-    <link rel="alternate" type="text/html" href="https://www.toutiao.com/trending/7653040088695848966/"/>
-    <updated>2026-06-21T10:52:28Z</updated>
-    <author><name>今日头条</name></author>
-    <summary>Rank: 5</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-21:64278c5a4bac4e47</id>
-    <title>日本4-0突尼斯</title>
-    <link rel="alternate" type="text/html" href="https://search.bilibili.com/all?keyword=%E6%97%A5%E6%9C%AC4-0%E7%AA%81%E5%B0%BC%E6%96%AF"/>
-    <updated>2026-06-21T10:52:28Z</updated>
-    <author><name>bilibili 热搜</name></author>
-    <summary>Rank: 6</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-21:75996efbb5c093b0</id>
     <title>韩国总统李在明表示「股市两极分化令人担忧」，韩国股市的结构化有多严重？</title>
     <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2051347103608221896"/>
-    <updated>2026-06-21T10:52:28Z</updated>
+    <updated>2026-06-21T13:21:58Z</updated>
     <author><name>知乎</name></author>
-    <summary>Rank: 7</summary>
+    <summary>Rank: 12</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-06-21:2feddd24d419c248</id>
-    <title>日本 就怕邻居开路虎</title>
-    <link rel="alternate" type="text/html" href="https://s.weibo.com/weibo?q=%E6%97%A5%E6%9C%AC%20%E5%B0%B1%E6%80%95%E9%82%BB%E5%B1%85%E5%BC%80%E8%B7%AF%E8%99%8E&amp;t=31&amp;band_rank=9&amp;Refer=top"/>
-    <updated>2026-06-21T10:52:28Z</updated>
-    <author><name>微博</name></author>
-    <summary>Rank: 9</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-21:d5da881967b0fd23</id>
-    <title>日本终结亚洲球队六连败</title>
-    <link rel="alternate" type="text/html" href="https://www.baidu.com/s?wd=%E6%97%A5%E6%9C%AC%E7%BB%88%E7%BB%93%E4%BA%9A%E6%B4%B2%E7%90%83%E9%98%9F%E5%85%AD%E8%BF%9E%E8%B4%A5"/>
-    <updated>2026-06-21T10:52:28Z</updated>
-    <author><name>百度热搜</name></author>
-    <summary>Rank: 13</summary>
+    <id>urn:pulseradar:2026-06-21:dde04d625ae99e07</id>
+    <title>队史世界杯最大赢球比分，但日本躲不过淘汰赛首轮强强对话</title>
+    <link rel="alternate" type="text/html" href="https://m.thepaper.cn/newsDetail_forward_33424137"/>
+    <updated>2026-06-21T13:21:58Z</updated>
+    <author><name>澎湃新闻</name></author>
+    <summary>Rank: 14</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-21:507d42a1ff9d37ed</id>
     <title>泳装屈原!日本手游整狠活</title>
     <link rel="alternate" type="text/html" href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E6%B3%B3%E8%A3%85%E5%B1%88%E5%8E%9F%21%E6%97%A5%E6%9C%AC%E6%89%8B%E6%B8%B8%E6%95%B4%E7%8B%A0%E6%B4%BB&amp;topic_id=28355298"/>
-    <updated>2026-06-21T10:52:28Z</updated>
+    <updated>2026-06-21T13:21:58Z</updated>
     <author><name>贴吧</name></author>
     <summary>Rank: 15</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-21:46e369fbeb1e87c6</id>
+    <title>世界杯史上第1000场比赛，日本4比0突尼斯</title>
+    <link rel="alternate" type="text/html" href="https://m.thepaper.cn/newsDetail_forward_33423457"/>
+    <updated>2026-06-21T13:21:58Z</updated>
+    <author><name>澎湃新闻</name></author>
+    <summary>Rank: 20</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-21:6d609dc2692bc387</id>
     <title>曝日本为“备战台海”囤弹药</title>
     <link rel="alternate" type="text/html" href="https://www.toutiao.com/trending/7653624586092826121/"/>
-    <updated>2026-06-21T10:52:28Z</updated>
+    <updated>2026-06-21T13:21:58Z</updated>
     <author><name>今日头条</name></author>
-    <summary>Rank: 15</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-21:ef38581582016023</id>
-    <title>日本4比0大胜突尼斯</title>
-    <link rel="alternate" type="text/html" href="https://www.baidu.com/s?wd=%E6%97%A5%E6%9C%AC4%E6%AF%940%E5%A4%A7%E8%83%9C%E7%AA%81%E5%B0%BC%E6%96%AF"/>
-    <updated>2026-06-21T10:52:28Z</updated>
-    <author><name>百度热搜</name></author>
-    <summary>Rank: 18</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-21:e8fddaf8c40b4398</id>
-    <title>日本毫米级门线悬案</title>
-    <link rel="alternate" type="text/html" href="https://www.baidu.com/s?wd=%E6%97%A5%E6%9C%AC%E6%AF%AB%E7%B1%B3%E7%BA%A7%E9%97%A8%E7%BA%BF%E6%82%AC%E6%A1%88"/>
-    <updated>2026-06-21T10:52:28Z</updated>
-    <author><name>百度热搜</name></author>
-    <summary>Rank: 23</summary>
+    <summary>Rank: 20</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-21:92e117fc22eaade0</id>
     <title>日本队4:0大胜突尼斯</title>
     <link rel="alternate" type="text/html" href="https://www.douyin.com/hot/2541983"/>
-    <updated>2026-06-21T10:52:28Z</updated>
+    <updated>2026-06-21T13:21:58Z</updated>
     <author><name>抖音</name></author>
-    <summary>Rank: 23</summary>
+    <summary>Rank: 22</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-06-21:890101ba2dfdb777</id>
-    <title>中国男篮vs澳大利亚男篮</title>
-    <link rel="alternate" type="text/html" href="https://www.douyin.com/hot/2542378"/>
-    <updated>2026-06-21T10:52:28Z</updated>
+    <id>urn:pulseradar:2026-06-21:3ad81d8752868ee5</id>
+    <title>刘建宏聊日本足球的天花板</title>
+    <link rel="alternate" type="text/html" href="https://www.douyin.com/hot/2542630"/>
+    <updated>2026-06-21T13:21:58Z</updated>
     <author><name>抖音</name></author>
-    <summary>Rank: 1</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-21:c382ca15ec1b22ae</id>
-    <title>文化中国行美好如夏至</title>
-    <link rel="alternate" type="text/html" href="https://s.weibo.com/weibo?q=%E6%96%87%E5%8C%96%E4%B8%AD%E5%9B%BD%E8%A1%8C%E7%BE%8E%E5%A5%BD%E5%A6%82%E5%A4%8F%E8%87%B3&amp;t=31&amp;band_rank=3&amp;Refer=top"/>
-    <updated>2026-06-21T10:52:28Z</updated>
-    <author><name>微博</name></author>
-    <summary>Rank: 3</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-21:fcfff96b1454723b</id>
-    <title>中使馆提醒赴柬中国公民洁身自好</title>
-    <link rel="alternate" type="text/html" href="https://www.toutiao.com/trending/7653007962197331475/"/>
-    <updated>2026-06-21T10:52:28Z</updated>
-    <author><name>今日头条</name></author>
-    <summary>Rank: 4</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-21:0e8acecd110fd3e7</id>
-    <title>马宁在世界杯上演黄牌双帽子戏法，中国裁判组亮相世界杯！</title>
-    <link rel="alternate" type="text/html" href="https://m.thepaper.cn/newsDetail_forward_33422790"/>
-    <updated>2026-06-21T10:52:28Z</updated>
-    <author><name>澎湃新闻</name></author>
-    <summary>Rank: 5</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-21:01baa692a07ce17f</id>
-    <title>世界杯小组赛厄瓜多尔VS库拉索，马宁领衔中国裁判组亮相</title>
-    <link rel="alternate" type="text/html" href="https://m.thepaper.cn/newsDetail_forward_33422595"/>
-    <updated>2026-06-21T10:52:28Z</updated>
-    <author><name>澎湃新闻</name></author>
-    <summary>Rank: 6</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-21:fd8423b342fafc7b</id>
-    <title>中国队没进世界杯 中国裁判为啥进了</title>
-    <link rel="alternate" type="text/html" href="https://www.baidu.com/s?wd=%E4%B8%AD%E5%9B%BD%E9%98%9F%E6%B2%A1%E8%BF%9B%E4%B8%96%E7%95%8C%E6%9D%AF+%E4%B8%AD%E5%9B%BD%E8%A3%81%E5%88%A4%E4%B8%BA%E5%95%A5%E8%BF%9B%E4%BA%86"/>
-    <updated>2026-06-21T10:52:28Z</updated>
-    <author><name>百度热搜</name></author>
-    <summary>Rank: 7</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-21:eb4941934f4d272a</id>
-    <title>世界杯官方发土味喜报祝贺中国裁判</title>
-    <link rel="alternate" type="text/html" href="https://www.toutiao.com/trending/7653466018400747526/"/>
-    <updated>2026-06-21T10:52:28Z</updated>
-    <author><name>今日头条</name></author>
-    <summary>Rank: 7</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-21:3c689575f1db1fd6</id>
-    <title>欧文抵达中国开启中国行</title>
-    <link rel="alternate" type="text/html" href="https://www.douyin.com/hot/2542597"/>
-    <updated>2026-06-21T10:52:28Z</updated>
-    <author><name>抖音</name></author>
-    <summary>Rank: 12</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-21:ebb0d8c31532660d</id>
-    <title>印度14岁学生布局定居中国</title>
-    <link rel="alternate" type="text/html" href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E5%8D%B0%E5%BA%A614%E5%B2%81%E5%AD%A6%E7%94%9F%E5%B8%83%E5%B1%80%E5%AE%9A%E5%B1%85%E4%B8%AD%E5%9B%BD&amp;topic_id=28355304"/>
-    <updated>2026-06-21T10:52:28Z</updated>
-    <author><name>贴吧</name></author>
-    <summary>Rank: 13</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-21:22d424836d9605e7</id>
-    <title>佛得角门将母亲中文感谢中国球迷</title>
-    <link rel="alternate" type="text/html" href="https://search.bilibili.com/all?keyword=%E4%BD%9B%E5%BE%97%E8%A7%92%E9%97%A8%E5%B0%86%E6%AF%8D%E4%BA%B2%E4%B8%AD%E6%96%87%E6%84%9F%E8%B0%A2%E4%B8%AD%E5%9B%BD%E7%90%83%E8%BF%B7"/>
-    <updated>2026-06-21T10:52:28Z</updated>
-    <author><name>bilibili 热搜</name></author>
-    <summary>Rank: 19</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-21:e2df65642c332711</id>
-    <title>中国海警舰艇南海常态化巡航值守</title>
-    <link rel="alternate" type="text/html" href="https://www.toutiao.com/trending/7653747288410423359/"/>
-    <updated>2026-06-21T10:52:28Z</updated>
-    <author><name>今日头条</name></author>
-    <summary>Rank: 26</summary>
+    <summary>Rank: 24</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-21:37cd9038cd2edb7d</id>
     <title>三持了，工作压力大的时候，就爱买电子产品，分期也买[流泪][流泪][流泪] #华为Mate80Pro# #小米17ProMax#</title>
     <link rel="alternate" type="text/html" href="https://www.coolapk.com/feed/72445977"/>
-    <updated>2026-06-21T10:52:28Z</updated>
+    <updated>2026-06-21T13:21:58Z</updated>
     <author><name>酷安</name></author>
     <summary>Rank: 1</summary>
   </entry>
@@ -563,7 +444,7 @@
     <id>urn:pulseradar:2026-06-21:3e7cd46b12b79f7f</id>
     <title>KMP / CMP 鸿蒙版本 Beta 发布，他有什么特别之处？</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7651954728705212422"/>
-    <updated>2026-06-21T10:52:28Z</updated>
+    <updated>2026-06-21T13:21:58Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 2</summary>
   </entry>
@@ -571,7 +452,7 @@
     <id>urn:pulseradar:2026-06-21:2b61f8e223b64b1d</id>
     <title>HarmonyOS APP事件驱动大揭秘</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7652676128406306859"/>
-    <updated>2026-06-21T10:52:28Z</updated>
+    <updated>2026-06-21T13:21:58Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 9</summary>
   </entry>
@@ -579,15 +460,15 @@
     <id>urn:pulseradar:2026-06-21:574dfc63f0f5b455</id>
     <title>中奖了，过保花屏真真的出现了，老哥们都怎么解决的  #华为Mate70Pro# #华为Mate70Pro优享版# #华为Mate80ProMax#</title>
     <link rel="alternate" type="text/html" href="https://www.coolapk.com/feed/72437433"/>
-    <updated>2026-06-21T10:52:28Z</updated>
+    <updated>2026-06-21T13:21:58Z</updated>
     <author><name>酷安</name></author>
-    <summary>Rank: 15</summary>
+    <summary>Rank: 16</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-21:369e3434b74df7f3</id>
     <title>鸿蒙生态的下半场：开发者不只要能开发，还要能赚钱</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7652609898090758190"/>
-    <updated>2026-06-21T10:52:28Z</updated>
+    <updated>2026-06-21T13:21:58Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 22</summary>
   </entry>
@@ -595,7 +476,7 @@
     <id>urn:pulseradar:2026-06-21:a130fc2de640322a</id>
     <title>mukul975 /      Anthropic-Cybersecurity-Skills</title>
     <link rel="alternate" type="text/html" href="https://github.com/mukul975/Anthropic-Cybersecurity-Skills"/>
-    <updated>2026-06-21T10:52:28Z</updated>
+    <updated>2026-06-21T13:21:58Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 10</summary>
   </entry>
@@ -603,31 +484,31 @@
     <id>urn:pulseradar:2026-06-21:1f4c8bd2f48be436</id>
     <title>Claude App 并不那么好用</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1221746"/>
-    <updated>2026-06-21T10:52:28Z</updated>
+    <updated>2026-06-21T13:21:58Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 14</summary>
+    <summary>Rank: 16</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-21:f1a32565e5b6e6bc</id>
+    <title>Anthropic to Require ID Verification for Certain Capabilities Starting July 8</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48618455"/>
+    <updated>2026-06-21T13:21:58Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 26</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-21:a995ae983fdf3446</id>
     <title>[开源] 带领 AI 团队开发了一个极轻量的 GT AI Gateway：支持协议转换、请求查看，还能大幅降低 Claude Code 等调用成本</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1221722"/>
-    <updated>2026-06-21T10:52:28Z</updated>
+    <updated>2026-06-21T13:21:58Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 24</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-21:a7c1a831bfed4931</id>
-    <title>Claude Code从失控到起飞，只用了这些技巧</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7652656011178000394"/>
-    <updated>2026-06-21T10:52:28Z</updated>
-    <author><name>掘金</name></author>
-    <summary>Rank: 30</summary>
+    <summary>Rank: 26</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-21:23768e535b8cc691</id>
     <title>伊朗外交部发言人：美国未执行谅解备忘录第一条</title>
     <link rel="alternate" type="text/html" href="https://news.ifeng.com/c/8u8jKnIv0GU"/>
-    <updated>2026-06-21T10:52:28Z</updated>
+    <updated>2026-06-21T13:21:58Z</updated>
     <author><name>凤凰网</name></author>
     <summary>Rank: 4</summary>
   </entry>
@@ -635,7 +516,7 @@
     <id>urn:pulseradar:2026-06-21:aeb99676c14d2c9f</id>
     <title>梅洛尼终于爆发，“干了件美国盟友都不敢的事儿”</title>
     <link rel="alternate" type="text/html" href="https://news.ifeng.com/c/8u8ecch77aK"/>
-    <updated>2026-06-21T10:52:28Z</updated>
+    <updated>2026-06-21T13:21:58Z</updated>
     <author><name>凤凰网</name></author>
     <summary>Rank: 6</summary>
   </entry>
@@ -643,8 +524,120 @@
     <id>urn:pulseradar:2026-06-21:7d45dede68e2996f</id>
     <title>伊朗军方宣布关闭霍尔木兹海峡，伊朗外交部称美国未能约束以色列，违反谅解备忘录，哪些信息值得关注？</title>
     <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2051776067241775423"/>
-    <updated>2026-06-21T10:52:28Z</updated>
+    <updated>2026-06-21T13:21:58Z</updated>
     <author><name>知乎</name></author>
     <summary>Rank: 6</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-21:b08ee2d7c4fbcdc0</id>
+    <title>霍尔木兹海峡又封了？伊朗、美国说法不一 瑞士小镇上演外交风云</title>
+    <link rel="alternate" type="text/html" href="https://www.cls.cn/detail/2404688"/>
+    <updated>2026-06-21T13:21:58Z</updated>
+    <author><name>财联社热门</name></author>
+    <summary>Rank: 9</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-21:a67da6c59a33ac95</id>
+    <title>bytedance /      deer-flow</title>
+    <link rel="alternate" type="text/html" href="https://github.com/bytedance/deer-flow"/>
+    <updated>2026-06-21T13:21:58Z</updated>
+    <author><name>GitHub Trending</name></author>
+    <summary>Rank: 8</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-21:227e82d487cc8b56</id>
+    <title>哈兰德发抖音用了森系滤镜</title>
+    <link rel="alternate" type="text/html" href="https://www.douyin.com/hot/2542331"/>
+    <updated>2026-06-21T13:21:58Z</updated>
+    <author><name>抖音</name></author>
+    <summary>Rank: 25</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-21:10fc138fc4886a64</id>
+    <title>假期要闻汇总：磷酸铁锂价格翻倍，需求依然旺盛；微信“小微”来了</title>
+    <link rel="alternate" type="text/html" href="https://www.cls.cn/detail/2404817"/>
+    <updated>2026-06-21T13:21:58Z</updated>
+    <author><name>财联社热门</name></author>
+    <summary>Rank: 1</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-21:41dc43895860d561</id>
+    <title>微信“小微”来了！数百万个小程序有了AI“总控台”</title>
+    <link rel="alternate" type="text/html" href="https://www.cls.cn/detail/2404757"/>
+    <updated>2026-06-21T13:21:58Z</updated>
+    <author><name>财联社热门</name></author>
+    <summary>Rank: 12</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-21:5237396c95180fb0</id>
+    <title>英国为何爆发骚乱</title>
+    <link rel="alternate" type="text/html" href="https://search.bilibili.com/all?keyword=%E8%8B%B1%E5%9B%BD%E4%B8%BA%E4%BD%95%E7%88%86%E5%8F%91%E9%AA%9A%E4%B9%B1"/>
+    <updated>2026-06-21T13:21:58Z</updated>
+    <author><name>bilibili 热搜</name></author>
+    <summary>Rank: 3</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-21:75684646539325f1</id>
+    <title>英国政坛地震在即？首相斯塔默或于周一宣布辞职，英债率先定价政权更迭</title>
+    <link rel="alternate" type="text/html" href="https://wallstreetcn.com/articles/3775128"/>
+    <updated>2026-06-21T13:21:58Z</updated>
+    <author><name>华尔街见闻</name></author>
+    <summary>Rank: 10</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-21:ac17d8faafa8ec9c</id>
+    <title>巴称若水资源安全受威胁将与印度开战</title>
+    <link rel="alternate" type="text/html" href="https://www.toutiao.com/trending/7653008626093408307/"/>
+    <updated>2026-06-21T13:21:58Z</updated>
+    <author><name>今日头条</name></author>
+    <summary>Rank: 8</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-21:a7c20321038945dc</id>
+    <title>印度17岁少年徒手单杀豹子</title>
+    <link rel="alternate" type="text/html" href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E5%8D%B0%E5%BA%A617%E5%B2%81%E5%B0%91%E5%B9%B4%E5%BE%92%E6%89%8B%E5%8D%95%E6%9D%80%E8%B1%B9%E5%AD%90&amp;topic_id=28355265"/>
+    <updated>2026-06-21T13:21:58Z</updated>
+    <author><name>贴吧</name></author>
+    <summary>Rank: 27</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-21:5a9850f06bb8c419</id>
+    <title>DeepSeek 杀入多模态，识图功能正式上线！</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7652384976291495974"/>
+    <updated>2026-06-21T13:21:58Z</updated>
+    <author><name>掘金</name></author>
+    <summary>Rank: 5</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-21:c442f3c6e3f03642</id>
+    <title>刘强东称将来不需要快递员</title>
+    <link rel="alternate" type="text/html" href="https://s.weibo.com/weibo?q=%23%E5%88%98%E5%BC%BA%E4%B8%9C%E7%A7%B0%E5%B0%86%E6%9D%A5%E4%B8%8D%E9%9C%80%E8%A6%81%E5%BF%AB%E9%80%92%E5%91%98%23&amp;t=31&amp;band_rank=1&amp;Refer=top"/>
+    <updated>2026-06-21T13:21:58Z</updated>
+    <author><name>微博</name></author>
+    <summary>Rank: 1</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-21:0165efa711825d3c</id>
+    <title>我要给 GLM5.2 道歉</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1221760"/>
+    <updated>2026-06-21T13:21:58Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 10</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-21:dd06b98ae0d7bd64</id>
+    <title>下周重磅日程：“美联储最爱通胀指标”、英伟达股东大会、OpenAI或发新模型、美光财报</title>
+    <link rel="alternate" type="text/html" href="https://wallstreetcn.com/articles/3775117"/>
+    <updated>2026-06-21T13:21:58Z</updated>
+    <author><name>华尔街见闻</name></author>
+    <summary>Rank: 4</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-21:80df58cfdb3dd7ad</id>
+    <title>消费龙头们跨界半导体、算力赛道 多家公司出现股价异动</title>
+    <link rel="alternate" type="text/html" href="https://www.cls.cn/detail/2404619"/>
+    <updated>2026-06-21T13:21:58Z</updated>
+    <author><name>财联社热门</name></author>
+    <summary>Rank: 2</summary>
   </entry>
 </feed>

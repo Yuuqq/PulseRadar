@@ -4,39 +4,63 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-06-22T02:02:25Z</updated>
+  <updated>2026-06-22T08:38:52Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
+  <entry>
+    <id>urn:pulseradar:2026-06-22:604fd81ee30a2683</id>
+    <title>🚀 快速切换 AI 编程工具 API 代理端点（支持 Codex, Claude 等）</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1222011"/>
+    <updated>2026-06-22T08:38:52Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 8</summary>
+  </entry>
   <entry>
     <id>urn:pulseradar:2026-06-22:a130fc2de640322a</id>
     <title>mukul975 /      Anthropic-Cybersecurity-Skills</title>
     <link rel="alternate" type="text/html" href="https://github.com/mukul975/Anthropic-Cybersecurity-Skills"/>
-    <updated>2026-06-22T02:02:25Z</updated>
+    <updated>2026-06-22T08:38:52Z</updated>
     <author><name>GitHub Trending</name></author>
-    <summary>Rank: 10</summary>
+    <summary>Rank: 9</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-22:cbcde223d1711f74</id>
     <title>Identity verification on Claude</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48618455"/>
-    <updated>2026-06-22T02:02:25Z</updated>
+    <updated>2026-06-22T08:38:52Z</updated>
     <author><name>Hacker News</name></author>
-    <summary>Rank: 11</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-06-22:8a9f07ae9975f07f</id>
-    <title>Show HN: Recall – fully-local project memory for Claude Code</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48622590"/>
-    <updated>2026-06-22T02:02:25Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 18</summary>
+    <summary>Rank: 12</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-22:a7c1a831bfed4931</id>
     <title>Claude Code从失控到起飞，只用了这些技巧</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7652656011178000394"/>
-    <updated>2026-06-22T02:02:25Z</updated>
+    <updated>2026-06-22T08:38:52Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 21</summary>
+    <summary>Rank: 14</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-22:25da2ce1d9f40d85</id>
+    <title>Claude 的身份验证 -这个太夸张了吧</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1221984"/>
+    <updated>2026-06-22T08:38:52Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 17</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-22:8be04816b2bcfb60</id>
+    <title>Show HN: Recall – Local project memory for Claude Code</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48622590"/>
+    <updated>2026-06-22T08:38:52Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 29</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-22:97ce8922f96b1ede</id>
+    <title>[开源] ppt-web：一个由 Claude Code 驱动、基于 ppt-master 二次开发的纯前端 PPT 生成器</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1221927"/>
+    <updated>2026-06-22T08:38:52Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 29</summary>
   </entry>
 </feed>

@@ -4,39 +4,55 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-06-30T17:23:38Z</updated>
+  <updated>2026-06-30T19:18:53Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
   <entry>
-    <id>urn:pulseradar:2026-06-30:151cff9774f06435</id>
-    <title>Claude Code Is Steganographically Marking Requests</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48734373"/>
-    <updated>2026-06-30T17:23:38Z</updated>
+    <id>urn:pulseradar:2026-06-30:24a6c121e6ada39d</id>
+    <title>Claude Sonnet 5</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48736605"/>
+    <updated>2026-06-30T19:18:53Z</updated>
     <author><name>Hacker News</name></author>
     <summary>Rank: 1</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-30:4bac56e18991af7f</id>
+    <title>Claude Code is steganographically marking requests</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48734373"/>
+    <updated>2026-06-30T19:18:53Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 2</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-06-30:2d5bc263d21670a1</id>
+    <title>Claude Science</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48735770"/>
+    <updated>2026-06-30T19:18:53Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 4</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-30:3d804be2822b896c</id>
     <title>用 Docker Sandbox 跑 Claude Code，规避时区指纹</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1224056"/>
-    <updated>2026-06-30T17:23:38Z</updated>
+    <updated>2026-06-30T19:18:53Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 4</summary>
+    <summary>Rank: 7</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-30:a5f42a85f74d921a</id>
     <title>Anthropic 这波大批量封号的原因可能找到了</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1224025"/>
-    <updated>2026-06-30T17:23:38Z</updated>
+    <updated>2026-06-30T19:18:53Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 13</summary>
+    <summary>Rank: 16</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-06-30:58c7b1f2d9cef650</id>
     <title>我把 Claude Code 搬到网页！自研高颜值 Web 交互工作台</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7656681358269825067"/>
-    <updated>2026-06-30T17:23:38Z</updated>
+    <updated>2026-06-30T19:18:53Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 24</summary>
+    <summary>Rank: 25</summary>
   </entry>
 </feed>

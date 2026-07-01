@@ -4,14 +4,14 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-07-01T10:53:55Z</updated>
+  <updated>2026-07-01T13:52:09Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
   <entry>
     <id>urn:pulseradar:2026-07-01:e9d7d49aeef48b5c</id>
     <title>网传 Claude 通过原生消息传递获取用户位置，再以隐写术隐蔽回传封杀中国大陆用户，什么情况？你怎么看？</title>
     <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2055348161544295141"/>
-    <updated>2026-07-01T10:53:55Z</updated>
+    <updated>2026-07-01T13:52:09Z</updated>
     <author><name>知乎</name></author>
     <summary>Rank: 1</summary>
   </entry>
@@ -19,64 +19,58 @@
     <id>urn:pulseradar:2026-07-01:4bac56e18991af7f</id>
     <title>Claude Code is steganographically marking requests</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48734373"/>
-    <updated>2026-07-01T10:53:55Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 2</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-01:24a6c121e6ada39d</id>
-    <title>Claude Sonnet 5</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48736605"/>
-    <updated>2026-07-01T10:53:55Z</updated>
+    <updated>2026-07-01T13:52:09Z</updated>
     <author><name>Hacker News</name></author>
     <summary>Rank: 4</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-01:c2a117d603216ed7</id>
+    <title>Claude Sonnet 5</title>
+    <link rel="alternate" type="text/html" href="https://www.producthunt.com/products/claude"/>
+    <updated>2026-07-01T13:52:09Z</updated>
+    <author><name>Product Hunt</name></author>
+    <summary>Also reported by: Hacker News
+Rank: 5</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-01:241da764c4fb7e7f</id>
     <title>美国对Anthropic Fable 5顶尖模型“解禁”，Anthropic：周三起恢复访问</title>
     <link rel="alternate" type="text/html" href="https://wallstreetcn.com/articles/3775902"/>
-    <updated>2026-07-01T10:53:55Z</updated>
+    <updated>2026-07-01T13:52:09Z</updated>
     <author><name>华尔街见闻</name></author>
     <summary>Rank: 7</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-07-01:2d5bc263d21670a1</id>
+    <id>urn:pulseradar:2026-07-01:8bbe9e1c1a5db4fb</id>
     <title>Claude Science</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48735770"/>
-    <updated>2026-07-01T10:53:55Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 12</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-01:78a62b74a8c55662</id>
-    <title>Department of Commerce has lifted export controls on Claude Fable 5 and Mythos 5</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48740771"/>
-    <updated>2026-07-01T10:53:55Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 14</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-01:0579e55c4a72c247</id>
-    <title>那把电脑时间调成新加坡时区岂不是就可以用 Claude 了</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1224243"/>
-    <updated>2026-07-01T10:53:55Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 14</summary>
+    <link rel="alternate" type="text/html" href="https://www.producthunt.com/products/claude-for-desktop"/>
+    <updated>2026-07-01T13:52:09Z</updated>
+    <author><name>Product Hunt</name></author>
+    <summary>Also reported by: Hacker News
+Rank: 10</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-01:58c7b1f2d9cef650</id>
     <title>我把 Claude Code 搬到网页！自研高颜值 Web 交互工作台</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7656681358269825067"/>
-    <updated>2026-07-01T10:53:55Z</updated>
+    <updated>2026-07-01T13:52:09Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 20</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-07-01:83c253f054b7cc0d</id>
-    <title>炸裂了 Claude code 偷偷植入代码识别国内用户</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1224186"/>
-    <updated>2026-07-01T10:53:55Z</updated>
+    <id>urn:pulseradar:2026-07-01:0579e55c4a72c247</id>
+    <title>那把电脑时间调成新加坡时区岂不是就可以用 Claude 了</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1224243"/>
+    <updated>2026-07-01T13:52:09Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 30</summary>
+    <summary>Rank: 21</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-01:78a62b74a8c55662</id>
+    <title>Department of Commerce has lifted export controls on Claude Fable 5 and Mythos 5</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48740771"/>
+    <updated>2026-07-01T13:52:09Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 23</summary>
   </entry>
 </feed>

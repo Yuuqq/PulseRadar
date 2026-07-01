@@ -4,23 +4,39 @@
   <subtitle>Subscribe to keyword: 字节跳动</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/kw-729c87507a.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-07-01T01:40:26Z</updated>
+  <updated>2026-07-01T06:51:15Z</updated>
   <id>urn:pulseradar:feed:b4f8902ac2d9</id>
   <author><name>PulseRadar</name></author>
+  <entry>
+    <id>urn:pulseradar:2026-07-01:911bf32c9ffe432f</id>
+    <title>分享下前端业余做游戏的历程，一套代码包含 web + 微信小游戏 + 抖音小游戏 + TapTap + Steam</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1224165"/>
+    <updated>2026-07-01T06:51:15Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 14</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-01:e2e41e60002bcef3</id>
+    <title>字节 AI Coding 的三个反思：代码占比不该当 KPI</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1224130"/>
+    <updated>2026-07-01T06:51:15Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 19</summary>
+  </entry>
   <entry>
     <id>urn:pulseradar:2026-07-01:85daf2c6182e4677</id>
     <title>翻完 lark-cli 的 17 万行 Go 代码，我学到了什么</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7655992347482390570"/>
-    <updated>2026-07-01T01:40:26Z</updated>
+    <updated>2026-07-01T06:51:15Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 27</summary>
+    <summary>Rank: 25</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-07-01:8c406ef9684d3fd1</id>
-    <title>哈兰德把抖音当朋友圈发</title>
-    <link rel="alternate" type="text/html" href="https://www.douyin.com/hot/2552878"/>
-    <updated>2026-07-01T01:40:26Z</updated>
-    <author><name>抖音</name></author>
-    <summary>Rank: 28</summary>
+    <id>urn:pulseradar:2026-07-01:7c966da49836e982</id>
+    <title>网传字节员工炒股赚3000万离职</title>
+    <link rel="alternate" type="text/html" href="https://www.baidu.com/s?wd=%E7%BD%91%E4%BC%A0%E5%AD%97%E8%8A%82%E5%91%98%E5%B7%A5%E7%82%92%E8%82%A1%E8%B5%9A3000%E4%B8%87%E7%A6%BB%E8%81%8C"/>
+    <updated>2026-07-01T06:51:15Z</updated>
+    <author><name>百度热搜</name></author>
+    <summary>Rank: 26</summary>
   </entry>
 </feed>

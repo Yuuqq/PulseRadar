@@ -4,22 +4,30 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-07-01T01:40:26Z</updated>
+  <updated>2026-07-01T06:51:15Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
-  <entry>
-    <id>urn:pulseradar:2026-07-01:24a6c121e6ada39d</id>
-    <title>Claude Sonnet 5</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48736605"/>
-    <updated>2026-07-01T01:40:26Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 1</summary>
-  </entry>
   <entry>
     <id>urn:pulseradar:2026-07-01:4bac56e18991af7f</id>
     <title>Claude Code is steganographically marking requests</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48734373"/>
-    <updated>2026-07-01T01:40:26Z</updated>
+    <updated>2026-07-01T06:51:15Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 1</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-01:e9d7d49aeef48b5c</id>
+    <title>网传 Claude 通过原生消息传递获取用户位置，再以隐写术隐蔽回传封杀中国大陆用户，什么情况？你怎么看？</title>
+    <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2055348161544295141"/>
+    <updated>2026-07-01T06:51:15Z</updated>
+    <author><name>知乎</name></author>
+    <summary>Rank: 1</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-01:24a6c121e6ada39d</id>
+    <title>Claude Sonnet 5</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48736605"/>
+    <updated>2026-07-01T06:51:15Z</updated>
     <author><name>Hacker News</name></author>
     <summary>Rank: 2</summary>
   </entry>
@@ -27,40 +35,56 @@
     <id>urn:pulseradar:2026-07-01:78a62b74a8c55662</id>
     <title>Department of Commerce has lifted export controls on Claude Fable 5 and Mythos 5</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48740771"/>
-    <updated>2026-07-01T01:40:26Z</updated>
+    <updated>2026-07-01T06:51:15Z</updated>
     <author><name>Hacker News</name></author>
-    <summary>Rank: 4</summary>
+    <summary>Rank: 6</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-01:2d5bc263d21670a1</id>
     <title>Claude Science</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48735770"/>
-    <updated>2026-07-01T01:40:26Z</updated>
+    <updated>2026-07-01T06:51:15Z</updated>
     <author><name>Hacker News</name></author>
     <summary>Rank: 7</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-07-01:3d804be2822b896c</id>
-    <title>用 Docker Sandbox 跑 Claude Code，规避时区指纹</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1224056"/>
-    <updated>2026-07-01T01:40:26Z</updated>
+    <id>urn:pulseradar:2026-07-01:83c253f054b7cc0d</id>
+    <title>炸裂了 Claude code 偷偷植入代码识别国内用户</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1224186"/>
+    <updated>2026-07-01T06:51:15Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 13</summary>
+    <summary>Rank: 9</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-07-01:a5f42a85f74d921a</id>
-    <title>Anthropic 这波大批量封号的原因可能找到了</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1224025"/>
-    <updated>2026-07-01T01:40:26Z</updated>
+    <id>urn:pulseradar:2026-07-01:7536e3cf7b72f974</id>
+    <title>Claude Code 被爆植入后门，检测中国用户和 AI 实验室</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1224178"/>
+    <updated>2026-07-01T06:51:15Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 21</summary>
+    <summary>Rank: 11</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-01:5bcdb2f1eba8f060</id>
+    <title>如何评价 Anthropic 最新发布的 Claude Sonnet5？</title>
+    <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2055567821904547893"/>
+    <updated>2026-07-01T06:51:15Z</updated>
+    <author><name>知乎</name></author>
+    <summary>Rank: 17</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-01:58c7b1f2d9cef650</id>
     <title>我把 Claude Code 搬到网页！自研高颜值 Web 交互工作台</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7656681358269825067"/>
-    <updated>2026-07-01T01:40:26Z</updated>
+    <updated>2026-07-01T06:51:15Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 22</summary>
+    <summary>Rank: 21</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-01:e451f7dc701f6808</id>
+    <title>做了个桌面菜单栏小工具：实时看 Codex / Claude 剩余额度，想看看有没有人需要</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1224126"/>
+    <updated>2026-07-01T06:51:15Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 21</summary>
   </entry>
 </feed>

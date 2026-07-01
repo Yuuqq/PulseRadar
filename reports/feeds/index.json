@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-01T01:40:26Z",
+  "updated": "2026-07-01T06:51:15Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
@@ -9,53 +9,53 @@
     },
     "kw-5f479f2ee3": {
       "keyword": "微软 / 谷歌 / 苹果",
-      "count": 17,
+      "count": 14,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
-    },
-    "kw-ac6fb2f2fe": {
-      "keyword": "东亚",
-      "count": 15,
-      "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 12,
+      "count": 14,
       "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-77c22b5841": {
       "keyword": "西欧",
-      "count": 8,
+      "count": 13,
       "url": "/reports/feeds/kw-77c22b5841.xml"
+    },
+    "kw-ac6fb2f2fe": {
+      "keyword": "东亚",
+      "count": 11,
+      "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
     "openai-claude": {
       "keyword": "OpenAI / Claude",
-      "count": 7,
+      "count": 10,
       "url": "/reports/feeds/openai-claude.xml"
-    },
-    "kw-de0204639b": {
-      "keyword": "芯片",
-      "count": 5,
-      "url": "/reports/feeds/kw-de0204639b.xml"
     },
     "kw-be93bcade4": {
       "keyword": "北美",
-      "count": 4,
+      "count": 7,
       "url": "/reports/feeds/kw-be93bcade4.xml"
     },
     "kw-a44c35f5da": {
       "keyword": "机器人 / 机器狗 / 具身智能",
-      "count": 3,
+      "count": 6,
       "url": "/reports/feeds/kw-a44c35f5da.xml"
+    },
+    "kw-729c87507a": {
+      "keyword": "字节跳动",
+      "count": 4,
+      "url": "/reports/feeds/kw-729c87507a.xml"
+    },
+    "kw-de0204639b": {
+      "keyword": "芯片",
+      "count": 3,
+      "url": "/reports/feeds/kw-de0204639b.xml"
     },
     "deepseek": {
       "keyword": "DeepSeek",
       "count": 2,
       "url": "/reports/feeds/deepseek.xml"
-    },
-    "kw-729c87507a": {
-      "keyword": "字节跳动",
-      "count": 2,
-      "url": "/reports/feeds/kw-729c87507a.xml"
     },
     "kw-f4293b9b43": {
       "keyword": "三体/流浪地球",
@@ -67,10 +67,25 @@
       "count": 1,
       "url": "/reports/feeds/kw-3842b66185.xml"
     },
-    "kw-8ea9aebb87": {
-      "keyword": "英伟达 / AMD",
+    "kw-4866e189d5": {
+      "keyword": "印度",
       "count": 1,
-      "url": "/reports/feeds/kw-8ea9aebb87.xml"
+      "url": "/reports/feeds/kw-4866e189d5.xml"
+    },
+    "kw-426b53cba7": {
+      "keyword": "水电 / 光伏 / 核能 / 能源",
+      "count": 1,
+      "url": "/reports/feeds/kw-426b53cba7.xml"
+    },
+    "kw-2dd56c6548": {
+      "keyword": "航天",
+      "count": 1,
+      "url": "/reports/feeds/kw-2dd56c6548.xml"
+    },
+    "kw-7a807e5e3b": {
+      "keyword": "量子 / 脑机 / 基因",
+      "count": 1,
+      "url": "/reports/feeds/kw-7a807e5e3b.xml"
     }
   }
 }

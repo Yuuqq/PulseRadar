@@ -1,26 +1,26 @@
 {
-  "updated": "2026-07-01T19:17:36Z",
+  "updated": "2026-07-01T21:06:18Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 25,
+      "count": 24,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
     "kw-5f479f2ee3": {
       "keyword": "微软 / 谷歌 / 苹果",
-      "count": 15,
+      "count": 16,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
-    },
-    "kw-ac6fb2f2fe": {
-      "keyword": "东亚",
-      "count": 11,
-      "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 10,
+      "count": 11,
       "url": "/reports/feeds/kw-101806f57c.xml"
+    },
+    "kw-ac6fb2f2fe": {
+      "keyword": "东亚",
+      "count": 7,
+      "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
     "openai-claude": {
       "keyword": "OpenAI / Claude",
@@ -32,20 +32,20 @@
       "count": 6,
       "url": "/reports/feeds/kw-be93bcade4.xml"
     },
-    "kw-77c22b5841": {
-      "keyword": "西欧",
-      "count": 4,
-      "url": "/reports/feeds/kw-77c22b5841.xml"
+    "kw-a44c35f5da": {
+      "keyword": "机器人 / 机器狗 / 具身智能",
+      "count": 5,
+      "url": "/reports/feeds/kw-a44c35f5da.xml"
     },
     "kw-3842b66185": {
       "keyword": "腾讯",
       "count": 3,
       "url": "/reports/feeds/kw-3842b66185.xml"
     },
-    "kw-a44c35f5da": {
-      "keyword": "机器人 / 机器狗 / 具身智能",
+    "kw-77c22b5841": {
+      "keyword": "西欧",
       "count": 3,
-      "url": "/reports/feeds/kw-a44c35f5da.xml"
+      "url": "/reports/feeds/kw-77c22b5841.xml"
     },
     "deepseek": {
       "keyword": "DeepSeek",
@@ -71,6 +71,11 @@
       "keyword": "字节跳动",
       "count": 1,
       "url": "/reports/feeds/kw-729c87507a.xml"
+    },
+    "kw-bde87c6ca1": {
+      "keyword": "国产开源模型",
+      "count": 1,
+      "url": "/reports/feeds/kw-bde87c6ca1.xml"
     },
     "kw-3f426f96e0": {
       "keyword": "特斯拉",

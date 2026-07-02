@@ -4,63 +4,55 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-07-02T14:39:12Z</updated>
+  <updated>2026-07-02T17:11:01Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
   <entry>
-    <id>urn:pulseradar:2026-07-02:58c7b1f2d9cef650</id>
-    <title>我把 Claude Code 搬到网页！自研高颜值 Web 交互工作台</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7656681358269825067"/>
-    <updated>2026-07-02T14:39:12Z</updated>
-    <author><name>掘金</name></author>
-    <summary>Rank: 9</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-02:197a0a5a3eb62608</id>
-    <title>Show HN: Claudoro, Pomodoro timer embedded in the Claude Code statusline</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48745590"/>
-    <updated>2026-07-02T14:39:12Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 10</summary>
+    <id>urn:pulseradar:2026-07-02:145e694c3900e45a</id>
+    <title>[macOS/开源] 会话散在 ~/.claude 和 ~/.codex 里找不到？我写了个统一浏览搜索 + 一键 resume 的工具</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1224632"/>
+    <updated>2026-07-02T17:11:01Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 2</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-02:e334bd1c50fad73f</id>
     <title>Anthropic 大面积封号，连大 V 都忍不了开喷了。</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7657477469919494185"/>
-    <updated>2026-07-02T14:39:12Z</updated>
+    <updated>2026-07-02T17:11:01Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 11</summary>
+    <summary>Rank: 9</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-02:0dbd67e1f2f219d9</id>
     <title>openai /      codex-plugin-cc</title>
     <link rel="alternate" type="text/html" href="https://github.com/openai/codex-plugin-cc"/>
-    <updated>2026-07-02T14:39:12Z</updated>
+    <updated>2026-07-02T17:11:01Z</updated>
     <author><name>GitHub Trending</name></author>
-    <summary>Rank: 13</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-02:6af69e8d95efe4e6</id>
-    <title>真的没人觉得 codex 比 claude 笨很多吗？</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1224592"/>
-    <updated>2026-07-02T14:39:12Z</updated>
-    <author><name>V2EX</name></author>
     <summary>Rank: 13</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-02:e8e484e8bbc2aba0</id>
     <title>国产版Codex？阿里QoderWork有点东西，设计出来的Codex+Claude Code学习网站好看啊（附教程，超简单）</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7657075968750829622"/>
-    <updated>2026-07-02T14:39:12Z</updated>
+    <updated>2026-07-02T17:11:01Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 16</summary>
+    <summary>Rank: 15</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-07-02:7905296e62def53c</id>
-    <title>各位有遇到过在 jetbrains 系的终端中使用 claude 时选中错位的 bug 吗</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1224538"/>
-    <updated>2026-07-02T14:39:12Z</updated>
+    <id>urn:pulseradar:2026-07-02:6af69e8d95efe4e6</id>
+    <title>真的没人觉得 codex 比 claude 笨很多吗？</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1224592"/>
+    <updated>2026-07-02T17:11:01Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 29</summary>
+    <summary>Rank: 17</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-02:197a0a5a3eb62608</id>
+    <title>Show HN: Claudoro, Pomodoro timer embedded in the Claude Code statusline</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48745590"/>
+    <updated>2026-07-02T17:11:01Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 24</summary>
   </entry>
 </feed>

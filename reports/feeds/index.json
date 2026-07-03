@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-03T16:54:11Z",
+  "updated": "2026-07-03T18:46:43Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
@@ -19,18 +19,13 @@
     },
     "openai-claude": {
       "keyword": "OpenAI / Claude",
-      "count": 8,
+      "count": 9,
       "url": "/reports/feeds/openai-claude.xml"
     },
     "kw-de0204639b": {
       "keyword": "芯片",
       "count": 6,
       "url": "/reports/feeds/kw-de0204639b.xml"
-    },
-    "kw-426b53cba7": {
-      "keyword": "水电 / 光伏 / 核能 / 能源",
-      "count": 5,
-      "url": "/reports/feeds/kw-426b53cba7.xml"
     },
     "kw-ac6fb2f2fe": {
       "keyword": "东亚",
@@ -47,9 +42,14 @@
       "count": 4,
       "url": "/reports/feeds/kw-77c22b5841.xml"
     },
+    "kw-426b53cba7": {
+      "keyword": "水电 / 光伏 / 核能 / 能源",
+      "count": 3,
+      "url": "/reports/feeds/kw-426b53cba7.xml"
+    },
     "kw-3842b66185": {
       "keyword": "腾讯",
-      "count": 3,
+      "count": 2,
       "url": "/reports/feeds/kw-3842b66185.xml"
     },
     "kw-a44c35f5da": {

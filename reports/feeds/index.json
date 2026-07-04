@@ -1,16 +1,21 @@
 {
-  "updated": "2026-07-03T23:37:41Z",
+  "updated": "2026-07-04T04:11:08Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 20,
+      "count": 15,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
     "kw-101806f57c": {
       "keyword": "中国",
       "count": 12,
       "url": "/reports/feeds/kw-101806f57c.xml"
+    },
+    "kw-ac6fb2f2fe": {
+      "keyword": "东亚",
+      "count": 11,
+      "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
     "openai-claude": {
       "keyword": "OpenAI / Claude",
@@ -21,11 +26,6 @@
       "keyword": "微软 / 谷歌 / 苹果",
       "count": 8,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
-    },
-    "kw-ac6fb2f2fe": {
-      "keyword": "东亚",
-      "count": 7,
-      "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
     "kw-77c22b5841": {
       "keyword": "西欧",
@@ -39,43 +39,43 @@
     },
     "kw-426b53cba7": {
       "keyword": "水电 / 光伏 / 核能 / 能源",
-      "count": 4,
+      "count": 3,
       "url": "/reports/feeds/kw-426b53cba7.xml"
+    },
+    "kw-be93bcade4": {
+      "keyword": "北美",
+      "count": 3,
+      "url": "/reports/feeds/kw-be93bcade4.xml"
     },
     "kw-4866e189d5": {
       "keyword": "印度",
-      "count": 4,
+      "count": 3,
       "url": "/reports/feeds/kw-4866e189d5.xml"
+    },
+    "kw-3842b66185": {
+      "keyword": "腾讯",
+      "count": 2,
+      "url": "/reports/feeds/kw-3842b66185.xml"
     },
     "kw-bde87c6ca1": {
       "keyword": "国产开源模型",
       "count": 2,
       "url": "/reports/feeds/kw-bde87c6ca1.xml"
     },
-    "kw-be93bcade4": {
-      "keyword": "北美",
-      "count": 2,
-      "url": "/reports/feeds/kw-be93bcade4.xml"
-    },
     "kw-a44c35f5da": {
       "keyword": "机器人 / 机器狗 / 具身智能",
       "count": 2,
       "url": "/reports/feeds/kw-a44c35f5da.xml"
     },
+    "kw-6ba2f2e06f": {
+      "keyword": "胖东来",
+      "count": 1,
+      "url": "/reports/feeds/kw-6ba2f2e06f.xml"
+    },
     "kw-4c6737b9f5": {
       "keyword": "华为",
       "count": 1,
       "url": "/reports/feeds/kw-4c6737b9f5.xml"
-    },
-    "kw-ff594893ce": {
-      "keyword": "比亚迪",
-      "count": 1,
-      "url": "/reports/feeds/kw-ff594893ce.xml"
-    },
-    "kw-3842b66185": {
-      "keyword": "腾讯",
-      "count": 1,
-      "url": "/reports/feeds/kw-3842b66185.xml"
     }
   }
 }

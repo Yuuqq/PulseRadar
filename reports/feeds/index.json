@@ -1,41 +1,41 @@
 {
-  "updated": "2026-07-04T11:51:42Z",
+  "updated": "2026-07-04T14:09:08Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 17,
+      "count": 20,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
     "kw-ac6fb2f2fe": {
       "keyword": "东亚",
-      "count": 12,
+      "count": 14,
       "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
+    },
+    "kw-101806f57c": {
+      "keyword": "中国",
+      "count": 11,
+      "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-5f479f2ee3": {
       "keyword": "微软 / 谷歌 / 苹果",
       "count": 10,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
     },
-    "kw-101806f57c": {
-      "keyword": "中国",
-      "count": 9,
-      "url": "/reports/feeds/kw-101806f57c.xml"
-    },
     "openai-claude": {
       "keyword": "OpenAI / Claude",
-      "count": 9,
+      "count": 10,
       "url": "/reports/feeds/openai-claude.xml"
-    },
-    "kw-be93bcade4": {
-      "keyword": "北美",
-      "count": 6,
-      "url": "/reports/feeds/kw-be93bcade4.xml"
     },
     "kw-3842b66185": {
       "keyword": "腾讯",
       "count": 3,
       "url": "/reports/feeds/kw-3842b66185.xml"
+    },
+    "kw-77c22b5841": {
+      "keyword": "西欧",
+      "count": 3,
+      "url": "/reports/feeds/kw-77c22b5841.xml"
     },
     "kw-4866e189d5": {
       "keyword": "印度",
@@ -47,25 +47,25 @@
       "count": 2,
       "url": "/reports/feeds/kw-4c6737b9f5.xml"
     },
-    "kw-77c22b5841": {
-      "keyword": "西欧",
+    "kw-be93bcade4": {
+      "keyword": "北美",
       "count": 2,
-      "url": "/reports/feeds/kw-77c22b5841.xml"
+      "url": "/reports/feeds/kw-be93bcade4.xml"
     },
-    "kw-de0204639b": {
-      "keyword": "芯片",
-      "count": 2,
-      "url": "/reports/feeds/kw-de0204639b.xml"
+    "kw-5bdcf826f2": {
+      "keyword": "俄罗斯",
+      "count": 1,
+      "url": "/reports/feeds/kw-5bdcf826f2.xml"
     },
     "kw-729c87507a": {
       "keyword": "字节跳动",
       "count": 1,
       "url": "/reports/feeds/kw-729c87507a.xml"
     },
-    "kw-5bdcf826f2": {
-      "keyword": "俄罗斯",
+    "kw-de0204639b": {
+      "keyword": "芯片",
       "count": 1,
-      "url": "/reports/feeds/kw-5bdcf826f2.xml"
+      "url": "/reports/feeds/kw-de0204639b.xml"
     },
     "kw-426b53cba7": {
       "keyword": "水电 / 光伏 / 核能 / 能源",

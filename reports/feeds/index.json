@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-04T21:28:03Z",
+  "updated": "2026-07-04T22:27:56Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
@@ -17,15 +17,15 @@
       "count": 13,
       "url": "/reports/feeds/kw-101806f57c.xml"
     },
+    "kw-ac6fb2f2fe": {
+      "keyword": "东亚",
+      "count": 13,
+      "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
+    },
     "kw-be93bcade4": {
       "keyword": "北美",
       "count": 9,
       "url": "/reports/feeds/kw-be93bcade4.xml"
-    },
-    "kw-ac6fb2f2fe": {
-      "keyword": "东亚",
-      "count": 12,
-      "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
     "openai-claude": {
       "keyword": "OpenAI / Claude",

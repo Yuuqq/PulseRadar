@@ -4,15 +4,31 @@
   <subtitle>Subscribe to keyword: 英伟达 / AMD</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/kw-8ea9aebb87.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-07-07T16:02:15Z</updated>
+  <updated>2026-07-07T18:29:26Z</updated>
   <id>urn:pulseradar:feed:9a74262c5a32</id>
   <author><name>PulseRadar</name></author>
   <entry>
-    <id>urn:pulseradar:2026-07-07:699f126968680d4a</id>
-    <title>AMD Ryzen AI Halo – $4k AI Dev Kit</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48805624"/>
-    <updated>2026-07-07T16:02:15Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 30</summary>
+    <id>urn:pulseradar:2026-07-07:6b9d94971d4433d5</id>
+    <title>三星电子Q2季度利润飙升19倍，超越英伟达成“全球最赚钱公司”</title>
+    <link rel="alternate" type="text/html" href="https://wallstreetcn.com/articles/3776327"/>
+    <updated>2026-07-07T18:29:26Z</updated>
+    <author><name>华尔街见闻</name></author>
+    <summary>Rank: 2</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-07:ff6086197a8b0172</id>
+    <title>“我们没有看空英伟达”！SemiAnalysis又发小作文：“AI央行”英伟达撬动7万亿债务雪球</title>
+    <link rel="alternate" type="text/html" href="https://wallstreetcn.com/articles/3776368"/>
+    <updated>2026-07-07T18:29:26Z</updated>
+    <author><name>华尔街见闻</name></author>
+    <summary>Rank: 9</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-07:e477a4de4954f518</id>
+    <title>几年前我开源的德扑 Solver 拿了 2.3k Star，现在我用 CUDA 将它重写，速度翻了 4 倍且完全免费</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1225615"/>
+    <updated>2026-07-07T18:29:26Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 24</summary>
   </entry>
 </feed>

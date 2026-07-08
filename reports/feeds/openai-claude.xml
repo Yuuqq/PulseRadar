@@ -4,22 +4,30 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-07-08T20:03:31Z</updated>
+  <updated>2026-07-08T21:41:15Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
+  <entry>
+    <id>urn:pulseradar:2026-07-08:5e36d087548e0cd9</id>
+    <title>OpenAI no longer recommends SWE-Bench Pro</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48837396"/>
+    <updated>2026-07-08T21:41:15Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 3</summary>
+  </entry>
   <entry>
     <id>urn:pulseradar:2026-07-08:296953b28a6e70bc</id>
     <title>OpenAI 官宣 GPT-5.6 本周四全面开放，哪些亮点值得期待？</title>
     <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2058166406420460573"/>
-    <updated>2026-07-08T20:03:31Z</updated>
+    <updated>2026-07-08T21:41:15Z</updated>
     <author><name>知乎</name></author>
-    <summary>Rank: 8</summary>
+    <summary>Rank: 9</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-08:808d333126ebc863</id>
     <title>Claude Code 为了封禁中国用户，竟然在代码里下毒</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7659217248749912114"/>
-    <updated>2026-07-08T20:03:31Z</updated>
+    <updated>2026-07-08T21:41:15Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 12</summary>
   </entry>
@@ -27,7 +35,7 @@
     <id>urn:pulseradar:2026-07-08:778b0faca6cdef2b</id>
     <title>bradautomates /      claude-video</title>
     <link rel="alternate" type="text/html" href="https://github.com/bradautomates/claude-video"/>
-    <updated>2026-07-08T20:03:31Z</updated>
+    <updated>2026-07-08T21:41:15Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 14</summary>
   </entry>
@@ -35,7 +43,7 @@
     <id>urn:pulseradar:2026-07-08:190b990299cd0b24</id>
     <title>明后天阿里就全面禁用 Claude 了，那他们用啥啊？</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1225928"/>
-    <updated>2026-07-08T20:03:31Z</updated>
+    <updated>2026-07-08T21:41:15Z</updated>
     <author><name>V2EX</name></author>
     <summary>Rank: 16</summary>
   </entry>
@@ -43,24 +51,16 @@
     <id>urn:pulseradar:2026-07-08:5fdee3ee28167fb3</id>
     <title>基于 Claude Code 的 AI 编程工作流探索</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7659569188227285019"/>
-    <updated>2026-07-08T20:03:31Z</updated>
+    <updated>2026-07-08T21:41:15Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 22</summary>
+    <summary>Rank: 20</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-08:55f78cb736eaff7c</id>
     <title>claude code 还能继续用么？</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1225900"/>
-    <updated>2026-07-08T20:03:31Z</updated>
+    <updated>2026-07-08T21:41:15Z</updated>
     <author><name>V2EX</name></author>
     <summary>Rank: 23</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-08:fec1b8b10e0497f1</id>
-    <title>Geosql: A Claude/Codex skill for geospatial data</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48829242"/>
-    <updated>2026-07-08T20:03:31Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 27</summary>
   </entry>
 </feed>

@@ -4,55 +4,55 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-07-08T23:35:43Z</updated>
+  <updated>2026-07-09T04:30:58Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
   <entry>
-    <id>urn:pulseradar:2026-07-08:808d333126ebc863</id>
+    <id>urn:pulseradar:2026-07-09:96b79ab744f08ada</id>
+    <title>cursor 上出现了 Honeycomb EAP，看起来是 claude 的新模型</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1226051"/>
+    <updated>2026-07-09T04:30:58Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 1</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-09:735f2f56e30ee573</id>
+    <title>We made Grok 4.5, GPT-5.5, and Claude build the same apps</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48838772"/>
+    <updated>2026-07-09T04:30:58Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 7</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-09:808d333126ebc863</id>
     <title>Claude Code 为了封禁中国用户，竟然在代码里下毒</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7659217248749912114"/>
-    <updated>2026-07-08T23:35:43Z</updated>
+    <updated>2026-07-09T04:30:58Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 12</summary>
+    <summary>Rank: 13</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-07-08:778b0faca6cdef2b</id>
+    <id>urn:pulseradar:2026-07-09:778b0faca6cdef2b</id>
     <title>bradautomates /      claude-video</title>
     <link rel="alternate" type="text/html" href="https://github.com/bradautomates/claude-video"/>
-    <updated>2026-07-08T23:35:43Z</updated>
+    <updated>2026-07-09T04:30:58Z</updated>
     <author><name>GitHub Trending</name></author>
-    <summary>Rank: 14</summary>
+    <summary>Rank: 15</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-07-08:190b990299cd0b24</id>
-    <title>明后天阿里就全面禁用 Claude 了，那他们用啥啊？</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1225928"/>
-    <updated>2026-07-08T23:35:43Z</updated>
+    <id>urn:pulseradar:2026-07-09:70041d5d8e152dd4</id>
+    <title>有没有稳定的 Claude 网页版中转？</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1226009"/>
+    <updated>2026-07-09T04:30:58Z</updated>
     <author><name>V2EX</name></author>
     <summary>Rank: 17</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-07-08:5fdee3ee28167fb3</id>
+    <id>urn:pulseradar:2026-07-09:5fdee3ee28167fb3</id>
     <title>基于 Claude Code 的 AI 编程工作流探索</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7659569188227285019"/>
-    <updated>2026-07-08T23:35:43Z</updated>
+    <updated>2026-07-09T04:30:58Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 21</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-08:c69c408cfeec9da4</id>
-    <title>The classifiers Anthropic puts in front of Fable are too zealous</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48837162"/>
-    <updated>2026-07-08T23:35:43Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 24</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-08:55f78cb736eaff7c</id>
-    <title>claude code 还能继续用么？</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1225900"/>
-    <updated>2026-07-08T23:35:43Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 24</summary>
+    <summary>Rank: 18</summary>
   </entry>
 </feed>

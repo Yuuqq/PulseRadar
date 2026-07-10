@@ -4,22 +4,30 @@
   <subtitle>Subscribe to keyword: 微软 / 谷歌 / 苹果</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/kw-5f479f2ee3.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-07-10T12:40:59Z</updated>
+  <updated>2026-07-10T15:54:38Z</updated>
   <id>urn:pulseradar:feed:904a911d6c5f</id>
   <author><name>PulseRadar</name></author>
   <entry>
     <id>urn:pulseradar:2026-07-10:1a3a781aef0b18f9</id>
     <title>iPhone Air 当主力机用了三个多月后，我为什么还是换不掉它</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/111113"/>
-    <updated>2026-07-10T12:40:59Z</updated>
+    <updated>2026-07-10T15:54:38Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 2</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-10:e65182d9a71f7876</id>
+    <title>开发了一款 Windows 文件管理器 Zexor，支持把游戏和软件打包成 .zex 单文件，压缩包可以直接运行了</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1226486"/>
+    <updated>2026-07-10T15:54:38Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 4</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-10:8788c496b1dbffc4</id>
     <title>快捷指令｜让 iPhone 用上锤子的「大爆炸」</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/111405"/>
-    <updated>2026-07-10T12:40:59Z</updated>
+    <updated>2026-07-10T15:54:38Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 5</summary>
   </entry>
@@ -27,7 +35,7 @@
     <id>urn:pulseradar:2026-07-10:9d11101a0aa22162</id>
     <title>安卓高危漏洞曝光，点击链接可远程 Root 安卓设备</title>
     <link rel="alternate" type="text/html" href="https://www.coolapk.com/feed/72700258"/>
-    <updated>2026-07-10T12:40:59Z</updated>
+    <updated>2026-07-10T15:54:38Z</updated>
     <author><name>酷安</name></author>
     <summary>Rank: 7</summary>
   </entry>
@@ -35,31 +43,23 @@
     <id>urn:pulseradar:2026-07-10:8394bc7eb44fdc40</id>
     <title>microsoft /      TypeScript</title>
     <link rel="alternate" type="text/html" href="https://github.com/microsoft/TypeScript"/>
-    <updated>2026-07-10T12:40:59Z</updated>
+    <updated>2026-07-10T15:54:38Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 8</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-10:1f660410926208cd</id>
-    <title>Apple Silicon Exec Explains Mac Mini AI Demand and On-Device Future</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48805598"/>
-    <updated>2026-07-10T12:40:59Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 11</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-10:92b369a5ef7a8a37</id>
     <title>机构：iPhone 18 Pro Max 硬件成本比上代涨近300美元</title>
     <link rel="alternate" type="text/html" href="https://www.coolapk.com/feed/72712150"/>
-    <updated>2026-07-10T12:40:59Z</updated>
+    <updated>2026-07-10T15:54:38Z</updated>
     <author><name>酷安</name></author>
-    <summary>Rank: 13</summary>
+    <summary>Rank: 14</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-10:8247be6352e0559d</id>
     <title>google-labs-code /      stitch-skills</title>
     <link rel="alternate" type="text/html" href="https://github.com/google-labs-code/stitch-skills"/>
-    <updated>2026-07-10T12:40:59Z</updated>
+    <updated>2026-07-10T15:54:38Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 15</summary>
   </entry>
@@ -67,31 +67,39 @@
     <id>urn:pulseradar:2026-07-10:d9f27d83418e0f2c</id>
     <title>给记忆一个归处：我为什么开始使用 Apple 手记</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/111421"/>
-    <updated>2026-07-10T12:40:59Z</updated>
+    <updated>2026-07-10T15:54:38Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 15</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-07-10:83e3c78d1b14f1f8</id>
-    <title>从 23 年 Copilot 到 26 年 Orca（GTP 5.6），记录一下这两三年是怎么用 AI 写代码的</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1226428"/>
-    <updated>2026-07-10T12:40:59Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 16</summary>
+    <id>urn:pulseradar:2026-07-10:1f660410926208cd</id>
+    <title>Apple Silicon Exec Explains Mac Mini AI Demand and On-Device Future</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48805598"/>
+    <updated>2026-07-10T15:54:38Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 18</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-10:fad2b08c62e7cfa5</id>
     <title>Android 面试系列：Kotlin 协程的 delay 到底发生在哪个线程？</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7659252393879896073"/>
-    <updated>2026-07-10T12:40:59Z</updated>
+    <updated>2026-07-10T15:54:38Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 27</summary>
+    <summary>Rank: 23</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-10:83e3c78d1b14f1f8</id>
+    <title>从 23 年 Copilot 到 26 年 Orca（GTP 5.6），记录一下这两三年是怎么用 AI 写代码的</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1226428"/>
+    <updated>2026-07-10T15:54:38Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 23</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-10:24d3dfdaf5e8d768</id>
     <title>iOS 剪贴板管理工具 Procut：换个方式收藏碎片化信息</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/110950"/>
-    <updated>2026-07-10T12:40:59Z</updated>
+    <updated>2026-07-10T15:54:38Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 27</summary>
   </entry>
@@ -99,7 +107,7 @@
     <id>urn:pulseradar:2026-07-10:d5ac253443eeb30f</id>
     <title>具透 | 除了 AI，iOS 27 首个开发者测试版中你不能错过的新功能</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/110973"/>
-    <updated>2026-07-10T12:40:59Z</updated>
+    <updated>2026-07-10T15:54:38Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 28</summary>
   </entry>

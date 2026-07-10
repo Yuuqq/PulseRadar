@@ -1,36 +1,31 @@
 {
-  "updated": "2026-07-10T10:00:20Z",
+  "updated": "2026-07-10T12:40:59Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 23,
+      "count": 19,
       "url": "/reports/feeds/kw-7342c24991.xml"
-    },
-    "kw-5f479f2ee3": {
-      "keyword": "微软 / 谷歌 / 苹果",
-      "count": 11,
-      "url": "/reports/feeds/kw-5f479f2ee3.xml"
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 8,
+      "count": 14,
       "url": "/reports/feeds/kw-101806f57c.xml"
     },
-    "kw-77c22b5841": {
-      "keyword": "西欧",
-      "count": 8,
-      "url": "/reports/feeds/kw-77c22b5841.xml"
+    "kw-5f479f2ee3": {
+      "keyword": "微软 / 谷歌 / 苹果",
+      "count": 12,
+      "url": "/reports/feeds/kw-5f479f2ee3.xml"
     },
     "openai-claude": {
       "keyword": "OpenAI / Claude",
       "count": 5,
       "url": "/reports/feeds/openai-claude.xml"
     },
-    "kw-4c6737b9f5": {
-      "keyword": "华为",
-      "count": 4,
-      "url": "/reports/feeds/kw-4c6737b9f5.xml"
+    "kw-77c22b5841": {
+      "keyword": "西欧",
+      "count": 5,
+      "url": "/reports/feeds/kw-77c22b5841.xml"
     },
     "kw-ac6fb2f2fe": {
       "keyword": "东亚",
@@ -42,6 +37,11 @@
       "count": 4,
       "url": "/reports/feeds/kw-2dd56c6548.xml"
     },
+    "kw-4c6737b9f5": {
+      "keyword": "华为",
+      "count": 3,
+      "url": "/reports/feeds/kw-4c6737b9f5.xml"
+    },
     "kw-729c87507a": {
       "keyword": "字节跳动",
       "count": 3,
@@ -51,11 +51,6 @@
       "keyword": "腾讯",
       "count": 3,
       "url": "/reports/feeds/kw-3842b66185.xml"
-    },
-    "kw-bde87c6ca1": {
-      "keyword": "国产开源模型",
-      "count": 2,
-      "url": "/reports/feeds/kw-bde87c6ca1.xml"
     },
     "kw-de0204639b": {
       "keyword": "芯片",
@@ -72,10 +67,20 @@
       "count": 1,
       "url": "/reports/feeds/kw-c8722a1700.xml"
     },
-    "kw-5bdcf826f2": {
-      "keyword": "俄罗斯",
+    "kw-bde87c6ca1": {
+      "keyword": "国产开源模型",
       "count": 1,
-      "url": "/reports/feeds/kw-5bdcf826f2.xml"
+      "url": "/reports/feeds/kw-bde87c6ca1.xml"
+    },
+    "kw-be93bcade4": {
+      "keyword": "北美",
+      "count": 1,
+      "url": "/reports/feeds/kw-be93bcade4.xml"
+    },
+    "kw-4866e189d5": {
+      "keyword": "印度",
+      "count": 1,
+      "url": "/reports/feeds/kw-4866e189d5.xml"
     },
     "kw-426b53cba7": {
       "keyword": "水电 / 光伏 / 核能 / 能源",

@@ -1,10 +1,10 @@
 {
-  "updated": "2026-07-10T21:35:14Z",
+  "updated": "2026-07-10T23:28:49Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 20,
+      "count": 24,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
     "kw-101806f57c": {
@@ -14,18 +14,13 @@
     },
     "kw-5f479f2ee3": {
       "keyword": "微软 / 谷歌 / 苹果",
-      "count": 12,
+      "count": 11,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
     },
     "kw-4c6737b9f5": {
       "keyword": "华为",
       "count": 5,
       "url": "/reports/feeds/kw-4c6737b9f5.xml"
-    },
-    "openai-claude": {
-      "keyword": "OpenAI / Claude",
-      "count": 4,
-      "url": "/reports/feeds/openai-claude.xml"
     },
     "kw-ac6fb2f2fe": {
       "keyword": "东亚",
@@ -42,30 +37,30 @@
       "count": 3,
       "url": "/reports/feeds/kw-3842b66185.xml"
     },
-    "kw-de0204639b": {
-      "keyword": "芯片",
+    "openai-claude": {
+      "keyword": "OpenAI / Claude",
       "count": 3,
-      "url": "/reports/feeds/kw-de0204639b.xml"
+      "url": "/reports/feeds/openai-claude.xml"
+    },
+    "kw-77c22b5841": {
+      "keyword": "西欧",
+      "count": 3,
+      "url": "/reports/feeds/kw-77c22b5841.xml"
+    },
+    "kw-4866e189d5": {
+      "keyword": "印度",
+      "count": 3,
+      "url": "/reports/feeds/kw-4866e189d5.xml"
     },
     "kw-2dd56c6548": {
       "keyword": "航天",
       "count": 3,
       "url": "/reports/feeds/kw-2dd56c6548.xml"
     },
-    "kw-8ea9aebb87": {
-      "keyword": "英伟达 / AMD",
+    "kw-de0204639b": {
+      "keyword": "芯片",
       "count": 2,
-      "url": "/reports/feeds/kw-8ea9aebb87.xml"
-    },
-    "kw-77c22b5841": {
-      "keyword": "西欧",
-      "count": 2,
-      "url": "/reports/feeds/kw-77c22b5841.xml"
-    },
-    "kw-4866e189d5": {
-      "keyword": "印度",
-      "count": 2,
-      "url": "/reports/feeds/kw-4866e189d5.xml"
+      "url": "/reports/feeds/kw-de0204639b.xml"
     },
     "kw-be93bcade4": {
       "keyword": "北美",

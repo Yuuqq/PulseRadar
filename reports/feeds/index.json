@@ -1,10 +1,10 @@
 {
-  "updated": "2026-07-10T23:28:49Z",
+  "updated": "2026-07-11T00:57:04Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 24,
+      "count": 22,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
     "kw-101806f57c": {
@@ -17,25 +17,20 @@
       "count": 11,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
     },
-    "kw-4c6737b9f5": {
-      "keyword": "华为",
-      "count": 5,
-      "url": "/reports/feeds/kw-4c6737b9f5.xml"
-    },
     "kw-ac6fb2f2fe": {
       "keyword": "东亚",
-      "count": 4,
+      "count": 5,
       "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
+    },
+    "kw-4c6737b9f5": {
+      "keyword": "华为",
+      "count": 4,
+      "url": "/reports/feeds/kw-4c6737b9f5.xml"
     },
     "kw-729c87507a": {
       "keyword": "字节跳动",
       "count": 3,
       "url": "/reports/feeds/kw-729c87507a.xml"
-    },
-    "kw-3842b66185": {
-      "keyword": "腾讯",
-      "count": 3,
-      "url": "/reports/feeds/kw-3842b66185.xml"
     },
     "openai-claude": {
       "keyword": "OpenAI / Claude",
@@ -47,25 +42,35 @@
       "count": 3,
       "url": "/reports/feeds/kw-77c22b5841.xml"
     },
-    "kw-4866e189d5": {
-      "keyword": "印度",
-      "count": 3,
-      "url": "/reports/feeds/kw-4866e189d5.xml"
-    },
     "kw-2dd56c6548": {
       "keyword": "航天",
       "count": 3,
       "url": "/reports/feeds/kw-2dd56c6548.xml"
     },
-    "kw-de0204639b": {
-      "keyword": "芯片",
+    "kw-3842b66185": {
+      "keyword": "腾讯",
       "count": 2,
-      "url": "/reports/feeds/kw-de0204639b.xml"
+      "url": "/reports/feeds/kw-3842b66185.xml"
     },
     "kw-be93bcade4": {
       "keyword": "北美",
-      "count": 1,
+      "count": 2,
       "url": "/reports/feeds/kw-be93bcade4.xml"
+    },
+    "kw-4866e189d5": {
+      "keyword": "印度",
+      "count": 2,
+      "url": "/reports/feeds/kw-4866e189d5.xml"
+    },
+    "kw-8ea9aebb87": {
+      "keyword": "英伟达 / AMD",
+      "count": 1,
+      "url": "/reports/feeds/kw-8ea9aebb87.xml"
+    },
+    "kw-de0204639b": {
+      "keyword": "芯片",
+      "count": 1,
+      "url": "/reports/feeds/kw-de0204639b.xml"
     },
     "kw-a44c35f5da": {
       "keyword": "机器人 / 机器狗 / 具身智能",

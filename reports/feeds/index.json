@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-12T19:38:23Z",
+  "updated": "2026-07-12T21:23:01Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-101806f57c": {
@@ -9,7 +9,7 @@
     },
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 17,
+      "count": 19,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
     "kw-5f479f2ee3": {
@@ -19,7 +19,7 @@
     },
     "openai-claude": {
       "keyword": "OpenAI / Claude",
-      "count": 9,
+      "count": 8,
       "url": "/reports/feeds/openai-claude.xml"
     },
     "kw-ac6fb2f2fe": {

@@ -4,22 +4,14 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-07-13T01:04:21Z</updated>
+  <updated>2026-07-13T04:59:41Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
-  <entry>
-    <id>urn:pulseradar:2026-07-13:f150d9f3e8dd7a3c</id>
-    <title>工信部警告 Claude Code 有后门？我扒了一下，发现不止后门</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7660360633646317618"/>
-    <updated>2026-07-13T01:04:21Z</updated>
-    <author><name>掘金</name></author>
-    <summary>Rank: 4</summary>
-  </entry>
   <entry>
     <id>urn:pulseradar:2026-07-13:ef8882830236713c</id>
     <title>anthropics /      claude-cookbooks</title>
     <link rel="alternate" type="text/html" href="https://github.com/anthropics/claude-cookbooks"/>
-    <updated>2026-07-13T01:04:21Z</updated>
+    <updated>2026-07-13T04:59:41Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 6</summary>
   </entry>
@@ -27,48 +19,56 @@
     <id>urn:pulseradar:2026-07-13:ace9aa486c583959</id>
     <title>Claude Code sends 33k tokens before reading the prompt; OpenCode sends 7k</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48883275"/>
-    <updated>2026-07-13T01:04:21Z</updated>
+    <updated>2026-07-13T04:59:41Z</updated>
     <author><name>Hacker News</name></author>
     <summary>Rank: 9</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-13:539ab47e94c5af48</id>
-    <title>ChatGPT 5.6模型终于发布！然而Codex被夺舍了！</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7660312418644901922"/>
-    <updated>2026-07-13T01:04:21Z</updated>
-    <author><name>掘金</name></author>
-    <summary>Rank: 11</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-13:522e286d543f9668</id>
-    <title>兄弟们的 codex 和 claude code 用中转吗</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1226772"/>
-    <updated>2026-07-13T01:04:21Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 12</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-13:e21ff2fe0889f72f</id>
     <title>davila7 /      claude-code-templates</title>
     <link rel="alternate" type="text/html" href="https://github.com/davila7/claude-code-templates"/>
-    <updated>2026-07-13T01:04:21Z</updated>
+    <updated>2026-07-13T04:59:41Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 14</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-07-13:2946e968725d5159</id>
-    <title>[仅供参考] Codex/Claude Code 降智测试脚本</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1226728"/>
-    <updated>2026-07-13T01:04:21Z</updated>
+    <id>urn:pulseradar:2026-07-13:fcc4380c354d5e3f</id>
+    <title>这张图值得让更多人看见， GPT&gt;Claude，达子自食其果</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1226838"/>
+    <updated>2026-07-13T04:59:41Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 25</summary>
+    <summary>Rank: 14</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-07-13:83ce9ad7fb392920</id>
-    <title>突然发现 chatgpt 语音多了 live 功能，感觉练口语挺好的</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1226716"/>
-    <updated>2026-07-13T01:04:21Z</updated>
+    <id>urn:pulseradar:2026-07-13:5ec4ec0dc9d6e338</id>
+    <title>兄弟们 还有 claude pro 开票的渠道吗</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1226836"/>
+    <updated>2026-07-13T04:59:41Z</updated>
     <author><name>V2EX</name></author>
+    <summary>Rank: 15</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-13:4dc262e36346e40c</id>
+    <title>没写一行代码！我用 ChatGPT 5.6 (Sol) 做了一个智慧充电站 3D 大屏</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7661160753004904448"/>
+    <updated>2026-07-13T04:59:41Z</updated>
+    <author><name>掘金</name></author>
+    <summary>Rank: 20</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-13:14458f929c635a3f</id>
+    <title>Claude Fable 5 提示词泄漏，抓紧学习下</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7661117411174105130"/>
+    <updated>2026-07-13T04:59:41Z</updated>
+    <author><name>掘金</name></author>
     <summary>Rank: 27</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-13:522e286d543f9668</id>
+    <title>兄弟们的 codex 和 claude code 用中转吗</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1226772"/>
+    <updated>2026-07-13T04:59:41Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 29</summary>
   </entry>
 </feed>

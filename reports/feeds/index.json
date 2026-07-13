@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-13T22:27:05Z",
+  "updated": "2026-07-13T23:26:16Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
@@ -9,17 +9,17 @@
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 14,
+      "count": 16,
       "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-5f479f2ee3": {
       "keyword": "微软 / 谷歌 / 苹果",
-      "count": 12,
+      "count": 13,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
     },
     "kw-ac6fb2f2fe": {
       "keyword": "东亚",
-      "count": 7,
+      "count": 6,
       "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
     "kw-de0204639b": {
@@ -27,19 +27,19 @@
       "count": 5,
       "url": "/reports/feeds/kw-de0204639b.xml"
     },
+    "openai-claude": {
+      "keyword": "OpenAI / Claude",
+      "count": 4,
+      "url": "/reports/feeds/openai-claude.xml"
+    },
     "kw-be93bcade4": {
       "keyword": "北美",
       "count": 4,
       "url": "/reports/feeds/kw-be93bcade4.xml"
     },
-    "openai-claude": {
-      "keyword": "OpenAI / Claude",
-      "count": 3,
-      "url": "/reports/feeds/openai-claude.xml"
-    },
     "kw-77c22b5841": {
       "keyword": "西欧",
-      "count": 3,
+      "count": 4,
       "url": "/reports/feeds/kw-77c22b5841.xml"
     },
     "kw-6ba2f2e06f": {

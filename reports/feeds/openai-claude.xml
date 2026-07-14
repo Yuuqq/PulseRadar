@@ -4,22 +4,30 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-07-14T11:07:18Z</updated>
+  <updated>2026-07-14T12:47:50Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
   <entry>
-    <id>urn:pulseradar:2026-07-14:accc3ba1bfca94fb</id>
-    <title>大家对于 OpenAI 此次调整 codex 为 ChatGPT， ChatGPT 为 ChatGPT Classic 有什么想法呢？</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1227276"/>
-    <updated>2026-07-14T11:07:18Z</updated>
+    <id>urn:pulseradar:2026-07-14:d7cd7867ae63e3dc</id>
+    <title>How to stop Claude from saying load-bearing</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48905248"/>
+    <updated>2026-07-14T12:47:50Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 2</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-14:4d17fc16a3d3298b</id>
+    <title>[开源] 写了个小工具，把多个 Claude Code / AI 终端会话放到一个浏览器窗口里管</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1227280"/>
+    <updated>2026-07-14T12:47:50Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 1</summary>
+    <summary>Rank: 4</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-14:4dc262e36346e40c</id>
     <title>没写一行代码！我用 ChatGPT 5.6 (Sol) 做了一个智慧充电站 3D 大屏</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7661160753004904448"/>
-    <updated>2026-07-14T11:07:18Z</updated>
+    <updated>2026-07-14T12:47:50Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 6</summary>
   </entry>
@@ -27,64 +35,64 @@
     <id>urn:pulseradar:2026-07-14:76fb7f3f639fc67e</id>
     <title>Claude Overlay</title>
     <link rel="alternate" type="text/html" href="https://www.producthunt.com/products/claude-overlay"/>
-    <updated>2026-07-14T11:07:18Z</updated>
+    <updated>2026-07-14T12:47:50Z</updated>
     <author><name>Product Hunt</name></author>
+    <summary>Rank: 7</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-14:accc3ba1bfca94fb</id>
+    <title>大家对于 OpenAI 此次调整 codex 为 ChatGPT， ChatGPT 为 ChatGPT Classic 有什么想法呢？</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1227276"/>
+    <updated>2026-07-14T12:47:50Z</updated>
+    <author><name>V2EX</name></author>
     <summary>Rank: 7</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-14:23acc3a8281cf80d</id>
     <title>如何评价 OpenAI 新模型 GPT-5.6 Sol Ultra，在不到一小时内证明循环双覆盖猜想？</title>
     <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2059349642496710015"/>
-    <updated>2026-07-14T11:07:18Z</updated>
+    <updated>2026-07-14T12:47:50Z</updated>
     <author><name>知乎</name></author>
-    <summary>Rank: 10</summary>
+    <summary>Rank: 7</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-14:aa464714dc7c6b8a</id>
     <title>关于 codex 和 claude code 的取舍</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1227231"/>
-    <updated>2026-07-14T11:07:18Z</updated>
+    <updated>2026-07-14T12:47:50Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 11</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-14:9913dd91d1f6a295</id>
-    <title>win11+v2rayN, 已经是 tun+全局了，但 chatgpt work 有时还是 reconnecting ， why?</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1227228"/>
-    <updated>2026-07-14T11:07:18Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 13</summary>
+    <summary>Rank: 17</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-14:14458f929c635a3f</id>
     <title>Claude Fable 5 提示词泄漏，抓紧学习下</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7661117411174105130"/>
-    <updated>2026-07-14T11:07:18Z</updated>
+    <updated>2026-07-14T12:47:50Z</updated>
     <author><name>掘金</name></author>
+    <summary>Rank: 19</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-14:9913dd91d1f6a295</id>
+    <title>win11+v2rayN, 已经是 tun+全局了，但 chatgpt work 有时还是 reconnecting ， why?</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1227228"/>
+    <updated>2026-07-14T12:47:50Z</updated>
+    <author><name>V2EX</name></author>
     <summary>Rank: 19</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-14:8e5e3f44918d628b</id>
     <title>ChatGPT Codex 会小概率输出被污染的中文语料</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1227210"/>
-    <updated>2026-07-14T11:07:18Z</updated>
+    <updated>2026-07-14T12:47:50Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 20</summary>
+    <summary>Rank: 26</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-14:47374d087e3ffd6d</id>
     <title>GPT-5.6 后，别再混淆 ChatGPT 和 Codex 额度了</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7660788416042156072"/>
-    <updated>2026-07-14T11:07:18Z</updated>
+    <updated>2026-07-14T12:47:50Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 30</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-14:c09dd652c61b836f</id>
-    <title>我发现 claude 封号策略，地区、位置、时区、ip 都不是充分条件</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1227177"/>
-    <updated>2026-07-14T11:07:18Z</updated>
-    <author><name>V2EX</name></author>
     <summary>Rank: 30</summary>
   </entry>
 </feed>

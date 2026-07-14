@@ -4,14 +4,14 @@
   <subtitle>Cross-source aggregated headlines</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feed.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-07-14T00:53:00Z</updated>
+  <updated>2026-07-14T04:26:51Z</updated>
   <id>urn:pulseradar:feed:752ef329333b</id>
   <author><name>PulseRadar</name></author>
   <entry>
     <id>urn:pulseradar:2026-07-14:a4284575faf0fd32</id>
     <title>AI 时代 Harness 工程在后台管理系统中的实践 🌈</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7660780385584316454"/>
-    <updated>2026-07-14T00:53:00Z</updated>
+    <updated>2026-07-14T04:26:51Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 1</summary>
   </entry>
@@ -19,7 +19,7 @@
     <id>urn:pulseradar:2026-07-14:8ccbbb087a96c18f</id>
     <title>习近平将出席2026世界人工智能大会暨人工智能全球治理高级别会议开幕式并发表主旨讲话</title>
     <link rel="alternate" type="text/html" href="https://m.thepaper.cn/newsDetail_forward_33574538"/>
-    <updated>2026-07-14T00:53:00Z</updated>
+    <updated>2026-07-14T04:26:51Z</updated>
     <author><name>澎湃新闻</name></author>
     <summary>Rank: 1</summary>
   </entry>
@@ -27,7 +27,7 @@
     <id>urn:pulseradar:2026-07-14:e236310c971bc2c7</id>
     <title>五大亮点提前看！世界人工智能大会本周开幕：智慧、硬核、体验、年轻、治理</title>
     <link rel="alternate" type="text/html" href="https://m.thepaper.cn/newsDetail_forward_33571516"/>
-    <updated>2026-07-14T00:53:00Z</updated>
+    <updated>2026-07-14T04:26:51Z</updated>
     <author><name>澎湃新闻</name></author>
     <summary>Rank: 2</summary>
   </entry>
@@ -35,7 +35,7 @@
     <id>urn:pulseradar:2026-07-14:ec3879e97aa9216b</id>
     <title>moeru-ai /      airi</title>
     <link rel="alternate" type="text/html" href="https://github.com/moeru-ai/airi"/>
-    <updated>2026-07-14T00:53:00Z</updated>
+    <updated>2026-07-14T04:26:51Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 3</summary>
   </entry>
@@ -43,345 +43,199 @@
     <id>urn:pulseradar:2026-07-14:0d8a5b0bc5eea12c</id>
     <title>AI Media Buyer By Creatify</title>
     <link rel="alternate" type="text/html" href="https://www.producthunt.com/products/creatify"/>
-    <updated>2026-07-14T00:53:00Z</updated>
+    <updated>2026-07-14T04:26:51Z</updated>
     <author><name>Product Hunt</name></author>
     <summary>Rank: 3</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-14:fe0a007968f03294</id>
-    <title>解锁2026世界人工智能大会新亮点</title>
-    <link rel="alternate" type="text/html" href="https://www.toutiao.com/trending/7661668281069223946/"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>今日头条</name></author>
-    <summary>Rank: 3</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-14:de3821f7c4e12566</id>
-    <title>AI 辅助做了一个古建漫游指南</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1227059"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 5</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-14:7e45886738a10794</id>
-    <title>Meta持续加码AI基建 追加400亿美元投资其最大数据中心项目</title>
-    <link rel="alternate" type="text/html" href="https://www.cls.cn/detail/2424821"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>财联社热门</name></author>
-    <summary>Rank: 6</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-14:0e8c3043acd5a437</id>
-    <title>3位工程师靠“删AI代码”创业，一周收费1万美元：以后最贵的能力，可能不是写代码</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7661251852345458697"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>掘金</name></author>
-    <summary>Rank: 8</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-14:739a85ca9f4499c3</id>
-    <title>AI 是怎么操作浏览器的——browser use 实现原理</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7660466008562892835"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>掘金</name></author>
-    <summary>Rank: 9</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-14:38ec5e99990b3de9</id>
-    <title>做了个开源工具 Vibe Animation：对着 AI 说话就能做 GSAP 网页动画，能选中元素定向改</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1227053"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 9</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-14:3746c9175422dcb4</id>
-    <title>看陈泽AI跳舞是一种挑战</title>
-    <link rel="alternate" type="text/html" href="https://www.douyin.com/hot/2570068"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>抖音</name></author>
-    <summary>Rank: 10</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-14:8f182a6800b54559</id>
-    <title>30 分钟用 Trae Work + 魔珐星云做出会讲故事的 AI 3D 具身交互智能数字人</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7661439504083582976"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>掘金</name></author>
-    <summary>Rank: 10</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-14:962df1d1727e9bfe</id>
-    <title>AI 编程普及，初学者还要不要学习基础语法？</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7661117411174350890"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>掘金</name></author>
-    <summary>Rank: 13</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-14:7d5017dbcbd38f4b</id>
-    <title>欢迎提交你自己或者你想关注的 AI 中转站 - 中转站跑分</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1227041"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 13</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-14:7f8d23fc87d0a4e4</id>
-    <title>Samsung Health app threatens data deletion if users opt out AI training</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48897991"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 15</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-14:d6915b3f0a7bbe57</id>
     <title>为什么 AI 写前端时，总是优先选择 React，而不是 Vue？</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7661833071121530926"/>
-    <updated>2026-07-14T00:53:00Z</updated>
+    <updated>2026-07-14T04:26:51Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 15</summary>
+    <summary>Rank: 7</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-07-14:9d9e8222278fdf7b</id>
-    <title>Show HN: Jacquard, a programming language for AI-written, human-reviewed code</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48894630"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 16</summary>
+    <id>urn:pulseradar:2026-07-14:0e8c3043acd5a437</id>
+    <title>3位工程师靠“删AI代码”创业，一周收费1万美元：以后最贵的能力，可能不是写代码</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7661251852345458697"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>掘金</name></author>
+    <summary>Rank: 9</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-14:209c9b492f08f872</id>
+    <title>AI债务泡沫要破了？高盛首次公开承认：市场承接能力逼近极限</title>
+    <link rel="alternate" type="text/html" href="https://wallstreetcn.com/articles/3776779"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>华尔街见闻</name></author>
+    <summary>Rank: 9</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-14:07a624165d5340e2</id>
+    <title>AI 大模型写故事，魔珐星云驱动 3D 数字人实时播报</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7661439504083582976"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>掘金</name></author>
+    <summary>Rank: 10</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-14:e332d729a007a3a3</id>
+    <title>台风淹水致商铺狼藉图片为AI合成</title>
+    <link rel="alternate" type="text/html" href="https://www.baidu.com/s?wd=%E5%8F%B0%E9%A3%8E%E6%B7%B9%E6%B0%B4%E8%87%B4%E5%95%86%E9%93%BA%E7%8B%BC%E8%97%89%E5%9B%BE%E7%89%87%E4%B8%BAAI%E5%90%88%E6%88%90"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>百度热搜</name></author>
+    <summary>Rank: 11</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-14:2b4cbfde4fe101f2</id>
     <title>不用框架，手搓 AI Agent：(一) 先让它跑起来</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7661531893103935539"/>
-    <updated>2026-07-14T00:53:00Z</updated>
+    <updated>2026-07-14T04:26:51Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 16</summary>
+    <summary>Rank: 12</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-14:962df1d1727e9bfe</id>
+    <title>AI 编程普及，初学者还要不要学习基础语法？</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7661117411174350890"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>掘金</name></author>
+    <summary>Rank: 13</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-14:3746c9175422dcb4</id>
+    <title>看陈泽AI跳舞是一种挑战</title>
+    <link rel="alternate" type="text/html" href="https://www.douyin.com/hot/2570068"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>抖音</name></author>
+    <summary>Rank: 15</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-14:8dc75b8b22e908da</id>
     <title>我用 AI 写代码快了 3 倍——然后同事的 Code Review 全变成了我的</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7661030491453407232"/>
-    <updated>2026-07-14T00:53:00Z</updated>
+    <updated>2026-07-14T04:26:51Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 18</summary>
+    <summary>Rank: 15</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-07-14:cd780ceaf089d4fb</id>
-    <title>肝了大半年，我的原生三端 SSH 客户端 Shellby 上架了——内置一个 AI Agent</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1227015"/>
-    <updated>2026-07-14T00:53:00Z</updated>
+    <id>urn:pulseradar:2026-07-14:460cc808cb8e2ae8</id>
+    <title>AI时代需要什么样的人：从DeepSeek招聘清单说起</title>
+    <link rel="alternate" type="text/html" href="https://m.thepaper.cn/newsDetail_forward_33570712"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>澎湃新闻</name></author>
+    <summary>Rank: 15</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-14:de3821f7c4e12566</id>
+    <title>AI 辅助做了一个古建漫游指南</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1227059"/>
+    <updated>2026-07-14T04:26:51Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 19</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-14:65de996e184e6b12</id>
-    <title>从零理解 MCP：让 AI 大模型&quot;万能插拔&quot;的协议</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7660793595750858767"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>掘金</name></author>
-    <summary>Rank: 25</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-14:ed31efe232792de4</id>
-    <title>DV/HDV 磁带拯救计划：用 AI 驱动十八年前的老设备</title>
-    <link rel="alternate" type="text/html" href="https://sspai.com/post/111223"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>少数派</name></author>
-    <summary>Rank: 25</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-14:878050cfcafe17c1</id>
-    <title>在职前端Leader学习/转行 AI Agent -DAY3</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7661085673140043803"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>掘金</name></author>
-    <summary>Rank: 26</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-14:c52b18ab4a6c4b9b</id>
-    <title>Show HN: BillAI Bass, an AI-Powered Big Mouth Billy Bass Using Strands Agents</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48896599"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 27</summary>
+    <summary>Rank: 15</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-14:569ee57a28e747f0</id>
     <title>Show HN: Sx 2.0 – Share AI skills with your team through a Dropbox folder</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48900319"/>
-    <updated>2026-07-14T00:53:00Z</updated>
+    <updated>2026-07-14T04:26:51Z</updated>
     <author><name>Hacker News</name></author>
-    <summary>Rank: 28</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-14:3274ad83f1899d8e</id>
-    <title>上了一个 AI 工具导航站，</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1226984"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 29</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-14:373e9c5a42726f4b</id>
-    <title>Show HN: ContextVault – Shared memory layer for your AI and your team</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48900288"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 30</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-14:ff84d9c2da981259</id>
-    <title>我又整了一个 AI 提示词库网站 xueprompt.com</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1226981"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 30</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-14:c8e1a54d913c4d92</id>
-    <title>中国数学家或斩获菲尔兹奖</title>
-    <link rel="alternate" type="text/html" href="https://search.bilibili.com/all?keyword=%E4%B8%AD%E5%9B%BD%E6%95%B0%E5%AD%A6%E5%AE%B6%E6%88%96%E6%96%A9%E8%8E%B7%E8%8F%B2%E5%B0%94%E5%85%B9%E5%A5%96"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>bilibili 热搜</name></author>
-    <summary>Rank: 1</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-14:0f7a2c3409fbaf70</id>
-    <title>外媒称中国四支舰队出击太平洋“扫海”</title>
-    <link rel="alternate" type="text/html" href="https://v.ifeng.com/c/8ugG4l7UYb9"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>凤凰网</name></author>
-    <summary>Rank: 2</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-14:d8bd7a6d225318f3</id>
-    <title>中国人民大学：根据新线索认定蒋方舟学术不端，撤销其硕士学位</title>
-    <link rel="alternate" type="text/html" href="https://m.thepaper.cn/newsDetail_forward_33576780"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>澎湃新闻</name></author>
-    <summary>Rank: 4</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-14:4d7107091e086e2f</id>
-    <title>苹果开始测试中国企业长鑫存储内存芯片，背后有哪些战略考量？此举将带来哪些产业影响？</title>
-    <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2058578162674397208"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>知乎</name></author>
-    <summary>Rank: 6</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-14:b2784e7f8d9c0321</id>
-    <title>高盛：中国股票出现“轮动信号”，A股硬科技仍占优，H股互联网等盈利修复</title>
-    <link rel="alternate" type="text/html" href="https://wallstreetcn.com/articles/3776747"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>华尔街见闻</name></author>
-    <summary>Rank: 8</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-14:9f5717c273d38efa</id>
-    <title>“中国首个禁售燃油车省份”，为何是海南？</title>
-    <link rel="alternate" type="text/html" href="https://m.thepaper.cn/newsDetail_forward_33575406"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>澎湃新闻</name></author>
-    <summary>Also reported by: 今日头条, 百度热搜
-Rank: 9</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-14:48b055d2ddad60b6</id>
-    <title>中国自研AI芯片取得架构突破</title>
-    <link rel="alternate" type="text/html" href="https://s.weibo.com/weibo?q=%23%E4%B8%AD%E5%9B%BD%E8%87%AA%E7%A0%94AI%E8%8A%AF%E7%89%87%E5%8F%96%E5%BE%97%E6%9E%B6%E6%9E%84%E7%AA%81%E7%A0%B4%23&amp;t=31&amp;band_rank=10&amp;Refer=top"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>微博</name></author>
-    <summary>Also reported by: 百度热搜
-Rank: 10</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-14:d701ab26d6a7a103</id>
-    <title>中国人民大学决定撤销蒋方舟硕士学位</title>
-    <link rel="alternate" type="text/html" href="https://www.cls.cn/detail/2424878"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>财联社热门</name></author>
-    <summary>Rank: 11</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-14:47c0f63816d723ea</id>
-    <title>非要和中国比？印度在贸易谈判中对美国提要求</title>
-    <link rel="alternate" type="text/html" href="https://news.ifeng.com/c/8ujLKa64T2S"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>凤凰网</name></author>
-    <summary>Rank: 12</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-14:50cc54c5d3b86f81</id>
-    <title>Hy3 + WorkBuddy = 国产顶级 Agent（附完整提示词）。</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7660755249066344490"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>掘金</name></author>
-    <summary>Rank: 14</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-14:b632caeb233468b0</id>
-    <title>优化器为什么敢把你写的 LEFT JOIN 悄悄改掉？-国产化金仓 KES 优化器设计思路拆解</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7661123972889329670"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>掘金</name></author>
     <summary>Rank: 17</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-07-14:904d3335f1f04395</id>
-    <title>日本民众集会举牌“中国对不起”</title>
-    <link rel="alternate" type="text/html" href="https://www.baidu.com/s?wd=%E6%97%A5%E6%9C%AC%E6%B0%91%E4%BC%97%E9%9B%86%E4%BC%9A%E4%B8%BE%E7%89%8C%E2%80%9C%E4%B8%AD%E5%9B%BD%E5%AF%B9%E4%B8%8D%E8%B5%B7%E2%80%9D"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>百度热搜</name></author>
-    <summary>Rank: 22</summary>
+    <id>urn:pulseradar:2026-07-14:38ec5e99990b3de9</id>
+    <title>做了个开源工具 Vibe Animation：对着 AI 说话就能做 GSAP 网页动画，能选中元素定向改</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1227053"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 19</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-07-14:dbc751046bc61486</id>
-    <title>中国试射导弹后的国际现状</title>
-    <link rel="alternate" type="text/html" href="https://search.bilibili.com/all?keyword=%E4%B8%AD%E5%9B%BD%E8%AF%95%E5%B0%84%E5%AF%BC%E5%BC%B9%E5%90%8E%E7%9A%84%E5%9B%BD%E9%99%85%E7%8E%B0%E7%8A%B6"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>bilibili 热搜</name></author>
-    <summary>Rank: 22</summary>
+    <id>urn:pulseradar:2026-07-14:0b1074199df1ebe9</id>
+    <title>当AI穿上白大褂：谁来唤醒沉睡的医疗数据？</title>
+    <link rel="alternate" type="text/html" href="https://m.thepaper.cn/newsDetail_forward_33524110"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>澎湃新闻</name></author>
+    <summary>Rank: 20</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-07-14:0e5198eb4f060e0d</id>
-    <title>不用“外挂”的中国空调在欧洲杀疯了</title>
-    <link rel="alternate" type="text/html" href="https://www.toutiao.com/trending/7661868724466503222/"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>今日头条</name></author>
+    <id>urn:pulseradar:2026-07-14:878050cfcafe17c1</id>
+    <title>在职前端Leader学习/转行 AI Agent -DAY3</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7661085673140043803"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>掘金</name></author>
+    <summary>Rank: 21</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-14:65de996e184e6b12</id>
+    <title>从零理解 MCP：让 AI 大模型&quot;万能插拔&quot;的协议</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7660793595750858767"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>掘金</name></author>
     <summary>Rank: 23</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-07-14:170fa44dc39fa1f1</id>
-    <title>Building and shipping Mac and iOS apps without ever opening Xcode</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48896665"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 2</summary>
+    <id>urn:pulseradar:2026-07-14:7d5017dbcbd38f4b</id>
+    <title>欢迎提交你自己或者你想关注的 AI 中转站 - 中转站跑分</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1227041"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 23</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-07-14:edd22c454bcabe35</id>
-    <title>甲醇输送搭上成品油管道顺风车</title>
-    <link rel="alternate" type="text/html" href="https://www.douyin.com/hot/2569390"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>抖音</name></author>
-    <summary>Rank: 3</summary>
+    <id>urn:pulseradar:2026-07-14:9d9e8222278fdf7b</id>
+    <title>Show HN: Jacquard, a programming language for AI-written, human-reviewed code</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48894630"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 24</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-07-14:d44d80169df00524</id>
-    <title>Apple&apos;s new SpeechAnalyzer API, benchmarked against Whisper and its predecessor</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48894752"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 3</summary>
+    <id>urn:pulseradar:2026-07-14:ed31efe232792de4</id>
+    <title>DV/HDV 磁带拯救计划：用 AI 驱动十八年前的老设备</title>
+    <link rel="alternate" type="text/html" href="https://sspai.com/post/111223"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>少数派</name></author>
+    <summary>Rank: 25</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-14:ed4c06e1c3ca1be2</id>
+    <title>AI 聊天长期记忆的向量化处理：从&quot;关键词匹配&quot;到&quot;换种说法也能找到&quot;</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7660496737154498587"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>掘金</name></author>
+    <summary>Rank: 26</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-14:d4f9541e55aca0e9</id>
+    <title>端开发必装 Skill 清单：6 款 AI 技能，让你的开发效率原地起飞</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7661530411243683886"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>掘金</name></author>
+    <summary>Rank: 27</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-14:753a7b8917fe4ee8</id>
+    <title>前端 AI 单元测试思考与落地</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7661479243135008778"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>掘金</name></author>
+    <summary>Rank: 28</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-14:cd780ceaf089d4fb</id>
+    <title>肝了大半年，我的原生三端 SSH 客户端 Shellby 上架了——内置一个 AI Agent</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1227015"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 29</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-14:46467249c89b95cd</id>
     <title>iOS 27 Beta 2 &amp; 3 值得关注的新特性</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/112083"/>
-    <updated>2026-07-14T00:53:00Z</updated>
+    <updated>2026-07-14T04:26:51Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 3</summary>
   </entry>
@@ -389,55 +243,55 @@ Rank: 10</summary>
     <id>urn:pulseradar:2026-07-14:79505d535fd9eefe</id>
     <title>我的出行好伙伴，用 iPhone 一站式解决旅途痛点</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/112044"/>
-    <updated>2026-07-14T00:53:00Z</updated>
+    <updated>2026-07-14T04:26:51Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 4</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-07-14:a202bc83a6f8c40c</id>
-    <title>[自用开源] QuotaBarWin，在 Windows 系统下也能通过托盘菜单查看 Agent 剩余额度了</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1227060"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 4</summary>
+    <id>urn:pulseradar:2026-07-14:34d0bf3dcdd8c827</id>
+    <title>Building and shipping Mac and iOS apps without opening Xcode</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48896665"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 5</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-14:1a3a781aef0b18f9</id>
     <title>iPhone Air 当主力机用了三个多月后，我为什么还是换不掉它</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/111113"/>
-    <updated>2026-07-14T00:53:00Z</updated>
+    <updated>2026-07-14T04:26:51Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 6</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-07-14:20b3e556d2d4adde</id>
-    <title>Flutter Windows 开始支持 Impeller ，还修复了多窗口 bug</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7661123972889559046"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>掘金</name></author>
+    <id>urn:pulseradar:2026-07-14:d44d80169df00524</id>
+    <title>Apple&apos;s new SpeechAnalyzer API, benchmarked against Whisper and its predecessor</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48894752"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>Hacker News</name></author>
     <summary>Rank: 7</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-14:2c785637976c805f</id>
     <title>首先天机不可泄露已经是过去式了，感恩安卓漏洞的开源，再次感谢一下几位的贡献（不分先后），本地主机，六月秋过，Littlenine。[抱拳][抱拳][抱拳]</title>
     <link rel="alternate" type="text/html" href="https://www.coolapk.com/feed/72751320"/>
-    <updated>2026-07-14T00:53:00Z</updated>
+    <updated>2026-07-14T04:26:51Z</updated>
     <author><name>酷安</name></author>
     <summary>Rank: 8</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-07-14:f44a02f2cb4a57c8</id>
-    <title>Show HN: YouTube Guitar Tab Parser</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48898154"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 9</summary>
+    <id>urn:pulseradar:2026-07-14:20b3e556d2d4adde</id>
+    <title>Flutter Windows 开始支持 Impeller ，还修复了多窗口 bug</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7661123972889559046"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>掘金</name></author>
+    <summary>Rank: 8</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-14:8788c496b1dbffc4</id>
     <title>快捷指令｜让 iPhone 用上锤子的「大爆炸」</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/111405"/>
-    <updated>2026-07-14T00:53:00Z</updated>
+    <updated>2026-07-14T04:26:51Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 10</summary>
   </entry>
@@ -445,209 +299,354 @@ Rank: 10</summary>
     <id>urn:pulseradar:2026-07-14:4d5bdda44dc09f30</id>
     <title>Pura X Max 、iPhone Air 、iphone17 Pro Max 交替使用感受</title>
     <link rel="alternate" type="text/html" href="https://www.coolapk.com/feed/72765903"/>
-    <updated>2026-07-14T00:53:00Z</updated>
+    <updated>2026-07-14T04:26:51Z</updated>
     <author><name>酷安</name></author>
+    <summary>Rank: 12</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-14:a202bc83a6f8c40c</id>
+    <title>[自用开源] QuotaBarWin，在 Windows 系统下也能通过托盘菜单查看 Agent 剩余额度了</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1227060"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>V2EX</name></author>
     <summary>Rank: 14</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-14:f44a02f2cb4a57c8</id>
+    <title>Show HN: YouTube Guitar Tab Parser</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48898154"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 16</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-14:c60c20efcf7dc6ab</id>
     <title>Show HN: Hackney – Compare Uber, Lyft, Waymo, and Robotaxi Prices</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48893550"/>
-    <updated>2026-07-14T00:53:00Z</updated>
+    <updated>2026-07-14T04:26:51Z</updated>
     <author><name>Hacker News</name></author>
-    <summary>Rank: 18</summary>
+    <summary>Rank: 19</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-14:d9f27d83418e0f2c</id>
     <title>给记忆一个归处：我为什么开始使用 Apple 手记</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/111421"/>
-    <updated>2026-07-14T00:53:00Z</updated>
+    <updated>2026-07-14T04:26:51Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 20</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-14:9b92da711a55a9fb</id>
+    <title>Show HN: RandoFont – A browser for Google Fonts</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48852144"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 22</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-14:e67b690d780f59da</id>
     <title>A Study of Microsoft&apos;s Early 2026 Rollout of Claude Code and GitHub Copilot CLI</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48899321"/>
-    <updated>2026-07-14T00:53:00Z</updated>
+    <updated>2026-07-14T04:26:51Z</updated>
     <author><name>Hacker News</name></author>
-    <summary>Rank: 23</summary>
+    <summary>Rank: 25</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-07-14:fb49836b8096bdd7</id>
-    <title>韩国券商一句业绩“不及预期”，SK海力士大跌12%，存储板块全线承压！</title>
-    <link rel="alternate" type="text/html" href="https://wallstreetcn.com/articles/3776764"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>华尔街见闻</name></author>
-    <summary>Rank: 2</summary>
+    <id>urn:pulseradar:2026-07-14:c8e1a54d913c4d92</id>
+    <title>中国数学家或斩获菲尔兹奖</title>
+    <link rel="alternate" type="text/html" href="https://search.bilibili.com/all?keyword=%E4%B8%AD%E5%9B%BD%E6%95%B0%E5%AD%A6%E5%AE%B6%E6%88%96%E6%96%A9%E8%8E%B7%E8%8F%B2%E5%B0%94%E5%85%B9%E5%A5%96"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>bilibili 热搜</name></author>
+    <summary>Rank: 1</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-14:895c8eee0379c539</id>
+    <title>一组先行指标看中国经济</title>
+    <link rel="alternate" type="text/html" href="https://s.weibo.com/weibo?q=%23%E4%B8%80%E7%BB%84%E5%85%88%E8%A1%8C%E6%8C%87%E6%A0%87%E7%9C%8B%E4%B8%AD%E5%9B%BD%E7%BB%8F%E6%B5%8E%23&amp;t=31&amp;band_rank=3&amp;Refer=top"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>微博</name></author>
+    <summary>Rank: 3</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-14:d8bd7a6d225318f3</id>
+    <title>中国人民大学：根据新线索认定蒋方舟学术不端，撤销其硕士学位</title>
+    <link rel="alternate" type="text/html" href="https://m.thepaper.cn/newsDetail_forward_33576780"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>澎湃新闻</name></author>
+    <summary>Rank: 4</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-14:1edc18f668c9e894</id>
+    <title>国产“三蹦子”在佛得角走红</title>
+    <link rel="alternate" type="text/html" href="https://www.baidu.com/s?wd=%E5%9B%BD%E4%BA%A7%E2%80%9C%E4%B8%89%E8%B9%A6%E5%AD%90%E2%80%9D%E5%9C%A8%E4%BD%9B%E5%BE%97%E8%A7%92%E8%B5%B0%E7%BA%A2"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>百度热搜</name></author>
+    <summary>Rank: 5</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-14:4d7107091e086e2f</id>
+    <title>苹果开始测试中国企业长鑫存储内存芯片，背后有哪些战略考量？此举将带来哪些产业影响？</title>
+    <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2058578162674397208"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>知乎</name></author>
+    <summary>Rank: 7</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-14:0f7a2c3409fbaf70</id>
+    <title>外媒称中国四支舰队出击太平洋“扫海”</title>
+    <link rel="alternate" type="text/html" href="https://v.ifeng.com/c/8ugG4l7UYb9"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>凤凰网</name></author>
+    <summary>Rank: 8</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-14:9f5717c273d38efa</id>
+    <title>“中国首个禁售燃油车省份”，为何是海南？</title>
+    <link rel="alternate" type="text/html" href="https://m.thepaper.cn/newsDetail_forward_33575406"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>澎湃新闻</name></author>
+    <summary>Also reported by: 今日头条
+Rank: 8</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-14:efa08dad7dd1af3f</id>
+    <title>中国人一旦吃饱就触发善良人格</title>
+    <link rel="alternate" type="text/html" href="https://s.weibo.com/weibo?q=%E4%B8%AD%E5%9B%BD%E4%BA%BA%E4%B8%80%E6%97%A6%E5%90%83%E9%A5%B1%E5%B0%B1%E8%A7%A6%E5%8F%91%E5%96%84%E8%89%AF%E4%BA%BA%E6%A0%BC&amp;t=31&amp;band_rank=8&amp;Refer=top"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>微博</name></author>
+    <summary>Rank: 8</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-14:af4a7190cabd0756</id>
+    <title>要赢中国，“还得再裁员5万”</title>
+    <link rel="alternate" type="text/html" href="https://news.ifeng.com/c/8ukMQsVJAxY"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>凤凰网</name></author>
+    <summary>Rank: 11</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-14:b632caeb233468b0</id>
+    <title>优化器为什么敢把你写的 LEFT JOIN 悄悄改掉？-国产化金仓 KES 优化器设计思路拆解</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7661123972889329670"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>掘金</name></author>
+    <summary>Rank: 14</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-14:a64f36772e1d5dbc</id>
     <title>韩国五大银行已用掉85%全年家庭贷款额度，借钱炒股或“刹车”！</title>
     <link rel="alternate" type="text/html" href="https://wallstreetcn.com/articles/3776776"/>
-    <updated>2026-07-14T00:53:00Z</updated>
+    <updated>2026-07-14T04:26:51Z</updated>
     <author><name>华尔街见闻</name></author>
     <summary>Rank: 3</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-14:0738995a23f30919</id>
-    <title>韩国股市为何频频熔断</title>
-    <link rel="alternate" type="text/html" href="https://search.bilibili.com/all?keyword=%E9%9F%A9%E5%9B%BD%E8%82%A1%E5%B8%82%E4%B8%BA%E4%BD%95%E9%A2%91%E9%A2%91%E7%86%94%E6%96%AD"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>bilibili 热搜</name></author>
-    <summary>Rank: 4</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-14:e81772c0e4981c70</id>
-    <title>中方紧急约见日本驻华使馆首席公使</title>
-    <link rel="alternate" type="text/html" href="https://www.toutiao.com/trending/7661221978715652150/"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>今日头条</name></author>
-    <summary>Rank: 5</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-14:408d01e3ed029456</id>
-    <title>海力士暴跌致韩国散户爆仓</title>
-    <link rel="alternate" type="text/html" href="https://s.weibo.com/weibo?q=%E6%B5%B7%E5%8A%9B%E5%A3%AB%E6%9A%B4%E8%B7%8C%E8%87%B4%E9%9F%A9%E5%9B%BD%E6%95%A3%E6%88%B7%E7%88%86%E4%BB%93&amp;t=31&amp;band_rank=7&amp;Refer=top"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>微博</name></author>
-    <summary>Rank: 7</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-14:756ccc586309a366</id>
     <title>韩国散户，“弹药库”一个月减少34万亿韩元</title>
     <link rel="alternate" type="text/html" href="https://www.cls.cn/detail/2425170"/>
-    <updated>2026-07-14T00:53:00Z</updated>
+    <updated>2026-07-14T04:26:51Z</updated>
     <author><name>财联社热门</name></author>
-    <summary>Rank: 9</summary>
+    <summary>Rank: 6</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-14:75351ab489508caa</id>
     <title>恐慌抛售引发3442亿韩元强制平仓潮，韩国股市陷信用盘危机</title>
     <link rel="alternate" type="text/html" href="https://wallstreetcn.com/articles/3776811"/>
-    <updated>2026-07-14T00:53:00Z</updated>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>华尔街见闻</name></author>
+    <summary>Rank: 8</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-14:9401c66113f34e3b</id>
+    <title>韩国信贷耗尽、SK海力士蒸发890亿美元——但A股在同一场恐慌里完成了两笔反向投票</title>
+    <link rel="alternate" type="text/html" href="https://wallstreetcn.com/articles/3776834"/>
+    <updated>2026-07-14T04:26:51Z</updated>
     <author><name>华尔街见闻</name></author>
     <summary>Rank: 10</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-07-14:09864f527f508551</id>
-    <title>日本拥有众多旅欧球员为何总迈不过世界杯淘汰赛？</title>
-    <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2055196211926263343"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>知乎</name></author>
-    <summary>Rank: 17</summary>
+    <id>urn:pulseradar:2026-07-14:0738995a23f30919</id>
+    <title>韩国股市为何频频熔断</title>
+    <link rel="alternate" type="text/html" href="https://search.bilibili.com/all?keyword=%E9%9F%A9%E5%9B%BD%E8%82%A1%E5%B8%82%E4%B8%BA%E4%BD%95%E9%A2%91%E9%A2%91%E7%86%94%E6%96%AD"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>bilibili 热搜</name></author>
+    <summary>Rank: 13</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-07-14:410085e0e83dabbf</id>
-    <title>一条视频带你们逛一逛韩国首尔</title>
-    <link rel="alternate" type="text/html" href="https://www.douyin.com/hot/2570108"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>抖音</name></author>
-    <summary>Rank: 20</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-14:c36c75aea34a3df1</id>
-    <title>你跑不过我!日本少年制服窃贼</title>
-    <link rel="alternate" type="text/html" href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E4%BD%A0%E8%B7%91%E4%B8%8D%E8%BF%87%E6%88%91%21%E6%97%A5%E6%9C%AC%E5%B0%91%E5%B9%B4%E5%88%B6%E6%9C%8D%E7%AA%83%E8%B4%BC&amp;topic_id=28356119"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>贴吧</name></author>
-    <summary>Rank: 22</summary>
+    <id>urn:pulseradar:2026-07-14:89da058b7d09bd04</id>
+    <title>美媒称日本针对俄中朝成立情报机构</title>
+    <link rel="alternate" type="text/html" href="https://www.baidu.com/s?wd=%E7%BE%8E%E5%AA%92%E7%A7%B0%E6%97%A5%E6%9C%AC%E9%92%88%E5%AF%B9%E4%BF%84%E4%B8%AD%E6%9C%9D%E6%88%90%E7%AB%8B%E6%83%85%E6%8A%A5%E6%9C%BA%E6%9E%84"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>百度热搜</name></author>
+    <summary>Rank: 21</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-14:904c2137bb34a9be</id>
     <title>林檎越东瀛：苹果的日本之旅</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/111297"/>
-    <updated>2026-07-14T00:53:00Z</updated>
+    <updated>2026-07-14T04:26:51Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 26</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-14:c36c75aea34a3df1</id>
+    <title>你跑不过我!日本少年制服窃贼</title>
+    <link rel="alternate" type="text/html" href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E4%BD%A0%E8%B7%91%E4%B8%8D%E8%BF%87%E6%88%91%21%E6%97%A5%E6%9C%AC%E5%B0%91%E5%B9%B4%E5%88%B6%E6%9C%8D%E7%AA%83%E8%B4%BC&amp;topic_id=28356119"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>贴吧</name></author>
+    <summary>Rank: 26</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-14:408d01e3ed029456</id>
+    <title>海力士暴跌致韩国散户爆仓</title>
+    <link rel="alternate" type="text/html" href="https://s.weibo.com/weibo?q=%E6%B5%B7%E5%8A%9B%E5%A3%AB%E6%9A%B4%E8%B7%8C%E8%87%B4%E9%9F%A9%E5%9B%BD%E6%95%A3%E6%88%B7%E7%88%86%E4%BB%93&amp;t=31&amp;band_rank=28&amp;Refer=top"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>微博</name></author>
+    <summary>Rank: 28</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-14:c2ecb9e7b27009fe</id>
+    <title>日本宣布可回收火箭试飞成功</title>
+    <link rel="alternate" type="text/html" href="https://search.bilibili.com/all?keyword=%E6%97%A5%E6%9C%AC%E5%AE%A3%E5%B8%83%E5%8F%AF%E5%9B%9E%E6%94%B6%E7%81%AB%E7%AE%AD%E8%AF%95%E9%A3%9E%E6%88%90%E5%8A%9F"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>bilibili 热搜</name></author>
+    <summary>Rank: 30</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-14:9118b16d6c47913d</id>
     <title>日本死要面子,拟禁吃猫狗</title>
     <link rel="alternate" type="text/html" href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E6%97%A5%E6%9C%AC%E6%AD%BB%E8%A6%81%E9%9D%A2%E5%AD%90%2C%E6%8B%9F%E7%A6%81%E5%90%83%E7%8C%AB%E7%8B%97&amp;topic_id=28356111"/>
-    <updated>2026-07-14T00:53:00Z</updated>
+    <updated>2026-07-14T04:26:51Z</updated>
     <author><name>贴吧</name></author>
-    <summary>Rank: 26</summary>
+    <summary>Rank: 30</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-07-14:5f6a5a7382c9dd0e</id>
-    <title>法国vs西班牙半决赛前将进行默哀仪式</title>
-    <link rel="alternate" type="text/html" href="https://www.toutiao.com/trending/7661965559416225811/"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>今日头条</name></author>
-    <summary>Also reported by: 百度热搜
-Rank: 4</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-14:b9f93c4379176cc5</id>
-    <title>法国有望成第2支世界杯7连胜欧洲球队</title>
-    <link rel="alternate" type="text/html" href="https://www.toutiao.com/trending/7661108819720126507/"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>今日头条</name></author>
+    <id>urn:pulseradar:2026-07-14:f71fa7ee3e1468c5</id>
+    <title>挑战在美国E人coser前跳舞</title>
+    <link rel="alternate" type="text/html" href="https://search.bilibili.com/all?keyword=%E6%8C%91%E6%88%98%E5%9C%A8%E7%BE%8E%E5%9B%BDE%E4%BA%BAcoser%E5%89%8D%E8%B7%B3%E8%88%9E"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>bilibili 热搜</name></author>
     <summary>Rank: 10</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-14:48a1948ca0233d62</id>
+    <title>特朗普：美国可能负责管理霍尔木兹海峡 守护航道应“收费”</title>
+    <link rel="alternate" type="text/html" href="https://www.cls.cn/detail/2425036"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>财联社热门</name></author>
+    <summary>Rank: 12</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-14:bf215a3069abb845</id>
+    <title>美国光伏巨头进军“卖算力”赛道 CEO声称用户每月能挣数百美元</title>
+    <link rel="alternate" type="text/html" href="https://www.cls.cn/detail/2425149"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>财联社热门</name></author>
+    <summary>Rank: 13</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-14:9dfec144272c1258</id>
+    <title>美国外卖小哥戴项圈抢银行</title>
+    <link rel="alternate" type="text/html" href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E7%BE%8E%E5%9B%BD%E5%A4%96%E5%8D%96%E5%B0%8F%E5%93%A5%E6%88%B4%E9%A1%B9%E5%9C%88%E6%8A%A2%E9%93%B6%E8%A1%8C&amp;topic_id=28356137"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>贴吧</name></author>
+    <summary>Rank: 13</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-14:24cd48b887cafb31</id>
+    <title>伊朗称袭击美国海军第五舰队司令部</title>
+    <link rel="alternate" type="text/html" href="https://www.baidu.com/s?wd=%E4%BC%8A%E6%9C%97%E7%A7%B0%E8%A2%AD%E5%87%BB%E7%BE%8E%E5%9B%BD%E6%B5%B7%E5%86%9B%E7%AC%AC%E4%BA%94%E8%88%B0%E9%98%9F%E5%8F%B8%E4%BB%A4%E9%83%A8"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>百度热搜</name></author>
+    <summary>Also reported by: 今日头条
+Rank: 18</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-14:126f04bbd95d6015</id>
+    <title>美国25岁女子涉嫌性侵男童并录像</title>
+    <link rel="alternate" type="text/html" href="https://www.toutiao.com/trending/7661944739440820260/"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>今日头条</name></author>
+    <summary>Rank: 18</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-14:51f6a5a11bdfbb18</id>
+    <title>AI预测法国vs西班牙赛果</title>
+    <link rel="alternate" type="text/html" href="https://search.bilibili.com/all?keyword=AI%E9%A2%84%E6%B5%8B%E6%B3%95%E5%9B%BDvs%E8%A5%BF%E7%8F%AD%E7%89%99%E8%B5%9B%E6%9E%9C"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>bilibili 热搜</name></author>
+    <summary>Rank: 3</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-14:50dfdb6301ded5ca</id>
+    <title>法国vs西班牙半决赛前将进行默哀</title>
+    <link rel="alternate" type="text/html" href="https://www.baidu.com/s?wd=%E6%B3%95%E5%9B%BDvs%E8%A5%BF%E7%8F%AD%E7%89%99%E5%8D%8A%E5%86%B3%E8%B5%9B%E5%89%8D%E5%B0%86%E8%BF%9B%E8%A1%8C%E9%BB%98%E5%93%80"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>百度热搜</name></author>
+    <summary>Rank: 8</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-14:f4ed351befb22bea</id>
+    <title>战术推演法国vs西班牙</title>
+    <link rel="alternate" type="text/html" href="https://search.bilibili.com/all?keyword=%E6%88%98%E6%9C%AF%E6%8E%A8%E6%BC%94%E6%B3%95%E5%9B%BDvs%E8%A5%BF%E7%8F%AD%E7%89%99"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>bilibili 热搜</name></author>
+    <summary>Rank: 9</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-14:8add47e216a08d1a</id>
+    <title>法国vs西班牙前瞻</title>
+    <link rel="alternate" type="text/html" href="https://www.douyin.com/hot/2570330"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>抖音</name></author>
+    <summary>Rank: 9</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-14:3080dc9b7af30d89</id>
     <title>体坛联播｜西班牙前首相争议言论引法国不满，弗兰执教乌拉圭</title>
     <link rel="alternate" type="text/html" href="https://m.thepaper.cn/newsDetail_forward_33573678"/>
-    <updated>2026-07-14T00:53:00Z</updated>
+    <updated>2026-07-14T04:26:51Z</updated>
     <author><name>澎湃新闻</name></author>
-    <summary>Rank: 15</summary>
+    <summary>Rank: 17</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-07-14:5ed7d15469705537</id>
-    <title>法国vs西班牙赛前战术分析</title>
-    <link rel="alternate" type="text/html" href="https://search.bilibili.com/all?keyword=%E6%B3%95%E5%9B%BDvs%E8%A5%BF%E7%8F%AD%E7%89%99%E8%B5%9B%E5%89%8D%E6%88%98%E6%9C%AF%E5%88%86%E6%9E%90"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>bilibili 热搜</name></author>
-    <summary>Rank: 26</summary>
+    <id>urn:pulseradar:2026-07-14:a61dae14cc99b868</id>
+    <title>法国男子来上海出差背了一台空调回国</title>
+    <link rel="alternate" type="text/html" href="https://s.weibo.com/weibo?q=%23%E6%B3%95%E5%9B%BD%E7%94%B7%E5%AD%90%E6%9D%A5%E4%B8%8A%E6%B5%B7%E5%87%BA%E5%B7%AE%E8%83%8C%E4%BA%86%E4%B8%80%E5%8F%B0%E7%A9%BA%E8%B0%83%E5%9B%9E%E5%9B%BD%23&amp;t=31&amp;band_rank=23&amp;Refer=top"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>微博</name></author>
+    <summary>Rank: 23</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-07-14:ab97101f637db03e</id>
-    <title>Claude is just Mr. Meeseeks</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48899529"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>Hacker News</name></author>
+    <id>urn:pulseradar:2026-07-14:9ddd1369ff376e1c</id>
+    <title>地缘风暴叠加鹰派理事，美股指齐跌，半导体指数重挫5%，原油飙升10%，黄金大跌</title>
+    <link rel="alternate" type="text/html" href="https://wallstreetcn.com/articles/3776754"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>华尔街见闻</name></author>
     <summary>Rank: 1</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-07-14:4dc262e36346e40c</id>
-    <title>没写一行代码！我用 ChatGPT 5.6 (Sol) 做了一个智慧充电站 3D 大屏</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7661160753004904448"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>掘金</name></author>
-    <summary>Rank: 6</summary>
+    <id>urn:pulseradar:2026-07-14:4d9fb56e6720e095</id>
+    <title>美股收盘：美伊局势升级打压风险偏好 芯片股重挫纳指跌逾1.5%</title>
+    <link rel="alternate" type="text/html" href="https://www.cls.cn/detail/2425183"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>财联社热门</name></author>
+    <summary>Rank: 4</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-07-14:010862f3d8aeecc2</id>
-    <title>这下 ChatGPT 更像人类了。</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1227007"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 22</summary>
+    <id>urn:pulseradar:2026-07-14:f72c06bc703a08b1</id>
+    <title>7月14日投资避雷针：10天9板人气股澄清 拟收购标的无生产存储芯片能力</title>
+    <link rel="alternate" type="text/html" href="https://www.cls.cn/detail/2425268"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>财联社热门</name></author>
+    <summary>Rank: 9</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-07-14:14458f929c635a3f</id>
-    <title>Claude Fable 5 提示词泄漏，抓紧学习下</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7661117411174105130"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>掘金</name></author>
-    <summary>Rank: 24</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-14:9e198c1beb5b9973</id>
-    <title>最高领袖誓言复仇，伊朗锁死霍尔木兹海峡，硬刚美国最后通牒</title>
-    <link rel="alternate" type="text/html" href="https://news.ifeng.com/c/8ujWVX3Tjrl"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>凤凰网</name></author>
-    <summary>Rank: 6</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-14:1c65daf648d896ff</id>
-    <title>特朗普称美国将恢复「针对伊朗的封锁」，如何解读美伊此轮博弈？将如何影响中东局势和全球能源市场？</title>
-    <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2060130032056366712"/>
-    <updated>2026-07-14T00:53:00Z</updated>
-    <author><name>知乎</name></author>
-    <summary>Rank: 8</summary>
+    <id>urn:pulseradar:2026-07-14:ab322f76fea6520b</id>
+    <title>周星驰星女郎雪野入驻抖音</title>
+    <link rel="alternate" type="text/html" href="https://www.douyin.com/hot/2570121"/>
+    <updated>2026-07-14T04:26:51Z</updated>
+    <author><name>抖音</name></author>
+    <summary>Rank: 17</summary>
   </entry>
 </feed>

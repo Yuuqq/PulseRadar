@@ -1,30 +1,30 @@
 {
-  "updated": "2026-07-15T22:32:46Z",
+  "updated": "2026-07-15T23:32:56Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 26,
+      "count": 28,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 14,
+      "count": 15,
       "url": "/reports/feeds/kw-101806f57c.xml"
-    },
-    "kw-77c22b5841": {
-      "keyword": "西欧",
-      "count": 12,
-      "url": "/reports/feeds/kw-77c22b5841.xml"
     },
     "kw-5f479f2ee3": {
       "keyword": "微软 / 谷歌 / 苹果",
       "count": 10,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
     },
+    "kw-77c22b5841": {
+      "keyword": "西欧",
+      "count": 10,
+      "url": "/reports/feeds/kw-77c22b5841.xml"
+    },
     "kw-ac6fb2f2fe": {
       "keyword": "东亚",
-      "count": 8,
+      "count": 6,
       "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
     "openai-claude": {
@@ -37,15 +37,15 @@
       "count": 5,
       "url": "/reports/feeds/kw-be93bcade4.xml"
     },
+    "kw-6ba2f2e06f": {
+      "keyword": "胖东来",
+      "count": 2,
+      "url": "/reports/feeds/kw-6ba2f2e06f.xml"
+    },
     "kw-3842b66185": {
       "keyword": "腾讯",
       "count": 2,
       "url": "/reports/feeds/kw-3842b66185.xml"
-    },
-    "kw-6ba2f2e06f": {
-      "keyword": "胖东来",
-      "count": 1,
-      "url": "/reports/feeds/kw-6ba2f2e06f.xml"
     },
     "deepseek": {
       "keyword": "DeepSeek",
@@ -81,6 +81,11 @@
       "keyword": "印度",
       "count": 1,
       "url": "/reports/feeds/kw-4866e189d5.xml"
+    },
+    "kw-a44c35f5da": {
+      "keyword": "机器人 / 机器狗 / 具身智能",
+      "count": 1,
+      "url": "/reports/feeds/kw-a44c35f5da.xml"
     },
     "kw-2dd56c6548": {
       "keyword": "航天",

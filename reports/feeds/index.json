@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-16T22:31:52Z",
+  "updated": "2026-07-16T23:28:30Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
@@ -9,33 +9,33 @@
     },
     "kw-5f479f2ee3": {
       "keyword": "微软 / 谷歌 / 苹果",
-      "count": 15,
+      "count": 16,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 14,
+      "count": 16,
       "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-de0204639b": {
       "keyword": "芯片",
-      "count": 9,
+      "count": 8,
       "url": "/reports/feeds/kw-de0204639b.xml"
     },
     "kw-ac6fb2f2fe": {
       "keyword": "东亚",
-      "count": 7,
+      "count": 6,
       "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
-    },
-    "openai-claude": {
-      "keyword": "OpenAI / Claude",
-      "count": 4,
-      "url": "/reports/feeds/openai-claude.xml"
     },
     "kw-77c22b5841": {
       "keyword": "西欧",
       "count": 4,
       "url": "/reports/feeds/kw-77c22b5841.xml"
+    },
+    "openai-claude": {
+      "keyword": "OpenAI / Claude",
+      "count": 3,
+      "url": "/reports/feeds/openai-claude.xml"
     },
     "deepseek": {
       "keyword": "DeepSeek",
@@ -52,15 +52,15 @@
       "count": 2,
       "url": "/reports/feeds/kw-729c87507a.xml"
     },
-    "kw-ff594893ce": {
-      "keyword": "比亚迪",
-      "count": 1,
-      "url": "/reports/feeds/kw-ff594893ce.xml"
-    },
     "kw-be93bcade4": {
       "keyword": "北美",
-      "count": 1,
+      "count": 2,
       "url": "/reports/feeds/kw-be93bcade4.xml"
+    },
+    "kw-a44c35f5da": {
+      "keyword": "机器人 / 机器狗 / 具身智能",
+      "count": 2,
+      "url": "/reports/feeds/kw-a44c35f5da.xml"
     },
     "kw-4866e189d5": {
       "keyword": "印度",
@@ -72,10 +72,10 @@
       "count": 1,
       "url": "/reports/feeds/kw-9e9d8bf4f6.xml"
     },
-    "kw-a44c35f5da": {
-      "keyword": "机器人 / 机器狗 / 具身智能",
+    "kw-7a807e5e3b": {
+      "keyword": "量子 / 脑机 / 基因",
       "count": 1,
-      "url": "/reports/feeds/kw-a44c35f5da.xml"
+      "url": "/reports/feeds/kw-7a807e5e3b.xml"
     }
   }
 }

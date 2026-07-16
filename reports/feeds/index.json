@@ -1,26 +1,21 @@
 {
-  "updated": "2026-07-16T01:01:08Z",
+  "updated": "2026-07-16T04:38:13Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 27,
+      "count": 31,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 14,
+      "count": 16,
       "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-5f479f2ee3": {
       "keyword": "微软 / 谷歌 / 苹果",
-      "count": 11,
+      "count": 13,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
-    },
-    "kw-ac6fb2f2fe": {
-      "keyword": "东亚",
-      "count": 5,
-      "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
     "kw-be93bcade4": {
       "keyword": "北美",
@@ -32,30 +27,45 @@
       "count": 5,
       "url": "/reports/feeds/kw-77c22b5841.xml"
     },
-    "openai-claude": {
-      "keyword": "OpenAI / Claude",
-      "count": 4,
-      "url": "/reports/feeds/openai-claude.xml"
+    "kw-ac6fb2f2fe": {
+      "keyword": "东亚",
+      "count": 3,
+      "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
-    "kw-6ba2f2e06f": {
-      "keyword": "胖东来",
+    "kw-729c87507a": {
+      "keyword": "字节跳动",
       "count": 2,
-      "url": "/reports/feeds/kw-6ba2f2e06f.xml"
+      "url": "/reports/feeds/kw-729c87507a.xml"
     },
     "kw-8ea9aebb87": {
       "keyword": "英伟达 / AMD",
       "count": 2,
       "url": "/reports/feeds/kw-8ea9aebb87.xml"
     },
+    "openai-claude": {
+      "keyword": "OpenAI / Claude",
+      "count": 2,
+      "url": "/reports/feeds/openai-claude.xml"
+    },
+    "kw-4866e189d5": {
+      "keyword": "印度",
+      "count": 2,
+      "url": "/reports/feeds/kw-4866e189d5.xml"
+    },
     "deepseek": {
       "keyword": "DeepSeek",
       "count": 1,
       "url": "/reports/feeds/deepseek.xml"
     },
-    "kw-729c87507a": {
-      "keyword": "字节跳动",
+    "kw-4c6737b9f5": {
+      "keyword": "华为",
       "count": 1,
-      "url": "/reports/feeds/kw-729c87507a.xml"
+      "url": "/reports/feeds/kw-4c6737b9f5.xml"
+    },
+    "kw-ff594893ce": {
+      "keyword": "比亚迪",
+      "count": 1,
+      "url": "/reports/feeds/kw-ff594893ce.xml"
     },
     "kw-3842b66185": {
       "keyword": "腾讯",
@@ -71,16 +81,6 @@
       "keyword": "俄罗斯",
       "count": 1,
       "url": "/reports/feeds/kw-5bdcf826f2.xml"
-    },
-    "kw-4866e189d5": {
-      "keyword": "印度",
-      "count": 1,
-      "url": "/reports/feeds/kw-4866e189d5.xml"
-    },
-    "kw-a44c35f5da": {
-      "keyword": "机器人 / 机器狗 / 具身智能",
-      "count": 1,
-      "url": "/reports/feeds/kw-a44c35f5da.xml"
     },
     "kw-2dd56c6548": {
       "keyword": "航天",

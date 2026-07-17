@@ -4,39 +4,47 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-07-17T11:05:56Z</updated>
+  <updated>2026-07-17T12:43:14Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
+  <entry>
+    <id>urn:pulseradar:2026-07-17:969bd0d77589c52b</id>
+    <title>Unabyss for Claude</title>
+    <link rel="alternate" type="text/html" href="https://www.producthunt.com/products/unabyss"/>
+    <updated>2026-07-17T12:43:14Z</updated>
+    <author><name>Product Hunt</name></author>
+    <summary>Rank: 1</summary>
+  </entry>
   <entry>
     <id>urn:pulseradar:2026-07-17:92a6eda9d805a3af</id>
     <title>chatgpt work 的 9 核 16G 容器</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1228086"/>
-    <updated>2026-07-17T11:05:56Z</updated>
+    <updated>2026-07-17T12:43:14Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 3</summary>
+    <summary>Rank: 7</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-17:dbdf5fea518c270d</id>
     <title>$100 AI Music Video: Claude Fable 5 vs. GPT-5.6 Sol</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48939524"/>
-    <updated>2026-07-17T11:05:56Z</updated>
+    <updated>2026-07-17T12:43:14Z</updated>
     <author><name>Hacker News</name></author>
-    <summary>Rank: 11</summary>
+    <summary>Rank: 13</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-17:aafdd8852d546564</id>
     <title>做产品冷启动时，我发现 GPT/Claude 对话太长太散，于是做了个协作画布</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1228065"/>
-    <updated>2026-07-17T11:05:56Z</updated>
+    <updated>2026-07-17T12:43:14Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 11</summary>
+    <summary>Rank: 15</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-17:13bd5f90d2623e1f</id>
     <title>面试官让我优化一个卡死的表格，我打开 Claude 五秒重写，他放下咖啡问我要不要来当组长</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7662617384499576858"/>
-    <updated>2026-07-17T11:05:56Z</updated>
+    <updated>2026-07-17T12:43:14Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 24</summary>
+    <summary>Rank: 23</summary>
   </entry>
 </feed>

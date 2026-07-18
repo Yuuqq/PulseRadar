@@ -1,15 +1,15 @@
 {
-  "updated": "2026-07-18T08:19:48Z",
+  "updated": "2026-07-18T09:56:39Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 30,
+      "count": 33,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 20,
+      "count": 15,
       "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-5f479f2ee3": {
@@ -19,7 +19,7 @@
     },
     "kw-ac6fb2f2fe": {
       "keyword": "东亚",
-      "count": 7,
+      "count": 8,
       "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
     "kw-be93bcade4": {
@@ -34,7 +34,7 @@
     },
     "kw-de0204639b": {
       "keyword": "芯片",
-      "count": 5,
+      "count": 3,
       "url": "/reports/feeds/kw-de0204639b.xml"
     },
     "kw-4c6737b9f5": {
@@ -47,10 +47,10 @@
       "count": 2,
       "url": "/reports/feeds/openai-claude.xml"
     },
-    "kw-a44c35f5da": {
-      "keyword": "机器人 / 机器狗 / 具身智能",
+    "kw-4866e189d5": {
+      "keyword": "印度",
       "count": 2,
-      "url": "/reports/feeds/kw-a44c35f5da.xml"
+      "url": "/reports/feeds/kw-4866e189d5.xml"
     },
     "kw-f4293b9b43": {
       "keyword": "三体/流浪地球",
@@ -72,15 +72,15 @@
       "count": 1,
       "url": "/reports/feeds/kw-bde87c6ca1.xml"
     },
-    "kw-3f426f96e0": {
-      "keyword": "特斯拉",
-      "count": 1,
-      "url": "/reports/feeds/kw-3f426f96e0.xml"
-    },
     "kw-8ea9aebb87": {
       "keyword": "英伟达 / AMD",
       "count": 1,
       "url": "/reports/feeds/kw-8ea9aebb87.xml"
+    },
+    "kw-a44c35f5da": {
+      "keyword": "机器人 / 机器狗 / 具身智能",
+      "count": 1,
+      "url": "/reports/feeds/kw-a44c35f5da.xml"
     }
   }
 }

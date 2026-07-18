@@ -1,15 +1,15 @@
 {
-  "updated": "2026-07-18T21:23:06Z",
+  "updated": "2026-07-18T22:22:57Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 30,
+      "count": 31,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 21,
+      "count": 20,
       "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-5f479f2ee3": {
@@ -19,12 +19,12 @@
     },
     "kw-77c22b5841": {
       "keyword": "西欧",
-      "count": 5,
+      "count": 10,
       "url": "/reports/feeds/kw-77c22b5841.xml"
     },
     "kw-ac6fb2f2fe": {
       "keyword": "东亚",
-      "count": 6,
+      "count": 4,
       "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
     "kw-be93bcade4": {
@@ -32,20 +32,15 @@
       "count": 4,
       "url": "/reports/feeds/kw-be93bcade4.xml"
     },
+    "kw-4c6737b9f5": {
+      "keyword": "华为",
+      "count": 3,
+      "url": "/reports/feeds/kw-4c6737b9f5.xml"
+    },
     "kw-de0204639b": {
       "keyword": "芯片",
       "count": 3,
       "url": "/reports/feeds/kw-de0204639b.xml"
-    },
-    "kw-a44c35f5da": {
-      "keyword": "机器人 / 机器狗 / 具身智能",
-      "count": 3,
-      "url": "/reports/feeds/kw-a44c35f5da.xml"
-    },
-    "kw-4c6737b9f5": {
-      "keyword": "华为",
-      "count": 2,
-      "url": "/reports/feeds/kw-4c6737b9f5.xml"
     },
     "openai-claude": {
       "keyword": "OpenAI / Claude",
@@ -56,6 +51,11 @@
       "keyword": "印度",
       "count": 2,
       "url": "/reports/feeds/kw-4866e189d5.xml"
+    },
+    "kw-a44c35f5da": {
+      "keyword": "机器人 / 机器狗 / 具身智能",
+      "count": 2,
+      "url": "/reports/feeds/kw-a44c35f5da.xml"
     },
     "kw-7a807e5e3b": {
       "keyword": "量子 / 脑机 / 基因",

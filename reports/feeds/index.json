@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-19T21:24:36Z",
+  "updated": "2026-07-19T22:26:21Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
@@ -14,7 +14,7 @@
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 11,
+      "count": 10,
       "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "openai-claude": {
@@ -24,23 +24,28 @@
     },
     "kw-be93bcade4": {
       "keyword": "北美",
-      "count": 5,
+      "count": 6,
       "url": "/reports/feeds/kw-be93bcade4.xml"
     },
     "kw-77c22b5841": {
       "keyword": "西欧",
-      "count": 5,
+      "count": 4,
       "url": "/reports/feeds/kw-77c22b5841.xml"
     },
     "kw-bde87c6ca1": {
       "keyword": "国产开源模型",
-      "count": 4,
+      "count": 3,
       "url": "/reports/feeds/kw-bde87c6ca1.xml"
     },
     "deepseek": {
       "keyword": "DeepSeek",
       "count": 2,
       "url": "/reports/feeds/deepseek.xml"
+    },
+    "kw-4c6737b9f5": {
+      "keyword": "华为",
+      "count": 2,
+      "url": "/reports/feeds/kw-4c6737b9f5.xml"
     },
     "kw-ac6fb2f2fe": {
       "keyword": "东亚",
@@ -51,11 +56,6 @@
       "keyword": "机器人 / 机器狗 / 具身智能",
       "count": 2,
       "url": "/reports/feeds/kw-a44c35f5da.xml"
-    },
-    "kw-4c6737b9f5": {
-      "keyword": "华为",
-      "count": 1,
-      "url": "/reports/feeds/kw-4c6737b9f5.xml"
     },
     "kw-ff594893ce": {
       "keyword": "比亚迪",

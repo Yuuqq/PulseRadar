@@ -1,15 +1,15 @@
 {
-  "updated": "2026-07-19T17:32:03Z",
+  "updated": "2026-07-19T18:30:24Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 22,
+      "count": 24,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
     "kw-5f479f2ee3": {
       "keyword": "微软 / 谷歌 / 苹果",
-      "count": 13,
+      "count": 12,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
     },
     "kw-101806f57c": {
@@ -77,11 +77,6 @@
       "count": 1,
       "url": "/reports/feeds/kw-3f426f96e0.xml"
     },
-    "kw-8ea9aebb87": {
-      "keyword": "英伟达 / AMD",
-      "count": 1,
-      "url": "/reports/feeds/kw-8ea9aebb87.xml"
-    },
     "kw-5bdcf826f2": {
       "keyword": "俄罗斯",
       "count": 1,
@@ -96,6 +91,11 @@
       "keyword": "航天",
       "count": 1,
       "url": "/reports/feeds/kw-2dd56c6548.xml"
+    },
+    "kw-7a807e5e3b": {
+      "keyword": "量子 / 脑机 / 基因",
+      "count": 1,
+      "url": "/reports/feeds/kw-7a807e5e3b.xml"
     }
   }
 }

@@ -1,10 +1,10 @@
 {
-  "updated": "2026-07-19T15:30:49Z",
+  "updated": "2026-07-19T16:27:35Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 24,
+      "count": 25,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
     "kw-5f479f2ee3": {
@@ -14,22 +14,22 @@
     },
     "openai-claude": {
       "keyword": "OpenAI / Claude",
-      "count": 8,
+      "count": 9,
       "url": "/reports/feeds/openai-claude.xml"
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 7,
+      "count": 8,
       "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-be93bcade4": {
       "keyword": "北美",
-      "count": 7,
+      "count": 6,
       "url": "/reports/feeds/kw-be93bcade4.xml"
     },
     "kw-77c22b5841": {
       "keyword": "西欧",
-      "count": 6,
+      "count": 5,
       "url": "/reports/feeds/kw-77c22b5841.xml"
     },
     "kw-4c6737b9f5": {
@@ -44,18 +44,13 @@
     },
     "kw-ac6fb2f2fe": {
       "keyword": "东亚",
-      "count": 3,
+      "count": 4,
       "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
     "deepseek": {
       "keyword": "DeepSeek",
       "count": 2,
       "url": "/reports/feeds/deepseek.xml"
-    },
-    "kw-3f426f96e0": {
-      "keyword": "特斯拉",
-      "count": 2,
-      "url": "/reports/feeds/kw-3f426f96e0.xml"
     },
     "kw-6ba2f2e06f": {
       "keyword": "胖东来",
@@ -66,6 +61,11 @@
       "keyword": "比亚迪",
       "count": 1,
       "url": "/reports/feeds/kw-ff594893ce.xml"
+    },
+    "kw-3f426f96e0": {
+      "keyword": "特斯拉",
+      "count": 1,
+      "url": "/reports/feeds/kw-3f426f96e0.xml"
     },
     "kw-8ea9aebb87": {
       "keyword": "英伟达 / AMD",

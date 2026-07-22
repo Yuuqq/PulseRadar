@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-22T16:55:58Z",
+  "updated": "2026-07-22T18:41:33Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
@@ -9,7 +9,7 @@
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 16,
+      "count": 13,
       "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-5f479f2ee3": {
@@ -19,12 +19,12 @@
     },
     "openai-claude": {
       "keyword": "OpenAI / Claude",
-      "count": 8,
+      "count": 7,
       "url": "/reports/feeds/openai-claude.xml"
     },
     "kw-ac6fb2f2fe": {
       "keyword": "东亚",
-      "count": 6,
+      "count": 5,
       "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
     "kw-be93bcade4": {
@@ -37,15 +37,15 @@
       "count": 3,
       "url": "/reports/feeds/kw-4866e189d5.xml"
     },
-    "kw-6ba2f2e06f": {
-      "keyword": "胖东来",
-      "count": 2,
-      "url": "/reports/feeds/kw-6ba2f2e06f.xml"
-    },
     "kw-4c6737b9f5": {
       "keyword": "华为",
       "count": 2,
       "url": "/reports/feeds/kw-4c6737b9f5.xml"
+    },
+    "kw-77c22b5841": {
+      "keyword": "西欧",
+      "count": 2,
+      "url": "/reports/feeds/kw-77c22b5841.xml"
     },
     "kw-de0204639b": {
       "keyword": "芯片",
@@ -56,6 +56,11 @@
       "keyword": "水电 / 光伏 / 核能 / 能源",
       "count": 2,
       "url": "/reports/feeds/kw-426b53cba7.xml"
+    },
+    "kw-6ba2f2e06f": {
+      "keyword": "胖东来",
+      "count": 1,
+      "url": "/reports/feeds/kw-6ba2f2e06f.xml"
     },
     "deepseek": {
       "keyword": "DeepSeek",
@@ -71,11 +76,6 @@
       "keyword": "英伟达 / AMD",
       "count": 1,
       "url": "/reports/feeds/kw-8ea9aebb87.xml"
-    },
-    "kw-77c22b5841": {
-      "keyword": "西欧",
-      "count": 1,
-      "url": "/reports/feeds/kw-77c22b5841.xml"
     }
   }
 }

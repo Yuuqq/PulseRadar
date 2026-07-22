@@ -1,15 +1,15 @@
 {
-  "updated": "2026-07-22T20:38:07Z",
+  "updated": "2026-07-22T22:33:20Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 30,
+      "count": 32,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 13,
+      "count": 15,
       "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-5f479f2ee3": {
@@ -34,13 +34,8 @@
     },
     "kw-8ea9aebb87": {
       "keyword": "英伟达 / AMD",
-      "count": 3,
-      "url": "/reports/feeds/kw-8ea9aebb87.xml"
-    },
-    "kw-be93bcade4": {
-      "keyword": "北美",
       "count": 2,
-      "url": "/reports/feeds/kw-be93bcade4.xml"
+      "url": "/reports/feeds/kw-8ea9aebb87.xml"
     },
     "kw-77c22b5841": {
       "keyword": "西欧",
@@ -71,6 +66,11 @@
       "keyword": "特斯拉",
       "count": 1,
       "url": "/reports/feeds/kw-3f426f96e0.xml"
+    },
+    "kw-be93bcade4": {
+      "keyword": "北美",
+      "count": 1,
+      "url": "/reports/feeds/kw-be93bcade4.xml"
     }
   }
 }

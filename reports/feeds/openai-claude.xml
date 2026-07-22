@@ -4,14 +4,14 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-07-22T04:46:05Z</updated>
+  <updated>2026-07-22T07:54:33Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
   <entry>
     <id>urn:pulseradar:2026-07-22:896653b7273af72b</id>
     <title>OpenAI and Hugging Face address security incident during model evaluation</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48997548"/>
-    <updated>2026-07-22T04:46:05Z</updated>
+    <updated>2026-07-22T07:54:33Z</updated>
     <author><name>Hacker News</name></author>
     <summary>Rank: 1</summary>
   </entry>
@@ -19,48 +19,56 @@
     <id>urn:pulseradar:2026-07-22:d98adfa2329ba422</id>
     <title>阿里要求全员卸载 Claude Code：事件始末与深层逻辑</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7663822459978137646"/>
-    <updated>2026-07-22T04:46:05Z</updated>
+    <updated>2026-07-22T07:54:33Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 3</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-22:4a046197ca80d81f</id>
+    <title>订小阅针对 Claude 和 CodeX 的付费升级方式的支持</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1229061"/>
+    <updated>2026-07-22T07:54:33Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 4</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-22:e57ad84d87dd7bb4</id>
     <title>Advertise in ChatGPT</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48996571"/>
-    <updated>2026-07-22T04:46:05Z</updated>
+    <updated>2026-07-22T07:54:33Z</updated>
     <author><name>Hacker News</name></author>
-    <summary>Rank: 5</summary>
+    <summary>Rank: 7</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-22:3478ec0e4c78b135</id>
     <title>Judge approves $1.5B Anthropic settlement for pirated books used to train Claude</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=48996652"/>
-    <updated>2026-07-22T04:46:05Z</updated>
+    <updated>2026-07-22T07:54:33Z</updated>
     <author><name>Hacker News</name></author>
-    <summary>Rank: 9</summary>
+    <summary>Rank: 8</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-22:7700bf7bc55103a9</id>
     <title>写了个小工具：按终端隔离 Claude Code / Codex 的配置，不用全局切环境变量</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1228982"/>
-    <updated>2026-07-22T04:46:05Z</updated>
+    <updated>2026-07-22T07:54:33Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 10</summary>
+    <summary>Rank: 17</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-22:d831591478388db6</id>
     <title>OpenAI ：上周轰动业界、全球首例 AI 自主入侵 Hugging Face 事件，攻击者正是其自家模型。😂</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1228957"/>
-    <updated>2026-07-22T04:46:05Z</updated>
+    <updated>2026-07-22T07:54:33Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 13</summary>
+    <summary>Rank: 20</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-22:bb35fe70d677f5d9</id>
     <title>做了一个 Codex / ChatGPT 中文排障站，想听听大家对内容结构的意见</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1228927"/>
-    <updated>2026-07-22T04:46:05Z</updated>
+    <updated>2026-07-22T07:54:33Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 22</summary>
+    <summary>Rank: 29</summary>
   </entry>
 </feed>

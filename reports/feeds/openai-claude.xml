@@ -4,55 +4,47 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-07-23T01:05:20Z</updated>
+  <updated>2026-07-23T04:50:51Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
   <entry>
-    <id>urn:pulseradar:2026-07-23:09c67da91661fbea</id>
-    <title>OpenAI 模型「失控」入侵全球最大 AI 开源社区，敲响了哪些 AI 安全警钟？</title>
-    <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2063264614834336987"/>
-    <updated>2026-07-23T01:05:20Z</updated>
-    <author><name>知乎</name></author>
-    <summary>Rank: 1</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-23:d98adfa2329ba422</id>
-    <title>阿里要求全员卸载 Claude Code：事件始末与深层逻辑</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7663822459978137646"/>
-    <updated>2026-07-23T01:05:20Z</updated>
-    <author><name>掘金</name></author>
-    <summary>Rank: 3</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-23:dd00dc2a6761576b</id>
-    <title>Terrence Tao&apos;s ChatGPT Conversation about the Jacobian Conjecture Counterexample</title>
+    <id>urn:pulseradar:2026-07-23:c84d6cd912dcd711</id>
+    <title>Terence Tao&apos;s ChatGPT conversation about the Jacobian Conjecture counterexample</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49010345"/>
-    <updated>2026-07-23T01:05:20Z</updated>
+    <updated>2026-07-23T04:50:51Z</updated>
     <author><name>Hacker News</name></author>
-    <summary>Rank: 6</summary>
+    <summary>Rank: 2</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-23:44848ce5e29a7270</id>
     <title>ComposioHQ /      awesome-claude-skills</title>
     <link rel="alternate" type="text/html" href="https://github.com/ComposioHQ/awesome-claude-skills"/>
-    <updated>2026-07-23T01:05:20Z</updated>
+    <updated>2026-07-23T04:50:51Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 10</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-23:ac8c50dec269fc8e</id>
+    <title>做了个能远程访问的本地 Markdown 知识库， Claude、ChatGPT 和手机 Web 都能读写</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1229215"/>
+    <updated>2026-07-23T04:50:51Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 11</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-23:8c1937e03f5849cf</id>
+    <title>月之暗面 KimiK3 发布后，Anthropic 为何成外网主要吐槽对象？</title>
+    <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2062640157015249755"/>
+    <updated>2026-07-23T04:50:51Z</updated>
+    <author><name>知乎</name></author>
+    <summary>Rank: 11</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-23:fc33a65d5b67c03d</id>
     <title>如果请美国人(不用 claude)申请并支付 claude，哪种支付方式不会让对方担心信用卡/银行卡 等的安全问题？</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1229140"/>
-    <updated>2026-07-23T01:05:20Z</updated>
+    <updated>2026-07-23T04:50:51Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 14</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-23:53035523c2c4ad87</id>
-    <title>编程能力排名是 claude fable5 &gt; gpt sol extra &gt; claude 4.8 吗？</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1229132"/>
-    <updated>2026-07-23T01:05:20Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 19</summary>
+    <summary>Rank: 29</summary>
   </entry>
 </feed>

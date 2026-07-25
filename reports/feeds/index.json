@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-25T22:27:07Z",
+  "updated": "2026-07-25T23:30:01Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
@@ -14,7 +14,7 @@
     },
     "kw-5f479f2ee3": {
       "keyword": "微软 / 谷歌 / 苹果",
-      "count": 9,
+      "count": 10,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
     },
     "kw-8ea9aebb87": {
@@ -67,6 +67,11 @@
       "count": 1,
       "url": "/reports/feeds/kw-c8722a1700.xml"
     },
+    "kw-867b934d82": {
+      "keyword": "黑神话悟空",
+      "count": 1,
+      "url": "/reports/feeds/kw-867b934d82.xml"
+    },
     "kw-3842b66185": {
       "keyword": "腾讯",
       "count": 1,
@@ -82,10 +87,10 @@
       "count": 1,
       "url": "/reports/feeds/kw-77c22b5841.xml"
     },
-    "kw-a44c35f5da": {
-      "keyword": "机器人 / 机器狗 / 具身智能",
+    "kw-4866e189d5": {
+      "keyword": "印度",
       "count": 1,
-      "url": "/reports/feeds/kw-a44c35f5da.xml"
+      "url": "/reports/feeds/kw-4866e189d5.xml"
     },
     "kw-2dd56c6548": {
       "keyword": "航天",

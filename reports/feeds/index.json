@@ -1,20 +1,20 @@
 {
-  "updated": "2026-07-25T21:25:00Z",
+  "updated": "2026-07-25T22:27:07Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 21,
+      "count": 22,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 12,
+      "count": 13,
       "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-5f479f2ee3": {
       "keyword": "微软 / 谷歌 / 苹果",
-      "count": 10,
+      "count": 9,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
     },
     "kw-8ea9aebb87": {
@@ -24,7 +24,7 @@
     },
     "openai-claude": {
       "keyword": "OpenAI / Claude",
-      "count": 4,
+      "count": 5,
       "url": "/reports/feeds/openai-claude.xml"
     },
     "kw-ac6fb2f2fe": {

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-07-27T20:04:16.235598+00:00",
+  "generated_at": "2026-07-27T21:38:48.675364+00:00",
   "reports": [
     {
       "date": "2026-04-16",
@@ -10721,6 +10721,16 @@
       "stats_count": 18,
       "path": "reports/2026-07-28/04-04.html",
       "generated_at": "2026-07-27T20:04:16.235483+00:00"
+    },
+    {
+      "date": "2026-07-28",
+      "time": "05:38",
+      "mode": "daily",
+      "mode_label": "全天汇总",
+      "total_titles": 427,
+      "stats_count": 18,
+      "path": "reports/2026-07-28/05-38.html",
+      "generated_at": "2026-07-27T21:38:48.675267+00:00"
     }
   ]
 }

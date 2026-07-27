@@ -1,15 +1,15 @@
 {
-  "updated": "2026-07-27T20:04:16Z",
+  "updated": "2026-07-27T21:38:48Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 25,
+      "count": 27,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 16,
+      "count": 15,
       "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-5f479f2ee3": {
@@ -19,7 +19,7 @@
     },
     "kw-ac6fb2f2fe": {
       "keyword": "东亚",
-      "count": 9,
+      "count": 7,
       "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
     "openai-claude": {
@@ -29,7 +29,7 @@
     },
     "kw-be93bcade4": {
       "keyword": "北美",
-      "count": 4,
+      "count": 5,
       "url": "/reports/feeds/kw-be93bcade4.xml"
     },
     "kw-3f426f96e0": {

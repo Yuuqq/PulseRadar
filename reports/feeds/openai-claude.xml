@@ -4,14 +4,14 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-07-27T15:59:06Z</updated>
+  <updated>2026-07-27T18:04:13Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
   <entry>
     <id>urn:pulseradar:2026-07-27:07afa77860c7ce19</id>
     <title>Claude Opus 5</title>
     <link rel="alternate" type="text/html" href="https://www.producthunt.com/products/claude"/>
-    <updated>2026-07-27T15:59:06Z</updated>
+    <updated>2026-07-27T18:04:13Z</updated>
     <author><name>Product Hunt</name></author>
     <summary>Rank: 4</summary>
   </entry>
@@ -19,39 +19,31 @@
     <id>urn:pulseradar:2026-07-27:778b0faca6cdef2b</id>
     <title>bradautomates /      claude-video</title>
     <link rel="alternate" type="text/html" href="https://github.com/bradautomates/claude-video"/>
-    <updated>2026-07-27T15:59:06Z</updated>
+    <updated>2026-07-27T18:04:13Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 10</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-27:781dfc05644f933b</id>
+    <title>Anthropic 刚招了研究王阳明的哲学教授，你觉得其他 AI 公司会跟进吗？</title>
+    <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2058547288499119870"/>
+    <updated>2026-07-27T18:04:13Z</updated>
+    <author><name>知乎</name></author>
+    <summary>Rank: 16</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-27:39ebb3695e6c6870</id>
     <title>Claude Opus 5 系统提示词泄漏，膨胀到 20 万字符的系统提示词，你怎么看？</title>
     <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2064349598202779354"/>
-    <updated>2026-07-27T15:59:06Z</updated>
+    <updated>2026-07-27T18:04:13Z</updated>
     <author><name>知乎</name></author>
-    <summary>Rank: 17</summary>
+    <summary>Rank: 20</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-27:eb0c3537d77e8a3d</id>
     <title>开源了一套主题 token 系统 Claude-cream</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1230206"/>
-    <updated>2026-07-27T15:59:06Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 23</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-27:e2a365f82f5d87b7</id>
-    <title>Agent Console：在一个终端里查看并继续 Codex / Claude Code 会话</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1230201"/>
-    <updated>2026-07-27T15:59:06Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 25</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-27:c1a7f54b5694610c</id>
-    <title>gpt 什么时候会像 claude 一样彻底关门</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1230197"/>
-    <updated>2026-07-27T15:59:06Z</updated>
+    <updated>2026-07-27T18:04:13Z</updated>
     <author><name>V2EX</name></author>
     <summary>Rank: 27</summary>
   </entry>
@@ -59,8 +51,16 @@
     <id>urn:pulseradar:2026-07-27:bca584fbd80c3cef</id>
     <title>白嫖 Claude Max 20x 漏洞完整事件始末</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7666793612337152041"/>
-    <updated>2026-07-27T15:59:06Z</updated>
+    <updated>2026-07-27T18:04:13Z</updated>
     <author><name>掘金</name></author>
+    <summary>Rank: 29</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-27:e2a365f82f5d87b7</id>
+    <title>Agent Console：在一个终端里查看并继续 Codex / Claude Code 会话</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1230201"/>
+    <updated>2026-07-27T18:04:13Z</updated>
+    <author><name>V2EX</name></author>
     <summary>Rank: 29</summary>
   </entry>
 </feed>

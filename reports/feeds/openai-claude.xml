@@ -4,87 +4,63 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-07-27T12:42:25Z</updated>
+  <updated>2026-07-27T15:59:06Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
   <entry>
     <id>urn:pulseradar:2026-07-27:07afa77860c7ce19</id>
     <title>Claude Opus 5</title>
     <link rel="alternate" type="text/html" href="https://www.producthunt.com/products/claude"/>
-    <updated>2026-07-27T12:42:25Z</updated>
+    <updated>2026-07-27T15:59:06Z</updated>
     <author><name>Product Hunt</name></author>
     <summary>Rank: 4</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-27:eb0c3537d77e8a3d</id>
-    <title>开源了一套主题 token 系统 Claude-cream</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1230206"/>
-    <updated>2026-07-27T12:42:25Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 7</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-27:9da5d84cf9a2b988</id>
-    <title>Elevated errors on Claude Opus 5</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49068029"/>
-    <updated>2026-07-27T12:42:25Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 9</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-27:e2a365f82f5d87b7</id>
-    <title>Agent Console：在一个终端里查看并继续 Codex / Claude Code 会话</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1230201"/>
-    <updated>2026-07-27T12:42:25Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 9</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-27:778b0faca6cdef2b</id>
     <title>bradautomates /      claude-video</title>
     <link rel="alternate" type="text/html" href="https://github.com/bradautomates/claude-video"/>
-    <updated>2026-07-27T12:42:25Z</updated>
+    <updated>2026-07-27T15:59:06Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 10</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-07-27:c1a7f54b5694610c</id>
-    <title>gpt 什么时候会像 claude 一样彻底关门</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1230197"/>
-    <updated>2026-07-27T12:42:25Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 11</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-27:39ebb3695e6c6870</id>
     <title>Claude Opus 5 系统提示词泄漏，膨胀到 20 万字符的系统提示词，你怎么看？</title>
     <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2064349598202779354"/>
-    <updated>2026-07-27T12:42:25Z</updated>
+    <updated>2026-07-27T15:59:06Z</updated>
     <author><name>知乎</name></author>
-    <summary>Rank: 12</summary>
+    <summary>Rank: 17</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-07-27:8548d8d2de35732f</id>
-    <title>免费送 Claude fable 额度，会有人感兴趣吗。</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1230150"/>
-    <updated>2026-07-27T12:42:25Z</updated>
+    <id>urn:pulseradar:2026-07-27:eb0c3537d77e8a3d</id>
+    <title>开源了一套主题 token 系统 Claude-cream</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1230206"/>
+    <updated>2026-07-27T15:59:06Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 24</summary>
+    <summary>Rank: 23</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-07-27:332c411570424a53</id>
-    <title>一个保存 claude 和 gpt 聊天记录至 notion 和 cloudflare r2 的浏览器插件</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1230134"/>
-    <updated>2026-07-27T12:42:25Z</updated>
+    <id>urn:pulseradar:2026-07-27:e2a365f82f5d87b7</id>
+    <title>Agent Console：在一个终端里查看并继续 Codex / Claude Code 会话</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1230201"/>
+    <updated>2026-07-27T15:59:06Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 29</summary>
+    <summary>Rank: 25</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-07-27:aeedce8d1d04e32c</id>
-    <title>Claude Opus 5 系统提示词被完整泄露，共 135027 字符、约 3.4 万 token</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7666403249923538995"/>
-    <updated>2026-07-27T12:42:25Z</updated>
+    <id>urn:pulseradar:2026-07-27:c1a7f54b5694610c</id>
+    <title>gpt 什么时候会像 claude 一样彻底关门</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1230197"/>
+    <updated>2026-07-27T15:59:06Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 27</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-27:bca584fbd80c3cef</id>
+    <title>白嫖 Claude Max 20x 漏洞完整事件始末</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7666793612337152041"/>
+    <updated>2026-07-27T15:59:06Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 30</summary>
+    <summary>Rank: 29</summary>
   </entry>
 </feed>

@@ -1,15 +1,15 @@
 {
-  "updated": "2026-07-28T16:58:29Z",
+  "updated": "2026-07-28T18:53:39Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-ac6fb2f2fe": {
       "keyword": "东亚",
-      "count": 26,
+      "count": 28,
       "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 23,
+      "count": 25,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
     "kw-5f479f2ee3": {
@@ -19,7 +19,7 @@
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 10,
+      "count": 9,
       "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "openai-claude": {
@@ -49,7 +49,7 @@
     },
     "kw-8ea9aebb87": {
       "keyword": "英伟达 / AMD",
-      "count": 2,
+      "count": 3,
       "url": "/reports/feeds/kw-8ea9aebb87.xml"
     },
     "kw-be93bcade4": {
@@ -57,25 +57,15 @@
       "count": 2,
       "url": "/reports/feeds/kw-be93bcade4.xml"
     },
-    "kw-ff594893ce": {
-      "keyword": "比亚迪",
+    "kw-5bdcf826f2": {
+      "keyword": "俄罗斯",
       "count": 1,
-      "url": "/reports/feeds/kw-ff594893ce.xml"
-    },
-    "kw-77c22b5841": {
-      "keyword": "西欧",
-      "count": 1,
-      "url": "/reports/feeds/kw-77c22b5841.xml"
+      "url": "/reports/feeds/kw-5bdcf826f2.xml"
     },
     "kw-4866e189d5": {
       "keyword": "印度",
       "count": 1,
       "url": "/reports/feeds/kw-4866e189d5.xml"
-    },
-    "kw-a44c35f5da": {
-      "keyword": "机器人 / 机器狗 / 具身智能",
-      "count": 1,
-      "url": "/reports/feeds/kw-a44c35f5da.xml"
     },
     "kw-7a807e5e3b": {
       "keyword": "量子 / 脑机 / 基因",

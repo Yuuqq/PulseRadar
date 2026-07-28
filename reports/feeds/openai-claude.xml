@@ -4,63 +4,71 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-07-28T10:05:29Z</updated>
+  <updated>2026-07-28T12:20:31Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
-  <entry>
-    <id>urn:pulseradar:2026-07-28:05b61e8b17240232</id>
-    <title>使用 Claude 蹬出了一个 pos 收银、库存的 app，限免一波</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1230486"/>
-    <updated>2026-07-28T10:05:29Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 1</summary>
-  </entry>
   <entry>
     <id>urn:pulseradar:2026-07-28:1f683e8205946fa1</id>
     <title>解剖 Claude Code：逆向工程视角下的入口架构分析</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7667096004731846682"/>
-    <updated>2026-07-28T10:05:29Z</updated>
+    <updated>2026-07-28T12:20:31Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 3</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-07-28:ae5e138a8532b08c</id>
-    <title>突然发现 Claude 送了 3 个 pro 周卡，免费送</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1230452"/>
-    <updated>2026-07-28T10:05:29Z</updated>
+    <id>urn:pulseradar:2026-07-28:05b61e8b17240232</id>
+    <title>使用 Claude 蹬出了一个 pos 收银、库存的 app，限免一波</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1230486"/>
+    <updated>2026-07-28T12:20:31Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 9</summary>
+    <summary>Rank: 5</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-28:bca584fbd80c3cef</id>
     <title>白嫖 Claude Max 20x 漏洞完整事件始末</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7666793612337152041"/>
-    <updated>2026-07-28T10:05:29Z</updated>
+    <updated>2026-07-28T12:20:31Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 10</summary>
+    <summary>Rank: 7</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-28:778b0faca6cdef2b</id>
     <title>bradautomates /      claude-video</title>
     <link rel="alternate" type="text/html" href="https://github.com/bradautomates/claude-video"/>
-    <updated>2026-07-28T10:05:29Z</updated>
+    <updated>2026-07-28T12:20:31Z</updated>
     <author><name>GitHub Trending</name></author>
-    <summary>Rank: 11</summary>
+    <summary>Rank: 12</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-07-28:202fbd53c0e982a7</id>
-    <title>开源个工具给所有 Claude 被封号的家人们</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1230404"/>
-    <updated>2026-07-28T10:05:29Z</updated>
+    <id>urn:pulseradar:2026-07-28:ae5e138a8532b08c</id>
+    <title>突然发现 Claude 送了 3 个 pro 周卡，免费送</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1230452"/>
+    <updated>2026-07-28T12:20:31Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 22</summary>
+    <summary>Rank: 13</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-28:88e255d4e878abc9</id>
+    <title>怎么看待大批 Claude 分享的内容又一次被搜索引擎曝光了？</title>
+    <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2065207444305867519"/>
+    <updated>2026-07-28T12:20:31Z</updated>
+    <author><name>知乎</name></author>
+    <summary>Rank: 17</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-07-28:aeedce8d1d04e32c</id>
     <title>Claude Opus 5 系统提示词被完整泄露，共 135027 字符、约 3.4 万 token</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7666403249923538995"/>
-    <updated>2026-07-28T10:05:29Z</updated>
+    <updated>2026-07-28T12:20:31Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 28</summary>
+    <summary>Rank: 26</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-07-28:202fbd53c0e982a7</id>
+    <title>开源个工具给所有 Claude 被封号的家人们</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1230404"/>
+    <updated>2026-07-28T12:20:31Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 26</summary>
   </entry>
 </feed>

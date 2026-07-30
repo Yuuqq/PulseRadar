@@ -1,21 +1,21 @@
 {
-  "updated": "2026-07-30T09:59:04Z",
+  "updated": "2026-07-30T12:12:24Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 18,
+      "count": 21,
       "url": "/reports/feeds/kw-7342c24991.xml"
-    },
-    "kw-101806f57c": {
-      "keyword": "中国",
-      "count": 17,
-      "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-5f479f2ee3": {
       "keyword": "微软 / 谷歌 / 苹果",
-      "count": 14,
+      "count": 18,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
+    },
+    "kw-101806f57c": {
+      "keyword": "中国",
+      "count": 12,
+      "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-ac6fb2f2fe": {
       "keyword": "东亚",
@@ -24,7 +24,7 @@
     },
     "openai-claude": {
       "keyword": "OpenAI / Claude",
-      "count": 5,
+      "count": 6,
       "url": "/reports/feeds/openai-claude.xml"
     },
     "kw-4c6737b9f5": {
@@ -41,11 +41,6 @@
       "keyword": "北美",
       "count": 2,
       "url": "/reports/feeds/kw-be93bcade4.xml"
-    },
-    "kw-4866e189d5": {
-      "keyword": "印度",
-      "count": 2,
-      "url": "/reports/feeds/kw-4866e189d5.xml"
     },
     "kw-426b53cba7": {
       "keyword": "水电 / 光伏 / 核能 / 能源",
@@ -67,10 +62,15 @@
       "count": 1,
       "url": "/reports/feeds/kw-bde87c6ca1.xml"
     },
-    "kw-8ea9aebb87": {
-      "keyword": "英伟达 / AMD",
+    "kw-3f426f96e0": {
+      "keyword": "特斯拉",
       "count": 1,
-      "url": "/reports/feeds/kw-8ea9aebb87.xml"
+      "url": "/reports/feeds/kw-3f426f96e0.xml"
+    },
+    "kw-4866e189d5": {
+      "keyword": "印度",
+      "count": 1,
+      "url": "/reports/feeds/kw-4866e189d5.xml"
     },
     "kw-de0204639b": {
       "keyword": "芯片",

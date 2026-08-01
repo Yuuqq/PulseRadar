@@ -4,38 +4,46 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-07-31T23:29:55Z</updated>
+  <updated>2026-08-01T01:04:02Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
   <entry>
-    <id>urn:pulseradar:2026-07-31:1f683e8205946fa1</id>
+    <id>urn:pulseradar:2026-08-01:1f683e8205946fa1</id>
     <title>解剖 Claude Code：逆向工程视角下的入口架构分析</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7667096004731846682"/>
-    <updated>2026-07-31T23:29:55Z</updated>
+    <updated>2026-08-01T01:04:02Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 1</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-07-31:ffdf860d1cb1e275</id>
-    <title>我把 Claude Code 的 statusline 和主题配置整理成了一个可版本化仓库</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1231338"/>
-    <updated>2026-07-31T23:29:55Z</updated>
-    <author><name>V2EX</name></author>
+    <id>urn:pulseradar:2026-08-01:41331475f8ddbab1</id>
+    <title>OpenAI：我们黑了不止一家公司，Anthropic：我也是</title>
+    <link rel="alternate" type="text/html" href="https://wallstreetcn.com/articles/3778448"/>
+    <updated>2026-08-01T01:04:02Z</updated>
+    <author><name>华尔街见闻</name></author>
+    <summary>Rank: 8</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-08-01:a380ccb7c2a01e32</id>
+    <title>如何看待 Anthropic 公布 Claude 也发生了沙箱逃逸，真实入侵了三家机构？</title>
+    <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2066465758503252393"/>
+    <updated>2026-08-01T01:04:02Z</updated>
+    <author><name>知乎</name></author>
     <summary>Rank: 14</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-07-31:a31e7e95d95f0a0f</id>
-    <title>如何看待 Claude 大规模封禁国内开发者账号，让依赖 AI 的程序员「功力尽失」，被调侃天才程序员陨落？</title>
-    <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2065499504187371980"/>
-    <updated>2026-07-31T23:29:55Z</updated>
-    <author><name>知乎</name></author>
-    <summary>Rank: 17</summary>
+    <id>urn:pulseradar:2026-08-01:ffdf860d1cb1e275</id>
+    <title>我把 Claude Code 的 statusline 和主题配置整理成了一个可版本化仓库</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1231338"/>
+    <updated>2026-08-01T01:04:02Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 18</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-07-31:7716d18332f6d20d</id>
+    <id>urn:pulseradar:2026-08-01:7716d18332f6d20d</id>
     <title>Claude Code 接国产模型不能识图？一个 MCP 让纯文本模型也能看图</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7667756207139651635"/>
-    <updated>2026-07-31T23:29:55Z</updated>
+    <updated>2026-08-01T01:04:02Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 26</summary>
   </entry>

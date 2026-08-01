@@ -1,10 +1,10 @@
 {
-  "updated": "2026-08-01T17:31:01Z",
+  "updated": "2026-08-01T18:30:53Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 20,
+      "count": 18,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
     "kw-101806f57c": {
@@ -19,7 +19,7 @@
     },
     "deepseek": {
       "keyword": "DeepSeek",
-      "count": 4,
+      "count": 5,
       "url": "/reports/feeds/deepseek.xml"
     },
     "kw-ac6fb2f2fe": {
@@ -42,15 +42,20 @@
       "count": 2,
       "url": "/reports/feeds/openai-claude.xml"
     },
-    "kw-be93bcade4": {
-      "keyword": "北美",
-      "count": 2,
-      "url": "/reports/feeds/kw-be93bcade4.xml"
-    },
     "kw-4c6737b9f5": {
       "keyword": "华为",
       "count": 1,
       "url": "/reports/feeds/kw-4c6737b9f5.xml"
+    },
+    "kw-3f426f96e0": {
+      "keyword": "特斯拉",
+      "count": 1,
+      "url": "/reports/feeds/kw-3f426f96e0.xml"
+    },
+    "kw-be93bcade4": {
+      "keyword": "北美",
+      "count": 1,
+      "url": "/reports/feeds/kw-be93bcade4.xml"
     },
     "kw-5bdcf826f2": {
       "keyword": "俄罗斯",

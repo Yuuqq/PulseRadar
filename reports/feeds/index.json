@@ -1,25 +1,25 @@
 {
-  "updated": "2026-08-02T18:32:20Z",
+  "updated": "2026-08-02T19:45:26Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 20,
+      "count": 21,
       "url": "/reports/feeds/kw-7342c24991.xml"
-    },
-    "kw-101806f57c": {
-      "keyword": "中国",
-      "count": 13,
-      "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-5f479f2ee3": {
       "keyword": "微软 / 谷歌 / 苹果",
-      "count": 12,
+      "count": 13,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
+    },
+    "kw-101806f57c": {
+      "keyword": "中国",
+      "count": 12,
+      "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "deepseek": {
       "keyword": "DeepSeek",
-      "count": 10,
+      "count": 11,
       "url": "/reports/feeds/deepseek.xml"
     },
     "kw-ac6fb2f2fe": {
@@ -32,15 +32,15 @@
       "count": 4,
       "url": "/reports/feeds/kw-be93bcade4.xml"
     },
-    "kw-6ba2f2e06f": {
-      "keyword": "胖东来",
-      "count": 3,
-      "url": "/reports/feeds/kw-6ba2f2e06f.xml"
-    },
     "kw-de0204639b": {
       "keyword": "芯片",
-      "count": 4,
+      "count": 3,
       "url": "/reports/feeds/kw-de0204639b.xml"
+    },
+    "kw-6ba2f2e06f": {
+      "keyword": "胖东来",
+      "count": 2,
+      "url": "/reports/feeds/kw-6ba2f2e06f.xml"
     },
     "kw-4c6737b9f5": {
       "keyword": "华为",

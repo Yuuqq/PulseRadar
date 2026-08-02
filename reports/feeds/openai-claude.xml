@@ -4,31 +4,39 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-08-02T01:06:46Z</updated>
+  <updated>2026-08-02T04:54:01Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
+  <entry>
+    <id>urn:pulseradar:2026-08-02:f9857b03315eb339</id>
+    <title>OpenAI&apos;s claimed disproof of Connes&apos; Rigidity Conjecture is invalid [pdf]</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49140869"/>
+    <updated>2026-08-02T04:54:01Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 2</summary>
+  </entry>
   <entry>
     <id>urn:pulseradar:2026-08-02:3892797b200a1df9</id>
     <title>OpenAI 的十个重大数学成果：数学核爆已成常态</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1231496"/>
-    <updated>2026-08-02T01:06:46Z</updated>
+    <updated>2026-08-02T04:54:01Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 2</summary>
+    <summary>Rank: 10</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-08-02:eeeefb2a0302989c</id>
     <title>Claude Code 是不是挺长时间没有更新了</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1231486"/>
-    <updated>2026-08-02T01:06:46Z</updated>
+    <updated>2026-08-02T04:54:01Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 5</summary>
+    <summary>Rank: 13</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-08-02:65b7c1a0bcd13480</id>
     <title>做了一个本地代理，看 Claude Code 发出去的提示词并进行分析</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1231461"/>
-    <updated>2026-08-02T01:06:46Z</updated>
+    <updated>2026-08-02T04:54:01Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 12</summary>
+    <summary>Rank: 19</summary>
   </entry>
 </feed>

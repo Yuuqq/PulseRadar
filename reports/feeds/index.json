@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-02T22:27:46Z",
+  "updated": "2026-08-02T23:29:26Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
@@ -7,10 +7,10 @@
       "count": 24,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
-    "kw-101806f57c": {
-      "keyword": "中国",
+    "kw-ac6fb2f2fe": {
+      "keyword": "东亚",
       "count": 12,
-      "url": "/reports/feeds/kw-101806f57c.xml"
+      "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
     "deepseek": {
       "keyword": "DeepSeek",
@@ -19,17 +19,17 @@
     },
     "kw-5f479f2ee3": {
       "keyword": "微软 / 谷歌 / 苹果",
-      "count": 10,
+      "count": 11,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
     },
-    "kw-ac6fb2f2fe": {
-      "keyword": "东亚",
+    "kw-101806f57c": {
+      "keyword": "中国",
       "count": 10,
-      "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
+      "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-be93bcade4": {
       "keyword": "北美",
-      "count": 5,
+      "count": 4,
       "url": "/reports/feeds/kw-be93bcade4.xml"
     },
     "kw-6ba2f2e06f": {

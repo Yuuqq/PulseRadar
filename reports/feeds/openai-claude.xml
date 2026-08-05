@@ -4,31 +4,23 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-08-05T00:54:28Z</updated>
+  <updated>2026-08-05T04:42:32Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
+  <entry>
+    <id>urn:pulseradar:2026-08-05:4fed79dfa6970eb7</id>
+    <title>求助 claude code 升级为 2.1.222 后，无法使用自定义供应商</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1232198"/>
+    <updated>2026-08-05T04:42:32Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 8</summary>
+  </entry>
   <entry>
     <id>urn:pulseradar:2026-08-05:37c16a17f8436c44</id>
     <title>Claude Code 是怎么自己改代码的？答案藏在这 4 个工具里</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7669335296040894490"/>
-    <updated>2026-08-05T00:54:28Z</updated>
+    <updated>2026-08-05T04:42:32Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 12</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-08-05:a5271a0473331bbc</id>
-    <title>Third-party cyber evaluations involving OpenAI models</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49175248"/>
-    <updated>2026-08-05T00:54:28Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 16</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-08-05:255acb4272e098dd</id>
-    <title>解决 Claude Code/Codex 跨 Session 失忆：我们开源了长时上下文引擎</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1232095"/>
-    <updated>2026-08-05T00:54:28Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 21</summary>
+    <summary>Rank: 14</summary>
   </entry>
 </feed>

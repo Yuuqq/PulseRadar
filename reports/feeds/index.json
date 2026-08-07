@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-07T21:10:38Z",
+  "updated": "2026-08-07T22:06:47Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
@@ -7,15 +7,15 @@
       "count": 21,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
+    "kw-101806f57c": {
+      "keyword": "中国",
+      "count": 12,
+      "url": "/reports/feeds/kw-101806f57c.xml"
+    },
     "kw-5f479f2ee3": {
       "keyword": "微软 / 谷歌 / 苹果",
       "count": 10,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
-    },
-    "kw-101806f57c": {
-      "keyword": "中国",
-      "count": 9,
-      "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-ac6fb2f2fe": {
       "keyword": "东亚",
@@ -51,11 +51,6 @@
       "keyword": "腾讯",
       "count": 1,
       "url": "/reports/feeds/kw-3842b66185.xml"
-    },
-    "openai-claude": {
-      "keyword": "OpenAI / Claude",
-      "count": 1,
-      "url": "/reports/feeds/openai-claude.xml"
     },
     "kw-de0204639b": {
       "keyword": "芯片",

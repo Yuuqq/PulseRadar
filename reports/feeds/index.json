@@ -1,10 +1,10 @@
 {
-  "updated": "2026-08-07T16:24:42Z",
+  "updated": "2026-08-07T17:23:44Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 16,
+      "count": 18,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
     "kw-101806f57c": {
@@ -19,12 +19,12 @@
     },
     "kw-ac6fb2f2fe": {
       "keyword": "东亚",
-      "count": 11,
+      "count": 10,
       "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
     "deepseek": {
       "keyword": "DeepSeek",
-      "count": 6,
+      "count": 5,
       "url": "/reports/feeds/deepseek.xml"
     },
     "kw-be93bcade4": {
@@ -71,11 +71,6 @@
       "keyword": "自动驾驶",
       "count": 1,
       "url": "/reports/feeds/kw-9e9d8bf4f6.xml"
-    },
-    "kw-2dd56c6548": {
-      "keyword": "航天",
-      "count": 1,
-      "url": "/reports/feeds/kw-2dd56c6548.xml"
     },
     "kw-7a807e5e3b": {
       "keyword": "量子 / 脑机 / 基因",

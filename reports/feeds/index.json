@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-07T15:26:06Z",
+  "updated": "2026-08-07T16:24:42Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
@@ -9,7 +9,7 @@
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 14,
+      "count": 12,
       "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-5f479f2ee3": {
@@ -32,11 +32,6 @@
       "count": 5,
       "url": "/reports/feeds/kw-be93bcade4.xml"
     },
-    "kw-c8722a1700": {
-      "keyword": "宇树机器人",
-      "count": 3,
-      "url": "/reports/feeds/kw-c8722a1700.xml"
-    },
     "kw-3842b66185": {
       "keyword": "腾讯",
       "count": 3,
@@ -51,6 +46,11 @@
       "keyword": "芯片",
       "count": 2,
       "url": "/reports/feeds/kw-de0204639b.xml"
+    },
+    "kw-c8722a1700": {
+      "keyword": "宇树机器人",
+      "count": 1,
+      "url": "/reports/feeds/kw-c8722a1700.xml"
     },
     "kw-729c87507a": {
       "keyword": "字节跳动",
@@ -71,6 +71,16 @@
       "keyword": "自动驾驶",
       "count": 1,
       "url": "/reports/feeds/kw-9e9d8bf4f6.xml"
+    },
+    "kw-2dd56c6548": {
+      "keyword": "航天",
+      "count": 1,
+      "url": "/reports/feeds/kw-2dd56c6548.xml"
+    },
+    "kw-7a807e5e3b": {
+      "keyword": "量子 / 脑机 / 基因",
+      "count": 1,
+      "url": "/reports/feeds/kw-7a807e5e3b.xml"
     }
   }
 }

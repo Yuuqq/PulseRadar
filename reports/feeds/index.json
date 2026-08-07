@@ -1,20 +1,20 @@
 {
-  "updated": "2026-08-07T19:29:23Z",
+  "updated": "2026-08-07T20:05:43Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 18,
+      "count": 21,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 12,
+      "count": 10,
       "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-5f479f2ee3": {
       "keyword": "微软 / 谷歌 / 苹果",
-      "count": 11,
+      "count": 10,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
     },
     "kw-ac6fb2f2fe": {
@@ -32,10 +32,10 @@
       "count": 6,
       "url": "/reports/feeds/kw-be93bcade4.xml"
     },
-    "kw-3842b66185": {
-      "keyword": "腾讯",
+    "kw-c8722a1700": {
+      "keyword": "宇树机器人",
       "count": 2,
-      "url": "/reports/feeds/kw-3842b66185.xml"
+      "url": "/reports/feeds/kw-c8722a1700.xml"
     },
     "kw-8ea9aebb87": {
       "keyword": "英伟达 / AMD",
@@ -47,20 +47,15 @@
       "count": 2,
       "url": "/reports/feeds/kw-de0204639b.xml"
     },
-    "kw-c8722a1700": {
-      "keyword": "宇树机器人",
-      "count": 1,
-      "url": "/reports/feeds/kw-c8722a1700.xml"
-    },
     "kw-729c87507a": {
       "keyword": "字节跳动",
       "count": 1,
       "url": "/reports/feeds/kw-729c87507a.xml"
     },
-    "openai-claude": {
-      "keyword": "OpenAI / Claude",
+    "kw-3842b66185": {
+      "keyword": "腾讯",
       "count": 1,
-      "url": "/reports/feeds/openai-claude.xml"
+      "url": "/reports/feeds/kw-3842b66185.xml"
     },
     "kw-426b53cba7": {
       "keyword": "水电 / 光伏 / 核能 / 能源",

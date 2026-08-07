@@ -4,14 +4,14 @@
   <subtitle>Subscribe to keyword: 微软 / 谷歌 / 苹果</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/kw-5f479f2ee3.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-08-07T06:45:55Z</updated>
+  <updated>2026-08-07T08:34:43Z</updated>
   <id>urn:pulseradar:feed:904a911d6c5f</id>
   <author><name>PulseRadar</name></author>
   <entry>
-    <id>urn:pulseradar:2026-08-07:6888445f399e15a2</id>
-    <title>做了一个 Apple Pencil 在 Safari 浏览器随手写输入框书写优化体验插件</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1232709"/>
-    <updated>2026-08-07T06:45:55Z</updated>
+    <id>urn:pulseradar:2026-08-07:6c1ea7ec5b2132a6</id>
+    <title>iOS 英文网页 Safari 生词翻译插件 WordHint</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1232762"/>
+    <updated>2026-08-07T08:34:43Z</updated>
     <author><name>V2EX</name></author>
     <summary>Rank: 1</summary>
   </entry>
@@ -19,7 +19,7 @@
     <id>urn:pulseradar:2026-08-07:6f4c6dd809768c36</id>
     <title>google /      guava</title>
     <link rel="alternate" type="text/html" href="https://github.com/google/guava"/>
-    <updated>2026-08-07T06:45:55Z</updated>
+    <updated>2026-08-07T08:34:43Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 7</summary>
   </entry>
@@ -27,31 +27,47 @@
     <id>urn:pulseradar:2026-08-07:fde8f34963a500bb</id>
     <title>消息称 iPhone 18 系列备货遇阻，处理器充足但内存短缺</title>
     <link rel="alternate" type="text/html" href="https://www.coolapk.com/feed/73111553"/>
-    <updated>2026-08-07T06:45:55Z</updated>
+    <updated>2026-08-07T08:34:43Z</updated>
     <author><name>酷安</name></author>
-    <summary>Rank: 8</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-08-07:802062419c4f1bd5</id>
-    <title>为了让女朋友学 AI，给她买了 MacBook Pro，开了每月 200 刀的 GPT，她却说我一直在压迫她 ... 后续</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1232681"/>
-    <updated>2026-08-07T06:45:55Z</updated>
-    <author><name>V2EX</name></author>
     <summary>Rank: 9</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-08-07:0129efaae5c775a1</id>
     <title>让 Codex “用上”Android Studio：JetBrains MCP Server 接入与实践</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7669649119754879026"/>
-    <updated>2026-08-07T06:45:55Z</updated>
+    <updated>2026-08-07T08:34:43Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 16</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-08-07:6888445f399e15a2</id>
+    <title>做了一个 Apple Pencil 在 Safari 浏览器随手写输入框书写优化体验插件</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1232709"/>
+    <updated>2026-08-07T08:34:43Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 18</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-08-07:802062419c4f1bd5</id>
+    <title>为了让女朋友学 AI，给她买了 MacBook Pro，开了每月 200 刀的 GPT，她却说我一直在压迫她 ... 后续</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1232681"/>
+    <updated>2026-08-07T08:34:43Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 26</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-08-07:1d4207c34a115a11</id>
+    <title>iOS 27 强制要求 UISceneDelegate：UIKit 和 Flutter 开发者该如何应对？</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7670438539512381440"/>
+    <updated>2026-08-07T08:34:43Z</updated>
+    <author><name>掘金</name></author>
+    <summary>Rank: 27</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-08-07:fce01113c093e1cd</id>
     <title>具透 | iOS 27 首个公开测试版来了，这些是值得你关注的新功能</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/112287"/>
-    <updated>2026-08-07T06:45:55Z</updated>
+    <updated>2026-08-07T08:34:43Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 28</summary>
   </entry>
@@ -59,16 +75,8 @@
     <id>urn:pulseradar:2026-08-07:286f44d4f10553ab</id>
     <title>iOS / iPadOS 27 Public Beta 公测版来了：升降级指南 &amp; 注意事项</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/112288"/>
-    <updated>2026-08-07T06:45:55Z</updated>
+    <updated>2026-08-07T08:34:43Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 29</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-08-07:a07513e0f0224230</id>
-    <title>Isobar：开源跨平台短波气象传真（WEFAX）解码器，兼容 KG-FAX， macOS / Windows / Linux 全平台</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1232598"/>
-    <updated>2026-08-07T06:45:55Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 30</summary>
   </entry>
 </feed>

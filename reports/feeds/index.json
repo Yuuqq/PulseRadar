@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-08T19:54:21Z",
+  "updated": "2026-08-08T20:59:05Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
@@ -17,15 +17,15 @@
       "count": 9,
       "url": "/reports/feeds/kw-101806f57c.xml"
     },
-    "kw-be93bcade4": {
-      "keyword": "北美",
-      "count": 7,
-      "url": "/reports/feeds/kw-be93bcade4.xml"
-    },
     "kw-ac6fb2f2fe": {
       "keyword": "东亚",
       "count": 6,
       "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
+    },
+    "kw-be93bcade4": {
+      "keyword": "北美",
+      "count": 6,
+      "url": "/reports/feeds/kw-be93bcade4.xml"
     },
     "deepseek": {
       "keyword": "DeepSeek",
@@ -34,7 +34,7 @@
     },
     "openai-claude": {
       "keyword": "OpenAI / Claude",
-      "count": 4,
+      "count": 5,
       "url": "/reports/feeds/openai-claude.xml"
     },
     "kw-6ba2f2e06f": {
@@ -47,11 +47,6 @@
       "count": 2,
       "url": "/reports/feeds/kw-729c87507a.xml"
     },
-    "kw-8ea9aebb87": {
-      "keyword": "英伟达 / AMD",
-      "count": 2,
-      "url": "/reports/feeds/kw-8ea9aebb87.xml"
-    },
     "kw-ff594893ce": {
       "keyword": "比亚迪",
       "count": 1,
@@ -62,10 +57,10 @@
       "count": 1,
       "url": "/reports/feeds/kw-22582edf78.xml"
     },
-    "kw-c8722a1700": {
-      "keyword": "宇树机器人",
+    "kw-8ea9aebb87": {
+      "keyword": "英伟达 / AMD",
       "count": 1,
-      "url": "/reports/feeds/kw-c8722a1700.xml"
+      "url": "/reports/feeds/kw-8ea9aebb87.xml"
     },
     "kw-5bdcf826f2": {
       "keyword": "俄罗斯",

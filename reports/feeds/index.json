@@ -1,25 +1,25 @@
 {
-  "updated": "2026-08-08T08:06:50Z",
+  "updated": "2026-08-08T09:10:42Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 21,
+      "count": 23,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 11,
+      "count": 14,
       "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-5f479f2ee3": {
       "keyword": "微软 / 谷歌 / 苹果",
-      "count": 9,
+      "count": 11,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
     },
     "kw-ac6fb2f2fe": {
       "keyword": "东亚",
-      "count": 7,
+      "count": 8,
       "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
     "kw-be93bcade4": {
@@ -27,15 +27,15 @@
       "count": 7,
       "url": "/reports/feeds/kw-be93bcade4.xml"
     },
-    "kw-c8722a1700": {
-      "keyword": "宇树机器人",
-      "count": 5,
-      "url": "/reports/feeds/kw-c8722a1700.xml"
-    },
     "deepseek": {
       "keyword": "DeepSeek",
       "count": 4,
       "url": "/reports/feeds/deepseek.xml"
+    },
+    "kw-c8722a1700": {
+      "keyword": "宇树机器人",
+      "count": 3,
+      "url": "/reports/feeds/kw-c8722a1700.xml"
     },
     "openai-claude": {
       "keyword": "OpenAI / Claude",
@@ -51,6 +51,11 @@
       "keyword": "字节跳动",
       "count": 1,
       "url": "/reports/feeds/kw-729c87507a.xml"
+    },
+    "kw-3f426f96e0": {
+      "keyword": "特斯拉",
+      "count": 1,
+      "url": "/reports/feeds/kw-3f426f96e0.xml"
     },
     "kw-5bdcf826f2": {
       "keyword": "俄罗斯",

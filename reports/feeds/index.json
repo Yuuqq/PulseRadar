@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-08T21:56:03Z",
+  "updated": "2026-08-08T22:58:03Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
@@ -14,18 +14,18 @@
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 8,
+      "count": 7,
       "url": "/reports/feeds/kw-101806f57c.xml"
+    },
+    "kw-be93bcade4": {
+      "keyword": "北美",
+      "count": 7,
+      "url": "/reports/feeds/kw-be93bcade4.xml"
     },
     "kw-ac6fb2f2fe": {
       "keyword": "东亚",
       "count": 6,
       "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
-    },
-    "kw-be93bcade4": {
-      "keyword": "北美",
-      "count": 6,
-      "url": "/reports/feeds/kw-be93bcade4.xml"
     },
     "deepseek": {
       "keyword": "DeepSeek",

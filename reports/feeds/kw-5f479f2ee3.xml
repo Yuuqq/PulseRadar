@@ -4,38 +4,54 @@
   <subtitle>Subscribe to keyword: 微软 / 谷歌 / 苹果</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/kw-5f479f2ee3.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-08-09T06:08:05Z</updated>
+  <updated>2026-08-09T07:32:23Z</updated>
   <id>urn:pulseradar:feed:904a911d6c5f</id>
   <author><name>PulseRadar</name></author>
+  <entry>
+    <id>urn:pulseradar:2026-08-09:59e6cf62fd4ccc56</id>
+    <title>Microsoft Word for Windows 1.1a, Native X64 Port</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49228663"/>
+    <updated>2026-08-09T07:32:23Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 2</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-08-09:d79735f49911b15c</id>
+    <title>[自荐] 我做了个 Chrome 鉴图扩展：网页图片右键一下，就能让多个模型帮你看</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1233033"/>
+    <updated>2026-08-09T07:32:23Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 2</summary>
+  </entry>
   <entry>
     <id>urn:pulseradar:2026-08-09:6d2bcb06dbababe4</id>
     <title>伯克希尔Q2净利润翻倍，单季回购规模创5年来最大，谷歌进入前五大持仓 | 财报见闻</title>
     <link rel="alternate" type="text/html" href="https://wallstreetcn.com/articles/3778993"/>
-    <updated>2026-08-09T06:08:05Z</updated>
+    <updated>2026-08-09T07:32:23Z</updated>
     <author><name>华尔街见闻</name></author>
-    <summary>Rank: 1</summary>
+    <summary>Rank: 2</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-08-09:d41c71ef51838c1d</id>
     <title>google /      skills</title>
     <link rel="alternate" type="text/html" href="https://github.com/google/skills"/>
-    <updated>2026-08-09T06:08:05Z</updated>
+    <updated>2026-08-09T07:32:23Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 4</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-08-09:72e2091041201fec</id>
-    <title>用了这么多年苹果，第一次感觉这牌子可以扔了，充电都充不进去，电越充越少，之前以为是air散热的问题，换了pm，结果还是一样，夏天发热掉帧卡顿，卡得想砸手机，就这体验，下一代还想要涨价，安卓三千块的机子都比它稳，又便宜又好用，我真不知道我图什么，起码不会动不动，充不进去电 #iPhone17Pro# #iOS27#</title>
-    <link rel="alternate" type="text/html" href="https://www.coolapk.com/feed/73139174"/>
-    <updated>2026-08-09T06:08:05Z</updated>
-    <author><name>酷安</name></author>
-    <summary>Rank: 5</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-08-09:5ab945ef29cc1e8f</id>
     <title>这么看玄戒O1还是挺强的，如果能正常迭代并且持续用在小米旗舰系列上，凭借自研定位拿下安卓阵营高端机第一的位置应该没问题#HyperOS4# #小米17ProMax#</title>
     <link rel="alternate" type="text/html" href="https://www.coolapk.com/feed/73142207"/>
-    <updated>2026-08-09T06:08:05Z</updated>
+    <updated>2026-08-09T07:32:23Z</updated>
+    <author><name>酷安</name></author>
+    <summary>Rank: 5</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-08-09:72e2091041201fec</id>
+    <title>用了这么多年苹果，第一次感觉这牌子可以扔了，充电都充不进去，电越充越少，之前以为是air散热的问题，换了pm，结果还是一样，夏天发热掉帧卡顿，卡得想砸手机，就这体验，下一代还想要涨价，安卓三千块的机子都比它稳，又便宜又好用，我真不知道我图什么，起码不会动不动，充不进去电 #iPhone17Pro# #iOS27#</title>
+    <link rel="alternate" type="text/html" href="https://www.coolapk.com/feed/73139174"/>
+    <updated>2026-08-09T07:32:23Z</updated>
     <author><name>酷安</name></author>
     <summary>Rank: 6</summary>
   </entry>
@@ -43,7 +59,7 @@
     <id>urn:pulseradar:2026-08-09:6f4c6dd809768c36</id>
     <title>google /      guava</title>
     <link rel="alternate" type="text/html" href="https://github.com/google/guava"/>
-    <updated>2026-08-09T06:08:05Z</updated>
+    <updated>2026-08-09T07:32:23Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 8</summary>
   </entry>
@@ -51,31 +67,23 @@
     <id>urn:pulseradar:2026-08-09:c44d8de47bed916f</id>
     <title>关闭 Windows 11 窗口圆角边框（无需修改系统文件/管理员权限）</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1233009"/>
-    <updated>2026-08-09T06:08:05Z</updated>
+    <updated>2026-08-09T07:32:23Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 11</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-08-09:a64f0e92002d87ce</id>
-    <title>在 Windows 上跑 lwIP（三）：把 lwIP 移植进自己的工程</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7670553177822969897"/>
-    <updated>2026-08-09T06:08:05Z</updated>
-    <author><name>掘金</name></author>
-    <summary>Rank: 14</summary>
+    <summary>Rank: 13</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-08-09:b13c87f6b9cbd09a</id>
     <title>看完 YouTube / 网课三个月后找不到重点：我整理了一套「带时间戳」的视频批注法</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1232949"/>
-    <updated>2026-08-09T06:08:05Z</updated>
+    <updated>2026-08-09T07:32:23Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 22</summary>
+    <summary>Rank: 24</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-08-09:fce01113c093e1cd</id>
     <title>具透 | iOS 27 首个公开测试版来了，这些是值得你关注的新功能</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/112287"/>
-    <updated>2026-08-09T06:08:05Z</updated>
+    <updated>2026-08-09T07:32:23Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 30</summary>
   </entry>

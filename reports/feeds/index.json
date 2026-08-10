@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-10T21:12:34Z",
+  "updated": "2026-08-10T22:07:11Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
@@ -9,18 +9,18 @@
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 12,
+      "count": 13,
       "url": "/reports/feeds/kw-101806f57c.xml"
-    },
-    "kw-5f479f2ee3": {
-      "keyword": "微软 / 谷歌 / 苹果",
-      "count": 8,
-      "url": "/reports/feeds/kw-5f479f2ee3.xml"
     },
     "kw-ac6fb2f2fe": {
       "keyword": "东亚",
-      "count": 6,
+      "count": 7,
       "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
+    },
+    "kw-5f479f2ee3": {
+      "keyword": "微软 / 谷歌 / 苹果",
+      "count": 6,
+      "url": "/reports/feeds/kw-5f479f2ee3.xml"
     },
     "deepseek": {
       "keyword": "DeepSeek",
@@ -56,6 +56,16 @@
       "keyword": "印度",
       "count": 2,
       "url": "/reports/feeds/kw-4866e189d5.xml"
+    },
+    "kw-6c0d8d7c4a": {
+      "keyword": "智元机器人 / 众擎机器人",
+      "count": 1,
+      "url": "/reports/feeds/kw-6c0d8d7c4a.xml"
+    },
+    "kw-3d21f79c2a": {
+      "keyword": "申奥",
+      "count": 1,
+      "url": "/reports/feeds/kw-3d21f79c2a.xml"
     },
     "kw-3842b66185": {
       "keyword": "腾讯",

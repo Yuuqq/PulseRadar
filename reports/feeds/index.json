@@ -1,25 +1,25 @@
 {
-  "updated": "2026-08-11T22:12:16Z",
+  "updated": "2026-08-11T23:12:36Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 26,
+      "count": 28,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 13,
+      "count": 15,
       "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-ac6fb2f2fe": {
       "keyword": "东亚",
-      "count": 9,
+      "count": 10,
       "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
     "kw-5f479f2ee3": {
       "keyword": "微软 / 谷歌 / 苹果",
-      "count": 8,
+      "count": 7,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
     },
     "kw-8ea9aebb87": {
@@ -29,13 +29,8 @@
     },
     "deepseek": {
       "keyword": "DeepSeek",
-      "count": 3,
+      "count": 4,
       "url": "/reports/feeds/deepseek.xml"
-    },
-    "kw-c8722a1700": {
-      "keyword": "宇树机器人",
-      "count": 3,
-      "url": "/reports/feeds/kw-c8722a1700.xml"
     },
     "openai-claude": {
       "keyword": "OpenAI / Claude",
@@ -47,10 +42,10 @@
       "count": 2,
       "url": "/reports/feeds/kw-6ba2f2e06f.xml"
     },
-    "kw-bde87c6ca1": {
-      "keyword": "国产开源模型",
+    "kw-c8722a1700": {
+      "keyword": "宇树机器人",
       "count": 2,
-      "url": "/reports/feeds/kw-bde87c6ca1.xml"
+      "url": "/reports/feeds/kw-c8722a1700.xml"
     },
     "kw-ff594893ce": {
       "keyword": "比亚迪",
@@ -62,10 +57,20 @@
       "count": 1,
       "url": "/reports/feeds/kw-3842b66185.xml"
     },
+    "kw-bde87c6ca1": {
+      "keyword": "国产开源模型",
+      "count": 1,
+      "url": "/reports/feeds/kw-bde87c6ca1.xml"
+    },
     "kw-3f426f96e0": {
       "keyword": "特斯拉",
       "count": 1,
       "url": "/reports/feeds/kw-3f426f96e0.xml"
+    },
+    "kw-de0204639b": {
+      "keyword": "芯片",
+      "count": 1,
+      "url": "/reports/feeds/kw-de0204639b.xml"
     },
     "kw-426b53cba7": {
       "keyword": "水电 / 光伏 / 核能 / 能源",

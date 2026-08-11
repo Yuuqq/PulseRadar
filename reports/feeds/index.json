@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-11T18:24:32Z",
+  "updated": "2026-08-11T19:35:05Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
@@ -9,7 +9,7 @@
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 12,
+      "count": 11,
       "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-ac6fb2f2fe": {
@@ -19,33 +19,28 @@
     },
     "kw-5f479f2ee3": {
       "keyword": "微软 / 谷歌 / 苹果",
-      "count": 8,
+      "count": 7,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
+    },
+    "deepseek": {
+      "keyword": "DeepSeek",
+      "count": 4,
+      "url": "/reports/feeds/deepseek.xml"
     },
     "kw-8ea9aebb87": {
       "keyword": "英伟达 / AMD",
-      "count": 5,
+      "count": 4,
       "url": "/reports/feeds/kw-8ea9aebb87.xml"
     },
     "kw-c8722a1700": {
       "keyword": "宇树机器人",
-      "count": 4,
-      "url": "/reports/feeds/kw-c8722a1700.xml"
-    },
-    "deepseek": {
-      "keyword": "DeepSeek",
       "count": 3,
-      "url": "/reports/feeds/deepseek.xml"
+      "url": "/reports/feeds/kw-c8722a1700.xml"
     },
     "kw-6ba2f2e06f": {
       "keyword": "胖东来",
       "count": 2,
       "url": "/reports/feeds/kw-6ba2f2e06f.xml"
-    },
-    "kw-b0922629ca": {
-      "keyword": "京东",
-      "count": 2,
-      "url": "/reports/feeds/kw-b0922629ca.xml"
     },
     "kw-bde87c6ca1": {
       "keyword": "国产开源模型",
@@ -81,11 +76,6 @@
       "keyword": "特斯拉",
       "count": 1,
       "url": "/reports/feeds/kw-3f426f96e0.xml"
-    },
-    "kw-4866e189d5": {
-      "keyword": "印度",
-      "count": 1,
-      "url": "/reports/feeds/kw-4866e189d5.xml"
     },
     "kw-426b53cba7": {
       "keyword": "水电 / 光伏 / 核能 / 能源",

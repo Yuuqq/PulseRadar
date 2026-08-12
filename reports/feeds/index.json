@@ -1,25 +1,25 @@
 {
-  "updated": "2026-08-12T05:14:04Z",
+  "updated": "2026-08-12T06:53:24Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 28,
+      "count": 23,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 11,
+      "count": 12,
       "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-5f479f2ee3": {
       "keyword": "微软 / 谷歌 / 苹果",
-      "count": 8,
+      "count": 10,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
     },
     "kw-ac6fb2f2fe": {
       "keyword": "东亚",
-      "count": 7,
+      "count": 6,
       "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
     "kw-be93bcade4": {
@@ -27,29 +27,29 @@
       "count": 6,
       "url": "/reports/feeds/kw-be93bcade4.xml"
     },
+    "deepseek": {
+      "keyword": "DeepSeek",
+      "count": 4,
+      "url": "/reports/feeds/deepseek.xml"
+    },
     "kw-f1da3aa601": {
       "keyword": "影之刃零",
       "count": 4,
       "url": "/reports/feeds/kw-f1da3aa601.xml"
-    },
-    "kw-6ba2f2e06f": {
-      "keyword": "胖东来",
-      "count": 3,
-      "url": "/reports/feeds/kw-6ba2f2e06f.xml"
-    },
-    "deepseek": {
-      "keyword": "DeepSeek",
-      "count": 3,
-      "url": "/reports/feeds/deepseek.xml"
     },
     "kw-3f426f96e0": {
       "keyword": "特斯拉",
       "count": 3,
       "url": "/reports/feeds/kw-3f426f96e0.xml"
     },
+    "kw-c8722a1700": {
+      "keyword": "宇树机器人",
+      "count": 2,
+      "url": "/reports/feeds/kw-c8722a1700.xml"
+    },
     "kw-8ea9aebb87": {
       "keyword": "英伟达 / AMD",
-      "count": 3,
+      "count": 2,
       "url": "/reports/feeds/kw-8ea9aebb87.xml"
     },
     "openai-claude": {
@@ -61,6 +61,11 @@
       "keyword": "芯片",
       "count": 2,
       "url": "/reports/feeds/kw-de0204639b.xml"
+    },
+    "kw-6ba2f2e06f": {
+      "keyword": "胖东来",
+      "count": 1,
+      "url": "/reports/feeds/kw-6ba2f2e06f.xml"
     },
     "kw-4c6737b9f5": {
       "keyword": "华为",

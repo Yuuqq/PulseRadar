@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-12T03:04:56Z",
+  "updated": "2026-08-12T05:14:04Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
@@ -9,33 +9,23 @@
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 8,
+      "count": 11,
       "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-5f479f2ee3": {
       "keyword": "微软 / 谷歌 / 苹果",
-      "count": 7,
+      "count": 8,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
-    },
-    "kw-be93bcade4": {
-      "keyword": "北美",
-      "count": 5,
-      "url": "/reports/feeds/kw-be93bcade4.xml"
-    },
-    "openai-claude": {
-      "keyword": "OpenAI / Claude",
-      "count": 5,
-      "url": "/reports/feeds/openai-claude.xml"
     },
     "kw-ac6fb2f2fe": {
       "keyword": "东亚",
-      "count": 5,
+      "count": 7,
       "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
-    "deepseek": {
-      "keyword": "DeepSeek",
-      "count": 4,
-      "url": "/reports/feeds/deepseek.xml"
+    "kw-be93bcade4": {
+      "keyword": "北美",
+      "count": 6,
+      "url": "/reports/feeds/kw-be93bcade4.xml"
     },
     "kw-f1da3aa601": {
       "keyword": "影之刃零",
@@ -47,6 +37,11 @@
       "count": 3,
       "url": "/reports/feeds/kw-6ba2f2e06f.xml"
     },
+    "deepseek": {
+      "keyword": "DeepSeek",
+      "count": 3,
+      "url": "/reports/feeds/deepseek.xml"
+    },
     "kw-3f426f96e0": {
       "keyword": "特斯拉",
       "count": 3,
@@ -57,15 +52,20 @@
       "count": 3,
       "url": "/reports/feeds/kw-8ea9aebb87.xml"
     },
-    "kw-4866e189d5": {
-      "keyword": "印度",
+    "openai-claude": {
+      "keyword": "OpenAI / Claude",
       "count": 2,
-      "url": "/reports/feeds/kw-4866e189d5.xml"
+      "url": "/reports/feeds/openai-claude.xml"
     },
-    "kw-ff594893ce": {
-      "keyword": "比亚迪",
+    "kw-de0204639b": {
+      "keyword": "芯片",
+      "count": 2,
+      "url": "/reports/feeds/kw-de0204639b.xml"
+    },
+    "kw-4c6737b9f5": {
+      "keyword": "华为",
       "count": 1,
-      "url": "/reports/feeds/kw-ff594893ce.xml"
+      "url": "/reports/feeds/kw-4c6737b9f5.xml"
     },
     "kw-b0922629ca": {
       "keyword": "京东",
@@ -82,10 +82,10 @@
       "count": 1,
       "url": "/reports/feeds/kw-bde87c6ca1.xml"
     },
-    "kw-de0204639b": {
-      "keyword": "芯片",
+    "kw-4866e189d5": {
+      "keyword": "印度",
       "count": 1,
-      "url": "/reports/feeds/kw-de0204639b.xml"
+      "url": "/reports/feeds/kw-4866e189d5.xml"
     },
     "kw-a44c35f5da": {
       "keyword": "机器人 / 机器狗 / 具身智能",

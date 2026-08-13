@@ -4,87 +4,111 @@
   <subtitle>Subscribe to keyword: DeepSeek</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/deepseek.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-08-13T13:57:14Z</updated>
+  <updated>2026-08-13T15:30:59Z</updated>
   <id>urn:pulseradar:feed:fcfa9a7dd0bd</id>
   <author><name>PulseRadar</name></author>
-  <entry>
-    <id>urn:pulseradar:2026-08-13:2cd0aef6dcc24dbc</id>
-    <title>DeepSeek Harness</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49285244"/>
-    <updated>2026-08-13T13:57:14Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Also reported by: V2EX, 百度热搜
-Rank: 1</summary>
-  </entry>
   <entry>
     <id>urn:pulseradar:2026-08-13:cbe18a75cffd6118</id>
     <title>Pi + DeepSeek-v4-Flash，这用着也太爽了。</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7671964740780785670"/>
-    <updated>2026-08-13T13:57:14Z</updated>
+    <updated>2026-08-13T15:30:59Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 1</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-08-13:33b51d84b16a42c1</id>
-    <title>做了个投票版 DeepSeek 梁系浓度调节器，拖一下直接从小难梁到梁祖</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1234208"/>
-    <updated>2026-08-13T13:57:14Z</updated>
+    <id>urn:pulseradar:2026-08-13:9b5cb852bbbab6ce</id>
+    <title>DeepSeek Harness 开发编年史</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1234224"/>
+    <updated>2026-08-13T15:30:59Z</updated>
     <author><name>V2EX</name></author>
+    <summary>Also reported by: Hacker News, bilibili 热搜
+Rank: 1</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-08-13:970a3e3cdf89c5df</id>
+    <title>DeepSeek V4 Pro正式版深夜“突袭”：多项测试逼近Fable 5，撞车Grok 4.6</title>
+    <link rel="alternate" type="text/html" href="https://wallstreetcn.com/articles/3779306"/>
+    <updated>2026-08-13T15:30:59Z</updated>
+    <author><name>华尔街见闻</name></author>
+    <summary>Rank: 1</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-08-13:69464ee809dd4dcc</id>
+    <title>怎么看 DeepSeek 8 月 17 日涨价后的价格，这个峰谷定价你接受吗？</title>
+    <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2071318356477662328"/>
+    <updated>2026-08-13T15:30:59Z</updated>
+    <author><name>知乎</name></author>
     <summary>Rank: 1</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-08-13:c258087b67ddf314</id>
     <title>梁文锋打新宇树科技 1.8 亿获配 120 万股，账面浮盈或超 7.04 亿元，怎样解读他的这一布局？</title>
     <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2071189146777773055"/>
-    <updated>2026-08-13T13:57:14Z</updated>
+    <updated>2026-08-13T15:30:59Z</updated>
     <author><name>知乎</name></author>
-    <summary>Rank: 1</summary>
+    <summary>Rank: 2</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-08-13:970a3e3cdf89c5df</id>
-    <title>DeepSeek V4 Pro正式版深夜“突袭”：多项测试逼近Fable 5，撞车Grok 4.6</title>
-    <link rel="alternate" type="text/html" href="https://wallstreetcn.com/articles/3779306"/>
-    <updated>2026-08-13T13:57:14Z</updated>
-    <author><name>华尔街见闻</name></author>
-    <summary>Rank: 2</summary>
+    <id>urn:pulseradar:2026-08-13:4b9f4e368dbd8ed1</id>
+    <title>DeepSeek Harness 先不用管原理，直接抢先体验</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1234218"/>
+    <updated>2026-08-13T15:30:59Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 3</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-08-13:ebd6d9831a68c8a0</id>
+    <title>OpenCode + DeepSeek 一键直出，就问你可不可怕</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1234216"/>
+    <updated>2026-08-13T15:30:59Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 4</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-08-13:8a5c1fc2dc3517f0</id>
+    <title>DeepSeek Harness 来了，每几分钟就涨 1k 星，初步用了下挺丝滑的，缓存命中率也很高</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1234214"/>
+    <updated>2026-08-13T15:30:59Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 5</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-08-13:2d5cdd42a986739a</id>
+    <title>DeepSeek API确认涨价</title>
+    <link rel="alternate" type="text/html" href="https://search.bilibili.com/all?keyword=DeepSeek+API%E7%A1%AE%E8%AE%A4%E6%B6%A8%E4%BB%B7"/>
+    <updated>2026-08-13T15:30:59Z</updated>
+    <author><name>bilibili 热搜</name></author>
+    <summary>Rank: 6</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-08-13:33b51d84b16a42c1</id>
+    <title>做了个投票版 DeepSeek 梁系浓度调节器，拖一下直接从小难梁到梁祖</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1234208"/>
+    <updated>2026-08-13T15:30:59Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 7</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-08-13:a6f285bd0b9ada0c</id>
     <title>DeepSeek Harness 来了，一切皆插件的 Agent 框架</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1234203"/>
-    <updated>2026-08-13T13:57:14Z</updated>
+    <updated>2026-08-13T15:30:59Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 4</summary>
+    <summary>Rank: 10</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-08-13:78e16e863a1cca13</id>
+    <title>如何评价在 8 月 13 日发布的 DeepSeek Harness？</title>
+    <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2071335529577239335"/>
+    <updated>2026-08-13T15:30:59Z</updated>
+    <author><name>知乎</name></author>
+    <summary>Rank: 10</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-08-13:f27eafc8a05ac7e5</id>
     <title>deepseek v4 pro 正式版来了， api 价格大幅上升</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1234199"/>
-    <updated>2026-08-13T13:57:14Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 7</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-08-13:17d91b1b64ef341f</id>
-    <title>DeepSeek V4 Pro 0813</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49274600"/>
-    <updated>2026-08-13T13:57:14Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 8</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-08-13:11d3eb4bac574d9e</id>
-    <title>deepseek 价格起飞了</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1234195"/>
-    <updated>2026-08-13T13:57:14Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 10</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-08-13:8afb2e05953a76fb</id>
-    <title>deepseek 系里是否 deepseek 公司，小米，硅基流动这 3 家价格差不多？还有性价比高，稳定的 deepseek 系大供应商吗？</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1234184"/>
-    <updated>2026-08-13T13:57:14Z</updated>
+    <updated>2026-08-13T15:30:59Z</updated>
     <author><name>V2EX</name></author>
     <summary>Rank: 13</summary>
   </entry>
@@ -92,24 +116,48 @@ Rank: 1</summary>
     <id>urn:pulseradar:2026-08-13:70a29bb65286be66</id>
     <title>从零在浏览器里跑 DeepSeek-R1：WebGPU + Transformer.js 全链路实战</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7671475529255321610"/>
-    <updated>2026-08-13T13:57:14Z</updated>
+    <updated>2026-08-13T15:30:59Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 14</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-08-13:69464ee809dd4dcc</id>
-    <title>怎么看 DeepSeek 8 月 17 日涨价后的价格，这个峰谷定价你接受吗？</title>
-    <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2071318356477662328"/>
-    <updated>2026-08-13T13:57:14Z</updated>
-    <author><name>知乎</name></author>
-    <summary>Rank: 17</summary>
+    <id>urn:pulseradar:2026-08-13:11d3eb4bac574d9e</id>
+    <title>deepseek 价格起飞了</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1234195"/>
+    <updated>2026-08-13T15:30:59Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 16</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-08-13:2d5cdd42a986739a</id>
-    <title>DeepSeek API确认涨价</title>
-    <link rel="alternate" type="text/html" href="https://search.bilibili.com/all?keyword=DeepSeek+API%E7%A1%AE%E8%AE%A4%E6%B6%A8%E4%BB%B7"/>
-    <updated>2026-08-13T13:57:14Z</updated>
-    <author><name>bilibili 热搜</name></author>
-    <summary>Rank: 25</summary>
+    <id>urn:pulseradar:2026-08-13:a3fac943b0e8c548</id>
+    <title>DeepSeek Harness 已发布，如何评价这款产品？</title>
+    <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2071335385494557060"/>
+    <updated>2026-08-13T15:30:59Z</updated>
+    <author><name>知乎</name></author>
+    <summary>Rank: 16</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-08-13:17d91b1b64ef341f</id>
+    <title>DeepSeek V4 Pro 0813</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49274600"/>
+    <updated>2026-08-13T15:30:59Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 18</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-08-13:8afb2e05953a76fb</id>
+    <title>deepseek 系里是否 deepseek 公司，小米，硅基流动这 3 家价格差不多？还有性价比高，稳定的 deepseek 系大供应商吗？</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1234184"/>
+    <updated>2026-08-13T15:30:59Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 19</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-08-13:ad7a49d174ec8d4f</id>
+    <title>DeepSeek API Pricing Update</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49285160"/>
+    <updated>2026-08-13T15:30:59Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 28</summary>
   </entry>
 </feed>

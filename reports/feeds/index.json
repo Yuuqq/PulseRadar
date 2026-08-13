@@ -1,25 +1,25 @@
 {
-  "updated": "2026-08-13T18:26:37Z",
+  "updated": "2026-08-13T19:34:47Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "deepseek": {
       "keyword": "DeepSeek",
-      "count": 20,
+      "count": 22,
       "url": "/reports/feeds/deepseek.xml"
     },
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 19,
+      "count": 18,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 9,
+      "count": 11,
       "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-5f479f2ee3": {
       "keyword": "微软 / 谷歌 / 苹果",
-      "count": 7,
+      "count": 6,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
     },
     "kw-ac6fb2f2fe": {
@@ -27,25 +27,25 @@
       "count": 6,
       "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
-    "kw-be93bcade4": {
-      "keyword": "北美",
-      "count": 6,
-      "url": "/reports/feeds/kw-be93bcade4.xml"
-    },
     "kw-6ba2f2e06f": {
       "keyword": "胖东来",
       "count": 5,
       "url": "/reports/feeds/kw-6ba2f2e06f.xml"
     },
+    "kw-be93bcade4": {
+      "keyword": "北美",
+      "count": 5,
+      "url": "/reports/feeds/kw-be93bcade4.xml"
+    },
     "kw-4c6737b9f5": {
       "keyword": "华为",
-      "count": 3,
+      "count": 4,
       "url": "/reports/feeds/kw-4c6737b9f5.xml"
     },
-    "kw-c8722a1700": {
-      "keyword": "宇树机器人",
-      "count": 2,
-      "url": "/reports/feeds/kw-c8722a1700.xml"
+    "kw-de0204639b": {
+      "keyword": "芯片",
+      "count": 3,
+      "url": "/reports/feeds/kw-de0204639b.xml"
     },
     "kw-f1da3aa601": {
       "keyword": "影之刃零",
@@ -67,20 +67,20 @@
       "count": 2,
       "url": "/reports/feeds/openai-claude.xml"
     },
-    "kw-de0204639b": {
-      "keyword": "芯片",
-      "count": 2,
-      "url": "/reports/feeds/kw-de0204639b.xml"
-    },
     "kw-426b53cba7": {
       "keyword": "水电 / 光伏 / 核能 / 能源",
       "count": 2,
       "url": "/reports/feeds/kw-426b53cba7.xml"
     },
-    "kw-ff594893ce": {
-      "keyword": "比亚迪",
+    "kw-c8722a1700": {
+      "keyword": "宇树机器人",
       "count": 1,
-      "url": "/reports/feeds/kw-ff594893ce.xml"
+      "url": "/reports/feeds/kw-c8722a1700.xml"
+    },
+    "kw-729c87507a": {
+      "keyword": "字节跳动",
+      "count": 1,
+      "url": "/reports/feeds/kw-729c87507a.xml"
     },
     "kw-8ea9aebb87": {
       "keyword": "英伟达 / AMD",

@@ -1,41 +1,41 @@
 {
-  "updated": "2026-08-15T15:45:37Z",
+  "updated": "2026-08-15T16:50:05Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 19,
+      "count": 21,
       "url": "/reports/feeds/kw-7342c24991.xml"
-    },
-    "kw-ac6fb2f2fe": {
-      "keyword": "东亚",
-      "count": 16,
-      "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
     "deepseek": {
       "keyword": "DeepSeek",
-      "count": 11,
+      "count": 14,
       "url": "/reports/feeds/deepseek.xml"
+    },
+    "kw-ac6fb2f2fe": {
+      "keyword": "东亚",
+      "count": 15,
+      "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 9,
-      "url": "/reports/feeds/kw-101806f57c.xml"
-    },
-    "kw-be93bcade4": {
-      "keyword": "北美",
       "count": 7,
-      "url": "/reports/feeds/kw-be93bcade4.xml"
+      "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-6ba2f2e06f": {
       "keyword": "胖东来",
-      "count": 6,
+      "count": 7,
       "url": "/reports/feeds/kw-6ba2f2e06f.xml"
     },
     "kw-5f479f2ee3": {
       "keyword": "微软 / 谷歌 / 苹果",
       "count": 6,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
+    },
+    "kw-be93bcade4": {
+      "keyword": "北美",
+      "count": 5,
+      "url": "/reports/feeds/kw-be93bcade4.xml"
     },
     "kw-bde87c6ca1": {
       "keyword": "国产开源模型",
@@ -76,11 +76,6 @@
       "keyword": "字节跳动",
       "count": 1,
       "url": "/reports/feeds/kw-729c87507a.xml"
-    },
-    "openai-claude": {
-      "keyword": "OpenAI / Claude",
-      "count": 1,
-      "url": "/reports/feeds/openai-claude.xml"
     },
     "kw-de0204639b": {
       "keyword": "芯片",

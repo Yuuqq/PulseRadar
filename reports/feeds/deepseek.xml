@@ -4,128 +4,136 @@
   <subtitle>Subscribe to keyword: DeepSeek</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/deepseek.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-08-14T23:47:33Z</updated>
+  <updated>2026-08-15T01:56:33Z</updated>
   <id>urn:pulseradar:feed:fcfa9a7dd0bd</id>
   <author><name>PulseRadar</name></author>
   <entry>
-    <id>urn:pulseradar:2026-08-14:f3a9b19812a249ad</id>
+    <id>urn:pulseradar:2026-08-15:f3a9b19812a249ad</id>
     <title>DeepSeek 昨晚刚开源了 Harness：附万少的2 万字保姆级教程</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7673390412729614390"/>
-    <updated>2026-08-14T23:47:33Z</updated>
+    <updated>2026-08-15T01:56:33Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 1</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-08-14:8e1a47aafc4acc43</id>
-    <title>在 DeepSeek Harness 里使用 V2EX 提供的 deepseek-v4-flash:0731</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1234521"/>
-    <updated>2026-08-14T23:47:33Z</updated>
+    <id>urn:pulseradar:2026-08-15:91fc17ec144ea550</id>
+    <title>做了个 DeepSeek Harness（DSH）插件的精选目录站， 160 个插件</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1234536"/>
+    <updated>2026-08-15T01:56:33Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 1</summary>
+    <summary>Rank: 2</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-08-14:406abcc9178034ce</id>
+    <id>urn:pulseradar:2026-08-15:406abcc9178034ce</id>
     <title>本期周报围绕手机、AI 大模型与操作系统展开：荣耀 Robot Phone、REDMI K100 Pro 系列、谷歌Pixel 11系列正式登场；小米澎湃OS 4发布；DeepSeek、SpaceXAI 与谷歌带来最新 AI 动态。</title>
     <link rel="alternate" type="text/html" href="https://www.coolapk.com/feed/73240071"/>
-    <updated>2026-08-14T23:47:33Z</updated>
+    <updated>2026-08-15T01:56:33Z</updated>
     <author><name>酷安</name></author>
     <summary>Rank: 3</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-08-14:4fd863a7638dbfd8</id>
-    <title>花了 2 个 5 小时额度， vibe 了一个 DeepSeek Harness GitHub 连接器插件</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1234516"/>
-    <updated>2026-08-14T23:47:33Z</updated>
+    <id>urn:pulseradar:2026-08-15:e0f9d108e4e8a97b</id>
+    <title>DeepSeek Harness 插件：支持微信扫码连接</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1234525"/>
+    <updated>2026-08-15T01:56:33Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 3</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-08-14:1af1113bc52cbe9b</id>
-    <title>DeepSeek Harness</title>
-    <link rel="alternate" type="text/html" href="https://www.producthunt.com/products/deepseek"/>
-    <updated>2026-08-14T23:47:33Z</updated>
-    <author><name>Product Hunt</name></author>
-    <summary>Also reported by: 掘金, bilibili 热搜
+    <summary>Also reported by: Product Hunt, 掘金, bilibili 热搜
 Rank: 6</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-08-14:f6f8649e28280d18</id>
-    <title>整理了一份 DeepSeek Harness (dsh) 插件精选列表，目前收录 270 个插件</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1234499"/>
-    <updated>2026-08-14T23:47:33Z</updated>
+    <id>urn:pulseradar:2026-08-15:8a1dfd78655e603a</id>
+    <title>做一个思想实验，如果 dsh 没有打着 deepseek 的旗号</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1234524"/>
+    <updated>2026-08-15T01:56:33Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 7</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-08-15:8e1a47aafc4acc43</id>
+    <title>在 DeepSeek Harness 里使用 V2EX 提供的 deepseek-v4-flash:0731</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1234521"/>
+    <updated>2026-08-15T01:56:33Z</updated>
     <author><name>V2EX</name></author>
     <summary>Rank: 10</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-08-14:105fa9f8e4dbe6df</id>
-    <title>10 分钟打造自己的专属豆包和 deepseek，基于 Go+React 开发了一款 Agent 编排器 Ollmo</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1234483"/>
-    <updated>2026-08-14T23:47:33Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 11</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-08-14:bd3e4691d6490607</id>
+    <id>urn:pulseradar:2026-08-15:bd3e4691d6490607</id>
     <title>deepseek-ai /      awesome-deepseek-agent</title>
     <link rel="alternate" type="text/html" href="https://github.com/deepseek-ai/awesome-deepseek-agent"/>
-    <updated>2026-08-14T23:47:33Z</updated>
+    <updated>2026-08-15T01:56:33Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 12</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-08-14:f871dd9ed1fa964b</id>
-    <title>苦于 DeepSeek Harness 没有可视化文本搜索， Vibe 了一个插件</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1234484"/>
-    <updated>2026-08-14T23:47:33Z</updated>
+    <id>urn:pulseradar:2026-08-15:4fd863a7638dbfd8</id>
+    <title>花了 2 个 5 小时额度， vibe 了一个 DeepSeek Harness GitHub 连接器插件</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1234516"/>
+    <updated>2026-08-15T01:56:33Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 14</summary>
+    <summary>Rank: 12</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-08-14:b53fc5b21107d4e7</id>
-    <title>我给 deepseek-dsh 配置了一个视觉识别 mcp</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1234470"/>
-    <updated>2026-08-14T23:47:33Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 17</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-08-14:9e632c3eaba2216e</id>
-    <title>DeepSeek Harness 插件越来越多，已经快挑花眼了，试试 👉 https://www.dshplugin.store/</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1234467"/>
-    <updated>2026-08-14T23:47:33Z</updated>
-    <author><name>V2EX</name></author>
+    <id>urn:pulseradar:2026-08-15:52bf5cd43fa3416e</id>
+    <title>DeepSeek Harness 速览：“一切皆插件”意味着什么</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7673436957741039631"/>
+    <updated>2026-08-15T01:56:33Z</updated>
+    <author><name>掘金</name></author>
     <summary>Rank: 18</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-08-14:52bf5cd43fa3416e</id>
-    <title>DeepSeek Harness 速览：“一切皆插件”意味着什么</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7673436957741039631"/>
-    <updated>2026-08-14T23:47:33Z</updated>
+    <id>urn:pulseradar:2026-08-15:f6f8649e28280d18</id>
+    <title>整理了一份 DeepSeek Harness (dsh) 插件精选列表，目前收录 270 个插件</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1234499"/>
+    <updated>2026-08-15T01:56:33Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 19</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-08-15:b246ffcb184fe4d3</id>
+    <title>DeepSeek Harness开源第一天我就上手了——和Claude Code的差距比想象中大</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7673810995882672128"/>
+    <updated>2026-08-15T01:56:33Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 20</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-08-14:82f4870f359a22ab</id>
+    <id>urn:pulseradar:2026-08-15:105fa9f8e4dbe6df</id>
+    <title>10 分钟打造自己的专属豆包和 deepseek，基于 Go+React 开发了一款 Agent 编排器 Ollmo</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1234483"/>
+    <updated>2026-08-15T01:56:33Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 20</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-08-15:f871dd9ed1fa964b</id>
+    <title>苦于 DeepSeek Harness 没有可视化文本搜索， Vibe 了一个插件</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1234484"/>
+    <updated>2026-08-15T01:56:33Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 23</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-08-15:82f4870f359a22ab</id>
     <title>DeepSeek V4 Pro 发布，1.6T 参数、1M 上下文，又有人坐不住了</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7673295877813649444"/>
-    <updated>2026-08-14T23:47:33Z</updated>
+    <updated>2026-08-15T01:56:33Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 25</summary>
+    <summary>Rank: 26</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-08-14:456cc15638e3d93d</id>
+    <id>urn:pulseradar:2026-08-15:9e632c3eaba2216e</id>
+    <title>DeepSeek Harness 插件越来越多，已经快挑花眼了，试试 👉 https://www.dshplugin.store/</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1234467"/>
+    <updated>2026-08-15T01:56:33Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 26</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-08-15:456cc15638e3d93d</id>
     <title>DeepSeek+Pi‑Agent 王炸组合跑赢 Claude‑Code！</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7672956343582359561"/>
-    <updated>2026-08-14T23:47:33Z</updated>
+    <updated>2026-08-15T01:56:33Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 30</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-08-14:45f905a5e007df05</id>
-    <title>有没有老哥做 deepseek harness 的评测 效果咋样</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1234432"/>
-    <updated>2026-08-14T23:47:33Z</updated>
-    <author><name>V2EX</name></author>
     <summary>Rank: 30</summary>
   </entry>
 </feed>

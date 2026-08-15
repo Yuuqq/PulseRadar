@@ -1,10 +1,10 @@
 {
-  "updated": "2026-08-15T18:56:46Z",
+  "updated": "2026-08-15T19:45:33Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 20,
+      "count": 21,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
     "deepseek": {
@@ -14,13 +14,8 @@
     },
     "kw-ac6fb2f2fe": {
       "keyword": "东亚",
-      "count": 14,
+      "count": 15,
       "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
-    },
-    "kw-5f479f2ee3": {
-      "keyword": "微软 / 谷歌 / 苹果",
-      "count": 9,
-      "url": "/reports/feeds/kw-5f479f2ee3.xml"
     },
     "kw-101806f57c": {
       "keyword": "中国",
@@ -29,8 +24,13 @@
     },
     "kw-6ba2f2e06f": {
       "keyword": "胖东来",
-      "count": 6,
+      "count": 8,
       "url": "/reports/feeds/kw-6ba2f2e06f.xml"
+    },
+    "kw-5f479f2ee3": {
+      "keyword": "微软 / 谷歌 / 苹果",
+      "count": 8,
+      "url": "/reports/feeds/kw-5f479f2ee3.xml"
     },
     "kw-be93bcade4": {
       "keyword": "北美",

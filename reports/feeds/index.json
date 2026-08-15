@@ -1,31 +1,31 @@
 {
-  "updated": "2026-08-15T01:56:33Z",
+  "updated": "2026-08-15T03:12:30Z",
   "global": "/reports/feed.xml",
   "feeds": {
-    "kw-ac6fb2f2fe": {
-      "keyword": "东亚",
-      "count": 18,
-      "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
-    },
     "deepseek": {
       "keyword": "DeepSeek",
-      "count": 16,
+      "count": 17,
       "url": "/reports/feeds/deepseek.xml"
+    },
+    "kw-ac6fb2f2fe": {
+      "keyword": "东亚",
+      "count": 15,
+      "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 17,
+      "count": 14,
       "url": "/reports/feeds/kw-7342c24991.xml"
-    },
-    "kw-101806f57c": {
-      "keyword": "中国",
-      "count": 12,
-      "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-5f479f2ee3": {
       "keyword": "微软 / 谷歌 / 苹果",
-      "count": 10,
+      "count": 11,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
+    },
+    "kw-101806f57c": {
+      "keyword": "中国",
+      "count": 10,
+      "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-bde87c6ca1": {
       "keyword": "国产开源模型",
@@ -37,11 +37,6 @@
       "count": 4,
       "url": "/reports/feeds/kw-be93bcade4.xml"
     },
-    "kw-3f426f96e0": {
-      "keyword": "特斯拉",
-      "count": 3,
-      "url": "/reports/feeds/kw-3f426f96e0.xml"
-    },
     "openai-claude": {
       "keyword": "OpenAI / Claude",
       "count": 3,
@@ -51,6 +46,16 @@
       "keyword": "影之刃零",
       "count": 2,
       "url": "/reports/feeds/kw-f1da3aa601.xml"
+    },
+    "kw-729c87507a": {
+      "keyword": "字节跳动",
+      "count": 2,
+      "url": "/reports/feeds/kw-729c87507a.xml"
+    },
+    "kw-3f426f96e0": {
+      "keyword": "特斯拉",
+      "count": 2,
+      "url": "/reports/feeds/kw-3f426f96e0.xml"
     },
     "kw-6ba2f2e06f": {
       "keyword": "胖东来",
@@ -72,15 +77,20 @@
       "count": 1,
       "url": "/reports/feeds/kw-b0922629ca.xml"
     },
-    "kw-729c87507a": {
-      "keyword": "字节跳动",
+    "kw-3842b66185": {
+      "keyword": "腾讯",
       "count": 1,
-      "url": "/reports/feeds/kw-729c87507a.xml"
+      "url": "/reports/feeds/kw-3842b66185.xml"
     },
     "kw-8ea9aebb87": {
       "keyword": "英伟达 / AMD",
       "count": 1,
       "url": "/reports/feeds/kw-8ea9aebb87.xml"
+    },
+    "kw-a44c35f5da": {
+      "keyword": "机器人 / 机器狗 / 具身智能",
+      "count": 1,
+      "url": "/reports/feeds/kw-a44c35f5da.xml"
     },
     "kw-2dd56c6548": {
       "keyword": "航天",

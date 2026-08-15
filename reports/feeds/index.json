@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-15T13:51:46Z",
+  "updated": "2026-08-15T14:48:41Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
@@ -9,18 +9,13 @@
     },
     "kw-ac6fb2f2fe": {
       "keyword": "东亚",
-      "count": 16,
+      "count": 19,
       "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
     "deepseek": {
       "keyword": "DeepSeek",
       "count": 12,
       "url": "/reports/feeds/deepseek.xml"
-    },
-    "kw-101806f57c": {
-      "keyword": "中国",
-      "count": 10,
-      "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-be93bcade4": {
       "keyword": "北美",
@@ -31,6 +26,11 @@
       "keyword": "微软 / 谷歌 / 苹果",
       "count": 6,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
+    },
+    "kw-101806f57c": {
+      "keyword": "中国",
+      "count": 6,
+      "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-6ba2f2e06f": {
       "keyword": "胖东来",

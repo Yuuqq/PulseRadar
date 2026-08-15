@@ -1,35 +1,35 @@
 {
-  "updated": "2026-08-15T17:45:58Z",
+  "updated": "2026-08-15T18:56:46Z",
   "global": "/reports/feed.xml",
   "feeds": {
+    "kw-7342c24991": {
+      "keyword": "AI 相关",
+      "count": 20,
+      "url": "/reports/feeds/kw-7342c24991.xml"
+    },
     "deepseek": {
       "keyword": "DeepSeek",
       "count": 15,
       "url": "/reports/feeds/deepseek.xml"
     },
-    "kw-7342c24991": {
-      "keyword": "AI 相关",
-      "count": 18,
-      "url": "/reports/feeds/kw-7342c24991.xml"
-    },
     "kw-ac6fb2f2fe": {
       "keyword": "东亚",
-      "count": 15,
+      "count": 14,
       "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
+    },
+    "kw-5f479f2ee3": {
+      "keyword": "微软 / 谷歌 / 苹果",
+      "count": 9,
+      "url": "/reports/feeds/kw-5f479f2ee3.xml"
     },
     "kw-101806f57c": {
       "keyword": "中国",
       "count": 8,
       "url": "/reports/feeds/kw-101806f57c.xml"
     },
-    "kw-5f479f2ee3": {
-      "keyword": "微软 / 谷歌 / 苹果",
-      "count": 8,
-      "url": "/reports/feeds/kw-5f479f2ee3.xml"
-    },
     "kw-6ba2f2e06f": {
       "keyword": "胖东来",
-      "count": 7,
+      "count": 6,
       "url": "/reports/feeds/kw-6ba2f2e06f.xml"
     },
     "kw-be93bcade4": {
@@ -71,6 +71,11 @@
       "keyword": "大疆",
       "count": 1,
       "url": "/reports/feeds/kw-22582edf78.xml"
+    },
+    "kw-6c0d8d7c4a": {
+      "keyword": "智元机器人 / 众擎机器人",
+      "count": 1,
+      "url": "/reports/feeds/kw-6c0d8d7c4a.xml"
     },
     "kw-729c87507a": {
       "keyword": "字节跳动",

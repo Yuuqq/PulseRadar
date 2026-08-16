@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-16T20:47:51Z",
+  "updated": "2026-08-16T21:44:48Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "deepseek": {
@@ -24,12 +24,12 @@
     },
     "kw-ac6fb2f2fe": {
       "keyword": "东亚",
-      "count": 7,
+      "count": 6,
       "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
     "kw-6ba2f2e06f": {
       "keyword": "胖东来",
-      "count": 6,
+      "count": 5,
       "url": "/reports/feeds/kw-6ba2f2e06f.xml"
     },
     "kw-8ea9aebb87": {
@@ -57,6 +57,11 @@
       "count": 2,
       "url": "/reports/feeds/kw-c8722a1700.xml"
     },
+    "kw-729c87507a": {
+      "keyword": "字节跳动",
+      "count": 1,
+      "url": "/reports/feeds/kw-729c87507a.xml"
+    },
     "openai-claude": {
       "keyword": "OpenAI / Claude",
       "count": 1,
@@ -76,6 +81,11 @@
       "keyword": "印度",
       "count": 1,
       "url": "/reports/feeds/kw-4866e189d5.xml"
+    },
+    "kw-a44c35f5da": {
+      "keyword": "机器人 / 机器狗 / 具身智能",
+      "count": 1,
+      "url": "/reports/feeds/kw-a44c35f5da.xml"
     }
   }
 }

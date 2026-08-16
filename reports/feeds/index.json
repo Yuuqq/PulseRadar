@@ -1,10 +1,10 @@
 {
-  "updated": "2026-08-16T13:52:57Z",
+  "updated": "2026-08-16T14:48:53Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "deepseek": {
       "keyword": "DeepSeek",
-      "count": 18,
+      "count": 17,
       "url": "/reports/feeds/deepseek.xml"
     },
     "kw-7342c24991": {
@@ -14,7 +14,7 @@
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 13,
+      "count": 12,
       "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-ac6fb2f2fe": {
@@ -37,25 +37,25 @@
       "count": 5,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
     },
-    "kw-2dd56c6548": {
-      "keyword": "航天",
-      "count": 5,
-      "url": "/reports/feeds/kw-2dd56c6548.xml"
-    },
     "kw-3842b66185": {
       "keyword": "腾讯",
       "count": 4,
       "url": "/reports/feeds/kw-3842b66185.xml"
     },
+    "kw-2dd56c6548": {
+      "keyword": "航天",
+      "count": 4,
+      "url": "/reports/feeds/kw-2dd56c6548.xml"
+    },
+    "openai-claude": {
+      "keyword": "OpenAI / Claude",
+      "count": 3,
+      "url": "/reports/feeds/openai-claude.xml"
+    },
     "kw-c8722a1700": {
       "keyword": "宇树机器人",
       "count": 2,
       "url": "/reports/feeds/kw-c8722a1700.xml"
-    },
-    "openai-claude": {
-      "keyword": "OpenAI / Claude",
-      "count": 2,
-      "url": "/reports/feeds/openai-claude.xml"
     },
     "kw-be93bcade4": {
       "keyword": "北美",
@@ -66,11 +66,6 @@
       "keyword": "华为",
       "count": 1,
       "url": "/reports/feeds/kw-4c6737b9f5.xml"
-    },
-    "kw-867b934d82": {
-      "keyword": "黑神话悟空",
-      "count": 1,
-      "url": "/reports/feeds/kw-867b934d82.xml"
     },
     "kw-f1da3aa601": {
       "keyword": "影之刃零",
@@ -86,6 +81,11 @@
       "keyword": "印度",
       "count": 1,
       "url": "/reports/feeds/kw-4866e189d5.xml"
+    },
+    "kw-a44c35f5da": {
+      "keyword": "机器人 / 机器狗 / 具身智能",
+      "count": 1,
+      "url": "/reports/feeds/kw-a44c35f5da.xml"
     }
   }
 }

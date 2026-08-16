@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-16T03:26:52Z",
+  "updated": "2026-08-16T04:08:07Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
@@ -14,33 +14,28 @@
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 14,
+      "count": 17,
       "url": "/reports/feeds/kw-101806f57c.xml"
+    },
+    "kw-6ba2f2e06f": {
+      "keyword": "胖东来",
+      "count": 8,
+      "url": "/reports/feeds/kw-6ba2f2e06f.xml"
     },
     "kw-5f479f2ee3": {
       "keyword": "微软 / 谷歌 / 苹果",
       "count": 9,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
     },
-    "kw-6ba2f2e06f": {
-      "keyword": "胖东来",
-      "count": 7,
-      "url": "/reports/feeds/kw-6ba2f2e06f.xml"
-    },
     "kw-ac6fb2f2fe": {
       "keyword": "东亚",
-      "count": 8,
+      "count": 7,
       "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
     "kw-be93bcade4": {
       "keyword": "北美",
-      "count": 5,
+      "count": 4,
       "url": "/reports/feeds/kw-be93bcade4.xml"
-    },
-    "kw-8ea9aebb87": {
-      "keyword": "英伟达 / AMD",
-      "count": 3,
-      "url": "/reports/feeds/kw-8ea9aebb87.xml"
     },
     "kw-f1da3aa601": {
       "keyword": "影之刃零",
@@ -51,6 +46,11 @@
       "keyword": "腾讯",
       "count": 2,
       "url": "/reports/feeds/kw-3842b66185.xml"
+    },
+    "kw-8ea9aebb87": {
+      "keyword": "英伟达 / AMD",
+      "count": 2,
+      "url": "/reports/feeds/kw-8ea9aebb87.xml"
     },
     "kw-77c22b5841": {
       "keyword": "西欧",

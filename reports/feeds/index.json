@@ -1,10 +1,10 @@
 {
-  "updated": "2026-08-16T05:00:34Z",
+  "updated": "2026-08-16T07:09:12Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 22,
+      "count": 24,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
     "deepseek": {
@@ -14,38 +14,43 @@
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 15,
+      "count": 16,
       "url": "/reports/feeds/kw-101806f57c.xml"
-    },
-    "kw-6ba2f2e06f": {
-      "keyword": "胖东来",
-      "count": 7,
-      "url": "/reports/feeds/kw-6ba2f2e06f.xml"
     },
     "kw-5f479f2ee3": {
       "keyword": "微软 / 谷歌 / 苹果",
-      "count": 9,
+      "count": 8,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
+    },
+    "kw-6ba2f2e06f": {
+      "keyword": "胖东来",
+      "count": 5,
+      "url": "/reports/feeds/kw-6ba2f2e06f.xml"
     },
     "kw-ac6fb2f2fe": {
       "keyword": "东亚",
-      "count": 8,
+      "count": 7,
       "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
     "kw-be93bcade4": {
       "keyword": "北美",
-      "count": 3,
+      "count": 6,
       "url": "/reports/feeds/kw-be93bcade4.xml"
+    },
+    "kw-8ea9aebb87": {
+      "keyword": "英伟达 / AMD",
+      "count": 5,
+      "url": "/reports/feeds/kw-8ea9aebb87.xml"
     },
     "kw-3842b66185": {
       "keyword": "腾讯",
       "count": 2,
       "url": "/reports/feeds/kw-3842b66185.xml"
     },
-    "kw-8ea9aebb87": {
-      "keyword": "英伟达 / AMD",
+    "openai-claude": {
+      "keyword": "OpenAI / Claude",
       "count": 2,
-      "url": "/reports/feeds/kw-8ea9aebb87.xml"
+      "url": "/reports/feeds/openai-claude.xml"
     },
     "kw-77c22b5841": {
       "keyword": "西欧",
@@ -72,10 +77,20 @@
       "count": 1,
       "url": "/reports/feeds/kw-bde87c6ca1.xml"
     },
-    "kw-5bdcf826f2": {
-      "keyword": "俄罗斯",
+    "kw-3f426f96e0": {
+      "keyword": "特斯拉",
       "count": 1,
-      "url": "/reports/feeds/kw-5bdcf826f2.xml"
+      "url": "/reports/feeds/kw-3f426f96e0.xml"
+    },
+    "kw-4866e189d5": {
+      "keyword": "印度",
+      "count": 1,
+      "url": "/reports/feeds/kw-4866e189d5.xml"
+    },
+    "kw-2dd56c6548": {
+      "keyword": "航天",
+      "count": 1,
+      "url": "/reports/feeds/kw-2dd56c6548.xml"
     }
   }
 }

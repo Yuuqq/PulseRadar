@@ -1,10 +1,10 @@
 {
-  "updated": "2026-08-16T16:50:43Z",
+  "updated": "2026-08-16T17:45:14Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 18,
+      "count": 17,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
     "deepseek": {
@@ -14,18 +14,18 @@
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 10,
+      "count": 8,
       "url": "/reports/feeds/kw-101806f57c.xml"
+    },
+    "kw-ac6fb2f2fe": {
+      "keyword": "东亚",
+      "count": 7,
+      "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
     "kw-6ba2f2e06f": {
       "keyword": "胖东来",
       "count": 6,
       "url": "/reports/feeds/kw-6ba2f2e06f.xml"
-    },
-    "kw-ac6fb2f2fe": {
-      "keyword": "东亚",
-      "count": 6,
-      "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
     "kw-8ea9aebb87": {
       "keyword": "英伟达 / AMD",
@@ -39,7 +39,7 @@
     },
     "kw-3842b66185": {
       "keyword": "腾讯",
-      "count": 3,
+      "count": 4,
       "url": "/reports/feeds/kw-3842b66185.xml"
     },
     "kw-2dd56c6548": {
@@ -52,20 +52,20 @@
       "count": 2,
       "url": "/reports/feeds/kw-c8722a1700.xml"
     },
-    "openai-claude": {
-      "keyword": "OpenAI / Claude",
-      "count": 2,
-      "url": "/reports/feeds/openai-claude.xml"
-    },
-    "kw-be93bcade4": {
-      "keyword": "北美",
-      "count": 2,
-      "url": "/reports/feeds/kw-be93bcade4.xml"
-    },
     "kw-4c6737b9f5": {
       "keyword": "华为",
       "count": 1,
       "url": "/reports/feeds/kw-4c6737b9f5.xml"
+    },
+    "openai-claude": {
+      "keyword": "OpenAI / Claude",
+      "count": 1,
+      "url": "/reports/feeds/openai-claude.xml"
+    },
+    "kw-be93bcade4": {
+      "keyword": "北美",
+      "count": 1,
+      "url": "/reports/feeds/kw-be93bcade4.xml"
     },
     "kw-77c22b5841": {
       "keyword": "西欧",

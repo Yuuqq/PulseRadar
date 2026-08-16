@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-16T19:44:35Z",
+  "updated": "2026-08-16T20:47:51Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "deepseek": {
@@ -9,7 +9,7 @@
     },
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 16,
+      "count": 15,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
     "kw-5f479f2ee3": {
@@ -22,15 +22,15 @@
       "count": 8,
       "url": "/reports/feeds/kw-101806f57c.xml"
     },
-    "kw-6ba2f2e06f": {
-      "keyword": "胖东来",
-      "count": 7,
-      "url": "/reports/feeds/kw-6ba2f2e06f.xml"
-    },
     "kw-ac6fb2f2fe": {
       "keyword": "东亚",
       "count": 7,
       "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
+    },
+    "kw-6ba2f2e06f": {
+      "keyword": "胖东来",
+      "count": 6,
+      "url": "/reports/feeds/kw-6ba2f2e06f.xml"
     },
     "kw-8ea9aebb87": {
       "keyword": "英伟达 / AMD",

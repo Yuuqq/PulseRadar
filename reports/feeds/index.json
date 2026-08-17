@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-17T16:55:31Z",
+  "updated": "2026-08-17T17:55:53Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
@@ -14,7 +14,7 @@
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 10,
+      "count": 11,
       "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-6ba2f2e06f": {
@@ -37,19 +37,19 @@
       "count": 5,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
     },
+    "openai-claude": {
+      "keyword": "OpenAI / Claude",
+      "count": 5,
+      "url": "/reports/feeds/openai-claude.xml"
+    },
     "kw-4c6737b9f5": {
       "keyword": "华为",
       "count": 4,
       "url": "/reports/feeds/kw-4c6737b9f5.xml"
     },
-    "openai-claude": {
-      "keyword": "OpenAI / Claude",
-      "count": 4,
-      "url": "/reports/feeds/openai-claude.xml"
-    },
     "kw-bde87c6ca1": {
       "keyword": "国产开源模型",
-      "count": 3,
+      "count": 4,
       "url": "/reports/feeds/kw-bde87c6ca1.xml"
     },
     "kw-ac6fb2f2fe": {
@@ -57,20 +57,15 @@
       "count": 3,
       "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
-    "kw-de0204639b": {
-      "keyword": "芯片",
-      "count": 3,
-      "url": "/reports/feeds/kw-de0204639b.xml"
-    },
     "kw-5bdcf826f2": {
       "keyword": "俄罗斯",
       "count": 2,
       "url": "/reports/feeds/kw-5bdcf826f2.xml"
     },
-    "kw-426b53cba7": {
-      "keyword": "水电 / 光伏 / 核能 / 能源",
-      "count": 1,
-      "url": "/reports/feeds/kw-426b53cba7.xml"
+    "kw-de0204639b": {
+      "keyword": "芯片",
+      "count": 2,
+      "url": "/reports/feeds/kw-de0204639b.xml"
     },
     "kw-ff594893ce": {
       "keyword": "比亚迪",
@@ -82,10 +77,10 @@
       "count": 1,
       "url": "/reports/feeds/kw-3842b66185.xml"
     },
-    "kw-4866e189d5": {
-      "keyword": "印度",
+    "kw-426b53cba7": {
+      "keyword": "水电 / 光伏 / 核能 / 能源",
       "count": 1,
-      "url": "/reports/feeds/kw-4866e189d5.xml"
+      "url": "/reports/feeds/kw-426b53cba7.xml"
     },
     "kw-2dd56c6548": {
       "keyword": "航天",

@@ -4,47 +4,63 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-08-17T06:00:42Z</updated>
+  <updated>2026-08-17T07:32:36Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
+  <entry>
+    <id>urn:pulseradar:2026-08-17:6758fa39579d7443</id>
+    <title>Threadshare：把 Codex / Claude Code 会话变成只读链接，顺便索引本地历史找规律</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1235004"/>
+    <updated>2026-08-17T07:32:36Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 4</summary>
+  </entry>
   <entry>
     <id>urn:pulseradar:2026-08-17:3eebdb2e030b9757</id>
     <title>Claude: System Prompts</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49319556"/>
-    <updated>2026-08-17T06:00:42Z</updated>
+    <updated>2026-08-17T07:32:36Z</updated>
     <author><name>Hacker News</name></author>
-    <summary>Rank: 5</summary>
+    <summary>Rank: 6</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-08-17:d6b7bddfdafc34b2</id>
+    <title>一个 Codex、Claude Code、Grok Build 多账号切换管理应用</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1234985"/>
+    <updated>2026-08-17T07:32:36Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 10</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-08-17:0395018aa98aa594</id>
+    <title>OpenAI CEO：大学读两年就够了</title>
+    <link rel="alternate" type="text/html" href="https://www.baidu.com/s?wd=OpenAI+CEO%EF%BC%9A%E5%A4%A7%E5%AD%A6%E8%AF%BB%E4%B8%A4%E5%B9%B4%E5%B0%B1%E5%A4%9F%E4%BA%86"/>
+    <updated>2026-08-17T07:32:36Z</updated>
+    <author><name>百度热搜</name></author>
+    <summary>Rank: 22</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-08-17:086aae460f3299cc</id>
     <title>如何最大化 Claude Code Session 的价值</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1234919"/>
-    <updated>2026-08-17T06:00:42Z</updated>
+    <updated>2026-08-17T07:32:36Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 10</summary>
+    <summary>Rank: 24</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-08-17:3b7b127f3206df0e</id>
     <title>Motrix 时隔三年终于更新了？作者刚开了 openai 的会员？</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1234920"/>
-    <updated>2026-08-17T06:00:42Z</updated>
+    <updated>2026-08-17T07:32:36Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 11</summary>
+    <summary>Rank: 25</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-08-17:d19bf3d26e16d840</id>
     <title>目前的 codex、claude code 还有必要加类似 codegraph 的代码索引的软件吗?</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1234902"/>
-    <updated>2026-08-17T06:00:42Z</updated>
+    <updated>2026-08-17T07:32:36Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 16</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-08-17:8d93bd159c00547b</id>
-    <title>请教下 chatgpt 拼车的方案</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1234865"/>
-    <updated>2026-08-17T06:00:42Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 25</summary>
+    <summary>Rank: 30</summary>
   </entry>
 </feed>

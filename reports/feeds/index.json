@@ -1,15 +1,15 @@
 {
-  "updated": "2026-08-17T05:08:32Z",
+  "updated": "2026-08-17T06:00:42Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 15,
+      "count": 14,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
     "deepseek": {
       "keyword": "DeepSeek",
-      "count": 11,
+      "count": 12,
       "url": "/reports/feeds/deepseek.xml"
     },
     "kw-5f479f2ee3": {
@@ -22,30 +22,20 @@
       "count": 9,
       "url": "/reports/feeds/kw-6ba2f2e06f.xml"
     },
-    "kw-101806f57c": {
-      "keyword": "中国",
-      "count": 7,
-      "url": "/reports/feeds/kw-101806f57c.xml"
-    },
     "openai-claude": {
       "keyword": "OpenAI / Claude",
       "count": 5,
       "url": "/reports/feeds/openai-claude.xml"
     },
+    "kw-101806f57c": {
+      "keyword": "中国",
+      "count": 5,
+      "url": "/reports/feeds/kw-101806f57c.xml"
+    },
     "kw-8ea9aebb87": {
       "keyword": "英伟达 / AMD",
       "count": 4,
       "url": "/reports/feeds/kw-8ea9aebb87.xml"
-    },
-    "kw-3842b66185": {
-      "keyword": "腾讯",
-      "count": 3,
-      "url": "/reports/feeds/kw-3842b66185.xml"
-    },
-    "kw-ac6fb2f2fe": {
-      "keyword": "东亚",
-      "count": 3,
-      "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
     "kw-4c6737b9f5": {
       "keyword": "华为",
@@ -56,6 +46,26 @@
       "keyword": "比亚迪",
       "count": 2,
       "url": "/reports/feeds/kw-ff594893ce.xml"
+    },
+    "kw-3842b66185": {
+      "keyword": "腾讯",
+      "count": 2,
+      "url": "/reports/feeds/kw-3842b66185.xml"
+    },
+    "kw-ac6fb2f2fe": {
+      "keyword": "东亚",
+      "count": 2,
+      "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
+    },
+    "kw-be93bcade4": {
+      "keyword": "北美",
+      "count": 2,
+      "url": "/reports/feeds/kw-be93bcade4.xml"
+    },
+    "kw-2dd56c6548": {
+      "keyword": "航天",
+      "count": 2,
+      "url": "/reports/feeds/kw-2dd56c6548.xml"
     },
     "kw-c8722a1700": {
       "keyword": "宇树机器人",
@@ -76,16 +86,6 @@
       "keyword": "特斯拉",
       "count": 1,
       "url": "/reports/feeds/kw-3f426f96e0.xml"
-    },
-    "kw-5bdcf826f2": {
-      "keyword": "俄罗斯",
-      "count": 1,
-      "url": "/reports/feeds/kw-5bdcf826f2.xml"
-    },
-    "kw-2dd56c6548": {
-      "keyword": "航天",
-      "count": 1,
-      "url": "/reports/feeds/kw-2dd56c6548.xml"
     }
   }
 }

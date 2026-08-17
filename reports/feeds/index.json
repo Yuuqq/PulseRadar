@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-17T14:54:03Z",
+  "updated": "2026-08-17T15:49:59Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
@@ -9,23 +9,28 @@
     },
     "deepseek": {
       "keyword": "DeepSeek",
-      "count": 15,
+      "count": 14,
       "url": "/reports/feeds/deepseek.xml"
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 11,
+      "count": 12,
       "url": "/reports/feeds/kw-101806f57c.xml"
-    },
-    "kw-5f479f2ee3": {
-      "keyword": "微软 / 谷歌 / 苹果",
-      "count": 7,
-      "url": "/reports/feeds/kw-5f479f2ee3.xml"
     },
     "kw-6ba2f2e06f": {
       "keyword": "胖东来",
-      "count": 6,
+      "count": 8,
       "url": "/reports/feeds/kw-6ba2f2e06f.xml"
+    },
+    "kw-c8722a1700": {
+      "keyword": "宇树机器人",
+      "count": 4,
+      "url": "/reports/feeds/kw-c8722a1700.xml"
+    },
+    "kw-5f479f2ee3": {
+      "keyword": "微软 / 谷歌 / 苹果",
+      "count": 5,
+      "url": "/reports/feeds/kw-5f479f2ee3.xml"
     },
     "openai-claude": {
       "keyword": "OpenAI / Claude",
@@ -42,20 +47,20 @@
       "count": 4,
       "url": "/reports/feeds/kw-4c6737b9f5.xml"
     },
-    "kw-c8722a1700": {
-      "keyword": "宇树机器人",
+    "kw-bde87c6ca1": {
+      "keyword": "国产开源模型",
       "count": 3,
-      "url": "/reports/feeds/kw-c8722a1700.xml"
+      "url": "/reports/feeds/kw-bde87c6ca1.xml"
+    },
+    "kw-ac6fb2f2fe": {
+      "keyword": "东亚",
+      "count": 3,
+      "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
     "kw-de0204639b": {
       "keyword": "芯片",
       "count": 3,
       "url": "/reports/feeds/kw-de0204639b.xml"
-    },
-    "kw-bde87c6ca1": {
-      "keyword": "国产开源模型",
-      "count": 2,
-      "url": "/reports/feeds/kw-bde87c6ca1.xml"
     },
     "kw-5bdcf826f2": {
       "keyword": "俄罗斯",
@@ -76,11 +81,6 @@
       "keyword": "腾讯",
       "count": 1,
       "url": "/reports/feeds/kw-3842b66185.xml"
-    },
-    "kw-ac6fb2f2fe": {
-      "keyword": "东亚",
-      "count": 1,
-      "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
     "kw-2dd56c6548": {
       "keyword": "航天",

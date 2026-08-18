@@ -1,10 +1,10 @@
 {
-  "updated": "2026-08-18T19:07:28Z",
+  "updated": "2026-08-18T19:49:22Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 31,
+      "count": 30,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
     "deepseek": {
@@ -19,12 +19,12 @@
     },
     "kw-5f479f2ee3": {
       "keyword": "微软 / 谷歌 / 苹果",
-      "count": 6,
+      "count": 5,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
     },
     "openai-claude": {
       "keyword": "OpenAI / Claude",
-      "count": 4,
+      "count": 5,
       "url": "/reports/feeds/openai-claude.xml"
     },
     "kw-ac6fb2f2fe": {
@@ -37,14 +37,9 @@
       "count": 4,
       "url": "/reports/feeds/kw-de0204639b.xml"
     },
-    "kw-4c6737b9f5": {
-      "keyword": "华为",
-      "count": 2,
-      "url": "/reports/feeds/kw-4c6737b9f5.xml"
-    },
     "kw-c8722a1700": {
       "keyword": "宇树机器人",
-      "count": 2,
+      "count": 3,
       "url": "/reports/feeds/kw-c8722a1700.xml"
     },
     "kw-f1da3aa601": {
@@ -56,6 +51,11 @@
       "keyword": "胖东来",
       "count": 1,
       "url": "/reports/feeds/kw-6ba2f2e06f.xml"
+    },
+    "kw-4c6737b9f5": {
+      "keyword": "华为",
+      "count": 1,
+      "url": "/reports/feeds/kw-4c6737b9f5.xml"
     },
     "kw-729c87507a": {
       "keyword": "字节跳动",
@@ -82,15 +82,15 @@
       "count": 1,
       "url": "/reports/feeds/kw-be93bcade4.xml"
     },
-    "kw-5bdcf826f2": {
-      "keyword": "俄罗斯",
-      "count": 1,
-      "url": "/reports/feeds/kw-5bdcf826f2.xml"
-    },
     "kw-4866e189d5": {
       "keyword": "印度",
       "count": 1,
       "url": "/reports/feeds/kw-4866e189d5.xml"
+    },
+    "kw-7a807e5e3b": {
+      "keyword": "量子 / 脑机 / 基因",
+      "count": 1,
+      "url": "/reports/feeds/kw-7a807e5e3b.xml"
     }
   }
 }

@@ -1,11 +1,16 @@
 {
-  "updated": "2026-08-18T20:50:02Z",
+  "updated": "2026-08-18T21:48:12Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 32,
+      "count": 30,
       "url": "/reports/feeds/kw-7342c24991.xml"
+    },
+    "kw-101806f57c": {
+      "keyword": "中国",
+      "count": 8,
+      "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "deepseek": {
       "keyword": "DeepSeek",
@@ -14,17 +19,12 @@
     },
     "kw-5f479f2ee3": {
       "keyword": "微软 / 谷歌 / 苹果",
-      "count": 6,
+      "count": 5,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
-    },
-    "kw-101806f57c": {
-      "keyword": "中国",
-      "count": 6,
-      "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "openai-claude": {
       "keyword": "OpenAI / Claude",
-      "count": 4,
+      "count": 5,
       "url": "/reports/feeds/openai-claude.xml"
     },
     "kw-ac6fb2f2fe": {
@@ -39,13 +39,18 @@
     },
     "kw-c8722a1700": {
       "keyword": "宇树机器人",
-      "count": 2,
+      "count": 3,
       "url": "/reports/feeds/kw-c8722a1700.xml"
     },
     "kw-f1da3aa601": {
       "keyword": "影之刃零",
       "count": 2,
       "url": "/reports/feeds/kw-f1da3aa601.xml"
+    },
+    "kw-be93bcade4": {
+      "keyword": "北美",
+      "count": 2,
+      "url": "/reports/feeds/kw-be93bcade4.xml"
     },
     "kw-6ba2f2e06f": {
       "keyword": "胖东来",
@@ -76,16 +81,6 @@
       "keyword": "英伟达 / AMD",
       "count": 1,
       "url": "/reports/feeds/kw-8ea9aebb87.xml"
-    },
-    "kw-be93bcade4": {
-      "keyword": "北美",
-      "count": 1,
-      "url": "/reports/feeds/kw-be93bcade4.xml"
-    },
-    "kw-5bdcf826f2": {
-      "keyword": "俄罗斯",
-      "count": 1,
-      "url": "/reports/feeds/kw-5bdcf826f2.xml"
     },
     "kw-4866e189d5": {
       "keyword": "印度",

@@ -1,30 +1,30 @@
 {
-  "updated": "2026-08-19T09:58:42Z",
+  "updated": "2026-08-19T10:55:16Z",
   "global": "/reports/feed.xml",
   "feeds": {
-    "kw-c8722a1700": {
-      "keyword": "宇树机器人",
-      "count": 22,
-      "url": "/reports/feeds/kw-c8722a1700.xml"
-    },
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 25,
+      "count": 21,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
-    "kw-101806f57c": {
-      "keyword": "中国",
-      "count": 13,
-      "url": "/reports/feeds/kw-101806f57c.xml"
+    "kw-c8722a1700": {
+      "keyword": "宇树机器人",
+      "count": 18,
+      "url": "/reports/feeds/kw-c8722a1700.xml"
     },
     "deepseek": {
       "keyword": "DeepSeek",
-      "count": 11,
+      "count": 15,
       "url": "/reports/feeds/deepseek.xml"
+    },
+    "kw-101806f57c": {
+      "keyword": "中国",
+      "count": 14,
+      "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-5f479f2ee3": {
       "keyword": "微软 / 谷歌 / 苹果",
-      "count": 9,
+      "count": 10,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
     },
     "kw-ac6fb2f2fe": {
@@ -37,60 +37,60 @@
       "count": 3,
       "url": "/reports/feeds/kw-6ba2f2e06f.xml"
     },
+    "kw-3842b66185": {
+      "keyword": "腾讯",
+      "count": 3,
+      "url": "/reports/feeds/kw-3842b66185.xml"
+    },
     "kw-de0204639b": {
       "keyword": "芯片",
-      "count": 4,
+      "count": 3,
       "url": "/reports/feeds/kw-de0204639b.xml"
     },
-    "kw-be93bcade4": {
-      "keyword": "北美",
+    "kw-2dd56c6548": {
+      "keyword": "航天",
       "count": 3,
-      "url": "/reports/feeds/kw-be93bcade4.xml"
+      "url": "/reports/feeds/kw-2dd56c6548.xml"
     },
     "kw-4c6737b9f5": {
       "keyword": "华为",
       "count": 2,
       "url": "/reports/feeds/kw-4c6737b9f5.xml"
     },
-    "kw-3842b66185": {
-      "keyword": "腾讯",
+    "kw-f1da3aa601": {
+      "keyword": "影之刃零",
       "count": 2,
-      "url": "/reports/feeds/kw-3842b66185.xml"
-    },
-    "kw-bde87c6ca1": {
-      "keyword": "国产开源模型",
-      "count": 2,
-      "url": "/reports/feeds/kw-bde87c6ca1.xml"
+      "url": "/reports/feeds/kw-f1da3aa601.xml"
     },
     "openai-claude": {
       "keyword": "OpenAI / Claude",
       "count": 2,
       "url": "/reports/feeds/openai-claude.xml"
     },
-    "kw-a44c35f5da": {
-      "keyword": "机器人 / 机器狗 / 具身智能",
+    "kw-be93bcade4": {
+      "keyword": "北美",
       "count": 2,
-      "url": "/reports/feeds/kw-a44c35f5da.xml"
+      "url": "/reports/feeds/kw-be93bcade4.xml"
     },
     "kw-22582edf78": {
       "keyword": "大疆",
       "count": 1,
       "url": "/reports/feeds/kw-22582edf78.xml"
     },
-    "kw-f1da3aa601": {
-      "keyword": "影之刃零",
+    "kw-bde87c6ca1": {
+      "keyword": "国产开源模型",
       "count": 1,
-      "url": "/reports/feeds/kw-f1da3aa601.xml"
+      "url": "/reports/feeds/kw-bde87c6ca1.xml"
     },
     "kw-8ea9aebb87": {
       "keyword": "英伟达 / AMD",
       "count": 1,
       "url": "/reports/feeds/kw-8ea9aebb87.xml"
     },
-    "kw-2dd56c6548": {
-      "keyword": "航天",
+    "kw-a44c35f5da": {
+      "keyword": "机器人 / 机器狗 / 具身智能",
       "count": 1,
-      "url": "/reports/feeds/kw-2dd56c6548.xml"
+      "url": "/reports/feeds/kw-a44c35f5da.xml"
     }
   }
 }

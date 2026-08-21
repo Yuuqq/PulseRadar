@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-21T15:03:51Z",
+  "updated": "2026-08-21T15:58:43Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
@@ -14,7 +14,7 @@
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 10,
+      "count": 9,
       "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-3842b66185": {
@@ -39,7 +39,7 @@
     },
     "kw-867b934d82": {
       "keyword": "黑神话悟空",
-      "count": 5,
+      "count": 4,
       "url": "/reports/feeds/kw-867b934d82.xml"
     },
     "openai-claude": {
@@ -57,15 +57,20 @@
       "count": 2,
       "url": "/reports/feeds/kw-be93bcade4.xml"
     },
+    "kw-426b53cba7": {
+      "keyword": "水电 / 光伏 / 核能 / 能源",
+      "count": 2,
+      "url": "/reports/feeds/kw-426b53cba7.xml"
+    },
+    "kw-a44c35f5da": {
+      "keyword": "机器人 / 机器狗 / 具身智能",
+      "count": 2,
+      "url": "/reports/feeds/kw-a44c35f5da.xml"
+    },
     "kw-6ba2f2e06f": {
       "keyword": "胖东来",
       "count": 1,
       "url": "/reports/feeds/kw-6ba2f2e06f.xml"
-    },
-    "kw-ff594893ce": {
-      "keyword": "比亚迪",
-      "count": 1,
-      "url": "/reports/feeds/kw-ff594893ce.xml"
     },
     "kw-bde87c6ca1": {
       "keyword": "国产开源模型",
@@ -81,16 +86,6 @@
       "keyword": "印度",
       "count": 1,
       "url": "/reports/feeds/kw-4866e189d5.xml"
-    },
-    "kw-426b53cba7": {
-      "keyword": "水电 / 光伏 / 核能 / 能源",
-      "count": 1,
-      "url": "/reports/feeds/kw-426b53cba7.xml"
-    },
-    "kw-a44c35f5da": {
-      "keyword": "机器人 / 机器狗 / 具身智能",
-      "count": 1,
-      "url": "/reports/feeds/kw-a44c35f5da.xml"
     },
     "kw-2dd56c6548": {
       "keyword": "航天",

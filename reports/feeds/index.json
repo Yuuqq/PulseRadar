@@ -1,15 +1,15 @@
 {
-  "updated": "2026-08-21T15:58:43Z",
+  "updated": "2026-08-21T17:01:27Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 21,
+      "count": 20,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
     "deepseek": {
       "keyword": "DeepSeek",
-      "count": 12,
+      "count": 13,
       "url": "/reports/feeds/deepseek.xml"
     },
     "kw-101806f57c": {
@@ -29,7 +29,7 @@
     },
     "kw-ac6fb2f2fe": {
       "keyword": "东亚",
-      "count": 8,
+      "count": 7,
       "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
     "kw-4c6737b9f5": {
@@ -39,18 +39,18 @@
     },
     "kw-867b934d82": {
       "keyword": "黑神话悟空",
-      "count": 4,
-      "url": "/reports/feeds/kw-867b934d82.xml"
-    },
-    "openai-claude": {
-      "keyword": "OpenAI / Claude",
       "count": 3,
-      "url": "/reports/feeds/openai-claude.xml"
+      "url": "/reports/feeds/kw-867b934d82.xml"
     },
     "kw-3f426f96e0": {
       "keyword": "特斯拉",
-      "count": 2,
+      "count": 3,
       "url": "/reports/feeds/kw-3f426f96e0.xml"
+    },
+    "openai-claude": {
+      "keyword": "OpenAI / Claude",
+      "count": 2,
+      "url": "/reports/feeds/openai-claude.xml"
     },
     "kw-be93bcade4": {
       "keyword": "北美",
@@ -77,10 +77,10 @@
       "count": 1,
       "url": "/reports/feeds/kw-bde87c6ca1.xml"
     },
-    "kw-8ea9aebb87": {
-      "keyword": "英伟达 / AMD",
+    "kw-5bdcf826f2": {
+      "keyword": "俄罗斯",
       "count": 1,
-      "url": "/reports/feeds/kw-8ea9aebb87.xml"
+      "url": "/reports/feeds/kw-5bdcf826f2.xml"
     },
     "kw-4866e189d5": {
       "keyword": "印度",

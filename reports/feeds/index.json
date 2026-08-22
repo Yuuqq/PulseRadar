@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-22T15:46:34Z",
+  "updated": "2026-08-22T16:49:56Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
@@ -7,15 +7,15 @@
       "count": 20,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
-    "kw-a44c35f5da": {
-      "keyword": "机器人 / 机器狗 / 具身智能",
-      "count": 17,
-      "url": "/reports/feeds/kw-a44c35f5da.xml"
-    },
     "kw-101806f57c": {
       "keyword": "中国",
       "count": 16,
       "url": "/reports/feeds/kw-101806f57c.xml"
+    },
+    "kw-a44c35f5da": {
+      "keyword": "机器人 / 机器狗 / 具身智能",
+      "count": 12,
+      "url": "/reports/feeds/kw-a44c35f5da.xml"
     },
     "kw-5f479f2ee3": {
       "keyword": "微软 / 谷歌 / 苹果",
@@ -52,6 +52,11 @@
       "count": 4,
       "url": "/reports/feeds/kw-be93bcade4.xml"
     },
+    "kw-6ba2f2e06f": {
+      "keyword": "胖东来",
+      "count": 2,
+      "url": "/reports/feeds/kw-6ba2f2e06f.xml"
+    },
     "kw-c8722a1700": {
       "keyword": "宇树机器人",
       "count": 2,
@@ -71,11 +76,6 @@
       "keyword": "印度",
       "count": 2,
       "url": "/reports/feeds/kw-4866e189d5.xml"
-    },
-    "kw-6ba2f2e06f": {
-      "keyword": "胖东来",
-      "count": 1,
-      "url": "/reports/feeds/kw-6ba2f2e06f.xml"
     },
     "kw-22582edf78": {
       "keyword": "大疆",

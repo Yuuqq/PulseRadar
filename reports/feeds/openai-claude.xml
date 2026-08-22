@@ -4,22 +4,30 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-08-22T15:46:34Z</updated>
+  <updated>2026-08-22T16:49:56Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
   <entry>
     <id>urn:pulseradar:2026-08-22:4852dc6066fe0df6</id>
     <title>openai /      codex</title>
     <link rel="alternate" type="text/html" href="https://github.com/openai/codex"/>
-    <updated>2026-08-22T15:46:34Z</updated>
+    <updated>2026-08-22T16:49:56Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 1</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-08-22:7ac1cb3dc990b84f</id>
+    <title>请问 kiro 中的 claude 量大不大，和 codex 比，写 go 的效果如何，买哪一档会员比较合适</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1236475"/>
+    <updated>2026-08-22T16:49:56Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 4</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-08-22:52c0e267921501ae</id>
     <title>anthropics /      claude-code</title>
     <link rel="alternate" type="text/html" href="https://github.com/anthropics/claude-code"/>
-    <updated>2026-08-22T15:46:34Z</updated>
+    <updated>2026-08-22T16:49:56Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 8</summary>
   </entry>
@@ -27,16 +35,8 @@
     <id>urn:pulseradar:2026-08-22:73b6a62ecc35647c</id>
     <title>Claudette: Make Claude stop talking like a BuzzFeed article</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49388752"/>
-    <updated>2026-08-22T15:46:34Z</updated>
+    <updated>2026-08-22T16:49:56Z</updated>
     <author><name>Hacker News</name></author>
     <summary>Rank: 24</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-08-22:052a013552b96ce4</id>
-    <title>Openai 成功打击中转站 MVP 结算画面</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1236379"/>
-    <updated>2026-08-22T15:46:34Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 30</summary>
   </entry>
 </feed>

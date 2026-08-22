@@ -1,10 +1,10 @@
 {
-  "updated": "2026-08-22T19:46:05Z",
+  "updated": "2026-08-22T20:49:38Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 17,
+      "count": 18,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
     "kw-101806f57c": {
@@ -12,19 +12,19 @@
       "count": 15,
       "url": "/reports/feeds/kw-101806f57c.xml"
     },
-    "kw-a44c35f5da": {
-      "keyword": "机器人 / 机器狗 / 具身智能",
-      "count": 12,
-      "url": "/reports/feeds/kw-a44c35f5da.xml"
-    },
     "kw-5f479f2ee3": {
       "keyword": "微软 / 谷歌 / 苹果",
       "count": 13,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
     },
+    "kw-a44c35f5da": {
+      "keyword": "机器人 / 机器狗 / 具身智能",
+      "count": 11,
+      "url": "/reports/feeds/kw-a44c35f5da.xml"
+    },
     "deepseek": {
       "keyword": "DeepSeek",
-      "count": 10,
+      "count": 9,
       "url": "/reports/feeds/deepseek.xml"
     },
     "kw-3842b66185": {

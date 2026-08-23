@@ -4,14 +4,14 @@
   <subtitle>Subscribe to keyword: 微软 / 谷歌 / 苹果</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/kw-5f479f2ee3.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-08-23T19:45:57Z</updated>
+  <updated>2026-08-23T20:49:14Z</updated>
   <id>urn:pulseradar:feed:904a911d6c5f</id>
   <author><name>PulseRadar</name></author>
   <entry>
     <id>urn:pulseradar:2026-08-23:c44d622db6429ed8</id>
     <title>KimiCodeBar Windows 版：在系统托盘盯着 Kimi Code 的额度，快烧完图标会变红（安装包 4MB）</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1236646"/>
-    <updated>2026-08-23T19:45:57Z</updated>
+    <updated>2026-08-23T20:49:14Z</updated>
     <author><name>V2EX</name></author>
     <summary>Rank: 2</summary>
   </entry>
@@ -19,7 +19,7 @@
     <id>urn:pulseradar:2026-08-23:98764b7140678f7c</id>
     <title>iOS 27 测试版近期动向，还有 Apple 产品新消息</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/113618"/>
-    <updated>2026-08-23T19:45:57Z</updated>
+    <updated>2026-08-23T20:49:14Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 3</summary>
   </entry>
@@ -27,31 +27,15 @@
     <id>urn:pulseradar:2026-08-23:21b98def40f45b49</id>
     <title>Malware infects Android-based automotive head unit firmware</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49408550"/>
-    <updated>2026-08-23T19:45:57Z</updated>
+    <updated>2026-08-23T20:49:14Z</updated>
     <author><name>Hacker News</name></author>
-    <summary>Rank: 5</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-08-23:f8b1cc3d7ddca1f8</id>
-    <title>微软警告RGB会导致蓝屏</title>
-    <link rel="alternate" type="text/html" href="https://search.bilibili.com/all?keyword=%E5%BE%AE%E8%BD%AF%E8%AD%A6%E5%91%8ARGB%E4%BC%9A%E5%AF%BC%E8%87%B4%E8%93%9D%E5%B1%8F"/>
-    <updated>2026-08-23T19:45:57Z</updated>
-    <author><name>bilibili 热搜</name></author>
-    <summary>Rank: 9</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-08-23:e7478c6dde735943</id>
-    <title>Over 170k Nonprofits Lost All Their Data. Is Microsoft to Blame?</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49411395"/>
-    <updated>2026-08-23T19:45:57Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 13</summary>
+    <summary>Rank: 7</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-08-23:5b2a427f9f6de720</id>
     <title>告别 ARouter！基于 Google 官方 Navigation 3 + KSP 打造 Compose 时代的双轨制路由框架</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7676369124008296448"/>
-    <updated>2026-08-23T19:45:57Z</updated>
+    <updated>2026-08-23T20:49:14Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 13</summary>
   </entry>
@@ -59,15 +43,31 @@
     <id>urn:pulseradar:2026-08-23:9a23f8fd71c20429</id>
     <title>把「闪念胶囊」（Almost）放到 iPhone 锁屏</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/113219"/>
-    <updated>2026-08-23T19:45:57Z</updated>
+    <updated>2026-08-23T20:49:14Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 13</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-08-23:f8b1cc3d7ddca1f8</id>
+    <title>微软警告RGB会导致蓝屏</title>
+    <link rel="alternate" type="text/html" href="https://search.bilibili.com/all?keyword=%E5%BE%AE%E8%BD%AF%E8%AD%A6%E5%91%8ARGB%E4%BC%9A%E5%AF%BC%E8%87%B4%E8%93%9D%E5%B1%8F"/>
+    <updated>2026-08-23T20:49:14Z</updated>
+    <author><name>bilibili 热搜</name></author>
+    <summary>Rank: 14</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-08-23:e7478c6dde735943</id>
+    <title>Over 170k Nonprofits Lost All Their Data. Is Microsoft to Blame?</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49411395"/>
+    <updated>2026-08-23T20:49:14Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 16</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-08-23:ae8ec8ec956d53f0</id>
     <title>分享借助 AI 开发的一个简单 Windows 多标签页文件资源管理器</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1236596"/>
-    <updated>2026-08-23T19:45:57Z</updated>
+    <updated>2026-08-23T20:49:14Z</updated>
     <author><name>V2EX</name></author>
     <summary>Rank: 16</summary>
   </entry>
@@ -75,7 +75,7 @@
     <id>urn:pulseradar:2026-08-23:4d0bddbdf9db1061</id>
     <title>[iOS] 奇巧：我把抛硬币、骰子、转盘、抽名单、计分和换算，都装进了一个 iOS 小工具箱</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1236593"/>
-    <updated>2026-08-23T19:45:57Z</updated>
+    <updated>2026-08-23T20:49:14Z</updated>
     <author><name>V2EX</name></author>
     <summary>Rank: 17</summary>
   </entry>
@@ -83,7 +83,7 @@
     <id>urn:pulseradar:2026-08-23:82d21da891fec9fa</id>
     <title>Jetpack Compose 实现 iOS 风格 3D WheelPicker</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7676625061881790483"/>
-    <updated>2026-08-23T19:45:57Z</updated>
+    <updated>2026-08-23T20:49:14Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 22</summary>
   </entry>
@@ -91,7 +91,7 @@
     <id>urn:pulseradar:2026-08-23:9a7016cb57803c69</id>
     <title>windows 上的缝合怪 Raycast+Alfred</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1236580"/>
-    <updated>2026-08-23T19:45:57Z</updated>
+    <updated>2026-08-23T20:49:14Z</updated>
     <author><name>V2EX</name></author>
     <summary>Rank: 22</summary>
   </entry>
@@ -99,7 +99,7 @@
     <id>urn:pulseradar:2026-08-23:538cfc6b13b6cdaa</id>
     <title>我，与「唯一」的 iPhone Air</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/112880"/>
-    <updated>2026-08-23T19:45:57Z</updated>
+    <updated>2026-08-23T20:49:14Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 30</summary>
   </entry>

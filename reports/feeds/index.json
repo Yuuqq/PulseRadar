@@ -1,10 +1,10 @@
 {
-  "updated": "2026-08-23T16:51:49Z",
+  "updated": "2026-08-23T17:46:02Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 24,
+      "count": 21,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
     "kw-5f479f2ee3": {
@@ -14,12 +14,12 @@
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 11,
+      "count": 10,
       "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "openai-claude": {
       "keyword": "OpenAI / Claude",
-      "count": 6,
+      "count": 7,
       "url": "/reports/feeds/openai-claude.xml"
     },
     "kw-be93bcade4": {
@@ -42,6 +42,11 @@
       "count": 4,
       "url": "/reports/feeds/kw-a44c35f5da.xml"
     },
+    "kw-bde87c6ca1": {
+      "keyword": "国产开源模型",
+      "count": 3,
+      "url": "/reports/feeds/kw-bde87c6ca1.xml"
+    },
     "kw-8ea9aebb87": {
       "keyword": "英伟达 / AMD",
       "count": 3,
@@ -51,11 +56,6 @@
       "keyword": "DeepSeek",
       "count": 2,
       "url": "/reports/feeds/deepseek.xml"
-    },
-    "kw-bde87c6ca1": {
-      "keyword": "国产开源模型",
-      "count": 2,
-      "url": "/reports/feeds/kw-bde87c6ca1.xml"
     },
     "kw-de0204639b": {
       "keyword": "芯片",

@@ -4,14 +4,14 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-08-24T19:55:13Z</updated>
+  <updated>2026-08-24T20:59:19Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
   <entry>
     <id>urn:pulseradar:2026-08-24:862b739330b8dd09</id>
     <title>Alishahryar1 /      free-claude-code</title>
     <link rel="alternate" type="text/html" href="https://github.com/Alishahryar1/free-claude-code"/>
-    <updated>2026-08-24T19:55:13Z</updated>
+    <updated>2026-08-24T20:59:19Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 1</summary>
   </entry>
@@ -19,7 +19,7 @@
     <id>urn:pulseradar:2026-08-24:4852dc6066fe0df6</id>
     <title>openai /      codex</title>
     <link rel="alternate" type="text/html" href="https://github.com/openai/codex"/>
-    <updated>2026-08-24T19:55:13Z</updated>
+    <updated>2026-08-24T20:59:19Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 2</summary>
   </entry>
@@ -27,55 +27,63 @@
     <id>urn:pulseradar:2026-08-24:799c435cf264dd52</id>
     <title>我的开源小项目 cc-gate,实现多个 claude code cli 多个 codex cli 窗口连接不同的大模型</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1236912"/>
-    <updated>2026-08-24T19:55:13Z</updated>
+    <updated>2026-08-24T20:59:19Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 2</summary>
+    <summary>Rank: 3</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-08-24:1659523a4de8c6c6</id>
+    <title>A Claude Code skill that recovers export-blocked Kindle highlights</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49424758"/>
+    <updated>2026-08-24T20:59:19Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 5</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-08-24:ced53bc461d033aa</id>
     <title>Claude Code 增长熄火，网传现大规模退订，为啥会这样？如何看待其诸多老用户开始转用 Codex？</title>
     <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2074071189530440759"/>
-    <updated>2026-08-24T19:55:13Z</updated>
+    <updated>2026-08-24T20:59:19Z</updated>
     <author><name>知乎</name></author>
-    <summary>Rank: 4</summary>
+    <summary>Rank: 5</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-08-24:885371bfab3c71eb</id>
     <title>anthropics /      claude-plugins-community</title>
     <link rel="alternate" type="text/html" href="https://github.com/anthropics/claude-plugins-community"/>
-    <updated>2026-08-24T19:55:13Z</updated>
+    <updated>2026-08-24T20:59:19Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 7</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-08-24:25606c3cf7cd0f74</id>
-    <title>Grokbot 源码泄露了，前有 claude code 后有 grokbot，硅谷大厂果然是草台班子</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1236880"/>
-    <updated>2026-08-24T19:55:13Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 10</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-08-24:845e395560ec6cba</id>
-    <title>AgriciDaniel /      claude-obsidian</title>
-    <link rel="alternate" type="text/html" href="https://github.com/AgriciDaniel/claude-obsidian"/>
-    <updated>2026-08-24T19:55:13Z</updated>
-    <author><name>GitHub Trending</name></author>
-    <summary>Rank: 12</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-08-24:f01f81432d4fbbbd</id>
     <title>OpenAI: GPT 5.6 Sol price reduction (until at least Nov 21)</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49421074"/>
-    <updated>2026-08-24T19:55:13Z</updated>
+    <updated>2026-08-24T20:59:19Z</updated>
     <author><name>Hacker News</name></author>
+    <summary>Rank: 10</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-08-24:25606c3cf7cd0f74</id>
+    <title>Grokbot 源码泄露了，前有 claude code 后有 grokbot，硅谷大厂果然是草台班子</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1236880"/>
+    <updated>2026-08-24T20:59:19Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 11</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-08-24:845e395560ec6cba</id>
+    <title>AgriciDaniel /      claude-obsidian</title>
+    <link rel="alternate" type="text/html" href="https://github.com/AgriciDaniel/claude-obsidian"/>
+    <updated>2026-08-24T20:59:19Z</updated>
+    <author><name>GitHub Trending</name></author>
     <summary>Rank: 12</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-08-24:5067725ea1de9651</id>
     <title>一份Token Plan套餐接通 Claude Code 和 Codex：国产模型统一额度池实测指南</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7676295909912215561"/>
-    <updated>2026-08-24T19:55:13Z</updated>
+    <updated>2026-08-24T20:59:19Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 17</summary>
   </entry>

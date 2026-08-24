@@ -1,26 +1,21 @@
 {
-  "updated": "2026-08-24T19:10:00Z",
+  "updated": "2026-08-24T19:55:13Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 21,
+      "count": 20,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 13,
+      "count": 11,
       "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "openai-claude": {
       "keyword": "OpenAI / Claude",
       "count": 9,
       "url": "/reports/feeds/openai-claude.xml"
-    },
-    "kw-de0204639b": {
-      "keyword": "芯片",
-      "count": 8,
-      "url": "/reports/feeds/kw-de0204639b.xml"
     },
     "kw-3842b66185": {
       "keyword": "腾讯",
@@ -37,20 +32,25 @@
       "count": 6,
       "url": "/reports/feeds/kw-be93bcade4.xml"
     },
+    "kw-de0204639b": {
+      "keyword": "芯片",
+      "count": 6,
+      "url": "/reports/feeds/kw-de0204639b.xml"
+    },
     "deepseek": {
       "keyword": "DeepSeek",
       "count": 5,
       "url": "/reports/feeds/deepseek.xml"
     },
+    "kw-ac6fb2f2fe": {
+      "keyword": "东亚",
+      "count": 4,
+      "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
+    },
     "kw-4866e189d5": {
       "keyword": "印度",
       "count": 3,
       "url": "/reports/feeds/kw-4866e189d5.xml"
-    },
-    "kw-ac6fb2f2fe": {
-      "keyword": "东亚",
-      "count": 3,
-      "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
     },
     "kw-a44c35f5da": {
       "keyword": "机器人 / 机器狗 / 具身智能",
@@ -71,6 +71,11 @@
       "keyword": "宇树机器人",
       "count": 1,
       "url": "/reports/feeds/kw-c8722a1700.xml"
+    },
+    "kw-867b934d82": {
+      "keyword": "黑神话悟空",
+      "count": 1,
+      "url": "/reports/feeds/kw-867b934d82.xml"
     },
     "kw-bde87c6ca1": {
       "keyword": "国产开源模型",

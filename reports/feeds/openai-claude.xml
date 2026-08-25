@@ -4,14 +4,14 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-08-25T14:13:30Z</updated>
+  <updated>2026-08-25T15:21:24Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
   <entry>
     <id>urn:pulseradar:2026-08-25:885371bfab3c71eb</id>
     <title>anthropics /      claude-plugins-community</title>
     <link rel="alternate" type="text/html" href="https://github.com/anthropics/claude-plugins-community"/>
-    <updated>2026-08-25T14:13:30Z</updated>
+    <updated>2026-08-25T15:21:24Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 2</summary>
   </entry>
@@ -19,7 +19,7 @@
     <id>urn:pulseradar:2026-08-25:ccad40e7d5ca24d6</id>
     <title>Diet Claude</title>
     <link rel="alternate" type="text/html" href="https://www.producthunt.com/products/diet-claude"/>
-    <updated>2026-08-25T14:13:30Z</updated>
+    <updated>2026-08-25T15:21:24Z</updated>
     <author><name>Product Hunt</name></author>
     <summary>Rank: 2</summary>
   </entry>
@@ -27,31 +27,39 @@
     <id>urn:pulseradar:2026-08-25:845e395560ec6cba</id>
     <title>AgriciDaniel /      claude-obsidian</title>
     <link rel="alternate" type="text/html" href="https://github.com/AgriciDaniel/claude-obsidian"/>
-    <updated>2026-08-25T14:13:30Z</updated>
+    <updated>2026-08-25T15:21:24Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 6</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-08-25:d0ebd5c929f69744</id>
-    <title>OpenAI restores 5-hour Codex and Work limits for ChatGPT Plus users</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49432879"/>
-    <updated>2026-08-25T14:13:30Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 8</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-08-25:4852dc6066fe0df6</id>
     <title>openai /      codex</title>
     <link rel="alternate" type="text/html" href="https://github.com/openai/codex"/>
-    <updated>2026-08-25T14:13:30Z</updated>
+    <updated>2026-08-25T15:21:24Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 12</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-08-25:d0ebd5c929f69744</id>
+    <title>OpenAI restores 5-hour Codex and Work limits for ChatGPT Plus users</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49432879"/>
+    <updated>2026-08-25T15:21:24Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 12</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-08-25:fd5159bfa9854c9d</id>
+    <title>Anthropic tells staff to work from home due to possible security team strike</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49434291"/>
+    <updated>2026-08-25T15:21:24Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 14</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-08-25:f81ea65bc3f5b50a</id>
     <title>anthropics /      claude-plugins-official</title>
     <link rel="alternate" type="text/html" href="https://github.com/anthropics/claude-plugins-official"/>
-    <updated>2026-08-25T14:13:30Z</updated>
+    <updated>2026-08-25T15:21:24Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 15</summary>
   </entry>
@@ -59,7 +67,7 @@
     <id>urn:pulseradar:2026-08-25:a32541fecb5038f4</id>
     <title>ChatGPT Ad Library</title>
     <link rel="alternate" type="text/html" href="https://www.producthunt.com/products/chatgpt-ad-library"/>
-    <updated>2026-08-25T14:13:30Z</updated>
+    <updated>2026-08-25T15:21:24Z</updated>
     <author><name>Product Hunt</name></author>
     <summary>Rank: 20</summary>
   </entry>
@@ -67,16 +75,8 @@
     <id>urn:pulseradar:2026-08-25:5067725ea1de9651</id>
     <title>一份Token Plan套餐接通 Claude Code 和 Codex：国产模型统一额度池实测指南</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7676295909912215561"/>
-    <updated>2026-08-25T14:13:30Z</updated>
+    <updated>2026-08-25T15:21:24Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 23</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-08-25:9ad1c0f63cbd8b2a</id>
-    <title>让 claude 写了个与 single flight 对应的 batch flight</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1237097"/>
-    <updated>2026-08-25T14:13:30Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 29</summary>
   </entry>
 </feed>

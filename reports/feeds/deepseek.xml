@@ -4,14 +4,22 @@
   <subtitle>Subscribe to keyword: DeepSeek</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/deepseek.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-08-25T04:08:33Z</updated>
+  <updated>2026-08-25T05:05:30Z</updated>
   <id>urn:pulseradar:feed:fcfa9a7dd0bd</id>
   <author><name>PulseRadar</name></author>
+  <entry>
+    <id>urn:pulseradar:2026-08-25:12f83b18ed0742eb</id>
+    <title>公网部署 deepseek harness 行为的猜测和提醒</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1237029"/>
+    <updated>2026-08-25T05:05:30Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 3</summary>
+  </entry>
   <entry>
     <id>urn:pulseradar:2026-08-25:7f09c7a865e93f19</id>
     <title>爽用 DeepSeek V4 Flash、GLM-5.2、Qwen3.8 Max、GPT-5.6 Sol，EvoX 够猛</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7677124067654893622"/>
-    <updated>2026-08-25T04:08:33Z</updated>
+    <updated>2026-08-25T05:05:30Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 13</summary>
   </entry>
@@ -19,7 +27,7 @@
     <id>urn:pulseradar:2026-08-25:34b5229bee839bdd</id>
     <title>DeepSeek Harness 发布一周，登顶 Top10 的插件，暴露了哪些真实需求？</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7676498957653803008"/>
-    <updated>2026-08-25T04:08:33Z</updated>
+    <updated>2026-08-25T05:05:30Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 17</summary>
   </entry>
@@ -27,8 +35,8 @@
     <id>urn:pulseradar:2026-08-25:e01db614d29a3774</id>
     <title>给 DeepSeek Harness 做了个 Windows 原生客户端： DSH Harbor（2.56MB）</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1236942"/>
-    <updated>2026-08-25T04:08:33Z</updated>
+    <updated>2026-08-25T05:05:30Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 27</summary>
+    <summary>Rank: 30</summary>
   </entry>
 </feed>

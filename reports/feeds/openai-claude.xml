@@ -4,63 +4,55 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-08-26T11:56:06Z</updated>
+  <updated>2026-08-26T13:33:57Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
+  <entry>
+    <id>urn:pulseradar:2026-08-26:f81ea65bc3f5b50a</id>
+    <title>anthropics /      claude-plugins-official</title>
+    <link rel="alternate" type="text/html" href="https://github.com/anthropics/claude-plugins-official"/>
+    <updated>2026-08-26T13:33:57Z</updated>
+    <author><name>GitHub Trending</name></author>
+    <summary>Rank: 3</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-08-26:862b739330b8dd09</id>
+    <title>Alishahryar1 /      free-claude-code</title>
+    <link rel="alternate" type="text/html" href="https://github.com/Alishahryar1/free-claude-code"/>
+    <updated>2026-08-26T13:33:57Z</updated>
+    <author><name>GitHub Trending</name></author>
+    <summary>Rank: 4</summary>
+  </entry>
   <entry>
     <id>urn:pulseradar:2026-08-26:8b4f8410a4884945</id>
     <title>claude 关闭了， LemonMonitor 却在请求 claude.ai</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1237445"/>
-    <updated>2026-08-26T11:56:06Z</updated>
+    <updated>2026-08-26T13:33:57Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 1</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-08-26:885371bfab3c71eb</id>
-    <title>anthropics /      claude-plugins-community</title>
-    <link rel="alternate" type="text/html" href="https://github.com/anthropics/claude-plugins-community"/>
-    <updated>2026-08-26T11:56:06Z</updated>
-    <author><name>GitHub Trending</name></author>
-    <summary>Rank: 2</summary>
+    <summary>Rank: 4</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-08-26:845e395560ec6cba</id>
     <title>AgriciDaniel /      claude-obsidian</title>
     <link rel="alternate" type="text/html" href="https://github.com/AgriciDaniel/claude-obsidian"/>
-    <updated>2026-08-26T11:56:06Z</updated>
+    <updated>2026-08-26T13:33:57Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 6</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-08-26:4852dc6066fe0df6</id>
-    <title>openai /      codex</title>
-    <link rel="alternate" type="text/html" href="https://github.com/openai/codex"/>
-    <updated>2026-08-26T11:56:06Z</updated>
+    <id>urn:pulseradar:2026-08-26:885371bfab3c71eb</id>
+    <title>anthropics /      claude-plugins-community</title>
+    <link rel="alternate" type="text/html" href="https://github.com/anthropics/claude-plugins-community"/>
+    <updated>2026-08-26T13:33:57Z</updated>
     <author><name>GitHub Trending</name></author>
-    <summary>Rank: 12</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-08-26:f81ea65bc3f5b50a</id>
-    <title>anthropics /      claude-plugins-official</title>
-    <link rel="alternate" type="text/html" href="https://github.com/anthropics/claude-plugins-official"/>
-    <updated>2026-08-26T11:56:06Z</updated>
-    <author><name>GitHub Trending</name></author>
-    <summary>Rank: 15</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-08-26:5b34c4064bddc82f</id>
-    <title>怎么看 Claude Code 团队回应：「坚持 CLAUDE.md 是因为模型系列不能互换」？</title>
-    <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2075884873601004024"/>
-    <updated>2026-08-26T11:56:06Z</updated>
-    <author><name>知乎</name></author>
-    <summary>Rank: 19</summary>
+    <summary>Rank: 11</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-08-26:6d5aeeb119a08028</id>
     <title>openai pro 20x 车队发车</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1237372"/>
-    <updated>2026-08-26T11:56:06Z</updated>
+    <updated>2026-08-26T13:33:57Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 22</summary>
+    <summary>Rank: 25</summary>
   </entry>
 </feed>

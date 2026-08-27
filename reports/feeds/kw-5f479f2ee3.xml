@@ -4,55 +4,63 @@
   <subtitle>Subscribe to keyword: 微软 / 谷歌 / 苹果</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/kw-5f479f2ee3.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-08-27T00:58:09Z</updated>
+  <updated>2026-08-27T11:48:40Z</updated>
   <id>urn:pulseradar:feed:904a911d6c5f</id>
   <author><name>PulseRadar</name></author>
+  <entry>
+    <id>urn:pulseradar:2026-08-27:e4c37173e3bf0118</id>
+    <title>Gemini 3.5 Transcribe</title>
+    <link rel="alternate" type="text/html" href="https://www.producthunt.com/products/gemini-3-5-transcribe"/>
+    <updated>2026-08-27T11:48:40Z</updated>
+    <author><name>Product Hunt</name></author>
+    <summary>Rank: 4</summary>
+  </entry>
   <entry>
     <id>urn:pulseradar:2026-08-27:98764b7140678f7c</id>
     <title>iOS 27 测试版近期动向，还有 Apple 产品新消息</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/113618"/>
-    <updated>2026-08-27T00:58:09Z</updated>
+    <updated>2026-08-27T11:48:40Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 7</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-08-27:f10986fef06d35a2</id>
-    <title>Quick Write: 一个 chrome 的 markdown AI 笔记插件</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1237481"/>
-    <updated>2026-08-27T00:58:09Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 10</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-08-27:bc803de457ab2b79</id>
     <title>Flutter iOS 的深度优化 PR，搞笑的是贡献者被 Gemini 评审折磨</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7677435711277629481"/>
-    <updated>2026-08-27T00:58:09Z</updated>
+    <updated>2026-08-27T11:48:40Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 16</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-08-27:9a23f8fd71c20429</id>
-    <title>把「闪念胶囊」（Almost）放到 iPhone 锁屏</title>
-    <link rel="alternate" type="text/html" href="https://sspai.com/post/113219"/>
-    <updated>2026-08-27T00:58:09Z</updated>
-    <author><name>少数派</name></author>
-    <summary>Rank: 17</summary>
+    <summary>Rank: 10</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-08-27:ae6d98d727d20b5f</id>
     <title>Gradle 9.7.0 将提速 Android 构建，Sync 提升接近一倍</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7677854475684020267"/>
-    <updated>2026-08-27T00:58:09Z</updated>
+    <updated>2026-08-27T11:48:40Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 22</summary>
+    <summary>Rank: 11</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-08-27:cc7bcb51392bf350</id>
-    <title>YouTube Format IDs</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49452789"/>
-    <updated>2026-08-27T00:58:09Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 30</summary>
+    <id>urn:pulseradar:2026-08-27:bf570b7ff5745d3c</id>
+    <title>google /      googletest</title>
+    <link rel="alternate" type="text/html" href="https://github.com/google/googletest"/>
+    <updated>2026-08-27T11:48:40Z</updated>
+    <author><name>GitHub Trending</name></author>
+    <summary>Rank: 12</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-08-27:9a23f8fd71c20429</id>
+    <title>把「闪念胶囊」（Almost）放到 iPhone 锁屏</title>
+    <link rel="alternate" type="text/html" href="https://sspai.com/post/113219"/>
+    <updated>2026-08-27T11:48:40Z</updated>
+    <author><name>少数派</name></author>
+    <summary>Rank: 17</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-08-27:d2354c542b6610e7</id>
+    <title>Google Play Gift Card 无法兑换</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1237626"/>
+    <updated>2026-08-27T11:48:40Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 27</summary>
   </entry>
 </feed>

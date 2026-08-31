@@ -4,31 +4,39 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-08-31T14:16:59Z</updated>
+  <updated>2026-08-31T20:16:32Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
   <entry>
-    <id>urn:pulseradar:2026-08-31:cce0d19dd9fb829c</id>
-    <title>Breaking Claude Code Opus 5 Auto Mode</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49506819"/>
-    <updated>2026-08-31T14:16:59Z</updated>
+    <id>urn:pulseradar:2026-08-31:10d7a66d1d82fea8</id>
+    <title>ChatGPT Work Tool and Skill Reference</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49510000"/>
+    <updated>2026-08-31T20:16:32Z</updated>
     <author><name>Hacker News</name></author>
-    <summary>Rank: 3</summary>
+    <summary>Rank: 6</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-08-31:172a017cf8bfcada</id>
     <title>OpenAI 断供 Cursor：这不是商业决定，是战争行为</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7679222800792338483"/>
-    <updated>2026-08-31T14:16:59Z</updated>
+    <updated>2026-08-31T20:16:32Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 13</summary>
+    <summary>Rank: 15</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-08-31:acdcfcbfbdde7e6d</id>
-    <title>Understanding ChatGPT Work</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49504625"/>
-    <updated>2026-08-31T14:16:59Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 23</summary>
+    <id>urn:pulseradar:2026-08-31:1d407be7144de0af</id>
+    <title>怎么看 OpenAI 的 Codex 将取消上下文压缩，换成「硬切窗口 」和「外部记忆」？</title>
+    <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2077507444545165165"/>
+    <updated>2026-08-31T20:16:32Z</updated>
+    <author><name>知乎</name></author>
+    <summary>Rank: 15</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-08-31:0cf956c1442a1e62</id>
+    <title>Claude Code 插件别瞎装，这 9 款才是 2026 年的真生产力工具</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7680006676436025386"/>
+    <updated>2026-08-31T20:16:32Z</updated>
+    <author><name>掘金</name></author>
+    <summary>Rank: 29</summary>
   </entry>
 </feed>

@@ -4,22 +4,54 @@
   <subtitle>Subscribe to keyword: 微软 / 谷歌 / 苹果</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/kw-5f479f2ee3.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-08-31T20:16:32Z</updated>
+  <updated>2026-08-31T23:59:54Z</updated>
   <id>urn:pulseradar:feed:904a911d6c5f</id>
   <author><name>PulseRadar</name></author>
+  <entry>
+    <id>urn:pulseradar:2026-08-31:9bde06a1f82d42eb</id>
+    <title>Google Has Removed MV2 Extensions from the Chrome Web Store, Including UBO</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49514878"/>
+    <updated>2026-08-31T23:59:54Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 1</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-08-31:319bc0ee26256ec0</id>
+    <title>库克任苹果CEO最后一天</title>
+    <link rel="alternate" type="text/html" href="https://www.baidu.com/s?wd=%E5%BA%93%E5%85%8B%E4%BB%BB%E8%8B%B9%E6%9E%9CCEO%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9"/>
+    <updated>2026-08-31T23:59:54Z</updated>
+    <author><name>百度热搜</name></author>
+    <summary>Rank: 4</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-08-31:4cb16b5b7578dc81</id>
+    <title>库克正式卸任苹果CEO</title>
+    <link rel="alternate" type="text/html" href="https://s.weibo.com/weibo?q=%23%E5%BA%93%E5%85%8B%E6%AD%A3%E5%BC%8F%E5%8D%B8%E4%BB%BB%E8%8B%B9%E6%9E%9CCEO%23&amp;t=31&amp;band_rank=6&amp;Refer=top"/>
+    <updated>2026-08-31T23:59:54Z</updated>
+    <author><name>微博</name></author>
+    <summary>Rank: 6</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-08-31:3383b95b074a1dee</id>
+    <title>Kimi向微软、亚马逊、谷歌要30%分成，开源模型开始“海外收租”了</title>
+    <link rel="alternate" type="text/html" href="https://wallstreetcn.com/articles/3780733"/>
+    <updated>2026-08-31T23:59:54Z</updated>
+    <author><name>华尔街见闻</name></author>
+    <summary>Rank: 10</summary>
+  </entry>
   <entry>
     <id>urn:pulseradar:2026-08-31:dbf83e571ed2862b</id>
     <title>Apple caught off guard by AI demand for Mac Mini and Mac Studio</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49508982"/>
-    <updated>2026-08-31T20:16:32Z</updated>
+    <updated>2026-08-31T23:59:54Z</updated>
     <author><name>Hacker News</name></author>
-    <summary>Rank: 10</summary>
+    <summary>Rank: 11</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-08-31:98764b7140678f7c</id>
     <title>iOS 27 测试版近期动向，还有 Apple 产品新消息</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/113618"/>
-    <updated>2026-08-31T20:16:32Z</updated>
+    <updated>2026-08-31T23:59:54Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 14</summary>
   </entry>
@@ -27,40 +59,40 @@
     <id>urn:pulseradar:2026-08-31:c004d17c781f229d</id>
     <title>ravynOS: Pre-alpha open-source OS based on Darwin, FreeBSD, Apple open-source</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49511534"/>
-    <updated>2026-08-31T20:16:32Z</updated>
+    <updated>2026-08-31T23:59:54Z</updated>
     <author><name>Hacker News</name></author>
-    <summary>Rank: 17</summary>
+    <summary>Rank: 18</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-08-31:8b88c39de5372e54</id>
     <title>iOS 上一直没找到顺手的 tmux 终端，就自己写了一个，主要用来在手机上跟 agent 沟通</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1238448"/>
-    <updated>2026-08-31T20:16:32Z</updated>
+    <updated>2026-08-31T23:59:54Z</updated>
     <author><name>V2EX</name></author>
     <summary>Rank: 23</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-08-31:9a23f8fd71c20429</id>
-    <title>把「闪念胶囊」（Almost）放到 iPhone 锁屏</title>
-    <link rel="alternate" type="text/html" href="https://sspai.com/post/113219"/>
-    <updated>2026-08-31T20:16:32Z</updated>
-    <author><name>少数派</name></author>
-    <summary>Rank: 24</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-08-31:d1271becff8e63c0</id>
     <title>曾经安卓开发人手一个的 EventBus，为什么现在没人爱用了？</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7680024375572021286"/>
-    <updated>2026-08-31T20:16:32Z</updated>
+    <updated>2026-08-31T23:59:54Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 25</summary>
+    <summary>Rank: 24</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-08-31:9a23f8fd71c20429</id>
+    <title>把「闪念胶囊」（Almost）放到 iPhone 锁屏</title>
+    <link rel="alternate" type="text/html" href="https://sspai.com/post/113219"/>
+    <updated>2026-08-31T23:59:54Z</updated>
+    <author><name>少数派</name></author>
+    <summary>Rank: 24</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-08-31:c2f68a160072f235</id>
     <title>Zorv AI 终端：基于 proot 沙箱的 Android 终端模拟器架构全解析</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7679020474672463918"/>
-    <updated>2026-08-31T20:16:32Z</updated>
+    <updated>2026-08-31T23:59:54Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 28</summary>
+    <summary>Rank: 29</summary>
   </entry>
 </feed>

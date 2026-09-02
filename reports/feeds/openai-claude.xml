@@ -4,39 +4,63 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-09-02T00:25:09Z</updated>
+  <updated>2026-09-02T04:54:36Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
   <entry>
     <id>urn:pulseradar:2026-09-02:142fff49a44d5f51</id>
     <title>Claude Fable 5.1 and Claude Mythos 5.1</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49525378"/>
-    <updated>2026-09-02T00:25:09Z</updated>
+    <updated>2026-09-02T04:54:36Z</updated>
     <author><name>Hacker News</name></author>
     <summary>Rank: 1</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-09-02:657e01656238c783</id>
+    <title>The &apos;gpt-5.6-sol&apos; model is not supported when using Codex with a ChatGPT account.</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1238890"/>
+    <updated>2026-09-02T04:54:36Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 3</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-09-02:8b54a3921e02669c</id>
+    <title>2万亿美元IPO前夕打出组合拳！Anthropic Fable 5.1发布：基准测试“屠榜”、成本大幅削减、反蒸馏机制落地</title>
+    <link rel="alternate" type="text/html" href="https://wallstreetcn.com/articles/3780853"/>
+    <updated>2026-09-02T04:54:36Z</updated>
+    <author><name>华尔街见闻</name></author>
+    <summary>Rank: 5</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-09-02:68d37b4008734ff0</id>
+    <title>如何看待 Anthropic 全面开放 Claude Fable 5.1 和 Mythos 5.1？有哪些亮点？</title>
+    <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2078320389617350247"/>
+    <updated>2026-09-02T04:54:36Z</updated>
+    <author><name>知乎</name></author>
+    <summary>Rank: 11</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-09-02:3f52ad7919b733db</id>
     <title>The ChatGPT/Codex app bundles a full copy of LibreOffice</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49527396"/>
-    <updated>2026-09-02T00:25:09Z</updated>
+    <updated>2026-09-02T04:54:36Z</updated>
     <author><name>Hacker News</name></author>
-    <summary>Rank: 7</summary>
+    <summary>Rank: 13</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-09-02:0cf956c1442a1e62</id>
     <title>Claude Code 插件别瞎装，这 9 款才是 2026 年的真生产力工具</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7680006676436025386"/>
-    <updated>2026-09-02T00:25:09Z</updated>
+    <updated>2026-09-02T04:54:36Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 15</summary>
+    <summary>Rank: 16</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-09-02:e1565496c2e04a33</id>
     <title>OpenAI Astra 泄露：零样本生成 3D 网页，前端开发者慌了吗？</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7680031642871152681"/>
-    <updated>2026-09-02T00:25:09Z</updated>
+    <updated>2026-09-02T04:54:36Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 21</summary>
+    <summary>Rank: 22</summary>
   </entry>
 </feed>

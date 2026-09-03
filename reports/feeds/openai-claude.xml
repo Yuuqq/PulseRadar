@@ -4,55 +4,71 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-09-03T14:41:49Z</updated>
+  <updated>2026-09-03T18:50:15Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
+  <entry>
+    <id>urn:pulseradar:2026-09-03:0601dc7bac9cdfb9</id>
+    <title>9 月 3 日晚 ChatGPT 、 Grok 、 Claude 、 Cursor 集体突发故障，怎么回事？带来哪些影响？</title>
+    <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2078984478073136308"/>
+    <updated>2026-09-03T18:50:15Z</updated>
+    <author><name>知乎</name></author>
+    <summary>Rank: 3</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-09-03:eef54d0b8654f1d3</id>
+    <title>OpenAI begins rolling out GPT-6 Astra</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49554273"/>
+    <updated>2026-09-03T18:50:15Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 4</summary>
+  </entry>
   <entry>
     <id>urn:pulseradar:2026-09-03:b322581ee8dc63ab</id>
     <title>Claude 服务是挂了吗？ 20 分钟前还在用的</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1239324"/>
-    <updated>2026-09-03T14:41:49Z</updated>
+    <updated>2026-09-03T18:50:15Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 2</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-09-03:b48fbabc27028ee5</id>
-    <title>Claude 多个模型不可用</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1239322"/>
-    <updated>2026-09-03T14:41:49Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 3</summary>
+    <summary>Rank: 5</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-09-03:b4ef2e492ff7ddb9</id>
     <title>Claude 官方的学习教程，太强了。</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7680357430018949135"/>
-    <updated>2026-09-03T14:41:49Z</updated>
+    <updated>2026-09-03T18:50:15Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 12</summary>
+    <summary>Rank: 11</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-09-03:e1565496c2e04a33</id>
     <title>OpenAI Astra 泄露：零样本生成 3D 网页，前端开发者慌了吗？</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7680031642871152681"/>
-    <updated>2026-09-03T14:41:49Z</updated>
+    <updated>2026-09-03T18:50:15Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 14</summary>
+    <summary>Rank: 13</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-09-03:720453f77c68c8f2</id>
+    <title>Ask HN: Why were OpenAI, Claude, and Grok simultaneously down?</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49551096"/>
+    <updated>2026-09-03T18:50:15Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 19</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-09-03:6e137169c5f138a0</id>
     <title>原来 Claude Code 最厉害的工具，一行代码都不写</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7680360072334655515"/>
-    <updated>2026-09-03T14:41:49Z</updated>
+    <updated>2026-09-03T18:50:15Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 22</summary>
+    <summary>Rank: 21</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-09-03:369f9d4b057775e2</id>
     <title>Claude Code 整体架构与设计</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7680119725196820480"/>
-    <updated>2026-09-03T14:41:49Z</updated>
+    <updated>2026-09-03T18:50:15Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 29</summary>
+    <summary>Rank: 30</summary>
   </entry>
 </feed>

@@ -4,87 +4,87 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-09-03T21:49:23Z</updated>
+  <updated>2026-09-04T00:16:35Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
   <entry>
-    <id>urn:pulseradar:2026-09-03:0601dc7bac9cdfb9</id>
+    <id>urn:pulseradar:2026-09-04:0601dc7bac9cdfb9</id>
     <title>9 月 3 日晚 ChatGPT 、 Grok 、 Claude 、 Cursor 集体突发故障，怎么回事？带来哪些影响？</title>
     <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2078984478073136308"/>
-    <updated>2026-09-03T21:49:23Z</updated>
+    <updated>2026-09-04T00:16:35Z</updated>
     <author><name>知乎</name></author>
     <summary>Rank: 1</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-09-03:b322581ee8dc63ab</id>
+    <id>urn:pulseradar:2026-09-04:29ecc95de082294b</id>
+    <title>Which tools do Claude, Codex and Cursor choose? We measured 17k runs to find out</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49557206"/>
+    <updated>2026-09-04T00:16:35Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 7</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-09-04:b322581ee8dc63ab</id>
     <title>Claude 服务是挂了吗？ 20 分钟前还在用的</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1239324"/>
-    <updated>2026-09-03T21:49:23Z</updated>
+    <updated>2026-09-04T00:16:35Z</updated>
     <author><name>V2EX</name></author>
     <summary>Rank: 7</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-09-03:ba0137b6d2bcaabf</id>
-    <title>OpenAI&apos;s GPT-6 Astra on ARC-AGI-3</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49555691"/>
-    <updated>2026-09-03T21:49:23Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 10</summary>
+    <id>urn:pulseradar:2026-09-04:686a45b39587d78f</id>
+    <title>美国AI服务发生大规模“宕机”事件 ChatGPT、Claude、Grok均受影响</title>
+    <link rel="alternate" type="text/html" href="https://www.cls.cn/detail/2473674"/>
+    <updated>2026-09-04T00:16:35Z</updated>
+    <author><name>财联社热门</name></author>
+    <summary>Rank: 11</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-09-03:e1565496c2e04a33</id>
-    <title>OpenAI Astra 泄露：零样本生成 3D 网页，前端开发者慌了吗？</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7680031642871152681"/>
-    <updated>2026-09-03T21:49:23Z</updated>
+    <id>urn:pulseradar:2026-09-04:b4ef2e492ff7ddb9</id>
+    <title>Claude 官方的学习教程，太强了。</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7680357430018949135"/>
+    <updated>2026-09-04T00:16:35Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 11</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-09-03:686a45b39587d78f</id>
-    <title>美国AI服务发生大规模“宕机”事件 ChatGPT、Claude、Grok均受影响</title>
-    <link rel="alternate" type="text/html" href="https://www.cls.cn/detail/2473674"/>
-    <updated>2026-09-03T21:49:23Z</updated>
-    <author><name>财联社热门</name></author>
-    <summary>Rank: 12</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-09-03:b4ef2e492ff7ddb9</id>
-    <title>Claude 官方的学习教程，太强了。</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7680357430018949135"/>
-    <updated>2026-09-03T21:49:23Z</updated>
+    <id>urn:pulseradar:2026-09-04:e1565496c2e04a33</id>
+    <title>OpenAI Astra 泄露：零样本生成 3D 网页，前端开发者慌了吗？</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7680031642871152681"/>
+    <updated>2026-09-04T00:16:35Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 12</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-09-03:29ecc95de082294b</id>
-    <title>Which tools do Claude, Codex and Cursor choose? We measured 17k runs to find out</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49557206"/>
-    <updated>2026-09-03T21:49:23Z</updated>
+    <id>urn:pulseradar:2026-09-04:ba0137b6d2bcaabf</id>
+    <title>OpenAI&apos;s GPT-6 Astra on ARC-AGI-3</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49555691"/>
+    <updated>2026-09-04T00:16:35Z</updated>
     <author><name>Hacker News</name></author>
     <summary>Rank: 15</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-09-03:720453f77c68c8f2</id>
-    <title>Ask HN: Why were OpenAI, Claude, and Grok simultaneously down?</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49551096"/>
-    <updated>2026-09-03T21:49:23Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 21</summary>
+    <id>urn:pulseradar:2026-09-04:050cac7f700a196e</id>
+    <title>如何评价 OpenAI 最新发布的 GPT-6 Astra，并宣称人类进入 AGI 时代？</title>
+    <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2079054472190469850"/>
+    <updated>2026-09-04T00:16:35Z</updated>
+    <author><name>知乎</name></author>
+    <summary>Rank: 20</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-09-03:6e137169c5f138a0</id>
+    <id>urn:pulseradar:2026-09-04:6e137169c5f138a0</id>
     <title>原来 Claude Code 最厉害的工具，一行代码都不写</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7680360072334655515"/>
-    <updated>2026-09-03T21:49:23Z</updated>
+    <updated>2026-09-04T00:16:35Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 22</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-09-03:369f9d4b057775e2</id>
-    <title>Claude Code 整体架构与设计</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7680119725196820480"/>
-    <updated>2026-09-03T21:49:23Z</updated>
-    <author><name>掘金</name></author>
-    <summary>Rank: 30</summary>
+    <id>urn:pulseradar:2026-09-04:720453f77c68c8f2</id>
+    <title>Ask HN: Why were OpenAI, Claude, and Grok simultaneously down?</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49551096"/>
+    <updated>2026-09-04T00:16:35Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 29</summary>
   </entry>
 </feed>

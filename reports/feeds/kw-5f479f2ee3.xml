@@ -4,22 +4,22 @@
   <subtitle>Subscribe to keyword: 微软 / 谷歌 / 苹果</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/kw-5f479f2ee3.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-09-09T00:26:40Z</updated>
+  <updated>2026-09-09T05:00:01Z</updated>
   <id>urn:pulseradar:feed:904a911d6c5f</id>
   <author><name>PulseRadar</name></author>
   <entry>
     <id>urn:pulseradar:2026-09-09:6bf2bf1bbd3493fc</id>
     <title>折叠屏 iPhone 命名曝光：或为 iPhone Duo</title>
     <link rel="alternate" type="text/html" href="https://www.coolapk.com/feed/73642450"/>
-    <updated>2026-09-09T00:26:40Z</updated>
+    <updated>2026-09-09T05:00:01Z</updated>
     <author><name>酷安</name></author>
-    <summary>Rank: 3</summary>
+    <summary>Rank: 4</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-09-09:ae9a584b1840b33e</id>
     <title>除了折叠屏 iPhone，Apple 发布会还有哪些看点？</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/114084"/>
-    <updated>2026-09-09T00:26:40Z</updated>
+    <updated>2026-09-09T05:00:01Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 6</summary>
   </entry>
@@ -27,15 +27,23 @@
     <id>urn:pulseradar:2026-09-09:680e5052bea2eba6</id>
     <title>线下活动 | 全新 iPhone 发布在即，来与少数派一起看 Apple 发布会</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/114071"/>
-    <updated>2026-09-09T00:26:40Z</updated>
+    <updated>2026-09-09T05:00:01Z</updated>
     <author><name>少数派</name></author>
+    <summary>Rank: 8</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-09-09:10c469598c77133d</id>
+    <title>做了个开源 MQTT 桌面客户端，支持 Windows / macOS / Linux</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1240626"/>
+    <updated>2026-09-09T05:00:01Z</updated>
+    <author><name>V2EX</name></author>
     <summary>Rank: 8</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-09-09:547586560c530717</id>
     <title>microsoft /      markitdown</title>
     <link rel="alternate" type="text/html" href="https://github.com/microsoft/markitdown"/>
-    <updated>2026-09-09T00:26:40Z</updated>
+    <updated>2026-09-09T05:00:01Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 9</summary>
   </entry>
@@ -43,39 +51,47 @@
     <id>urn:pulseradar:2026-09-09:bc907c49e3e01ede</id>
     <title>线索若隐若现：深入 Tim Cook 和 Nike 的商业连接</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/111081"/>
-    <updated>2026-09-09T00:26:40Z</updated>
+    <updated>2026-09-09T05:00:01Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 9</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-09-09:f4b666f54a485b7d</id>
+    <title>苹果折叠屏 iPhone Duo</title>
+    <link rel="alternate" type="text/html" href="https://www.baidu.com/s?wd=%E8%8B%B9%E6%9E%9C%E6%8A%98%E5%8F%A0%E5%B1%8F+iPhone+Duo"/>
+    <updated>2026-09-09T05:00:01Z</updated>
+    <author><name>百度热搜</name></author>
+    <summary>Rank: 14</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-09-09:e849aec044f6f761</id>
     <title>Decapitating a MacBook (2025)</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49583381"/>
-    <updated>2026-09-09T00:26:40Z</updated>
+    <updated>2026-09-09T05:00:01Z</updated>
     <author><name>Hacker News</name></author>
     <summary>Rank: 16</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-09-09:d91586e5a3489a33</id>
-    <title>做了个 NAS Find： NAS 自己维护索引， Windows、Mac 和网页共用文件名搜索</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1240489"/>
-    <updated>2026-09-09T00:26:40Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 16</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-09-09:a367c51c9ee9db44</id>
-    <title>庭记 app 发封闭测试版了,欢迎 Android 用户（设备需支持 GMS）试用</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1240483"/>
-    <updated>2026-09-09T00:26:40Z</updated>
+    <id>urn:pulseradar:2026-09-09:6a01b3c6860ccf7c</id>
+    <title>一个 Web 端 AI 输入框内容记录 Chrome 扩展--AI 输入历史</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1240594"/>
+    <updated>2026-09-09T05:00:01Z</updated>
     <author><name>V2EX</name></author>
     <summary>Rank: 18</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-09-09:9e6ab6d62a310482</id>
+    <title>[自荐] IOS 原生开发，本地音乐播放器，支持流媒体接入</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1240591"/>
+    <updated>2026-09-09T05:00:01Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 19</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-09-09:98764b7140678f7c</id>
     <title>iOS 27 测试版近期动向，还有 Apple 产品新消息</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/113618"/>
-    <updated>2026-09-09T00:26:40Z</updated>
+    <updated>2026-09-09T05:00:01Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 27</summary>
   </entry>

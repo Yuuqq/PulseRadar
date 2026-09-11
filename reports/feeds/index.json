@@ -1,25 +1,25 @@
 {
-  "updated": "2026-09-11T17:52:10Z",
+  "updated": "2026-09-11T21:09:34Z",
   "global": "/reports/feed.xml",
   "feeds": {
-    "kw-5f479f2ee3": {
-      "keyword": "微软 / 谷歌 / 苹果",
-      "count": 19,
-      "url": "/reports/feeds/kw-5f479f2ee3.xml"
-    },
     "kw-7342c24991": {
       "keyword": "AI 相关",
       "count": 19,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
+    "kw-5f479f2ee3": {
+      "keyword": "微软 / 谷歌 / 苹果",
+      "count": 17,
+      "url": "/reports/feeds/kw-5f479f2ee3.xml"
+    },
     "kw-be93bcade4": {
       "keyword": "北美",
-      "count": 10,
+      "count": 8,
       "url": "/reports/feeds/kw-be93bcade4.xml"
     },
     "kw-4c6737b9f5": {
       "keyword": "华为",
-      "count": 9,
+      "count": 5,
       "url": "/reports/feeds/kw-4c6737b9f5.xml"
     },
     "kw-101806f57c": {
@@ -47,25 +47,20 @@
       "count": 3,
       "url": "/reports/feeds/kw-3842b66185.xml"
     },
-    "kw-6ba2f2e06f": {
-      "keyword": "胖东来",
-      "count": 1,
-      "url": "/reports/feeds/kw-6ba2f2e06f.xml"
+    "openai-claude": {
+      "keyword": "OpenAI / Claude",
+      "count": 2,
+      "url": "/reports/feeds/openai-claude.xml"
+    },
+    "kw-426b53cba7": {
+      "keyword": "水电 / 光伏 / 核能 / 能源",
+      "count": 2,
+      "url": "/reports/feeds/kw-426b53cba7.xml"
     },
     "kw-3f426f96e0": {
       "keyword": "特斯拉",
       "count": 1,
       "url": "/reports/feeds/kw-3f426f96e0.xml"
-    },
-    "openai-claude": {
-      "keyword": "OpenAI / Claude",
-      "count": 1,
-      "url": "/reports/feeds/openai-claude.xml"
-    },
-    "kw-426b53cba7": {
-      "keyword": "水电 / 光伏 / 核能 / 能源",
-      "count": 1,
-      "url": "/reports/feeds/kw-426b53cba7.xml"
     }
   }
 }

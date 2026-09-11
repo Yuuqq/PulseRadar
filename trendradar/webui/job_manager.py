@@ -10,6 +10,7 @@ import contextlib
 import json
 import logging
 import os
+import re
 import sqlite3
 import subprocess
 import sys
@@ -290,7 +291,13 @@ class JobManager:
         safe_retry_strategy_note = str(retry_strategy_note or "").strip() or None
 
         try:
-            config_snapshot = self.config_file.read_text(encoding="utf-8")
+            config_snapshot_raw = self.config_file.read_text(encoding="utf-8")
+            config_snapshot = re.sub(
+                r'(?i)^([ \t\-]*[a-zA-Z0-9_]*(?:api_key|token|password|secret|webhook|cookie)[a-zA-Z0-9_]*\s*:\s*)([^\n].*)$',
+                r'\g<1>"***REDACTED***"',
+                config_snapshot_raw,
+                flags=re.MULTILINE
+            )
         except Exception:
             config_snapshot = ""
 
@@ -334,6 +341,17 @@ class JobManager:
         thread.start()
 
     def _run_process(self, job_id: str, command: list[str]) -> None:
+        # Validate command to prevent arbitrary execution
+        if not command or not command[0].endswith(("python", "python.exe", "python3", "python3.exe")):
+            self._append_log(job_id, "[error] Invalid executable in command")
+            self._update_job(job_id, status="failed", stage="finished", finished_at=_utc_now(), exit_code=-1, error="Invalid executable")
+            return
+
+        if len(command) < 3 or command[1] != "-m" or command[2] != "trendradar":
+            self._append_log(job_id, "[error] Invalid module in command, only '-m trendradar' is allowed")
+            self._update_job(job_id, status="failed", stage="finished", finished_at=_utc_now(), exit_code=-1, error="Invalid module")
+            return
+
         env = {**os.environ, "PYTHONUTF8": "1", "PYTHONUNBUFFERED": "1"}
         command_str = " ".join(command)
         self._append_log(job_id, f"[job] start: {command_str}")
@@ -490,9 +508,9 @@ class JobManager:
             "duration_seconds": row["duration_seconds"],
             "exit_code": row["exit_code"],
             "error": row["error"] or "",
-            "retry_source_job_id": row.get("retry_source_job_id", None),
-            "retry_strategy": row.get("retry_strategy", None),
-            "retry_strategy_note": row.get("retry_strategy_note", None),
+            "retry_source_job_id": dict(row).get("retry_source_job_id", None),
+            "retry_strategy": dict(row).get("retry_strategy", None),
+            "retry_strategy_note": dict(row).get("retry_strategy_note", None),
             "report_paths": report_paths,
             "updated_at": row["updated_at"],
         }

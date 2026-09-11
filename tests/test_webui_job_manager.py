@@ -19,7 +19,7 @@ def test_recover_stale_active_jobs_marks_orphan_running(tmp_path, monkeypatch):
     manager = JobManager(root_dir=root_dir, output_dir=output_dir, config_file=config_file)
 
     # Create a running job and force it stale.
-    job = manager.create_job(["python", "-V"])
+    job = manager.create_job(["python", "-m", "trendradar"])
     job_id = job["id"]
     manager._update_job(
         job_id,
@@ -64,7 +64,7 @@ def test_recover_stale_active_jobs_skips_live_process(tmp_path, monkeypatch):
 
     manager = JobManager(root_dir=root_dir, output_dir=output_dir, config_file=config_file)
 
-    job = manager.create_job(["python", "-V"])
+    job = manager.create_job(["python", "-m", "trendradar"])
     job_id = job["id"]
     manager._update_job(
         job_id,
@@ -101,7 +101,7 @@ def test_update_job_rejects_unknown_fields(tmp_path, monkeypatch):
     config_file.write_text("app:\n  timezone: Asia/Shanghai\n", encoding="utf-8")
 
     manager = JobManager(root_dir=root_dir, output_dir=output_dir, config_file=config_file)
-    job = manager.create_job(["python", "-V"])
+    job = manager.create_job(["python", "-m", "trendradar"])
 
     with pytest.raises(ValueError, match="Unsupported job fields"):
         manager._update_job(job["id"], bad_field="oops")

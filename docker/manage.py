@@ -497,7 +497,7 @@ def start_webserver():
         # 使用 --bind 绑定到 0.0.0.0 使容器内部可访问
         # 工作目录限制在 WEBSERVER_DIR，防止访问其他目录
         process = subprocess.Popen(
-            [sys.executable, "-m", "http.server", str(WEBSERVER_PORT), "--bind", "0.0.0.0"],
+            [sys.executable, "-m", "http.server", str(WEBSERVER_PORT), "--bind", "127.0.0.1"],
             cwd=WEBSERVER_DIR,
             stdout=subprocess.DEVNULL,
             stderr=subprocess.DEVNULL,

@@ -222,9 +222,13 @@ def test_source():
                 plugin.close()
 
         if source_type == "rss":
+            url = source_config.get("url", "")
+            if not url.startswith(("http://", "https://")):
+                return jsonify({"success": False, "error": "Invalid URL scheme"})
+
             import feedparser
 
-            feed = feedparser.parse(source_config.get("url", ""))
+            feed = feedparser.parse(url)
             if feed.entries:
                 return jsonify(
                     {

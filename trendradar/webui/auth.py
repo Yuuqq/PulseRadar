@@ -56,6 +56,7 @@ PUBLIC_PREFIXES: tuple[str, ...] = (
     "/logout",
     "/setup",
     "/static/",
+    "/api/auth/status",
     "/healthz",
 )
 

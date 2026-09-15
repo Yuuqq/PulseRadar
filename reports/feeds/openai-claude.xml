@@ -4,39 +4,31 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-09-15T07:57:58Z</updated>
+  <updated>2026-09-15T13:46:47Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
+  <entry>
+    <id>urn:pulseradar:2026-09-15:10e9ff8728deb365</id>
+    <title>各位有把 claude、gpt、antigravity 全挂到 cpa 上吗？</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1242240"/>
+    <updated>2026-09-15T13:46:47Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 4</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-09-15:db5e2bb916d712c6</id>
+    <title>OpenAI Agents API</title>
+    <link rel="alternate" type="text/html" href="https://www.producthunt.com/products/openai"/>
+    <updated>2026-09-15T13:46:47Z</updated>
+    <author><name>Product Hunt</name></author>
+    <summary>Rank: 7</summary>
+  </entry>
   <entry>
     <id>urn:pulseradar:2026-09-15:cf8cc957d1a5b0c2</id>
     <title>[开源] 做了一个 Go Runtime 的 Python Agent SDK，附一轮与 Claude Agent SDK 的对照测试</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1242163"/>
-    <updated>2026-09-15T07:57:58Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 1</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-09-15:063f4c611ec50e94</id>
-    <title>OpenAI CEO详谈放慢AI发展脚步原因：未来或走向两大极端，均可能失控！</title>
-    <link rel="alternate" type="text/html" href="https://www.cls.cn/detail/2482954"/>
-    <updated>2026-09-15T07:57:58Z</updated>
-    <author><name>财联社热门</name></author>
-    <summary>Rank: 5</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-09-15:1e755efce06bbb2e</id>
-    <title>求教， claude 环境搭建</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1242094"/>
-    <updated>2026-09-15T07:57:58Z</updated>
+    <updated>2026-09-15T13:46:47Z</updated>
     <author><name>V2EX</name></author>
     <summary>Rank: 18</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-09-15:248b054851c1a3de</id>
-    <title>SnailSploit /      Claude-Red</title>
-    <link rel="alternate" type="text/html" href="https://github.com/SnailSploit/Claude-Red"/>
-    <updated>2026-09-15T07:57:58Z</updated>
-    <author><name>GitHub Trending</name></author>
-    <summary>Rank: 20</summary>
   </entry>
 </feed>

@@ -4,14 +4,14 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-09-18T00:38:05Z</updated>
+  <updated>2026-09-18T06:20:50Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
   <entry>
     <id>urn:pulseradar:2026-09-18:dc5129f841c13d6d</id>
     <title>ChatGPT 开启无限 token</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7685770509585629190"/>
-    <updated>2026-09-18T00:38:05Z</updated>
+    <updated>2026-09-18T06:20:50Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 3</summary>
   </entry>
@@ -19,32 +19,24 @@
     <id>urn:pulseradar:2026-09-18:52c0e267921501ae</id>
     <title>anthropics /      claude-code</title>
     <link rel="alternate" type="text/html" href="https://github.com/anthropics/claude-code"/>
-    <updated>2026-09-18T00:38:05Z</updated>
+    <updated>2026-09-18T06:20:50Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 6</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-09-18:260679e294d142f7</id>
-    <title>czlmail - 用 claude 写了个 jmap 的开源邮件客户端, 配合 stalwart 使用</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1242823"/>
-    <updated>2026-09-18T00:38:05Z</updated>
-    <author><name>V2EX</name></author>
+    <id>urn:pulseradar:2026-09-18:ff52efa7a1d91332</id>
+    <title>Hacking OpenAI</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49749656"/>
+    <updated>2026-09-18T06:20:50Z</updated>
+    <author><name>Hacker News</name></author>
     <summary>Rank: 6</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-09-18:e3544f3c1588000f</id>
-    <title>OpenAI 自曝 AI“黑历史”，外人却又翻出更多“旧账”</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1242782"/>
-    <updated>2026-09-18T00:38:05Z</updated>
+    <id>urn:pulseradar:2026-09-18:e8a32d3dcf14b395</id>
+    <title>GPT-6 Astra + Blender + Claude Code 搓出来来的 抛硬币/掷骰子 模拟器，分享下开发过程</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1242891"/>
+    <updated>2026-09-18T06:20:50Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 22</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-09-18:eb52eb19c3bfd04a</id>
-    <title>[开源] 通过 API，把 Claude Code、Codex 接入你的业务系统</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1242776"/>
-    <updated>2026-09-18T00:38:05Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 26</summary>
+    <summary>Rank: 21</summary>
   </entry>
 </feed>

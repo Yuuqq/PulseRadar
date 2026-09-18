@@ -4,14 +4,22 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-09-18T19:52:08Z</updated>
+  <updated>2026-09-18T22:44:51Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
+  <entry>
+    <id>urn:pulseradar:2026-09-18:dc43023ad0e08549</id>
+    <title>Claude Code now reads AGENTS.md if there is no Claude.md</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49760187"/>
+    <updated>2026-09-18T22:44:51Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 1</summary>
+  </entry>
   <entry>
     <id>urn:pulseradar:2026-09-18:52c0e267921501ae</id>
     <title>anthropics /      claude-code</title>
     <link rel="alternate" type="text/html" href="https://github.com/anthropics/claude-code"/>
-    <updated>2026-09-18T19:52:08Z</updated>
+    <updated>2026-09-18T22:44:51Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 2</summary>
   </entry>
@@ -19,24 +27,16 @@
     <id>urn:pulseradar:2026-09-18:dc5129f841c13d6d</id>
     <title>ChatGPT 开启无限 token</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7685770509585629190"/>
-    <updated>2026-09-18T19:52:08Z</updated>
+    <updated>2026-09-18T22:44:51Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 2</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-09-18:aa77f580723f604d</id>
-    <title>A heap overflow and SSO misconfiguration to compromise OpenAI internal repos</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49749656"/>
-    <updated>2026-09-18T19:52:08Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 21</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-09-18:975472b35ba3b14d</id>
     <title>boss-call skills Claude message 工具平替</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1243019"/>
-    <updated>2026-09-18T19:52:08Z</updated>
+    <updated>2026-09-18T22:44:51Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 23</summary>
+    <summary>Rank: 24</summary>
   </entry>
 </feed>

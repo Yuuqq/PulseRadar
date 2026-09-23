@@ -1,5 +1,6 @@
 """并发采集池 — 基于 ThreadPoolExecutor"""
 
+import concurrent.futures
 from collections.abc import Sequence
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
@@ -42,7 +43,10 @@ class CrawlerPool:
 
         logger.info("开始并发采集", total_tasks=len(tasks), max_workers=self.max_workers)
 
-        with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
+        # Avoid `with ThreadPoolExecutor`: on timeout, context exit waits for
+        # stuck worker threads. Shut down explicitly without waiting.
+        executor = ThreadPoolExecutor(max_workers=self.max_workers)
+        try:
             future_to_config = {}
             for plugin, config in tasks:
                 future = executor.submit(self._safe_fetch, plugin, config)
@@ -67,7 +71,7 @@ class CrawlerPool:
                                 errors=(str(e),),
                             )
                         )
-            except TimeoutError:
+            except concurrent.futures.TimeoutError:
                 # Collect timed-out futures that never completed
                 for future, (source_id, config) in future_to_config.items():
                     if not future.done():
@@ -82,6 +86,9 @@ class CrawlerPool:
                                 errors=("timeout",),
                             )
                         )
+        finally:
+            # cancel_futures available since Python 3.9; project targets 3.10+
+            executor.shutdown(wait=False, cancel_futures=True)
 
         succeeded = sum(1 for r in results if r.success)
         failed = sum(1 for r in results if not r.success)

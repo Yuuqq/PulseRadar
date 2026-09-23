@@ -372,7 +372,9 @@ class JobManager:
                 self._processes.pop(job_id, None)
 
         job = self.get_job(job_id)
-        cancelled = bool(job and job.get("status") == "cancelled")
+        # Treat cancelling as cancelled so a late process exit cannot overwrite
+        # cancel_job's in-flight status with failed/success.
+        cancelled = bool(job and job.get("status") in ("cancelled", "cancelling"))
         status = "cancelled" if cancelled else ("success" if return_code == 0 else "failed")
 
         previous_stage = str((job or {}).get("stage") or "").strip().lower()
@@ -479,6 +481,7 @@ class JobManager:
         except (TypeError, json.JSONDecodeError):
             report_paths = []
 
+        keys = row.keys()
         return {
             "id": row["id"],
             "status": row["status"],
@@ -490,9 +493,13 @@ class JobManager:
             "duration_seconds": row["duration_seconds"],
             "exit_code": row["exit_code"],
             "error": row["error"] or "",
-            "retry_source_job_id": row.get("retry_source_job_id", None),
-            "retry_strategy": row.get("retry_strategy", None),
-            "retry_strategy_note": row.get("retry_strategy_note", None),
+            "retry_source_job_id": (
+                row["retry_source_job_id"] if "retry_source_job_id" in keys else None
+            ),
+            "retry_strategy": row["retry_strategy"] if "retry_strategy" in keys else None,
+            "retry_strategy_note": (
+                row["retry_strategy_note"] if "retry_strategy_note" in keys else None
+            ),
             "report_paths": report_paths,
             "updated_at": row["updated_at"],
         }
@@ -847,7 +854,7 @@ class JobManager:
                 """
                 SELECT id
                 FROM jobs
-                WHERE status = 'running'
+                WHERE status IN ('running', 'cancelling')
                 ORDER BY started_at DESC
                 LIMIT 1
                 """

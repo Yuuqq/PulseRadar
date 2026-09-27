@@ -4,14 +4,22 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-09-27T01:39:18Z</updated>
+  <updated>2026-09-27T08:28:17Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
+  <entry>
+    <id>urn:pulseradar:2026-09-27:5d27fd26b369a12b</id>
+    <title>Claude 完成 N=4 超杨–米尔斯理论的九圈六点散射振幅计算，这个结果意味着什么？</title>
+    <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2087095895905007483"/>
+    <updated>2026-09-27T08:28:17Z</updated>
+    <author><name>知乎</name></author>
+    <summary>Rank: 11</summary>
+  </entry>
   <entry>
     <id>urn:pulseradar:2026-09-27:34c32c5b9faad0dd</id>
     <title>anthropics /      claude-code-action</title>
     <link rel="alternate" type="text/html" href="https://github.com/anthropics/claude-code-action"/>
-    <updated>2026-09-27T01:39:18Z</updated>
+    <updated>2026-09-27T08:28:17Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 12</summary>
   </entry>
@@ -19,8 +27,16 @@
     <id>urn:pulseradar:2026-09-27:9d60de7a4b0c43f3</id>
     <title>别把 Claude Code 当聊天框：一套「确定性工程」落地手册</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7688401878564077602"/>
-    <updated>2026-09-27T01:39:18Z</updated>
+    <updated>2026-09-27T08:28:17Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 28</summary>
+    <summary>Rank: 16</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-09-27:251b5be39016cef6</id>
+    <title>如何看待据称 OpenAI 、 Anthropic 正调查数万起 AI 安全事件，包括绕过安全护栏、创建留言板等？</title>
+    <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2087449927274034329"/>
+    <updated>2026-09-27T08:28:17Z</updated>
+    <author><name>知乎</name></author>
+    <summary>Rank: 20</summary>
   </entry>
 </feed>

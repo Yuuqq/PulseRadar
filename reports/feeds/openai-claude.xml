@@ -4,31 +4,55 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-09-29T08:52:33Z</updated>
+  <updated>2026-09-29T16:03:54Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
   <entry>
-    <id>urn:pulseradar:2026-09-29:70edd406450edddb</id>
-    <title>OpenAI: Tomorrow we are re-opening the Pro $200 subscription</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49889306"/>
-    <updated>2026-09-29T08:52:33Z</updated>
+    <id>urn:pulseradar:2026-09-29:41cac7822f0f6d59</id>
+    <title>Claude partial outage</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49893876"/>
+    <updated>2026-09-29T16:03:54Z</updated>
     <author><name>Hacker News</name></author>
-    <summary>Rank: 1</summary>
+    <summary>Rank: 2</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-09-29:60636f39a7b1b0d3</id>
-    <title>Claude Sonnet 5.5发布</title>
-    <link rel="alternate" type="text/html" href="https://search.bilibili.com/all?keyword=Claude+Sonnet+5.5%E5%8F%91%E5%B8%83"/>
-    <updated>2026-09-29T08:52:33Z</updated>
-    <author><name>bilibili 热搜</name></author>
-    <summary>Rank: 9</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-09-29:97308e5c506c4f96</id>
-    <title>开源了一个会自己进化的 App：在对话里说一句，你 Mac 上的 Claude Code 就改代码并上线</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1245483"/>
-    <updated>2026-09-29T08:52:33Z</updated>
+    <id>urn:pulseradar:2026-09-29:cbfd659383755b23</id>
+    <title>claude 炸了，我以为号被封了，赣</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1245648"/>
+    <updated>2026-09-29T16:03:54Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 21</summary>
+    <summary>Rank: 4</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-09-29:63f0ec79e7acbcda</id>
+    <title>Claude Sonnet 5.5</title>
+    <link rel="alternate" type="text/html" href="https://www.producthunt.com/products/claude"/>
+    <updated>2026-09-29T16:03:54Z</updated>
+    <author><name>Product Hunt</name></author>
+    <summary>Rank: 5</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-09-29:1239eb5b905129ab</id>
+    <title>Jotform Sign for ChatGPT and Claude</title>
+    <link rel="alternate" type="text/html" href="https://www.producthunt.com/products/jotform"/>
+    <updated>2026-09-29T16:03:54Z</updated>
+    <author><name>Product Hunt</name></author>
+    <summary>Rank: 10</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-09-29:bd1f0318e6f451ab</id>
+    <title>怎么看媒体曝 Anthropic 提交 IPO 招股书，25 年营收增长 12 倍，净亏损 420 亿美元？</title>
+    <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2088194648518947828"/>
+    <updated>2026-09-29T16:03:54Z</updated>
+    <author><name>知乎</name></author>
+    <summary>Rank: 10</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-09-29:bbe24a0af4ea0656</id>
+    <title>Claude Code 国内使用完整指南：不用科学上网， 5 分钟跑通</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1245593"/>
+    <updated>2026-09-29T16:03:54Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 19</summary>
   </entry>
 </feed>

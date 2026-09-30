@@ -4,22 +4,22 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-09-30T14:05:10Z</updated>
+  <updated>2026-09-30T19:34:01Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
   <entry>
-    <id>urn:pulseradar:2026-09-30:fcc4fbb7d3482af2</id>
-    <title>用 Claude 做了个开源五子棋，接入 Rapfi 当最终 BOSS，欢迎来挑战</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1245909"/>
-    <updated>2026-09-30T14:05:10Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 5</summary>
+    <id>urn:pulseradar:2026-09-30:f2d2b053fe55e704</id>
+    <title>如何评价 OpenAI 发布的 GPT-6.1 SOL？</title>
+    <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2088438691786246011"/>
+    <updated>2026-09-30T19:34:01Z</updated>
+    <author><name>知乎</name></author>
+    <summary>Rank: 3</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-09-30:44848ce5e29a7270</id>
     <title>ComposioHQ /      awesome-claude-skills</title>
     <link rel="alternate" type="text/html" href="https://github.com/ComposioHQ/awesome-claude-skills"/>
-    <updated>2026-09-30T14:05:10Z</updated>
+    <updated>2026-09-30T19:34:01Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 8</summary>
   </entry>
@@ -27,8 +27,16 @@
     <id>urn:pulseradar:2026-09-30:80d039905fe9fdb6</id>
     <title>如何评价 OpenAI 推出个人 AI 助理 Dot，可全天候自主执行任务并连接 4000 多款应用？</title>
     <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2088542369264005449"/>
-    <updated>2026-09-30T14:05:10Z</updated>
+    <updated>2026-09-30T19:34:01Z</updated>
     <author><name>知乎</name></author>
-    <summary>Rank: 13</summary>
+    <summary>Rank: 11</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-09-30:fcc4fbb7d3482af2</id>
+    <title>用 Claude 做了个开源五子棋，接入 Rapfi 当最终 BOSS，欢迎来挑战</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1245909"/>
+    <updated>2026-09-30T19:34:01Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 12</summary>
   </entry>
 </feed>

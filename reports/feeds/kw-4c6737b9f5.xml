@@ -4,71 +4,194 @@
   <subtitle>Subscribe to keyword: 华为</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/kw-4c6737b9f5.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-10-01T00:03:49Z</updated>
+  <updated>2026-10-01T06:22:03Z</updated>
   <id>urn:pulseradar:feed:f553042abea5</id>
   <author><name>PulseRadar</name></author>
   <entry>
-    <id>urn:pulseradar:2026-10-01:caea4070c5c35c81</id>
-    <title>剑指英伟达CUDA！DeepSeek开源华为昇腾全套组件</title>
-    <link rel="alternate" type="text/html" href="https://www.cls.cn/detail/2496566"/>
-    <updated>2026-10-01T00:03:49Z</updated>
-    <author><name>财联社热门</name></author>
-    <summary>Rank: 3</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-10-01:87366a37d8a0add5</id>
-    <title>华为 赛力斯</title>
-    <link rel="alternate" type="text/html" href="https://s.weibo.com/weibo?q=%E5%8D%8E%E4%B8%BA%20%E8%B5%9B%E5%8A%9B%E6%96%AF&amp;t=31&amp;band_rank=5&amp;Refer=top"/>
-    <updated>2026-10-01T00:03:49Z</updated>
-    <author><name>微博</name></author>
-    <summary>Rank: 5</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-10-01:9a1bd5195f17b8ec</id>
-    <title>对标英伟达CUDA！DeepSeek开源昇腾版“AI工具箱”，性能接近硬件上限</title>
-    <link rel="alternate" type="text/html" href="https://wallstreetcn.com/articles/3782814"/>
-    <updated>2026-10-01T00:03:49Z</updated>
-    <author><name>华尔街见闻</name></author>
-    <summary>Rank: 6</summary>
+    <id>urn:pulseradar:2026-10-01:659bef6e77bf4bba</id>
+    <title>华为Mate90系列价格</title>
+    <link rel="alternate" type="text/html" href="https://www.baidu.com/s?wd=%E5%8D%8E%E4%B8%BAMate90%E7%B3%BB%E5%88%97%E4%BB%B7%E6%A0%BC"/>
+    <updated>2026-10-01T06:22:03Z</updated>
+    <author><name>百度热搜</name></author>
+    <summary>Also reported by: bilibili 热搜
+Rank: 1</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-10-01:bbd08be5954435b4</id>
     <title>🐂🍺！俄语数码圈那边一个佬扒到的华为商城pre-release SKU素材。华为商城商品正式上线之前，会先在CMS/PIM里建SKU，然后商品主图、缩略图这种静态资源会提前同步到CDN。页面本身还是unpublished状态，正常访问肯定看不到，但是当时有一张thumbnail rendition已经被推到边缘节点了。那个人好像是从商城前端的一个preload manifest静态资源请求里发现了对应的asset path，然后把CDN地址单独请求出来的。原图接口已经鉴权了，只能拿到一张很小的WebP缩略图，所以放大之后就是现在这种糊成一片的效果。</title>
     <link rel="alternate" type="text/html" href="https://www.coolapk.com/feed/74092023"/>
-    <updated>2026-10-01T00:03:49Z</updated>
+    <updated>2026-10-01T06:22:03Z</updated>
     <author><name>酷安</name></author>
-    <summary>Rank: 8</summary>
+    <summary>Rank: 1</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-10-01:08be23d4124bf725</id>
-    <title>DeepSeek开源昇腾适配组件</title>
-    <link rel="alternate" type="text/html" href="https://search.bilibili.com/all?keyword=DeepSeek%E5%BC%80%E6%BA%90%E6%98%87%E8%85%BE%E9%80%82%E9%85%8D%E7%BB%84%E4%BB%B6"/>
-    <updated>2026-10-01T00:03:49Z</updated>
-    <author><name>bilibili 热搜</name></author>
-    <summary>Rank: 10</summary>
+    <id>urn:pulseradar:2026-10-01:0b688fd34fceff53</id>
+    <title>华为Mate90全系搭载旗舰韬芯片</title>
+    <link rel="alternate" type="text/html" href="https://www.toutiao.com/trending/7691528727615786538/"/>
+    <updated>2026-10-01T06:22:03Z</updated>
+    <author><name>今日头条</name></author>
+    <summary>Also reported by: 百度热搜
+Rank: 1</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-10-01:155384d0e4d73609</id>
-    <title>#鸿蒙7# 作为华为10年老用户，我觉得最好用的一个功能就是注视不息屏</title>
-    <link rel="alternate" type="text/html" href="https://www.coolapk.com/feed/74071511"/>
-    <updated>2026-10-01T00:03:49Z</updated>
+    <id>urn:pulseradar:2026-10-01:bf3c6d701853a4a9</id>
+    <title>〖 华为Mate 90系列发布：5999元起，即日起开售〗</title>
+    <link rel="alternate" type="text/html" href="https://www.coolapk.com/feed/74096095"/>
+    <updated>2026-10-01T06:22:03Z</updated>
     <author><name>酷安</name></author>
-    <summary>Rank: 12</summary>
+    <summary>Rank: 2</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-01:6e177cc48f1e2212</id>
+    <title>如何评价 10 月 1 日发布的华为 Mate 90 系列全系旗舰τ芯片，不同版本如何选择？</title>
+    <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2088956328886678092"/>
+    <updated>2026-10-01T06:22:03Z</updated>
+    <author><name>知乎</name></author>
+    <summary>Rank: 2</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-01:caea4070c5c35c81</id>
+    <title>剑指英伟达CUDA！DeepSeek开源华为昇腾全套组件</title>
+    <link rel="alternate" type="text/html" href="https://www.cls.cn/detail/2496566"/>
+    <updated>2026-10-01T06:22:03Z</updated>
+    <author><name>财联社热门</name></author>
+    <summary>Rank: 3</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-01:0ab71ed3e806de67</id>
+    <title>华为 Mate90 系列正式发布：售价 5999 元起</title>
+    <link rel="alternate" type="text/html" href="https://www.coolapk.com/feed/74096068"/>
+    <updated>2026-10-01T06:22:03Z</updated>
+    <author><name>酷安</name></author>
+    <summary>Rank: 3</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-01:93780f3cb962a240</id>
+    <title>华为Mate90售价5999元起</title>
+    <link rel="alternate" type="text/html" href="https://www.toutiao.com/trending/7691537174281326118/"/>
+    <updated>2026-10-01T06:22:03Z</updated>
+    <author><name>今日头条</name></author>
+    <summary>Rank: 4</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-01:8bf0a237db259a31</id>
+    <title>华为Mate90价格</title>
+    <link rel="alternate" type="text/html" href="https://s.weibo.com/weibo?q=%E5%8D%8E%E4%B8%BAMate90%E4%BB%B7%E6%A0%BC&amp;t=31&amp;band_rank=4&amp;Refer=top"/>
+    <updated>2026-10-01T06:22:03Z</updated>
+    <author><name>微博</name></author>
+    <summary>Rank: 4</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-01:02ac1e152ab0593b</id>
+    <title>【华为Mate 90系列 正式发布：至高搭载麒麟9050 Pro，售价5999元起】</title>
+    <link rel="alternate" type="text/html" href="https://www.coolapk.com/feed/74096147"/>
+    <updated>2026-10-01T06:22:03Z</updated>
+    <author><name>酷安</name></author>
+    <summary>Rank: 5</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-10-01:70bd49ed4c49797c</id>
     <title>爽死了，家里人庆祝我保研成功给我买手机（指定买华为），排着问了本市方圆20公里的十几家华为授权店员工，终于在一家小店订到一台512配置的90pm白色，明天下午直接去取机爽歪歪[呲牙] #华为Mate90ProMax#</title>
     <link rel="alternate" type="text/html" href="https://www.coolapk.com/feed/74082081"/>
-    <updated>2026-10-01T00:03:49Z</updated>
+    <updated>2026-10-01T06:22:03Z</updated>
+    <author><name>酷安</name></author>
+    <summary>Rank: 6</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-01:72735120fac3d8ec</id>
+    <title>华为Mate90支持四卡三待</title>
+    <link rel="alternate" type="text/html" href="https://www.toutiao.com/trending/7691106294874472486/"/>
+    <updated>2026-10-01T06:22:03Z</updated>
+    <author><name>今日头条</name></author>
+    <summary>Also reported by: 百度热搜
+Rank: 7</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-01:9a1bd5195f17b8ec</id>
+    <title>对标英伟达CUDA！DeepSeek开源昇腾版“AI工具箱”，性能接近硬件上限</title>
+    <link rel="alternate" type="text/html" href="https://wallstreetcn.com/articles/3782814"/>
+    <updated>2026-10-01T06:22:03Z</updated>
+    <author><name>华尔街见闻</name></author>
+    <summary>Rank: 7</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-01:8f6c804a60df1759</id>
+    <title>华为Mate系列累计发送卫星消息90万条</title>
+    <link rel="alternate" type="text/html" href="https://www.toutiao.com/trending/7691527279435923499/"/>
+    <updated>2026-10-01T06:22:03Z</updated>
+    <author><name>今日头条</name></author>
+    <summary>Rank: 10</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-01:c96da7eac862c209</id>
+    <title>虽然华为这次很贵，但是还是比苹果便宜不少啊，，，苹果9999才是pro的256。但是9999可以买华为的pm的512了啊。。。怎么还有一堆人说苹果有性价比的？？？</title>
+    <link rel="alternate" type="text/html" href="https://www.coolapk.com/feed/74097000"/>
+    <updated>2026-10-01T06:22:03Z</updated>
+    <author><name>酷安</name></author>
+    <summary>Rank: 11</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-01:a9b48e610b78130c</id>
+    <title>华为睿影Z10 模块相机发布：1英寸RYYB+红枫原色，5999元</title>
+    <link rel="alternate" type="text/html" href="https://www.coolapk.com/feed/74096123"/>
+    <updated>2026-10-01T06:22:03Z</updated>
+    <author><name>酷安</name></author>
+    <summary>Rank: 12</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-01:1bf8dd7cb2277e25</id>
+    <title>华为Mate 90全系搭载韬定律芯片：麒麟9030、9035、9050 Pro</title>
+    <link rel="alternate" type="text/html" href="https://www.coolapk.com/feed/74095392"/>
+    <updated>2026-10-01T06:22:03Z</updated>
+    <author><name>酷安</name></author>
+    <summary>Rank: 14</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-01:3456fbaf38b269be</id>
+    <title>兄弟们，终极抉择，18pm透明版跟mate90pm，我该怎么选 #华为Mate90ProMax#</title>
+    <link rel="alternate" type="text/html" href="https://www.coolapk.com/feed/74089611"/>
+    <updated>2026-10-01T06:22:03Z</updated>
     <author><name>酷安</name></author>
     <summary>Rank: 15</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-10-01:bcf32a80bc414a4e</id>
-    <title>赛力斯华为合作模式变动</title>
-    <link rel="alternate" type="text/html" href="https://s.weibo.com/weibo?q=%E8%B5%9B%E5%8A%9B%E6%96%AF%E5%8D%8E%E4%B8%BA%E5%90%88%E4%BD%9C%E6%A8%A1%E5%BC%8F%E5%8F%98%E5%8A%A8&amp;t=31&amp;band_rank=21&amp;Refer=top"/>
-    <updated>2026-10-01T00:03:49Z</updated>
+    <id>urn:pulseradar:2026-10-01:a96326de2d3b65ce</id>
+    <title>华为Mate90定价5999起</title>
+    <link rel="alternate" type="text/html" href="https://www.douyin.com/hot/2676317"/>
+    <updated>2026-10-01T06:22:03Z</updated>
+    <author><name>抖音</name></author>
+    <summary>Rank: 17</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-01:bf2b1b798c753471</id>
+    <title>如何看待华为 Mate 90 系列通信能力再升级，首发多人互助通信共享、四卡三待等多项通信技术？</title>
+    <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2088665188237041777"/>
+    <updated>2026-10-01T06:22:03Z</updated>
+    <author><name>知乎</name></author>
+    <summary>Rank: 18</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-01:1dcf7a367f58922b</id>
+    <title>华为Mate90 ProMax评测</title>
+    <link rel="alternate" type="text/html" href="https://s.weibo.com/weibo?q=%E5%8D%8E%E4%B8%BAMate90%20ProMax%E8%AF%84%E6%B5%8B&amp;t=31&amp;band_rank=19&amp;Refer=top"/>
+    <updated>2026-10-01T06:22:03Z</updated>
     <author><name>微博</name></author>
-    <summary>Rank: 21</summary>
+    <summary>Rank: 19</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-01:dda9b07c3d4c6a8f</id>
+    <title>如何看待华为 Mate 90 首发睿影 Z10 模块相机，或将带来哪些影像体验新突破？</title>
+    <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2088665087024354912"/>
+    <updated>2026-10-01T06:22:03Z</updated>
+    <author><name>知乎</name></author>
+    <summary>Rank: 20</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-01:57bf64a7cc393a92</id>
+    <title>余承东回应Mate90定价</title>
+    <link rel="alternate" type="text/html" href="https://s.weibo.com/weibo?q=%23%E4%BD%99%E6%89%BF%E4%B8%9C%E5%9B%9E%E5%BA%94Mate90%E5%AE%9A%E4%BB%B7%23&amp;t=31&amp;band_rank=26&amp;Refer=top"/>
+    <updated>2026-10-01T06:22:03Z</updated>
+    <author><name>微博</name></author>
+    <summary>Rank: 26</summary>
   </entry>
 </feed>

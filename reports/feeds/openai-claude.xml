@@ -4,47 +4,79 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-10-02T06:00:03Z</updated>
+  <updated>2026-10-02T12:59:48Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
   <entry>
-    <id>urn:pulseradar:2026-10-02:84e041cf61a4da46</id>
-    <title>Dots by OpenAI</title>
-    <link rel="alternate" type="text/html" href="https://www.producthunt.com/products/dots-by-openai"/>
-    <updated>2026-10-02T06:00:03Z</updated>
-    <author><name>Product Hunt</name></author>
-    <summary>Rank: 3</summary>
+    <id>urn:pulseradar:2026-10-02:dde85e61946fbb22</id>
+    <title>Harvard particle physicist Matthew Schwartz drops 36 papers authored with Claude</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49932606"/>
+    <updated>2026-10-02T12:59:48Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 1</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-10-02:022bcabc06f71886</id>
-    <title>拿 OpenAI 新玩具 Dots，来做产品宣传视频，效果超出预期</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1246082"/>
-    <updated>2026-10-02T06:00:03Z</updated>
+    <id>urn:pulseradar:2026-10-02:c85508f05c0e5522</id>
+    <title>冷笑话: Claude 是东方人或匈牙利人</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1246156"/>
+    <updated>2026-10-02T12:59:48Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 14</summary>
+    <summary>Rank: 3</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-10-02:304876e87a1559ed</id>
     <title>Pro 200 额度砍半，OpenAI 给的理由是模型变聪明了</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7690867753125199907"/>
-    <updated>2026-10-02T06:00:03Z</updated>
+    <updated>2026-10-02T12:59:48Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 21</summary>
+    <summary>Rank: 10</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-02:6455f498b02996f3</id>
+    <title>claude code 支持 mod 了，可以定制界面， 我用 AI 糊了一个导航站， https://ccmods.dev/</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1246134"/>
+    <updated>2026-10-02T12:59:48Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 11</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-10-02:77aea5666a4c0746</id>
     <title>OpenAI 发布 GPT-6.1 Sol，能力逼近 Astra</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7690930433831895050"/>
-    <updated>2026-10-02T06:00:03Z</updated>
+    <updated>2026-10-02T12:59:48Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 28</summary>
+    <summary>Rank: 20</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-10-02:e6a3a9d94760aa87</id>
-    <title>claude pro token 用不完怎么办</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1246041"/>
-    <updated>2026-10-02T06:00:03Z</updated>
+    <id>urn:pulseradar:2026-10-02:e72b0d5bdb9e5776</id>
+    <title>OpenAI 给 AI 发了台电脑，可惜你还没学会派活</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7691151105850654758"/>
+    <updated>2026-10-02T12:59:48Z</updated>
+    <author><name>掘金</name></author>
+    <summary>Rank: 24</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-02:e943198463a2f48d</id>
+    <title>Claude Opus 5.5 最新焚诀发布了！</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7690930433831354378"/>
+    <updated>2026-10-02T12:59:48Z</updated>
+    <author><name>掘金</name></author>
+    <summary>Rank: 26</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-02:6d6627f7492784bb</id>
+    <title>Claude Code 三大配置体系详解：settings.json / CLAUDE.md / memory</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7690888878326087721"/>
+    <updated>2026-10-02T12:59:48Z</updated>
+    <author><name>掘金</name></author>
+    <summary>Rank: 27</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-02:022bcabc06f71886</id>
+    <title>拿 OpenAI 新玩具 Dots，来做产品宣传视频，效果超出预期</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1246082"/>
+    <updated>2026-10-02T12:59:48Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 30</summary>
+    <summary>Rank: 28</summary>
   </entry>
 </feed>

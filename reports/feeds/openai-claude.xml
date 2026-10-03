@@ -4,14 +4,30 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-10-03T18:07:23Z</updated>
+  <updated>2026-10-03T21:38:53Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
+  <entry>
+    <id>urn:pulseradar:2026-10-03:0ed4811245c00306</id>
+    <title>Anthropic tried to persuade Pope that AI could be conscious being</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49947050"/>
+    <updated>2026-10-03T21:38:53Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 2</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-03:d80353c7e6cdc399</id>
+    <title>Getting the most out of Opus 5.5 in Claude and Claude Code</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49946567"/>
+    <updated>2026-10-03T21:38:53Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 6</summary>
+  </entry>
   <entry>
     <id>urn:pulseradar:2026-10-03:eab1cb074f6d7d7a</id>
     <title>thedotmack /      claude-mem</title>
     <link rel="alternate" type="text/html" href="https://github.com/thedotmack/claude-mem"/>
-    <updated>2026-10-03T18:07:23Z</updated>
+    <updated>2026-10-03T21:38:53Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 8</summary>
   </entry>
@@ -19,7 +35,7 @@
     <id>urn:pulseradar:2026-10-03:52c0e267921501ae</id>
     <title>anthropics /      claude-code</title>
     <link rel="alternate" type="text/html" href="https://github.com/anthropics/claude-code"/>
-    <updated>2026-10-03T18:07:23Z</updated>
+    <updated>2026-10-03T21:38:53Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 16</summary>
   </entry>
@@ -27,16 +43,8 @@
     <id>urn:pulseradar:2026-10-03:9f80db7bd6a49b19</id>
     <title>用 Claude 搞了个新的 Event Driven、高性能、低内存的 Golang 网络库： fib 。</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1246257"/>
-    <updated>2026-10-03T18:07:23Z</updated>
+    <updated>2026-10-03T21:38:53Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 18</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-10-03:c6742b340d26cbc4</id>
-    <title>Sites in ChatGPT</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49927747"/>
-    <updated>2026-10-03T18:07:23Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 26</summary>
+    <summary>Rank: 20</summary>
   </entry>
 </feed>

@@ -4,14 +4,22 @@
   <subtitle>Subscribe to keyword: AI 相关</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/kw-7342c24991.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-10-04T18:44:05Z</updated>
+  <updated>2026-10-04T22:26:00Z</updated>
   <id>urn:pulseradar:feed:dfb23af4884d</id>
   <author><name>PulseRadar</name></author>
+  <entry>
+    <id>urn:pulseradar:2026-10-04:60c9cb1ec2493395</id>
+    <title>Homa: The end of TCP for AI clusters [video]</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49957117"/>
+    <updated>2026-10-04T22:26:00Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 1</summary>
+  </entry>
   <entry>
     <id>urn:pulseradar:2026-10-04:428073fdffdf6bf8</id>
     <title>特朗普“AI沙皇”人选曝光</title>
     <link rel="alternate" type="text/html" href="https://news.ifeng.com/c/8wwrNBWlavW"/>
-    <updated>2026-10-04T18:44:05Z</updated>
+    <updated>2026-10-04T22:26:00Z</updated>
     <author><name>凤凰网</name></author>
     <summary>Rank: 1</summary>
   </entry>
@@ -19,7 +27,7 @@
     <id>urn:pulseradar:2026-10-04:95a02f010adccd7d</id>
     <title>别再把攻略全甩给 AI：国庆七天河南自驾，我是这样用 Agent 的</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/114945"/>
-    <updated>2026-10-04T18:44:05Z</updated>
+    <updated>2026-10-04T22:26:00Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 4</summary>
   </entry>
@@ -27,23 +35,15 @@
     <id>urn:pulseradar:2026-10-04:883334640a13cdf3</id>
     <title>一向力挺AI的孙正义突然警告：超级智能可能“极其危险”</title>
     <link rel="alternate" type="text/html" href="https://wallstreetcn.com/articles/3782987"/>
-    <updated>2026-10-04T18:44:05Z</updated>
+    <updated>2026-10-04T22:26:00Z</updated>
     <author><name>华尔街见闻</name></author>
     <summary>Rank: 5</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-10-04:dc3c52d4195db45f</id>
-    <title>Show HN: AI search for every photo and every frame of video on macOS</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49952111"/>
-    <updated>2026-10-04T18:44:05Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 6</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-10-04:0223dd031d4fba4c</id>
     <title>Meta 分享怎么用 AI 迁移 Compose 项目不烧心</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7692485970524373026"/>
-    <updated>2026-10-04T18:44:05Z</updated>
+    <updated>2026-10-04T22:26:00Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 6</summary>
   </entry>
@@ -51,103 +51,111 @@
     <id>urn:pulseradar:2026-10-04:a36eab8680ebeb43</id>
     <title>美银：“AI交易”是当前美债市场“最后一道防线”</title>
     <link rel="alternate" type="text/html" href="https://wallstreetcn.com/articles/3782975"/>
-    <updated>2026-10-04T18:44:05Z</updated>
+    <updated>2026-10-04T22:26:00Z</updated>
     <author><name>华尔街见闻</name></author>
     <summary>Rank: 6</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-10-04:f0250e05cb6b90f8</id>
-    <title>What&apos;s the Future for Pure Math Research in the Age of AI?</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49951641"/>
-    <updated>2026-10-04T18:44:05Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 8</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-10-04:86842a6b03371726</id>
     <title>贝森特“灭火”：美债收益率上升属全球现象，驳斥AI泡沫担忧</title>
     <link rel="alternate" type="text/html" href="https://wallstreetcn.com/articles/3782969"/>
-    <updated>2026-10-04T18:44:05Z</updated>
+    <updated>2026-10-04T22:26:00Z</updated>
     <author><name>华尔街见闻</name></author>
     <summary>Rank: 8</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-04:dc3c52d4195db45f</id>
+    <title>Show HN: AI search for every photo and every frame of video on macOS</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49952111"/>
+    <updated>2026-10-04T22:26:00Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 11</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-10-04:e5e274d3bff4ec48</id>
     <title>[开源] 小伴：像给豆包打电话一样，打开浏览器就能和 AI 语音聊天</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1246422"/>
-    <updated>2026-10-04T18:44:05Z</updated>
+    <updated>2026-10-04T22:26:00Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 9</summary>
+    <summary>Rank: 11</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-04:c5ef1c7a78286b46</id>
+    <title>How to scale intent, quality, and artistry with AI [video]</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49951891"/>
+    <updated>2026-10-04T22:26:00Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 12</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-10-04:3efe28d9e4144e54</id>
     <title>「vConsole MCP🛠️」我让 AI 直接看见任何 H5 的日志和请求帮你 debug</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7691270105432784931"/>
-    <updated>2026-10-04T18:44:05Z</updated>
+    <updated>2026-10-04T22:26:00Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 13</summary>
+    <summary>Rank: 14</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-10-04:1614feeafd1377a3</id>
     <title>开源 Bibo：带按需 Linux 沙箱的个人 AI 工作空间，日常操作不用常驻容器</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1246404"/>
-    <updated>2026-10-04T18:44:05Z</updated>
+    <updated>2026-10-04T22:26:00Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 14</summary>
+    <summary>Rank: 16</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-10-04:28e689e18f0a9f62</id>
     <title>我觉得的 AI 未来的应用</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1246400"/>
-    <updated>2026-10-04T18:44:05Z</updated>
+    <updated>2026-10-04T22:26:00Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 16</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-10-04:df350b5100c979a5</id>
-    <title>LeCun has &quot;zero concerns&quot; about AI wiping out humanity, recent &quot;rogue&quot; incidents</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49946228"/>
-    <updated>2026-10-04T18:44:05Z</updated>
-    <author><name>Hacker News</name></author>
     <summary>Rank: 18</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-10-04:647d267ae73d8027</id>
-    <title>ai agent --- mem0 外挂记忆系统</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7691517675236556854"/>
-    <updated>2026-10-04T18:44:05Z</updated>
-    <author><name>掘金</name></author>
-    <summary>Rank: 24</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-10-04:cd62c907f4c94dbe</id>
-    <title>中美AI治理是否迎来拐点</title>
-    <link rel="alternate" type="text/html" href="https://search.bilibili.com/all?keyword=%E4%B8%AD%E7%BE%8EAI%E6%B2%BB%E7%90%86%E6%98%AF%E5%90%A6%E8%BF%8E%E6%9D%A5%E6%8B%90%E7%82%B9"/>
-    <updated>2026-10-04T18:44:05Z</updated>
-    <author><name>bilibili 热搜</name></author>
-    <summary>Rank: 27</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-10-04:18f9ff7d8f336917</id>
-    <title>我让AI教学生写前端，三天后课堂变了——Web教育者的集体反思</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7691246755552116755"/>
-    <updated>2026-10-04T18:44:05Z</updated>
-    <author><name>掘金</name></author>
-    <summary>Rank: 27</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-10-04:fe3950d2e8510b09</id>
     <title>换汤不换药的AI短剧还能“不烧心”吗</title>
     <link rel="alternate" type="text/html" href="https://www.toutiao.com/trending/7692782520934432811/"/>
-    <updated>2026-10-04T18:44:05Z</updated>
+    <updated>2026-10-04T22:26:00Z</updated>
     <author><name>今日头条</name></author>
-    <summary>Rank: 27</summary>
+    <summary>Rank: 19</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-04:df350b5100c979a5</id>
+    <title>LeCun has &quot;zero concerns&quot; about AI wiping out humanity, recent &quot;rogue&quot; incidents</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49946228"/>
+    <updated>2026-10-04T22:26:00Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 20</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-04:cd62c907f4c94dbe</id>
+    <title>中美AI治理是否迎来拐点</title>
+    <link rel="alternate" type="text/html" href="https://search.bilibili.com/all?keyword=%E4%B8%AD%E7%BE%8EAI%E6%B2%BB%E7%90%86%E6%98%AF%E5%90%A6%E8%BF%8E%E6%9D%A5%E6%8B%90%E7%82%B9"/>
+    <updated>2026-10-04T22:26:00Z</updated>
+    <author><name>bilibili 热搜</name></author>
+    <summary>Rank: 23</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-04:647d267ae73d8027</id>
+    <title>ai agent --- mem0 外挂记忆系统</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7691517675236556854"/>
+    <updated>2026-10-04T22:26:00Z</updated>
+    <author><name>掘金</name></author>
+    <summary>Rank: 26</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-04:18f9ff7d8f336917</id>
+    <title>我让AI教学生写前端，三天后课堂变了——Web教育者的集体反思</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7691246755552116755"/>
+    <updated>2026-10-04T22:26:00Z</updated>
+    <author><name>掘金</name></author>
+    <summary>Rank: 29</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-10-04:127fc60954a135f0</id>
     <title>当 AI 让执行力变得廉价，我们该拿什么脱颖而出？</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/114519"/>
-    <updated>2026-10-04T18:44:05Z</updated>
+    <updated>2026-10-04T22:26:00Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 29</summary>
   </entry>
@@ -155,7 +163,7 @@
     <id>urn:pulseradar:2026-10-04:f330fe12feb2d98d</id>
     <title>GitHub 今日推荐｜archify：AI 代理自动生成可交互架构图的技能模块</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7691231869480566830"/>
-    <updated>2026-10-04T18:44:05Z</updated>
+    <updated>2026-10-04T22:26:00Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 30</summary>
   </entry>

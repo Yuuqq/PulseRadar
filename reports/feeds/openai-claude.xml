@@ -4,55 +4,63 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-10-04T08:39:57Z</updated>
+  <updated>2026-10-04T14:56:03Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
   <entry>
-    <id>urn:pulseradar:2026-10-04:0dd82c9fa444e407</id>
-    <title>Religious scholars met with Anthropic</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49950052"/>
-    <updated>2026-10-04T08:39:57Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 2</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-10-04:eab1cb074f6d7d7a</id>
-    <title>thedotmack /      claude-mem</title>
-    <link rel="alternate" type="text/html" href="https://github.com/thedotmack/claude-mem"/>
-    <updated>2026-10-04T08:39:57Z</updated>
-    <author><name>GitHub Trending</name></author>
-    <summary>Rank: 8</summary>
+    <id>urn:pulseradar:2026-10-04:e8b412c2cd4390f2</id>
+    <title>ChatGPT Space</title>
+    <link rel="alternate" type="text/html" href="https://www.producthunt.com/products/chatgpt-space"/>
+    <updated>2026-10-04T14:56:03Z</updated>
+    <author><name>Product Hunt</name></author>
+    <summary>Rank: 6</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-10-04:c2db17604915cc3b</id>
     <title>OpenAI「12朝元老」辞职死谏：试错的时代已崩坏！</title>
     <link rel="alternate" type="text/html" href="https://wallstreetcn.com/articles/3782981"/>
-    <updated>2026-10-04T08:39:57Z</updated>
+    <updated>2026-10-04T14:56:03Z</updated>
     <author><name>华尔街见闻</name></author>
+    <summary>Rank: 7</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-04:0dd82c9fa444e407</id>
+    <title>Religious scholars met with Anthropic</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49950052"/>
+    <updated>2026-10-04T14:56:03Z</updated>
+    <author><name>Hacker News</name></author>
     <summary>Rank: 8</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-10-04:2cedfbdaf385771b</id>
-    <title>给 Touch Bar 做了个新用途：直接看 Codex / Claude Code 是在工作，还是已经做完</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1246327"/>
-    <updated>2026-10-04T08:39:57Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 12</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-10-04:52c0e267921501ae</id>
-    <title>anthropics /      claude-code</title>
-    <link rel="alternate" type="text/html" href="https://github.com/anthropics/claude-code"/>
-    <updated>2026-10-04T08:39:57Z</updated>
+    <id>urn:pulseradar:2026-10-04:eab1cb074f6d7d7a</id>
+    <title>thedotmack /      claude-mem</title>
+    <link rel="alternate" type="text/html" href="https://github.com/thedotmack/claude-mem"/>
+    <updated>2026-10-04T14:56:03Z</updated>
     <author><name>GitHub Trending</name></author>
-    <summary>Rank: 16</summary>
+    <summary>Rank: 12</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-10-04:db1593d362b50393</id>
     <title>I quit OpenAI because its culture is broken</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49944227"/>
-    <updated>2026-10-04T08:39:57Z</updated>
+    <updated>2026-10-04T14:56:03Z</updated>
     <author><name>Hacker News</name></author>
-    <summary>Rank: 18</summary>
+    <summary>Rank: 22</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-04:5ff3a6df94c0f0be</id>
+    <title>Claude Code Mods 是什么：给 Claude 加工具、在终端画界面</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7691498553260884008"/>
+    <updated>2026-10-04T14:56:03Z</updated>
+    <author><name>掘金</name></author>
+    <summary>Rank: 29</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-04:2cedfbdaf385771b</id>
+    <title>给 Touch Bar 做了个新用途：直接看 Codex / Claude Code 是在工作，还是已经做完</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1246327"/>
+    <updated>2026-10-04T14:56:03Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 29</summary>
   </entry>
 </feed>

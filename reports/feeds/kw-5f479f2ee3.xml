@@ -4,87 +4,103 @@
   <subtitle>Subscribe to keyword: 微软 / 谷歌 / 苹果</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/kw-5f479f2ee3.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-10-04T14:56:03Z</updated>
+  <updated>2026-10-04T18:44:05Z</updated>
   <id>urn:pulseradar:feed:904a911d6c5f</id>
   <author><name>PulseRadar</name></author>
-  <entry>
-    <id>urn:pulseradar:2026-10-04:c1d51fde6a1f7e94</id>
-    <title>看 YouTube 总要反复开关字幕？我做了个字幕插件，送大家一年 Pro 权益</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1246427"/>
-    <updated>2026-10-04T14:56:03Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 1</summary>
-  </entry>
   <entry>
     <id>urn:pulseradar:2026-10-04:44320ba5da7eb285</id>
     <title>Gemini 4 Argon</title>
     <link rel="alternate" type="text/html" href="https://www.producthunt.com/products/gemini-4-argon"/>
-    <updated>2026-10-04T14:56:03Z</updated>
+    <updated>2026-10-04T18:44:05Z</updated>
     <author><name>Product Hunt</name></author>
-    <summary>Rank: 3</summary>
+    <summary>Rank: 2</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-10-04:f9a1ff74a64f5f9f</id>
     <title>更懂你的心，也更懂你：Apple Watch Series 12 体验</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/115061"/>
-    <updated>2026-10-04T14:56:03Z</updated>
+    <updated>2026-10-04T18:44:05Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 3</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-04:c1d51fde6a1f7e94</id>
+    <title>看 YouTube 总要反复开关字幕？我做了个字幕插件，送大家一年 Pro 权益</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1246427"/>
+    <updated>2026-10-04T18:44:05Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 5</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-04:a5735e44d52a7404</id>
+    <title>国产旗舰新机集体涨价后 iPhone 销量反弹，导致这一现象的原因是什么？</title>
+    <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2088048820919734585"/>
+    <updated>2026-10-04T18:44:05Z</updated>
+    <author><name>知乎</name></author>
+    <summary>Rank: 5</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-10-04:80528c8e772fb728</id>
     <title>比起折痕， iPhone Duo 的交互设计更加令人着迷</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/114972"/>
-    <updated>2026-10-04T14:56:03Z</updated>
+    <updated>2026-10-04T18:44:05Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 6</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-10-04:a8ef0afc178f5c92</id>
-    <title>想入个 macmini 做 iOS 开发 16g 够用吗</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1246403"/>
-    <updated>2026-10-04T14:56:03Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 11</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-10-04:3a5501f99b9a0515</id>
     <title>苹果确认：iPhone 18 Pro Max有问题</title>
     <link rel="alternate" type="text/html" href="https://www.cls.cn/detail/2497509"/>
-    <updated>2026-10-04T14:56:03Z</updated>
+    <updated>2026-10-04T18:44:05Z</updated>
     <author><name>财联社热门</name></author>
-    <summary>Rank: 12</summary>
+    <summary>Rank: 9</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-10-04:b92142e63e37b837</id>
     <title>社区速递 159 | 便携卡片充电器与库克十五年改变生活的产品</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/114904"/>
-    <updated>2026-10-04T14:56:03Z</updated>
+    <updated>2026-10-04T18:44:05Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 13</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-10-04:2932a2c3e4a5d173</id>
-    <title>微软在游戏行业的早期试水：一段与梦工厂的「梦幻联动」</title>
-    <link rel="alternate" type="text/html" href="https://sspai.com/post/113823"/>
-    <updated>2026-10-04T14:56:03Z</updated>
-    <author><name>少数派</name></author>
-    <summary>Rank: 15</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-10-04:581d08285328862d</id>
     <title>iOS Method Swizzling 的工程化实践：如何处理多重交换与第三方冲突</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7691450666427547702"/>
-    <updated>2026-10-04T14:56:03Z</updated>
+    <updated>2026-10-04T18:44:05Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 17</summary>
+    <summary>Rank: 15</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-04:2932a2c3e4a5d173</id>
+    <title>微软在游戏行业的早期试水：一段与梦工厂的「梦幻联动」</title>
+    <link rel="alternate" type="text/html" href="https://sspai.com/post/113823"/>
+    <updated>2026-10-04T18:44:05Z</updated>
+    <author><name>少数派</name></author>
+    <summary>Rank: 15</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-04:a8ef0afc178f5c92</id>
+    <title>想入个 macmini 做 iOS 开发 16g 够用吗</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1246403"/>
+    <updated>2026-10-04T18:44:05Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 15</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-04:13bcab8b2b12c0ce</id>
+    <title>Magic Switch: Share Apple Magic keyboard/track-pad/mouse between two Macs</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49935038"/>
+    <updated>2026-10-04T18:44:05Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 25</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-10-04:574340177a0ac1f6</id>
     <title>gemini4 还不下放，导致我下一步从 openai 叛逃都不知道该去 gemini 还是 grok</title>
     <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1246364"/>
-    <updated>2026-10-04T14:56:03Z</updated>
+    <updated>2026-10-04T18:44:05Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 22</summary>
+    <summary>Rank: 26</summary>
   </entry>
 </feed>

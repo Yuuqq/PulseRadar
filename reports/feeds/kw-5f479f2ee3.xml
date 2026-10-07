@@ -4,62 +4,78 @@
   <subtitle>Subscribe to keyword: 微软 / 谷歌 / 苹果</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/kw-5f479f2ee3.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-10-07T09:04:19Z</updated>
+  <updated>2026-10-07T16:47:40Z</updated>
   <id>urn:pulseradar:feed:904a911d6c5f</id>
   <author><name>PulseRadar</name></author>
   <entry>
-    <id>urn:pulseradar:2026-10-07:71454161b46aa228</id>
-    <title>Hackers obtain counterfeit TLS certificates for Google and other large services</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49988230"/>
-    <updated>2026-10-07T09:04:19Z</updated>
-    <author><name>Hacker News</name></author>
+    <id>urn:pulseradar:2026-10-07:09928c35f497c485</id>
+    <title>AI 时代，我们都将成为通才型开发者：只懂 Android，已经不够了</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7693358476032049162"/>
+    <updated>2026-10-07T16:47:40Z</updated>
+    <author><name>掘金</name></author>
     <summary>Rank: 3</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-10-07:4f480aef08380e7c</id>
     <title>Android CLI 支持 AI Agent 通过 Device Streaming 调试云真机</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7692379120273899560"/>
-    <updated>2026-10-07T09:04:19Z</updated>
+    <updated>2026-10-07T16:47:40Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 3</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-10-07:09928c35f497c485</id>
-    <title>AI 时代，我们都将成为通才型开发者：只懂 Android，已经不够了</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7693358476032049162"/>
-    <updated>2026-10-07T09:04:19Z</updated>
-    <author><name>掘金</name></author>
-    <summary>Rank: 5</summary>
+    <summary>Rank: 4</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-10-07:f9a1ff74a64f5f9f</id>
     <title>更懂你的心，也更懂你：Apple Watch Series 12 体验</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/115061"/>
-    <updated>2026-10-07T09:04:19Z</updated>
+    <updated>2026-10-07T16:47:40Z</updated>
     <author><name>少数派</name></author>
+    <summary>Rank: 5</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-07:803efced1aed6059</id>
+    <title>[分享创造] 启视 BootScope：一个能看到任务管理器看不到的启动项的 Windows 小工具，单文件 PowerShell，零依赖</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1246846"/>
+    <updated>2026-10-07T16:47:40Z</updated>
+    <author><name>V2EX</name></author>
     <summary>Rank: 5</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-10-07:80528c8e772fb728</id>
     <title>比起折痕， iPhone Duo 的交互设计更加令人着迷</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/114972"/>
-    <updated>2026-10-07T09:04:19Z</updated>
+    <updated>2026-10-07T16:47:40Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 8</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-10-07:7d54c62d0cfb1b9c</id>
-    <title>Google AI studio BAN 的 IP 库和 antigravity 不一样？</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1246766"/>
-    <updated>2026-10-07T09:04:19Z</updated>
-    <author><name>V2EX</name></author>
+    <id>urn:pulseradar:2026-10-07:8e6eea88568091e4</id>
+    <title>Agent 开发框架深度对比——LangGraph、AutoGen、CrewAI 与 Microsoft Agent Framework 该选谁</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7692612898275967002"/>
+    <updated>2026-10-07T16:47:40Z</updated>
+    <author><name>掘金</name></author>
     <summary>Rank: 11</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-07:6878d2d71bb69806</id>
+    <title>Google Playground</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49992774"/>
+    <updated>2026-10-07T16:47:40Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 12</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-07:7bffbd9352a99032</id>
+    <title>第一次写 Windows 原生 App</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1246828"/>
+    <updated>2026-10-07T16:47:40Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 14</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-10-07:b92142e63e37b837</id>
     <title>社区速递 159 | 便携卡片充电器与库克十五年改变生活的产品</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/114904"/>
-    <updated>2026-10-07T09:04:19Z</updated>
+    <updated>2026-10-07T16:47:40Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 15</summary>
   </entry>
@@ -67,24 +83,24 @@
     <id>urn:pulseradar:2026-10-07:2932a2c3e4a5d173</id>
     <title>微软在游戏行业的早期试水：一段与梦工厂的「梦幻联动」</title>
     <link rel="alternate" type="text/html" href="https://sspai.com/post/113823"/>
-    <updated>2026-10-07T09:04:19Z</updated>
+    <updated>2026-10-07T16:47:40Z</updated>
     <author><name>少数派</name></author>
     <summary>Rank: 17</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-10-07:8e6eea88568091e4</id>
-    <title>Agent 开发框架深度对比——LangGraph、AutoGen、CrewAI 与 Microsoft Agent Framework 该选谁</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7692612898275967002"/>
-    <updated>2026-10-07T09:04:19Z</updated>
-    <author><name>掘金</name></author>
-    <summary>Rank: 18</summary>
+    <id>urn:pulseradar:2026-10-07:15df051f43af30ed</id>
+    <title>Shipping JPEG XL in Chrome</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49991227"/>
+    <updated>2026-10-07T16:47:40Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 19</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-10-07:a3b3cf96d7c639bd</id>
-    <title>Safari 用户苦沉浸式翻译久矣，所以我开发了一个代替它的软件，支持 iOS 和 macOS，正在 TestFlight 中，欢迎使用</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1246740"/>
-    <updated>2026-10-07T09:04:19Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 20</summary>
+    <id>urn:pulseradar:2026-10-07:20b896380eea12e4</id>
+    <title>VECOS – A windows-like operating system for the Vectrex for the UVMC2 [video]</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49984984"/>
+    <updated>2026-10-07T16:47:40Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 23</summary>
   </entry>
 </feed>

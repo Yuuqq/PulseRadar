@@ -4,23 +4,31 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-10-06T21:48:26Z</updated>
+  <updated>2026-10-07T01:43:54Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
   <entry>
-    <id>urn:pulseradar:2026-10-06:adc4a2804b483a20</id>
-    <title>Tumbler Ridge shooter&apos;s ChatGPT use &quot;more disturbing&quot; than known: reporter</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49983825"/>
-    <updated>2026-10-06T21:48:26Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 1</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-10-06:eab1cb074f6d7d7a</id>
+    <id>urn:pulseradar:2026-10-07:eab1cb074f6d7d7a</id>
     <title>thedotmack /      claude-mem</title>
     <link rel="alternate" type="text/html" href="https://github.com/thedotmack/claude-mem"/>
-    <updated>2026-10-06T21:48:26Z</updated>
+    <updated>2026-10-07T01:43:54Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 6</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-07:a3d4a042e2c754b3</id>
+    <title>如何看待 OpenAI 公开 722 份数学手稿，宣布解决包含「准黎曼猜想」的数百个数学问题？</title>
+    <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2091064625987170716"/>
+    <updated>2026-10-07T01:43:54Z</updated>
+    <author><name>知乎</name></author>
+    <summary>Rank: 16</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-07:2fef52f5e2993446</id>
+    <title>Claude Code’s suggested message feature: I think the real customer is the model</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=49981905"/>
+    <updated>2026-10-07T01:43:54Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 18</summary>
   </entry>
 </feed>

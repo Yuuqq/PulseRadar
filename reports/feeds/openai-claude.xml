@@ -4,31 +4,47 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-10-10T01:06:38Z</updated>
+  <updated>2026-10-10T07:32:51Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
+  <entry>
+    <id>urn:pulseradar:2026-10-10:806d7853243e3fab</id>
+    <title>那些托管在国外的真正家庭中的机器（mac mini/主机）用 claude 真的会封吗？</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1247639"/>
+    <updated>2026-10-10T07:32:51Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 2</summary>
+  </entry>
   <entry>
     <id>urn:pulseradar:2026-10-10:84c15da4dc5bd422</id>
     <title>Anthropic AI model submits false tip on unsolved Philly murder</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=50027118"/>
-    <updated>2026-10-10T01:06:38Z</updated>
+    <updated>2026-10-10T07:32:51Z</updated>
     <author><name>Hacker News</name></author>
-    <summary>Rank: 7</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-10-10:cb16c342e52f0dff</id>
-    <title>OpenAI mistranslated mathematics into code for its Navier-Stokes proof</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=50026734"/>
-    <updated>2026-10-10T01:06:38Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 8</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-10-10:b70282b368a73040</id>
-    <title>参考 OpenAI 工程博客的配图，做了个画技术图的 Agent Skill</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1247482"/>
-    <updated>2026-10-10T01:06:38Z</updated>
-    <author><name>V2EX</name></author>
     <summary>Rank: 9</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-10:91189420b050db91</id>
+    <title>AI灾难将在一年内发生？Anthropic、OpenAI私下推演最坏情景</title>
+    <link rel="alternate" type="text/html" href="https://wallstreetcn.com/articles/3783284"/>
+    <updated>2026-10-10T07:32:51Z</updated>
+    <author><name>华尔街见闻</name></author>
+    <summary>Rank: 9</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-10:ecd8e9f4057a105f</id>
+    <title>Anthropic 新规禁止持续虐待 Claude，这意味着什么？</title>
+    <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2091801653557183669"/>
+    <updated>2026-10-10T07:32:51Z</updated>
+    <author><name>知乎</name></author>
+    <summary>Rank: 11</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-10:00f618c14b0d8974</id>
+    <title>Chatgpt/Claude 低价代充，充自己的账号</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1247562"/>
+    <updated>2026-10-10T07:32:51Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 27</summary>
   </entry>
 </feed>

@@ -4,31 +4,47 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-10-12T23:08:34Z</updated>
+  <updated>2026-10-13T03:44:34Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
   <entry>
-    <id>urn:pulseradar:2026-10-12:2c2dfac01cefaddf</id>
-    <title>用 Claude Opus 5.5 做了个动效视频工具，哪里不满意只改哪里，不用整条重新生成</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1248246"/>
-    <updated>2026-10-12T23:08:34Z</updated>
+    <id>urn:pulseradar:2026-10-13:7a65b18ac1baae23</id>
+    <title>大家有在 grokbot 或 muse 里运行 Claude cli 吗，会封号吗</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1248313"/>
+    <updated>2026-10-13T03:44:34Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 4</summary>
+    <summary>Rank: 1</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-10-12:862b739330b8dd09</id>
+    <id>urn:pulseradar:2026-10-13:c8389889d9e79e0e</id>
+    <title>claude 桌面端根据任务难度拆分发送任务给 codex 执行，并且完成后审核</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1248291"/>
+    <updated>2026-10-13T03:44:34Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 5</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-13:862b739330b8dd09</id>
     <title>Alishahryar1 /      free-claude-code</title>
     <link rel="alternate" type="text/html" href="https://github.com/Alishahryar1/free-claude-code"/>
-    <updated>2026-10-12T23:08:34Z</updated>
+    <updated>2026-10-13T03:44:34Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 9</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-10-12:8a82643af6a22553</id>
+    <id>urn:pulseradar:2026-10-13:2c2dfac01cefaddf</id>
+    <title>用 Claude Opus 5.5 做了个动效视频工具，哪里不满意只改哪里，不用整条重新生成</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1248246"/>
+    <updated>2026-10-13T03:44:34Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 21</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-13:8a82643af6a22553</id>
     <title>Show HN: Atticus – Hold-to-talk voice assistant for macOS that runs on Claude -p</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=50049588"/>
-    <updated>2026-10-12T23:08:34Z</updated>
+    <updated>2026-10-13T03:44:34Z</updated>
     <author><name>Hacker News</name></author>
-    <summary>Rank: 26</summary>
+    <summary>Rank: 25</summary>
   </entry>
 </feed>

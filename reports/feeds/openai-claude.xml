@@ -4,31 +4,47 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-10-14T02:04:25Z</updated>
+  <updated>2026-10-14T07:54:15Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
-  <entry>
-    <id>urn:pulseradar:2026-10-14:454423e4b2997973</id>
-    <title>请大佬们推荐一下 Claude 的客户端或者网页端</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1248581"/>
-    <updated>2026-10-14T02:04:25Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 1</summary>
-  </entry>
   <entry>
     <id>urn:pulseradar:2026-10-14:ec34b62b0bfe1b25</id>
     <title>OpenAI engineer arrested in bugging of executive conference room</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=50078141"/>
-    <updated>2026-10-14T02:04:25Z</updated>
+    <updated>2026-10-14T07:54:15Z</updated>
     <author><name>Hacker News</name></author>
-    <summary>Rank: 6</summary>
+    <summary>Rank: 10</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-10-14:5f213721843d4b89</id>
     <title>Redesigning source control at Anthropic</title>
     <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=50073633"/>
-    <updated>2026-10-14T02:04:25Z</updated>
+    <updated>2026-10-14T07:54:15Z</updated>
     <author><name>Hacker News</name></author>
-    <summary>Rank: 12</summary>
+    <summary>Rank: 15</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-14:f71d8e75f00af199</id>
+    <title>如何看待  Linus 开始使用 Claude Code 开发 Linux 内核？</title>
+    <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2093048312446428291"/>
+    <updated>2026-10-14T07:54:15Z</updated>
+    <author><name>知乎</name></author>
+    <summary>Rank: 19</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-14:54ca1ee0430df87e</id>
+    <title>Make your ChatGPT plan go further</title>
+    <link rel="alternate" type="text/html" href="https://www.producthunt.com/products/untitled-chatgpt-model-router"/>
+    <updated>2026-10-14T07:54:15Z</updated>
+    <author><name>Product Hunt</name></author>
+    <summary>Rank: 20</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-14:20ca158a6a711f40</id>
+    <title>Codex 不只是写代码：OpenAI 想抢走 AI 工作流入口</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7695976921429147686"/>
+    <updated>2026-10-14T07:54:15Z</updated>
+    <author><name>掘金</name></author>
+    <summary>Rank: 24</summary>
   </entry>
 </feed>

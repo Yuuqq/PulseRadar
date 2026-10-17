@@ -1,30 +1,30 @@
 {
-  "updated": "2026-10-17T19:37:39Z",
+  "updated": "2026-10-17T22:31:36Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
       "keyword": "AI 相关",
-      "count": 25,
+      "count": 27,
       "url": "/reports/feeds/kw-7342c24991.xml"
     },
     "kw-5f479f2ee3": {
       "keyword": "微软 / 谷歌 / 苹果",
-      "count": 14,
+      "count": 16,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
     },
     "kw-101806f57c": {
       "keyword": "中国",
-      "count": 13,
+      "count": 14,
       "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-3f426f96e0": {
       "keyword": "特斯拉",
-      "count": 12,
+      "count": 11,
       "url": "/reports/feeds/kw-3f426f96e0.xml"
     },
     "openai-claude": {
       "keyword": "OpenAI / Claude",
-      "count": 8,
+      "count": 7,
       "url": "/reports/feeds/openai-claude.xml"
     },
     "deepseek": {
@@ -62,25 +62,10 @@
       "count": 1,
       "url": "/reports/feeds/kw-867b934d82.xml"
     },
-    "kw-f4293b9b43": {
-      "keyword": "三体/流浪地球",
-      "count": 1,
-      "url": "/reports/feeds/kw-f4293b9b43.xml"
-    },
     "kw-b0922629ca": {
       "keyword": "京东",
       "count": 1,
       "url": "/reports/feeds/kw-b0922629ca.xml"
-    },
-    "kw-bde87c6ca1": {
-      "keyword": "国产开源模型",
-      "count": 1,
-      "url": "/reports/feeds/kw-bde87c6ca1.xml"
-    },
-    "kw-de0204639b": {
-      "keyword": "芯片",
-      "count": 1,
-      "url": "/reports/feeds/kw-de0204639b.xml"
     },
     "kw-426b53cba7": {
       "keyword": "水电 / 光伏 / 核能 / 能源",

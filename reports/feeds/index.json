@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-18T19:32:37Z",
+  "updated": "2026-10-18T21:46:10Z",
   "global": "/reports/feed.xml",
   "feeds": {
     "kw-7342c24991": {
@@ -9,28 +9,28 @@
     },
     "kw-5f479f2ee3": {
       "keyword": "微软 / 谷歌 / 苹果",
-      "count": 18,
+      "count": 17,
       "url": "/reports/feeds/kw-5f479f2ee3.xml"
-    },
-    "kw-101806f57c": {
-      "keyword": "中国",
-      "count": 13,
-      "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-77c22b5841": {
       "keyword": "西欧",
-      "count": 12,
+      "count": 13,
       "url": "/reports/feeds/kw-77c22b5841.xml"
     },
-    "kw-3f426f96e0": {
-      "keyword": "特斯拉",
-      "count": 9,
-      "url": "/reports/feeds/kw-3f426f96e0.xml"
+    "kw-101806f57c": {
+      "keyword": "中国",
+      "count": 12,
+      "url": "/reports/feeds/kw-101806f57c.xml"
     },
     "kw-ac6fb2f2fe": {
       "keyword": "东亚",
       "count": 7,
       "url": "/reports/feeds/kw-ac6fb2f2fe.xml"
+    },
+    "kw-3f426f96e0": {
+      "keyword": "特斯拉",
+      "count": 8,
+      "url": "/reports/feeds/kw-3f426f96e0.xml"
     },
     "openai-claude": {
       "keyword": "OpenAI / Claude",

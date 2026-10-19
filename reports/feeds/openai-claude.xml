@@ -4,23 +4,23 @@
   <subtitle>Subscribe to keyword: OpenAI / Claude</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/openai-claude.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-10-19T11:04:38Z</updated>
+  <updated>2026-10-19T17:39:32Z</updated>
   <id>urn:pulseradar:feed:50e693db025b</id>
   <author><name>PulseRadar</name></author>
-  <entry>
-    <id>urn:pulseradar:2026-10-19:80c47398372905be</id>
-    <title>Tmux and Claude Code: Sessions, Send-Keys, and the Ceiling</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=50148855"/>
-    <updated>2026-10-19T11:04:38Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 2</summary>
-  </entry>
   <entry>
     <id>urn:pulseradar:2026-10-19:52c0e267921501ae</id>
     <title>anthropics /      claude-code</title>
     <link rel="alternate" type="text/html" href="https://github.com/anthropics/claude-code"/>
-    <updated>2026-10-19T11:04:38Z</updated>
+    <updated>2026-10-19T17:39:32Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 11</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-19:80c47398372905be</id>
+    <title>Tmux and Claude Code: Sessions, Send-Keys, and the Ceiling</title>
+    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=50148855"/>
+    <updated>2026-10-19T17:39:32Z</updated>
+    <author><name>Hacker News</name></author>
+    <summary>Rank: 17</summary>
   </entry>
 </feed>

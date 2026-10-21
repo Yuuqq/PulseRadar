@@ -4,47 +4,39 @@
   <subtitle>Subscribe to keyword: DeepSeek</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/deepseek.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-10-21T10:27:17Z</updated>
+  <updated>2026-10-21T15:29:56Z</updated>
   <id>urn:pulseradar:feed:fcfa9a7dd0bd</id>
   <author><name>PulseRadar</name></author>
+  <entry>
+    <id>urn:pulseradar:2026-10-21:201850ebd1c4edb8</id>
+    <title>我用 deepseek 逆向了小米运动的卡路里算法，绷不住了</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1250731"/>
+    <updated>2026-10-21T15:29:56Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 11</summary>
+  </entry>
   <entry>
     <id>urn:pulseradar:2026-10-21:092b241347a4cb2d</id>
     <title>预算 1000 美金的开源软件，DeepSeek 只花 1 美金就做完了（Day 6）</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7698512689525538825"/>
-    <updated>2026-10-21T10:27:17Z</updated>
+    <updated>2026-10-21T15:29:56Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 19</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-10-21:1312ebc0c0515b53</id>
-    <title>deepseek 会亲自下场干购物，聊天， 搜索吗？</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1250664"/>
-    <updated>2026-10-21T10:27:17Z</updated>
-    <author><name>V2EX</name></author>
-    <summary>Rank: 19</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-10-21:37af8c98b3c6d89e</id>
-    <title>DeepInfer: High-performance inference framework for DeepSeek models</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=50163277"/>
-    <updated>2026-10-21T10:27:17Z</updated>
-    <author><name>Hacker News</name></author>
-    <summary>Rank: 23</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-10-21:3ef5d77d50d82926</id>
-    <title>从&quot;性价比之王&quot;到&quot;贵到离谱&quot;：DeepSeek API 涨价背后的模型经济学</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7673690348011388964"/>
-    <updated>2026-10-21T10:27:17Z</updated>
-    <author><name>掘金</name></author>
-    <summary>Rank: 26</summary>
+    <summary>Rank: 15</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-10-21:daf1efb887ec792e</id>
     <title>DeepSeek-V4.1-Flash-1017 上手实测：3D 直出，效果到底如何</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7697901649025663017"/>
-    <updated>2026-10-21T10:27:17Z</updated>
+    <updated>2026-10-21T15:29:56Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 29</summary>
+    <summary>Rank: 26</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-21:3ef5d77d50d82926</id>
+    <title>从&quot;性价比之王&quot;到&quot;贵到离谱&quot;：DeepSeek API 涨价背后的模型经济学</title>
+    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7673690348011388964"/>
+    <updated>2026-10-21T15:29:56Z</updated>
+    <author><name>掘金</name></author>
+    <summary>Rank: 27</summary>
   </entry>
 </feed>

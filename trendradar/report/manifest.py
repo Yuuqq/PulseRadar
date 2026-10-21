@@ -12,6 +12,8 @@ import json
 from datetime import datetime, timezone
 from pathlib import Path
 
+from trendradar.storage.atomic import write_text_atomic
+
 MODE_LABELS: dict[str, str] = {
     "current": "当前榜单",
     "daily": "全天汇总",
@@ -28,10 +30,12 @@ def load_manifest(path: Path) -> dict:
 
 
 def save_manifest(path: Path, data: dict) -> None:
-    """写入 manifest.json（indent=2, ensure_ascii=False）"""
+    """写入 manifest.json（indent=2, ensure_ascii=False）
+
+    原子写入：manifest 是报告索引，被截断会让下游读不出任何历史报告。
+    """
     path.parent.mkdir(parents=True, exist_ok=True)
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=2, ensure_ascii=False)
+    write_text_atomic(path, json.dumps(data, indent=2, ensure_ascii=False))
 
 
 def add_report_entry(manifest: dict, entry: dict) -> dict:

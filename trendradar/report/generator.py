@@ -17,6 +17,7 @@ from trendradar.report.manifest import (
     load_manifest,
     save_manifest,
 )
+from trendradar.storage.atomic import write_text_atomic
 
 logger = get_logger(__name__)
 
@@ -260,26 +261,22 @@ def generate_html_report(
         html_content = f"<html><body><h1>Report</h1><pre>{report_data}</pre></body></html>"
 
     # 1. 保存时间戳快照（历史记录）
-    with open(snapshot_file, "w", encoding="utf-8") as f:
-        f.write(html_content)
+    write_text_atomic(snapshot_file, html_content)
 
     # 2. 复制到 html/latest/{mode}.html（最新报告）
     latest_dir = Path(output_dir) / "html" / "latest"
     latest_dir.mkdir(parents=True, exist_ok=True)
     latest_file = latest_dir / f"{mode}.html"
-    with open(latest_file, "w", encoding="utf-8") as f:
-        f.write(html_content)
+    write_text_atomic(latest_file, html_content)
 
     # 3. 复制到 index.html（入口）
     # output/index.html（供 Docker Volume 挂载访问）
     output_index = Path(output_dir) / "index.html"
-    with open(output_index, "w", encoding="utf-8") as f:
-        f.write(html_content)
+    write_text_atomic(output_index, html_content)
 
     # output/html/index.html（供仅暴露 output/html 的场景访问）
     html_index = Path(output_dir) / "html" / "index.html"
-    with open(html_index, "w", encoding="utf-8") as f:
-        f.write(html_content)
+    write_text_atomic(html_index, html_content)
 
     # 根目录 index.html（供 GitHub Pages 访问）
     root_index = Path("index.html")
@@ -296,8 +293,7 @@ def generate_html_report(
             root_index,
         )
     else:
-        with open(root_index, "w", encoding="utf-8") as f:
-            f.write(html_content)
+        write_text_atomic(root_index, html_content)
 
     return snapshot_file
 
@@ -319,8 +315,7 @@ def _publish_to_github_pages(
     report_dir = pages / date_folder
     report_dir.mkdir(parents=True, exist_ok=True)
     report_file = report_dir / f"{time_filename}.html"
-    with open(report_file, "w", encoding="utf-8") as f:
-        f.write(html_content)
+    write_text_atomic(report_file, html_content)
 
     # 2. 写入 reports/latest/{mode}.html
     latest_dir = pages / "latest"
@@ -337,8 +332,7 @@ def _publish_to_github_pages(
 
     # 4. 生成 Hub 页面作为根 index.html
     hub_html = generate_hub_html(manifest)
-    with open(root_index, "w", encoding="utf-8") as f:
-        f.write(hub_html)
+    write_text_atomic(root_index, hub_html)
 
     logger.info(
         "GitHub Pages 报告已发布",

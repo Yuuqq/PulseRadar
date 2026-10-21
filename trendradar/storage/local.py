@@ -14,6 +14,7 @@ from pathlib import Path
 import pytz
 
 from trendradar.logging import get_logger
+from trendradar.storage.atomic import write_lines_atomic, write_text_atomic
 from trendradar.storage.base import NewsData, RSSData, RSSItem, StorageBackend
 from trendradar.storage.sqlite_mixin import SQLiteStorageMixin
 from trendradar.utils.time import (
@@ -351,7 +352,7 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
 
             file_path = txt_dir / f"{data.crawl_time}.txt"
 
-            with open(file_path, "w", encoding="utf-8") as f:
+            def _write_body(f) -> None:
                 for source_id, news_list in data.items.items():
                     source_name = data.id_to_name.get(source_id, source_id)
 
@@ -379,6 +380,9 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
                     f.write("==== 以下ID请求失败 ====\n")
                     for failed_id in data.failed_ids:
                         f.write(f"{failed_id}\n")
+
+            # 原子写入：中途中断不会留下被截断的快照，避免下游把半个文件当完整数据。
+            write_lines_atomic(file_path, _write_body)
 
             logger.info("TXT 快照已保存", backend="local", path=str(file_path))
             return str(file_path)
@@ -413,8 +417,8 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
 
             file_path = html_dir / filename
 
-            with open(file_path, "w", encoding="utf-8") as f:
-                f.write(html_content)
+            # 原子写入：报告生成到一半被中断时，旧报告保持可读，而不是变成半个 HTML。
+            write_text_atomic(file_path, html_content)
 
             logger.info("HTML 报告已保存", backend="local", path=str(file_path))
             return str(file_path)

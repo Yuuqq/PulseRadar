@@ -123,3 +123,27 @@ def test_register_overwrites_same_source_type():
     CrawlerRegistry.register(V1Plugin)
     CrawlerRegistry.register(V2Plugin)
     assert CrawlerRegistry.get("duptype") is V2Plugin
+
+
+def test_discover_is_idempotent_when_modules_already_imported():
+    """Repeat discover() must restore registrations from already-imported modules.
+
+    A cached module never re-runs its @register decorator, so discover() has to
+    re-scan loaded plugin modules or the registry stays empty after a reset.
+    """
+    import sys
+
+    from trendradar.crawler.registry import CrawlerRegistry
+
+    CrawlerRegistry.discover()
+    first = set(CrawlerRegistry.get_all())
+    assert first
+
+    CrawlerRegistry._plugins.clear()
+    assert all(
+        name in sys.modules
+        for name in ("trendradar.crawler.plugins.dailyhot", "trendradar.crawler.plugins.newsapi")
+    )
+
+    CrawlerRegistry.discover()
+    assert set(CrawlerRegistry.get_all()) == first

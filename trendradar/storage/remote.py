@@ -11,6 +11,7 @@ import shutil
 import sqlite3
 import sys
 import tempfile
+import threading
 from datetime import datetime, timedelta
 from pathlib import Path
 
@@ -120,7 +121,7 @@ class RemoteStorageBackend(SQLiteStorageMixin, StorageBackend):
 
         # 跟踪下载的文件（用于清理）
         self._downloaded_files: list[Path] = []
-        self._db_connections: dict[str, sqlite3.Connection] = {}
+        self._db_connections: dict[tuple[int, str], sqlite3.Connection] = {}
 
         logger.info(
             "初始化完成", backend="remote", bucket=bucket_name, signature_version=signature_version
@@ -325,8 +326,10 @@ class RemoteStorageBackend(SQLiteStorageMixin, StorageBackend):
         """
         local_path = self._get_local_db_path(date, db_type)
         db_path = str(local_path)
+        # sqlite3 connections are thread-affine; key the cache by thread as well.
+        cache_key = (threading.get_ident(), db_path)
 
-        if db_path not in self._db_connections:
+        if cache_key not in self._db_connections:
             # 确保目录存在
             local_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -338,9 +341,9 @@ class RemoteStorageBackend(SQLiteStorageMixin, StorageBackend):
             conn.row_factory = sqlite3.Row
             conn.execute("PRAGMA journal_mode=WAL")
             self._init_tables(conn, db_type)
-            self._db_connections[db_path] = conn
+            self._db_connections[cache_key] = conn
 
-        return self._db_connections[db_path]
+        return self._db_connections[cache_key]
 
     # ========================================
     # StorageBackend 接口实现（委托给 mixin + 上传）
@@ -635,7 +638,7 @@ class RemoteStorageBackend(SQLiteStorageMixin, StorageBackend):
 
         # 关闭数据库连接
         db_connections = getattr(self, "_db_connections", {})
-        for db_path, conn in list(db_connections.items()):
+        for (_, db_path), conn in list(db_connections.items()):
             try:
                 conn.close()
                 logger.debug("关闭数据库连接", backend="remote", db_path=db_path)

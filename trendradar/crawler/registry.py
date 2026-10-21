@@ -2,6 +2,7 @@
 
 import importlib
 import pkgutil
+import sys
 from pathlib import Path
 
 from trendradar.crawler.base import CrawlerPlugin
@@ -40,7 +41,26 @@ class CrawlerRegistry:
         for _finder, name, _ispkg in pkgutil.iter_modules([str(plugins_dir)]):
             if name.startswith("_"):
                 continue
+            module_name = f"{package_name}.{name}"
             try:
-                importlib.import_module(f"{package_name}.{name}")
+                module = sys.modules.get(module_name)
+                if module is None:
+                    importlib.import_module(module_name)
+                else:
+                    # A cached module never re-runs its @register decorator, so
+                    # re-scan it; otherwise discover() is empty on repeat calls.
+                    cls._register_module_plugins(module)
             except Exception as e:
                 logger.warning("加载插件失败", plugin=name, error=str(e))
+
+    @classmethod
+    def _register_module_plugins(cls, module) -> None:
+        for attr_name in dir(module):
+            candidate = getattr(module, attr_name, None)
+            if (
+                isinstance(candidate, type)
+                and issubclass(candidate, CrawlerPlugin)
+                and candidate is not CrawlerPlugin
+                and getattr(candidate, "source_type", "")
+            ):
+                cls._plugins[candidate.source_type] = candidate

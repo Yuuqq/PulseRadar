@@ -223,8 +223,17 @@ def test_source():
 
         if source_type == "rss":
             import feedparser
+            import requests
 
-            feed = feedparser.parse(source_config.get("url", ""))
+            # feedparser.parse(url) fetches without a timeout and can block this
+            # request thread indefinitely; fetch with a bounded timeout first.
+            response = requests.get(
+                source_config.get("url", ""),
+                timeout=15,
+                headers={"User-Agent": "TrendRadar/2.0 RSS Reader"},
+            )
+            response.raise_for_status()
+            feed = feedparser.parse(response.text)
             if feed.entries:
                 return jsonify(
                     {

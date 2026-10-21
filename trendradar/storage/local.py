@@ -7,6 +7,7 @@
 import re
 import shutil
 import sqlite3
+import threading
 from datetime import datetime, timedelta
 from pathlib import Path
 
@@ -55,7 +56,7 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
         self.enable_txt = enable_txt
         self.enable_html = enable_html
         self.timezone = timezone
-        self._db_connections: dict[str, sqlite3.Connection] = {}
+        self._db_connections: dict[tuple[int, str], sqlite3.Connection] = {}
 
     @property
     def backend_name(self) -> str:
@@ -103,7 +104,10 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
 
     def _get_connection(self, date: str | None = None, db_type: str = "news") -> sqlite3.Connection:
         """
-        获取数据库连接（带缓存）
+        获取数据库连接（按线程缓存）
+
+        sqlite3 连接默认只能在其创建线程使用；Web UI 会从多个请求线程
+        并发调用同一后端实例，因此缓存键必须包含线程 ID。
 
         Args:
             date: 日期字符串
@@ -113,15 +117,16 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
             数据库连接
         """
         db_path = str(self._get_db_path(date, db_type))
+        cache_key = (threading.get_ident(), db_path)
 
-        if db_path not in self._db_connections:
+        if cache_key not in self._db_connections:
             conn = sqlite3.connect(db_path)
             conn.row_factory = sqlite3.Row
             conn.execute("PRAGMA journal_mode=WAL")
             self._init_tables(conn, db_type)
-            self._db_connections[db_path] = conn
+            self._db_connections[cache_key] = conn
 
-        return self._db_connections[db_path]
+        return self._db_connections[cache_key]
 
     # ========================================
     # StorageBackend 接口实现（委托给 mixin）
@@ -424,7 +429,7 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
 
     def cleanup(self) -> None:
         """清理资源（关闭数据库连接）"""
-        for db_path, conn in self._db_connections.items():
+        for (_, db_path), conn in list(self._db_connections.items()):
             try:
                 conn.close()
                 logger.debug("关闭数据库连接", backend="local", db_path=db_path)
@@ -485,12 +490,12 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
                 for db_file in db_dir.glob("*.db"):
                     file_date = parse_date_from_name(db_file.name)
                     if file_date and file_date < cutoff_date:
-                        # 先关闭数据库连接
+                        # 先关闭该文件的所有线程连接
                         db_path = str(db_file)
-                        if db_path in self._db_connections:
+                        stale_keys = [k for k in self._db_connections if k[1] == db_path]
+                        for cache_key in stale_keys:
                             try:
-                                self._db_connections[db_path].close()
-                                del self._db_connections[db_path]
+                                self._db_connections.pop(cache_key).close()
                             except Exception:
                                 pass
 

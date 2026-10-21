@@ -323,9 +323,19 @@ class JobManager:
         return self.create_job([sys.executable, "-m", "trendradar"])
 
     def _start_job(self, job_id: str, command: list[str]) -> None:
-        self._update_job(
-            job_id, status="running", stage="starting", started_at=_utc_now(), error=""
+        # Compare-and-set against 'queued': a cancel (or clean-up) that lands
+        # between the dispatcher's read and this write must win, otherwise the
+        # job runs in a thread nobody owns while the UI shows it cancelled.
+        claimed = self._update_job(
+            job_id,
+            status="running",
+            stage="starting",
+            started_at=_utc_now(),
+            error="",
+            expected_statuses=("queued",),
         )
+        if not claimed:
+            return
         thread = threading.Thread(
             target=self._run_process,
             args=(job_id, command),
@@ -353,6 +363,10 @@ class JobManager:
             )
             with self._lock:
                 self._processes[job_id] = process
+            # A cancel that landed while Popen was still starting found no
+            # process to terminate; honour it now instead of running to the end.
+            if self._job_cancel_requested(job_id):
+                self._terminate_process(process)
 
             if process.stdout is not None:
                 for raw_line in process.stdout:
@@ -361,7 +375,7 @@ class JobManager:
                         self._append_log(job_id, line)
                         stage = self._infer_stage(line)
                         if stage:
-                            self._update_job(job_id, stage=stage)
+                            self._update_job(job_id, stage=stage, expected_statuses=("running",))
 
             return_code = process.wait()
         except Exception as exc:
@@ -372,8 +386,8 @@ class JobManager:
                 self._processes.pop(job_id, None)
 
         job = self.get_job(job_id)
-        # Treat cancelling as cancelled so a late process exit cannot overwrite
-        # cancel_job's in-flight status with failed/success.
+        # Read-then-write is not atomic: re-read via the guarded UPDATE below so a
+        # cancel that lands in between cannot be overwritten with failed/success.
         cancelled = bool(job and job.get("status") in ("cancelled", "cancelling"))
         status = "cancelled" if cancelled else ("success" if return_code == 0 else "failed")
 
@@ -396,11 +410,10 @@ class JobManager:
         error = ""
         if status == "failed":
             error = f"Process exited with code {return_code}"
-            self._append_log(job_id, f"[job] failed: {error}")
-        elif status == "success":
-            self._append_log(job_id, "[job] success")
 
-        self._update_job(
+        # Only one terminal writer may win. If cancel_job already finalised the
+        # job, this UPDATE matches no row and the runner logs nothing further.
+        written = self._update_job(
             job_id,
             status=status,
             stage=final_stage,
@@ -409,7 +422,15 @@ class JobManager:
             exit_code=return_code,
             error=error,
             report_paths_json=json.dumps(self._collect_report_paths(), ensure_ascii=False),
+            expected_statuses=("running", "cancelling"),
         )
+        if not written:
+            return
+
+        if status == "failed":
+            self._append_log(job_id, f"[job] failed: {error}")
+        elif status == "success":
+            self._append_log(job_id, "[job] success")
 
     def _infer_stage(self, line: str) -> str | None:
         text = line.lower()
@@ -452,9 +473,21 @@ class JobManager:
                 (job_id, line_no, content, now),
             )
 
-    def _update_job(self, job_id: str, **fields: Any) -> None:
+    def _update_job(
+        self,
+        job_id: str,
+        *,
+        expected_statuses: Sequence[str] | None = None,
+        **fields: Any,
+    ) -> bool:
+        """Update job fields; returns True when the row matched (and was written).
+
+        ``expected_statuses`` guards state transitions: the UPDATE only applies
+        when the row is currently in one of those states, so two writers racing
+        on the same job cannot clobber each other's terminal state.
+        """
         if not fields:
-            return
+            return False
         fields["updated_at"] = _utc_now()
         invalid_keys = sorted({key for key in fields if key not in JOB_UPDATE_FIELDS})
         if invalid_keys:
@@ -463,11 +496,14 @@ class JobManager:
         assignments = ", ".join([f'"{key}" = ?' for key in keys])
         values = [fields[key] for key in keys]
         values.append(job_id)
+        sql = f"UPDATE jobs SET {assignments} WHERE id = ?"
+        if expected_statuses:
+            placeholders = ", ".join(["?"] * len(expected_statuses))
+            sql += f" AND status IN ({placeholders})"
+            values.extend(expected_statuses)
         with self._connect() as conn:
-            conn.execute(
-                f"UPDATE jobs SET {assignments} WHERE id = ?",
-                values,
-            )
+            cursor = conn.execute(sql, values)
+            return cursor.rowcount == 1
 
     def _row_to_job(self, row: sqlite3.Row) -> dict[str, Any]:
         command: list[str] = []
@@ -940,6 +976,19 @@ class JobManager:
             "limit": safe_limit,
         }
 
+    def _job_cancel_requested(self, job_id: str) -> bool:
+        job = self.get_job(job_id)
+        return bool(job and job.get("status") in ("cancelling", "cancelled"))
+
+    @staticmethod
+    def _terminate_process(process: subprocess.Popen) -> None:
+        try:
+            process.terminate()
+            process.wait(timeout=5)
+        except Exception:
+            with contextlib.suppress(Exception):
+                process.kill()
+
     def cancel_job(self, job_id: str) -> bool:
         job = self.get_job(job_id)
         if not job:
@@ -948,33 +997,63 @@ class JobManager:
             return False
 
         if job["status"] == "queued":
-            self._update_job(job_id, status="cancelled", stage="cancelled", finished_at=_utc_now())
-            self._append_log(job_id, "[job] cancelled before start")
-            return True
+            # Guarded on 'queued' so a dispatcher that is starting the job at
+            # the same instant either claims it first or leaves it untouched.
+            if self._update_job(
+                job_id,
+                status="cancelled",
+                stage="cancelled",
+                finished_at=_utc_now(),
+                expected_statuses=("queued",),
+            ):
+                self._append_log(job_id, "[job] cancelled before start")
+                return True
+            job = self.get_job(job_id)
+            if not job or job["status"] in FINAL_STATUSES:
+                return False
 
-        self._update_job(job_id, status="cancelling", stage="cancelling")
+        if not self._update_job(
+            job_id,
+            status="cancelling",
+            stage="cancelling",
+            expected_statuses=("running", "cancelling"),
+        ):
+            return False
+
         process = None
         with self._lock:
             process = self._processes.get(job_id)
 
         if process is not None:
-            try:
-                process.terminate()
-                process.wait(timeout=5)
-            except Exception:
-                with contextlib.suppress(Exception):
-                    process.kill()
+            self._terminate_process(process)
 
-        self._update_job(job_id, status="cancelled", stage="cancelled", finished_at=_utc_now())
-        self._append_log(job_id, "[job] cancelled")
+        # A runner that exits while this call was terminating it may have
+        # finalised the job already; do not overwrite its exit code.
+        if self._update_job(
+            job_id,
+            status="cancelled",
+            stage="cancelled",
+            finished_at=_utc_now(),
+            expected_statuses=("cancelling",),
+        ):
+            self._append_log(job_id, "[job] cancelled")
         return True
 
     def get_legacy_status(self, job_id: str | None = None) -> dict[str, Any]:
         target_job: dict[str, Any] | None = None
         if job_id:
             target_job = self.get_job(job_id)
-
-        if not target_job:
+            # An explicit id must never silently resolve to another job: the UI
+            # would poll someone else's logs and stop its own timer on their result.
+            if not target_job:
+                return {
+                    "running": False,
+                    "last_run": None,
+                    "log": [],
+                    "job_id": job_id,
+                    "status": None,
+                }
+        else:
             running_id = self.get_running_job_id()
             if running_id:
                 target_job = self.get_job(running_id)

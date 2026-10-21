@@ -4,22 +4,22 @@
   <subtitle>Subscribe to keyword: AI 相关</subtitle>
   <link rel="self" type="application/atom+xml" href="https://pulseradar.aisbest.eu.cc/reports/feeds/kw-7342c24991.xml"/>
   <link rel="alternate" type="text/html" href="https://pulseradar.aisbest.eu.cc/"/>
-  <updated>2026-10-21T05:08:42Z</updated>
+  <updated>2026-10-21T10:27:17Z</updated>
   <id>urn:pulseradar:feed:dfb23af4884d</id>
   <author><name>PulseRadar</name></author>
   <entry>
     <id>urn:pulseradar:2026-10-21:0e260a02f2ef6d50</id>
     <title>MadsLorentzen /      ai-job-search</title>
     <link rel="alternate" type="text/html" href="https://github.com/MadsLorentzen/ai-job-search"/>
-    <updated>2026-10-21T05:08:42Z</updated>
+    <updated>2026-10-21T10:27:17Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 1</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-10-21:256b1f80d7ebf622</id>
-    <title>I built GenBay — turn your photos into short AI videos</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1250593"/>
-    <updated>2026-10-21T05:08:42Z</updated>
+    <id>urn:pulseradar:2026-10-21:e1eb6e3aa84ae2ab</id>
+    <title>参考 Artificial Analysis 的 8 个维度，做了个 AI 味鉴定小游戏，已开源</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1250707"/>
+    <updated>2026-10-21T10:27:17Z</updated>
     <author><name>V2EX</name></author>
     <summary>Rank: 1</summary>
   </entry>
@@ -27,23 +27,15 @@
     <id>urn:pulseradar:2026-10-21:22afec979c4fa6c4</id>
     <title>AI 流式输出都用 SSE，什么时候必须换 WebSocket？</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7697591781001691163"/>
-    <updated>2026-10-21T05:08:42Z</updated>
+    <updated>2026-10-21T10:27:17Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 2</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-10-21:6dd205b480fa2db2</id>
-    <title>AI 时代的屎山大家遇到过嘛？前前前同事用 GPT-4 构建的程序，到现在都 6 了，还在不断叠屎山</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1250591"/>
-    <updated>2026-10-21T05:08:42Z</updated>
-    <author><name>V2EX</name></author>
     <summary>Rank: 3</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-10-21:7d1053c9abcf342d</id>
     <title>SpaceX Q3 AI业务大爆发、收入暴增830%，利润碾压预期，资本支出近200亿｜财报见闻</title>
     <link rel="alternate" type="text/html" href="https://wallstreetcn.com/articles/3784066"/>
-    <updated>2026-10-21T05:08:42Z</updated>
+    <updated>2026-10-21T10:27:17Z</updated>
     <author><name>华尔街见闻</name></author>
     <summary>Rank: 3</summary>
   </entry>
@@ -51,39 +43,39 @@
     <id>urn:pulseradar:2026-10-21:f8a4cf1ad7c9d3ea</id>
     <title>AI 流式传输工程指南：模型吐出半截 JSON，前端如何边收边渲染？</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7697622920013021219"/>
-    <updated>2026-10-21T05:08:42Z</updated>
+    <updated>2026-10-21T10:27:17Z</updated>
     <author><name>掘金</name></author>
     <summary>Rank: 5</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-10-21:2643f1569fc6fe83</id>
-    <title>众声丨AI“苦命男孩小海”收割老人，平台审核不能总是被动响应</title>
-    <link rel="alternate" type="text/html" href="https://m.thepaper.cn/newsDetail_forward_34288055"/>
-    <updated>2026-10-21T05:08:42Z</updated>
-    <author><name>澎湃新闻</name></author>
-    <summary>Rank: 5</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-10-21:769499bdcd15198d</id>
-    <title>从 0 到 1：我用 300 行代码给 AI 记忆加上了“不可篡改的收据”（附开源实现）</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7697418750073929762"/>
-    <updated>2026-10-21T05:08:42Z</updated>
-    <author><name>掘金</name></author>
-    <summary>Rank: 7</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-10-21:42530803556c5549</id>
-    <title>为什么 AI 很强，普通人还是做不好专业产品</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1250577"/>
-    <updated>2026-10-21T05:08:42Z</updated>
+    <id>urn:pulseradar:2026-10-21:441de358168ebd46</id>
+    <title>LaunchManager 更新到 v1.8.0：可视化管理 AI 生成的 launchd 任务，免费开源</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1250696"/>
+    <updated>2026-10-21T10:27:17Z</updated>
     <author><name>V2EX</name></author>
-    <summary>Rank: 7</summary>
+    <summary>Rank: 5</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-10-21:db8ae01040d1ab6d</id>
-    <title>大家如何看待 ai 文章(博客，公众号，推文帖子)</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1250578"/>
-    <updated>2026-10-21T05:08:42Z</updated>
+    <id>urn:pulseradar:2026-10-21:1cd9431c0648bbbe</id>
+    <title>ai room redesign</title>
+    <link rel="alternate" type="text/html" href="https://www.producthunt.com/products/ai-room-redesign"/>
+    <updated>2026-10-21T10:27:17Z</updated>
+    <author><name>Product Hunt</name></author>
+    <summary>Rank: 6</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-21:fa502155d0d57c8e</id>
+    <title>超微电脑业绩远超预期，“AI交易”应声反弹，“服务器巨头”戴尔、慧与科技大涨</title>
+    <link rel="alternate" type="text/html" href="https://wallstreetcn.com/articles/3784079"/>
+    <updated>2026-10-21T10:27:17Z</updated>
+    <author><name>华尔街见闻</name></author>
+    <summary>Rank: 6</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-21:4348196d3ab33bb0</id>
+    <title>为啥你们 Vibe 的网页 AI 味儿那么轻?</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1250689"/>
+    <updated>2026-10-21T10:27:17Z</updated>
     <author><name>V2EX</name></author>
     <summary>Rank: 8</summary>
   </entry>
@@ -91,111 +83,159 @@
     <id>urn:pulseradar:2026-10-21:2cd64f5cd01045ec</id>
     <title>网友高铁偶遇自称 114 岁老人，能熟练使用智能手机，年龄真实性如何？横跨民国到 AI 时代的人生会是怎样的？</title>
     <link rel="alternate" type="text/html" href="https://www.zhihu.com/question/2095844033167716971"/>
-    <updated>2026-10-21T05:08:42Z</updated>
+    <updated>2026-10-21T10:27:17Z</updated>
     <author><name>知乎</name></author>
     <summary>Rank: 8</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-10-21:af34c8ec58d0cfc3</id>
-    <title>又一部获奖小说被质疑由AI代笔</title>
-    <link rel="alternate" type="text/html" href="https://www.baidu.com/s?wd=%E5%8F%88%E4%B8%80%E9%83%A8%E8%8E%B7%E5%A5%96%E5%B0%8F%E8%AF%B4%E8%A2%AB%E8%B4%A8%E7%96%91%E7%94%B1AI%E4%BB%A3%E7%AC%94"/>
-    <updated>2026-10-21T05:08:42Z</updated>
-    <author><name>百度热搜</name></author>
-    <summary>Rank: 9</summary>
-  </entry>
-  <entry>
-    <id>urn:pulseradar:2026-10-21:e9ec522404b08333</id>
-    <title>AI强势冲击数学界，菲尔兹奖得主：我原有的研究方向已不复存在</title>
-    <link rel="alternate" type="text/html" href="https://www.cls.cn/detail/2510325"/>
-    <updated>2026-10-21T05:08:42Z</updated>
+    <id>urn:pulseradar:2026-10-21:016be79f60f309a3</id>
+    <title>【焦点复盘】创指失守2700点续创年内新低，“宁王”市值单日“蒸发”近1500亿，端侧AI概念活跃依旧</title>
+    <link rel="alternate" type="text/html" href="https://www.cls.cn/detail/2511149"/>
+    <updated>2026-10-21T10:27:17Z</updated>
     <author><name>财联社热门</name></author>
-    <summary>Rank: 10</summary>
+    <summary>Rank: 9</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-10-21:298460758c2ff89e</id>
     <title>headroomlabs-ai /      headroom</title>
     <link rel="alternate" type="text/html" href="https://github.com/headroomlabs-ai/headroom"/>
-    <updated>2026-10-21T05:08:42Z</updated>
+    <updated>2026-10-21T10:27:17Z</updated>
     <author><name>GitHub Trending</name></author>
     <summary>Rank: 10</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-10-21:847ebcaf655dafbb</id>
-    <title>Benchmarking Bot Detection Systems Against Modern AI Agents in 2026</title>
-    <link rel="alternate" type="text/html" href="https://news.ycombinator.com/item?id=50169506"/>
-    <updated>2026-10-21T05:08:42Z</updated>
-    <author><name>Hacker News</name></author>
+    <id>urn:pulseradar:2026-10-21:ce820c3ac8461aff</id>
+    <title>组建 AI team 搞项目大家是怎么设置角色的哈</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1250677"/>
+    <updated>2026-10-21T10:27:17Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 11</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-21:9b586ce59d761fc2</id>
+    <title>对冲基金一哥：AI“几乎肯定”处于泡沫中 经济剧烈变革通常伴随泡沫</title>
+    <link rel="alternate" type="text/html" href="https://www.cls.cn/detail/2510619"/>
+    <updated>2026-10-21T10:27:17Z</updated>
+    <author><name>财联社热门</name></author>
     <summary>Rank: 12</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-10-21:09033ec1eec3677e</id>
     <title>太强了！GitHub上开源了一款AI自动化测试框架，0代码搞定前后端测试！</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7698283872392757286"/>
-    <updated>2026-10-21T05:08:42Z</updated>
+    <updated>2026-10-21T10:27:17Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 14</summary>
+    <summary>Rank: 12</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-10-21:508aa7bccfe89321</id>
-    <title>UP主拆解爆款AI代码动画</title>
-    <link rel="alternate" type="text/html" href="https://search.bilibili.com/all?keyword=UP%E4%B8%BB%E6%8B%86%E8%A7%A3%E7%88%86%E6%AC%BEAI%E4%BB%A3%E7%A0%81%E5%8A%A8%E7%94%BB"/>
-    <updated>2026-10-21T05:08:42Z</updated>
-    <author><name>bilibili 热搜</name></author>
-    <summary>Rank: 16</summary>
+    <id>urn:pulseradar:2026-10-21:8238eac1458a546e</id>
+    <title>Orchcast AI September 2026</title>
+    <link rel="alternate" type="text/html" href="https://www.producthunt.com/products/orchcast-ai-september-2026"/>
+    <updated>2026-10-21T10:27:17Z</updated>
+    <author><name>Product Hunt</name></author>
+    <summary>Rank: 12</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-10-21:baa96ec35941ab8c</id>
-    <title>一个 Java 后端的 AI Agent 落地全景：工具 · RAG · MCP · 评测 · 护栏 · 可观测（全可复现数字）</title>
-    <link rel="alternate" type="text/html" href="https://juejin.cn/post/7697500325121998848"/>
-    <updated>2026-10-21T05:08:42Z</updated>
-    <author><name>掘金</name></author>
-    <summary>Rank: 17</summary>
+    <id>urn:pulseradar:2026-10-21:080e6ae093e7e187</id>
+    <title>第一批用AI裁员的老板后悔了</title>
+    <link rel="alternate" type="text/html" href="https://www.toutiao.com/trending/7698965729365724691/"/>
+    <updated>2026-10-21T10:27:17Z</updated>
+    <author><name>今日头条</name></author>
+    <summary>Rank: 12</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-21:8e683b2fec1d0fac</id>
+    <title>为啥你们 Vibe 的网页 AI 味儿那么重?</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1250676"/>
+    <updated>2026-10-21T10:27:17Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 12</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-10-21:6503884e53f17a54</id>
     <title>Claude的60个子Agent冲击黎曼猜想：AI自主科研的里程碑与边界</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7672849477074616383"/>
-    <updated>2026-10-21T05:08:42Z</updated>
+    <updated>2026-10-21T10:27:17Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 18</summary>
+    <summary>Rank: 15</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-10-21:6ea2da0656bb5157</id>
-    <title>外网评最烂AI命名榜,DS夺冠</title>
-    <link rel="alternate" type="text/html" href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E5%A4%96%E7%BD%91%E8%AF%84%E6%9C%80%E7%83%82AI%E5%91%BD%E5%90%8D%E6%A6%9C%2CDS%E5%A4%BA%E5%86%A0&amp;topic_id=28367763"/>
-    <updated>2026-10-21T05:08:42Z</updated>
-    <author><name>贴吧</name></author>
-    <summary>Rank: 18</summary>
+    <id>urn:pulseradar:2026-10-21:87443d6db875dfd0</id>
+    <title>刚看到&quot; PHP 最新零日漏洞&quot; 有感, 有了 AI 连补丁发布都是个高危行为</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1250673"/>
+    <updated>2026-10-21T10:27:17Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 15</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-10-21:473be303c83fe660</id>
     <title>一人公司的全栈选型指南：让 AI Agent 写得快，也让生意跑得稳</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7698044277812772873"/>
-    <updated>2026-10-21T05:08:42Z</updated>
+    <updated>2026-10-21T10:27:17Z</updated>
     <author><name>掘金</name></author>
-    <summary>Rank: 23</summary>
+    <summary>Rank: 16</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-10-21:20ec528920543ea4</id>
-    <title>AI画大肥鱼翻车,鲸鱼娘遭殃</title>
-    <link rel="alternate" type="text/html" href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=AI%E7%94%BB%E5%A4%A7%E8%82%A5%E9%B1%BC%E7%BF%BB%E8%BD%A6%2C%E9%B2%B8%E9%B1%BC%E5%A8%98%E9%81%AD%E6%AE%83&amp;topic_id=28367596"/>
-    <updated>2026-10-21T05:08:42Z</updated>
+    <id>urn:pulseradar:2026-10-21:473374da868a6f32</id>
+    <title>Ulink AI</title>
+    <link rel="alternate" type="text/html" href="https://www.producthunt.com/products/ulink-ai"/>
+    <updated>2026-10-21T10:27:17Z</updated>
+    <author><name>Product Hunt</name></author>
+    <summary>Rank: 17</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-21:18ff35e9d847ec42</id>
+    <title>吴越等人被AI盗用带货，经济日报：识别AI仿冒平台需担起责任</title>
+    <link rel="alternate" type="text/html" href="https://m.thepaper.cn/newsDetail_forward_34296636"/>
+    <updated>2026-10-21T10:27:17Z</updated>
+    <author><name>澎湃新闻</name></author>
+    <summary>Rank: 17</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-21:6ea2da0656bb5157</id>
+    <title>外网评最烂AI命名榜,DS夺冠</title>
+    <link rel="alternate" type="text/html" href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E5%A4%96%E7%BD%91%E8%AF%84%E6%9C%80%E7%83%82AI%E5%91%BD%E5%90%8D%E6%A6%9C%2CDS%E5%A4%BA%E5%86%A0&amp;topic_id=28367763"/>
+    <updated>2026-10-21T10:27:17Z</updated>
     <author><name>贴吧</name></author>
-    <summary>Rank: 27</summary>
+    <summary>Rank: 19</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-21:20935b2d87db84cd</id>
+    <title>论坛里天天都是&quot;会不会被 AI 替代&quot;，&quot;xx 真要完蛋&quot;，看得我人麻了</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1250653"/>
+    <updated>2026-10-21T10:27:17Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 21</summary>
   </entry>
   <entry>
     <id>urn:pulseradar:2026-10-21:5459f477f6f175a5</id>
     <title>GitHub 热榜周报(10.19)｜5 个把 AI 装回本地的开源项目：多 agent 控制台、本地语音、节点式生成（含技术看点）</title>
     <link rel="alternate" type="text/html" href="https://juejin.cn/post/7698043261042638886"/>
-    <updated>2026-10-21T05:08:42Z</updated>
+    <updated>2026-10-21T10:27:17Z</updated>
     <author><name>掘金</name></author>
+    <summary>Rank: 25</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-21:20ec528920543ea4</id>
+    <title>AI画大肥鱼翻车,鲸鱼娘遭殃</title>
+    <link rel="alternate" type="text/html" href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=AI%E7%94%BB%E5%A4%A7%E8%82%A5%E9%B1%BC%E7%BF%BB%E8%BD%A6%2C%E9%B2%B8%E9%B1%BC%E5%A8%98%E9%81%AD%E6%AE%83&amp;topic_id=28367596"/>
+    <updated>2026-10-21T10:27:17Z</updated>
+    <author><name>贴吧</name></author>
     <summary>Rank: 28</summary>
   </entry>
   <entry>
-    <id>urn:pulseradar:2026-10-21:667a91c2c2043df9</id>
-    <title>都 AI 编程了，昨天 Matt Pocock 竟然给我推荐了三本技术书</title>
-    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1250517"/>
-    <updated>2026-10-21T05:08:42Z</updated>
+    <id>urn:pulseradar:2026-10-21:aac9ac62747c27c1</id>
+    <title>都说前端完了，所以后端 AI 最佳实践是什么</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1250624"/>
+    <updated>2026-10-21T10:27:17Z</updated>
+    <author><name>V2EX</name></author>
+    <summary>Rank: 29</summary>
+  </entry>
+  <entry>
+    <id>urn:pulseradar:2026-10-21:8a1793c60192a8b6</id>
+    <title>ATBGamePort -- 用 AI 一键移植任意游戏到 html5</title>
+    <link rel="alternate" type="text/html" href="https://www.v2ex.com/t/1250623"/>
+    <updated>2026-10-21T10:27:17Z</updated>
     <author><name>V2EX</name></author>
     <summary>Rank: 30</summary>
   </entry>

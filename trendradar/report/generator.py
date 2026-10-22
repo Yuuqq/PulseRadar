@@ -10,6 +10,8 @@ from collections.abc import Callable
 from pathlib import Path
 
 from trendradar.logging import get_logger
+from trendradar.report.cluster import cluster_stats
+from trendradar.report.feeds import write_feeds
 from trendradar.report.hub import generate_hub_html
 from trendradar.report.manifest import (
     add_report_entry,
@@ -152,6 +154,9 @@ def prepare_report_data(
             }
         )
 
+    # 跨源去重 / 同事件聚类（同一关键词组内、跨平台合并）
+    cluster_stats(processed_stats)
+
     return {
         "stats": processed_stats,
         "new_titles": processed_new_titles,
@@ -291,6 +296,7 @@ def generate_html_report(
             len(report_data.get("stats", [])),
             html_content,
             root_index,
+            report_data=report_data,
         )
     else:
         write_text_atomic(root_index, html_content)
@@ -307,6 +313,7 @@ def _publish_to_github_pages(
     stats_count: int,
     html_content: str,
     root_index: Path,
+    report_data: dict | None = None,
 ) -> None:
     """将报告发布到 GitHub Pages 目录并生成 Hub 页面"""
     pages = Path(pages_dir)
@@ -330,9 +337,21 @@ def _publish_to_github_pages(
     manifest = add_report_entry(manifest, entry)
     save_manifest(manifest_path, manifest)
 
-    # 4. 生成 Hub 页面作为根 index.html
+    # 4. 根目录 index.html = 最新报告（首页直接显示当期内容）
+    write_text_atomic(root_index, html_content)
+
+    # 5. 生成 Hub 归档页 -> reports/archive.html（在 git add reports/ 范围内）
     hub_html = generate_hub_html(manifest)
-    write_text_atomic(root_index, hub_html)
+    archive_path = pages / "archive.html"
+    write_text_atomic(archive_path, hub_html)
+
+    # 6. 生成 Atom feeds（全站 + 各关键词）
+    if report_data and report_data.get("stats"):
+        try:
+            mapping = write_feeds(pages, report_data["stats"])
+            logger.info("Atom feeds written", feed_count=len(mapping))
+        except Exception as exc:
+            logger.warning("Failed to write Atom feeds", error=str(exc))
 
     logger.info(
         "GitHub Pages 报告已发布",

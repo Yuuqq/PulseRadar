@@ -32,8 +32,13 @@ extra_apis:
     output_dir.mkdir(parents=True, exist_ok=True)
 
     monkeypatch.setattr(JobManager, "_start_dispatcher", lambda self: None)
+    monkeypatch.setenv("TREND_RADAR_WEBUI_DISABLE_AUTH", "1")
 
-    app = create_app(config_path=str(config_file), output_path=str(output_dir))
+    app = create_app(
+        config_path=str(config_file),
+        output_path=str(output_dir),
+        auth_path=str(tmp_path / "webui_auth.json"),
+    )
     app.config["TESTING"] = True
     client = app.test_client()
 

@@ -135,14 +135,19 @@ class DataFetcher:
     def crawl_websites(
         self,
         ids_list: list[str | tuple[str, str]],
-        request_interval: int = 100,
+        request_interval: int = 100,  # noqa: ARG002 - 保留参数以兼容旧调用方
     ) -> tuple[dict, dict, list]:
         """
-        爬取多个网站数据
+        并发爬取多个网站数据
+
+        使用 ``ThreadPoolExecutor`` 进行并发抓取（最多 10 路），任务提交之间
+        加入 20ms 错峰，以缓解对单一上游 API 的瞬时冲击。
 
         Args:
             ids_list: 平台ID列表，每个元素可以是字符串或 (平台ID, 别名) 元组
-            request_interval: 请求间隔（毫秒）
+            request_interval: 历史遗留参数，原为串行模式下的请求间隔（毫秒）。
+                自切换到并发抓取后已不再使用，仅为兼容旧调用方而保留。
+                如需调整压测节奏，请修改本方法内部的 ``max_workers`` 与 stagger 常量。
 
         Returns:
             (结果字典, ID到名称的映射, 失败ID列表) 元组

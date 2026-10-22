@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录 · PulseRadar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        body { background: #f4f6fb; }
+        .auth-shell {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        .auth-card {
+            width: 100%;
+            max-width: 380px;
+            background: #fff;
+            border-radius: 16px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 4px 6px rgba(15,23,42,.04), 0 16px 40px rgba(15,23,42,.08);
+            padding: 32px 28px;
+        }
+        .auth-title { font-size: 22px; font-weight: 700; color: #0f172a; margin: 0 0 4px; }
+        .auth-sub { color: #64748b; font-size: 13px; margin: 0 0 24px; }
+        .auth-form .form-row { margin-bottom: 16px; }
+        .auth-form label { display:block; font-size:13px; color:#334155; margin-bottom:6px; font-weight:500; }
+        .auth-form input[type="text"],
+        .auth-form input[type="password"] {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+            background: #fff;
+        }
+        .auth-form input:focus { border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37,99,235,.15); }
+        .auth-form button {
+            width: 100%; margin-top: 8px;
+            background: linear-gradient(135deg,#2563eb 0%,#0f766e 100%);
+            color: #fff; border: 0; padding: 10px;
+            border-radius: 8px; font-size: 14px; font-weight: 600;
+            cursor: pointer;
+        }
+        .auth-form button:hover { filter: brightness(1.05); }
+        .auth-error {
+            background: #fef2f2; border: 1px solid #fecaca; color: #991b1b;
+            padding: 10px 12px; border-radius: 8px; font-size: 13px; margin-bottom: 16px;
+        }
+        .auth-foot { margin-top: 16px; text-align: center; color: #94a3b8; font-size: 12px; }
+    </style>
+</head>
+<body>
+    <div class="auth-shell">
+        <div class="auth-card">
+            <h1 class="auth-title">登录 PulseRadar</h1>
+            <p class="auth-sub">请输入管理员账号</p>
+
+            {% if error %}
+            <div class="auth-error">{{ error }}</div>
+            {% endif %}
+
+            <form class="auth-form" method="post" action="{{ url_for('auth.login_submit') }}">
+                <input type="hidden" name="next" value="{{ next_url }}">
+                <div class="form-row">
+                    <label for="username">用户名</label>
+                    <input id="username" name="username" type="text" autocomplete="username" required autofocus>
+                </div>
+                <div class="form-row">
+                    <label for="password">密码</label>
+                    <input id="password" name="password" type="password" autocomplete="current-password" required>
+                </div>
+                <button type="submit">登录</button>
+            </form>
+
+            <div class="auth-foot">PulseRadar Web UI</div>
+        </div>
+    </div>
+</body>
+</html>

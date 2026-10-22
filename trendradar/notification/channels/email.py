@@ -87,7 +87,7 @@ def send_to_email(
             use_tls = True
 
         msg = MIMEMultipart("alternative")
-        sender_name = "TrendRadar"
+        sender_name = "PulseRadar"
         msg["From"] = formataddr((sender_name, from_email))
 
         recipients = [addr.strip() for addr in to_email.split(",")]
@@ -98,7 +98,7 @@ def send_to_email(
 
         now = get_time_func() if get_time_func else datetime.now()
         time_str = now.strftime("%m月%d日 %H:%M")
-        subject = f"TrendRadar 热点分析报告 - {report_type} - {time_str}"
+        subject = f"PulseRadar · Today's Pulse · {time_str}"
         msg["Subject"] = Header(subject, "utf-8")
 
         msg["MIME-Version"] = "1.0"
@@ -106,12 +106,13 @@ def send_to_email(
         msg["Message-ID"] = make_msgid()
 
         text_content = f"""
-TrendRadar \u70ed\u70b9\u5206\u6790\u62a5\u544a
+PulseRadar · Today's Pulse
 ========================
-\u62a5\u544a\u7c7b\u578b\uff1a{report_type}
-\u751f\u6210\u65f6\u95f4\uff1a{now.strftime("%Y-%m-%d %H:%M:%S")}
+报告类型：{report_type}
+生成时间：{now.strftime("%Y-%m-%d %H:%M:%S")}
+RSS 订阅：https://pulseradar.aisbest.eu.cc/reports/feed.xml
 
-\u8bf7\u4f7f\u7528\u652f\u6301HTML\u7684\u90ae\u4ef6\u5ba2\u6237\u7aef\u67e5\u770b\u5b8c\u6574\u62a5\u544a\u5185\u5bb9\u3002
+请使用支持 HTML 的邮件客户端查看完整报告内容。
         """
         text_part = MIMEText(text_content, "plain", "utf-8")
         msg.attach(text_part)

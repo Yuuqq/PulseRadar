@@ -386,8 +386,10 @@ class JobManager:
                 self._processes.pop(job_id, None)
 
         job = self.get_job(job_id)
-        # Read-then-write is not atomic: re-read via the guarded UPDATE below so a
-        # cancel that lands in between cannot be overwritten with failed/success.
+        # Treat cancelling as cancelled so a late process exit cannot overwrite
+        # cancel_job's in-flight status with failed/success. Read-then-write is
+        # not atomic either: the guarded UPDATE below re-checks the status so a
+        # cancel that lands in between cannot be overwritten.
         cancelled = bool(job and job.get("status") in ("cancelled", "cancelling"))
         status = "cancelled" if cancelled else ("success" if return_code == 0 else "failed")
 

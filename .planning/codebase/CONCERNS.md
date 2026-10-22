@@ -21,8 +21,46 @@ The Flask web UI (`trendradar/webui/app.py`) has no authentication. Bound to `12
 ### Large Main Module
 `trendradar/__main__.py` is 835 lines. The `NewsAnalyzer` class (lines 45-660) has many methods and orchestrates the entire pipeline. While methods have been extracted to `core/pipeline.py` and `core/mode_strategy.py`, the class still acts as a god object.
 
-### Mutable Config Dict
-Despite Pydantic models existing in `trendradar/models/config.py`, the runtime still passes a mutable `Dict` through `AppContext`. The Pydantic models are used for validation but converted back to dicts via `to_dict()`. This creates two parallel config representations.
+### Mutable Config Dict (部分修复 — 2026-05)
+**已处理**：
+- `trendradar/models/config.py:TrendRadarConfig.to_legacy_dict()` 新方法把 Pydantic 模型直接序列化为 `loader.load_config` 历史返回的扁平 UPPER_CASE 字典格式，并在该方法内部统一应用 webhook 环境变量覆盖。
+- 新增 `tests/test_pydantic_legacy_dict.py` 契约测试：在完整 fixture YAML 上对比两条加载路径，断言顶层键集合一致 + 关键标量/嵌套字段值一致 + webhook env override 生效。该测试将在两条路径出现新漂移时立即失败。
+
+**仍待处理（风险较高，需独立会话评估）**：
+- `loader.py:_load_*` 系列函数与 Pydantic 模型在多处默认值上漂移：
+  - `report.mode`：loader 默认 `daily`，Pydantic 默认 `current`
+  - `report.rank_threshold`：loader 默认 `10`，Pydantic 默认 `5`
+  - `display.region_order`：loader 默认 `[hotlist, rss, new_items, ...]`，Pydantic 默认 `[new_items, hotlist, rss, ...]`
+  - `ai.num_retries`：loader `2` vs Pydantic `1`；`ai.model`：loader `""` vs Pydantic `openai/gemini-3-pro-preview`
+  - `ai_analysis.enabled/include_rss/include_rank_timeline/max_news_for_analysis` 多项不一致
+  - `ai_translation.enabled/language` 不一致
+  - `notification.batch_size.feishu/bark`：loader 用 `29000/3600` 兜底，Pydantic 用 YAML 字段默认 `30000/4000`
+- 完整切换到 Pydantic 路径前，需先逐项确认哪些默认值是历史用户依赖、哪些是文档错误。
+- 切换后即可删除 `loader._load_*` 系列函数，把 `load_config()` 改为 `TrendRadarConfig.from_yaml(p).to_legacy_dict()` 一行实现。
+
+### section_helpers 仍是 f-string 拼接 (Task 2.3 — 未完成)
+`trendradar/report/html_sections.py` 仍有 ~460 行 HTML 通过 f-string + `+=` 累加构建（`build_hotlist_view` 135 行 / `render_rss_stats_html` 100 行 / `render_standalone_html` 227 行）。Task 2.0 已把主壳搬到 Jinja2，但这三个 section 函数因为以下风险点暂未一并迁移：
+
+1. **空白字节敏感**：现有输出的缩进/换行被前端 CSS 隐式依赖（已在线上跑），任何 Jinja2 `{%- -%}` 控制差异都可能造成 diff，需要逐行对齐。
+2. **escape 语义双轨**：现有代码显式调用 `trendradar.report.helpers.html_escape`；切到 Jinja2 后默认走 `markupsafe.escape`。两者对 `&`/`'`/`/` 处理需要逐字符核对，否则会发生双重转义或漏转义。
+3. **缺验证手段**：无 HTML 字节级 snapshot 测试。迁移前必须先建立 snapshot fixture（在 `tests/fixtures/` 下放固定输入 + 现有输出），否则无从证明等价。
+
+**推荐独立会话步骤**：
+- Step A：在 `tests/test_html_sections_snapshot.py` 中用 3 组固定输入冻结当前三个函数的字节输出（先做基线）
+- Step B：新建 `trendradar/report/templates/_sections.html.j2`，定义 `hotlist_view`/`rss_stats`/`standalone` 三个 macro，用 `{% autoescape true %}` + Jinja2 默认 escape
+- Step C：函数体改为 `template.render(...)`，跑 snapshot 测试，对比 diff 调整 macro 的空白控制直到字节一致
+- Step D：评估是否将 helpers.html_escape 全局替换为 markupsafe.escape
+
+预计 1-2 小时聚焦工作量，不适合穿插在多任务会话中做。
+
+### MODE_STRATEGIES 类型化 (已完成 — 2026-05)
+- 抽出到 `trendradar/core/mode_strategies.py`：`MODE_STRATEGIES`/`ModeStrategy` TypedDict/`ReportMode` Literal/`get_mode_strategy()`/`DEFAULT_REPORT_MODE`。
+- `AnalysisEngine.MODE_STRATEGIES` 现为模块级表的别名（同一对象）。
+- `mode_strategy.execute_mode_strategy` 参数类型从 `dict` 收紧到 `ModeStrategy`/`dict[str, ModeStrategy]`。
+- `tests/test_mode_strategies.py` 覆盖：3 个规范模式存在、TypedDict 字段一致、unknown 回退到 daily、AnalysisEngine 类属性 is 同对象。
+
+### AppContext 仍是 dict
+`AppContext` 仍然包装 `dict`。`to_legacy_dict()` 已为后续切换做好接线点，但 AppContext 本身的迁移（直接持有 Pydantic 实例）尚未启动。
 
 ### Storage Manager Singleton
 `trendradar/storage/manager.py:19` has a module-level `_storage_manager` singleton pattern that could cause issues in testing or multi-context scenarios.
@@ -35,16 +73,24 @@ Despite Pydantic models existing in `trendradar/models/config.py`, the runtime s
 - `AGENTS.md` and `README-EN.md` are in English
 - Mixed language makes onboarding harder for non-Chinese speakers
 
-### Inline HTML Generation
-`trendradar/report/html.py`, `html_sections.py`, `html_styles.py`, `html_scripts.py` generate HTML by string concatenation. No templating engine (Jinja2 is only used for web UI). This makes report HTML fragile to edit.
+### Inline HTML Generation (部分修复 — 2026-05)
+**已处理**：
+- `html_styles.py` (1197 行 CSS 字符串) → 抽到 `trendradar/report/templates/report.css`，模块降为薄加载器
+- `html_scripts.py` (578 行 JS 字符串) → 抽到 `trendradar/report/templates/report.js`，模块降为薄加载器
+- `html.py` 主壳由字符串拼接改为 Jinja2 模板渲染（`templates/report.html.j2`），失败平台列表与"本次新增热点"区块也改为模板循环
+- 净减少 ~1760 行 Python 字符串拼接代码
+
+**仍待处理**：
+- `html_sections.py` 内的 `build_hotlist_view`、`render_rss_stats_html`、`render_standalone_html` 等仍以字符串拼接形式构造区块 HTML（被本模块以 `Markup` 包装注入主模板）。后续可逐个改为 Jinja2 macros，但风险较高、需要逐区块对比输出验证。
+- `rss_html.py` (477 行) 独立的 RSS 报告生成器尚未模板化。
 
 ### Config Key Case Transformation
 Config keys are lowercase in YAML but UPPERCASE in Python. This transformation happens in `trendradar/core/config.py` and creates a non-obvious mapping that must be remembered.
 
 ## Performance
 
-### Sequential Crawling
-The main crawler (`trendradar/crawler/fetcher.py`) appears to crawl platforms sequentially with `request_interval` delays. Extra APIs use concurrent crawling (`crawl_extra_sources_concurrent`), but the primary hotlist crawl is serial.
+### Concurrent Crawling (已修复)
+主热榜爬取 `trendradar/crawler/fetcher.py:crawl_websites` 已改为基于 `ThreadPoolExecutor`（最多 10 路并发）+ 20ms 提交错峰。`request_interval` 参数保留为兼容旧调用方但实际未再使用，已在 docstring 中说明。文档此前的"sequential"描述已过期。
 
 ### SQLite for Storage
 Using SQLite as the primary local storage backend. Fine for single-process access but could be a bottleneck if multiple processes (e.g., web UI + crawler) access simultaneously.

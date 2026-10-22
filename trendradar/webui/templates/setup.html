@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>初始化 · PulseRadar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        body { background: #f4f6fb; }
+        .auth-shell {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        .auth-card {
+            width: 100%;
+            max-width: 420px;
+            background: #fff;
+            border-radius: 16px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 4px 6px rgba(15,23,42,.04), 0 16px 40px rgba(15,23,42,.08);
+            padding: 32px 28px;
+        }
+        .auth-title { font-size: 22px; font-weight: 700; color: #0f172a; margin: 0 0 4px; }
+        .auth-sub { color: #64748b; font-size: 13px; margin: 0 0 24px; line-height: 1.6; }
+        .auth-form .form-row { margin-bottom: 16px; }
+        .auth-form label { display:block; font-size:13px; color:#334155; margin-bottom:6px; font-weight:500; }
+        .auth-form input[type="text"],
+        .auth-form input[type="password"] {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+            background: #fff;
+        }
+        .auth-form input:focus { border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37,99,235,.15); }
+        .auth-form .hint { color:#94a3b8; font-size:12px; margin-top:4px; }
+        .auth-form button {
+            width: 100%; margin-top: 8px;
+            background: linear-gradient(135deg,#2563eb 0%,#0f766e 100%);
+            color: #fff; border: 0; padding: 10px;
+            border-radius: 8px; font-size: 14px; font-weight: 600;
+            cursor: pointer;
+        }
+        .auth-form button:hover { filter: brightness(1.05); }
+        .auth-error {
+            background: #fef2f2; border: 1px solid #fecaca; color: #991b1b;
+            padding: 10px 12px; border-radius: 8px; font-size: 13px; margin-bottom: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-shell">
+        <div class="auth-card">
+            <h1 class="auth-title">初始化管理员账户</h1>
+            <p class="auth-sub">这是首次启动 Web UI。请创建一个管理员账户用于后续登录，凭据将以哈希形式保存于 <code>config/webui_auth.json</code>。</p>
+
+            {% if error %}
+            <div class="auth-error">{{ error }}</div>
+            {% endif %}
+
+            <form class="auth-form" method="post" action="{{ url_for('auth.setup_submit') }}">
+                <div class="form-row">
+                    <label for="username">用户名</label>
+                    <input id="username" name="username" type="text" autocomplete="username" required autofocus value="admin">
+                </div>
+                <div class="form-row">
+                    <label for="password">密码</label>
+                    <input id="password" name="password" type="password" autocomplete="new-password" required minlength="{{ min_password_len }}">
+                    <div class="hint">至少 {{ min_password_len }} 位</div>
+                </div>
+                <div class="form-row">
+                    <label for="password_confirm">确认密码</label>
+                    <input id="password_confirm" name="password_confirm" type="password" autocomplete="new-password" required minlength="{{ min_password_len }}">
+                </div>
+                <button type="submit">创建并登录</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

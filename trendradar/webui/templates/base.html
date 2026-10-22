@@ -64,6 +64,14 @@
                     <span class="btn-icon">▶️</span>
                     <span>立即运行</span>
                 </button>
+                {% if current_user %}
+                <div class="sidebar-user" style="margin-top:12px; padding:10px 12px; background:rgba(255,255,255,.06); border-radius:8px; display:flex; align-items:center; justify-content:space-between; gap:8px;">
+                    <span style="font-size:12px; color:#cbd5e1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="{{ current_user }}">👤 {{ current_user }}</span>
+                    <button id="logout-btn" type="button" class="btn btn-ghost btn-sm" title="退出登录" style="flex-shrink:0;">退出</button>
+                </div>
+                {% elif auth_disabled %}
+                <div style="margin-top:12px; padding:8px 10px; background:rgba(220,38,38,.15); color:#fecaca; border-radius:8px; font-size:11px; text-align:center;">⚠️ 鉴权已禁用</div>
+                {% endif %}
             </div>
         </aside>
 

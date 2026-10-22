@@ -22,18 +22,13 @@ from trendradar.core.mode_strategy import execute_mode_strategy
 
 
 def _assert_notification_kwargs(send_notification_fn: MagicMock) -> None:
-    """Shared assertion for notification callback keyword arg shapes (D-16b)."""
-    assert send_notification_fn.called, "send_notification_fn should have been called"
-    # send_notification_fn is called with 3 positional args + keyword args
-    call_args = send_notification_fn.call_args
-    # Positional: stats, report_type, report_mode
-    assert (
-        len(call_args.args) >= 3
-    ), f"Expected at least 3 positional args, got {len(call_args.args)}"
-    stats_arg = call_args.args[0]
-    assert isinstance(stats_arg, list), f"stats should be a list, got {type(stats_arg)}"
-
-    call_kwargs = call_args.kwargs
+    """Shared assertion for the send_notification_if_needed call shape."""
+    assert send_notification_fn.called, "send_notification_if_needed should have been called"
+    # send_notification_if_needed takes ctx plus keyword arguments.
+    call_kwargs = send_notification_fn.call_args.kwargs
+    assert isinstance(call_kwargs["stats"], list), "stats should be a list"
+    assert call_kwargs["report_type"]
+    assert call_kwargs["mode"] == call_kwargs["report_mode"]
     assert "failed_ids" in call_kwargs
     assert "id_to_name" in call_kwargs
     assert "html_file_path" in call_kwargs
@@ -67,7 +62,7 @@ class TestIncrementalMode:
         mock_callbacks,
     ):
         storage_manager = pipeline_ctx.get_storage_manager()
-        run_pipeline_fn = mock_callbacks["run_analysis_pipeline_fn_factory"]("incremental")
+        run_pipeline_fn = mock_callbacks["run_analysis_pipeline_fn"]
 
         html_file = execute_mode_strategy(
             ctx=pipeline_ctx,
@@ -79,14 +74,10 @@ class TestIncrementalMode:
             is_docker_container=False,
             should_open_browser=False,
             mode_strategy={"should_send_notification": True, "report_type": "full"},
+            mode_strategies={},
             results=sample_results,
             id_to_name=sample_id_to_name,
             failed_ids=[],
-            load_analysis_data_fn=mock_callbacks["load_analysis_data_fn"],
-            prepare_current_title_info_fn=mock_callbacks["prepare_current_title_info_fn"],
-            run_analysis_pipeline_fn=run_pipeline_fn,
-            prepare_standalone_data_fn=mock_callbacks["prepare_standalone_data_fn"],
-            send_notification_fn=mock_callbacks["send_notification_fn"],
         )
 
         # (a) Return value is a valid file path
@@ -111,8 +102,8 @@ class TestIncrementalMode:
         # (g) Notification callback keyword arg shapes
         _assert_notification_kwargs(mock_callbacks["send_notification_fn"])
         call_args = mock_callbacks["send_notification_fn"].call_args
-        assert call_args.args[1] == "full"  # report_type
-        assert call_args.args[2] == "incremental"  # report_mode
+        assert call_args.kwargs["report_type"] == "full"
+        assert call_args.kwargs["report_mode"] == "incremental"
 
 
 class TestCurrentMode:
@@ -128,7 +119,7 @@ class TestCurrentMode:
     ):
         """Case 2: current with history -- uses historical data (lines 339-377)."""
         storage_manager = pipeline_ctx.get_storage_manager()
-        run_pipeline_fn = mock_callbacks["run_analysis_pipeline_fn_factory"]("current")
+        run_pipeline_fn = mock_callbacks["run_analysis_pipeline_fn"]
 
         # Set up load_analysis_data_fn to return a 7-tuple (historical data)
         mock_callbacks["load_analysis_data_fn"].return_value = (
@@ -159,14 +150,10 @@ class TestCurrentMode:
             is_docker_container=False,
             should_open_browser=False,
             mode_strategy={"should_send_notification": True, "report_type": "current_report"},
+            mode_strategies={},
             results=sample_results,
             id_to_name=sample_id_to_name,
             failed_ids=[],
-            load_analysis_data_fn=mock_callbacks["load_analysis_data_fn"],
-            prepare_current_title_info_fn=mock_callbacks["prepare_current_title_info_fn"],
-            run_analysis_pipeline_fn=run_pipeline_fn,
-            prepare_standalone_data_fn=mock_callbacks["prepare_standalone_data_fn"],
-            send_notification_fn=mock_callbacks["send_notification_fn"],
         )
 
         # (a) Return value is not None
@@ -177,9 +164,9 @@ class TestCurrentMode:
 
         # (c) run_analysis_pipeline_fn was called with historical data
         assert run_pipeline_fn.called
-        first_positional_arg = run_pipeline_fn.call_args.args[0]
+        passed_data_source = run_pipeline_fn.call_args.kwargs["data_source"]
         assert (
-            "hist_platform" in first_positional_arg
+            "hist_platform" in passed_data_source
         ), "run_analysis_pipeline_fn should receive historical results (hist_platform)"
 
         # (d) send_notification_fn was called
@@ -201,7 +188,7 @@ class TestCurrentMode:
     ):
         """Case 3: current without history -- raises RuntimeError (line 380)."""
         storage_manager = pipeline_ctx.get_storage_manager()
-        run_pipeline_fn = mock_callbacks["run_analysis_pipeline_fn_factory"]("current")
+        run_pipeline_fn = mock_callbacks["run_analysis_pipeline_fn"]
 
         # No history data
         mock_callbacks["load_analysis_data_fn"].return_value = None
@@ -217,14 +204,10 @@ class TestCurrentMode:
                 is_docker_container=False,
                 should_open_browser=False,
                 mode_strategy={"should_send_notification": True, "report_type": "full"},
+                mode_strategies={},
                 results=sample_results,
                 id_to_name=sample_id_to_name,
                 failed_ids=[],
-                load_analysis_data_fn=mock_callbacks["load_analysis_data_fn"],
-                prepare_current_title_info_fn=mock_callbacks["prepare_current_title_info_fn"],
-                run_analysis_pipeline_fn=run_pipeline_fn,
-                prepare_standalone_data_fn=mock_callbacks["prepare_standalone_data_fn"],
-                send_notification_fn=mock_callbacks["send_notification_fn"],
             )
 
         # (a) RuntimeError raised (verified by pytest.raises above)
@@ -249,7 +232,7 @@ class TestDailyMode:
     ):
         """Case 4: daily with history -- uses historical data (lines 382-418)."""
         storage_manager = pipeline_ctx.get_storage_manager()
-        run_pipeline_fn = mock_callbacks["run_analysis_pipeline_fn_factory"]("daily")
+        run_pipeline_fn = mock_callbacks["run_analysis_pipeline_fn"]
 
         # Set up load_analysis_data_fn with historical data
         mock_callbacks["load_analysis_data_fn"].return_value = (
@@ -280,14 +263,10 @@ class TestDailyMode:
             is_docker_container=False,
             should_open_browser=False,
             mode_strategy={"should_send_notification": True, "report_type": "daily_report"},
+            mode_strategies={},
             results=sample_results,
             id_to_name=sample_id_to_name,
             failed_ids=[],
-            load_analysis_data_fn=mock_callbacks["load_analysis_data_fn"],
-            prepare_current_title_info_fn=mock_callbacks["prepare_current_title_info_fn"],
-            run_analysis_pipeline_fn=run_pipeline_fn,
-            prepare_standalone_data_fn=mock_callbacks["prepare_standalone_data_fn"],
-            send_notification_fn=mock_callbacks["send_notification_fn"],
         )
 
         # (a) Return value is not None
@@ -298,9 +277,9 @@ class TestDailyMode:
 
         # (c) run_analysis_pipeline_fn called with historical data
         assert run_pipeline_fn.called
-        first_positional_arg = run_pipeline_fn.call_args.args[0]
+        passed_data_source = run_pipeline_fn.call_args.kwargs["data_source"]
         assert (
-            "hist_platform" in first_positional_arg
+            "hist_platform" in passed_data_source
         ), "run_analysis_pipeline_fn should receive historical results (hist_platform)"
 
         # (d) send_notification_fn was called
@@ -322,7 +301,7 @@ class TestDailyMode:
     ):
         """Case 5: daily without history -- falls back to current data (lines 420-438)."""
         storage_manager = pipeline_ctx.get_storage_manager()
-        run_pipeline_fn = mock_callbacks["run_analysis_pipeline_fn_factory"]("daily")
+        run_pipeline_fn = mock_callbacks["run_analysis_pipeline_fn"]
 
         # No history data -> fallback to current
         mock_callbacks["load_analysis_data_fn"].return_value = None
@@ -337,14 +316,10 @@ class TestDailyMode:
             is_docker_container=False,
             should_open_browser=False,
             mode_strategy={"should_send_notification": True, "report_type": "daily_report"},
+            mode_strategies={},
             results=sample_results,
             id_to_name=sample_id_to_name,
             failed_ids=[],
-            load_analysis_data_fn=mock_callbacks["load_analysis_data_fn"],
-            prepare_current_title_info_fn=mock_callbacks["prepare_current_title_info_fn"],
-            run_analysis_pipeline_fn=run_pipeline_fn,
-            prepare_standalone_data_fn=mock_callbacks["prepare_standalone_data_fn"],
-            send_notification_fn=mock_callbacks["send_notification_fn"],
         )
 
         # (a) Return value is not None
@@ -358,9 +333,9 @@ class TestDailyMode:
 
         # (d) run_analysis_pipeline_fn called with CURRENT results (not historical)
         assert run_pipeline_fn.called
-        first_positional_arg = run_pipeline_fn.call_args.args[0]
+        passed_data_source = run_pipeline_fn.call_args.kwargs["data_source"]
         assert (
-            "test_platform" in first_positional_arg
+            "test_platform" in passed_data_source
         ), "run_analysis_pipeline_fn should receive current results (test_platform) on fallback"
 
         # (e) send_notification_fn was called

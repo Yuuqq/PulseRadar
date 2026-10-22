@@ -163,9 +163,6 @@ def test_run_analysis_pipeline_basic_flow():
         10,
     )
 
-    mock_ai_fn = MagicMock()
-    mock_strategy_fn = MagicMock()
-
     stats, html_file, ai_result = run_analysis_pipeline(
         ctx=ctx,
         data_source={"src1": {"title": {}}},
@@ -177,8 +174,7 @@ def test_run_analysis_pipeline_basic_flow():
         id_to_name={"src1": "Source1"},
         report_mode="current",
         update_info=None,
-        run_ai_analysis_fn=mock_ai_fn,
-        get_mode_strategy_fn=mock_strategy_fn,
+        report_type="daily_report",
     )
 
     assert stats == [{"word": "test", "count": 3, "titles": []}]
@@ -187,7 +183,8 @@ def test_run_analysis_pipeline_basic_flow():
     ctx.count_frequency.assert_called_once()
 
 
-def test_run_analysis_pipeline_with_ai_enabled():
+def test_run_analysis_pipeline_returns_the_supplied_ai_result():
+    """AI analysis now happens in the caller; the pipeline only passes it through."""
     from trendradar.core.pipeline import run_analysis_pipeline
 
     ctx = _make_ctx(
@@ -202,9 +199,7 @@ def test_run_analysis_pipeline_with_ai_enabled():
     )
     ctx.display_mode = "keyword"
 
-    mock_ai_result = MagicMock()
-    mock_ai_fn = MagicMock(return_value=mock_ai_result)
-    mock_strategy_fn = MagicMock(return_value={"report_type": "daily_report", "mode_name": "Daily"})
+    supplied_ai_result = MagicMock()
 
     _stats, _html_file, ai_result = run_analysis_pipeline(
         ctx=ctx,
@@ -217,12 +212,11 @@ def test_run_analysis_pipeline_with_ai_enabled():
         id_to_name={},
         report_mode="daily",
         update_info=None,
-        run_ai_analysis_fn=mock_ai_fn,
-        get_mode_strategy_fn=mock_strategy_fn,
+        report_type="daily_report",
+        ai_result=supplied_ai_result,
     )
 
-    assert ai_result is mock_ai_result
-    mock_ai_fn.assert_called_once()
+    assert ai_result is supplied_ai_result
 
 
 def test_run_analysis_pipeline_with_html_enabled():
@@ -250,24 +244,21 @@ def test_run_analysis_pipeline_with_html_enabled():
         id_to_name={},
         report_mode="current",
         update_info=None,
-        run_ai_analysis_fn=MagicMock(),
-        get_mode_strategy_fn=MagicMock(),
+        report_type="daily_report",
     )
 
     assert html_file == "/path/to/report.html"
     ctx.generate_html.assert_called_once()
 
 
-def test_run_analysis_pipeline_empty_stats_skips_ai():
+def test_run_analysis_pipeline_with_empty_stats_returns_no_ai_result():
     from trendradar.core.pipeline import run_analysis_pipeline
 
     ctx = _make_ctx({"STORAGE": {"FORMATS": {"HTML": False}}, "AI_ANALYSIS": {"ENABLED": True}})
     ctx.count_frequency.return_value = ([], 0)
     ctx.display_mode = "keyword"
 
-    mock_ai_fn = MagicMock()
-
-    _stats, _html_file, ai_result = run_analysis_pipeline(
+    stats, _html_file, ai_result = run_analysis_pipeline(
         ctx=ctx,
         data_source={},
         mode="daily",
@@ -278,9 +269,8 @@ def test_run_analysis_pipeline_empty_stats_skips_ai():
         id_to_name={},
         report_mode="daily",
         update_info=None,
-        run_ai_analysis_fn=mock_ai_fn,
-        get_mode_strategy_fn=MagicMock(),
+        report_type="daily_report",
     )
 
+    assert stats == []
     assert ai_result is None
-    mock_ai_fn.assert_not_called()

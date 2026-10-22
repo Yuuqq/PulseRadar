@@ -106,42 +106,65 @@ def html_report_factory(tmp_path):
 
 
 @pytest.fixture
-def mock_callbacks(html_report_factory):
-    """Create the callback function mocks for execute_mode_strategy.
+def mock_callbacks(monkeypatch, html_report_factory):
+    """Patch the module-level collaborators execute_mode_strategy calls.
 
-    Returns a dict of callback names to MagicMock/callable objects.
-    Each callback returns structurally correct data matching the real
-    function contracts.
+    execute_mode_strategy imports its collaborators by name, so they are
+    resolved from the mode_strategy module globals at call time. Patching
+    those globals is what isolates the test from real storage, HTML rendering
+    and notification delivery.
+
+    The returned dict gives tests handles on the individual mocks.
     """
-    mock_send = MagicMock(name="send_notification_fn")
+    mock_send = MagicMock(name="send_notification_if_needed")
 
-    def make_run_pipeline(mode="incremental"):
-        """Create a run_analysis_pipeline_fn mock that writes a real HTML file."""
-        html_file = html_report_factory(mode)
+    def _run_pipeline(*args, **kwargs):
+        """Write a real HTML file, tagged with the report mode under test."""
+        mode = kwargs.get("mode", "incremental")
+        return (
+            [{"keyword": "test", "count": 1}],  # stats
+            html_report_factory(mode),  # html_file path
+            None,  # ai_result
+        )
 
-        def _run(*args, **kwargs):
-            return (
-                [{"keyword": "test", "count": 1}],  # stats
-                html_file,  # html_file path
-                None,  # ai_result
-            )
-
-        return MagicMock(side_effect=_run, name="run_analysis_pipeline_fn")
-
-    return {
-        "load_analysis_data_fn": MagicMock(name="load_analysis_data_fn"),
+    callbacks = {
+        "load_analysis_data_fn": MagicMock(name="_load_analysis_data"),
         "prepare_current_title_info_fn": MagicMock(
-            name="prepare_current_title_info_fn",
+            name="_prepare_current_title_info",
             return_value={
                 "test_platform": {
                     "Test News Title": {"first_seen": "2026-04-14"},
                 },
             },
         ),
-        "run_analysis_pipeline_fn_factory": make_run_pipeline,
+        "run_analysis_pipeline_fn": MagicMock(
+            side_effect=_run_pipeline, name="run_analysis_pipeline"
+        ),
         "prepare_standalone_data_fn": MagicMock(
-            name="prepare_standalone_data_fn",
+            name="prepare_standalone_data",
             return_value=None,
         ),
         "send_notification_fn": mock_send,
     }
+
+    monkeypatch.setattr(
+        "trendradar.core.mode_strategy._load_analysis_data",
+        callbacks["load_analysis_data_fn"],
+    )
+    monkeypatch.setattr(
+        "trendradar.core.mode_strategy._prepare_current_title_info",
+        callbacks["prepare_current_title_info_fn"],
+    )
+    monkeypatch.setattr(
+        "trendradar.core.mode_strategy.run_analysis_pipeline",
+        callbacks["run_analysis_pipeline_fn"],
+    )
+    monkeypatch.setattr(
+        "trendradar.core.mode_strategy.prepare_standalone_data",
+        callbacks["prepare_standalone_data_fn"],
+    )
+    monkeypatch.setattr(
+        "trendradar.core.mode_strategy.send_notification_if_needed",
+        callbacks["send_notification_fn"],
+    )
+    return callbacks

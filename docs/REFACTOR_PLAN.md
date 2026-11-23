@@ -1,6 +1,8 @@
 # TrendRadar 彻底重构计划
 
 > 目标: 功能倍增 + 效率倍增 | 基于 v5.5.3 现状分析
+>
+> 本文保留重构前的诊断和计划；当前实现请参阅 [PulseRadar 项目架构文档](PROJECT_ARCHITECTURE.md)。
 
 ---
 

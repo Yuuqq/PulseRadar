@@ -1,4 +1,4 @@
-# TrendRadar × Cherry Studio 部署指南 🍒
+# PulseRadar × Cherry Studio 部署指南 🍒
 
 > **适合人群**：零编程基础的用户
 > **客户端**：Cherry Studio（免费开源 GUI 客户端）
@@ -24,40 +24,40 @@
 
 为什么需要获取项目代码？
 
-AI 分析功能需要读取项目中的新闻数据才能工作。无论你使用 GitHub Actions 还是 Docker 部署，爬虫生成的新闻数据都保存在项目的 output 目录中。因此，在配置 MCP 服务器之前，需要先获取完整的项目代码（包含数据文件）。
+MCP 查询需要采集后的新闻数据，不会读取 GitHub Pages 上发布的 HTML 报告。可按 [本地运行指南](README.md#本地运行) 安装依赖并采集，或在已配置远程存储时用 [MCP 同步工具](README-MCP-FAQ.md#存储同步) 拉取数据。Docker 默认将采集数据写入挂载的 `output/`。
 
-根据你的技术水平，可以选择以下任一方式获取：：
+根据你的技术水平，可以选择以下任一方式获取代码：
 
 ### 方法一：Git Clone（推荐给技术用户）
 
 如果你熟悉 Git，可以使用以下命令克隆项目：
 
 ```bash
-git clone https://github.com/你的用户名/你的项目名.git
-cd 你的项目名
+git clone https://github.com/Yuuqq/PulseRadar.git
+cd PulseRadar
 ```
 
 **优点**：
 
-- 可以随时拉取一个命令就可以更新最新数据到本地了（`git pull`）
+- 可以用 `git pull` 更新代码；采集数据需要单独运行采集或同步。
 
 ### 方法二：直接下载 ZIP 压缩包（推荐给初学者）
 
 
 1. **访问 GitHub 项目页面**
 
-   - 项目链接：`https://github.com/你的用户名/你的项目名`
+   - 项目链接：[Yuuqq/PulseRadar](https://github.com/Yuuqq/PulseRadar)
 
 2. **下载压缩包**
 
    - 点击绿色的 "Code" 按钮
    - 选择 "Download ZIP"
-   - 或直接访问：`https://github.com/你的用户名/你的项目名/archive/refs/heads/master.zip`
+   - 或直接下载 [master.zip](https://github.com/Yuuqq/PulseRadar/archive/refs/heads/master.zip)
 
 
 **注意事项**：
 
-- 步骤稍微麻烦，后续更新数据需要重复上面步骤，然后覆盖本地数据(output 目录)
+- 更新代码时请保留本地的配置和 `output/` 数据。
 
 ---
 

@@ -1,3 +1,52 @@
+# PulseRadar
+
+**[中文](README.md)** | **English**
+
+PulseRadar is a self-hosted news aggregator based on [TrendRadar](https://github.com/sansan0/TrendRadar). It collects news from configured trending lists, RSS feeds, and extra APIs; filters and ranks items by keyword; and produces HTML reports with optional AI analysis and notifications across nine channels.
+
+## Run PulseRadar locally
+
+Use Python 3.10+:
+
+```bash
+git clone https://github.com/Yuuqq/PulseRadar.git
+cd PulseRadar
+python -m pip install -r requirements.txt
+
+# Edit config/config.yaml and config/frequency_words.txt as needed.
+python -m trendradar
+```
+
+Open `output/html/index.html` for the generated report, or `output/html/latest/<mode>.html` for the latest report in a specific mode. Use `python -m trendradar --help` for CLI options. The CLI uses `--config <path>` if supplied, then `CONFIG_PATH`, then `config/config.yaml`.
+
+## Deploy PulseRadar with Docker
+
+From the repository root, build from this checkout rather than pulling prebuilt images:
+
+```bash
+docker compose --env-file docker/.env -f docker/docker-compose-build.yml up -d --build trendradar
+```
+
+Omit the final `trendradar` to start MCP as well. The separate `docker/docker-compose.yml` uses the prebuilt `wantcat/trendradar` and `wantcat/trendradar-mcp` images. Both Compose files mount the root `config/` and `output/` directories. By default the crawler runs at startup and every 30 minutes; set `IMMEDIATE_RUN` or `CRON_SCHEDULE` in `docker/.env` to change that.
+
+Set `ENABLE_WEBSERVER=true` in `docker/.env` to serve generated reports at `http://127.0.0.1:8080` (change the port with `WEBSERVER_PORT`). This is a static report server, not the management Web UI.
+
+## Configure sources, AI, and notifications
+
+- Edit [`config/config.yaml`](config/config.yaml). Trending lists are under `platforms.sources`, RSS feeds under `rss.feeds`, and additional APIs under `extra_apis.sources`.
+- Both AI features use `ai.model` and `ai.api_base`, which can be overridden with `AI_MODEL` and `AI_API_BASE`. Supply credentials via `AI_API_KEY`, not in committed files. Disable `ai_analysis.enabled` and `ai_translation.enabled` if you do not want to use AI.
+- The notification switch is `notification.enabled`; credentials belong under `notification.channels` or in the corresponding environment variables. For Telegram, use `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID`.
+
+## Web UI and MCP
+
+- **Management Web UI:** Run `python -m trendradar.webui` and open [http://127.0.0.1:5000](http://127.0.0.1:5000) to manage sources, settings, workflows, and jobs.
+- **MCP:** Use `python -m mcp_server.server` for STDIO, or `python -m mcp_server.server --transport http` for `http://127.0.0.1:3333/mcp`. The server queries collected data, not the public HTML reports. See the [MCP tool FAQ](README-MCP-FAQ-EN.md).
+
+See the [architecture reference (Chinese)](docs/PROJECT_ARCHITECTURE.md) for the data flow, Web UI routes, and report publishing.
+
+<details>
+<summary>Upstream TrendRadar documentation (historical reference, not PulseRadar deployment instructions)</summary>
+
 <div align="center" id="trendradar">
 
 <a href="https://github.com/sansan0/TrendRadar" title="TrendRadar">
@@ -3741,3 +3790,5 @@ GPL-3.0 License
 [🔝 Back to Top](#trendradar)
 
 </div>
+
+</details>

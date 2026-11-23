@@ -13,25 +13,27 @@
 
 <sub>基于 [TrendRadar](https://github.com/sansan0/TrendRadar) 深度重构</sub>
 
+**中文** | **[English](README-EN.md)**
+
 </div>
 
 ---
 
 ## 什么是 PulseRadar
 
-PulseRadar 是一个可私有部署的新闻聚合引擎。它每隔固定周期从 20+ 热榜平台和 60+ RSS 源抓取数据，经过关键词匹配、频率统计和 AI 分析后，生成瀑布流可视化报告，并通过 9 种通道推送到你的终端。
+PulseRadar 是一个可私有部署的新闻聚合引擎。它从配置的热榜平台、RSS 源和额外 API 抓取数据，经过关键词匹配、频率统计和可选的 AI 分析后，生成瀑布流可视化报告，并可通过 9 种通道推送到你的终端。
 
 ```
-20+ 热榜平台 ─┐                              ┌─ 瀑布流 HTML 报告
-60+ RSS 源   ─┼─→ 爬取 → 筛选 → AI 分析 ──→ ├─ 9 通道推送
-Extra API    ─┘                              └─ MCP 协议查询
+热榜平台  ─┐                    ┌─ 关键词筛选 + 可选 AI 分析 → HTML 报告 / 推送
+RSS 源    ─┼─→ 采集和存储 ───────┤
+Extra API ─┘                    └─ MCP 查询已采集的数据
 ```
 
 ## 功能亮点
 
 | 能力 | 说明 |
 |---|---|
-| **多源采集** | 今日头条、微博、知乎、B站、36氪、澎湃、华尔街见闻、Hacker News、Product Hunt、GitHub Trending 等 20+ 平台 |
+| **多源采集** | 今日头条、微博、知乎、B站、36氪、澎湃、华尔街见闻、Hacker News、Product Hunt、GitHub Trending 等热榜，以及 DailyHot 等额外 API |
 | **RSS 聚合** | 接入任意 RSS 源，支持新鲜度过滤和每源条目上限 |
 | **AI 分析** | 基于 LiteLLM 统一接口，兼容 100+ AI 模型（OpenAI、Claude、Gemini、本地模型等） |
 | **关键词雷达** | 频率词匹配 + 权重排序，只推你关心的内容，过滤噪音 |
@@ -44,26 +46,39 @@ Extra API    ─┘                              └─ MCP 协议查询
 
 ### 本地运行
 
+需要 Python 3.10+。从仓库根目录运行：
+
 ```bash
 git clone https://github.com/Yuuqq/PulseRadar.git
 cd PulseRadar
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 
-# 编辑配置
-cp config/config.yaml.example config/config.yaml
-vim config/config.yaml
+# 按需编辑 config/config.yaml 和 config/frequency_words.txt
 
-# 运行
+# 执行一次采集、分析和报告生成
 python -m trendradar
 ```
 
+默认 HTML 报告入口为 `output/html/index.html`；各模式的最新报告在 `output/html/latest/<mode>.html`。可用 `python -m trendradar --help` 查看命令参数；配置路径优先级为 `--config <路径>`、`CONFIG_PATH`、`config/config.yaml`。
+
 ### Docker 部署
+
+从仓库根目录构建本仓库的镜像：
 
 ```bash
 git clone https://github.com/Yuuqq/PulseRadar.git
 cd PulseRadar
-docker compose up -d
+docker compose --env-file docker/.env -f docker/docker-compose-build.yml up -d --build trendradar
 ```
+
+如需同时启动 MCP 服务，去掉命令末尾的 `trendradar`。`docker/docker-compose.yml` 则使用预构建的 `wantcat/trendradar` 和 `wantcat/trendradar-mcp` 镜像，不会构建当前检出的代码。两个 Compose 文件都挂载根目录的 `config/` 和 `output/`；容器默认每 30 分钟执行一次，并在启动时立即运行。可在 `docker/.env` 中设置 `CRON_SCHEDULE`、`IMMEDIATE_RUN` 和其他 Compose 变量。
+
+如需在浏览器查看 Docker 报告，在 `docker/.env` 中设置 `ENABLE_WEBSERVER=true`，启动服务后访问 `http://127.0.0.1:8080`（默认端口，可通过 `WEBSERVER_PORT` 修改）。这是静态报告服务，不是下文的管理界面。
+
+### Web UI 与 MCP
+
+- **管理界面**：运行 `python -m trendradar.webui`，访问 [http://127.0.0.1:5000](http://127.0.0.1:5000)，可管理数据源、配置、工作流和作业。
+- **MCP**：客户端可用 `python -m mcp_server.server` 启动默认的 STDIO 服务；如需 HTTP，运行 `python -m mcp_server.server --transport http`，端点为 `http://127.0.0.1:3333/mcp`。MCP 查询的是采集后的数据，不是公开报告。详见 [MCP 工具问答](README-MCP-FAQ.md)。
 
 ## 配置速查
 
@@ -72,18 +87,17 @@ docker compose up -d
 ```yaml
 # ── 监控平台 ──
 platforms:
-  - id: toutiao
-    name: 今日头条
-  - id: weibo
-    name: 微博
-  - id: hackernews
-    name: Hacker News
-  # ... 完整列表见 config.yaml
+  enabled: true
+  sources:
+    - id: toutiao
+      name: 今日头条
+    - id: weibo
+      name: 微博
+    # ... 完整列表见 config.yaml
 
 # ── AI 分析 ──
 ai:
   model: openai/LongCat-Flash-Lite    # LiteLLM 格式
-  api_key: your-api-key
   api_base: https://api.longcat.chat/openai/v1
   max_tokens: 5000
 
@@ -94,22 +108,20 @@ ai_analysis:
 
 # ── 推送通道 (按需启用) ──
 notification:
-  telegram:
-    enabled: true
-    bot_token: "your-bot-token"
-    chat_id: "your-chat-id"
-  feishu:
-    enabled: false
-    webhook_url: ""
+  enabled: true
+  channels:
+    telegram:
+      bot_token: ""                   # 或通过 TELEGRAM_BOT_TOKEN 设置
+      chat_id: ""                     # 或通过 TELEGRAM_CHAT_ID 设置
 ```
 
-> 完整配置项说明参考上游 [TrendRadar 配置文档](https://github.com/sansan0/TrendRadar)
+可用 `AI_MODEL` 和 `AI_API_BASE` 覆盖模型配置。请通过环境变量设置 `AI_API_KEY`、通知凭据等敏感值，不要提交到仓库。若不使用 AI，可在配置中关闭 `ai_analysis.enabled` 和 `ai_translation.enabled`。完整的默认配置见 [config/config.yaml](config/config.yaml)；上游文档仅供参考。
 
 ## 技术架构
 
 ```
                     ┌──────────────────────┐
-                    │    NewsAnalyzer       │  ← 薄门面 (~80行)
+                    │    NewsAnalyzer       │  ← CLI 门面
                     │   __main__.py         │
                     └──────┬───────┬────────┘
                            │       │
@@ -132,6 +144,8 @@ notification:
 | NewsAnalyzer | `trendradar/__main__.py` | 入口门面，串联两个编排器 |
 | MCP Server | `mcp_server/server.py` | FastMCP 2.0 协议，提供数据查询接口 |
 
+详见 [项目架构文档](docs/PROJECT_ARCHITECTURE.md)。
+
 ## 与上游 TrendRadar 的差异
 
 本项目基于 [TrendRadar v5.5.3](https://github.com/sansan0/TrendRadar) 深度重构：
@@ -152,7 +166,7 @@ GPL-3.0 — 继承上游 [TrendRadar](https://github.com/sansan0/TrendRadar) 协
 ---
 
 <details>
-<summary><strong>📖 上游 TrendRadar 原始文档（点击展开）</strong></summary>
+<summary><strong>📖 上游 TrendRadar 历史参考（点击展开，不作为 PulseRadar 部署指南）</strong></summary>
 
 <!-- 以下为上游 TrendRadar 的原始 README，保留作为详细配置参考 -->
 
